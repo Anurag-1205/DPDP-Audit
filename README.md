@@ -1,7 +1,9 @@
 # DPDP-Audit
 
 Evidence-gated agent and controlled benchmark for checking app privacy compliance under India's DPDP Act.
-See `Neural_Nexus_Final.pdf` for the proposal and `plan.md` for the stage-wise plan.
+See `Neural_Nexus_Final.pdf` for the proposal, `plan.md` for the stage-wise plan and `specs.md` for the
+specification of the finished Stage 0–1 work and of Stage 2. **New to the project? Start with
+[`docs/README.md`](docs/README.md)**, which explains everything from scratch.
 
 ## Layout
 
@@ -43,6 +45,7 @@ Tests: `pytest -q`.
 
 ## Notes
 
+- `docs/README.md`: reading order for the guides `docs/01_…` to `docs/06_…`.
 - `docs/answer_key_rules.md`: the scripted answer-key rules and the decision on generic negative statements.
 - `docs/existing_tools.md`: what the released PoliCheck, PoliGraph and PurPliance code can do, and the smoke test.
 - `docs/stage1_results.md`: Stage 0 and Stage 1 status and baseline results.
