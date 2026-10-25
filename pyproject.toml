@@ -1,7 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "dpdp-audit"
-version = "0.1.0"
+version = "0.2.0"
+description = "Controlled benchmark and evidence-gated LLM agent for checking app privacy compliance under India's DPDP Act"
+readme = "README.md"
+license = { text = "MIT (code); see README for data licences" }
 requires-python = ">=3.10"
+authors = [
+  { name = "Anurag Kaushal" },
+  { name = "Ishaan Giri" },
+  { name = "Naveen Mishra" },
+  { name = "Nikhil Patidar" },
+]
+dependencies = [
+  "numpy",
+  "pandas",
+  "scikit-learn",
+  "scipy",
+  "requests",
+  "python-dotenv",
+  "pypdf",
+  "google-genai",
+  "openai",
+  "sentence-transformers",
+  "faiss-cpu",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.urls]
+Repository = "https://github.com/Anurag-1205/DPDP-Audit"
 
 [tool.setuptools.packages.find]
 where = ["src"]
