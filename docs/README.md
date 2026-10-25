@@ -1,24 +1,39 @@
-# DPDP-Audit documentation
+# Documentation
 
-These pages take you from no knowledge of the project to a full understanding of what has been built
-so far (Stage 0 and Stage 1). Read them in order; each page builds on the one before.
+## Reading paths
 
-| # | Page | What you will learn |
-|---|---|---|
-| 1 | [01_project_overview.md](01_project_overview.md) | The problem, the proposal, the two novelties, the team and the 5-stage plan |
-| 2 | [02_concepts.md](02_concepts.md) | Every idea you need: privacy policies, data flows, the DPDP Act, OPP-115, gap types, levels, labels, metrics |
-| 3 | [03_repository_guide.md](03_repository_guide.md) | What each folder, module, script and data file does, and how they connect |
-| 4 | [04_benchmark.md](04_benchmark.md) | How the 102 test cases and their answer keys are built, with a worked example |
-| 5 | [05_baselines_and_scoring.md](05_baselines_and_scoring.md) | The B1/B2 baselines, the LLM client, the existing tools, and how everything is scored |
-| 6 | [06_running_and_troubleshooting.md](06_running_and_troubleshooting.md) | Setting up a laptop, reproducing every step, running on Kaggle, and problems we already hit |
-
-Deeper reference pages:
-
-| Page | Contents |
+| If you are… | Read, in order |
 |---|---|
-| [answer_key_rules.md](answer_key_rules.md) | The exact rules that decide each answer, and why generic "we don't share" lines are not contradictions |
-| [existing_tools.md](existing_tools.md) | What the released PoliCheck, PoliGraph and PurPliance code can and cannot do, plus the PoliCheck smoke test |
-| [stage1_results.md](stage1_results.md) | Stage 0/1 status and the baseline results with confidence intervals |
+| New to the project | [getting-started.md](getting-started.md) → [architecture.md](architecture.md) → [stage-1-report.md](stage-1-report.md) |
+| Contributing code | [developer-guide.md](developer-guide.md) → the page for your area below → your spec in [`specs.md`](../specs.md) |
+| Re-running results | [reproduction.md](reproduction.md) → [troubleshooting.md](troubleshooting.md) |
+| Reviewing the project | [proposal.md](proposal.md) → [`plan.md`](../plan.md) → [`specs.md`](../specs.md) → [stage-1-report.md](stage-1-report.md) |
 
-Also at the repository root: `Neural_Nexus_Final.pdf` (the proposal), `plan.md` (the stage-by-stage plan)
-and `specs.md` (specification of the work done and of the next stage).
+## Contents
+
+| Area | Document | Purpose |
+|---|---|---|
+| Proposal | [Neural_Nexus_Final.pdf](Neural_Nexus_Final.pdf) | Submitted proposal (unchanged) |
+| | [proposal.md](proposal.md) | Summary and changes since submission |
+| Architecture | [architecture.md](architecture.md) | System context, components and status, design principles, repository layout |
+| | [benchmark.md](benchmark.md) | Case generation, answer-key rules, design notes, data model, vagueness ladder, tool export |
+| | [pipeline.md](pipeline.md) | DPDP-Audit pipeline, reviewer agents, evidence verifier, confidence, ablations |
+| | [evaluation.md](evaluation.md) | Systems under test, experiment matrix, metrics, fair comparison, statistics, selective accuracy, RQs |
+| | [infrastructure.md](infrastructure.md) | Deployment, Kaggle job, tool adapters, compute budget, configuration |
+| Guides | [getting-started.md](getting-started.md) | The problem and every concept, from zero |
+| | [developer-guide.md](developer-guide.md) | Setup, modules, data formats, conventions, workflow |
+| | [reproduction.md](reproduction.md) | Commands to regenerate every result |
+| | [troubleshooting.md](troubleshooting.md) | Known problems and fixes |
+| Reports | [stage-1-report.md](stage-1-report.md) | Stage 0–1 status and baseline results |
+| Plan and specs | [`plan.md`](../plan.md) | Milestones, schedule, work breakdown, RACI, compute, risks |
+| | [`specs.md`](../specs.md) | Specifications SPEC-01 … SPEC-09 with acceptance criteria |
+
+## Conventions
+
+- **Diagrams:** written in Mermaid inside the Markdown, so they render on GitHub and stay
+  version-controlled.
+- **Status labels:** **Done** (acceptance criteria met with evidence) · **In progress** · **Planned**.
+- **Identifiers:** systems S1–S4, B1–B4, `full`, A1–A5 · specs SPEC-NN · questions RQ1–RQ4 ·
+  hypotheses H1–H6 · risks R-NN · work packages WP-N.N.
+- **Updates:** design changes update the architecture pages; scope or schedule changes update
+  `specs.md` or `plan.md`; new results get a report page.
