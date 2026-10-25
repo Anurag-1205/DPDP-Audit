@@ -21,8 +21,6 @@ LABELS = ["clear", "vague", "omitted", "incorrect"]  # PoliCheck-style disclosur
 
 # level of a gap  <->  disclosure label of the flow
 LEVEL_TO_LABEL = {"explicit": "incorrect", "vague": "vague", "omission": "omitted", None: "clear"}
-LABEL_TO_LEVEL = {v: k for k, v in LEVEL_TO_LABEL.items()}
-LABEL_TO_LEVEL["ambiguous"] = "explicit"  # PoliCheck's contradictory-policy label
 
 
 @lru_cache(maxsize=1)

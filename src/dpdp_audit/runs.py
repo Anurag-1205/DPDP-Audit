@@ -1,12 +1,12 @@
-"""Where system outputs live: outputs/runs/<split>/<system>/seed<k>/<case_id>.json."""
+"""Where system runs live: results/runs/<split>/<system>/seed<k>/<case_id>.json."""
 from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from .paths import OUTPUTS
+from .paths import RESULTS
 
-RUNS = OUTPUTS / "runs"
+RUNS = RESULTS / "runs"
 
 
 def run_path(split: str, system: str, seed: int, case_id: str) -> Path:

@@ -12,7 +12,7 @@ import time
 
 from dpdp_audit import tool_runs
 from dpdp_audit.cases import BENCH
-from dpdp_audit.paths import OUTPUTS
+from dpdp_audit.paths import OUTPUTS, RESULTS
 from dpdp_audit.runs import save_run
 
 if __name__ == "__main__":
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     log.parent.mkdir(parents=True, exist_ok=True)
     log.write_text(proc.stdout + "\n----- stderr -----\n" + proc.stderr)
     print(f"docker exit {proc.returncode} in {time.time() - t0:.0f}s; log: {log}")
-    raw = OUTPUTS / "tools" / "policheck" / args.split
+    raw = RESULTS / "tools" / "policheck" / args.split
     raw.mkdir(parents=True, exist_ok=True)
     shutil.copy(tool_runs.REPO / "ext" / "policheck_results.csv", raw / "policheck_results.csv")
     outs = tool_runs.policheck_outputs(export_dir)
