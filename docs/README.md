@@ -25,6 +25,7 @@
 | | [reproduction.md](reproduction.md) | Commands to regenerate every result |
 | | [troubleshooting.md](troubleshooting.md) | Known problems and fixes |
 | Reports | [stage-1-report.md](stage-1-report.md) | Stage 0–1 status and baseline results |
+| | [baseline-report.md](baseline-report.md) | PoliCheck, PoliGraph, PrivBERT and B3 on the full benchmark |
 | Plan and specs | [`plan.md`](../plan.md) | Milestones, schedule, work breakdown, RACI, compute, risks |
 | | [`specs.md`](../specs.md) | Specifications SPEC-01 … SPEC-09 with acceptance criteria |
 

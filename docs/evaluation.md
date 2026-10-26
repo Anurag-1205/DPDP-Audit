@@ -35,8 +35,8 @@ comparison is with the LLM systems only, and coverage is reported next to F1.
 
 | System | Main (102) | Ladder (140) | Real flows | Status |
 |---|---|---|---|---|
-| S1 PoliCheck | ✓ | ✓ | ✓ | Smoke test done (2 cases) |
-| S2 PoliGraph | ✓ | ✓ | ✓ | Pending (Nikhil's workstation) |
+| S1 PoliCheck | ✓ | ✓ | ✓ | Main done (102 cases, Kaggle) |
+| S2 PoliGraph | ✓ | ✓ | ✓ | Main done (102 cases, Kaggle) |
 | B1 | ✓ | — | ✓ | Done (306 runs) |
 | B2 | ✓ | ✓ | ✓ | Main done (306 runs) |
 | B4 | ✓ | — | — | Pending |

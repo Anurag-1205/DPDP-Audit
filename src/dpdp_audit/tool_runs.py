@@ -30,6 +30,16 @@ POLICHECK_DATA_NAMES = {
 }
 
 
+# PoliGraph's names for the same flow tokens (analyses/flow-consistency/convert_flow_csv.py)
+POLIGRAPH_DATA_NAMES = {
+    "aaid": "advertising id", "androidid": "android id", "geolatlon": "geolocation",
+    "hwid": "serial number", "routerssid": "router ssid", "routermac": "mac address", "imei": "imei",
+    "phone": "phone number", "email": "email address", "wifimac": "mac address",
+    "package_dump": "package dump", "simid": "sim serial number", "real_name": "person name",
+    "gsfid": "gsf id",
+}
+
+
 def prepare_ext(export_dir: Path, case_ids: list[str] | None, mode: str) -> Path:
     """Fill the tool's ext/ folder with the chosen cases."""
     ext = REPO / "ext"
@@ -75,11 +85,38 @@ def policheck_outputs(export_dir: Path, results: Path | None = None) -> dict[str
         label = row["consistencyResult"]
         if key not in worst or SEVERITY.index(label) > SEVERITY.index(worst[key]):
             worst[key] = label
+    return _to_outputs(index, worst, POLICHECK_DATA_NAMES)
+
+
+def poligraph_outputs(export_dir: Path, results: Path) -> dict[str, dict]:
+    """Convert PoliGraph's poligraph_results.csv into one output per case.
+
+    Uses the entity-sensitive `policheck_consistency` column (clear / vague / omitted;
+    PoliGraph's flow check has no contradiction label). Rows are matched on (package,
+    data term, first party or not); the purposes PoliGraph found are kept on each label.
+    """
+    index = list(csv.DictReader((export_dir / "flow_index.csv").open()))
+    worst: dict[tuple, str] = {}
+    purposes: dict[tuple, str] = {}
+    for row in csv.DictReader(results.open()):
+        key = (row["app_id"], row["data_type"], row["dest_entity"] == "we")
+        label = row["policheck_consistency"]
+        if key not in worst or SEVERITY.index(label) > SEVERITY.index(worst[key]):
+            worst[key] = label
+        purposes[key] = row.get("purposes", "")
+    outs = _to_outputs(index, worst, POLIGRAPH_DATA_NAMES)
+    for r in index:
+        key = (r["package_name"], POLIGRAPH_DATA_NAMES[r["policheck_token"]], _first_party(r["dest_domain"]))
+        outs[r["case_id"]]["flow_labels"][r["flow_id"]]["purposes"] = purposes.get(key, "")
+    return outs
+
+
+def _to_outputs(index: list[dict], worst: dict[tuple, str], data_names: dict[str, str]) -> dict[str, dict]:
     outs: dict[str, dict] = {}
     for r in index:
         out = outs.setdefault(r["case_id"], {"case_id": r["case_id"], "findings": [], "flow_labels": {}})
-        key = (r["package_name"], POLICHECK_DATA_NAMES[r["policheck_token"]], _first_party(r["dest_domain"]))
-        label = worst.get(key, "omitted")       # no row: PoliCheck found no statement for the flow
+        key = (r["package_name"], data_names[r["policheck_token"]], _first_party(r["dest_domain"]))
+        label = worst.get(key, "omitted")       # no row: the tool found no statement for the flow
         native = "incorrect" if label == "ambiguous" else label
         out["flow_labels"][r["flow_id"]] = {"label": native, "confidence": None, "native": label,
                                             "matched": key in worst}
