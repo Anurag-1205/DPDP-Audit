@@ -3,7 +3,8 @@
 Serves Qwen2.5-7B-Instruct-AWQ with vLLM on both T4s (one server per GPU), checks that it
 answers with token log-probabilities, then runs B1 and B2 on every main-benchmark case with
 three seeds and scores them. Runs already in the uploaded repository are kept; failed calls
-are redone. Results are packed into /kaggle/working/results.tar.gz.
+are redone. Results are packed into /kaggle/working/results.tar.gz, which unpacks onto
+the repository root (results/ and outputs/logs/).
 
 T4 (sm75) has no FlashAttention. vLLM's V1 engine then falls back to FlexAttention, which
 was ~10x too slow in an earlier run, so the V0 engine with xFormers is tried first.
@@ -78,13 +79,12 @@ def main():
     try:
         run()
     finally:
-        os.makedirs(f"{WORK}/outputs", exist_ok=True)
-        for sub in ("runs", "scores", "logs"):
-            if os.path.isdir(f"{REPO}/outputs/{sub}"):
-                shutil.copytree(f"{REPO}/outputs/{sub}", f"{WORK}/outputs/{sub}", dirs_exist_ok=True)
+        # one archive that unpacks onto the repository root:
+        #   results/  (runs, scores, model check)   outputs/logs/  (local logs)
         with tarfile.open(f"{WORK}/results.tar.gz", "w:gz") as t:
-            t.add(f"{WORK}/outputs", arcname="outputs")
-        shutil.rmtree(f"{WORK}/outputs", ignore_errors=True)
+            for sub in ("results", "outputs/logs"):
+                if os.path.isdir(f"{REPO}/{sub}"):
+                    t.add(f"{REPO}/{sub}", arcname=sub)
         shutil.rmtree(REPO, ignore_errors=True)
 
 
@@ -120,8 +120,9 @@ def run():
                                        max_tokens=5, temperature=0, logprobs=True)
     check = {"model": MODEL, "engine": engine, "reply": r.choices[0].message.content,
              "logprobs": [round(t.logprob, 4) for t in r.choices[0].logprobs.content]}
+    os.makedirs(f"{REPO}/results", exist_ok=True)
     os.makedirs(f"{REPO}/outputs/logs", exist_ok=True)
-    json.dump(check, open(f"{REPO}/outputs/logs/stage0_model_check.json", "w"), indent=1)
+    json.dump(check, open(f"{REPO}/results/stage0_model_check.json", "w"), indent=1)
     print("stage 0 check:", check, flush=True)
 
     base_env = dict(os.environ, LLM_BACKEND="openai", OPENAI_MODEL=MODEL, TOKENIZERS_PARALLELISM="false")

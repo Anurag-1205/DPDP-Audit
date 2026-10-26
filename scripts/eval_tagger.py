@@ -1,14 +1,14 @@
 """Score tagger predictions against the held-out OPP-115 segments.
 
-  python scripts/eval_tagger.py --gold outputs/tagger/heldout.jsonl \
-      --pred S4=outputs/tagger/privbert_pred.jsonl B3=outputs/tagger/b3_pred.jsonl
+  python scripts/eval_tagger.py --gold results/tagger/heldout.jsonl \
+      --pred S3=results/tagger/S3_pred.jsonl B3=results/tagger/B3_pred.jsonl
 
-Writes outputs/scores/tagger.json and prints category F1 per system.
+Writes results/scores/tagger.json and prints category F1 per system.
 """
 import argparse
 import json
 
-from dpdp_audit.paths import OUTPUTS
+from dpdp_audit.paths import RESULTS
 from dpdp_audit.tagger_data import CATEGORIES
 from dpdp_audit.tagger_eval import evaluate
 
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     for item in args.pred:
         name, path = item.split("=", 1)
         results[name] = evaluate(gold, read(path))
-    out = OUTPUTS / "scores" / "tagger.json"
+    out = RESULTS / "scores" / "tagger.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(results, indent=1))
     names = list(results)

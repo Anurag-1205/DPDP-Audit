@@ -2,7 +2,7 @@
 
   python scripts/score_runs.py --systems B1 B2 [--split main]
 
-Writes outputs/scores/<split>.json and prints a table: mean over seeds, with
+Writes results/scores/<split>.json and prints a table: mean over seeds, with
 95% policy-level bootstrap intervals on seed 0. Reports the full benchmark and
 the common subset (collection/sharing), the latter under both readings of
 vague disclosure.
@@ -14,7 +14,7 @@ import numpy as np
 
 from dpdp_audit import score
 from dpdp_audit.cases import case_dirs, load_case, load_key
-from dpdp_audit.paths import OUTPUTS
+from dpdp_audit.paths import RESULTS
 from dpdp_audit.runs import load_runs, seeds_available
 
 
@@ -63,7 +63,7 @@ def main():
             "ci_seed0": ci,
             "per_seed": per_seed,
         }
-    out = OUTPUTS / "scores" / f"{args.split}.json"
+    out = RESULTS / "scores" / f"{args.split}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     old = json.loads(out.read_text()) if out.exists() else {}
     old.update(results)

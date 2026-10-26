@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Run PoliGraph-er and its flow-consistency check on exported benchmark cases.
-# Needs ~32 GB RAM (GPU optional); run it on a larger machine than a laptop.
+# Needs ~32 GB RAM (GPU optional); run it on the team's high-memory machine.
+# Scratch work goes to outputs/poligraph/<split>/; the result CSV is copied to
+# results/tools/poligraph/<split>/poligraph_results.csv.
 #
 #   scripts/tools/run_poligraph.sh data/benchmark/main/export/policheck
 #
@@ -9,8 +11,9 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 EXPORT="$(cd "$1" && pwd)"
+SPLIT="$(basename "$(dirname "$(dirname "$EXPORT")")")"   # e.g. main or ladder
 REPO="$ROOT/data/external/PoliGraph"
-WORK="$ROOT/outputs/poligraph"
+WORK="$ROOT/outputs/poligraph/$SPLIT"
 
 if [ ! -d "$REPO" ]; then
   git clone --depth 1 https://github.com/UCI-Networking-Group/PoliGraph.git "$REPO"
@@ -43,4 +46,6 @@ python -m poligrapher.scripts.build_graph "$WORK"/policies/*/
 
 python analyses/flow-consistency/convert_flow_csv.py "$EXPORT/flows.csv" "$WORK/flows.json"
 python analyses/flow-consistency/check-policheck-flow-consistency.py "$WORK/flows.json" "$WORK/poligraph_results.csv" -p "$WORK/policies"
-echo "Results: $WORK/poligraph_results.csv"
+mkdir -p "$ROOT/results/tools/poligraph/$SPLIT"
+cp "$WORK/poligraph_results.csv" "$ROOT/results/tools/poligraph/$SPLIT/"
+echo "Results: results/tools/poligraph/$SPLIT/poligraph_results.csv"

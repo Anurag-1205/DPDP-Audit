@@ -1,9 +1,9 @@
-"""Kaggle kernel: tagger baselines on OPP-115 segments (S4 PrivBERT, B3 prompted Qwen-3B).
+"""Kaggle kernel: tagger baselines on OPP-115 segments (S3 PrivBERT, B3 prompted Qwen-3B).
 
 Downloads OPP-115, writes segment examples for the 80 training and 35 held-out policies
 (data/splits.json), then on one T4:
   B3  Qwen2.5-3B-Instruct, zero-shot: each held-out segment -> list of OPP-115 categories
-  S4  mukund/privbert fine-tuned as a 10-way multi-label classifier on the training
+  S3  mukund/privbert fine-tuned as a 10-way multi-label classifier on the training
       policies; 8 training policies are kept aside to pick the epoch, never the test set
 Both write predictions for the held-out segments and are scored with tagger_eval.
 Results: /kaggle/working/results.tar.gz (data, predictions, scores, logs).
@@ -120,7 +120,7 @@ def run_b3(test):
     return preds
 
 
-# ----------------------------------------------------------------------- S4
+# ----------------------------------------------------------------------- S3
 def run_privbert(train, test, categories, evaluate):
     import numpy as np
     import torch
@@ -201,7 +201,7 @@ def main():
     train, test = read(f"{OUT}/train.jsonl"), read(f"{OUT}/heldout.jsonl")
     scores = {"data": counts}
     for system, fn in (("B3", lambda: run_b3(test)),
-                       ("S4", lambda: run_privbert(train, test, tagger_data.CATEGORIES, evaluate))):
+                       ("S3", lambda: run_privbert(train, test, tagger_data.CATEGORIES, evaluate))):
         try:
             t0 = time.time()
             res = fn()

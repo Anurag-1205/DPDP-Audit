@@ -20,23 +20,28 @@ QWEN = [
     ("markdown", """
 # DPDP-Audit: Qwen2.5-7B-Instruct on vLLM (Kaggle, 2x T4)
 
-Serves the reasoning model through vLLM's OpenAI-compatible API, checks that it returns
-token log-probabilities, and then runs the experiment scripts against it.
+Interactive version of `kaggle/b1b2/run.py`: serves the reasoning model through vLLM's
+OpenAI-compatible API on one T4, checks that it returns token log-probabilities, and runs
+the experiment scripts against it. For unattended full runs use `scripts/kaggle_push.sh`.
+
+T4 GPUs have no FlashAttention; newer vLLM releases fall back to FlexAttention, which is
+about 10x slower. vLLM 0.10.2 with the V0 engine and xFormers is the tested setup.
 
 Settings: *Accelerator = GPU T4 x2*, *Internet = on*. Add the repository as a Kaggle dataset
 named `dpdp-audit` (or set `REPO_URL` below to a git URL).
 """),
     ("code", """
-!pip install -q "vllm==0.6.3.post1"
+!pip install -q "vllm==0.10.2" "transformers==4.56.2"
 """),
     ("code", """
 import subprocess, time, requests, os
 MODEL = "Qwen/Qwen2.5-7B-Instruct-AWQ"
+env = dict(os.environ, CUDA_VISIBLE_DEVICES="0", VLLM_USE_V1="0", VLLM_ATTENTION_BACKEND="XFORMERS")
 server = subprocess.Popen(
     ["python", "-m", "vllm.entrypoints.openai.api_server", "--model", MODEL,
-     "--quantization", "awq", "--dtype", "half", "--tensor-parallel-size", "2",
-     "--max-model-len", "16384", "--gpu-memory-utilization", "0.90", "--port", "8000"],
-    stdout=open("vllm.log", "w"), stderr=subprocess.STDOUT)
+     "--quantization", "awq", "--dtype", "half", "--max-model-len", "12288",
+     "--gpu-memory-utilization", "0.92", "--max-num-seqs", "16", "--port", "8000"],
+    stdout=open("vllm.log", "w"), stderr=subprocess.STDOUT, env=env)
 for _ in range(120):
     try:
         if requests.get("http://localhost:8000/v1/models", timeout=2).ok:
@@ -62,16 +67,16 @@ if REPO_URL:
 else:
     !cp -r /kaggle/input/dpdp-audit /kaggle/working/dpdp-audit
 %cd /kaggle/working/dpdp-audit
-!pip install -q -e . python-dotenv faiss-cpu sentence-transformers google-genai
+!pip install -q -e . python-dotenv faiss-cpu sentence-transformers google-genai "transformers==4.56.2"
 os.environ.update(LLM_BACKEND="openai", OPENAI_BASE_URL="http://localhost:8000/v1", OPENAI_MODEL=MODEL)
 """),
     ("code", """
-!python scripts/run_baselines.py --systems B1 B2 --seeds 0 1 2
+!python scripts/run_baselines.py --systems B1 B2 --seeds 0 1 2 --workers 8 --redo-failed
 !python scripts/score_runs.py --systems B1 B2
 """),
     ("code", """
-# Keep results: download outputs/ from the notebook's output panel.
-!tar czf /kaggle/working/outputs.tgz outputs/runs outputs/scores
+# Keep results: download results.tar.gz from the output panel and unpack it at the repository root.
+!tar czf /kaggle/working/results.tar.gz results
 """),
 ]
 

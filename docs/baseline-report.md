@@ -5,11 +5,11 @@ collection and sharing), and every system raises false alarms on 75–97% of com
 The tagger bar is PrivBERT at 0.779 category macro-F1; the untrained prompted tagger reaches 0.388.
 
 Runs: Kaggle account `nikpatidar333`, 26 October 2026. B1/B2 are the Stage 1 runs
-(`docs/stage1_results.md`); they were not re-run.
+([stage-1-report.md](stage-1-report.md)); they were not re-run.
 
 ## Main benchmark (102 cases, 34 controls)
 
-Mean over seeds (B1, B2: 3 seeds; tools: 1 deterministic run). Source: `outputs/scores/main.json`.
+Mean over seeds (B1, B2: 3 seeds; tools: 1 deterministic run). Source: `results/scores/main.json`.
 
 | System | F1 (full) | F1 (collection/sharing) | same, vague = consistent | Label macro-F1 | False-alarm rate |
 |---|---|---|---|---|---|
@@ -54,16 +54,16 @@ very few cases.
 - PoliGraph: 31 of 34 policies parsed; PoliGraph's own crawler check rejected 1582, 642 and 760
   ("Not like a privacy policy"), kept as the tool's native behaviour. 258 of 282 flows matched; their
   flows count as omitted, the same rule as for PoliCheck. PoliGraph found purposes for 74 flows
-  (kept in `outputs/runs/main/S2/`, usable for a purpose baseline).
-- PurPliance: not run; its public release has only the statement extractor (`docs/existing_tools.md`).
+  (kept in `results/runs/main/S2/`, usable for a purpose baseline).
+- PurPliance: not run; its public release has only the statement extractor, so it is related work only.
 
 ## Tagger (1,140 held-out segments from 35 policies)
 
 Category F1, multi-label over the 10 OPP-115 categories. Training: 2,426 segments from 72 training
 policies; 225 segments from 8 further training policies pick the epoch. Source:
-`outputs/scores/tagger.json`.
+`results/scores/tagger.json`.
 
-| Category | B3 prompted Qwen2.5-3B | S4 PrivBERT |
+| Category | B3 prompted Qwen2.5-3B | S3 PrivBERT |
 |---|---|---|
 | First Party Collection/Use | 0.702 | 0.866 |
 | Third Party Sharing/Collection | 0.660 | 0.897 |
@@ -89,9 +89,9 @@ policies; 225 segments from 8 further training policies pick the epoch. Source:
 | Step | Command |
 |---|---|
 | Upload code + benchmark and run a tool kernel | `scripts/kaggle_push_tool.sh policheck` (or `poligraph`, `tagger`) |
-| Convert tool output | `tool_runs.policheck_outputs` / `tool_runs.poligraph_outputs` → `outputs/runs/main/S1`, `S2` |
+| Convert tool output | `tool_runs.policheck_outputs` / `tool_runs.poligraph_outputs` → `results/runs/main/S1`, `S2` |
 | Score main systems | `python scripts/score_runs.py --systems B1 B2 S1 S2` |
-| Score taggers | `python scripts/eval_tagger.py --gold outputs/tagger/heldout.jsonl --pred B3=outputs/tagger/B3_pred.jsonl S4=outputs/tagger/S4_pred.jsonl` |
+| Score taggers | `python scripts/eval_tagger.py --gold results/tagger/heldout.jsonl --pred B3=results/tagger/B3_pred.jsonl S3=results/tagger/S3_pred.jsonl` |
 
 Kaggle notes:
 - **PoliCheck** (`kaggle/policheck/`): CPU only, about 28 min. It rebuilds the Docker image as a

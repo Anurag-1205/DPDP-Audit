@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 # Upload the repository (code + benchmark) as a private Kaggle dataset and run the B1/B2 kernel.
 #   scripts/kaggle_push.sh            create or update the dataset, then push and run the kernel
-# Results: kaggle kernels output anuragkaushal183/dpdp-audit-b1b2 -p outputs/kaggle
+# Results: kaggle kernels output anuragkaushal183/dpdp-audit-b1b2 -p outputs/kaggle \
+#            --file-pattern '(results\.tar\.gz|\.log)$'  &&  tar xzf outputs/kaggle/results.tar.gz -C .
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 KAGGLE="${KAGGLE:-$ROOT/.venv/bin/kaggle}"
 STAGE="$ROOT/outputs/kaggle_dataset"
 rm -rf "$STAGE" && mkdir -p "$STAGE"
-RUNS=""; [ -d "$ROOT/outputs/runs" ] && RUNS="outputs/runs"   # resume from runs already done
+RUNS=""; [ -d "$ROOT/results/runs" ] && RUNS="results/runs"   # resume from runs already done
 tar czf "$STAGE/repo.tar.gz" -C "$ROOT" pyproject.toml requirements.txt src scripts data/dpdp data/tools data/splits.json data/benchmark/main $RUNS
 cat > "$STAGE/dataset-metadata.json" <<JSON
 {"title": "dpdp-audit", "id": "anuragkaushal183/dpdp-audit", "licenses": [{"name": "other"}]}
