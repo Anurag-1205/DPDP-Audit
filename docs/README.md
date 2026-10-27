@@ -7,7 +7,8 @@
 | New to the project | [getting-started.md](getting-started.md) → [architecture.md](architecture.md) → [stage-1-report.md](stage-1-report.md) |
 | Contributing code | [developer-guide.md](developer-guide.md) → the page for your area below → your spec in [`specs.md`](../specs.md) |
 | Re-running results | [reproduction.md](reproduction.md) → [troubleshooting.md](troubleshooting.md) |
-| Reviewing the project | [proposal.md](proposal.md) → [`plan.md`](../plan.md) → [`specs.md`](../specs.md) → [stage-1-report.md](stage-1-report.md) |
+| Reviewing the project | [proposal.md](proposal.md) → [`plan.md`](../plan.md) → [`specs.md`](../specs.md) → [stage-1-report.md](stage-1-report.md) → [mid-submission-report.md](mid-submission-report.md) |
+| Doing a manual check | [manual-checks.md](manual-checks.md) |
 
 ## Contents
 
@@ -20,7 +21,8 @@
 | | [pipeline.md](pipeline.md) | DPDP-Audit pipeline, reviewer agents, evidence verifier, confidence, ablations |
 | | [evaluation.md](evaluation.md) | Systems under test, experiment matrix, metrics, fair comparison, statistics, selective accuracy, RQs |
 | | [infrastructure.md](infrastructure.md) | Deployment, Kaggle job, tool adapters, compute budget, configuration |
-| Guides | [getting-started.md](getting-started.md) | The problem and every concept, from zero |
+| Guides | [manual-checks.md](manual-checks.md) | Hand checks: ladder check, answer-key spot-check, report review — owners and step-by-step instructions |
+| | [getting-started.md](getting-started.md) | The problem and every concept, from zero |
 | | [developer-guide.md](developer-guide.md) | Setup, modules, data formats, conventions, workflow |
 | | [reproduction.md](reproduction.md) | Commands to regenerate every result |
 | | [troubleshooting.md](troubleshooting.md) | Known problems and fixes |
