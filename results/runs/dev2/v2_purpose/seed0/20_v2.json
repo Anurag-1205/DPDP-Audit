@@ -1,0 +1,367 @@
+{
+ "case_id": "20_v2",
+ "system": "v2_purpose",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c4",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy provides multiple purposes for collecting location data, and also mentions unspecified uses.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing, and the cited sections do not address the purpose mismatch or omission of purposes for location data."
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy clearly states several purposes for using user profile information.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing, and the cited sections do not address the purpose mismatch or omission of purposes for user profile data."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9480240972530531,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9480240972530531,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9480240972530531,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9599219016266337,
+ "usage": {
+  "prompt": 6054,
+  "output": 1305
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 36,
+  "untagged_paragraphs": 0,
+  "claims": 95,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not collect Contact",
+    "paragraphs": [
+     5,
+     3,
+     23
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact may be collected; the app uses it for Basic service/feature",
+    "paragraphs": [
+     3,
+     5,
+     13,
+     14,
+     20,
+     23,
+     6,
+     33
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not collect Location",
+    "paragraphs": [
+     5,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location may be collected; the app uses it for Advertising",
+    "paragraphs": [
+     3,
+     5,
+     13,
+     14,
+     20,
+     7,
+     24,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not collect User profile",
+    "paragraphs": [
+     5,
+     33,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "User profile may be collected; the app uses it for Basic service/feature",
+    "paragraphs": [
+     3,
+     5,
+     13,
+     14,
+     20,
+     33,
+     6,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Personally identifiable information is any information that can individually identify you and includes, your name, address, phone number, and email address, or non-personally identifiable information that has been linked to such personally identifiable information.",
+      "rationale": "The policy explicitly mentions collecting contact details like email address.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Personally identifiable information is any information that can individually identify you and includes, your name, address, phone number, and email address, or non-personally identifiable information that has been linked to such personally identifiable information.",
+       "denial_quote": "",
+       "generic_quote": "We collect two basic types of information from you in conjunction with your use of the Sites: non-personally identifiable information and personally identifiable information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting contact details like email address."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect and store your devices source IP address which may disclose the general location of your device at the time you access the Sites. Advertisements and certain content may be directed to you as a result of this data.",
+      "rationale": "The policy clearly states collecting the source IP address, which can be used for location purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We collect and store your devices source IP address which may disclose the general location of your device at the time you access the Sites. Advertisements and certain content may be directed to you as a result of this data.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy clearly states collecting the source IP address, which can be used for location purposes."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "In addition, when you interact with any The Atlantic property page or account on a social media platform, such as Facebook, Twitter, Tumblr, or LinkedIn, we may collect the personally identifiable information that you make available to us on that page or account including your social media account ID. However, we will comply with the privacy policies of the corresponding social media platform and we will only collect and store such personally identifiable information that we are permitted to collect by those social media platforms. If you choose to link or login to your The Atlantic account with or through a social networking service, The Atlantic and that service may share certain information about you and your activities. With your consent, we also may share information about your activities, including what you view on the Sites, with that social networks users.",
+      "rationale": "The policy mentions collecting user profile information, including social media account IDs and sharing such information.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "In addition, when you interact with any The Atlantic property page or account on a social media platform, such as Facebook, Twitter, Tumblr, or LinkedIn, we may collect the personally identifiable information that you make available to us on that page or account including your social media account ID. However, we will comply with the privacy policies of the corresponding social media platform and we will only collect and store such personally identifiable information that we are permitted to collect by those social media platforms. If you choose to link or login to your The Atlantic account with or through a social networking service, The Atlantic and that service may share certain information about you and your activities. With your consent, we also may share information about your activities, including what you view on the Sites, with that social networks users.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting user profile information, including social media account IDs and sharing such information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9480240972530531
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "We use the information we learn from you to help us personalize and continually improve your experience on the Sites, including to ... Send you newsletters, offers and promotions for our products and services, third party products and services, or special events by e-mail, text, or other another medium.",
+      "rationale": "The policy clearly states several purposes for using contact information.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "We use the information we learn from you to help us personalize and continually improve your experience on the Sites, including to ... Send you newsletters, offers and promotions for our products and services, third party products and services, or special events by e-mail, text, or other another medium.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy clearly states several purposes for using contact information."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy provides multiple purposes for collecting location data, and also mentions unspecified uses.",
+      "raw": {
+       "candidate_id": "c4",
+       "purpose_quote": "We may use the information from one portion of the Sites on other portions of Sites in our network of Sites, all of which are owned and operated by The Atlantic, and we may combine information gathered from multiple portions of the Sites into a single user record. We may also use web beacons and web storage technologies. A web beacon (also known as an action tag, tracer tag, or single-pixel gif) is an invisible graphic on a web page that is programmed to collect information about your use of a given website. Web Storage is a feature in some browsers that permits websites to store data within your browser rather within a cookie. We do not share or provide personally identifiable information we may collect in web beacons or store in Web Storage, such as names, e-mail addresses and phone numbers, to unaffiliated third parties without your express permission. We may also use web beacons and web storage technologies. A web beacon (also known as an action tag, tracer tag, or single-pixel gif) is an invisible graphic on a web page that is programmed to collect information about your use of a given website. Web Storage is a feature in some browsers that permits websites to store data within your browser rather within a cookie. We do not share or provide personally identifiable information we may collect in web beacons or store in Web Storage, such as names, e-mail addresses and phone numbers, to unaffiliated third parties without your express permission.",
+       "unspecified_purpose_quote": "We collect and store your devices source IP address which may disclose the general location of your device at the time you access the Sites. Advertisements and certain content may be directed to you as a result of this data.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy provides multiple purposes for collecting location data, and also mentions unspecified uses."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy clearly states several purposes for using user profile information.",
+      "raw": {
+       "candidate_id": "c6",
+       "purpose_quote": "We use the information we learn from you to help us personalize and continually improve your experience on the Sites, including to ... Send you newsletters, offers and promotions for our products and services, third party products and services, or special events by e-mail, text, or other another medium.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy clearly states several purposes for using user profile information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9718197060002143
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 160.16
+ }
+}

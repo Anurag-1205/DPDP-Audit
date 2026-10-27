@@ -1,0 +1,108 @@
+{
+ "case_id": "L640_r4",
+ "system": "full_v2_finetuned",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6",
+    "Rule 3"
+   ],
+   "evidence": "We use third-party advertising companies to serve ads when you visit our Web site. These companies may use aggregated information (not including your name, address, email address or telephone number) about your visits to this and other Websites in order to provide advertisements about goods and services of interest to you.",
+   "rationale": "The policy explicitly states that they do not collect information from children under 13, which aligns with the requirement to disclose data types collected.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence discusses the use of third-party advertising companies to serve ads, which does not directly address the collection of computer information. The cited DPDP text pertains to notice requirements for consent requests, which is not relevant to the issue of undisclosed collection of d"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9493645629534248,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9493645629534248,
+ "usage": {
+  "prompt": 2027,
+  "output": 277
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 39,
+  "untagged_paragraphs": 0,
+  "claims": 46,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     11,
+     27,
+     16,
+     35
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6",
+       "Rule 3"
+      ],
+      "evidence": "We use third-party advertising companies to serve ads when you visit our Web site. These companies may use aggregated information (not including your name, address, email address or telephone number) about your visits to this and other Websites in order to provide advertisements about goods and services of interest to you.",
+      "rationale": "The policy explicitly states that they do not collect information from children under 13, which aligns with the requirement to disclose data types collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Our Websites, services and applications are designed for and directed at people 13 years of age or older. We do not knowingly collect information from children under 13.",
+       "generic_quote": "We use third-party advertising companies to serve ads when you visit our Web site. These companies may use aggregated information (not including your name, address, email address or telephone number) about your visits to this and other Websites in order to provide advertisements about goods and services of interest to you.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that they do not collect information from children under 13, which aligns with the requirement to disclose data types collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9493645629534248
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 36.07
+ }
+}

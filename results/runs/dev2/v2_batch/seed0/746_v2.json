@@ -1,0 +1,344 @@
+{
+ "case_id": "746_v2",
+ "system": "v2_batch",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may use cookies, web beacons/pixel tags, log files, and other technologies to collect certain information about visitors to our website, use of our online services, and interactions with our emails and online advertisements.",
+   "rationale": "The policy mentions collecting various types of data but does not specifically mention collecting geolocation data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not explicitly disclose the collection of location data. However, the finding is based on the assumption that the app collects location data without disclosing it. The cited DPDP text focuses on the notice requirements for data collection and does not address the is"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may also share aggregated or de-identified information about you, including based on your email address, with our advertising and marketing partners, and third-party media platforms, including social media sites, to allow them to send targeted advertising messages and/or conduct analyses on our behalf.",
+   "rationale": "The policy mentions sharing email addresses and aggregated/de-identified information with third parties but does not explicitly state sharing of IP addresses and device IDs with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "This site is intended for general audiences, and Kraft does not direct the site to collect, or knowingly collect, any personal information from children under the age of 13.",
+   "rationale": "The policy states that the site does not collect personal information from children under 13, but the application still processes IP addresses and device IDs for advertising purposes, which violates the prohibition on targeted advertising.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9780311605558062,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9648616516803117,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9672512722122184,
+ "usage": {
+  "prompt": 7828,
+  "output": 1166
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 64,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     2,
+     8,
+     26,
+     20,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     7,
+     13,
+     20,
+     14,
+     26
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     4,
+     5,
+     6,
+     9,
+     13,
+     16,
+     17,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     17,
+     20,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "omission",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     27
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may use cookies, web beacons/pixel tags, log files, and other technologies to collect certain information about visitors to our website, use of our online services, and interactions with our emails and online advertisements.",
+      "rationale": "The policy mentions collecting various types of data but does not specifically mention collecting geolocation data.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "We may use cookies, web beacons/pixel tags, log files, and other technologies to collect certain information about visitors to our website, use of our online services, and interactions with our emails and online advertisements.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting various types of data but does not specifically mention collecting geolocation data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9780311605558062
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may also share aggregated or de-identified information about you, including based on your email address, with our advertising and marketing partners, and third-party media platforms, including social media sites, to allow them to send targeted advertising messages and/or conduct analyses on our behalf.",
+      "rationale": "The policy mentions sharing email addresses and aggregated/de-identified information with third parties but does not explicitly state sharing of IP addresses and device IDs with Google AdMob.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "We may share your email address with a third-party, such as a media agency, to send you interest-based advertising on our behalf.",
+       "generic_quote": "We may also share aggregated or de-identified information about you, including based on your email address, with our advertising and marketing partners, and third-party media platforms, including social media sites, to allow them to send targeted advertising messages and/or conduct analyses on our behalf.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing email addresses and aggregated/de-identified information with third parties but does not explicitly state sharing of IP addresses and device IDs with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9648616516803117
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "In the registration process, we request certain information (such as your contact information and age) so we can provide you with the communications you request, tailor our website to better meet your needs and customize our contacts with you.",
+      "rationale": "The policy explicitly states that contact information is used for providing communications, tailoring the website, and customizing contacts, which aligns with the purpose 'Additional service/feature'.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "In the registration process, we request certain information (such as your contact information and age) so we can provide you with the communications you request, tailor our website to better meet your needs and customize our contacts with you.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that contact information is used for providing communications, tailoring the website, and customizing contacts, which aligns with the purpose 'Additional service/feature'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9848634962335202
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [],
+    "parse_error": "no JSON found in reply: '{\\n  \"action\": \"final\",\\n  \"answers\": [\\n    {\\n      \"candidate_id\": \"c2\",\\n      \"gap_type\": \"purpose_mismatch\",\\n      \"data_type\": \"IP address and device IDs\",\\n      \"recipient\": \"first_party\",\\n      \"p'",
+    "llm_calls": 1,
+    "token_prob": null
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "This site is intended for general audiences, and Kraft does not direct the site to collect, or knowingly collect, any personal information from children under the age of 13.",
+      "rationale": "The policy states that the site does not collect personal information from children under 13, but the application still processes IP addresses and device IDs for advertising purposes, which violates the prohibition on targeted advertising.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        27
+       ],
+       "children_quote": "Children's Information: This site is intended for general audiences, and Kraft does not direct the site to collect, or knowingly collect, any personal information from children under the age of 13.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy states that the site does not collect personal information from children under 13, but the application still processes IP addresses and device IDs for advertising purposes, which violates the prohibition on targeted advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9412487803792358
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [
+   "c2"
+  ],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 94.97
+ }
+}

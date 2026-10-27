@@ -1,0 +1,237 @@
+{
+ "case_id": "93_control",
+ "system": "full_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "This information will only be used for the stated purpose.",
+   "rationale": "The policy only states that the data will be used for the stated purpose but does not specify what that purpose is.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence 'This information will only be used for the stated purpose' does not specify the purpose, which aligns with the cited DPDP text Sec. 5(1)(i) requiring the purpose for which the personal data is proposed to be processed. The rationale correctly identifies the lack of specificity i"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "Personally identifiable information includes, but is not limited to, name, address, e-mail address, telephone number, and credit card information.",
+   "rationale": "The policy mentions collecting email addresses but does not explicitly state collecting location data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'Personally identifiable information includes, but is not limited to, name, address, e-mail address, telephone number, and credit card information' does not mention collecting location data, which is not directly addressed by the cited DPDP text Rule 3. The rationale incorrectly "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9687986099453926,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9491045262329866,
+ "usage": {
+  "prompt": 4789,
+  "output": 618
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 80,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     6,
+     7,
+     9,
+     14,
+     33,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     13,
+     33,
+     21,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     8,
+     12,
+     20,
+     13,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "Personally identifiable information includes, but is not limited to, name, address, e-mail address, telephone number, and credit card information.",
+      "rationale": "The policy mentions collecting email addresses but does not explicitly state collecting location data.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We may collect name, address, and e-mail addresses in connection with these activities.",
+       "generic_quote": "Personally identifiable information includes, but is not limited to, name, address, e-mail address, telephone number, and credit card information.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting email addresses but does not explicitly state collecting location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9687986099453926
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "This information will only be used for the stated purpose.",
+      "rationale": "The policy only states that the data will be used for the stated purpose but does not specify what that purpose is.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "This information will only be used for the stated purpose.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy only states that the data will be used for the stated purpose but does not specify what that purpose is."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9567488618235852
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7"
+      ],
+      "evidence": "For example, we may collect your IP address, browser information and reference site domain, as well as related information such as the date on which you visit the Site. This information does not identify you personally and is only used in the aggregate.",
+      "rationale": "The policy mentions collecting IP addresses for non-identifying purposes, but does not specify the exact purpose of 'Analytics/Research'.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "purpose_quote": "For example, we may collect your IP address, browser information and reference site domain, as well as related information such as the date on which you visit the Site. This information does not identify you personally and is only used in the aggregate.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy mentions collecting IP addresses for non-identifying purposes, but does not specify the exact purpose of 'Analytics/Research'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9217661069299817
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 84.61
+ }
+}

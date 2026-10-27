@@ -1,0 +1,265 @@
+{
+ "case_id": "1419_control",
+ "system": "v2_purpose",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "We may share aggregated data with our advertisers and other marketing and business partners.",
+   "rationale": "The policy mentions sharing aggregated data but does not specify a purpose for contact data.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that the app may share aggregated data with advertisers and marketing partners, but it does not specify the purpose for sharing contact data. This is in direct violation of Section 5(1) which requires the purpose for processing personal data to be clearly communicated to t"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9641219385761921,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9641219385761921,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9702580456131737,
+ "usage": {
+  "prompt": 3933,
+  "output": 656
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 35,
+  "untagged_paragraphs": 0,
+  "claims": 89,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     7,
+     17,
+     5,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact may be collected; the app uses it for Marketing",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     7,
+     17,
+     5,
+     27,
+     13,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     7,
+     17,
+     4,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location may be collected; the app uses it for Analytics/Research",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     7,
+     17,
+     13,
+     11,
+     9,
+     10
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "\"Personally identifiable information\" is information that tells us who you are, such as your name, screen name, email address, postal address, phone number, credit card information, birth date/year and gender.",
+      "rationale": "The policy explicitly states that personally identifiable information is collected, covering the 'Contact' data type.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Personally identifiable information is information that tells us who you are, such as your name, screen name, email address, postal address, phone number, credit card information, birth date/year and gender.",
+       "denial_quote": "",
+       "generic_quote": "We collect and maintain personally identifiable information and automatic information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personally identifiable information is collected, covering the 'Contact' data type."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "The Site uses web beacons to gather automatic information such as the duration of a visit to the Site, the web pages viewed, a user's geographical information (e.g., city, state, zip code), IP address, and type of web browser.",
+      "rationale": "The policy discloses that web beacons are used to gather information, which includes location data.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "The Site uses web beacons to gather automatic information such as the duration of a visit to the Site, the web pages viewed, a user's geographical information (e.g., city, state, zip code), IP address, and type of web browser.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses that web beacons are used to gather information, which includes location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9641219385761921
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We may share aggregated data with our advertisers and other marketing and business partners.",
+      "rationale": "The policy mentions sharing aggregated data but does not specify a purpose for contact data.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We may share aggregated data with our advertisers and other marketing and business partners.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy mentions sharing aggregated data but does not specify a purpose for contact data."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "The Site uses web beacons to gather automatic information such as the duration of a visit to the Site, the web pages viewed, a user's geographical information (e.g., city, state, zip code), IP address, and type of web browser.",
+      "rationale": "The policy explicitly states the purpose for collecting location data through web beacons.",
+      "raw": {
+       "candidate_id": "c4",
+       "purpose_quote": "The Site uses web beacons to gather automatic information such as the duration of a visit to the Site, the web pages viewed, a user's geographical information (e.g., city, state, zip code), IP address, and type of web browser.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states the purpose for collecting location data through web beacons."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9763941526501554
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 114.48
+ }
+}

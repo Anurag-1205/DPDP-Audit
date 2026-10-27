@@ -1,0 +1,362 @@
+{
+ "case_id": "891_v2",
+ "system": "A3_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Health",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 4(2)",
+    "Sec. 6(1)",
+    "Sec. 27(1)"
+   ],
+   "evidence": "For example, your profile may list your favorite healthy foods or movie; if you are registering for a customized weight loss program, you may provide us answers to questions we use to provide you the program, like your actual and goal weights, your preferred method of exercise, or your caloric intake; if you sign up to receive a newsletter, enter a contest or participate in social networking activities, you may provide us contact information (e.",
+   "rationale": "The policy does not specify a purpose for collecting health information, but it does mention that health information is collected. This lack of specificity aligns with the purpose of advertising.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes various ways health information can be collected, but it does not explicitly state that health information is collected for advertising purposes. The cited sections do not address the purpose for which health data is collected. Therefore, the evidence and cited DPDP tex"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Social media data",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 11(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may share aggregated Anonymous Information about you with third parties. Aggregated information is your Anonymous Information that is combined with the Anonymous Information of other users.",
+   "rationale": "The policy does not specify sharing of social media data with Google AdMob, but mentions generic sharing of aggregated anonymous information with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9377562723482912,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9479840467194363,
+ "usage": {
+  "prompt": 8721,
+  "output": 1276
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 42,
+  "untagged_paragraphs": 0,
+  "claims": 58,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['additional service/feature'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     8,
+     3,
+     19,
+     36
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Health is collected for ['additional service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     8,
+     13,
+     20,
+     10,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['advertising', 'personalization/customization'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     18,
+     19,
+     14,
+     13,
+     36
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['personalization/customization'], the app uses it for Advertising",
+    "paragraphs": [
+     18,
+     19,
+     13,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Social media data",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Social media data with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     11,
+     25,
+     26,
+     27,
+     28,
+     30,
+     31,
+     32,
+     13,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Sec. 4(2)"
+      ],
+      "evidence": "when you register for a Site, you may provide us certain information including your name, email address, screen name, password, demographic information and the health topics that interest you; to engage a Site's social networking function, you may add to your profile by providing information about your interests or health topics. For example, your profile may list your favorite healthy foods or movie; if you are registering for a customized weight loss program, you may provide us answers to questions we use to provide you the program, like your actual and goal weights, your preferred method of exercise, or your caloric intake; if you sign up to receive a newsletter, enter a contest or participate in social networking activities, you may provide us contact information (e.g., email or physical address); if you purchase a product or service, you may provide us your credit card information; and you may provide us with Personal Information in the course of email, customer support interactions and surveys.",
+      "rationale": "The policy clearly states that contact information is used for various basic service features, thus there is no purpose mismatch.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "when you register for a Site, you may provide us certain information including your name, email address, screen name, password, demographic information and the health topics that interest you; to engage a Site's social networking function, you may add to your profile by providing information about your interests or health topics. For example, your profile may list your favorite healthy foods or movie; if you are registering for a customized weight loss program, you may provide us answers to questions we use to provide you the program, like your actual and goal weights, your preferred method of exercise, or your caloric intake; if you sign up to receive a newsletter, enter a contest or participate in social networking activities, you may provide us contact information (e.g., email or physical address); if you purchase a product or service, you may provide us your credit card information; and you may provide us with Personal Information in the course of email, customer support interactions and surveys.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Sec. 4(2)"
+       ],
+       "rationale": "The policy clearly states that contact information is used for various basic service features, thus there is no purpose mismatch."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9706703145658457
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 4(2)",
+       "Sec. 6(1)",
+       "Sec. 27(1)"
+      ],
+      "evidence": "For example, your profile may list your favorite healthy foods or movie; if you are registering for a customized weight loss program, you may provide us answers to questions we use to provide you the program, like your actual and goal weights, your preferred method of exercise, or your caloric intake; if you sign up to receive a newsletter, enter a contest or participate in social networking activities, you may provide us contact information (e.",
+      "rationale": "The policy does not specify a purpose for collecting health information, but it does mention that health information is collected. This lack of specificity aligns with the purpose of advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Health",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services. For example: if you are registering for a customized weight loss program, you may provide us answers to questions we use to provide you the program, like your actual and goal weights, your preferred method of exercise, or your caloric intake.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 4(2)",
+        "Sec. 6(1)",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy does not specify a purpose for collecting health information, but it does mention that health information is collected. This lack of specificity aligns with the purpose of advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9027577322562859
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "We, or our service providers, may use your IP Address when you access the Sites or Services or use other means to assist with delivering geographically targeted advertisements.",
+      "rationale": "The policy specifies that IP addresses are used for delivering geographically targeted advertisements, which aligns with the 'Basic service/feature' purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "We, or our service providers, may use your IP Address when you access the Sites or Services or use other means to assist with delivering geographically targeted advertisements.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy specifies that IP addresses are used for delivering geographically targeted advertisements, which aligns with the 'Basic service/feature' purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9572524242764351
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 4(2)"
+      ],
+      "evidence": "We may also use cookies, pixels, web beacons (which are usually small, transparent graphic images), operating system and device information and navigational data like Uniform Resource Locators (URL) to gather information regarding the date and time of your visit, the features and information for which you searched and viewed, the email you opened, or on which advertisements you clicked. This type of information is collected to make the Sites and Services more useful to you and to tailor the experience with us to meet your special interests and needs.",
+      "rationale": "The policy mentions using computer information for advertising purposes, but also mentions using IP addresses for geographically targeted advertisements without specifying a purpose.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "We may also use cookies, pixels, web beacons (which are usually small, transparent graphic images), operating system and device information and navigational data like Uniform Resource Locators (URL) to gather information regarding the date and time of your visit, the features and information for which you searched and viewed, the email you opened, or on which advertisements you clicked. This type of information is collected to make the Sites and Services more useful to you and to tailor the experience with us to meet your special interests and needs.",
+       "unspecified_purpose_quote": "An 'Internet protocol address' or 'IP Address' is a number that is automatically assigned to your computer when you use the Internet. We, or our service providers, may use your IP Address when you access the Sites or Services or use other means to assist with delivering geographically targeted advertisements.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 4(2)"
+       ],
+       "rationale": "The policy mentions using computer information for advertising purposes, but also mentions using IP addresses for geographically targeted advertisements without specifying a purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9714834901503238
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 11(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may share aggregated Anonymous Information about you with third parties. Aggregated information is your Anonymous Information that is combined with the Anonymous Information of other users.",
+      "rationale": "The policy does not specify sharing of social media data with Google AdMob, but mentions generic sharing of aggregated anonymous information with third parties.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "We do not control and are not responsible for how these third parties use your information.",
+       "generic_quote": "We may share aggregated Anonymous Information about you with third parties. Aggregated information is your Anonymous Information that is combined with the Anonymous Information of other users.",
+       "sections": [
+        "Sec. 11(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify sharing of social media data with Google AdMob, but mentions generic sharing of aggregated anonymous information with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9377562723482912
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 128.71
+ }
+}

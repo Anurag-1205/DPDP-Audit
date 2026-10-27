@@ -1,0 +1,212 @@
+{
+ "case_id": "1360_control",
+ "system": "full_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We collect personally identifiable information about you when you specifically and knowingly provide such information voluntarily on the Site, including, but not limited to, during the following interactions: (1) when you register on the Site and when you later log-on with your user name and password; (2) when you sign-up to subscribe to a service, a newsletter, or ask to be added to our mailing lists for other products or services; (3) when you place an order for products or services; (4) when you participate in a promotional offer; (5) when you provide feedback in an online survey; (6) when you submit other content and suggestions.",
+   "rationale": "The policy does not explicitly mention collecting demographic data, but it does mention collecting personally identifiable information, which could include demographic data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence explicitly mentions collecting 'personally identifiable information' but does not specifically mention collecting 'demographic data'. The cited DPDP text pertains to the notice requirements for data collection purposes, retention, and exercising rights, but does not address the i"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9417223794812847,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9720275010130808,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9585896136499685,
+ "usage": {
+  "prompt": 4719,
+  "output": 667
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 19,
+  "untagged_paragraphs": 0,
+  "claims": 38,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     4,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     2,
+     0,
+     1,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Demographic is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     4,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "your full name, e-mail address, phone number, physical mailing address, the type of business you are in, product preference information, any applicable identification number or password that we may require, as well as other similar information that is needed to register or subscribe you to services or offers.",
+      "rationale": "The policy explicitly lists various types of personal data collected, thus disclosing the data type. It also mentions generic terms for personal data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "your full name, e-mail address, phone number, physical mailing address, the type of business you are in, product preference information, any applicable identification number or password that we may require, as well as other similar information that is needed to register or subscribe you to services or offers.",
+       "denial_quote": "",
+       "generic_quote": "personal data and the purpose for which the same is proposed to be processed",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly lists various types of personal data collected, thus disclosing the data type. It also mentions generic terms for personal data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9417223794812847
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect personally identifiable information about you when you specifically and knowingly provide such information voluntarily on the Site, including, but not limited to, during the following interactions: (1) when you register on the Site and when you later log-on with your user name and password; (2) when you sign-up to subscribe to a service, a newsletter, or ask to be added to our mailing lists for other products or services; (3) when you place an order for products or services; (4) when you participate in a promotional offer; (5) when you provide feedback in an online survey; (6) when you submit other content and suggestions.",
+      "rationale": "The policy does not explicitly mention collecting demographic data, but it does mention collecting personally identifiable information, which could include demographic data.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We collect personally identifiable information about you when you specifically and knowingly provide such information voluntarily on the Site, including, but not to Demographic data.",
+       "generic_quote": "We collect personally identifiable information about you when you specifically and knowingly provide such information voluntarily on the Site, including, but not limited to, during the following interactions: (1) when you register on the Site and when you later log-on with your user name and password; (2) when you sign-up to subscribe to a service, a newsletter, or ask to be added to our mailing lists for other products or services; (3) when you place an order for products or services; (4) when you participate in a promotional offer; (5) when you provide feedback in an online survey; (6) when you submit other content and suggestions.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting demographic data, but it does mention collecting personally identifiable information, which could include demographic data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9720275010130808
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Cookies are small text files that a website can use to recognize repeat users, facilitate the user's ongoing access to and use of a website, allow the site to track usage behavior and compile aggregate data that will allow content improvements and targeted advertising.",
+      "rationale": "The policy explicitly states the purpose for using cookies, which aligns with the 'Analytics/Research' purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "Cookies are small text files that a website can use to recognize repeat users, facilitate the user's ongoing access to and use of a website, allow the site to track usage behavior and compile aggregate data that will allow content improvements and targeted advertising.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states the purpose for using cookies, which aligns with the 'Analytics/Research' purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.96201896045554
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 85.18
+ }
+}

@@ -1,0 +1,434 @@
+{
+ "case_id": "207_v1",
+ "system": "v2_purpose",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+   "rationale": "The policy does not specify collecting contact details but denies sharing them.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that the app does not share contact details, which aligns with the DPDP text requiring a notice to inform the data principal about the personal data and purposes for processing. However, the policy does not explicitly state that it does not collect contact details, which c"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Information collected automatically",
+   "rationale": "The policy does not specify collecting location data but denies sharing it.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'Information collected automatically' is vague and does not specify the types of data being collected. While the DPDP text requires specifying the personal data and purposes for processing, the evidence here does not meet this requirement. Additionally, the policy does not deny c"
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f4",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+   "rationale": "The policy mentions sharing information but does not specify sharing financial data with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9612278807744152,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9612278807744152,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "incorrect",
+   "confidence": 0.9612278807744152,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9572587983042568,
+ "usage": {
+  "prompt": 6942,
+  "output": 990
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 34,
+  "untagged_paragraphs": 0,
+  "claims": 68,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     14,
+     13,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact may be collected; the app uses it for Basic service/feature",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     14,
+     13,
+     6,
+     7,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['advertising'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     20,
+     3,
+     13,
+     27
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     14,
+     3,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location may be collected; the app uses it for Marketing",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     14,
+     3,
+     11,
+     31,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f4",
+    "data_type": "Financial",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Financial with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     1,
+     9,
+     10,
+     11,
+     8,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Financial",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Financial may be shared with admob; the app uses it for Advertising",
+    "paragraphs": [
+     1,
+     9,
+     10,
+     11,
+     8,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+      "rationale": "The policy does not specify collecting contact details but denies sharing them.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+       "generic_quote": "Information collected automatically",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify collecting contact details but denies sharing them."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Information collected automatically",
+      "rationale": "The policy does not specify collecting location data but denies sharing it.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+       "generic_quote": "Information collected automatically",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify collecting location data but denies sharing it."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+      "rationale": "The policy mentions sharing information but does not specify sharing financial data with Google AdMob.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We share user information with other companies for various reasons. What information we make available to other companies depends on the nature of our relationships with them. We generally require these other companies to keep our users' information confidential.",
+       "denial_quote": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+       "generic_quote": "Information collected automatically",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing information but does not specify sharing financial data with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9612278807744152
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 10"
+      ],
+      "evidence": "We use your email address only to allow you to log in to your account, send you confirmations (of your registration, purchase, etc.), and to send you messages as part of our services.",
+      "rationale": "The policy mentions email usage but does not specify a purpose for contact data.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We use your email address only to allow you to log in to your account, send you confirmations (of your registration, purchase, etc.), and to send you messages as part of our services.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy mentions email usage but does not specify a purpose for contact data."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 10"
+      ],
+      "evidence": "Your mobile device's unique ID number",
+      "rationale": "The policy specifies the use of device IDs for storing preferences and tracking app usage.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "Your mobile device's unique ID number",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy specifies the use of device IDs for storing preferences and tracking app usage."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions sharing user information but does not specify a single purpose for location data.",
+      "raw": {
+       "candidate_id": "c5",
+       "purpose_quote": "We share user information with other companies for various reasons.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy mentions sharing user information but does not specify a single purpose for location data."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states the use of device IDs for advertising purposes.",
+      "raw": {
+       "candidate_id": "c7",
+       "purpose_quote": "Ad companies use device IDs to track your use of the app, track the number of ads displayed, measure ad performance and display ads that are more relevant to you.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy explicitly states the use of device IDs for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9532897158340983
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 123.13
+ }
+}

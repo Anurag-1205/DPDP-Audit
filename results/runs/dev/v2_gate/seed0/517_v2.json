@@ -1,0 +1,346 @@
+{
+ "case_id": "517_v2",
+ "system": "v2_gate",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "P18: Treatment. Kaleida Health may share your health information with doctors, nurses or treating practitioners at our facilities who are involved in taking care of you, and they may in turn use that information to diagnose or treat you.",
+   "rationale": "The policy mentions sharing health information but does not specifically disclose collecting contact details.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "P21: Appointment Reminders, Treatment Alternatives, Benefits And Services. In the course of providing treatment to you, Kaleida Health may use your health information to contact you with a reminder that you have an appointment for treatment or services at one of our facilities.",
+   "rationale": "The policy mentions using health information for appointment reminders but does not explicitly mention location data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "Kaleida Health may use your health information, and share it with others, in order to treat you in an emergency or to meet important public needs.",
+   "rationale": "The policy mentions sharing health information in emergencies but does not specify sharing with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions financial information but does not disclose collecting it for basic service purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9675174136956937,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9675174136956937,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9675174136956937,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "omitted",
+   "confidence": 0.9675174136956937,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9675174136956937,
+ "usage": {
+  "prompt": 4444,
+  "output": 811
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 66,
+  "untagged_paragraphs": 0,
+  "claims": 138,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     12,
+     18,
+     19,
+     20,
+     21,
+     26,
+     29,
+     31,
+     33,
+     34,
+     35,
+     37,
+     39,
+     50,
+     49,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     12,
+     18,
+     19,
+     20,
+     21,
+     26,
+     29,
+     31,
+     33,
+     34,
+     35,
+     37,
+     39,
+     50,
+     49,
+     65
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Contact",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Contact with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     18,
+     20,
+     23,
+     29,
+     50,
+     49,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Financial is covered only by generic collection statements",
+    "paragraphs": [
+     12,
+     18,
+     19,
+     20,
+     21,
+     26,
+     29,
+     31,
+     33,
+     34,
+     35,
+     37,
+     39,
+     50,
+     6,
+     62
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "P18: Treatment. Kaleida Health may share your health information with doctors, nurses or treating practitioners at our facilities who are involved in taking care of you, and they may in turn use that information to diagnose or treat you.",
+      "rationale": "The policy mentions sharing health information but does not specifically disclose collecting contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "P12: Protections For HIV, Alcohol and Substance Abuse, and Mental Health. Special privacy protections apply to HIV-related information and Behavioral Health Information (including alcohol and substance abuse treatment information, and mental health information). Some parts of this general Notice of Privacy Practices may not apply to these types of information.",
+       "generic_quote": "P18: Treatment. Kaleida Health may share your health information with doctors, nurses or treating practitioners at our facilities who are involved in taking care of you, and they may in turn use that information to diagnose or treat you.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing health information but does not specifically disclose collecting contact details."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "P21: Appointment Reminders, Treatment Alternatives, Benefits And Services. In the course of providing treatment to you, Kaleida Health may use your health information to contact you with a reminder that you have an appointment for treatment or services at one of our facilities.",
+      "rationale": "The policy mentions using health information for appointment reminders but does not explicitly mention location data.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "P21: Appointment Reminders, Treatment Alternatives, Benefits And Services. In the course of providing treatment to you, Kaleida Health may use your health information to contact you with a reminder that you have an appointment for treatment or services at one of our facilities.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions using health information for appointment reminders but does not explicitly mention location data."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "Kaleida Health may use your health information, and share it with others, in order to treat you in an emergency or to meet important public needs.",
+      "rationale": "The policy mentions sharing health information in emergencies but does not specify sharing with Google AdMob.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "P29: Emergencies Or Public Need. Kaleida Health may use your health information, and share it with others, in order to treat you in an emergency or to meet important public needs.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing health information in emergencies but does not specify sharing with Google AdMob."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions financial information but does not disclose collecting it for basic service purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "P12: Protections For HIV, Alcohol and Substance Abuse, and Mental Health. Special privacy protections apply to HIV-related information and Behavioral Health Information (including alcohol and substance abuse treatment information, and mental health information). Some parts of this general Notice of Privacy Practices may not apply to these types of information.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions financial information but does not disclose collecting it for basic service purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9675174136956937
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence provided does not mention collecting contact details. Instead, it discusses sharing health information with healthcare '",
+  "llm_calls": 2,
+  "seconds": 98.93
+ }
+}

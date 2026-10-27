@@ -1,0 +1,391 @@
+{
+ "case_id": "744_v1",
+ "system": "full_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "personal information",
+   "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions 'personal information' without specifying what types of personal information are collected. The cited DPDP text requires the notice to inform the Data Principal about the personal data and the purpose for which it is proposed to be processed. Since the policy does not ex"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We keep track of your interactions with us, including but not limited to your activity within the Curse Features.",
+   "rationale": "The policy does not explicitly mention collecting location data, nor does it deny collecting it.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the app keeps track of user interactions, which could include location data. However, it does not explicitly state that location data is collected. Additionally, the cited DPDP text requires the notice to inform the Data Principal about the personal data and the purpo"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8",
+    "Third Schedule"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for demographic data.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.968726057118574,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9575620989143969,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9629350453641764,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9641010524786338,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9653590014093398,
+ "usage": {
+  "prompt": 9854,
+  "output": 1196
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 26,
+  "untagged_paragraphs": 0,
+  "claims": 53,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     4,
+     5,
+     10,
+     12,
+     3,
+     25
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     4,
+     5,
+     10,
+     12,
+     3,
+     17
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     4,
+     5,
+     10,
+     12,
+     3,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Demographic is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     4,
+     5,
+     10,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Demographic indefinitely; retention statements: ['Indefinitely', 'Limited', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     4,
+     5,
+     7,
+     9,
+     12,
+     16,
+     18
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "To create an account for the Curse Features, we require you to provide your name, email address and country in which you reside. You will also need to create a screen name. When you are purchasing premium services or products through the Curse Features you may have to submit personal information to our billing partner, PayPal, including your email address, billing address and additional billing information depending on your preferred method of payment through PayPal, such as your credit card number. When you enter a contest or sweepstakes with Curse, in addition to your screen name, name and email address, we will ask for your mailing address in case we have to mail you a prize, and may ask you to opt into receiving a third party's offers and/or newsletter.",
+      "rationale": "The policy explicitly discloses the collection and usage of contact details, which aligns with the requirement to inform the Data Principal about the personal data and its purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "To create an account for the Curse Features, we require you to provide your name, email address and country in which you reside. You will also need to create a screen name. When you are purchasing premium services or products through the Curse Features you may have to submit personal information to our billing partner, PayPal, including your email address, billing address and additional billing information depending on your preferred method of payment through PayPal, such as your credit card number. When you enter a contest or sweepstakes with Curse, in addition to your screen name, name and email address, we will ask for your mailing address in case we have to mail you a prize, and may ask you to opt into receiving a third party's offers and/or newsletter.",
+       "denial_quote": "",
+       "generic_quote": "The personal information you provide to us will allow us to fulfill your product or service order; alert you of new products or services, features, or enhancements; handle/route your customer service questions or issues; and/or notify you of upgrade opportunities, contests, promotions, or special events and offers. We also use your e-mail address to send you messages about the Curse Features and other general announcements. We keep track of your interactions with us, including but not to the extent of your activity within the Curse Features.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly discloses the collection and usage of contact details, which aligns with the requirement to inform the Data Principal about the personal data and its purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.968726057118574
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "personal information",
+      "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "You do not need to submit personal information to access certain areas of the Site(s), but if you do not want to disclose certain personal information to us, you will not be able to access certain aspects of the Curse Features.",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9575620989143969
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We keep track of your interactions with us, including but not limited to your activity within the Curse Features.",
+      "rationale": "The policy does not explicitly mention collecting location data, nor does it deny collecting it.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "We keep track of your interactions with us, including but not limited to your activity within the Curse Features.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting location data, nor does it deny collecting it."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9629350453641764
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Additionally, we may also collect other types of information (known as demographic information) such as your gender, hobbies, occupation, platform preferences, and other game ownership information.",
+      "rationale": "The policy explicitly mentions collecting demographic information, which aligns with the requirement to disclose the data type.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Additionally, we may also collect other types of information (known as demographic information) such as your gender, hobbies, occupation, platform preferences, and other game ownership information.",
+       "denial_quote": "",
+       "generic_quote": "The personal information you provide to us will allow us to fulfill your product or service order; alert you of new products or services, features, or enhancements; handle/route your customer service questions or issues; and/or notify you of upgrade opportunities, contests, promotions, or special events and offers.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting demographic information, which aligns with the requirement to disclose the data type."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9641010524786338
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8",
+       "Third Schedule"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for demographic data.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "retention_mismatch",
+       "data_type": "Demographic",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "retention": "indefinitely",
+       "paragraphs": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7,
+        9,
+        12,
+        16,
+        18
+       ],
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8",
+        "Third Schedule"
+       ],
+       "rationale": "The policy does not specify a retention period for demographic data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9734707531709176
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 130.01
+ }
+}

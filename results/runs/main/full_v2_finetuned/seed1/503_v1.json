@@ -1,0 +1,334 @@
+{
+ "case_id": "503_v1",
+ "system": "full_v2_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that the credit card information is stored until the customer sets up an account, implying indefinite storage.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "Upon your request, we will make reasonable efforts to delete your personal information from our database, however, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+   "rationale": "The policy indicates that some residual information may be retained for a period of time due to backups and records of deletion, which suggests indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9564185499935379,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9531687643422491,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9608566272178389,
+ "usage": {
+  "prompt": 7218,
+  "output": 977
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 24,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Financial is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     6,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "User profile is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     6,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps User profile indefinitely; retention statements: none",
+    "paragraphs": [
+     11,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     2,
+     12,
+     5,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps Contact indefinitely; retention statements: none",
+    "paragraphs": [
+     2,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you create an account through one of our Sites, this personal information will be stored by us. If you purchase products as a Site Guest, we will not store the personally identifiable information you provide.",
+      "rationale": "The policy mentions collecting personal information for accounts but denies storing payment information for guest purchases.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "If you create an account through one of our Sites, this personal information will be stored by us. If you purchase products as a Site Guest, we will not store the personally identifiable information you provide.",
+       "denial_quote": "If you do not set up an account, you will have to enter your credit card information each time you order. We understand that this may be a little inconvenient for you, but some customers appreciate the added security.",
+       "generic_quote": "We collect the information you affirmatively choose to provide us, such as when you provide your name, contact information, the pages you access and similar information for such purposes as purchasing products, creating an account, joining our loyalty programs, filling out a survey, entering contests, participating in promotions or electronic activities, posting comments on bulletin boards or otherwise interacting with our Sites.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting personal information for accounts but denies storing payment information for guest purchases."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9564185499935379
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you create an account through one of our Sites, this personal information will be stored by us. If you purchase products as a Site Guest, we will not store the personally identifiable information you provide.",
+      "rationale": "The policy explicitly states that personal information is collected and stored, but does not specify the exact data types like username or password.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "If you create an account through one of our Sites, this personal information will be stored by us. If you purchase products as a Site Guest, we will not store the personally identifiable information you provide.",
+       "denial_quote": "",
+       "generic_quote": "We collect the information you affirmatively choose to provide us, such as when you provide your name, contact information, the pages you access and similar information for such purposes as purchasing products, creating an account, joining our loyalty programs, filling out a survey, entering contests, participating in promotions or electronic activities, posting comments on bulletin boards or otherwise interacting with our Sites.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal information is collected and stored, but does not specify the exact data types like username or password."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9531687643422491
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "We use the personal information we collect for various purposes, including to complete a purchase that you initiate, to respond to your requests for information, to manage our Sites, to allow you to participate in electronic activities, marketing analysis, marketing communications, facilitating loyalty programs, and for other lawful purposes.",
+      "rationale": "The policy clearly states the purposes for which contact information is used, including additional service/feature.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Indefinitely",
+       "purpose_quote": "We use the personal information we collect for various purposes, including to complete a purchase that you initiate, to respond to your requests for information, to manage our Sites, to allow you to participate in electronic activities, marketing analysis, marketing communications, facilitating loyalty programs, and for other lawful purposes.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy clearly states the purposes for which contact information is used, including additional service/feature."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.963048371227217
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that the credit card information is stored until the customer sets up an account, implying indefinite storage.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "User profile",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "If you do not set up an account, you will have to enter your credit card information each time you order. We understand that this may be a little inconvenient for you, but some customers appreciate the added security.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that the credit card information is stored until the customer sets up an account, implying indefinite storage."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9682677631424632
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "Upon your request, we will make reasonable efforts to delete your personal information from our database, however, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+      "rationale": "The policy indicates that some residual information may be retained for a period of time due to backups and records of deletion, which suggests indefinite retention.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "Upon your request, we will make reasonable efforts to delete your personal information from our database, however, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy indicates that some residual information may be retained for a period of time due to backups and records of deletion, which suggests indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9633796873837277
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 5,
+  "seconds": 93.57
+ }
+}

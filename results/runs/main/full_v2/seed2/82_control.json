@@ -1,0 +1,224 @@
+{
+ "case_id": "82_control",
+ "system": "full_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We reserve the right to use the information we collect about your computer, mobile or other device (including its geographic location), which may at times be able to identify you, for any lawful business purpose, including without limitation to help diagnose problems with our servers, to gather broad demographic information, analyze trends, track users' movements around the Service, and to otherwise administer the Service.",
+   "rationale": "The policy mentions using location information for various purposes but does not explicitly state collecting location data for marketing.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the app reserves the right to use location information for various purposes, including marketing. This indicates that the app does disclose the collection of location data for marketing purposes. Therefore, the finding of an undisclosed collection of location data for"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9653843627652987,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": null,
+   "source": "finder"
+  },
+  "f3": {
+   "label": "incorrect",
+   "confidence": 0.9718169537034032,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9686006582343509,
+ "usage": {
+  "prompt": 7761,
+  "output": 697
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 46,
+  "untagged_paragraphs": 0,
+  "claims": 114,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     4,
+     5,
+     7,
+     9,
+     10,
+     11,
+     12,
+     19,
+     20,
+     24,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     4,
+     5,
+     7,
+     9,
+     10,
+     11,
+     12,
+     19,
+     20,
+     24,
+     27
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     4,
+     5,
+     7,
+     9,
+     10,
+     11,
+     12,
+     19,
+     20,
+     24,
+     18,
+     21
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "You provide us information about yourself, such as your name and email address, when you register with the Service.",
+      "rationale": "The policy explicitly states that the company collects personal data such as name and email address.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "You provide us information about yourself, such as your name and email address, when you register with the Service.",
+       "denial_quote": "",
+       "generic_quote": "User-Provided Information: You provide us information about yourself, such as your name and email address, when you register with the Service. Also, you may provide information when you participate in sweepstakes and contests, message boards and chat rooms, leave a comment on the Website, respond to one of our surveys, or use Try On technology other interactive areas of our Website (all such information and material, 'User Content').",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the company collects personal data such as name and email address."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9653843627652987
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [],
+    "parse_error": "no JSON found in reply: '{\\n  \"action\": \"final\",\\n  \"answers\": [\\n    {\\n      \"candidate_id\": \"c2\",\\n      \"disclosing_quote\": \"Log file information is automatically reported by your browser each time you access a web page. When '",
+    "llm_calls": 1,
+    "token_prob": null
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We reserve the right to use the information we collect about your computer, mobile or other device (including its geographic location), which may at times be able to identify you, for any lawful business purpose, including without limitation to help diagnose problems with our servers, to gather broad demographic information, analyze trends, track users' movements around the Service, and to otherwise administer the Service.",
+      "rationale": "The policy mentions using location information for various purposes but does not explicitly state collecting location data for marketing.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Marketing",
+       "disclosing_quote": "",
+       "denial_quote": "We reserve the right to use the information we collect about your computer, mobile or other device (including its geographic location), which may at times be able to identify you, for any lawful business purpose, including without limitation to help diagnose problems with our servers, to gather broad demographic information, analyze trends, track users' movements around the Service, and to otherwise administer the Service.",
+       "generic_quote": "We may also use the information to communicate with you about new features, products or services, and/or to improve the services that we offer by tailoring them to your needs.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions using location information for various purposes but does not explicitly state collecting location data for marketing."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9718169537034032
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [
+   "c2"
+  ],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 89.87
+ }
+}

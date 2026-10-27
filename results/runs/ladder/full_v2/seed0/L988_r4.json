@@ -1,0 +1,102 @@
+{
+ "case_id": "L988_r4",
+ "system": "full_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We allow third-party companies to serve ads and/or collect certain anonymous information when you visit our web site.",
+   "rationale": "The policy mentions collecting anonymous information but does not specify the exact data types.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions allowing third-party companies to serve ads and collect certain anonymous information, but it does not specify the exact data types. However, this does not constitute an undisclosed collection as the data type 'Computer information' is not mentioned in the policy evidenc"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.972672657002494,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.972672657002494,
+ "usage": {
+  "prompt": 1635,
+  "output": 233
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 1,
+  "untagged_paragraphs": 0,
+  "claims": 1,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Computer information",
+    "paragraphs": [
+     0
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We allow third-party companies to serve ads and/or collect certain anonymous information when you visit our web site.",
+      "rationale": "The policy mentions collecting anonymous information but does not specify the exact data types.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We allow third-party companies to serve ads and/or collect certain anonymous information when you visit our web site.",
+       "generic_quote": "We allow third-party companies to serve ads and/or collect certain anonymous information when you visit our web site.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting anonymous information but does not specify the exact data types."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.972672657002494
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 28.67
+ }
+}

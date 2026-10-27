@@ -1,0 +1,116 @@
+{
+ "case_id": "1498_v1",
+ "system": "full_v2_finetuned",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect information about events you like or products you buy. We might collect this as part of a survey, for example.",
+   "rationale": "The policy explicitly states that contact information, such as name, street address, phone number, and email, are collected. Additionally, it mentions collecting information about events and products, but not specifically stating health data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting information about events and products, but does not explicitly state that health data is collected. However, the finding is not supported because the evidence does not disclose the app's actual practice regarding undisclosed collection of health data. The cite"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.92390936417696,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.92390936417696,
+ "usage": {
+  "prompt": 1652,
+  "output": 271
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 47,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Health is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     11,
+     5
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect information about events you like or products you buy. We might collect this as part of a survey, for example.",
+      "rationale": "The policy explicitly states that contact information, such as name, street address, phone number, and email, are collected. Additionally, it mentions collecting information about events and products, but not specifically stating health data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We collect information from and about you. Contact information. For example, we might collect your name and street address. We might also collect your phone number or email.",
+       "denial_quote": "",
+       "generic_quote": "We may collect information about events you like or products you buy. We might collect this as part of a survey, for example.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that contact information, such as name, street address, phone number, and email, are collected. Additionally, it mentions collecting information about events and products, but not specifically stating health data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.92390936417696
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 35.53
+ }
+}

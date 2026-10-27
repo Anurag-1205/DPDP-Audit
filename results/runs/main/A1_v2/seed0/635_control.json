@@ -1,0 +1,244 @@
+{
+ "case_id": "635_control",
+ "system": "A1_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 2"
+   ],
+   "evidence": "",
+   "rationale": "The policy describes collecting various data types but does not explicitly state that these are used for advertising.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Sec. 12(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may give Sony Entertainment Network account holders the opportunity to provide information about themselves and will from time to time conduct surveys or questionnaires for members to provide feedback and additional information.",
+   "rationale": "The policy mentions collecting various types of information but does not specifically mention location data. It also does not explicitly deny collecting location data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.944660756325244,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9441601583297095,
+ "usage": {
+  "prompt": 4636,
+  "output": 610
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 44,
+  "untagged_paragraphs": 0,
+  "claims": 64,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     8,
+     9,
+     24,
+     35,
+     22,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Advertising",
+    "paragraphs": [
+     12,
+     13,
+     5,
+     21
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     8,
+     9,
+     18,
+     20,
+     23,
+     12,
+     13
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Sec. 12(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may give Sony Entertainment Network account holders the opportunity to provide information about themselves and will from time to time conduct surveys or questionnaires for members to provide feedback and additional information.",
+      "rationale": "The policy mentions collecting various types of information but does not specifically mention location data. It also does not explicitly deny collecting location data.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "disclosing_quote": "",
+       "denial_quote": "SCEA may collect information such as our website visitors' IP address, IP address-related information, system Media Access Control ('MAC') address, network configuration information, network device information, browser plug-in types and versions, operating system, and platform. We also may collect information about your download activity, browser activity, forum postings and session information.",
+       "generic_quote": "We may give Sony Entertainment Network account holders the opportunity to provide information about themselves and will from time to time conduct surveys or questionnaires for members to provide feedback and additional information.",
+       "sections": [
+        "Sec. 5(2)",
+        "Sec. 12(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting various types of information but does not specifically mention location data. It also does not explicitly deny collecting location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.944660756325244
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Although personally identifying information may be required to participate in certain promotions or features offered through our websites or to make a purchase from the PlayStationShop, participants provide this information on a voluntary basis only.",
+      "rationale": "The policy states that contact information can be used for additional services or features, but does not explicitly limit it to this purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "purpose_quote": "Although personally identifying information may be required to participate in certain promotions or features offered through our websites or to make a purchase from the PlayStationShop, participants provide this information on a voluntary basis only.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy states that contact information can be used for additional services or features, but does not explicitly limit it to this purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9182834979921016
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 2"
+      ],
+      "evidence": "",
+      "rationale": "The policy describes collecting various data types but does not explicitly state that these are used for advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "SCEA may collect information such as our website visitors' IP address, IP address-related information, system Media Access Control ('MAC') address, network configuration information, network device information, browser plug-in types and versions, operating system, and platform. We also may collect information about your download activity, browser activity, forum postings and session information.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 2"
+       ],
+       "rationale": "The policy describes collecting various data types but does not explicitly state that these are used for advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9695362206717828
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 59.1
+ }
+}

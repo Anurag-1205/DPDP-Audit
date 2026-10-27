@@ -1,0 +1,306 @@
+{
+ "case_id": "32_v2",
+ "system": "v2_read",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions collecting IP addresses but does not specify a purpose for doing so.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 7"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that IP addresses and device IDs are used for advertising purposes.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Sec. 12(3)",
+    "Sec. 12(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for IP addresses and device IDs, thus they are retained indefinitely.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9282632483798909,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9534165249051485,
+ "usage": {
+  "prompt": 7163,
+  "output": 841
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 29,
+  "untagged_paragraphs": 0,
+  "claims": 60,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     3,
+     4,
+     5,
+     6,
+     14,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location is collected for ['service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     21,
+     20,
+     19,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     4,
+     15,
+     10,
+     18
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "vague",
+    "reason": "the app keeps IP address and device IDs indefinitely; retention statements: ['Indefinitely', 'Unspecified']",
+    "paragraphs": [
+     0,
+     3,
+     5,
+     6,
+     7,
+     9,
+     14,
+     15,
+     16,
+     19,
+     22,
+     23,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "We use your Personal Information to fulfill your requests for products and services, to improve our Services, and to contact you from time to time about us, and our products and services.",
+      "rationale": "The policy explicitly mentions the collection and use of personal information for various purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We will use your Personal Information to fulfill your requests for products and services, to improve our Services, and to contact you from time to time about us, and our products and services.",
+       "denial_quote": "",
+       "generic_quote": "This Privacy Policy does not govern our use of any information you provide to us when you call us, write to us, or communicate with us in any manner other than through the Services.",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy explicitly mentions the collection and use of personal information for various purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9282632483798909
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions collecting IP addresses but does not specify a purpose for doing so.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We automatically collect certain information to help us understand how our users use the Services (which we will refer to in this Privacy Policy collectively as 'Usage Data'). For example, each time you visit the Services we may automatically collect your IP address, browser and computer type, access time, the Web page you came from, the URL you go to next, and the Web page(s) that you access during your visit.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy mentions collecting IP addresses but does not specify a purpose for doing so."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that IP addresses and device IDs are used for advertising purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "In order to serve offers and advertisements that may be interest to our users, we may display targeted advertisements on the Services based on Personal Information provided by our users, including zip code and profile. We do not provide this Personal Information to our advertisers when you interact with such an advertisement. However, please note that the advertisers (including ad serving companies) may determine based on their own analysis that a user who interacts with an advertisement targeted by us may fit into a certain demographic category; for example, an advertiser may determine that men ages 25-34 are interacting with a certain advertisement on the Services from a particular geographic area.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy explicitly states that IP addresses and device IDs are used for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9895608797485288
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Sec. 12(3)",
+       "Sec. 12(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for IP addresses and device IDs, thus they are retained indefinitely.",
+      "raw": {
+       "candidate_id": "c4",
+       "gap_type": "retention_mismatch",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Sec. 12(3)",
+        "Sec. 12(1)"
+       ],
+       "rationale": "The policy does not specify a retention period for IP addresses and device IDs, thus they are retained indefinitely."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9424254465870259
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is marked as (none: the policy is said not to mention it), which means there is no evidence in the policy that supports'",
+  "llm_calls": 4,
+  "seconds": 96.4
+ }
+}

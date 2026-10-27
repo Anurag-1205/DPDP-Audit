@@ -1,0 +1,234 @@
+{
+ "case_id": "856_control",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 8"
+   ],
+   "evidence": "We use \"cookies\" to help personalize and maximize your online experience.",
+   "rationale": "The policy mentions the use of cookies for personalization but does not explicitly state all purposes.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that cookies are used for personalization, which matches the purpose mentioned in the DPDP text (Sec. 5(1)). Although the retention period is unspecified, the purpose of personalization is clearly stated, supporting the finding of a purpose mismatch."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "personal information you knowingly choose to disclose",
+   "rationale": "The policy mentions 'personal information' but does not specifically name demographic data types.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions 'personal information you knowingly choose to disclose,' which is too vague and does not specifically mention demographic data types. The DPDP text (Sec. 5(1)) requires a clear and specific notice of the personal data and its purpose, which is not adequately addressed in"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.968224123265777,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9672116469553589,
+ "usage": {
+  "prompt": 4928,
+  "output": 792
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 36,
+  "untagged_paragraphs": 0,
+  "claims": 75,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['additional service/feature'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     6,
+     2,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     24,
+     26,
+     25
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Demographic is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     11,
+     17,
+     20,
+     26,
+     29,
+     32,
+     2,
+     31
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "personal information you knowingly choose to disclose",
+      "rationale": "The policy mentions 'personal information' but does not specifically name demographic data types.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Demographic",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "When you visit the Science Website there are two types of information you might provide to us: personal information you knowingly choose to disclose and website use information collected by us as you interact with our website.",
+       "generic_quote": "personal information you knowingly choose to disclose",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions 'personal information' but does not specifically name demographic data types."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.968224123265777
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "We may use your contact information in order to send you e-mail, postal mail, or other communications regarding updates at the Science Website, such as Job Alerts, newsletters, new opportunities, and additional listings which may be of interest to you. We may also use it to send you information about third-party products and services that match your interests and preferences, if you opt in for this communication.",
+      "rationale": "The policy explicitly states the purposes for which contact information is used.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "We may use your contact information in order to send you e-mail, postal mail, or other communications regarding updates at the Science Website, such as Job Alerts, newsletters, new opportunities, and additional listings which may be of interest to you. We may also use it to send you information about third-party products and services that match your interests and preferences, if you opt in for this communication.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states the purposes for which contact information is used."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "We use \"cookies\" to help personalize and maximize your online experience.",
+      "rationale": "The policy mentions the use of cookies for personalization but does not explicitly state all purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "A cookie is a text file that is placed on your hard drive by a web page server. Cookies are uniquely assigned to your computer, and can only be read by a web server in the domain that issued the cookie to you. One of the primary purposes of cookies is to provide a convenience feature to save you time. The purpose of a cookie is to tell the web server that you have returned to a specific page. For example, if you personalize pages or register for services on any of the Science websites, a cookie helps us to recall your specific information (such as user name, password, and preferences). Because of our use of cookies, we can deliver faster and more accurate results and a more personalized site experience. When you return to the Science Website, the information you previously provided can be retrieved, so you can easily use the features that you customized. We also use cookies to track click streams and for load balancing.",
+       "unspecified_purpose_quote": "We use 'cookies' to help personalize and maximize your online experience.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy mentions the use of cookies for personalization but does not explicitly state all purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9661991706449409
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 77.82
+ }
+}

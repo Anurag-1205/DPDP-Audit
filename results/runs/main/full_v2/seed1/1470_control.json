@@ -1,0 +1,216 @@
+{
+ "case_id": "1470_control",
+ "system": "full_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Valve Corporation and Valve S.A.R.L (collectively, Valve) respect the privacy of its online visitors and users of its products and services. Valve recognizes the importance of protecting information collected from users and has adopted this privacy policy to inform users about how Valve gathers, stores, and uses information derived from their use of Valve products, services and online sites.",
+   "rationale": "The policy mentions collecting and storing information, which includes IP addresses and device IDs.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not explicitly disclose the collection of IP addresses and device IDs. The cited DPDP text focuses on the need for a notice to be given to the Data Principal, but does not address the specific issue of undisclosed collection of data types. Therefore, the finding is not suppo"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9537803497521655,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9488773738322234,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9537399435889506,
+ "usage": {
+  "prompt": 4663,
+  "output": 585
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 51,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     19,
+     6,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     19,
+     10,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     13,
+     3,
+     6,
+     11
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Valve collects a user's email address and username, and at the user's option, first and last name.",
+      "rationale": "The policy explicitly states that Valve collects email address, username, and optionally first and last name.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Valve collects a user's email address and username, and at the user's option, first and last name.",
+       "denial_quote": "",
+       "generic_quote": "Personally Identifiable Information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that Valve collects email address, username, and optionally first and last name."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9537803497521655
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Valve Corporation and Valve S.A.R.L (collectively, Valve) respect the privacy of its online visitors and users of its products and services. Valve recognizes the importance of protecting information collected from users and has adopted this privacy policy to inform users about how Valve gathers, stores, and uses information derived from their use of Valve products, services and online sites.",
+      "rationale": "The policy mentions collecting and storing information, which includes IP addresses and device IDs.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Cookies are bits of electronic information that can be transferred to a user's hard drive to customize a person's use of a product or online site, keep records of a user's access to an online site or product, or store information needed by the user on a regular basis.",
+       "denial_quote": "",
+       "generic_quote": "Valve Corporation and Valve S.A.R.L (collectively, Valve) respect the privacy of its online visitors and users of its products and services. Valve recognizes the importance of protecting information collected from users and has adopted this privacy policy to inform users about how Valve gathers, stores, and uses information derived from their use of Valve products, services and online sites.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting and storing information, which includes IP addresses and device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9488773738322234
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Valve software automatically generates and submits to Valve bug reports upon a crash or other fault in the Valve software, services or Steam games.",
+      "rationale": "The policy explicitly states that Valve software automatically generates and submits bug reports, which covers the basic service/feature purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "Valve software automatically generates and submits to Valve bug reports upon a crash or other fault in the Valve software, services or Steam games.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that Valve software automatically generates and submits bug reports, which covers the basic service/feature purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9585621071824628
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 87.42
+ }
+}

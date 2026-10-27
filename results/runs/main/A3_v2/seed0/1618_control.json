@@ -1,0 +1,173 @@
+{
+ "case_id": "1618_control",
+ "system": "A3_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "The CIN gathered by MediaNews generally includes cookies, specific Web site page requests, the domain name (e.g., www.medianewsgroup.com) and Internet Provider (e.g., Comcast, American Online, NetZero) from which you access the Internet, the Internet Protocol address of your computer, the browser software (e.g. Internet Explorer or Netscape) and operating system (e.g., Windows XP, 2000, OS/2 or MacOS) you are using, your geographic location, the time and date you accessed the site, and the Internet address you visited prior to visiting the site.",
+   "rationale": "The policy does not specify any purpose for collecting location data, and only describes the types of data collected.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence describes the types of data collected, including location data, but does not specify the purpose for which this data is collected. The cited DPDP text in Sec. 5(1) requires specifying the purpose for processing personal data. Rule 8 discusses the retention period but does not dir"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9678316404628727,
+ "usage": {
+  "prompt": 3711,
+  "output": 541
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 45,
+  "untagged_paragraphs": 0,
+  "claims": 61,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature', 'marketing'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     2,
+     3,
+     4,
+     15,
+     19,
+     38,
+     43,
+     36,
+     30
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Location is collected for ['unspecified'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     11,
+     13,
+     5,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 27(1)"
+      ],
+      "evidence": "MediaNews uses PIN and CIN that is collected to fulfill subscriptions, change addresses, suspend delivery, confirm and process transactions and to contact the user regarding his or her account, new or existing products and services and special offers.",
+      "rationale": "The policy explicitly states the purpose for using contact information, which aligns with the Service Operation and Security category.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "purpose_quote": "MediaNews uses PIN and CIN that is collected to fulfill subscriptions, change addresses, suspend delivery, confirm and process transactions and to contact the user regarding his or her account, new or existing products and services and special offers.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy explicitly states the purpose for using contact information, which aligns with the Service Operation and Security category."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9619900922127964
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "The CIN gathered by MediaNews generally includes cookies, specific Web site page requests, the domain name (e.g., www.medianewsgroup.com) and Internet Provider (e.g., Comcast, American Online, NetZero) from which you access the Internet, the Internet Protocol address of your computer, the browser software (e.g. Internet Explorer or Netscape) and operating system (e.g., Windows XP, 2000, OS/2 or MacOS) you are using, your geographic location, the time and date you accessed the site, and the Internet address you visited prior to visiting the site.",
+      "rationale": "The policy does not specify any purpose for collecting location data, and only describes the types of data collected.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "The CIN gathered by MediaNews generally includes cookies, specific Web site page requests, the domain name (e.g., www.medianewsgroup.com) and Internet Provider (e.g., Comcast, American Online, NetZero) from which you access the Internet, the Internet Protocol address of your computer, the browser software (e.g. Internet Explorer or Netscape) and operating system (e.g., Windows XP, 2000, OS/2 or MacOS) you are using, your geographic location, the time and date you accessed the site, and the Internet address you visited prior to visiting the site.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify any purpose for collecting location data, and only describes the types of data collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9736731887129491
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 51.54
+ }
+}

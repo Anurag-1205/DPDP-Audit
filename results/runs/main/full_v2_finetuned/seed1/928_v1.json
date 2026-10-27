@@ -1,0 +1,190 @@
+{
+ "case_id": "928_v1",
+ "system": "full_v2_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "If you provide us with your postal or e-mail address or telephone number, this information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+   "rationale": "The policy does not mention the collection of IP addresses or device IDs, and explicitly states that the analysis does not involve personally identifiable information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f6",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "This analysis does not involve personally identifiable information. It is used only for the purpose of helping us understand and better meet our audience's needs.",
+   "rationale": "The policy explicitly states that the site does not collect personal data from children under 13, thus no personal identifier is disclosed or collected.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9715394327334801,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "vague",
+   "confidence": 0.9648043327216037,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9681718827275418,
+ "usage": {
+  "prompt": 3369,
+  "output": 576
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 19,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     9,
+     4,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f6",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Personal identifier is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     9,
+     28,
+     29
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you provide us with your postal or e-mail address or telephone number, this information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+      "rationale": "The policy does not mention the collection of IP addresses or device IDs, and explicitly states that the analysis does not involve personally identifiable information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "This analysis does not involve personally identifiable information. It is used only for the purpose of helping us understand and better meet our audience's needs.",
+       "generic_quote": "If you provide us with your postal or e-mail address or telephone number, this information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention the collection of IP addresses or device IDs, and explicitly states that the analysis does not involve personally identifiable information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9715394327334801
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "This analysis does not involve personally identifiable information. It is used only for the purpose of helping us understand and better meet our audience's needs.",
+      "rationale": "The policy explicitly states that the site does not collect personal data from children under 13, thus no personal identifier is disclosed or collected.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Our site is not directed toward children under 13. Nonetheless, we are committed to comply with applicable laws and requirements, such as the Children's Online Privacy Protection Act. We do not knowingly collect personal data from children under 13. Minor children should always obtain parental consent before releasing personal information to any web site.",
+       "generic_quote": "This analysis does not involve personally identifiable information. It is used only for the purpose of helping us understand and better meet our audience's needs.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the site does not collect personal data from children under 13, thus no personal identifier is disclosed or collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9648043327216037
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence mentions that the analysis does not involve personally identifiable information, but it does not explicitly state that '",
+  "llm_calls": 3,
+  "seconds": 67.84
+ }
+}

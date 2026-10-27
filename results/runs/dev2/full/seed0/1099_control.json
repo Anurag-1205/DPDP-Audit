@@ -1,0 +1,187 @@
+{
+ "case_id": "1099_control",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "personal information",
+   "rationale": "The policy mentions using 'personal information' but does not specify contact details.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions 'personal information' but does not specify contact details, which aligns with the requirement in Sec. 5(1) to inform the Data Principal about the personal data and the purpose for which it is proposed to be processed. The rationale correctly identifies that the policy d"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 10"
+   ],
+   "evidence": "Our websites automatically collect certain information, such as your IP address, browser type, domain name, access times and referring website address. This helps facilitate your online experience at our websites.",
+   "rationale": "The policy does not specify a purpose for collecting IP addresses and device IDs, only that they are collected to facilitate the user's online experience.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that IP addresses and device IDs are collected to facilitate the user's online experience, which does not match the stated purpose of 'Personalization/Customization'. The cited sections (Sec. 5(1), Sec. 6(1)) pertain to notices and consent, not the purposes for data proces"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9605463986925449,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9654496001043236,
+ "usage": {
+  "prompt": 3837,
+  "output": 524
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 39,
+  "untagged_paragraphs": 0,
+  "claims": 71,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     5,
+     14,
+     33,
+     38,
+     17,
+     32
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     3,
+     18
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "personal information",
+      "rationale": "The policy mentions using 'personal information' but does not specify contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We use the personal information you provide to allow you to make product purchases, to fulfill your requests, improve our publications, products and services, to send you promotional offers related to TEN or our business partners, and to operate our business.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions using 'personal information' but does not specify contact details."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9605463986925449
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 10"
+      ],
+      "evidence": "Our websites automatically collect certain information, such as your IP address, browser type, domain name, access times and referring website address. This helps facilitate your online experience at our websites.",
+      "rationale": "The policy does not specify a purpose for collecting IP addresses and device IDs, only that they are collected to facilitate the user's online experience.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Personalization/Customization",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Our websites automatically collect certain information, such as your IP address, browser type, domain name, access times and referring website address. This helps facilitate your online experience at our websites.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not specify a purpose for collecting IP addresses and device IDs, only that they are collected to facilitate the user's online experience."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9703528015161023
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 87.43
+ }
+}
