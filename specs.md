@@ -276,9 +276,11 @@ flowchart LR
 - [x] **AC-03.4** PoliCheck SHOULD reproduce its result on the authors' example flows, to validate the
   set-up (WP-2.3). *Changed 26 Oct: the authors ship flows but neither policies nor labels, so nothing
   can be reproduced; a six-policy known-answer check replaces it (`data/tools/policheck_sanity/`,
-  `scripts/check_policheck_sanity.py`). Evidence: `results/tools/policheck/sanity/check.json`, 5 of 6
-  agree (Kaggle, 27 Oct); the miss is the clear third-party case, which PoliCheck reads as vague
-  because its entity ontology puts "google ads" under the named "Google".*
+  `scripts/check_policheck_sanity.py`). Evidence: `results/tools/policheck/sanity/check.json`, 7 of 7
+  agree, covering all five labels (27 Oct). A first six-case version
+  (`results/tools/policheck/sanity_6case/`) agreed on 5 of 6: PoliCheck reads "We share your location
+  with Google" as vague for a flow to Google Ads, because its entity ontology puts "google ads" under
+  "Google"; the clear case now uses Facebook, which PoliCheck matches exactly.*
 - [x] **AC-03.5** PoliCheck MUST label all 102 main cases (WP-2.3, MS-2). *Evidence: `results/runs/main/S1/` (282/282 exported flows matched), Kaggle run 26 Oct.*
 - [x] **AC-03.6** PoliCheck MUST label all 140 ladder cases (WP-2.4). *Evidence: `results/tools/policheck/ladder/`, `results/runs/ladder/S1/` (140/140 matched).*
 - [x] **AC-03.7** The PoliGraph environment MUST pass a 2-case smoke test on the workstation by 26 Oct

@@ -298,10 +298,10 @@ prompt is the prompted tagger's own, so only the weights differ.
 
 **Deviations.**
 - AC-03.4: the PoliCheck authors ship flows but neither policies nor labels, so their result cannot
-  be reproduced; a six-policy known-answer check replaces it. PoliCheck gives the expected label on
-  5 of 6. It reads "We share your location with Google" as *vague* for a flow to Google Ads, because
-  its entity ontology puts "google ads" under "Google"; the same rule lowers its clear-rung score on
-  the ladder (§5).
+  be reproduced; a seven-policy known-answer check covering all five PoliCheck labels replaces it,
+  and PoliCheck gives the expected label on 7 of 7. A first version used "We share your location with
+  Google" for a flow to Google Ads, which PoliCheck reads as *vague* because its entity ontology puts
+  "google ads" under "Google"; the same rule lowers its clear-rung score on the ladder (§5).
 - B4 needs 102 requests per seed and the free tier allows 20 per key per day; seeds 1–2 ran on
   several team keys (27 Oct), all 306 runs without a failed call.
 - v2 of the pipeline (§4.1) was added after the first evaluation runs. It was developed on the dev
