@@ -1,4 +1,4 @@
-"""Kaggle kernel: run PoliGraph-er and its flow-consistency check on the main benchmark (S2).
+"""Kaggle kernel: run PoliGraph-er and its flow-consistency check on a benchmark split (S2).
 
 Builds a Python 3.10 environment with the versions PoliGraph was released with (its
 environment.yml pins old builds that do not resolve with conda on Kaggle), downloads its
@@ -28,7 +28,8 @@ PG = f"{WORK}/PoliGraph"
 ENV = f"{WORK}/pgenv"
 PY = f"{ENV}/bin/python"
 OUT = f"{WORK}/poligraph"
-EXPORT = f"{REPO}/data/benchmark/main/export/policheck"
+SPLIT = "ladder"           # benchmark split to run: "main" or "ladder"
+EXPORT = f"{REPO}/data/benchmark/{SPLIT}/export/policheck"
 T_START = time.time()
 
 PINS = [
@@ -104,8 +105,13 @@ def setup():
         print("GPU: off, running on CPU", flush=True)
 
 
+def policy_key(case_id: str) -> str:
+    """Main cases of a policy share its text; every ladder rung has its own text."""
+    return case_id if SPLIT == "ladder" else case_id.split("_")[0]
+
+
 def policy_url(policy_id: str) -> str:
-    return f"https://www.p{policy_id}.dpdpaudit.com/privacy"
+    return f"https://www.p{re.sub(r'[^a-z0-9]', '', policy_id.lower())}.dpdpaudit.com/privacy"
 
 
 def policy_dir(policy_id: str) -> str:
@@ -115,7 +121,7 @@ def policy_dir(policy_id: str) -> str:
 def prepare_inputs() -> list[str]:
     """One html per policy, and a header-less flows.csv with one policy URL per policy."""
     index = list(csv.DictReader(open(f"{EXPORT}/flow_index.csv")))
-    case_policy = {r["case_id"]: r["case_id"].split("_")[0] for r in index}
+    case_policy = {r["case_id"]: policy_key(r["case_id"]) for r in index}
     texts: dict[str, str] = {}
     for r in index:
         pid = case_policy[r["case_id"]]
@@ -135,7 +141,7 @@ def prepare_inputs() -> list[str]:
         rows = list(csv.reader(fin))[1:]
         w = csv.writer(fout)
         for r in rows:
-            r[8] = policy_url(r[1].split("_")[0])
+            r[8] = policy_url(policy_key(r[1]))
             w.writerow(r)
     print(f"{len(dirs)} policies, {len(rows)} flows", flush=True)
     return dirs

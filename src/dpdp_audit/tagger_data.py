@@ -49,3 +49,26 @@ def write(out_dir: Path) -> dict:
                 f.write(json.dumps(r) + "\n")
         counts[name] = {"segments": len(rows), "policies": len({r["policy_id"] for r in rows})}
     return counts
+
+
+def claims_examples(split_name: str) -> list[dict]:
+    """Annotated segments with their categories and structured claims (the claims tagger's targets).
+
+    The claims are the oracle tagger's (pipeline.claims.oracle_paragraphs), so the fine-tuned tagger
+    learns exactly the format the pipeline reads. split_name: "train" or "heldout".
+    """
+    from .pipeline.claims import oracle_paragraphs
+
+    keep = set(load_split()[split_name])
+    out = []
+    for pol in load_all():
+        if f"{pol.policy_id}_{pol.name}" not in keep:
+            continue
+        by_text = {}
+        for seg_id, text in enumerate(pol.segments):
+            by_text.setdefault(text, seg_id)
+        for rec in oracle_paragraphs(pol):
+            if rec["categories"]:
+                out.append({"policy_id": pol.policy_id, "segment_id": by_text[rec["text"]], "hash": rec["hash"],
+                            "text": rec["text"], "categories": rec["categories"], "claims": rec["claims"]})
+    return out
