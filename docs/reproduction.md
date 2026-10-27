@@ -22,6 +22,7 @@ laptop; GPU steps run on Kaggle. Set up the environment first ([developer-guide.
 | Tool export | `python scripts/export_policheck.py --split main` | `data/benchmark/main/export/policheck/` |
 | Vagueness ladder | `python scripts/build_ladder.py && python scripts/export_policheck.py --split ladder` | `data/benchmark/ladder/` |
 | Dev split (training policies) | `python scripts/generate_cases.py --split dev --policy-set train --n-policies 12` | `data/benchmark/dev/` |
+| Second dev split (v2) | `python scripts/generate_cases.py --split dev2 --policy-set train --n-policies 24 --exclude-splits dev` | `data/benchmark/dev2/` |
 
 `generate_cases.py` deletes the split folder first, so run the export again afterwards.
 
@@ -85,8 +86,10 @@ python scripts/convert_tool_runs.py --split ladder --tools S1 S2           # aft
 ## 5. Scores
 
 ```bash
-python scripts/score_runs.py --systems B1 B2 S1 S2 full
-python scripts/score_ladder.py --systems S1 S2
+python scripts/score_runs.py --systems B1 B2 B4 S1 S2 full full_finetuned A1 A2 A3 A5 full_v2 full_v2_finetuned \
+    A1_v2 A2_v2 A3_v2 A5_v2 --paired full_v2-full full_v2_finetuned-full_finetuned full_v2_finetuned-B2 …
+python scripts/score_runs.py --split dev --systems full v2_gate v2_read v2_purpose v2_batch   # and --split dev2
+python scripts/score_ladder.py --systems S1 S2 B2 full full_finetuned full_v2 full_v2_finetuned
 python scripts/eval_tagger.py --gold results/tagger/heldout.jsonl \
     --pred B3=results/tagger/B3_pred.jsonl S3=results/tagger/S3_pred.jsonl --claims prompted finetuned
 ```

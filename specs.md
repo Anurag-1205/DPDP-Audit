@@ -26,7 +26,7 @@
 | [SPEC-01](#spec-01--main-benchmark) | Main benchmark | Anurag | Done (spot-check pending) | MS-1 | — |
 | [SPEC-02](#spec-02--single-pass-llm-baselines-b1-b2-b4) | Single-pass LLM baselines B1, B2, B4 | Naveen | In progress | MS-1 → MS-3 | SPEC-01 |
 | [SPEC-03](#spec-03--existing-tool-baselines-policheck-s1-and-poligraph-s2) | Existing-tool baselines: PoliCheck and PoliGraph | Ishaan | Main and ladder done; real flows pending | MS-2 → MS-4 | SPEC-01, SPEC-06 |
-| [SPEC-04](#spec-04--dpdp-audit-pipeline-and-ablations) | DPDP-Audit pipeline and ablations | Naveen | In progress (v1, main × 3 seeds, A1/A2/A3/A5 done) | MS-2 → MS-3 | SPEC-01, SPEC-02, SPEC-05 |
+| [SPEC-04](#spec-04--dpdp-audit-pipeline-and-ablations) | DPDP-Audit pipeline and ablations | Naveen | In progress (v1 frozen and v2 chosen on dev splits, both main × 3 seeds + ladder; ablations on v1 and v2) | MS-2 → MS-3 | SPEC-01, SPEC-02, SPEC-05 |
 | [SPEC-05](#spec-05--clause-tagger-fine-tuning-and-component-baselines) | Clause tagger: fine-tuning and component baselines | Nikhil | In progress (QLoRA 0.713 macro-F1, in the pipeline; S4 extraction pending) | MS-2 → MS-3 | SPEC-01 |
 | [SPEC-06](#spec-06--vagueness-ladder) | Vagueness ladder | Anurag | Built and scored; human check pending | MS-2 | SPEC-01 |
 | [SPEC-07](#spec-07--selective-accuracy) | Selective accuracy | Nikhil | Planned | MS-4 | SPEC-02, SPEC-03, SPEC-04, SPEC-06 |
@@ -273,10 +273,12 @@ flowchart LR
 - [x] **AC-03.2** A PoliCheck smoke test on 2 cases MUST run and convert to our run format.
 - [x] **AC-03.3** The converter MUST map PoliCheck's ontology terms and entities back to our flows,
   with a unit test.
-- [ ] **AC-03.4** PoliCheck SHOULD reproduce its result on the authors' example flows, to validate the
+- [x] **AC-03.4** PoliCheck SHOULD reproduce its result on the authors' example flows, to validate the
   set-up (WP-2.3). *Changed 26 Oct: the authors ship flows but neither policies nor labels, so nothing
   can be reproduced; a six-policy known-answer check replaces it (`data/tools/policheck_sanity/`,
-  `scripts/check_policheck_sanity.py`).*
+  `scripts/check_policheck_sanity.py`). Evidence: `results/tools/policheck/sanity/check.json`, 5 of 6
+  agree (Kaggle, 27 Oct); the miss is the clear third-party case, which PoliCheck reads as vague
+  because its entity ontology puts "google ads" under the named "Google".*
 - [x] **AC-03.5** PoliCheck MUST label all 102 main cases (WP-2.3, MS-2). *Evidence: `results/runs/main/S1/` (282/282 exported flows matched), Kaggle run 26 Oct.*
 - [x] **AC-03.6** PoliCheck MUST label all 140 ladder cases (WP-2.4). *Evidence: `results/tools/policheck/ladder/`, `results/runs/ladder/S1/` (140/140 matched).*
 - [x] **AC-03.7** The PoliGraph environment MUST pass a 2-case smoke test on the workstation by 26 Oct
@@ -379,6 +381,7 @@ flowchart LR
   tagger replaces it in WP-3.1, and both are reported.
 - **Long policies:** the context limit is 12,288 tokens, so reviewers see only the paragraphs linked to
   their candidates.
+- **v2 (27 Oct):** the frozen pipeline's problems were fixed as new configurations (`full_v2`, `full_v2_finetuned`, switches in `pipeline/config.py`), chosen on the dev splits `dev` + `dev2` (training policies) and frozen before their single run on main and the ladder (constraint 3). The frozen v1 runs stay in every table. Details: `docs/pipeline.md#v2`.
 
 ---
 

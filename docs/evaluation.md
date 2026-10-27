@@ -22,8 +22,9 @@ flowchart LR
 | B1 | Single pass, raw inputs | Qwen2.5-7B-Instruct-AWQ | all | 3 |
 | B2 | Single pass, parsed facts + DPDP text | Qwen2.5-7B-Instruct-AWQ | all | 3 |
 | B4 | B2's prompt, stronger model | `gemini-3-flash-preview` | all | 3 |
-| full | DPDP-Audit | Qwen2.5-7B + tagger | all | 3 |
-| A1–A5 | Ablations | as full, one change each | all | 1 |
+| full | DPDP-Audit, frozen 26 Oct (prompted tagger; `full_finetuned` with the QLoRA tagger) | Qwen2.5-7B + tagger | all | 3 |
+| full_v2 | DPDP-Audit v2, chosen on the dev splits ([pipeline.md](pipeline.md#v2)); `full_v2_finetuned` with the QLoRA tagger | Qwen2.5-7B + tagger | all | 3 |
+| A1–A5 | Ablations | as full, one change each; `A*_v2` as full_v2_finetuned | all | 1 |
 | S3 | PrivBERT | `mukund/privbert`, fine-tuned on our split | tagging only | 1 |
 | S4 | PolicyLint and PoliGraph extraction | Authors' code | statement extraction | 1 |
 | B3 | Prompted 3B tagger | Qwen2.5-3B-Instruct, zero-shot | tagging only | 1 |
@@ -39,9 +40,10 @@ comparison is with the LLM systems only, and coverage is reported next to F1.
 | S2 PoliGraph | ✓ | ✓ | ✓ | Main and ladder done |
 | B1 | ✓ | — | ✓ | Done (306 runs) |
 | B2 | ✓ | ✓ | ✓ | Main and ladder done (3 seeds each) |
-| B4 | ✓ | — | — | Seed 0 done; seeds 1–2 running (free-tier quota) |
-| full | ✓ | ✓ | ✓ | Main 3 seeds, ladder seed 0 |
-| A1–A5 | ✓ | — | — | A1, A2, A3, A5 done; A4 waits for the fine-tuned tagger |
+| B4 | ✓ | — | — | Done (3 seeds) |
+| full, full_finetuned | ✓ | ✓ | ✓ | Main 3 seeds, ladder seed 0 |
+| full_v2, full_v2_finetuned | ✓ | ✓ | ✓ | Main 3 seeds, ladder seed 0 |
+| A1–A5 | ✓ | — | — | A1, A2, A3, A5 on the frozen pipeline; A1_v2, A2_v2, A3_v2, A5_v2 on v2 (A4 on v2 = full_v2) |
 
 ## Run and scoring flow
 
@@ -97,7 +99,7 @@ marked `uncertain` count as not reported and are listed separately.
 
 ### Statistics
 
-- **Seeds:** 3 for the headline LLM systems (B1, B2, B4, full), 1 for the ablations; the deterministic
+- **Seeds:** 3 for the headline LLM systems (B1, B2, B4, full, full_v2), 1 for the ablations; the deterministic
   tools run once.
 - **Point estimates:** the mean over seeds.
 - **Intervals:** 95% cluster-bootstrap intervals on seed 0, re-sampling whole policies, 1,000 times. Cases built from the same policy share its text, so

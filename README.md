@@ -33,8 +33,8 @@ flowchart LR
 
 ## Results so far (Stage 2)
 
-Main benchmark: 102 cases, 118 gold gaps. Qwen2.5-7B-Instruct for B1, B2 and the pipeline (mean of
-three seeds); one deterministic run for the tools; B4 = Gemini 3 Flash, seed 0.
+Main benchmark: 102 cases, 118 gold gaps. Qwen2.5-7B-Instruct for B1, B2 and the pipeline, B4 =
+Gemini 3 Flash (mean of three seeds); one deterministic run for the tools.
 
 | System | F1 | False-alarm rate | Citation correct |
 |---|---|---|---|
@@ -42,20 +42,24 @@ three seeds); one deterministic run for the tools; B4 = Gemini 3 Flash, seed 0.
 | S2 PoliGraph | 0.166 | 0.853 | — |
 | B1 · one prompt, raw inputs | 0.182 | 0.971 | 0.325 |
 | B2 · one prompt, parsed facts + DPDP text | 0.181 | 0.745 | 0.894 |
-| B4 · B2's prompt, Gemini 3 Flash | 0.414 | 0.971 | 1.000 |
-| **DPDP-Audit, prompted tagger** | **0.343** | 0.471 | **1.000** |
-| **DPDP-Audit, QLoRA tagger** | 0.321 | **0.333** | **1.000** |
+| B4 · B2's prompt, Gemini 3 Flash | 0.421 | 0.971 | 0.996 |
+| DPDP-Audit (frozen v1), prompted tagger | 0.343 | 0.471 | 1.000 |
+| DPDP-Audit (frozen v1), QLoRA tagger | 0.321 | 0.333 | 1.000 |
+| **DPDP-Audit v2, prompted tagger** | 0.637 | 0.353 | **1.000** |
+| **DPDP-Audit v2, QLoRA tagger** | **0.655** | 0.343 | **1.000** |
 
-With the same model and inputs, the evidence-gated pipeline nearly doubles B2's F1 (+0.15, 95%
-interval [+0.05, +0.26]) and lowers false alarms. Details, ablations and the ladder:
-[docs/mid-submission-report.md](docs/mid-submission-report.md).
+With the same model and inputs, the frozen pipeline nearly doubles B2's F1 (+0.15, 95% interval
+[+0.05, +0.26]) and lowers false alarms. v2, whose changes were chosen on development splits of
+training policies only, reaches F1 0.655 with the QLoRA tagger, significantly ahead of every baseline
+(B4: +0.25 F1, −0.68 false-alarm rate). Details, ablations and the ladder:
+[docs/mid-submission-report.md](docs/mid-submission-report.md) and [docs/pipeline.md](docs/pipeline.md#v2).
 
 ## Quick start
 
 ```bash
 python3 -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt && pip install -e ".[dev]"
-pytest -q                                   # 70 tests
+pytest -q                                   # 77 tests
 
 scripts/download_opp115.sh                  # OPP-115 corpus → data/raw/
 python scripts/generate_cases.py            # rebuilds data/benchmark/main/ (byte-identical)

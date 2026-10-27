@@ -113,6 +113,53 @@ on dev (0 of 8).
 | Retention | the policy keeps data indefinitely | a stated period or limit | retention mentioned without a period | nothing about retention |
 | Children | — (always a gap for a child-directed app sending data to an ad/tracking SDK) | a verified children statement | — | no children statement |
 
+## v2
+
+The first evaluation runs showed problems (the verifier's LLM check rejects correct findings, purpose
+gaps are rarely found). Looking at main-benchmark errors would be tuning on evaluation cases, so v2
+was developed on training policies only, and every change is a switch of `pipeline/config.py`: the
+frozen `full` and `full_finetuned` runs are unchanged and stay in every table.
+
+**Dev splits.** `dev` (33 cases) plus a new `dev2` (69 cases from 23 more training policies;
+`scripts/generate_cases.py --split dev2 --policy-set train --n-policies 24 --exclude-splits dev`), 102
+cases from 34 policies with 118 gold gaps, about the size of main. No policy is shared with dev, main
+or the ladder. The fine-tuned tagger was trained on all training policies, so the dev splits are only
+fair to the prompted tagger; every choice below was made with it.
+
+**What the dev analysis found.**
+- The LLM check rejected every correct children's-data and retention finding on dev; it is right to
+  reject most collection and purpose findings.
+- 7 of the 8 dev purpose gaps were never checked: the tagger missed the collection claim, so the
+  finder proposed a collection gap instead of checking the purpose.
+- A purpose quote such as "this information is used to ..." was rejected because the sentence itself
+  does not name the data type.
+- 17 of 47 false collection findings had the disclosing paragraph cut by the 8-paragraph limit; in
+  most of the others the paragraph was shown but the reviewer, answering several candidates at once,
+  quoted nothing.
+- The retention reviewer echoes the app's own "Indefinitely" and, with more paragraphs, quotes an
+  unrelated sentence, which the frozen rule reads as "the policy keeps data indefinitely, no gap".
+
+**Variants** (seed 0, prompted tagger; runs under `results/runs/dev*/v2_*`):
+
+| Config | Change | F1 | False-alarm rate | Label macro-F1 |
+|---|---|---|---|---|
+| full (frozen) | — | 0.322 | 0.41 | 0.308 |
+| v2_gate | LLM check only on collection and purpose findings; a purpose quote counts if its paragraph names the data type | 0.527 | 0.41 | 0.308 |
+| v2_read | + up to 16 paragraphs per reviewer; purpose searches with the purpose's everyday words (4 hits) | 0.524 | 0.35 | 0.318 |
+| v2_purpose | + a purpose candidate for every flow whose notice is in doubt | 0.458 | 0.59 | 0.379 |
+| v2_batch | v2_read + one candidate per reviewer call | 0.548 | 0.29 | 0.382 |
+| **full_v2** | v2_batch + a retention quote must be about keeping data, and "indefinitely" must be in it | **0.623** | **0.29** | **0.382** |
+
+full_v2's row re-derives v2_batch's saved replies with the retention rule (the rule is deterministic;
+re-deriving with the rule off reproduces v2_batch exactly). Paired policy-level bootstrap on the
+pooled dev splits: full_v2 − full: F1 **+0.301 [+0.229, +0.392]**, false-alarm rate −0.118
+[−0.324, +0.088], label macro-F1 **+0.074 [+0.005, +0.150]**. v2_purpose was rejected (F1 −0.066
+[−0.112, −0.025], false alarms +0.235 [+0.029, +0.441] vs v2_read).
+
+**Frozen 27 Oct** as `full_v2` (prompted tagger) and `full_v2_finetuned`, before any v2 run on main or
+the ladder. The tool-calling problem (no reviewer calls a tool) is not addressed: the finder already
+runs `search_policy` for every candidate, and showing more paragraphs covers what the calls would add.
+
 ## Reviewer agent loop
 
 ```mermaid
