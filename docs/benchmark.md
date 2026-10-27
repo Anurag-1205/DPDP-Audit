@@ -5,7 +5,7 @@ The benchmark supplies test cases whose correct answers are known in advance. It
 | Part | Cases | Answer source | Status |
 |---|---|---|---|
 | Main benchmark | 102 (34 controls, 68 variants) | Scripted rules over OPP-115 annotations | Implemented |
-| Vagueness ladder | 140 (35 ladders × 4 rungs) | Construction (templated rung sentences) | Planned (SPEC-06) |
+| Vagueness ladder | 140 (35 ladders × 4 rungs) | Construction (templated rung sentences) | Built; human check pending (SPEC-06) |
 | Real flows | ~25 apps, 60–80 flows | Two independent human labels (Cohen's κ) | Planned (SPEC-08) |
 | Open-source case study | 3–5 repositories | Every finding checked by hand | Planned (SPEC-08) |
 
@@ -233,9 +233,37 @@ flowchart LR
 | Rung | Inserted sentence (sharing template) | Gold label |
 |---|---|---|
 | Clear | "We share your precise location with our advertising partner Google (AdMob) to show you relevant ads." | clear |
-| Explicit | "We do not share your location with third parties." | incorrect |
+| Explicit | "We do not share your precise location with third parties." | incorrect |
 | Vague | "We may share information with our partners." | vague |
 | Deleted | — | omitted |
+
+Collection ladders use "We collect your {data} to provide and operate the features of our app.", "We
+do not collect your {data}." and "We may collect information about you when you use our services."
+
+### As built (`scripts/build_ladder.py`, `src/dpdp_audit/ladder.py`)
+
+| Measure | Value |
+|---|---|
+| Ladders | 35 (23 sharing, 12 collection), one per held-out policy |
+| Cases | 140 (`L<policy>_r1` … `_r4` = clear, explicit, vague, deleted) |
+| Data types | Location 8 · IP address and device IDs 10 · Computer information 8 · Contact 6 · Personal identifier 3 |
+| Recipients (sharing) | AdMob (Advertising) and Mixpanel (Analytics/Research), alternating |
+| Sentences removed for the base policies | 735 (2 ladders needed none) |
+| Ladders with residual-mention flags | 23 (see `removed_sentences.json`) |
+| PoliCheck export | 140 of 140 flows (23% exact mapping) |
+
+- **Target choice:** the data type is drawn from the types the policy addresses for the practice
+  (seed 0), so that removal is tested; the app has one flow, identical across the four rungs.
+- **Removal:** a sentence is removed when it overlaps any annotated span of a practice of the target
+  category whose data type is the target, a generic type or missing, in either direction.
+- **Insertion:** at the position of the first removed sentence, or at the end of the first paragraph
+  when nothing was removed. `tests/test_ladder.py` checks that each rung minus its sentence equals the
+  deleted rung, character for character.
+- **Residual flags:** base sentences that still name the data type (or, for sharing, generic data)
+  next to a practice verb. They are leads for the checkers, not verdicts.
+- **Human check (WP-2.2):** `check_sheet.csv` has one row per rung and two checker columns. Scoring
+  (`scripts/score_ladder.py`) uses only rungs both checkers mark `ok` once the sheet is complete, and
+  every rung until then (reported as such).
 
 ## Export for the existing tools
 
