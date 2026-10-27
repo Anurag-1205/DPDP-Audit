@@ -1,7 +1,7 @@
 # DPDP-Audit pipeline
 
-**Status:** planned (SPEC-04). The shared services it uses (app tools, DPDP retrieval, LLM client) are
-implemented.
+**Status:** v1 implemented (SPEC-04) in `src/dpdp_audit/pipeline/`, with unit tests on a scripted fake
+LLM (`tests/test_pipeline.py`). Runs: `scripts/run_pipeline.py` locally or `kaggle/pipeline/` on Kaggle.
 
 The pipeline takes a privacy policy and an application, and returns findings. Each finding has a gap
 type, a level, a verbatim quote from the policy and a DPDP section. A finding without evidence is
@@ -63,6 +63,55 @@ Reviewer responsibilities:
 
 Every model call goes through the cached LLM client: Qwen2.5-7B-Instruct served by vLLM on Kaggle, or
 Gemini for B4 only. The pipeline and the single-pass baselines B1/B2 use **the same model**.
+
+## Implementation
+
+| Stage | Module | Notes |
+|---|---|---|
+| 1 Tagger | `pipeline/claims.py`, `scripts/tag_policies.py` | Taggers run offline, once per distinct paragraph (keyed by a hash of its text), and write `results/tagger/claims/<tagger>.jsonl`. `oracle` is built from the OPP-115 annotations. |
+| 2 Tools | `baselines.app_facts`, `tools/` | The same parsed facts B2 receives |
+| 3 Mismatch finder | `pipeline/finder.py` | Deterministic. A flow is a candidate unless the claims cover it explicitly and specifically; each candidate carries a suggested level, a reason and linked paragraph numbers |
+| 4 Reviewers | `pipeline/reviewers.py`, `pipeline/decide.py`, `pipeline/vocab.py` | One LLM agent per reviewer with candidates; it copies the policy sentences that disclose, deny or generically cover each flow, and `decide.py` derives the decision from the quotes that are in the policy. Tool loop of at most 3 calls; prompts fill a 30,000-character budget (≈ 8.5k tokens) so a reply always fits the 12,288-token context |
+| 5 Aggregator | `pipeline/aggregator.py` | Normalises citations, drops a purpose finding when the same flow has a notice gap, merges findings per (data type, gap type); an undecided candidate keeps the finder's label |
+| 6 Verifier | `pipeline/verifier.py` | Deterministic quote and section checks, then one LLM support check per case (temperature 0); a reply that cannot be parsed leaves the findings as they are (logged) |
+| Configurations | `pipeline/config.py` | `full`, `A1`–`A5`, `full_finetuned` |
+
+Every run stores a `trace`: paragraphs and claims, candidates, reviewer decisions, tool calls with their
+validity, undecided candidates, LLM calls and seconds. Dropped findings are kept under `dropped` with
+the reason.
+
+**What the oracle ablation measures.** The answer keys are computed from the same annotations the
+oracle tagger reads, and the finder applies the same notion of coverage. With oracle claims the
+finder's candidates reproduce the keys (checked on the dev split: 35 of 35 gold gaps found at the right
+level, no candidate on a control). A5 is therefore an upper bound on what the reviewers keep, not an
+independent measurement; the A4–A5 gap is the cost of reading errors.
+
+**Development split.** Prompts were developed on `data/benchmark/dev/` (33 cases, 11 controls, from
+12 *training* policies; `scripts/generate_cases.py --split dev --policy-set train --n-policies 12`),
+never on the evaluation cases. Four iterations, seed 0, prompted tagger (runs kept under
+`results/runs/dev/full_dev1…3` and `full`):
+
+| Run | Change | F1 | False-alarm rate |
+|---|---|---|---|
+| dev1 | first version: reviewers decide `is_gap` | 0.195 | 0.64 |
+| dev2 | glossary of OPP-115 data types and purposes; everyday words in searches; near-verbatim quotes snapped | 0.241 | 0.91 |
+| dev3 | reviewers extract quotes, `pipeline/decide.py` derives the decision; finder's suggested level hidden | 0.372 | 0.36 |
+| dev4 | a positive quote naming the data type counts as disclosure in any slot | 0.361 | 0.36 |
+
+The prompts and rules were frozen after dev4 (26 Oct) and only then run on the main benchmark and
+the ladder. What dev showed: a 7B reviewer asked "is this a gap?" agrees with almost every
+candidate; asked to copy the sentence that discloses the flow, it is far more reliable, and a
+deterministic rule over verified quotes makes the decision. Purpose mismatches stayed undetected
+on dev (0 of 8).
+
+### Decision rules (`pipeline/decide.py`)
+
+| Gap type | No gap | explicit | vague | omission |
+|---|---|---|---|---|
+| Collection / sharing | a verified positive quote naming the data type (sharing: and the SDK or its company) | a verified denial naming the data type, with no positive quote | a verified generic quote, or a sharing quote without the recipient | nothing verified |
+| Purpose | a verified quote giving the app's purpose for the data type | — | the data type appears only without a purpose (verified quote) | otherwise |
+| Retention | the policy keeps data indefinitely | a stated period or limit | retention mentioned without a period | nothing about retention |
+| Children | — (always a gap for a child-directed app sending data to an ad/tracking SDK) | a verified children statement | — | no children statement |
 
 ## Reviewer agent loop
 
