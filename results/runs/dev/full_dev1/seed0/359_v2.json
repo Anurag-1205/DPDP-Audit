@@ -1,0 +1,301 @@
+{
+ "case_id": "359_v2",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Types of information that may be collected\nThe following are the types of information we may collect:\nInformation You Provide Us: In the course of using the website, we may ask you to provide us with certain information, including contact information, such as your as name, mailing address, email address, phone number, or fax number, unique identifiers, such as your user ID, user password, demographic information, such as your date of birth, age, gender, occupation, ticket holder status, game attendance, financial information, such as your credit card number or similar information.",
+   "rationale": "The policy only mentions collecting 'information you provide us', which is vague and does not specify IP addresses and device IDs.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided describes the types of information the app collects from users, but it does not explicitly mention IP addresses and device IDs. The cited DPDP text focuses on the notice requirements for data collection purposes and does not address the specific issue of undisclosed shar"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9472791774063071,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9472791774063071,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "[P8]",
+   "rationale": "Contact is collected for basic service/feature but used for additional service/feature.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "quote not found in the policy"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "[P8], [P9], [P21]",
+   "rationale": "IP address and device IDs are collected for basic service/feature, service operation and security, and unspecified purposes but used for analytics/research.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "quote not found in the policy"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "[P33] A special note for parents concerning privacy\nThe Website is a general audience Website. We do not currently collect any personal information from children under the age of thirteen on the Website. If in the future, we collect personally identifiable information from children, it will do so in compliance with the Children's Online Privacy Protection Act of 1998 (15 U.S.C. 6501 et seq.) including, without limitation, obtaining necessary parental consent.\n[P34] The Internet offers children wonderful educational and entertainment resources. Your guidance and involvement are essential to help ensure that children have a safe and rewarding online experience. We encourage you to visit the Direct Marketing Association's Web Website (www.the-dma.org) and explore the Get CyberSavvy! Program as well as the GetNetWise Website (www.getnetwise.org) to learn more about parental control tools.",
+   "rationale": "The app sends data to an advertising SDK, which violates Sec. 9(3) and Rule 10 despite the policy stating it does not collect personal information from children.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "quote not found in the policy"
+  }
+ ],
+ "token_prob": 0.9621157887533035,
+ "usage": {
+  "prompt": 5964,
+  "output": 898
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 41,
+  "untagged_paragraphs": 0,
+  "claims": 104,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     8,
+     2,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['basic service/feature', 'service operation and security', 'unspecified'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     8,
+     9,
+     21
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2,
+     3,
+     4,
+     6,
+     7,
+     8,
+     10,
+     11,
+     23
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     9,
+     21
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "omission",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     33,
+     34
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that they collect 'Computer information'."
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Types of information that may be collected\nThe following are the types of information we may collect:\nInformation You Provide Us: In the course of using the website, we may ask you to provide us with certain information, including contact information, such as your as name, mailing address, email address, phone number, or fax number, unique identifiers, such as your user ID, user password, demographic information, such as your date of birth, age, gender, occupation, ticket holder status, game attendance, financial information, such as your credit card number or similar information.",
+      "rationale": "The policy only mentions collecting 'information you provide us', which is vague and does not specify IP addresses and device IDs."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9472791774063071
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "[P8]",
+      "rationale": "Contact is collected for basic service/feature but used for additional service/feature."
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "[P8], [P9], [P21]",
+      "rationale": "IP address and device IDs are collected for basic service/feature, service operation and security, and unspecified purposes but used for analytics/research."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9678946603676032
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "[P33] A special note for parents concerning privacy\nThe Website is a general audience Website. We do not currently collect any personal information from children under the age of thirteen on the Website. If in the future, we collect personally identifiable information from children, it will do so in compliance with the Children's Online Privacy Protection Act of 1998 (15 U.S.C. 6501 et seq.) including, without limitation, obtaining necessary parental consent.\n[P34] The Internet offers children wonderful educational and entertainment resources. Your guidance and involvement are essential to help ensure that children have a safe and rewarding online experience. We encourage you to visit the Direct Marketing Association's Web Website (www.the-dma.org) and explore the Get CyberSavvy! Program as well as the GetNetWise Website (www.getnetwise.org) to learn more about parental control tools.",
+      "rationale": "The app sends data to an advertising SDK, which violates Sec. 9(3) and Rule 10 despite the policy stating it does not collect personal information from children."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9711735284860002
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 147.39
+ }
+}

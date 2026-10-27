@@ -1,0 +1,439 @@
+{
+ "case_id": "1545_v1",
+ "system": "full_finetuned",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions collecting non-personally-identifiable information but does not specify a purpose for it.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing and the rationale provided does not justify a purpose mismatch. The policy mentions collecting non-personally-identifiable information but does not specify a purpose for it, which is not sufficient to conclude there is a purpose mismatch."
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy specifies that IP addresses and device IDs are used for monitoring and improving services.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing and the rationale provided does not justify a purpose mismatch. The policy specifies that IP addresses and device IDs are used for monitoring and improving services, which contradicts the finding that they are used for personalization/customization."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that geolocation information is used for monitoring and improving services.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing and the rationale provided does not justify a purpose mismatch. The policy states that geolocation information is used for monitoring and improving services, which contradicts the finding that it is used for service operation and security."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy describes using computer information for recording visits and analyzing usage patterns.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing and the rationale provided does not justify a purpose mismatch. The policy describes using computer information for recording visits and analyzing usage patterns, which contradicts the finding that it is used for advertising."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may use your personally-identifiable information and your non-personally-identifiable information to provide analyses of the users of the Sites and the Services, in the aggregate, to prospective partners, advertisers and other third parties.",
+   "rationale": "The policy mentions sharing with third parties but specifically excludes direct marketing without user consent.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not support the finding. While the policy mentions sharing with third parties, it specifically excludes direct marketing without user consent, which does not align with the finding of undisclosed sharing for advertising purposes."
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "The Sites are not for children under 13 years of age.",
+   "rationale": "The policy states that the sites are not for children under 13, but it does not explicitly prohibit tracking or targeted advertising.",
+   "reviewer": "children",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not support the finding. While the policy states that the sites are not for children under 13, it does not explicitly prohibit tracking or targeted advertising, which is required by the DPDP Act."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9604251833781352,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9630762137857828,
+ "usage": {
+  "prompt": 7345,
+  "output": 1219
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 29,
+  "untagged_paragraphs": 0,
+  "claims": 34,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     10,
+     11,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['analytics/research'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     13,
+     10,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location is collected for ['analytics/research'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     13,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['analytics/research'], the app uses it for Advertising",
+    "paragraphs": [
+     13,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     15,
+     16,
+     18,
+     19,
+     20,
+     21,
+     22,
+     17,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     6,
+     7,
+     8,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may use your personally-identifiable information and your non-personally-identifiable information to provide analyses of the users of the Sites and the Services, in the aggregate, to prospective partners, advertisers and other third parties.",
+      "rationale": "The policy mentions sharing with third parties but specifically excludes direct marketing without user consent.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "We will not share your information with third parties for the purposes of their direct marketing unless you affirmatively agree to such disclosure.",
+       "generic_quote": "We may use your personally-identifiable information and your non-personally-identifiable information to provide analyses of the users of the Sites and the Services, in the aggregate, to prospective partners, advertisers and other third parties.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with third parties but specifically excludes direct marketing without user consent."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9604251833781352
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions collecting non-personally-identifiable information but does not specify a purpose for it.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "We may also collect other types of information about you, such as your gender, hobbies and interests, and this information may be associated with your personally-identifiable information.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy mentions collecting non-personally-identifiable information but does not specify a purpose for it."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies that IP addresses and device IDs are used for monitoring and improving services.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "We use this information to monitor and analyze how users use the Sites and the Services, to provide customer service and to maintain and improve the Services.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy specifies that IP addresses and device IDs are used for monitoring and improving services."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that geolocation information is used for monitoring and improving services.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "We use this information to monitor and analyze how users use the Sites and the Services, to provide customer service and to maintain and improve the Services.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy states that geolocation information is used for monitoring and improving services."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy describes using computer information for recording visits and analyzing usage patterns.",
+      "raw": {
+       "candidate_id": "c4",
+       "purpose_quote": "We use 'web beacons' and 'web logs' to allow our servers to automatically record information that your browser sends whenever you visit the Sites. This information includes the time and date, your Internet Protocol address, your geographic location (your zip code, your area code and/or your time zone), your browser type and version, the Sites and/or the Services that you use, and when and how long you use them.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy describes using computer information for recording visits and analyzing usage patterns."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9668588302565235
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "The Sites are not for children under 13 years of age.",
+      "rationale": "The policy states that the sites are not for children under 13, but it does not explicitly prohibit tracking or targeted advertising.",
+      "raw": {
+       "candidate_id": "c6",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        6,
+        7,
+        8,
+        9
+       ],
+       "children_quote": "The Sites are not for children under 13 years of age.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy states that the sites are not for children under 13, but it does not explicitly prohibit tracking or targeted advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9619446277226896
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 140.59
+ }
+}

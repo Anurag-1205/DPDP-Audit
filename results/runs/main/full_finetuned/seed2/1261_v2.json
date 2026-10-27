@@ -1,0 +1,236 @@
+{
+ "case_id": "1261_v2",
+ "system": "full_finetuned",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "Cookies: Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet. These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+   "rationale": "The policy does not specify any particular purpose for cookies, only that they are used for enhancing user experience, recognizing preferences, and tracking choices.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that cookies are used for enhancing user experience, recognizing preferences, and tracking choices, which does not specify a particular purpose. The cited DPDP text requires specifying the purpose for processing personal data, which is vague here."
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Financial",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy lists financial data types but does not specify a particular purpose for them beyond collecting for payment and sharing with processors.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing, and the cited DPDP text pertains to notices and retention periods, not the omission of purpose specification for financial data."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "From time-to-time, we will also send or contact you regarding special offers for products and services from Zacks Investment Research and our affiliates. You can unsubscribe from these e-mails at any time by going to http://register.zacks.com/unisub.php.",
+   "rationale": "The policy mentions sharing with marketers but not specifically with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions sending special offers and unsubscribing, but does not specify sharing with Google AdMob. The cited DPDP text pertains to notices and does not address undisclosed sharing."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9769573098486862,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9587501240983853,
+ "usage": {
+  "prompt": 3983,
+  "output": 660
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 13,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['additional service/feature', 'personalization/customization'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     8,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Financial is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     5,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions User online activities",
+    "paragraphs": [
+     10,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "From time-to-time, we will also send or contact you regarding special offers for products and services from Zacks Investment Research and our affiliates. You can unsubscribe from these e-mails at any time by going to http://register.zacks.com/unisub.php.",
+      "rationale": "The policy mentions sharing with marketers but not specifically with Google AdMob.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "Please note that while Zacks will not freely distribute the information you submit, if you click to unsubscribe from mailings sent to the Zacks.com Opt-In Marketing List from a particular marketer, we are obligated to share your email address with that marketer for the purpose of being added to their Do Not Mail list. How that mailer manages your email address after that time is beyond Zacks.com control.",
+       "generic_quote": "From time-to-time, we will also send or contact you regarding special offers for products and services from Zacks Investment Research and our affiliates. You can unsubscribe from these e-mails at any time by going to http://register.zacks.com/unisub.php.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with marketers but not specifically with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9769573098486862
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Cookies: Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet. These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+      "rationale": "The policy does not specify any particular purpose for cookies, only that they are used for enhancing user experience, recognizing preferences, and tracking choices.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Cookies: Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet. These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify any particular purpose for cookies, only that they are used for enhancing user experience, recognizing preferences, and tracking choices."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy lists financial data types but does not specify a particular purpose for them beyond collecting for payment and sharing with processors.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Financial: credit or debit card, payment and billing information, bank account, purchase or transaction history",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy lists financial data types but does not specify a particular purpose for them beyond collecting for payment and sharing with processors."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9405429383480844
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 70.85
+ }
+}

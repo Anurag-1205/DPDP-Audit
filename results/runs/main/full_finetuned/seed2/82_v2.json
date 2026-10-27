@@ -1,0 +1,262 @@
+{
+ "case_id": "82_v2",
+ "system": "full_finetuned",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that log file information is used for various purposes, including service improvement and analysis.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We use the information you submit (including any personal information) to operate, maintain and provide to you the features and functionality of the Service or otherwise in connection with our business in relation to the Service.",
+   "rationale": "The policy explicitly states that they do not collect personal information from children under 13, thus denying the collection of demographic data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9720451761827577,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9647633535830407,
+ "usage": {
+  "prompt": 4476,
+  "output": 838
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 46,
+  "untagged_paragraphs": 0,
+  "claims": 82,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['additional service/feature', 'basic service/feature'], the app uses it for Marketing",
+    "paragraphs": [
+     2,
+     4,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     5,
+     27,
+     18
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Location is collected for ['advertising', 'analytics/research', 'unspecified'], the app uses it for Marketing",
+    "paragraphs": [
+     5,
+     18,
+     21
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Demographic is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     9,
+     19,
+     34,
+     18
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use the information you submit (including any personal information) to operate, maintain and provide to you the features and functionality of the Service or otherwise in connection with our business in relation to the Service.",
+      "rationale": "The policy explicitly states that they do not collect personal information from children under 13, thus denying the collection of demographic data.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "We do not knowingly collect or solicit personal information from anyone under the age of 13 or knowingly allow such persons to register. If you are under 13, please do not send any information about yourself to us, including your name, address, telephone number or email address. No one under age 13 is allowed to provide any personal information to Company. In the event that we learn that we have collected personal information from a child under age 13 without verification of parental consent, we will delete that information as quickly as possible.",
+       "generic_quote": "We use the information you submit (including any personal information) to operate, maintain and provide to you the features and functionality of the Service or otherwise in connection with our business in relation to the Service.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that they do not collect personal information from children under 13, thus denying the collection of demographic data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9720451761827577
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "If you correspond with us by email, we may retain the content of your email messages, your email address and our responses.",
+      "rationale": "The policy mentions email addresses and content for correspondence, indicating a specific purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "If you correspond with us by email, we may retain the content of your email messages, your email address and our responses.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy mentions email addresses and content for correspondence, indicating a specific purpose."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that log file information is used for various purposes, including service improvement and analysis.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "We reserve the right to use, transfer, assign, share and provide access to all personally identifiable information and other information about you and your computer, mobile or other device that we receive through third-party social networking services in the same ways described in this Privacy Policy as all of your other information.",
+       "unspecified_purpose_quote": "Log file information is automatically reported by your browser each time you access a web page.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that log file information is used for various purposes, including service improvement and analysis."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Geographic location information about you and/or your computer, mobile or other device may specifically be used to show you content and sponsored messaging based on geographic location.",
+      "rationale": "The policy explicitly states that location data is used for showing content and sponsored messaging.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "Geographic location information about you and/or your computer, mobile or other device may specifically be used to show you content and sponsored messaging based on geographic location.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that location data is used for showing content and sponsored messaging."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9574815309833237
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence provided does not mention the collection of IP addresses and device IDs, nor does it specify their use for any purpose.'",
+  "llm_calls": 3,
+  "seconds": 50.43
+ }
+}

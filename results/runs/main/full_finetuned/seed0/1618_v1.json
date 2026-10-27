@@ -1,0 +1,230 @@
+{
+ "case_id": "1618_v1",
+ "system": "full_finetuned",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "The PIN collected depends on the page you are visiting and the services that you participate in.",
+   "rationale": "The policy does not specify a purpose for Contact data types, only that they are collected for various services.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence indicates that the purpose for which contact data types are collected is unspecified, only stating that they depend on the page visited and services used. This aligns with the DPDP text in Sec. 5(1) and Rule 8, which require specifying the purpose for processing personal data. Si"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "MediaNews may also collect information such as household income, job title, personal interests and hobbies. The PIN collected depends on the page you are visiting and the services that you participate in.",
+   "rationale": "The policy does not explicitly mention collecting health data and mentions other types of data more broadly.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting various types of data but does not explicitly state that health data is collected. The rationale provided does not directly address the requirement for disclosing the collection of health data under Sec. 6(1) and Rule 3. Therefore, this finding is not supporte"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9455639908454886,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9445026005723514,
+ "usage": {
+  "prompt": 4258,
+  "output": 694
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 45,
+  "untagged_paragraphs": 0,
+  "claims": 61,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature', 'marketing'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     2,
+     3,
+     4,
+     15,
+     19,
+     38,
+     43
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Location is collected for ['unspecified'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     11,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Health is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     3,
+     16,
+     42,
+     34
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "MediaNews may also collect information such as household income, job title, personal interests and hobbies. The PIN collected depends on the page you are visiting and the services that you participate in.",
+      "rationale": "The policy does not explicitly mention collecting health data and mentions other types of data more broadly.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Health",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "This policy does not apply to third party web sites, or to companies and persons that are not controlled by, affiliated with or managed by MediaNews.",
+       "generic_quote": "MediaNews may also collect information such as household income, job title, personal interests and hobbies. The PIN collected depends on the page you are visiting and the services that you participate in.",
+       "sections": [
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting health data and mentions other types of data more broadly."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9455639908454886
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "The PIN collected depends on the page you are visiting and the services that you participate in.",
+      "rationale": "The policy does not specify a purpose for Contact data types, only that they are collected for various services.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "The PIN collected depends on the page you are visiting and the services that you participate in.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a purpose for Contact data types, only that they are collected for various services."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "The CIN gathered by MediaNews generally includes cookies, specific Web site page requests, the domain name (e.g., www.medianewsgroup.com) and Internet Provider (e.g., Comcast, American Online, NetZero) from which you access the Internet, the Internet Protocol address of your computer, the browser software (e.g. Internet Explorer or Netscape) and operating system (e.g., Windows XP, 2000, OS/2 or MacOS) you are using, your geographic location, the time and date you accessed the site, and the Internet address you visited prior to visiting the site.",
+      "rationale": "The policy provides a detailed description of the data collected but does not explicitly state a purpose for Location data types beyond general usage.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "The CIN gathered by MediaNews generally includes cookies, specific Web site page requests, the domain name (e.g., www.medianewsgroup.com) and Internet Provider (e.g., Comcast, American Online, NetZero) from which you access the Internet, the Internet Protocol address of your computer, the browser software (e.g. Internet Explorer or Netscape) and operating system (e.g., Windows XP, 2000, OS/2 or MacOS) you are using, your geographic location, the time and date you accessed the site, and the Internet address you visited prior to visiting the site.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy provides a detailed description of the data collected but does not explicitly state a purpose for Location data types beyond general usage."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9434412102992142
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 75.89
+ }
+}

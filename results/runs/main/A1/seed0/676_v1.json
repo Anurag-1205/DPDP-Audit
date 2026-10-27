@@ -1,0 +1,411 @@
+{
+ "case_id": "676_v1",
+ "system": "A1",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 7"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states the purpose for collecting IP addresses and device IDs, which aligns with the Analytics/Research purpose.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that IP addresses are logged, which is a form of computer information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy clearly states that Google uses cookies to serve ads, indicating sharing with Google.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f6",
+   "data_type": "Survey data",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that IP addresses are not linked to personally identifiable information, implying no survey data is collected.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f7",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that IP addresses are logged, which is a form of computer information and basic service/feature.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.965838565251855,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.965838565251855,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "omitted",
+   "confidence": 0.965838565251855,
+   "source": "notice"
+  },
+  "f6": {
+   "label": "omitted",
+   "confidence": 0.965838565251855,
+   "source": "notice"
+  },
+  "f7": {
+   "label": "omitted",
+   "confidence": 0.965838565251855,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9563763159556211,
+ "usage": {
+  "prompt": 3638,
+  "output": 674
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 10,
+  "untagged_paragraphs": 0,
+  "claims": 24,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     5,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     9,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "User online activities is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     9,
+     7,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     4,
+     3,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f6",
+    "data_type": "Survey data",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Survey data with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     4,
+     3,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f7",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Cookies and tracking elements is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     9,
+     3,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that IP addresses are logged, which is a form of computer information.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that IP addresses are logged, which is a form of computer information."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+      "rationale": "The policy explicitly states that IP addresses are logged, which is related to service operation and security.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that IP addresses are logged, which is related to service operation and security."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy clearly states that Google uses cookies to serve ads, indicating sharing with Google.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Google, as a third party advertisement vendor, uses cookies to serve ads on this site.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy clearly states that Google uses cookies to serve ads, indicating sharing with Google."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that IP addresses are not linked to personally identifiable information, implying no survey data is collected.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "Most importantly, any recorded IP addresses are not linked to personally identifiable information.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that IP addresses are not linked to personally identifiable information, implying no survey data is collected."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that IP addresses are logged, which is a form of computer information and basic service/feature.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that IP addresses are logged, which is a form of computer information and basic service/feature."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.965838565251855
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states the purpose for collecting IP addresses and device IDs, which aligns with the Analytics/Research purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "purpose_quote": "This information is purely used to analyze trends, administer the site, track users movement and gather broad demographic information for internal use.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy explicitly states the purpose for collecting IP addresses and device IDs, which aligns with the Analytics/Research purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9469140666593874
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 3.2
+ }
+}

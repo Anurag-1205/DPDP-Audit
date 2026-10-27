@@ -1,0 +1,269 @@
+{
+ "case_id": "1028_v1",
+ "system": "full",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "RedOrbit, Inc. collects information from our users at several different points on our Web site.",
+   "rationale": "The policy does not specify the collection of IP addresses or device IDs, and instead mentions collecting general information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "RedOrbit, Inc. collects information from our users at several different points on our Web site.",
+   "rationale": "The policy does not mention sharing any specific data types with third parties, and instead talks about general information collection.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9457705064180444,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9457705064180444,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.946972527627282,
+ "usage": {
+  "prompt": 4610,
+  "output": 657
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 43,
+  "untagged_paragraphs": 0,
+  "claims": 93,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Contact is collected for ['basic service/feature', 'unspecified'], the app uses it for Marketing",
+    "paragraphs": [
+     3,
+     29,
+     41,
+     30
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     4,
+     18,
+     27,
+     14,
+     38
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     12,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     15,
+     21,
+     22,
+     34,
+     38,
+     12
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "RedOrbit, Inc. collects information from our users at several different points on our Web site.",
+      "rationale": "The policy does not specify the collection of IP addresses or device IDs, and instead mentions collecting general information.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "RedOrbit, Inc. is the sole owner of the information collected on RedOrbit.com.",
+       "generic_quote": "RedOrbit, Inc. collects information from our users at several different points on our Web site.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify the collection of IP addresses or device IDs, and instead mentions collecting general information."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "RedOrbit, Inc. collects information from our users at several different points on our Web site.",
+      "rationale": "The policy does not mention sharing any specific data types with third parties, and instead talks about general information collection.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "RedOrbit, Inc. is the sole owner of the information collected on RedOrbit.com.",
+       "generic_quote": "RedOrbit, Inc. collects information from our users at several different points on our Web site.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention sharing any specific data types with third parties, and instead talks about general information collection."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9457705064180444
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "We use this information to contact the user about services on our site for which he has expressed interest.",
+      "rationale": "The policy explicitly states a purpose for contact information, which is consistent with the Marketing purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "We use this information to contact the user about services on our site for which he has expressed interest.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states a purpose for contact information, which is consistent with the Marketing purpose."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "This includes internet protocol (IP) addresses, browser type, internet service provider (ISP), referring/exit pages, platform type, date/time stamp, and number of clicks to analyze trends, administer the site, track user?s movement in the aggregate, and gather broad demographic information for aggregate use.",
+      "rationale": "The policy lists several purposes for collecting computer information, which aligns with the Analytics/Research purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "This includes internet protocol (IP) addresses, browser type, internet service provider (ISP), referring/exit pages, platform type, date/time stamp, and number of clicks to analyze trends, administer the site, track user?s movement in the aggregate, and gather broad demographic information for aggregate use.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy lists several purposes for collecting computer information, which aligns with the Analytics/Research purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9481745488365195
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence mentions \\'collecting information\\' but does not specify the collection of IP addresses or device IDs. The cited DPDP tex'",
+  "llm_calls": 3,
+  "seconds": 107.82
+ }
+}

@@ -1,0 +1,108 @@
+{
+ "case_id": "L1261_r4",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(5)",
+    "Rule 3"
+   ],
+   "evidence": "Zacks Investment Research controls the process through an agreement with a postal list service bureau and phone call centers, which handles the distribution of direct mail and telemarketing offers from Zacks Investment Research and its business partners.",
+   "rationale": "The policy explicitly states that credit card information is shared only with the credit card processor, indicating no sharing with third parties or SDKs.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence discusses the sharing of contact information with Mixpanel for analytics/research purposes, but does not explicitly state that this sharing is undisclosed. The cited DPDP text pertains to notices and consent, which are not directly related to the issue of undisclosed sharing. The"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9508941916981808,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9508941916981808,
+ "usage": {
+  "prompt": 1958,
+  "output": 264
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 39,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Contact with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     4,
+     5,
+     9,
+     10
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(5)",
+       "Rule 3"
+      ],
+      "evidence": "Zacks Investment Research controls the process through an agreement with a postal list service bureau and phone call centers, which handles the distribution of direct mail and telemarketing offers from Zacks Investment Research and its business partners.",
+      "rationale": "The policy explicitly states that credit card information is shared only with the credit card processor, indicating no sharing with third parties or SDKs.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We collect your credit card information solely for payment of your subscription. It is shared only with our credit card processor in order to complete the transaction.",
+       "generic_quote": "Zacks Investment Research controls the process through an agreement with a postal list service bureau and phone call centers, which handles the distribution of direct mail and telemarketing offers from Zacks Investment Research and its business partners.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(5)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that credit card information is shared only with the credit card processor, indicating no sharing with third parties or SDKs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9508941916981808
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 33.93
+ }
+}

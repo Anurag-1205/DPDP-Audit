@@ -1,0 +1,362 @@
+{
+ "case_id": "1694_v1",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "We may collect personal information from you, such as your name, email address, postal address, phone number, purchase history, credit card number, gender, birthday, and personal interests, when you visit one of the Sites or stores, place an order online or by phone, make an in-store purchase, save your information with us online, return an item to a store, contact us with a question or concern, participate in a contest, promotion, or survey, or communicate with us in any other way.",
+   "rationale": "The policy provides a general list of data types collected but does not specify each data type individually.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "We may occasionally collect an individual's IP address to help identify an individual, gather broad demographic information about users of the Sites, diagnose problems with our systems, and administer the Sites.",
+   "rationale": "The policy mentions multiple purposes for collecting IP addresses but does not specify 'Basic service/feature'.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f2",
+    "f5"
+   ]
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "We may occasionally collect an individual's IP address to help identify an individual, gather broad demographic information about users of the Sites, diagnose problems with our systems, and administer the Sites.",
+   "rationale": "The policy provides a general list of data types collected but does not specify each data type individually.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Survey data",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "We may collect personal information from you, such as your name, email address, postal address, phone number, purchase history, credit card number, gender, birthday, and personal interests, when you visit one of the Sites or stores, place an order online or by phone, make an in-store purchase, save your information with us online, return an item to a store, contact us with a question or concern, participate in a contest, promotion, or survey, or communicate with us in any other way.",
+   "rationale": "The policy provides a general list of data types collected but does not specify each data type individually.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Sec. 12(3)"
+   ],
+   "evidence": "As is true of most web sites, we gather and store certain information automatically, including Internet Protocol (IP) addresses, browser types, Internet Service Provider (ISP), referring/exit pages, operating system, date/time stamp, and click stream data. This information does not identify individual users, and is used to analyze trends, to administer the site, to track users' movements around the site and to gather demographic information about our user base as a whole.",
+   "rationale": "The policy does not specify a retention period for IP addresses and device IDs.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9777182292706538,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9777182292706538,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9777182292706538,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9833466917319068,
+ "usage": {
+  "prompt": 7808,
+  "output": 1397
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 38,
+  "untagged_paragraphs": 0,
+  "claims": 73,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     3,
+     8,
+     14,
+     6,
+     30
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     7,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     3,
+     8,
+     14,
+     7,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Survey data",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Survey data is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     3,
+     8,
+     14,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     7,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps IP address and device IDs indefinitely; retention statements: ['Indefinitely', 'Limited', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     6,
+     7,
+     8,
+     9,
+     10,
+     12,
+     13,
+     15,
+     25,
+     27,
+     29,
+     30,
+     37
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "We may collect personal information from you, such as your name, email address, postal address, phone number, purchase history, credit card number, gender, birthday, and personal interests, when you visit one of the Sites or stores, place an order online or by phone, make an in-store purchase, save your information with us online, return an item to a store, contact us with a question or concern, participate in a contest, promotion, or survey, or communicate with us in any other way.",
+      "rationale": "The policy provides a general list of data types collected but does not specify each data type individually."
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "We may occasionally collect an individual's IP address to help identify an individual, gather broad demographic information about users of the Sites, diagnose problems with our systems, and administer the Sites.",
+      "rationale": "The policy provides a general list of data types collected but does not specify each data type individually."
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "We may collect personal information from you, such as your name, email address, postal address, phone number, purchase history, credit card number, gender, birthday, and personal interests, when you visit one of the Sites or stores, place an order online or by phone, make an in-store purchase, save your information with us online, return an item to a store, contact us with a question or concern, participate in a contest, promotion, or survey, or communicate with us in any other way.",
+      "rationale": "The policy provides a general list of data types collected but does not specify each data type individually."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9777182292706538
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We may occasionally collect an individual's IP address to help identify an individual, gather broad demographic information about users of the Sites, diagnose problems with our systems, and administer the Sites.",
+      "rationale": "The policy mentions multiple purposes for collecting IP addresses but does not specify 'Basic service/feature'."
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We may occasionally collect an individual's IP address to help identify an individual, gather broad demographic information about users of the Sites, diagnose problems with our systems, and administer the Sites.",
+      "rationale": "The policy mentions multiple purposes for collecting IP addresses but does not specify 'Analytics/Research'."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9869489307811745
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Sec. 12(3)"
+      ],
+      "evidence": "As is true of most web sites, we gather and store certain information automatically, including Internet Protocol (IP) addresses, browser types, Internet Service Provider (ISP), referring/exit pages, operating system, date/time stamp, and click stream data. This information does not identify individual users, and is used to analyze trends, to administer the site, to track users' movements around the site and to gather demographic information about our user base as a whole.",
+      "rationale": "The policy does not specify a retention period for IP addresses and device IDs."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9853729151438918
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": true, \"reason\": \"The policy evidence provides a general list of data types collected, but does not specify each data type individually. The cited DPDP text r'",
+  "llm_calls": 4,
+  "seconds": 181.19
+ }
+}

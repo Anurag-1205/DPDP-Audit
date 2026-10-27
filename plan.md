@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Version** | 2.0 (2026-10-25) |
-| **Status** | Stage 0–1 complete · Stage 2 in progress |
+| **Status** | Stage 2 complete except WP-2.2 (ladder check) and the QLoRA tagger · see [mid-submission report](docs/mid-submission-report.md) |
 | **Key dates** | Mid-submission **Fri 30 Oct 2026** · final submission **Sun 15 Nov 2026** |
 | **Team** | Anurag Kaushal (M1) · Ishaan Giri (M2) · Naveen Mishra (M3) · Nikhil Patidar (M4) |
 | **Related** | [specs.md](specs.md) (what each work package must deliver) · [docs/](docs/README.md) (architecture, guides) · [proposal](docs/Neural_Nexus_Final.pdf) |
@@ -39,7 +39,7 @@ Detailed scope per work package: [specs.md](specs.md).
 |---|---|---|---|---|
 | MS-0 | Setup | 15 Oct | Roles agreed; repository; PoliCheck builds; Qwen answers on Kaggle | **Done** |
 | MS-1 | Benchmark and simplest baselines | 24 Oct | 102 cases with keys; B1/B2 scored on every case (SPEC-01, SPEC-02) | **Done** |
-| MS-2 | **Mid-submission** | **30 Oct** | Must-have package of §7 complete and submitted | In progress |
+| MS-2 | **Mid-submission** | **30 Oct** | Must-have package of §7 complete and submitted | Package ready; ladder check pending |
 | MS-3 | Experiments complete | 7 Nov | All main and ladder runs, ablations, tagger results, spot-check (SPEC-02…06) | Planned |
 | MS-4 | Evaluation complete | 11 Nov | Selective accuracy, real flows, case study (SPEC-07, SPEC-08) | Planned |
 | MS-5 | **Final submission** | **15 Nov** | Final report, slides, release, reproduction check (SPEC-09) | Planned |
@@ -307,4 +307,5 @@ L = likelihood, I = impact (H/M/L).
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-10-23 | Five-week stage plan derived from the proposal |
+| 2.1 | 2026-10-26 | Stage 2 run by one member (Ishaan) on account `ishaan2312`: pipeline, ladder, tools on the ladder, B4 seed 0, ablations A1/A2/A3/A5 early; dev split for prompt development |
 | 2.0 | 2026-10-25 | Dated schedule (mid-submission 30 Oct, final 15 Nov); work packages, RACI, critical path, MoSCoW, risk register; comparison set S1 PoliCheck and S2 PoliGraph; PoliGraph on Nikhil's workstation |

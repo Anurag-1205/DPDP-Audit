@@ -1,0 +1,416 @@
+{
+ "case_id": "760_v2",
+ "system": "A3",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.951429481994786,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.951429481994786,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.951429481994786,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "[P4]",
+    "[P8]",
+    "[P13]",
+    "[P17]",
+    "[P3]",
+    "[P5]"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that cookies are used to save information for future visits.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "[P4]",
+    "[P8]",
+    "[P13]",
+    "[P17]",
+    "[P3]",
+    "[P5]"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that cookies are used to save information for future visits.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "[P4]",
+    "[P8]",
+    "[P13]",
+    "[P17]",
+    "[P3]",
+    "[P5]"
+   ],
+   "evidence": "",
+   "rationale": "The policy describes how cookies are used to track usage patterns and customer behavior.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "[P8]",
+    "[P9]",
+    "[P10]",
+    "[P11]",
+    "[P4]",
+    "[P5]"
+   ],
+   "evidence": "",
+   "rationale": "There is no mention of sharing cookies with Google Analytics in the policy.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Demographic",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "[P5]",
+    "[P3]"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions demographic data being used for Google AdMob but does not specify a purpose.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.951429481994786,
+ "usage": {
+  "prompt": 2953,
+  "output": 551
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 43,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     13,
+     17,
+     3,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     13,
+     17,
+     3,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     4,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     9,
+     10,
+     11,
+     4,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Demographic is shared with admob for ['marketing'], the app uses it for Advertising",
+    "paragraphs": [
+     5,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P4]",
+       "[P8]",
+       "[P13]",
+       "[P17]",
+       "[P3]",
+       "[P5]"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that cookies are used to save information for future visits.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you register on the Websites, cookies also allow us to save information so that you will not have to re-enter it the next time you visit.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "[P4]",
+        "[P8]",
+        "[P13]",
+        "[P17]",
+        "[P3]",
+        "[P5]"
+       ],
+       "rationale": "The policy states that cookies are used to save information for future visits."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P4]",
+       "[P8]",
+       "[P13]",
+       "[P17]",
+       "[P3]",
+       "[P5]"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that cookies are used to save information for future visits.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "When you register on the Websites, cookies also allow us to save information so that you will not have to re-enter it the next time you visit.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "[P4]",
+        "[P8]",
+        "[P13]",
+        "[P17]",
+        "[P3]",
+        "[P5]"
+       ],
+       "rationale": "The policy states that cookies are used to save information for future visits."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P4]",
+       "[P8]",
+       "[P13]",
+       "[P17]",
+       "[P3]",
+       "[P5]"
+      ],
+      "evidence": "",
+      "rationale": "The policy describes how cookies are used to track usage patterns and customer behavior.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "In addition to information collected automatically, we use cookies to support the internal functionality of the Websites. Cookies, which are small pieces of information sent to your browser by a website that you visit, are used to track usage patterns, traffic trends and customer behavior, as well as to record other information from the Website.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "[P4]",
+        "[P8]",
+        "[P13]",
+        "[P17]",
+        "[P3]",
+        "[P5]"
+       ],
+       "rationale": "The policy describes how cookies are used to track usage patterns and customer behavior."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P8]",
+       "[P9]",
+       "[P10]",
+       "[P11]",
+       "[P4]",
+       "[P5]"
+      ],
+      "evidence": "",
+      "rationale": "There is no mention of sharing cookies with Google Analytics in the policy.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "[P8]",
+        "[P9]",
+        "[P10]",
+        "[P11]",
+        "[P4]",
+        "[P5]"
+       ],
+       "rationale": "There is no mention of sharing cookies with Google Analytics in the policy."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P5]",
+       "[P3]"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions demographic data being used for Google AdMob but does not specify a purpose.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "[P5]",
+        "[P3]"
+       ],
+       "rationale": "The policy mentions demographic data being used for Google AdMob but does not specify a purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.951429481994786
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 64.77
+ }
+}

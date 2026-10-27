@@ -1,0 +1,289 @@
+{
+ "case_id": "93_v1",
+ "system": "full",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 7"
+   ],
+   "evidence": "",
+   "rationale": "The policy indicates that IP addresses are used for common web practices but does not specify a particular purpose.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect name, address, and e-mail addresses in connection with these activities.",
+   "rationale": "The policy mentions collecting IP addresses and other information, which falls under location.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "PBS will not collect personally identifiable information from you, other than what you supply to us on a voluntary basis upon request.",
+   "rationale": "The policy clearly states that they do not collect demographic information for advertising purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9501226279311203,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9501226279311203,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9557132586184225,
+ "usage": {
+  "prompt": 4626,
+  "output": 705
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 80,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     6,
+     7,
+     9,
+     14
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     13,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     8,
+     12,
+     20,
+     13,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Demographic is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     8,
+     12,
+     20,
+     28,
+     13
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect name, address, and e-mail addresses in connection with these activities.",
+      "rationale": "The policy mentions collecting IP addresses and other information, which falls under location.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We may collect your IP address, browser information and reference site domain, as well as related information such as the date on which you visit the Site.",
+       "denial_quote": "",
+       "generic_quote": "We may collect name, address, and e-mail addresses in connection with these activities.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting IP addresses and other information, which falls under location."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "PBS will not collect personally identifiable information from you, other than what you supply to us on a voluntary basis upon request.",
+      "rationale": "The policy clearly states that they do not collect demographic information for advertising purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Personally identifiable information includes, but is not limited to, name, address, e-mail address, telephone number, and credit card information.",
+       "denial_quote": "",
+       "generic_quote": "We will not collect personally identifiable information from you, other than what you supply to us on a voluntary basis upon request.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy clearly states that they do not collect demographic information for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9501226279311203
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7"
+      ],
+      "evidence": "Additionally, you may purchase a gift online and submit the person's name, address and telephone number for delivery. This information will only be used for the stated purpose.",
+      "rationale": "The policy explicitly states that contact information will only be used for the stated purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "Additionally, you may purchase a gift online and submit the person's name, address and telephone number for delivery. This information will only be used for the stated purpose.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy explicitly states that contact information will only be used for the stated purpose."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7"
+      ],
+      "evidence": "",
+      "rationale": "The policy indicates that IP addresses are used for common web practices but does not specify a particular purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "As is common practice among web sites, we use 'cookies' and similar technologies. Cookies are text files which store your preferences. No personal information is ever stored in a PBS cookie, even if you have entered your name or email address on other parts of the Site.",
+       "unspecified_purpose_quote": "This information does not identify you personally and is only used in the aggregate.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy indicates that IP addresses are used for common web practices but does not specify a particular purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9613038893057247
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is absent, and the cited sections do not address the use of IP addresses and device IDs for analytics/research purposes'",
+  "llm_calls": 3,
+  "seconds": 80.47
+ }
+}

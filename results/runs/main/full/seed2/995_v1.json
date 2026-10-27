@@ -1,0 +1,349 @@
+{
+ "case_id": "995_v1",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 9"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses that personal information is managed internally but denies sharing with third parties.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is explicitly stated as (none), indicating no mention of location data collection. The cited sections and rules are unrelated to the disclosure of data collection practices."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 9"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses that demographic information is used for marketing purposes but denies sharing with third parties.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "Similar to finding 0, the policy evidence is explicitly stated as (none), indicating no mention of demographic data collection. The cited sections and rules are unrelated to the disclosure of data collection practices."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 9"
+   ],
+   "evidence": "All personal information collected at any Player's Club booth including name, address, phone number and email address is placed in a database that is not shared or sold with any third party.",
+   "rationale": "The policy does not disclose sharing with third parties but mentions collecting personal information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions that all collected personal information is placed in a database that is not shared or sold with any third party. This contradicts the finding that there is an undisclosed sharing of contact information for advertising purposes. The cited sections and rules are unrelated "
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 9"
+   ],
+   "evidence": "All personal information collected at any Player's Club booth including name, address, phone number and email address is placed in a database that is not shared or sold with any third party.",
+   "rationale": "The policy does not disclose sharing personal identifiers but mentions collecting personal information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is identical to finding 2, mentioning that all collected personal information is not shared or sold with any third party. This contradicts the finding that there is an undisclosed sharing of personal identifiers for advertising purposes. The cited sections and rules are unrelated"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.958140585180283,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.958140585180283,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.958140585180283,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.958140585180283,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.958140585180283,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.958140585180283,
+ "usage": {
+  "prompt": 4490,
+  "output": 955
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 7,
+  "untagged_paragraphs": 0,
+  "claims": 13,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     3,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Demographic is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     4,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Contact",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Contact",
+    "paragraphs": [
+     2,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Personal identifier",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Personal identifier",
+    "paragraphs": [
+     0,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 9"
+      ],
+      "evidence": "All personal information collected at any Player's Club booth including name, address, phone number and email address is placed in a database that is not shared or sold with any third party.",
+      "rationale": "The policy explicitly discloses that personal information is collected, but does not specify a first-party recipient.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "All personal information collected at any Player's Club booth including name, address, phone number and email address is placed in a database that is not shared or sold with any third party.",
+       "denial_quote": "",
+       "generic_quote": "All personal information collected at any Player's Club booth including name, address, phone number and email address is placed in a database that is not shared or sold with any third party.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 9"
+       ],
+       "rationale": "The policy explicitly discloses that personal information is collected, but does not specify a first-party recipient."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 9"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses that personal information is managed internally but denies sharing with third parties.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Certain information, such as address or email address, can be updated or corrected simply by calling Customer Service at 1.888.777.7920.",
+       "denial_quote": "Mohegan Sun does not share or sell your personal information to anyone.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 9"
+       ],
+       "rationale": "The policy discloses that personal information is managed internally but denies sharing with third parties."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 9"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses that demographic information is used for marketing purposes but denies sharing with third parties.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "None of the information collected is sold or shared with any third party and is available only to specific Marketing Managers at Mohegan Sun.",
+       "denial_quote": "Mohegan Sun does not share or sell your personal information to anyone.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 9"
+       ],
+       "rationale": "The policy discloses that demographic information is used for marketing purposes but denies sharing with third parties."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 9"
+      ],
+      "evidence": "All personal information collected at any Player's Club booth including name, address, phone number and email address is placed in a database that is not shared or sold with any third party.",
+      "rationale": "The policy does not disclose sharing with third parties but mentions collecting personal information.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "Mohegan Sun does not share or sell your personal information to anyone.",
+       "generic_quote": "All personal information collected at any Player's Club booth including name, address, phone number and email address is placed in a database that is not shared or sold with any third party.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 9"
+       ],
+       "rationale": "The policy does not disclose sharing with third parties but mentions collecting personal information."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 9"
+      ],
+      "evidence": "All personal information collected at any Player's Club booth including name, address, phone number and email address is placed in a database that is not shared or sold with any third party.",
+      "rationale": "The policy does not disclose sharing personal identifiers but mentions collecting personal information.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "Mohegan Sun does not share or sell your personal information to anyone.",
+       "generic_quote": "All personal information collected at any Player's Club booth including name, address, phone number and email address is placed in a database that is not shared or sold with any third party.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 9"
+       ],
+       "rationale": "The policy does not disclose sharing personal identifiers but mentions collecting personal information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.958140585180283
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 70.8
+ }
+}

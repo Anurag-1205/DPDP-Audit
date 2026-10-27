@@ -1,0 +1,211 @@
+{
+ "case_id": "1264_v2",
+ "system": "A1",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states the purposes for which cookies are used, including personalization/customization.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9600764382923936,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9600764382923936,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9720340910656047,
+ "usage": {
+  "prompt": 3051,
+  "output": 518
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 14,
+  "untagged_paragraphs": 0,
+  "claims": 29,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     4,
+     9,
+     11,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     10,
+     0
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Financial is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     4,
+     9,
+     5,
+     0
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "For systems administration and troubleshooting, we log the IP address (the location on the Internet) of the computer or network from which someone visits the website. We also use IP addresses in the aggregate to track traffic so that we can evaluate and improve the website.",
+      "rationale": "The policy explicitly logs IP addresses for system administration and troubleshooting.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "For systems administration and troubleshooting, we log the IP address (the location on the Internet) of the computer or network from which someone visits the website. We also use IP addresses in the aggregate to track traffic so that we can evaluate and improve the website.",
+       "denial_quote": "",
+       "generic_quote": "We do not disclose the information you enter on a sign-up page to any outside entity - except as follows: We may give consultants and organizations working with us on specific projects temporary access to such information; they will not retain the information or contact the people whose information they have access to.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly logs IP addresses for system administration and troubleshooting."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The information you enter on a donation or payment page may be shared with third-party service providers (such as services that verify credit card data).",
+      "rationale": "The policy states that financial information is shared with third-party service providers for verification purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "The information you enter on a donation or payment page may be shared with third-party service providers (such as services that verify credit card data).",
+       "denial_quote": "",
+       "generic_quote": "Except as outlined below, we do not sell, rent, trade, or otherwise disclose to any business, organization, individual, or other outside entity information provided by people who visit or interact with the website.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that financial information is shared with third-party service providers for verification purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9600764382923936
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states the purposes for which cookies are used, including personalization/customization.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Personalization/Customization",
+       "retention": "Unspecified",
+       "purpose_quote": "so that you don't have to reenter information on action, donate, or payment pages; for tracking traffic so that we can evaluate and improve the website; and to facilitate outreach based on visitors' interests.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states the purposes for which cookies are used, including personalization/customization."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9839917438388158
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 1.92
+ }
+}

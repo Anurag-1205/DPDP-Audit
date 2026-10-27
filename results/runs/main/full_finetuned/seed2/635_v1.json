@@ -1,0 +1,377 @@
+{
+ "case_id": "635_v1",
+ "system": "full_finetuned",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy clearly states the purpose for which IP addresses and device IDs are collected.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is marked as (none), indicating that the policy does not mention the collection of IP addresses and device IDs. The rationale provided does not align with the evidence and the cited sections of the DPDP Act, as these sections pertain to notices and consents rather than the actual"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(2)",
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly mention collecting location data, but it does mention collecting various types of information that can be derived from location.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "merged_flows": [
+    "f3",
+    "f5"
+   ],
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is marked as (none), indicating that the policy does not mention the collection of location data. The rationale provided does not align with the evidence and the cited sections of the DPDP Act, as these sections pertain to notices and consents rather than the actual collection pr"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9725790987707182,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "omitted",
+   "confidence": 0.9725790987707182,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9677477586792298,
+ "usage": {
+  "prompt": 6045,
+  "output": 1184
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 44,
+  "untagged_paragraphs": 0,
+  "claims": 64,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     8,
+     9,
+     24,
+     35
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Advertising",
+    "paragraphs": [
+     12,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     8,
+     9,
+     18,
+     20,
+     23,
+     12,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Computer information indefinitely; retention statements: ['Indefinitely', 'Limited']",
+    "paragraphs": [
+     40,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     8,
+     9,
+     18,
+     20,
+     23,
+     12,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Location indefinitely; retention statements: ['Indefinitely', 'Limited']",
+    "paragraphs": [
+     40,
+     12
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(2)",
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly mention collecting location data, but it does mention collecting various types of information that can be derived from location.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "SCEA may collect information such as our website visitors' IP address, IP address-related information, system Media Access Control ('MAC') address, network configuration information, network device information, browser plug-in types and versions, operating system, and platform. We also may collect information about your download activity, browser activity, forum postings and session information.",
+       "generic_quote": "SCEA may collect information such as our website visitors' IP address, IP address-related information, system Media Access Control ('MAC') address, network configuration information, network device information, browser plug-in types and versions, operating system, and platform. We also may collect information about your download activity, browser activity, forum postings and session information.",
+       "sections": [
+        "Sec. 5(2)",
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting location data, but it does mention collecting various types of information that can be derived from location."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(2)",
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly mention collecting location data, but it does mention collecting various types of information that can be derived from location.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "SCEA may collect information such as our website visitors' IP address, IP address-related information, system Media Access Control ('MAC') address, network configuration information, network device information, browser plug-in types and versions, operating system, and platform. We also may collect information about your download activity, browser activity, forum postings and session information.",
+       "generic_quote": "SCEA may collect information such as our website visitors' IP address, IP address-related information, system Media Access Control ('MAC') address, network configuration information, network device information, browser plug-in types and versions, operating system, and platform. We also may collect information about your download activity, browser activity, forum postings and session information.",
+       "sections": [
+        "Sec. 5(2)",
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting location data, but it does mention collecting various types of information that can be derived from location."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9725790987707182
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Collection of personal information required to access certain website services may include the collection of date of birth, name, mailing address, email address or credit card information.",
+      "rationale": "The policy explicitly states the purposes for which contact data is collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "Collection of personal information required to access certain website services may include the collection of date of birth, name, mailing address, email address or credit card information.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states the purposes for which contact data is collected."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy clearly states the purpose for which IP addresses and device IDs are collected.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "Dynamic advertisement serving technology enables advertisements to be temporarily loaded or cached to a Sony Entertainment Network account holder's PS3 system for display only in games that incorporate this technology.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy clearly states the purpose for which IP addresses and device IDs are collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9645201374456297
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "We will retain personally identifying information about you for the period necessary to fulfill the purposes outlined in this policy unless a longer retention period is required by law or regulations.",
+      "rationale": "The policy states that data is retained for the period necessary to fulfill purposes, but does not specify a limit, hence retention is indefinite.",
+      "raw": {
+       "candidate_id": "c4",
+       "gap_type": "retention_mismatch",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "retention": "Indefinitely",
+       "retention_quote": "We will retain personally identifying information about you for the period necessary to fulfill the purposes outlined in this policy unless a longer retention period is required by law or regulations.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that data is retained for the period necessary to fulfill purposes, but does not specify a limit, hence retention is indefinite."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "We will retain personally identifying information about you for the period necessary to fulfill the purposes outlined in this policy unless a longer retention period is required by law or regulations.",
+      "rationale": "The policy states that data is retained for the period necessary to fulfill purposes, but does not specify a limit, hence retention is indefinite.",
+      "raw": {
+       "candidate_id": "c6",
+       "gap_type": "retention_mismatch",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Indefinitely",
+       "retention_quote": "We will retain personally identifying information about you for the period necessary to fulfill the purposes outlined in this policy unless a longer retention period is required by law or regulations.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that data is retained for the period necessary to fulfill purposes, but does not specify a limit, hence retention is indefinite."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9661440398213413
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 113.3
+ }
+}

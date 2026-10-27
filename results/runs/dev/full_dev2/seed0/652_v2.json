@@ -1,0 +1,333 @@
+{
+ "case_id": "652_v2",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 12(2)"
+   ],
+   "evidence": "We collect this information so we can understand and monitor usage of the Site, customize content on the Site and improve the performance of the Site.",
+   "rationale": "The policy mentions collecting information for understanding usage, customizing content, and improving site performance, but does not specify that this information is used for Personalization/Customization.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence clearly states the purposes for which contact information is collected, including understanding usage, customizing content, and improving site performance. However, the evidence does not explicitly state that this information is used for Personalization/Customization. The cited s"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect certain information about your computer or other device that you use to access the Sites, including IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information.",
+   "rationale": "The policy only vaguely mentions collecting device information but does not specify the purpose.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_snapped": true,
+   "verifier_reason": "The policy evidence provides a detailed description of the types of device information collected, but it does not specify the purpose for which this information is collected. The cited sections of the DPDP Act pertain to notices and rights, which do not address the issue of undisclosed collection. T"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 12(2)"
+   ],
+   "evidence": "Email address: We may collect a child's email address in order to respond to a one-time request from the child, such as if the child asks us or one of our authors a question.",
+   "rationale": "The policy states collecting a child's email address for responding to a one-time request, but does not mention using it for Advertising.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_snapped": true,
+   "verifier_reason": "The policy evidence specifies that an email address is collected for responding to a one-time request, but it does not mention using it for advertising. The cited sections of the DPDP Act focus on notices and rights, which do not address the specific purpose mismatch. Therefore, the finding is not s"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We collect two basic types of information from you in conjunction with your use of the Sites: (1) personal information, which is any information that individually identifies you (e.g., your name, email address, telephone number, postal address, credit card information) and (2) non-personal information, which is information that does not personally identify you but may include information about your interests, demographics (e.g., age, gender, 5-digit zip code) and use of the Sites.",
+   "rationale": "The policy only vaguely mentions collecting financial information without specifying the purpose.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence only vaguely mentions collecting financial information without specifying the purpose. The cited sections of the DPDP Act focus on notices and rights, which do not address the issue of undisclosed collection. Therefore, the finding is not supported."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Financial",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "We collect this information in the following ways:",
+   "rationale": "The policy does not specify a retention period for Financial data.",
+   "reviewer": "retention",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not provide any information regarding the retention period for financial data. The cited sections of the DPDP Act focus on general obligations and time periods for specified purposes, which do not address the specific retention mismatch. Therefore, the finding is not support"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9786793406277214,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9786793406277214,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9592595134907569,
+ "usage": {
+  "prompt": 8137,
+  "output": 1090
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 45,
+  "untagged_paragraphs": 0,
+  "claims": 92,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     4,
+     29,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     3,
+     4,
+     5,
+     15,
+     17,
+     6,
+     26
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "User profile is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     7,
+     33,
+     17,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Financial is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     3,
+     4,
+     5,
+     15,
+     17,
+     30
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Financial indefinitely; retention statements: ['Indefinitely', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     5,
+     7,
+     11,
+     15,
+     17,
+     18,
+     19,
+     26,
+     38,
+     39,
+     30
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect certain information about your computer or other device that you use to access the Sites, including IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information.",
+      "rationale": "The policy only vaguely mentions collecting device information but does not specify the purpose."
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect two basic types of information from you in conjunction with your use of the Sites: (1) personal information, which is any information that individually identifies you (e.g., your name, email address, telephone number, postal address, credit card information) and (2) non-personal information, which is information that does not personally identify you but may include information about your interests, demographics (e.g., age, gender, 5-digit zip code) and use of the Sites.",
+      "rationale": "The policy only vaguely mentions collecting financial information without specifying the purpose."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9786793406277214
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 12(2)"
+      ],
+      "evidence": "We collect this information so we can understand and monitor usage of the Site, customize content on the Site and improve the performance of the Site.",
+      "rationale": "The policy mentions collecting information for understanding usage, customizing content, and improving site performance, but does not specify that this information is used for Personalization/Customization."
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 12(2)"
+      ],
+      "evidence": "We collect a child's email address in order to respond to a one-time request from the child, such as if the child asks us or one of our authors a question.",
+      "rationale": "The policy states collecting a child's email address for responding to a one-time request, but does not mention using it for Advertising."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9438330883840138
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "We collect this information in the following ways:",
+      "rationale": "The policy does not specify a retention period for Financial data."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9552661114605355
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 89.98
+ }
+}

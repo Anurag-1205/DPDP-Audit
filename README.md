@@ -3,7 +3,7 @@
 **A controlled benchmark and an evidence-gated LLM agent for checking app privacy compliance under
 India's Digital Personal Data Protection (DPDP) Act, 2023.**
 
-> Course project, Language Models and Agents. Status: Stage 0–1 complete; Stage 2 in progress.
+> Course project, Language Models and Agents. Status: Stage 2 (mid-submission) complete except the human checks and the fine-tuned tagger.
 > Mid-submission **30 Oct 2026** · final submission **15 Nov 2026** · [plan](plan.md) · [specs](specs.md)
 
 ## Overview
@@ -31,25 +31,31 @@ flowchart LR
     s3 --> ev
 ```
 
-## Results so far (Stage 1)
+## Results so far (Stage 2)
 
-Main benchmark: 102 cases, 118 gold gaps, 433 labelled data flows. Qwen2.5-7B-Instruct, mean of three
-seeds:
+Main benchmark: 102 cases, 118 gold gaps. Qwen2.5-7B-Instruct for B1, B2 and the pipeline (mean of
+three seeds); one deterministic run for the tools; B4 = Gemini 3 Flash, seed 0.
 
 | System | F1 | False-alarm rate | Citation correct |
 |---|---|---|---|
-| B1 · one prompt, raw inputs | 0.182 | 0.971 | 0.318 |
+| S1 PoliCheck | 0.149 | 0.912 | — |
+| S2 PoliGraph | 0.166 | 0.853 | — |
+| B1 · one prompt, raw inputs | 0.182 | 0.971 | 0.325 |
 | B2 · one prompt, parsed facts + DPDP text | 0.181 | 0.745 | 0.894 |
+| B4 · B2's prompt, Gemini 3 Flash | 0.414 | 0.971 | 1.000 |
+| **DPDP-Audit, prompted tagger** | **0.343** | 0.471 | **1.000** |
+| **DPDP-Audit, QLoRA tagger** | 0.321 | **0.333** | **1.000** |
 
-A single prompt flags almost every compliant app. Better inputs cut false alarms and fix citations,
-but do not improve detection. Details: [docs/stage-1-report.md](docs/stage-1-report.md).
+With the same model and inputs, the evidence-gated pipeline nearly doubles B2's F1 (+0.15, 95%
+interval [+0.05, +0.26]) and lowers false alarms. Details, ablations and the ladder:
+[docs/mid-submission-report.md](docs/mid-submission-report.md).
 
 ## Quick start
 
 ```bash
 python3 -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt && pip install -e ".[dev]"
-pytest -q                                   # 35 tests
+pytest -q                                   # 70 tests
 
 scripts/download_opp115.sh                  # OPP-115 corpus → data/raw/
 python scripts/generate_cases.py            # rebuilds data/benchmark/main/ (byte-identical)
@@ -79,6 +85,7 @@ DPDP-Audit/
 
 | Document | Contents |
 |---|---|
+| [docs/mid-submission-report.md](docs/mid-submission-report.md) | Stage 2 results (mid-submission) |
 | [docs/README.md](docs/README.md) | Documentation index and reading paths |
 | [docs/getting-started.md](docs/getting-started.md) | The problem and every concept, from zero |
 | [docs/architecture.md](docs/architecture.md) | System context, components, design principles |

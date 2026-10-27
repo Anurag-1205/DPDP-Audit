@@ -1,0 +1,242 @@
+{
+ "case_id": "642_v2",
+ "system": "full_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9840292741155936,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9615692042487708,
+ "usage": {
+  "prompt": 4138,
+  "output": 651
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 15,
+  "untagged_paragraphs": 0,
+  "claims": 13,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Marketing",
+    "paragraphs": [
+     4,
+     12,
+     14
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Financial is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     4,
+     12,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps Financial indefinitely; retention statements: none",
+    "paragraphs": [
+     12,
+     11
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may use third-party advertising companies, such as Google, Yahoo!, Microsoft) to serve ads when you visit our website. These companies may use information about your interests in order to provide advertisements about goods and services of interest to you.",
+      "rationale": "The policy explicitly mentions sharing user online activities with third-party advertising companies, including Google.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We may use third-party advertising companies, such as Google, Yahoo!, Microsoft) to serve ads when you visit our website. These companies may use information about your interests in order to provide advertisements about goods and services of interest to you.",
+       "denial_quote": "",
+       "generic_quote": "These companies may use information about your interests in order to provide advertisements about goods and services of interest to you.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions sharing user online activities with third-party advertising companies, including Google."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9840292741155936
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+      "rationale": "The policy explicitly states that contact information can be used for contacting the user regarding support, renewal, and purchase of products and services.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that contact information can be used for contacting the user regarding support, renewal, and purchase of products and services."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "If you choose to subscribe to our premium products or services, we will request certain information from you such as your name, address, telephone number, e-mail address, and credit card information.",
+      "rationale": "The policy specifies that financial information is collected for managing subscriptions, which aligns with the 'Additional service/feature' purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "If you choose to subscribe to our premium products or services, we will request certain information from you such as your name, address, telephone number, e-mail address, and credit card information.",
+       "unspecified_purpose_quote": "Please note, however, that we are asking for this information for the limited purposes of managing your subscription.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy specifies that financial information is collected for managing subscriptions, which aligns with the 'Additional service/feature' purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9457953205880254
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "Please be assured that we will keep the communications to a minimum and you will have an option to block any communication from us if your subscriptions are cancelled. Please be aware that we reserve the right to notify our subscribers of any information that affects the status of current subscriptions. You may not opt out of receiving information regarding the expiration and renewal of the subscriptions, account balances or the payment history and status.",
+      "rationale": "The policy indicates that communications can continue even after subscription cancellation and subscribers cannot opt out of certain notifications, implying indefinite retention.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Financial",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "Please be assured that we will keep the communications to a minimum and you will have an option to block any communication from us if your subscriptions are cancelled. Please be aware that we reserve the right to notify our subscribers of any information that affects the status of current subscriptions. You may not opt out of receiving information regarding the expiration and renewal of the subscriptions, account balances or the payment history and status.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy indicates that communications can continue even after subscription cancellation and subscribers cannot opt out of certain notifications, implying indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9548830180426935
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 70.38
+ }
+}

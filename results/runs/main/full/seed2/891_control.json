@@ -1,0 +1,132 @@
+{
+ "case_id": "891_control",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9254457005549354,
+ "usage": {
+  "prompt": 1866,
+  "output": 276
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 42,
+  "untagged_paragraphs": 0,
+  "claims": 106,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Health is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     8,
+     7,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['advertising', 'service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     10,
+     19
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "to engage a Site's social networking function, you may add to your profile by providing information about your interests or health topics",
+      "rationale": "The policy specifies uses for health-related information but does not explicitly state advertising as a purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "to engage a Site's social networking function, you may add to your profile by providing information about your interests or health topics",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy specifies uses for health-related information but does not explicitly state advertising as a purpose."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "through an IP address that a particular computer or device is located in New York City and we may use this information to deliver advertisements promoting New York City-based businesses",
+      "rationale": "The policy mentions using IP addresses for advertising but does not specify basic service/feature as a purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "through an IP address that a particular computer or device is located in New York City and we may use this information to deliver advertisements promoting New York City-based businesses",
+       "unspecified_purpose_quote": "We, or our service providers, may use your IP Address when you access the Sites or Services or use other means to assist with delivering geographically targeted advertisements.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy mentions using IP addresses for advertising but does not specify basic service/feature as a purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9254457005549354
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 33.87
+ }
+}

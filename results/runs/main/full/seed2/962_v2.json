@@ -1,0 +1,367 @@
+{
+ "case_id": "962_v2",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify the exact data types collected, but mentions collecting various types of information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify the exact data types collected, but mentions collecting various types of information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Survey data",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions that third-party ad servers collect non-personally identifiable information, which includes survey data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9595741514737619,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9595741514737619,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9595741514737619,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9611078257849324,
+ "usage": {
+  "prompt": 5291,
+  "output": 1132
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 74,
+  "untagged_paragraphs": 0,
+  "claims": 156,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     8,
+     9,
+     10,
+     11,
+     15,
+     17,
+     19,
+     20,
+     24,
+     41,
+     44,
+     73,
+     65
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     13,
+     61
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     8,
+     9,
+     10,
+     11,
+     15,
+     17,
+     19,
+     20,
+     24,
+     41,
+     44,
+     13,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Survey data",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Survey data with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     15,
+     17,
+     26,
+     29,
+     32,
+     34,
+     64,
+     28,
+     33
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     13,
+     61
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify the exact data types collected, but mentions collecting various types of information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "This Privacy Policy describes the types of information we may collect from you or that you may provide to us when you visit the lynda.com websites located at www.lynda.com, m.lynda.com and www.video2brain.com (the Websites) or the lynda.com mobile application (App) (collectively, the Services) and our practices for collecting, using, maintaining, protecting and disclosing such information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify the exact data types collected, but mentions collecting various types of information."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify the exact data types collected, but mentions collecting various types of information.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "This Privacy Policy describes the types of information we may collect from you or that you may provide to us when you visit the lynda.com websites located at www.lynda.com, m.lynda.com and www.video2brain.com (the Websites) or the lynda.com mobile application (App) (collectively, the Services) and our practices for collecting, using, maintaining, protecting and disclosing such information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify the exact data types collected, but mentions collecting various types of information."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions that third-party ad servers collect non-personally identifiable information, which includes survey data.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Our third party ad server and/or content server may collect, certain Non-Personally Identifiable Information, that does not by itself identify a specific individual. Such information tells us about your equipment, browsing actions, the resources that you access and use through the Services, your operating system and browser type. Our third party ad servers will provide us with summary, but not individual, reports that will tell us how many ads were presented and clicked upon at our Websites.",
+       "denial_quote": "The information that we collect automatically is statistical in nature. It helps us to deliver a better and more personalized service to users, by enabling us to estimate usage patterns, customize our Services according to your individual preferences, and speed up your searches.",
+       "generic_quote": "This Privacy Policy describes the types of information we may collect from you or that you may provide to us when you visit the lynda.com websites located at www.lynda.com, m.lynda.com and www.video2brain.com (the Websites) or the lynda.com mobile application (App) (collectively, the Services) and our practices for collecting, using, maintaining, protecting and disclosing such information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that third-party ad servers collect non-personally identifiable information, which includes survey data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9595741514737619
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+      "rationale": "The policy explicitly states uses for the IP address that align with basic service/feature.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states uses for the IP address that align with basic service/feature."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We and our third party ad server will collect and use your IP address and certain Non-Personally Identifiable Information about you, such as your browser type, the server your computer is logged onto, the area code and zip code associated with your server and whether you responded to a particular advertisement.",
+      "rationale": "The policy explicitly states uses for the IP address that align with advertising, and also mentions diagnostic and administrative uses.",
+      "raw": {
+       "candidate_id": "c5",
+       "purpose_quote": "We and our third party ad server will collect and use your IP address and certain Non-Personally Identifiable Information about you, such as your browser type, the server your computer is logged onto, the area code and zip code associated with your server and whether you responded to a particular advertisement.",
+       "unspecified_purpose_quote": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states uses for the IP address that align with advertising, and also mentions diagnostic and administrative uses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9626415000961028
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is explicitly stated as (none), indicating no mention of the collection of contact data. The cited sections and rules a'",
+  "llm_calls": 3,
+  "seconds": 108.46
+ }
+}

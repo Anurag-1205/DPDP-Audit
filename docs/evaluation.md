@@ -35,13 +35,13 @@ comparison is with the LLM systems only, and coverage is reported next to F1.
 
 | System | Main (102) | Ladder (140) | Real flows | Status |
 |---|---|---|---|---|
-| S1 PoliCheck | ✓ | ✓ | ✓ | Main done (102 cases, Kaggle) |
-| S2 PoliGraph | ✓ | ✓ | ✓ | Main done (102 cases, Kaggle) |
+| S1 PoliCheck | ✓ | ✓ | ✓ | Main and ladder done |
+| S2 PoliGraph | ✓ | ✓ | ✓ | Main and ladder done |
 | B1 | ✓ | — | ✓ | Done (306 runs) |
-| B2 | ✓ | ✓ | ✓ | Main done (306 runs) |
-| B4 | ✓ | — | — | Pending |
-| full | ✓ | ✓ | ✓ | Planned |
-| A1–A5 | ✓ | — | — | Planned |
+| B2 | ✓ | ✓ | ✓ | Main and ladder done (3 seeds each) |
+| B4 | ✓ | — | — | Seed 0 done; seeds 1–2 running (free-tier quota) |
+| full | ✓ | ✓ | ✓ | Main 3 seeds, ladder seed 0 |
+| A1–A5 | ✓ | — | — | A1, A2, A3, A5 done; A4 waits for the fine-tuned tagger |
 
 ## Run and scoring flow
 

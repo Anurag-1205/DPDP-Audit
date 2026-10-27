@@ -1,0 +1,297 @@
+{
+ "case_id": "303_control",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that IP addresses and device IDs are used for advertising.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The rationale states that the policy explicitly states the use of IP addresses and device IDs for advertising, which contradicts the finding of a purpose mismatch. Additionally, there is no policy evidence provided."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy provides multiple purposes for computer information, including analytics and improving the service.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The rationale states that the policy provides multiple purposes for computer information, which contradicts the finding of a purpose mismatch. There is no policy evidence provided."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "personal data",
+   "rationale": "The policy does not mention sharing user online activities with Google Analytics, but explicitly states that they do not share certain data with Stripe and PayPal.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The rationale states that the policy does not mention sharing user online activities with Google Analytics, which contradicts the finding of undisclosed sharing. The policy evidence mentions 'personal data' but does not specify the sharing practices."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.915249561010971,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.915249561010971,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.945803059513783,
+ "usage": {
+  "prompt": 4950,
+  "output": 700
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 54,
+  "untagged_paragraphs": 0,
+  "claims": 117,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2,
+     4,
+     5,
+     7,
+     9,
+     12,
+     13,
+     16,
+     17,
+     25,
+     41,
+     42,
+     43,
+     33
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['analytics/research', 'service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     24,
+     43,
+     44
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     10,
+     43
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     5,
+     23,
+     28,
+     30,
+     33,
+     46,
+     50,
+     44
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you create an account, you are required to provide a username and password, and may opt to provide an email address.",
+      "rationale": "The policy explicitly mentions collecting email addresses, which falls under the Contact data type.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you create an account, you are required to provide a username and password, and may opt to provide an email address.",
+       "denial_quote": "",
+       "generic_quote": "personal data",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting email addresses, which falls under the Contact data type."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "personal data",
+      "rationale": "The policy does not mention sharing user online activities with Google Analytics, but explicitly states that they do not share certain data with Stripe and PayPal.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "Although Stripe and PayPal send us a receipt with your name and email address if you provide it, we don't add that information to your account.",
+       "generic_quote": "personal data",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention sharing user online activities with Google Analytics, but explicitly states that they do not share certain data with Stripe and PayPal."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.915249561010971
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that IP addresses and device IDs are used for advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "It is also used to provide advertising as described below.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that IP addresses and device IDs are used for advertising."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy provides multiple purposes for computer information, including analytics and improving the service.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "This information is used for analytics and to improve the reddit service; for example, we use device and OS information to track and fix bugs.",
+       "unspecified_purpose_quote": "Log data is certain information that is automatically collected by our systems when you visit reddit, including the type of software used to access the site (browser, operating system), the type of device you are using, the address of the external or internal page that referred you, and your IP address. This information is recorded for all visitors and is only linked to your account if you are signed in.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy provides multiple purposes for computer information, including analytics and improving the service."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9763565580165948
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 76.25
+ }
+}

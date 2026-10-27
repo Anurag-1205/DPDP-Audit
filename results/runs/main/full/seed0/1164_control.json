@@ -1,0 +1,180 @@
+{
+ "case_id": "1164_control",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The Service generally collects personally identifiable information with your specific knowledge and consent.",
+   "rationale": "The policy explicitly states that the Service collects personal information, including contact details, with user consent.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the Service collects personal information with user consent, but it does not specify that contact details are collected. The cited DPDP text requires a clear and specific notice regarding the personal data and its purpose, which is not provided here."
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We use Tracking Technologies for all or some of the same lawful business purposes we describe above for use of Local Device Storage.",
+   "rationale": "The policy mentions the use of tracking technologies but does not specifically mention collecting geolocation data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions the use of tracking technologies but does not specify collecting location data. The cited DPDP text requires a clear and specific notice regarding the personal data and its purpose, which is not provided here."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9313656417218695,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9313656417218695,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9313656417218695,
+ "usage": {
+  "prompt": 2875,
+  "output": 434
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 38,
+  "untagged_paragraphs": 0,
+  "claims": 74,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     13,
+     18,
+     21,
+     36,
+     7,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     13,
+     18,
+     21,
+     36,
+     5,
+     12
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The Service generally collects personally identifiable information with your specific knowledge and consent.",
+      "rationale": "The policy explicitly states that the Service collects personal information, including contact details, with user consent.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Similarly, if you enter an online sweepstakes, we will use this information to notify you if you are a winner. We may also use the information to communicate with you about new features, products or services, and/or to improve the services that we offer by tailoring them to your needs.",
+       "denial_quote": "",
+       "generic_quote": "The Service generally collects personally identifiable information with your specific knowledge and consent.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the Service collects personal information, including contact details, with user consent."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use Tracking Technologies for all or some of the same lawful business purposes we describe above for use of Local Device Storage.",
+      "rationale": "The policy mentions the use of tracking technologies but does not specifically mention collecting geolocation data.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Your information may be transferred to, and maintained on, servers and databases located outside of your state, province, country or other governmental jurisdiction where the privacy laws may not be as protective as your jurisdiction.",
+       "denial_quote": "",
+       "generic_quote": "We use Tracking Technologies for all or some of the same lawful business purposes we describe above for use of Local Device Storage.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions the use of tracking technologies but does not specifically mention collecting geolocation data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9313656417218695
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 69.53
+ }
+}

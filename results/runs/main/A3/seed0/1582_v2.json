@@ -1,0 +1,520 @@
+{
+ "case_id": "1582_v2",
+ "system": "A3",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3",
+    "Sec. 27(1)"
+   ],
+   "evidence": "When you use Bing and MSN services with a web browser, we will place one or more \"cookies\" on your machine.",
+   "rationale": "The policy states that IP addresses are stored for separate storage from user identification, but does not explicitly state the purpose of storing them.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not disclose the app's practice of storing IP addresses and device IDs for additional service purposes. Instead, it only mentions that cookies are placed on machines. The cited DPDP text is about notices and does not address the purpose of processing personal data."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3",
+    "Sec. 27(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions that cookies are used for operating the service and providing a better search experience, which aligns with service operation and security.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence does not mention the use of cookies for service operation and security. The rationale provided is based on assumptions rather than actual policy evidence. The cited DPDP text is about notices and does not address the purpose of processing personal data."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3",
+    "Sec. 27(1)"
+   ],
+   "evidence": "Bing provides search services to select partners and its users. Some examples include Yahoo! and Nokia.",
+   "rationale": "The policy mentions that demographic data is shared with partners, which includes Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that demographic data is shared with partners, which includes Google AdMob. This aligns with the finding of undisclosed sharing of demographic data for advertising purposes."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3",
+    "Sec. 27(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy clearly states that demographic data collection is blocked for users under 13.",
+   "reviewer": "children",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence does not mention the collection of children's data. The rationale provided is based on the absence of policy evidence rather than actual practices. The cited DPDP text is about notices and does not address the purpose of processing personal data."
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3",
+    "Sec. 27(1)"
+   ],
+   "evidence": "Some examples include Yahoo! and Nokia. In order to provide these services, Bing services receive certain search related information from these partners that may include date, time, IP address, a unique identifier and other search related data.",
+   "rationale": "The policy mentions that IP addresses are shared with partners, which includes Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that IP addresses are shared with partners, which includes Google AdMob. This aligns with the finding of undisclosed sharing of IP addresses and device IDs for advertising purposes."
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3",
+    "Sec. 27(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions that IP addresses are shared with partners, which includes Google AdMob.",
+   "reviewer": "children",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence does not mention the collection of children's data. The rationale provided is based on the absence of policy evidence rather than actual practices. The cited DPDP text is about notices and does not address the purpose of processing personal data."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9663350962041785,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9663350962041785,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9663350962041785,
+ "usage": {
+  "prompt": 5880,
+  "output": 2186
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 89,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     5,
+     7,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     19,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     2,
+     5,
+     3,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Demographic with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     7,
+     12,
+     25,
+     29,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "omission",
+    "reason": "a child-directed app sends Demographic to the advertising SDK Google AdMob",
+    "paragraphs": [
+     21,
+     22
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     7,
+     12,
+     25,
+     5,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "omission",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     21,
+     22
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3",
+       "Sec. 27(1)"
+      ],
+      "evidence": "When you use Bing and MSN services with a web browser, we will place one or more \"cookies\" on your machine.",
+      "rationale": "The policy states that IP addresses are stored for separate storage from user identification, but does not explicitly state the purpose of storing them.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "We store search terms (and the cookie IDs associated with search terms) separately from any account information that directly identifies the user, such as name, e-mail address, or phone numbers.",
+       "generic_quote": "We use these cookies to operate Bing and MSN services and provide you a more relevant search experience.",
+       "purpose_quote": "We store search terms (and the cookie IDs associated with search terms) separately from any account information that directly identifies the user, such as name, e-mail address, or phone numbers.",
+       "unspecified_purpose_quote": "Cookies & Similar Technologies\nWhen you use Bing and MSN services with a web browser, we will place one or more 'cookies' on your machine.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy states that IP addresses are stored for separate storage from user identification, but does not explicitly state the purpose of storing them."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3",
+       "Sec. 27(1)"
+      ],
+      "evidence": "If you've allowed a Microsoft service or application that uses Bing services to access your location, the location of your device will be sent to Microsoft along with the search terms, time and date of your search, and a unique identifier generated by the Microsoft service or application.",
+      "rationale": "The policy clearly states the purpose of collecting location data, which is for additional service/feature.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "We store search terms (and the cookie IDs associated with search terms) separately from any account information that directly identifies the user, such as name, e-mail address, or phone numbers.",
+       "generic_quote": "Mapping features in Microsoft's services and apps also use Bing services, and when you submit information such as an address to be viewed on a map, that service or application passes it to Bing services for processing.",
+       "purpose_quote": "If you've allowed a Microsoft service or application that uses Bing services to access your location, the location of your device will be sent to Microsoft along with the search terms, time and date of your search, and a unique identifier generated by the Microsoft service or application.",
+       "unspecified_purpose_quote": "Purpose \"Additional service/feature\"",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy clearly states the purpose of collecting location data, which is for additional service/feature."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3",
+       "Sec. 27(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions that cookies are used for operating the service and providing a better search experience, which aligns with service operation and security.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "We use these cookies to operate Bing and MSN services and provide you a more relevant search experience.",
+       "generic_quote": "Cookies & Similar Technologies\nWhen you use Bing and MSN services with a web browser, we will place one or more 'cookies' on your machine.",
+       "purpose_quote": "Collecting Your Information\nWhen you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "unspecified_purpose_quote": "Purpose \"Service Operation and Security\"",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy mentions that cookies are used for operating the service and providing a better search experience, which aligns with service operation and security."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3",
+       "Sec. 27(1)"
+      ],
+      "evidence": "Bing provides search services to select partners and its users. Some examples include Yahoo! and Nokia.",
+      "rationale": "The policy mentions that demographic data is shared with partners, which includes Google AdMob.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Demographic",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "disclosing_quote": "Some examples include Yahoo! and Nokia. In order to provide these services, Bing services receive certain search related information from these partners that may include date, time, IP address, a unique identifier and other search related data.",
+       "denial_quote": "",
+       "generic_quote": "Bing provides search services to select partners and its users. Some examples include Yahoo! and Nokia.",
+       "purpose_quote": "Some examples include Yahoo! and Nokia. In order to provide these services, Bing services receive certain search related information from these partners that may include date, time, IP address, a unique identifier and other search related data.",
+       "unspecified_purpose_quote": "Purpose \"Additional service/feature\"",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy mentions that demographic data is shared with partners, which includes Google AdMob."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3",
+       "Sec. 27(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy clearly states that demographic data collection is blocked for users under 13.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "Demographic",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "When a Microsoft site or service collects age information, it will block users under 13 or obtain consent from a parent or guardian before their child can use it.",
+       "generic_quote": "",
+       "purpose_quote": "When a Microsoft site or service collects age information, it will block users under 13 or obtain consent from a parent or guardian before their child can use it.",
+       "unspecified_purpose_quote": "Purpose \"Additional service/feature\"",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy clearly states that demographic data collection is blocked for users under 13."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3",
+       "Sec. 27(1)"
+      ],
+      "evidence": "Some examples include Yahoo! and Nokia. In order to provide these services, Bing services receive certain search related information from these partners that may include date, time, IP address, a unique identifier and other search related data.",
+      "rationale": "The policy mentions that IP addresses are shared with partners, which includes Google AdMob.",
+      "raw": {
+       "candidate_id": "c6",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "disclosing_quote": "Some examples include Yahoo! and Nokia. In order to provide these services, Bing services receive certain search related information from these partners that may include date, time, IP address, a unique identifier and other search related data.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Some examples include Yahoo! and Nokia. In order to provide these services, Bing services receive certain search related information from these partners that may include date, time, IP address, a unique identifier and other search related data.",
+       "unspecified_purpose_quote": "Purpose \"Additional service/feature\"",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy mentions that IP addresses are shared with partners, which includes Google AdMob."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3",
+       "Sec. 27(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions that IP addresses are shared with partners, which includes Google AdMob.",
+      "raw": {
+       "candidate_id": "c7",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "disclosing_quote": "Some examples include Yahoo! and Nokia. In order to provide these services, Bing services receive certain search related information from these partners that may include date, time, IP address, a unique identifier and other search related data.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Some examples include Yahoo! and Nokia. In order to provide these services, Bing services receive certain search related information from these partners that may include date, time, IP address, a unique identifier and other search related data.",
+       "unspecified_purpose_quote": "Purpose \"Additional service/feature\"",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy mentions that IP addresses are shared with partners, which includes Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9663350962041785
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 251.99
+ }
+}

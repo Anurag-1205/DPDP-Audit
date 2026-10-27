@@ -1,0 +1,112 @@
+{
+ "case_id": "L1582_r2",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "We do not collect your precise location.",
+   "rationale": "The policy explicitly states that no precise location is collected.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence 'We do not collect your precise location' directly supports the finding of an undisclosed collection of location data. The cited sections of the DPDP Act (Sec. 5(1) and Sec. 5(2)) pertain to notices and disclosures but do not negate the fact that the app does not collect location"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9742351590950097,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9742351590950097,
+ "usage": {
+  "prompt": 2054,
+  "output": 218
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 27,
+  "untagged_paragraphs": 0,
+  "claims": 56,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     9,
+     11,
+     12,
+     13,
+     15,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "We do not collect your precise location.",
+      "rationale": "The policy explicitly states that no precise location is collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect your precise location.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy explicitly states that no precise location is collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9742351590950097
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 32.6
+ }
+}

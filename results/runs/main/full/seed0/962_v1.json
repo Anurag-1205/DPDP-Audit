@@ -1,0 +1,395 @@
+{
+ "case_id": "962_v1",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "This Privacy Policy describes the types of information we may collect from you or that you may provide to us when you visit the lynda.com websites located at www.lynda.com, m.lynda.com and www.video2brain.com (the Websites) or the lynda.com mobile application (App) (collectively, the Services) , and our practices for collecting, using, maintaining, protecting and disclosing such information.",
+   "rationale": "The policy mentions collecting various types of information but does not specifically mention contact details.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+   "rationale": "The policy mentions using IP addresses for various unspecified purposes.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention collecting location data, and there are no relevant statements in the provided policy.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8",
+    "Third Schedule"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for IP addresses and device IDs used for analytics/research.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9431136392290554,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9431136392290554,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9640980655082411,
+ "usage": {
+  "prompt": 6748,
+  "output": 1036
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 74,
+  "untagged_paragraphs": 0,
+  "claims": 156,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     8,
+     9,
+     10,
+     11,
+     15,
+     17,
+     19,
+     20,
+     24,
+     41,
+     44,
+     73,
+     65
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     13,
+     61
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     8,
+     9,
+     10,
+     11,
+     15,
+     17,
+     19,
+     20,
+     24,
+     41,
+     44,
+     13,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     13,
+     61
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps IP address and device IDs indefinitely; retention statements: ['Indefinitely', 'Limited', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     8,
+     9,
+     10,
+     12,
+     13,
+     14,
+     17,
+     18,
+     24,
+     27,
+     32,
+     37,
+     41,
+     44,
+     45,
+     50,
+     54,
+     55,
+     63,
+     61
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "This Privacy Policy describes the types of information we may collect from you or that you may provide to us when you visit the lynda.com websites located at www.lynda.com, m.lynda.com and www.video2brain.com (the Websites) or the lynda.com mobile application (App) (collectively, the Services) , and our practices for collecting, using, maintaining, protecting and disclosing such information.",
+      "rationale": "The policy mentions collecting various types of information but does not specifically mention contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "This Privacy Policy describes the types of information we may collect from you or that you may provide to us when you visit the lynda.com websites located at www.lynda.com, m.lynda.com and www.video2brain.com (the Websites) or the lynda.com mobile application (App) (collectively, the Services) , and our practices for collecting, using, maintaining, protecting and disclosing such information.",
+       "denial_quote": "",
+       "generic_quote": "This Privacy Policy describes the types of information we may collect from you or that you may provide to us when you visit the lynda.com websites located at www.lynda.com, m.lynda.com and www.video2brain.com (the Websites) or the lynda.com mobile application (App) (collectively, the Services) , and our practices for collecting, using, maintaining, protecting and disclosing such information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting various types of information but does not specifically mention contact details."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention collecting location data, and there are no relevant statements in the provided policy.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention collecting location data, and there are no relevant statements in the provided policy."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9431136392290554
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+      "rationale": "The policy mentions using IP addresses for various unspecified purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy mentions using IP addresses for various unspecified purposes."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We will not provide any third-party ad server with any of your Personally Identifiable Information or information about your purchases. We and our third party ad server will collect and use your IP address and certain Non-Personally Identifiable Information about you, such as your browser type, the server your computer is logged onto, the area code and zip code associated with your server and whether you responded to a particular advertisement.",
+      "rationale": "The policy specifies collecting and using IP addresses for advertising purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "purpose_quote": "We will not provide any third-party ad server with any of your Personally Identifiable Information or information about your purchases. We and our third party ad server will collect and use your IP address and certain Non-Personally Identifiable Information about you, such as your browser type, the server your computer is logged onto, the area code and zip code associated with your server and whether you responded to a particular advertisement.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy specifies collecting and using IP addresses for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9662931869451953
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8",
+       "Third Schedule"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for IP addresses and device IDs used for analytics/research.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8",
+        "Third Schedule"
+       ],
+       "rationale": "The policy does not specify a retention period for IP addresses and device IDs used for analytics/research."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9828873703504728
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": true, \"reason\": \"The policy evidence does not explicitly mention contact details, and the cited DPDP text requires the notice to inform the Data Principal ab'",
+  "llm_calls": 4,
+  "seconds": 106.14
+ }
+}

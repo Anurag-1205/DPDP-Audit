@@ -1,0 +1,333 @@
+{
+ "case_id": "652_v2",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 4(2)"
+   ],
+   "evidence": "We may ask you to provide your personal information, demographic information or information about your preferences or interests when you: Register for an account on the Sites Sign up to receive email newsletters from us Make a purchase on the Sites Enter a contest or sweepstakes Participate in surveys or special promotions Participate on social media accounts involving our authors, books or brands Participate in communities or forums on the Sites Submit user generated content on any part of the Sites that permit it Knowingly volunteer information on any other part of the Sites (e.g., request for customer service, submit a job application)",
+   "rationale": "The policy lists various purposes for collecting contact information, but does not specify that the data is used for Personalization/Customization.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence lists various purposes for collecting contact information, but does not explicitly state that the data is used for Personalization/Customization. This omission aligns with the cited Sec. 5(1) requirement to inform the Data Principal of the purpose for processing personal data. Th"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We do not require children to share any personal information in order to participate on this Site. On occasion, however, we may collect personal information, such as an email address from a child as part of an activity, in accordance with COPPA.",
+   "rationale": "The policy only vaguely mentions collecting financial information without specifying the purpose.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not mention collecting financial information at all. Instead, it discusses collecting personal information from children for unspecified activities. The cited Sec. 5(1) and Rule 3 pertain to providing clear and understandable notices to Data Principals, but they do not addre"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9848982557879671,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9848982557879671,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We collect certain information about your computer or other device that you use to access the Sites, including IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information.",
+   "rationale": "The policy only vaguely mentions collecting device information without specifying the purpose.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "quote not found in the policy"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 4(2)"
+   ],
+   "evidence": "We may log certain information about your use of the Sites (e.g., log files, clickstream data, a reading history of the pages you view, your search terms and search results) and additional 'traffic data' (e.g., time of access, date of access, software crash reports, session identification number, access times, referring website addresses). We may also collect anonymous information automatically from your child's computer or device, such as the frequency with which the child visits our Site and the pages visited, to support the internal operations of the Site. We collect this information so we can understand and monitor usage of the Site, customize content on the Site and improve the performance of the Site. This information is collected using technologies such as cookies, flash cookies, web beacons, and similar technologies. This information is not used to behaviorally target children and we do not permit behavioral targeting on any of our Sites that are directed to children.",
+   "rationale": "The policy lists various purposes for collecting user profile information, but does not specify that the data is used for Advertising.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "quote not found in the policy"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Financial",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "We may log certain information about your use of the Sites (e.g., log files, clickstream data, a reading history of the pages you view, your search terms and search results) and additional 'traffic data' (e.g., time of access, date of access, software crash reports, session identification number, access times, referring website addresses).",
+   "rationale": "The policy does not specify a retention period for usage information.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "quote not found in the policy"
+  }
+ ],
+ "token_prob": 0.9857190254181968,
+ "usage": {
+  "prompt": 6881,
+  "output": 1116
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 45,
+  "untagged_paragraphs": 0,
+  "claims": 92,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     4,
+     29,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     3,
+     4,
+     5,
+     15,
+     17,
+     6,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "User profile is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     7,
+     33,
+     17,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Financial is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     3,
+     4,
+     5,
+     15,
+     17,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Financial indefinitely; retention statements: ['Indefinitely', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     5,
+     7,
+     11,
+     15,
+     17,
+     18,
+     19,
+     26,
+     38,
+     39,
+     29,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect certain information about your computer or other device that you use to access the Sites, including IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information.",
+      "rationale": "The policy only vaguely mentions collecting device information without specifying the purpose."
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do not require children to share any personal information in order to participate on this Site. On occasion, however, we may collect personal information, such as an email address from a child as part of an activity, in accordance with COPPA.",
+      "rationale": "The policy only vaguely mentions collecting financial information without specifying the purpose."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9848982557879671
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 4(2)"
+      ],
+      "evidence": "We may ask you to provide your personal information, demographic information or information about your preferences or interests when you: Register for an account on the Sites Sign up to receive email newsletters from us Make a purchase on the Sites Enter a contest or sweepstakes Participate in surveys or special promotions Participate on social media accounts involving our authors, books or brands Participate in communities or forums on the Sites Submit user generated content on any part of the Sites that permit it Knowingly volunteer information on any other part of the Sites (e.g., request for customer service, submit a job application)",
+      "rationale": "The policy lists various purposes for collecting contact information, but does not specify that the data is used for Personalization/Customization."
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 4(2)"
+      ],
+      "evidence": "We may log certain information about your use of the Sites (e.g., log files, clickstream data, a reading history of the pages you view, your search terms and search results) and additional 'traffic data' (e.g., time of access, date of access, software crash reports, session identification number, access times, referring website addresses). We may also collect anonymous information automatically from your child's computer or device, such as the frequency with which the child visits our Site and the pages visited, to support the internal operations of the Site. We collect this information so we can understand and monitor usage of the Site, customize content on the Site and improve the performance of the Site. This information is collected using technologies such as cookies, flash cookies, web beacons, and similar technologies. This information is not used to behaviorally target children and we do not permit behavioral targeting on any of our Sites that are directed to children.",
+      "rationale": "The policy lists various purposes for collecting user profile information, but does not specify that the data is used for Advertising."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9804746017806294
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "We may log certain information about your use of the Sites (e.g., log files, clickstream data, a reading history of the pages you view, your search terms and search results) and additional 'traffic data' (e.g., time of access, date of access, software crash reports, session identification number, access times, referring website addresses).",
+      "rationale": "The policy does not specify a retention period for usage information."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9917842186859936
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 73.09
+ }
+}

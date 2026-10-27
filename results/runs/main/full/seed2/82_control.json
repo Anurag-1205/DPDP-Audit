@@ -1,0 +1,253 @@
+{
+ "case_id": "82_control",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Sec. 6(5)",
+    "Sec. 17(3)"
+   ],
+   "evidence": "For example, if you enter an online sweepstakes, we will use this information to notify you if you are a winner. We may also use the information to communicate with you about new features, products or services, and/or to improve the services that we offer by tailoring them to your needs.",
+   "rationale": "The policy discloses the collection of log file information, which includes IP addresses.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Sec. 6(5)",
+    "Sec. 17(3)"
+   ],
+   "evidence": "For example, if you enter an online sweepstakes, we will use this information to notify you if you are a winner. We may also use the information to communicate with you about new features, products or services, and/or to improve the services that we offer by tailoring them to your needs.",
+   "rationale": "The policy does not mention collecting location data, but it does discuss using personal information for marketing purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9659351990545365,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9659351990545365,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9659351990545365,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9659351990545365,
+ "usage": {
+  "prompt": 4169,
+  "output": 698
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 46,
+  "untagged_paragraphs": 0,
+  "claims": 114,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     4,
+     5,
+     7,
+     9,
+     10,
+     11,
+     12,
+     19,
+     20,
+     24,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     4,
+     5,
+     7,
+     9,
+     10,
+     11,
+     12,
+     19,
+     20,
+     24,
+     27
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     4,
+     5,
+     7,
+     9,
+     10,
+     11,
+     12,
+     19,
+     20,
+     24,
+     18,
+     21
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Sec. 6(5)",
+       "Sec. 17(3)"
+      ],
+      "evidence": "By providing Company your email address, you consent to our using the email address to send you Service-related notices, including any notices required by law, in lieu of communication by postal mail.",
+      "rationale": "The policy explicitly mentions collecting and using email addresses for communication.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "By providing Company your email address, you consent to our using the email address to send you Service-related notices, including any notices required by law, in lieu of communication by postal mail.",
+       "denial_quote": "",
+       "generic_quote": "For example, if you enter an online sweepstakes, we will use this information to notify you if you are a winner. We may also use the information to communicate with you about new features, products or services, and/or to improve the services that we offer by tailoring them to your needs.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Sec. 6(5)",
+        "Sec. 17(3)"
+       ],
+       "rationale": "The policy explicitly mentions collecting and using email addresses for communication."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Sec. 6(5)",
+       "Sec. 17(3)"
+      ],
+      "evidence": "For example, if you enter an online sweepstakes, we will use this information to notify you if you are a winner. We may also use the information to communicate with you about new features, products or services, and/or to improve the services that we offer by tailoring them to your needs.",
+      "rationale": "The policy discloses the collection of log file information, which includes IP addresses.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Log file information is automatically reported by your browser each time you access a web page. When you register with or view our Website, our servers automatically record certain information that your web browser sends whenever you visit any website.",
+       "denial_quote": "",
+       "generic_quote": "For example, if you enter an online sweepstakes, we will use this information to notify you if you are a winner. We may also use the information to communicate with you about new features, products or services, and/or to improve the services that we offer by tailoring them to your needs.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Sec. 6(5)",
+        "Sec. 17(3)"
+       ],
+       "rationale": "The policy discloses the collection of log file information, which includes IP addresses."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Sec. 6(5)",
+       "Sec. 17(3)"
+      ],
+      "evidence": "For example, if you enter an online sweepstakes, we will use this information to notify you if you are a winner. We may also use the information to communicate with you about new features, products or services, and/or to improve the services that we offer by tailoring them to your needs.",
+      "rationale": "The policy does not mention collecting location data, but it does discuss using personal information for marketing purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "For example, if you enter an online sweepstakes, we will use this information to notify you if you are a winner. We may also use the information to communicate with you about new features, products or services, and/or to improve the services that we offer by tailoring them to your needs.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Sec. 6(5)",
+        "Sec. 17(3)"
+       ],
+       "rationale": "The policy does not mention collecting location data, but it does discuss using personal information for marketing purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9659351990545365
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence provided discusses the use of log file information, which includes IP addresses, for notifying winners and communicatin'",
+  "llm_calls": 2,
+  "seconds": 88.98
+ }
+}

@@ -1,0 +1,220 @@
+{
+ "case_id": "995_control",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "Data collected regarding areas of interest is stored in a database.",
+   "rationale": "The policy discloses collecting various types of information, but does not specify location data specifically.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that 'Data collected regarding areas of interest is stored in a database.' This does not specify location data, and the cited sections of the DPDP Act emphasize the need to inform the Data Principal about the personal data and purposes for processing. Since the policy does"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not disclose collecting demographic data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is explicitly stated as (none: the policy is said not to mention it). The cited sections of the DPDP Act pertain to the notice requirements for data processing, but they do not address the omission of specific data types from the policy. Therefore, the finding is not supported be"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9315943082683509,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9315943082683509,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9315943082683509,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9315943082683509,
+ "usage": {
+  "prompt": 3026,
+  "output": 552
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 7,
+  "untagged_paragraphs": 0,
+  "claims": 13,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     3,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Demographic is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     4,
+     1
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "All personal information collected at any Player's Club booth including name, address, phone number and email address is placed in a database that is not shared or sold with any third party.",
+      "rationale": "The policy explicitly mentions collecting personal information including contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "All personal information collected at any Player's Club booth including name, address, phone number and email address is placed in a database that is not shared or sold with any third party.",
+       "denial_quote": "",
+       "generic_quote": "All personal information collected at any Player's Club booth",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting personal information including contact details."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "Data collected regarding areas of interest is stored in a database.",
+      "rationale": "The policy discloses collecting various types of information, but does not specify location data specifically.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Information received such as name, email address, home address and data collected regarding areas of interest is stored in a database.",
+       "denial_quote": "",
+       "generic_quote": "Data collected regarding areas of interest is stored in a database.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting various types of information, but does not specify location data specifically."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not disclose collecting demographic data.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "None of the information collected is sold or shared with any third party and is available only to specific Marketing Managers at Mohegan Sun.",
+       "denial_quote": "",
+       "generic_quote": "The policy does not mention demographic data specifically.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose collecting demographic data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9315943082683509
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 52.57
+ }
+}

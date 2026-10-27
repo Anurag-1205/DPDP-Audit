@@ -1,0 +1,197 @@
+{
+ "case_id": "59_control",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "In order to distribute our email publication, we need your e-mail address. So that we may provide you with additional services as well as more interesting and relevant content, we may request additional information, including your name, zip code and telephone number.",
+   "rationale": "The policy only vaguely mentions collecting contact information without specifying the exact fields.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that the app collects contact information, including email, name, zip code, and telephone number, without specifying the exact fields. This aligns with the cited DPDP text requiring a notice to inform the Data Principal about the personal data and the purpose for processin"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "As with most other Web sites, the Liquor.com does use cookies but only to allow us to quickly check your status as a subscriber and facilitate access to your preferences. Some of our advertisers may serve you cookies as well.",
+   "rationale": "The policy only vaguely mentions using cookies without specifying the exact purpose.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence discusses the use of cookies for subscriber status and preference access, but does not mention the collection of cookies and tracking elements for additional services or features. The cited DPDP text requires a notice to inform the Data Principal about the personal data and the p"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9748929383177805,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9748929383177805,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9748929383177805,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Your Internet Protocol ('IP') address is usually associated with the place from which you enter the Internet, like your Internet Service Provider, your company or your university. We may, from time to time, use your IP address to help diagnose problems with our server, gather broad demographic information and administer our Website.",
+   "rationale": "The policy only vaguely mentions using IP addresses without specifying the exact purpose.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "quote not found in the policy"
+  }
+ ],
+ "token_prob": 0.9748929383177805,
+ "usage": {
+  "prompt": 3488,
+  "output": 615
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 22,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     3,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     3,
+     8,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Cookies and tracking elements is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     3,
+     7
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "In order to distribute our email publication, we need your e-mail address. So that we may provide you with additional services as well as more interesting and relevant content, we may request additional information, including your name, zip code and telephone number.",
+      "rationale": "The policy only vaguely mentions collecting contact information without specifying the exact fields."
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Your Internet Protocol ('IP') address is usually associated with the place from which you enter the Internet, like your Internet Service Provider, your company or your university. We may, from time to time, use your IP address to help diagnose problems with our server, gather broad demographic information and administer our Website.",
+      "rationale": "The policy only vaguely mentions using IP addresses without specifying the exact purpose."
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "As with most other Web sites, the Liquor.com does use cookies but only to allow us to quickly check your status as a subscriber and facilitate access to your preferences. Some of our advertisers may serve you cookies as well.",
+      "rationale": "The policy only vaguely mentions using cookies without specifying the exact purpose."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9748929383177805
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 71.69
+ }
+}

@@ -1,0 +1,186 @@
+{
+ "case_id": "1261_control",
+ "system": "A3",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9710628582348007,
+ "usage": {
+  "prompt": 2000,
+  "output": 639
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 40,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['advertising'], the app uses it for Marketing",
+    "paragraphs": [
+     3,
+     1,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     8,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Financial is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     7,
+     5
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet. These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+      "rationale": "The policy mentions using contact information for marketing purposes, but does not explicitly state this for the specific data type.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Marketing",
+       "retention": "Unspecified",
+       "purpose_quote": "Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet. These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+       "unspecified_purpose_quote": "Additionally, Zacks Investment Research is selective about which companies we permit to send you an offer. Zacks will use names for Market Research Our goal is for the e-mails to be of value to you.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy mentions using contact information for marketing purposes, but does not explicitly state this for the specific data type."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet. These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+      "rationale": "The policy mentions using cookies and tracking elements for enhancing user experience and web site administration, which aligns with service operation and security.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "purpose_quote": "Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet. These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+       "unspecified_purpose_quote": "Additionally, Zacks Investment Research is selective about which companies we permit to send you an offer. Zacks will use names for Market Research Our goal is for the e-mails to be of value to you.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy mentions using cookies and tracking elements for enhancing user experience and web site administration, which aligns with service operation and security."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "If you decide to subscribe to any of our paid newsletters, we collect your credit card information solely for payment of your subscription, and it is shared only with our credit card processor in order to complete the transaction.",
+      "rationale": "The policy states collecting financial information for payment purposes, which aligns with service operation and security.",
+      "raw": {
+       "candidate_id": "c3",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Financial",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "purpose_quote": "If you decide to subscribe to any of our paid newsletters, we collect your credit card information solely for payment of your subscription, and it is shared only with our credit card processor in order to complete the transaction.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states collecting financial information for payment purposes, which aligns with service operation and security."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9710628582348007
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 64.42
+ }
+}

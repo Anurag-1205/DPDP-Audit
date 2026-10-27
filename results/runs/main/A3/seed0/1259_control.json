@@ -1,0 +1,157 @@
+{
+ "case_id": "1259_control",
+ "system": "A3",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9660980480489076,
+ "usage": {
+  "prompt": 1841,
+  "output": 418
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 137,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['advertising', 'basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     23,
+     40,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     5,
+     8,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 2"
+      ],
+      "evidence": "we will provide your individual contact information (for example, name, mailing address, email address, and/or telephone number), so that the advertiser or its agent can fulfill the special offer.",
+      "rationale": "The policy mentions using contact information for additional services but does not specify 'Additional service/feature' as a purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "paragraphs": [
+        23,
+        40,
+        4
+       ],
+       "purpose_quote": "we will provide your individual contact information (for example, name, mailing address, email address, and/or telephone number), so that the advertiser or its agent can fulfill the special offer.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 2"
+       ],
+       "rationale": "The policy mentions using contact information for additional services but does not specify 'Additional service/feature' as a purpose."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 2"
+      ],
+      "evidence": "We collect IP addresses for site security and to help us understand how people use our sites so that we can improve our sites and our users' respective experiences.",
+      "rationale": "The policy mentions using IP addresses for site security and improvement, but does not specify 'Service Operation and Security' as a purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "purpose_mismatch",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "paragraphs": [
+        5,
+        8,
+        9
+       ],
+       "purpose_quote": "We collect IP addresses for site security and to help us understand how people use our sites so that we can improve our sites and our users' respective experiences.",
+       "unspecified_purpose_quote": "Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 2"
+       ],
+       "rationale": "The policy mentions using IP addresses for site security and improvement, but does not specify 'Service Operation and Security' as a purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9660980480489076
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 48.7
+ }
+}

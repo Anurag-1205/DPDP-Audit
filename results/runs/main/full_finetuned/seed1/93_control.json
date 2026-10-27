@@ -1,0 +1,182 @@
+{
+ "case_id": "93_control",
+ "system": "full_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "This information will only be used for the stated purpose.",
+   "rationale": "The policy only states that the information will be used for the stated purpose but does not specify what those purposes are.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that the information will only be used for the stated purpose, but does not specify what those purposes are. This aligns with the DPDP text in Sec. 5(1) and Sec. 6(1), which require the Data Fiduciary to inform the Data Principal about the personal data and the purpose for"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "A. Personally Identifiable Information\nPBS will not collect personally identifiable information from you, other than what you supply to us on a voluntary basis upon request. Personally identifiable information includes, but is not limited to, name, address, e-mail address, telephone number, and credit card information.",
+   "rationale": "The policy explicitly states that PBS does not collect personally identifiable information, which includes location data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence explicitly states that PBS does not collect personally identifiable information, including location data. This contradicts the finding of undisclosed collection. Therefore, the evidence does not support the finding of a compliance gap."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9676845576440145,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.958691243904115,
+ "usage": {
+  "prompt": 3511,
+  "output": 489
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 51,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['additional service/feature', 'basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     6,
+     7,
+     8,
+     9,
+     20,
+     14
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     10,
+     11,
+     12,
+     13,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "A. Personally Identifiable Information\nPBS will not collect personally identifiable information from you, other than what you supply to us on a voluntary basis upon request. Personally identifiable information includes, but is not limited to, name, address, e-mail address, telephone number, and credit card information.",
+      "rationale": "The policy explicitly states that PBS does not collect personally identifiable information, which includes location data.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "B. Non-personally Identifiable Information\nIn addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site. This information helps us improve the experience you and other visitors have with the Site.",
+       "generic_quote": "A. Personally Identifiable Information\nPBS will not collect personally identifiable information from you, other than what you supply to us on a voluntary basis upon request. Personally identifiable information includes, but is not limited to, name, address, e-mail address, telephone number, and credit card information.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that PBS does not collect personally identifiable information, which includes location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9676845576440145
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "This information will only be used for the stated purpose.",
+      "rationale": "The policy only states that the information will be used for the stated purpose but does not specify what those purposes are.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "This information will only be used for the stated purpose.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy only states that the information will be used for the stated purpose but does not specify what those purposes are."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9496979301642154
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 31.47
+ }
+}

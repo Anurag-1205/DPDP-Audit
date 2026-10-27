@@ -1,0 +1,273 @@
+{
+ "case_id": "503_v1",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9555378799384904,
+ "usage": {
+  "prompt": 4082,
+  "output": 710
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 43,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Marketing",
+    "paragraphs": [
+     3,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Financial is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     11,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "vague",
+    "reason": "the app keeps User profile indefinitely; retention statements: ['Indefinitely', 'Unspecified']",
+    "paragraphs": [
+     0,
+     2,
+     5,
+     6,
+     7,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     2,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "vague",
+    "reason": "the app keeps Contact indefinitely; retention statements: ['Indefinitely', 'Unspecified']",
+    "paragraphs": [
+     0,
+     2,
+     5,
+     6,
+     7
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Cookies are pieces of data your web browser stores on your hard drive to allow our Sites to provide you with enhanced services.",
+      "rationale": "The policy clearly states the purpose for collecting cookies.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "Cookies are pieces of data your web browser stores on your hard drive to allow our Sites to provide you with enhanced services.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy clearly states the purpose for collecting cookies."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "If you do not set up an account, you will have to enter your credit card information each time you order. We understand that this may be a little inconvenient for you, but some customers appreciate the added security.",
+      "rationale": "The policy specifies the purpose of storing financial information for security reasons.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "If you do not set up an account, you will have to enter your credit card information each time you order. We understand that this may be a little inconvenient for you, but some customers appreciate the added security.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy specifies the purpose of storing financial information for security reasons."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "We collect the information you affirmatively choose to provide us, such as when you provide your name, contact information, the pages you access and similar information for such purposes as purchasing products, creating an account, joining our loyalty programs, filling out a survey, entering contests, participating in promotions or electronic activities, posting comments on bulletin boards or otherwise interacting with our Sites.",
+      "rationale": "The policy provides multiple purposes for collecting contact information, including additional service/feature usage.",
+      "raw": {
+       "candidate_id": "c4",
+       "purpose_quote": "We collect the information you affirmatively choose to provide us, such as when you provide your name, contact information, the pages you access and similar information for such purposes as purchasing products, creating an account, joining our loyalty programs, filling out a survey, entering contests, participating in promotions or electronic activities, posting comments on bulletin boards or otherwise interacting with our Sites.",
+       "unspecified_purpose_quote": "This provides us with important marketing information and lets us know how we are doing at both attracting new visitors and maintaining relationships with our existing customers.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy provides multiple purposes for collecting contact information, including additional service/feature usage."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9574612273626761
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "P6",
+       "P7"
+      ],
+      "evidence": "Upon your request, we will make reasonable efforts to delete your personal information from our database, however, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+      "rationale": "The policy states that it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "User profile",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Indefinitely",
+       "retention_quote": "Upon your request, we will make reasonable efforts to delete your personal information from our database, however, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+       "sections": [
+        "P6",
+        "P7"
+       ],
+       "rationale": "The policy states that it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "P11"
+      ],
+      "evidence": "If you do not set up an account, you will have to enter your credit card information each time you order. We understand that this may be a little inconvenient for you, but some customers appreciate the added security.",
+      "rationale": "The policy suggests that credit card information may be stored for convenience, implying indefinite retention.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Indefinitely",
+       "retention_quote": "If you do not set up an account, you will have to enter your credit card information each time you order. We understand that this may be a little inconvenient for you, but some customers appreciate the added security.",
+       "sections": [
+        "P11"
+       ],
+       "rationale": "The policy suggests that credit card information may be stored for convenience, implying indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9536145325143045
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 89.99
+ }
+}

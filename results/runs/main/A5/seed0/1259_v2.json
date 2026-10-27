@@ -1,0 +1,124 @@
+{
+ "case_id": "1259_v2",
+ "system": "A5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We ask for your name, email address, and other personal information",
+   "rationale": "The policy explicitly states that the company collects personal information, including email addresses.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not disclose the collection of 'Computer information' as specified in the finding. The evidence mentions collecting 'name, email address, and other personal information', which does not align with the 'Computer information' data type. Additionally, the cited DPDP te"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9406753804917459,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9406753804917459,
+ "usage": {
+  "prompt": 2361,
+  "output": 244
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 181,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     3,
+     7,
+     8,
+     10,
+     12,
+     17,
+     18,
+     19,
+     39,
+     37
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We ask for your name, email address, and other personal information",
+      "rationale": "The policy explicitly states that the company collects personal information, including email addresses.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We ask for your name, email address, and other personal information when you register to use certain features of our Web site, or if you sign up for special or personalized services, such as our discussion boards or email newsletters.",
+       "denial_quote": "",
+       "generic_quote": "We ask for your name, email address, and other personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the company collects personal information, including email addresses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9406753804917459
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 33.85
+ }
+}

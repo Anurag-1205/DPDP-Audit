@@ -1,0 +1,369 @@
+{
+ "case_id": "642_v2",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We use these statistics about your visit for aggregation purposes only.",
+   "rationale": "The policy discloses the collection of IP addresses and device IDs for analytics/research purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "Financial",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for financial data used for additional service/feature purposes.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9749957797008147,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9749957797008147,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9749957797008147,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9749957797008147,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": 0.9749957797008147,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9777937417425506,
+ "usage": {
+  "prompt": 5828,
+  "output": 825
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 15,
+  "untagged_paragraphs": 0,
+  "claims": 36,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     10,
+     12,
+     4,
+     14
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     10,
+     12,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     10,
+     12,
+     8,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Financial is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     10,
+     12,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Financial indefinitely; retention statements: ['Indefinitely', 'Limited', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     11,
+     12
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(5)",
+       "Rule 3"
+      ],
+      "evidence": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+      "rationale": "The policy discloses the collection of contact details for marketing purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+       "denial_quote": "",
+       "generic_quote": "We respect your right to privacy, and have developed this Privacy Statement to inform you about our privacy practices for the entire Farlex Web site and all its entities.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(5)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of contact details for marketing purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use these statistics about your visit for aggregation purposes only.",
+      "rationale": "The policy discloses the collection of IP addresses and device IDs for analytics/research purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "When you visit our sites, our computers may automatically collect statistics about your visit.",
+       "denial_quote": "",
+       "generic_quote": "We use these statistics about your visit for aggregation purposes only.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of IP addresses and device IDs for analytics/research purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you visit our sites, our computers may automatically collect statistics about your visit.",
+      "rationale": "The policy discloses the collection of computer information for analytics/research purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "When you visit our sites, our computers may automatically collect statistics about your visit.",
+       "denial_quote": "",
+       "generic_quote": "We use these statistics about your visit for aggregation purposes only.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of computer information for analytics/research purposes."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may use third-party advertising companies, such as Google, Yahoo!, Microsoft) to serve ads when you visit our website.",
+      "rationale": "The policy discloses the sharing of user online activities with Google AdMob for advertising purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We may use third-party advertising companies, such as Google, Yahoo!, Microsoft) to serve ads when you visit our website.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the sharing of user online activities with Google AdMob for advertising purposes."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you choose to subscribe to our premium products or services, we will request certain information from you such as your name, address, telephone number, e-mail address, and credit card information.",
+      "rationale": "The policy discloses the collection of financial information for additional service/feature purposes.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "If you choose to subscribe to our premium products or services, we will request certain information from you such as your name, address, telephone number, e-mail address, and credit card information.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of financial information for additional service/feature purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9749957797008147
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for financial data used for additional service/feature purposes.",
+      "raw": {
+       "candidate_id": "c6",
+       "data_type": "Financial",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a retention period for financial data used for additional service/feature purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9805917037842865
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence states that the data is used for aggregation purposes only, which does not explicitly disclose the collection of IP add'",
+  "llm_calls": 3,
+  "seconds": 97.07
+ }
+}

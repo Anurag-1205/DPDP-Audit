@@ -1,0 +1,242 @@
+{
+ "case_id": "1468_control",
+ "system": "A3",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 4(2)",
+    "Sec. 17(3)",
+    "Rule 10"
+   ],
+   "evidence": "An IP address is a number that is used by a networked device and will identify your point of connection to the internet. Depending on your network configuration, it may also identify your computer, or other device. A MAC address or other device ID identifies one specific piece of hardware.",
+   "rationale": "The policy mentions IP addresses but does not explicitly state that it collects them for personalization purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided discusses what an IP address is, but does not mention the collection of IP addresses. The cited DPDP text does not relate to the collection of contact data or IP addresses. Therefore, the finding does not support an undisclosed collection of contact data."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9430675056156104,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9430675056156104,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9430675056156104,
+ "usage": {
+  "prompt": 3445,
+  "output": 713
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 62,
+  "untagged_paragraphs": 0,
+  "claims": 151,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     12,
+     13,
+     14,
+     15,
+     19,
+     23,
+     25,
+     33,
+     36,
+     39,
+     40,
+     49,
+     42
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     31,
+     19
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     12,
+     13,
+     14,
+     15,
+     19,
+     23,
+     25,
+     33,
+     36,
+     39,
+     40,
+     49,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 4(2)",
+       "Sec. 17(3)",
+       "Rule 10"
+      ],
+      "evidence": "An IP address is a number that is used by a networked device and will identify your point of connection to the internet. Depending on your network configuration, it may also identify your computer, or other device. A MAC address or other device ID identifies one specific piece of hardware.",
+      "rationale": "The policy mentions IP addresses but does not explicitly state that it collects them for personalization purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "An IP address is a number that is used by a networked device and will identify your point of connection to the internet. Depending on your network configuration, it may also identify your computer, or other device. A MAC address or other device ID identifies one specific piece of hardware.",
+       "generic_quote": "personal information",
+       "purpose_quote": "The Company may also keep track of IP addresses used to access its Online Services for various reasons.",
+       "unspecified_purpose_quote": "Depending on your network configuration, it may also identify your computer, or other device. A MAC address or other device ID identifies one specific piece of hardware.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 4(2)",
+        "Sec. 17(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy mentions IP addresses but does not explicitly state that it collects them for personalization purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 4(2)",
+       "Sec. 17(3)",
+       "Rule 10"
+      ],
+      "evidence": "The Company may also keep track of IP addresses used to access its Online Services for various reasons.",
+      "rationale": "The policy specifies the purpose for collecting IP addresses but does not mention personalization as a purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "The Company may also keep track of IP addresses used to access its Online Services for various reasons.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "The Company may also keep track of IP addresses used to access its Online Services for various reasons.",
+       "unspecified_purpose_quote": "Depending on your network configuration, it may also identify your computer, or other device. A MAC address or other device ID identifies one specific piece of hardware.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 4(2)",
+        "Sec. 17(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy specifies the purpose for collecting IP addresses but does not mention personalization as a purpose."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 4(2)",
+       "Sec. 17(3)",
+       "Rule 10"
+      ],
+      "evidence": "An IP address is a number that is used by a networked device and will identify your point of connection to the internet. Depending on your network configuration, it may also identify your computer, or other device. A MAC address or other device ID identifies one specific piece of hardware.",
+      "rationale": "The policy mentions computer information and its use for personalization but does not specify it for IP addresses.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "An IP address is a number that is used by a networked device and will identify your point of connection to the internet. Depending on your network configuration, it may also identify your computer, or other device. A MAC address or other device ID identifies one specific piece of hardware.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "purpose_quote": "The Company may also keep track of IP addresses used to access its Online Services for various reasons.",
+       "unspecified_purpose_quote": "Depending on your network configuration, it may also identify your computer, or other device. A MAC address or other device ID identifies one specific piece of hardware.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 4(2)",
+        "Sec. 17(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy mentions computer information and its use for personalization but does not specify it for IP addresses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9430675056156104
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 86.69
+ }
+}

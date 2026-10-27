@@ -1,0 +1,261 @@
+{
+ "case_id": "676_v2",
+ "system": "full_finetuned",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+   "rationale": "The policy explicitly mentions logging the IP address, which is a form of computer information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence clearly states that the IP address is logged, which is a form of computer information. The cited DPDP text supports the need for a notice informing the Data Principal about the personal data and its processing purposes. Since the policy evidence directly addresses the logging of "
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f6",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly mentions logging the IP address, which is a form of computer information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is explicitly stated as being absent, and the cited DPDP text pertains to notices and consents, which are not relevant to the issue of undisclosed sharing. Therefore, the finding cannot be supported as there is no evidence of sharing and the cited text does not address this speci"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9611493070419559,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9611493070419559,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": 0.9611493070419559,
+   "source": "notice"
+  },
+  "f6": {
+   "label": "omitted",
+   "confidence": 0.9611493070419559,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9611493070419559,
+ "usage": {
+  "prompt": 3347,
+  "output": 660
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 10,
+  "untagged_paragraphs": 0,
+  "claims": 6,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Computer information",
+    "paragraphs": [
+     1,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions User online activities",
+    "paragraphs": [
+     7,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f5",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions User online activities",
+    "paragraphs": [
+     3,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f6",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Computer information",
+    "paragraphs": [
+     2,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+      "rationale": "The policy explicitly mentions logging the IP address, which is a form of computer information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+       "denial_quote": "",
+       "generic_quote": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions logging the IP address, which is a form of computer information."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+      "rationale": "The policy explicitly states that IP addresses are not linked to personally identifiable information, implying no retention of user online activities for service operation and security.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Most importantly, any recorded IP addresses are not linked to personally identifiable information.",
+       "generic_quote": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that IP addresses are not linked to personally identifiable information, implying no retention of user online activities for service operation and security."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Google, as a third party advertisement vendor, uses cookies to serve ads on this site. The use of DART cookies by Google enables them to serve adverts to visitors that are based on their visits to this website as well as other sites on the internet.",
+      "rationale": "The policy explicitly mentions that Google uses DART cookies to serve ads, which implies sharing of user online activities.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Google, as a third party advertisement vendor, uses cookies to serve ads on this site. The use of DART cookies by Google enables them to serve adverts to visitors that are based on their visits to this website as well as other sites on the internet.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions that Google uses DART cookies to serve ads, which implies sharing of user online activities."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly mentions logging the IP address, which is a form of computer information.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions logging the IP address, which is a form of computer information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9611493070419559
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 75.47
+ }
+}

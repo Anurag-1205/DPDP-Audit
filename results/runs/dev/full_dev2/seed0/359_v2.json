@@ -1,0 +1,317 @@
+{
+ "case_id": "359_v2",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "Contact is collected for basic service/feature but used for additional service/feature.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": true
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Types of information that may be collected\nThe following are the types of information we may collect:\nInformation You Provide Us: In the course of using the website, we may ask you to provide us with certain information, including contact information, such as your as name, mailing address, email address, phone number, or fax number, unique identifiers, such as your user ID, user password, demographic information, such as your date of birth, age, gender, occupation, ticket holder status, game attendance, financial information, such as your credit card number or similar information.",
+   "rationale": "The policy only provides generic information about collecting computer information without specifying device and browser information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Types of information that may be collected\nThe following are the types of information we may collect:\nInformation You Provide Us: In the course of using the website, we may ask you to provide us with certain information, including contact information, such as your as name, mailing address, email address, phone number, or fax number, unique identifiers, such as your user ID, user password, demographic information, such as your date of birth, age, gender, occupation, ticket holder status, game attendance, financial information, such as your credit card number or similar information.",
+   "rationale": "The policy only mentions sharing with unnamed partners for unspecified purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The app sends IP addresses and device IDs to an advertising SDK, which is not compliant with the prohibition on tracking and targeted advertising for children.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.956020320421636,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.956020320421636,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "[P8], [P9], [P21]",
+   "rationale": "IP address and device IDs are collected for basic service/feature, service operation and security, and unspecified purposes but used for analytics/research.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "quote not found in the policy"
+  }
+ ],
+ "token_prob": 0.9561308623577988,
+ "usage": {
+  "prompt": 7150,
+  "output": 1153
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 41,
+  "untagged_paragraphs": 0,
+  "claims": 104,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     8,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['basic service/feature', 'service operation and security', 'unspecified'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     8,
+     9,
+     21
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2,
+     3,
+     4,
+     6,
+     7,
+     8,
+     10,
+     11,
+     23,
+     21,
+     27
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     9,
+     21
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "omission",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     33,
+     34
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Types of information that may be collected\nThe following are the types of information we may collect:\nInformation You Provide Us: In the course of using the website, we may ask you to provide us with certain information, including contact information, such as your as name, mailing address, email address, phone number, or fax number, unique identifiers, such as your user ID, user password, demographic information, such as your date of birth, age, gender, occupation, ticket holder status, game attendance, financial information, such as your credit card number or similar information.",
+      "rationale": "The policy only provides generic information about collecting computer information without specifying device and browser information."
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Types of information that may be collected\nThe following are the types of information we may collect:\nInformation You Provide Us: In the course of using the website, we may ask you to provide us with certain information, including contact information, such as your as name, mailing address, email address, phone number, or fax number, unique identifiers, such as your user ID, user password, demographic information, such as your date of birth, age, gender, occupation, ticket holder status, game attendance, financial information, such as your credit card number or similar information.",
+      "rationale": "The policy only mentions sharing with unnamed partners for unspecified purposes."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.956020320421636
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "[P8]",
+      "rationale": "Contact is collected for basic service/feature but used for additional service/feature."
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "[P8], [P9], [P21]",
+      "rationale": "IP address and device IDs are collected for basic service/feature, service operation and security, and unspecified purposes but used for analytics/research."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9777524082940235
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The app sends IP addresses and device IDs to an advertising SDK, which is not compliant with the prohibition on tracking and targeted advertising for children."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9346198583577369
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": true, \"reason\": \"The policy evidence is missing, but the rationale correctly identifies that the app collects Contact data for a basic service/feature but us'",
+  "llm_calls": 4,
+  "seconds": 153.72
+ }
+}

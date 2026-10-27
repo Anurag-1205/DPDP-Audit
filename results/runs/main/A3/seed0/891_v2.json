@@ -1,0 +1,314 @@
+{
+ "case_id": "891_v2",
+ "system": "A3",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "Health",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting health information but does not specify its use.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy specifies the use of IP addresses for advertising purposes.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Social media data",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not disclose sharing social media data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9544725228855516,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "omitted",
+   "confidence": 0.9544725228855516,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9544725228855516,
+ "usage": {
+  "prompt": 4430,
+  "output": 1045
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 42,
+  "untagged_paragraphs": 0,
+  "claims": 106,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Health is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     8,
+     7,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['advertising', 'service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     10,
+     19
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     4,
+     5,
+     6,
+     7,
+     8,
+     12,
+     13,
+     15,
+     18,
+     26,
+     27,
+     19
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Social media data",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Social media data with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     11,
+     21,
+     26,
+     27,
+     28,
+     32,
+     39,
+     13,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting health information but does not specify its use.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "when you register for a Site, you may provide us certain information including your name, email address, screen name, password, demographic information and the health topics that interest you; to engage a Site's social networking function, you may add to your profile by providing information about your interests or health topics; if you are registering for a customized weight loss program, you may provide us answers to questions we use to provide you the program, like your actual and goal weights, your preferred method of exercise, or your caloric intake; if you sign up to receive a newsletter, enter a contest or participate in social networking activities, you may provide us contact information (e.g., email or physical address); if you purchase a product or service, you may provide us your credit card information; and you may provide us with Personal Information in the course of email, customer support interactions and surveys.",
+       "denial_quote": "",
+       "generic_quote": "The Information We Gather",
+       "purpose_quote": "We collect information about you in the following ways:",
+       "unspecified_purpose_quote": "Unspecified",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting health information but does not specify its use."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies the use of IP addresses for advertising purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We, or our service providers, may use your IP Address when you access the Sites or Services or use other means to assist with delivering geographically targeted advertisements.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "to deliver more helpful information, programs, tools and advertisements.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies the use of IP addresses for advertising purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "As you use the Site and Services, certain information may also be passively collected. Through cookies, pixels, beacons, log files and other technologies, we may collect information about how you use the Site and the Services. For example we may determine through an IP address that a particular computer or device is located in New York City and we may use this information to deliver advertisements promoting New York City-based businesses.",
+      "rationale": "The policy discloses collecting computer information but does not specify its use.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "As you use the Site and Services, certain information may also be passively collected. Through cookies, pixels, beacons, log files and other technologies, we may collect information about how you use the Site and the Services. For example we may determine through an IP address that a particular computer or device is located in New York City and we may use this information to deliver advertisements promoting New York City-based businesses.",
+       "denial_quote": "",
+       "generic_quote": "The Information We Gather",
+       "purpose_quote": "We may use this information to deliver more helpful information, programs, tools and advertisements.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting computer information but does not specify its use."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not disclose sharing social media data.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose sharing social media data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9544725228855516
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is missing, and the rationale states that the policy discloses collecting health information but does not specify its u'",
+  "llm_calls": 2,
+  "seconds": 121.87
+ }
+}

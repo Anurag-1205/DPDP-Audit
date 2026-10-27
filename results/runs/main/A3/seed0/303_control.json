@@ -1,0 +1,301 @@
+{
+ "case_id": "303_control",
+ "system": "A3",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9210493227472356,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9210493227472356,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "[P5]",
+    "[P2]"
+   ],
+   "evidence": "When you create an account, you are required to provide a username and password, and may opt to provide an email address.",
+   "rationale": "The policy mentions collecting contact details but does not specify that it collects them.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "[P24]"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses that the session cookie contains certain data, which could be interpreted as advertising purposes.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "[P24]",
+    "[P10]"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting computer information but does not specify advertising as a purpose.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "[Sec. 4(2)]"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly disclose sharing user online activities with Google Analytics.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9210493227472356,
+ "usage": {
+  "prompt": 2735,
+  "output": 427
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 54,
+  "untagged_paragraphs": 0,
+  "claims": 117,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2,
+     4,
+     5,
+     7,
+     9,
+     12,
+     13,
+     16,
+     17,
+     25,
+     41,
+     42,
+     43,
+     33
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['analytics/research', 'service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     24,
+     43,
+     44
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     10,
+     43
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     5,
+     23,
+     28,
+     30,
+     33,
+     46,
+     50,
+     44
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "[P5]",
+       "[P2]"
+      ],
+      "evidence": "When you create an account, you are required to provide a username and password, and may opt to provide an email address.",
+      "rationale": "The policy mentions collecting contact details but does not specify that it collects them.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "When you create an account, you are required to provide a username and password, and may opt to provide an email address.",
+       "generic_quote": "what information we collect",
+       "sections": [
+        "[P5]",
+        "[P2]"
+       ],
+       "rationale": "The policy mentions collecting contact details but does not specify that it collects them."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P24]"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses that the session cookie contains certain data, which could be interpreted as advertising purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We also place our own session cookie, which contains the date the cookie was set and a unique identifier.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "[P24]"
+       ],
+       "rationale": "The policy discloses that the session cookie contains certain data, which could be interpreted as advertising purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P24]",
+       "[P10]"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting computer information but does not specify advertising as a purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Log data is certain information that is automatically collected by our systems when you visit reddit, including the type of software used to access the site (browser, operating system), the type of device you are using, the address of the external or internal page that referred you, and your IP address.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "[P24]",
+        "[P10]"
+       ],
+       "rationale": "The policy discloses collecting computer information but does not specify advertising as a purpose."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[Sec. 4(2)]"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly disclose sharing user online activities with Google Analytics.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "For the purposes of this section, the expression \u201clawful purpose\u201d means any purpose which is not expressly forbidden by law.",
+       "sections": [
+        "[Sec. 4(2)]"
+       ],
+       "rationale": "The policy does not explicitly disclose sharing user online activities with Google Analytics."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9210493227472356
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 47.92
+ }
+}

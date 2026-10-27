@@ -1,0 +1,242 @@
+{
+ "case_id": "517_v2",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "[P26] If you do not object, Kaleida Health will include your name, your location in our facility, your general condition (e.g., fair, stable, critical, etc.) and your religious affiliation in our Patient Directory while you are a patient in the hospital or one of the facilities listed at the beginning of this notice.",
+   "rationale": "The policy only mentions sharing contact information with the Patient Directory and does not specify sharing with Google AdMob for advertising purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided discusses sharing contact information with the Patient Directory, which is unrelated to sharing with Google AdMob for advertising purposes. The cited DPDP text pertains to notices and consents but does not address the specific issue of undisclosed sharing with third part"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9452017127715936,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9452017127715936,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9452017127715936,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": 0.9452017127715936,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9452017127715936,
+ "usage": {
+  "prompt": 3684,
+  "output": 517
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 66,
+  "untagged_paragraphs": 0,
+  "claims": 138,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     12,
+     18,
+     19,
+     20,
+     21,
+     26,
+     29,
+     31,
+     33,
+     34,
+     35,
+     37,
+     39,
+     50,
+     49,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     12,
+     18,
+     19,
+     20,
+     21,
+     26,
+     29,
+     31,
+     33,
+     34,
+     35,
+     37,
+     39,
+     50,
+     49,
+     65
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Contact",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Contact with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     18,
+     20,
+     23,
+     29,
+     50,
+     49,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Financial is covered only by generic collection statements",
+    "paragraphs": [
+     12,
+     18,
+     19,
+     20,
+     21,
+     26,
+     29,
+     31,
+     33,
+     34,
+     35,
+     37,
+     39,
+     50,
+     6,
+     62
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions collecting personal data for various purposes, which covers contact information."
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions collecting personal data for various purposes, which covers location data."
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "[P26] If you do not object, Kaleida Health will include your name, your location in our facility, your general condition (e.g., fair, stable, critical, etc.) and your religious affiliation in our Patient Directory while you are a patient in the hospital or one of the facilities listed at the beginning of this notice.",
+      "rationale": "The policy only mentions sharing contact information with the Patient Directory and does not specify sharing with Google AdMob for advertising purposes."
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions collecting financial information for various purposes, which covers payment transactions."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9452017127715936
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 56.52
+ }
+}

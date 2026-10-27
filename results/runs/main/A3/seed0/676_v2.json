@@ -1,0 +1,362 @@
+{
+ "case_id": "676_v2",
+ "system": "A3",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that IP addresses are logged, which is a form of 'IP address and device IDs' collection.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is explicitly stated as (none: the policy is said not to mention it), which means there is no evidence supporting the collection of 'IP address and device IDs'. Additionally, the rationale incorrectly states that the policy explicitly mentions logging IP addresses, which contradi"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that IP addresses are logged, which is a form of 'Computer information' collection.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "Similar to finding 0, the policy evidence is explicitly stated as (none: the policy is said not to mention it), which means there is no evidence supporting the collection of 'Computer information'. The rationale incorrectly states that the policy explicitly mentions logging IP addresses, which contr"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that the data is used for 'Analytics/Research', which matches the 'User online activities' purpose.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy states that the data is used for 'Analytics/Research', which does not necessarily match the 'User online activities' purpose. The rationale incorrectly assumes a direct correlation between the two purposes without sufficient evidence."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy clearly states that the company does not have access or control over third-party cookies, which indicates that it does not share 'User online activities' with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "evidence_removed": false,
+   "verifier_reason": "The policy clearly states that the company does not have access or control over third-party cookies, which indicates that it does not share 'User online activities' with Google AdMob. This aligns with the cited DPDP text on the notice requirement."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f6",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy clearly states that the company does not have access or control over third-party cookies, which indicates that it does not share 'Computer information' with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "evidence_removed": false,
+   "verifier_reason": "The policy clearly states that the company does not have access or control over third-party cookies, which indicates that it does not share 'Computer information' with Google AdMob. This aligns with the cited DPDP text on the notice requirement."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9608912134812232,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9608912134812232,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "omitted",
+   "confidence": 0.9608912134812232,
+   "source": "notice"
+  },
+  "f6": {
+   "label": "omitted",
+   "confidence": 0.9608912134812232,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9608912134812232,
+ "usage": {
+  "prompt": 4858,
+  "output": 900
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 10,
+  "untagged_paragraphs": 0,
+  "claims": 24,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     5,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     9,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "User online activities is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     9,
+     7,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     4,
+     3,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f6",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     4,
+     2,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that IP addresses are logged, which is a form of 'IP address and device IDs' collection.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that IP addresses are logged, which is a form of 'IP address and device IDs' collection."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that IP addresses are logged, which is a form of 'Computer information' collection.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that IP addresses are logged, which is a form of 'Computer information' collection."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that the data is used for 'Analytics/Research', which matches the 'User online activities' purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "This information is purely used to analyze trends, administer the site, track users movement and gather broad demographic information for internal use.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that the data is used for 'Analytics/Research', which matches the 'User online activities' purpose."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy clearly states that the company does not have access or control over third-party cookies, which indicates that it does not share 'User online activities' with Google AdMob.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "RestaurantNews.com has no access or control over these cookies that may be used by third party advertisers.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy clearly states that the company does not have access or control over third-party cookies, which indicates that it does not share 'User online activities' with Google AdMob."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy clearly states that the company does not have access or control over third-party cookies, which indicates that it does not share 'Computer information' with Google AdMob.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "RestaurantNews.com has no access or control over these cookies that may be used by third party advertisers.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy clearly states that the company does not have access or control over third-party cookies, which indicates that it does not share 'Computer information' with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9608912134812232
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 107.13
+ }
+}

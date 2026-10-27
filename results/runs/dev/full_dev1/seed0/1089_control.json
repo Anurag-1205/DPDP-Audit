@@ -1,0 +1,199 @@
+{
+ "case_id": "1089_control",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "Information You Provide. We may collect and store information that you voluntarily supply to us while on our Site. This may include information that can be used to contact or identify you, such as your name, email address, or postal address.",
+   "rationale": "The policy only provides vague descriptions of the data types collected.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence describes the collection of contact information, but does not specify the purpose or recipient of this data. The cited DPDP text requires the notice to inform the Data Principal about the personal data and the purpose for processing it. Since the policy only provides vague descri"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 7"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify that the IP address and device IDs are used for Analytics/Research.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is missing, and the cited DPDP text does not specifically address the use of IP addresses and device IDs for analytics/research. While the text mentions certain legitimate uses, it does not explicitly state that these data types are used for this purpose. Therefore, the finding i"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 7"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify that Location data is used for Advertising.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "Similar to finding 1, the policy evidence is missing, and the cited DPDP text does not specifically address the use of location data for advertising. The text mentions certain legitimate uses but does not explicitly state that location data is used for this purpose. Therefore, the finding is not sup"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9749501393174039,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9770256818769228,
+ "usage": {
+  "prompt": 4385,
+  "output": 565
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 33,
+  "untagged_paragraphs": 0,
+  "claims": 58,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     4,
+     9,
+     11,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['advertising'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     25,
+     18
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location is collected for ['additional service/feature', 'basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     5,
+     10
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "Information You Provide. We may collect and store information that you voluntarily supply to us while on our Site. This may include information that can be used to contact or identify you, such as your name, email address, or postal address.",
+      "rationale": "The policy only provides vague descriptions of the data types collected."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9749501393174039
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify that the IP address and device IDs are used for Analytics/Research."
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify that Location data is used for Advertising."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9791012244364418
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 78.69
+ }
+}

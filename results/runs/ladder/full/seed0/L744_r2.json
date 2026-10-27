@@ -1,0 +1,107 @@
+{
+ "case_id": "L744_r2",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(5)",
+    "Rule 3"
+   ],
+   "evidence": "We do not share your email address and contact details with third parties.",
+   "rationale": "The policy explicitly states that contact details are not shared with third parties, which aligns with the requirement that consent covers only what the notice describes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence clearly states that contact details are not shared with third parties, which aligns with the requirement that consent covers only what the notice describes as per Sec. 5(1), Sec. 6(5), and Rule 3 of the DPDP Act, 2023."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9500787533151719,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9500787533151719,
+ "usage": {
+  "prompt": 1807,
+  "output": 207
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 24,
+  "untagged_paragraphs": 0,
+  "claims": 41,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Contact with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     3,
+     14,
+     23
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(5)",
+       "Rule 3"
+      ],
+      "evidence": "We do not share your email address and contact details with third parties.",
+      "rationale": "The policy explicitly states that contact details are not shared with third parties, which aligns with the requirement that consent covers only what the notice describes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not share your email address and contact details with third parties.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(5)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that contact details are not shared with third parties, which aligns with the requirement that consent covers only what the notice describes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9500787533151719
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 26.53
+ }
+}
