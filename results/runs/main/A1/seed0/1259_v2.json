@@ -1,0 +1,252 @@
+{
+ "case_id": "1259_v2",
+ "system": "A1",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 2"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify any purpose for contact data, only mentions its usage for record-keeping and convenience.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 2"
+   ],
+   "evidence": "",
+   "rationale": "The policy specifies that IP addresses are collected for site security and to understand user behavior, which aligns with the Service Operation and Security purpose.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may also collect your email address when you submit content to our sites (for example, a contest entry, or a review of a product).",
+   "rationale": "The policy mentions collecting computer information but does not explicitly state it.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9708190976243058,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.964712728925652,
+ "usage": {
+  "prompt": 3500,
+  "output": 477
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 137,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['advertising', 'basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     23,
+     40,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     5,
+     8,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     7,
+     11,
+     12,
+     22,
+     27,
+     34,
+     39,
+     42,
+     51,
+     55,
+     37,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may also collect your email address when you submit content to our sites (for example, a contest entry, or a review of a product).",
+      "rationale": "The policy mentions collecting computer information but does not explicitly state it.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We may also use tiny electronic images (called 'single-pixel GIFs' or 'Web beacons'), which allow us to count users who have visited specific pages or access certain cookies.",
+       "denial_quote": "",
+       "generic_quote": "We may also collect your email address when you submit content to our sites (for example, a contest entry, or a review of a product).",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting computer information but does not explicitly state it."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9708190976243058
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 2"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify any purpose for contact data, only mentions its usage for record-keeping and convenience.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We use a feature known as a 'cookie.' Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 2"
+       ],
+       "rationale": "The policy does not specify any purpose for contact data, only mentions its usage for record-keeping and convenience."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 2"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies that IP addresses are collected for site security and to understand user behavior, which aligns with the Service Operation and Security purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "Our Web site includes social media features including the Facebook Like button and widgets, such as the Share this button or other interactive mini-programs that run on our site (the 'Social Media Features'). These features may collect your IP address, which page you are visiting on our site, and may set a cookie to enable the feature to function properly.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 2"
+       ],
+       "rationale": "The policy specifies that IP addresses are collected for site security and to understand user behavior, which aligns with the Service Operation and Security purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9586063602269981
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 15.16
+ }
+}

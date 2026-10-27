@@ -1,0 +1,291 @@
+{
+ "case_id": "93_v1",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 7"
+   ],
+   "evidence": "This information does not identify you personally and is only used in the aggregate.",
+   "rationale": "The policy does not specify a particular purpose for IP addresses and device IDs beyond general usage tracking.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that the information does not identify the user personally and is only used in aggregate, which aligns with the purpose of analytics/research. However, the policy does not specify a particular purpose for IP addresses and device IDs beyond general usage tracking, which sup"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "In addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site.",
+   "rationale": "The policy discloses the collection of IP addresses and other non-personally identifiable information, but does not specify location data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting and storing certain non-personally identifiable information, including location data, which contradicts the finding of an undisclosed collection of location data. The evidence actually discloses the collection of location data."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "Personally identifiable information includes, but is not limited to, name, address, e-mail address, telephone number, and credit card information.",
+   "rationale": "The policy explicitly states that personally identifiable information is not collected, except for what is provided voluntarily, which does not cover demographic data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence specifies that personally identifiable information includes name, address, email address, telephone number, and credit card information, which does not cover demographic data. Therefore, the rationale stating that the policy does not cover demographic data is correct, but the fin"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9437648238915969,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9437648238915969,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.954529604289533,
+ "usage": {
+  "prompt": 4663,
+  "output": 793
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 80,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     6,
+     7,
+     9,
+     14
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     13,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     8,
+     12,
+     20,
+     13,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Demographic is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     8,
+     12,
+     20,
+     28,
+     13
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "In addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site.",
+      "rationale": "The policy discloses the collection of IP addresses and other non-personally identifiable information, but does not specify location data.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We may collect your IP address, browser information and reference site domain, as well as related information such as the date on which you visit the Site.",
+       "denial_quote": "",
+       "generic_quote": "In addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of IP addresses and other non-personally identifiable information, but does not specify location data."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "Personally identifiable information includes, but is not limited to, name, address, e-mail address, telephone number, and credit card information.",
+      "rationale": "The policy explicitly states that personally identifiable information is not collected, except for what is provided voluntarily, which does not cover demographic data.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "PBS will not collect personally identifiable information from you, other than what you supply to us on a voluntary basis upon request.",
+       "generic_quote": "Personally identifiable information includes, but is not limited to, name, address, e-mail address, telephone number, and credit card information.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personally identifiable information is not collected, except for what is provided voluntarily, which does not cover demographic data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9437648238915969
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7"
+      ],
+      "evidence": "Additionally, you may purchase a gift online and submit the person's name, address and telephone number for delivery. This information will only be used for the stated purpose.",
+      "rationale": "The policy explicitly states that the contact information will only be used for the stated purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "Additionally, you may purchase a gift online and submit the person's name, address and telephone number for delivery. This information will only be used for the stated purpose.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy explicitly states that the contact information will only be used for the stated purpose."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7"
+      ],
+      "evidence": "This information does not identify you personally and is only used in the aggregate.",
+      "rationale": "The policy does not specify a particular purpose for IP addresses and device IDs beyond general usage tracking.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "As is common practice among web sites, we use 'cookies' and similar technologies. Cookies are text files which store your preferences. No personal information is ever stored in a PBS cookie, even if you have entered your name or email address on other parts of the Site.",
+       "unspecified_purpose_quote": "This information does not identify you personally and is only used in the aggregate.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy does not specify a particular purpose for IP addresses and device IDs beyond general usage tracking."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9652943846874693
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 84.88
+ }
+}

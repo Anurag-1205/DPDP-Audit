@@ -1,0 +1,241 @@
+{
+ "case_id": "1259_v2",
+ "system": "full_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The Motley Fool collects information about our readers so that we can provide a more interesting and useful service, as well as more appropriate advertising.",
+   "rationale": "The policy mentions that social media features may collect IP addresses, but it does not explicitly state that the company collects IP addresses directly.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not explicitly state that the company collects IP addresses directly. Instead, it mentions that social media features may collect IP addresses, which is not sufficient to justify the finding of an undisclosed collection of IP addresses. The cited DPDP text pertains to notice"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that cookies are used for record-keeping and convenience, which aligns with the basic service/feature purpose.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing, and the rationale provided does not indicate a mismatch between the stated purpose and the actual use of cookies. The cited DPDP text pertains to notices and time periods for data retention, which are not relevant to the purpose mismatch finding."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy clearly states that IP addresses are collected for site security and to improve user experience, which aligns with the basic service/feature purpose.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "Similar to finding 1, the policy evidence is missing, and the rationale provided does not indicate a mismatch between the stated purpose and the actual use of computer information. The cited DPDP text pertains to notices and time periods for data retention, which are not relevant to the purpose mism"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9583927057754108,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9637231509404407,
+ "usage": {
+  "prompt": 4082,
+  "output": 701
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 71,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     8,
+     17,
+     39,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['additional service/feature', 'advertising', 'analytics/research', 'marketing', 'service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     5,
+     12,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['analytics/research'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     5,
+     37
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The Motley Fool collects information about our readers so that we can provide a more interesting and useful service, as well as more appropriate advertising.",
+      "rationale": "The policy mentions that social media features may collect IP addresses, but it does not explicitly state that the company collects IP addresses directly.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Our Web site includes social media features including the Facebook Like button and widgets, such as the Share this button or other interactive mini-programs that run on our site (the 'Social Media Features'). These features may collect your IP address, which page you are visiting on our site, and may set a cookie to enable the feature to function properly.",
+       "generic_quote": "The Motley Fool collects information about our readers so that we can provide a more interesting and useful service, as well as more appropriate advertising.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that social media features may collect IP addresses, but it does not explicitly state that the company collects IP addresses directly."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9583927057754108
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that cookies are used for record-keeping and convenience, which aligns with the basic service/feature purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "We use a feature known as a 'cookie.' Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that cookies are used for record-keeping and convenience, which aligns with the basic service/feature purpose."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy clearly states that IP addresses are collected for site security and to improve user experience, which aligns with the basic service/feature purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "We collect IP addresses for site security and to help us understand how people use our sites so that we can improve our sites and our users' respective experiences.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy clearly states that IP addresses are collected for site security and to improve user experience, which aligns with the basic service/feature purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9690535961054705
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 59.88
+ }
+}

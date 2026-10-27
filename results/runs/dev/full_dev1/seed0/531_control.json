@@ -1,0 +1,154 @@
+{
+ "case_id": "531_control",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 6"
+   ],
+   "evidence": "The information we collect for statistical analysis and technical improvements is maintained indefinitely.",
+   "rationale": "IP address and device IDs are only vaguely covered under 'information about you'.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 6"
+   ],
+   "evidence": "The information we collect for statistical analysis and technical improvements is maintained indefinitely.",
+   "rationale": "Location is only vaguely covered under 'information about you'.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9540691073081898,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9540691073081898,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9540691073081898,
+ "usage": {
+  "prompt": 3237,
+  "output": 448
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 52,
+  "untagged_paragraphs": 0,
+  "claims": 94,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     8,
+     12,
+     21,
+     20,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     8,
+     12,
+     21,
+     13,
+     7
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 6"
+      ],
+      "evidence": "The information we collect for statistical analysis and technical improvements is maintained indefinitely.",
+      "rationale": "IP address and device IDs are only vaguely covered under 'information about you'."
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 6"
+      ],
+      "evidence": "The information we collect for statistical analysis and technical improvements is maintained indefinitely.",
+      "rationale": "Location is only vaguely covered under 'information about you'."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9540691073081898
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence states that the information collected for statistical analysis and technical improvements is maintained indefinitely. T'",
+  "llm_calls": 2,
+  "seconds": 87.84
+ }
+}

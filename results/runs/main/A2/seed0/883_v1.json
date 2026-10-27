@@ -1,0 +1,334 @@
+{
+ "case_id": "883_v1",
+ "system": "A2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Social media data",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect non-personal information about the computer, mobile device or other device you use to access TED services, such as IP address, geolocation information, unique device identifiers, browser type, browser language and other transactional information.",
+   "rationale": "The policy mentions collecting device information but does not specify that it is for additional service features.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes the collection of non-personal information such as IP addresses and device identifiers, which is different from the finding that suggests the collection is for additional service features. Additionally, the cited DPDP text pertains to the notice requirement for consent "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9669640408234028,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9669640408234028,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9787445390683335,
+ "usage": {
+  "prompt": 3789,
+  "output": 927
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 25,
+  "untagged_paragraphs": 0,
+  "claims": 55,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     11,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     6,
+     10,
+     14,
+     18,
+     20,
+     11,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Computer information indefinitely; retention statements: ['Indefinitely', 'Stated Period']",
+    "paragraphs": [
+     0,
+     2,
+     9,
+     12,
+     14,
+     15,
+     17,
+     20,
+     24,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Social media data",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Social media data is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     6,
+     10,
+     14,
+     18,
+     20,
+     8,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Social media data",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Social media data indefinitely; retention statements: ['Indefinitely', 'Stated Period']",
+    "paragraphs": [
+     0,
+     2,
+     12,
+     14,
+     15,
+     17,
+     20,
+     24,
+     8,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect non-personal information about the computer, mobile device or other device you use to access TED services, such as IP address, geolocation information, unique device identifiers, browser type, browser language and other transactional information.",
+      "rationale": "The policy mentions collecting geolocation information but does not explicitly state that it is for personalization.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We may collect non-personal information about the computer, mobile device or other device you use to access TED services, such as IP address, geolocation information, unique device identifiers, browser type, browser language and other transactional information.",
+       "generic_quote": "We may collect non-personal information about the computer, mobile device or other device you use to access TED services, such as IP address, geolocation information, unique device identifiers, browser type, browser language and other transactional information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting geolocation information but does not explicitly state that it is for personalization."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect non-personal information about the computer, mobile device or other device you use to access TED services, such as IP address, geolocation information, unique device identifiers, browser type, browser language and other transactional information.",
+      "rationale": "The policy mentions collecting device information but does not specify that it is for additional service features.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "We may collect non-personal information about the computer, mobile device or other device you use to access TED services, such as IP address, geolocation information, unique device identifiers, browser type, browser language and other transactional information.",
+       "generic_quote": "We may collect non-personal information about the computer, mobile device or other device you use to access TED services, such as IP address, geolocation information, unique device identifiers, browser type, browser language and other transactional information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting device information but does not specify that it is for additional service features."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9669640408234028
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We may collect non-personal information about the computer, mobile device or other device you use to access TED services, such as IP address, geolocation information, unique device identifiers, browser type, browser language and other transactional information.",
+      "rationale": "The policy explicitly states that IP addresses and device identifiers are collected for managing TED.com and tracking use of the content, which aligns with the purpose 'Analytics/Research'.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "purpose_quote": "We may collect non-personal information about the computer, mobile device or other device you use to access TED services, such as IP address, geolocation information, unique device identifiers, browser type, browser language and other transactional information.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that IP addresses and device identifiers are collected for managing TED.com and tracking use of the content, which aligns with the purpose 'Analytics/Research'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9835761461472136
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8",
+       "Third Schedule"
+      ],
+      "evidence": "no method of transmission over the internet is 100% secure.",
+      "rationale": "The policy states that no method of transmission over the internet is 100% secure, implying indefinite retention.",
+      "raw": {
+       "candidate_id": "c3",
+       "gap_type": "retention_mismatch",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "no method of transmission over the internet is 100% secure.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8",
+        "Third Schedule"
+       ],
+       "rationale": "The policy states that no method of transmission over the internet is 100% secure, implying indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8",
+       "Third Schedule"
+      ],
+      "evidence": "no method of transmission over the internet is 100% secure.",
+      "rationale": "The policy states that no method of transmission over the internet is 100% secure, implying indefinite retention.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "retention_mismatch",
+       "data_type": "Social media data",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "no method of transmission over the internet is 100% secure.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8",
+        "Third Schedule"
+       ],
+       "rationale": "The policy states that no method of transmission over the internet is 100% secure, implying indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9856934302343843
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 74.15
+ }
+}

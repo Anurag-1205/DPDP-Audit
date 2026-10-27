@@ -1,0 +1,108 @@
+{
+ "case_id": "L1050_r4",
+ "system": "full_finetuned",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(2)",
+    "Sec. 7",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that the information is not shared with third parties, thus there is no need for a generic or specific quote.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the policy does not mention sharing location data, but this does not justify calling it an undisclosed sharing gap. The cited sections of the DPDP Act focus on notices and legitimate uses, not on the absence of sharing statements."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9236550571638951,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9236550571638951,
+ "usage": {
+  "prompt": 1994,
+  "output": 222
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 70,
+  "untagged_paragraphs": 0,
+  "claims": 110,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     65,
+     12,
+     54
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(2)",
+       "Sec. 7",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that the information is not shared with third parties, thus there is no need for a generic or specific quote.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "This information is collected and maintained through Oracles Taleo service and is not shared except between the Taleo service and American Honda (and its affiliated companies), or between American Honda and its affiliated companies, as necessary for employment decisions.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(2)",
+        "Sec. 7",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the information is not shared with third parties, thus there is no need for a generic or specific quote."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9236550571638951
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 38.68
+ }
+}

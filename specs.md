@@ -25,10 +25,10 @@
 |---|---|---|---|---|---|
 | [SPEC-01](#spec-01--main-benchmark) | Main benchmark | Anurag | Done (spot-check pending) | MS-1 | — |
 | [SPEC-02](#spec-02--single-pass-llm-baselines-b1-b2-b4) | Single-pass LLM baselines B1, B2, B4 | Naveen | In progress | MS-1 → MS-3 | SPEC-01 |
-| [SPEC-03](#spec-03--existing-tool-baselines-policheck-s1-and-poligraph-s2) | Existing-tool baselines: PoliCheck and PoliGraph | Ishaan | In progress | MS-2 → MS-4 | SPEC-01, SPEC-06 |
-| [SPEC-04](#spec-04--dpdp-audit-pipeline-and-ablations) | DPDP-Audit pipeline and ablations | Naveen | Planned | MS-2 → MS-3 | SPEC-01, SPEC-02, SPEC-05 |
-| [SPEC-05](#spec-05--clause-tagger-fine-tuning-and-component-baselines) | Clause tagger: fine-tuning and component baselines | Nikhil | Planned | MS-2 → MS-3 | SPEC-01 |
-| [SPEC-06](#spec-06--vagueness-ladder) | Vagueness ladder | Anurag | Planned | MS-2 | SPEC-01 |
+| [SPEC-03](#spec-03--existing-tool-baselines-policheck-s1-and-poligraph-s2) | Existing-tool baselines: PoliCheck and PoliGraph | Ishaan | Main and ladder done; real flows pending | MS-2 → MS-4 | SPEC-01, SPEC-06 |
+| [SPEC-04](#spec-04--dpdp-audit-pipeline-and-ablations) | DPDP-Audit pipeline and ablations | Naveen | In progress (v1, main × 3 seeds, A1/A2/A3/A5 done) | MS-2 → MS-3 | SPEC-01, SPEC-02, SPEC-05 |
+| [SPEC-05](#spec-05--clause-tagger-fine-tuning-and-component-baselines) | Clause tagger: fine-tuning and component baselines | Nikhil | In progress (QLoRA 0.713 macro-F1, in the pipeline; S4 extraction pending) | MS-2 → MS-3 | SPEC-01 |
+| [SPEC-06](#spec-06--vagueness-ladder) | Vagueness ladder | Anurag | Built and scored; human check pending | MS-2 | SPEC-01 |
 | [SPEC-07](#spec-07--selective-accuracy) | Selective accuracy | Nikhil | Planned | MS-4 | SPEC-02, SPEC-03, SPEC-04, SPEC-06 |
 | [SPEC-08](#spec-08--real-world-validation) | Real-world validation: real flows and case study | Anurag | Planned | MS-4 | SPEC-02, SPEC-03, SPEC-04 |
 | [SPEC-09](#spec-09--evaluation-reporting-and-submissions) | Evaluation, reporting and submissions | Anurag | In progress | MS-2, MS-5 | all |
@@ -209,9 +209,9 @@ flowchart LR
 - [x] **AC-02.4** Kaggle jobs MUST run seed-first, resume from saved runs, stop starting work at
   10 hours and always pack their results.
 - [x] **AC-02.5** The Stage 0 model check MUST show the model answering with token log-probabilities.
-- [ ] **AC-02.6** B4 MUST run on the main benchmark with seed 0 (WP-2.10, MS-2).
+- [x] **AC-02.6** B4 MUST run on the main benchmark with seed 0 (WP-2.10, MS-2). *Evidence: `results/runs/main/B4/seed0/` (102 runs, 0 failed).*
 - [ ] **AC-02.7** B4 seeds 1–2 SHOULD run on the main benchmark (WP-3.4, MS-3).
-- [ ] **AC-02.8** B2 MUST run on the 140 ladder cases with seeds 0–2 (WP-3.4, MS-3).
+- [x] **AC-02.8** B2 MUST run on the 140 ladder cases with seeds 0–2 (WP-3.4, MS-3). *Evidence: `results/runs/ladder/B2/`.*
 - [ ] **AC-02.9** B1 and B2 MUST run on the real-flow sample (WP-4.3, SPEC-08).
 
 ### 6. Evidence & Validation
@@ -274,15 +274,17 @@ flowchart LR
 - [x] **AC-03.3** The converter MUST map PoliCheck's ontology terms and entities back to our flows,
   with a unit test.
 - [ ] **AC-03.4** PoliCheck SHOULD reproduce its result on the authors' example flows, to validate the
-  set-up (WP-2.3).
-- [ ] **AC-03.5** PoliCheck MUST label all 102 main cases (WP-2.3, MS-2).
-- [ ] **AC-03.6** PoliCheck MUST label all 140 ladder cases (WP-2.4).
-- [ ] **AC-03.7** The PoliGraph environment MUST pass a 2-case smoke test on the workstation by 26 Oct
-  (WP-2.5).
-- [ ] **AC-03.8** A PoliGraph converter MUST turn its output into S2 runs, with a unit test (WP-2.6).
-- [ ] **AC-03.9** PoliGraph MUST label the main cases (WP-2.6) and the ladder cases (WP-3.5).
-- [ ] **AC-03.10** S1 and S2 MUST be scored under the full, common and native readings, with coverage
-  reported.
+  set-up (WP-2.3). *Changed 26 Oct: the authors ship flows but neither policies nor labels, so nothing
+  can be reproduced; a six-policy known-answer check replaces it (`data/tools/policheck_sanity/`,
+  `scripts/check_policheck_sanity.py`).*
+- [x] **AC-03.5** PoliCheck MUST label all 102 main cases (WP-2.3, MS-2). *Evidence: `results/runs/main/S1/` (282/282 exported flows matched), Kaggle run 26 Oct.*
+- [x] **AC-03.6** PoliCheck MUST label all 140 ladder cases (WP-2.4). *Evidence: `results/tools/policheck/ladder/`, `results/runs/ladder/S1/` (140/140 matched).*
+- [x] **AC-03.7** The PoliGraph environment MUST pass a 2-case smoke test on the workstation by 26 Oct
+  (WP-2.5). *Met on Kaggle instead of the workstation (`kaggle/poligraph/`), with full runs on main and ladder.*
+- [x] **AC-03.8** A PoliGraph converter MUST turn its output into S2 runs, with a unit test (WP-2.6). *Evidence: `tool_runs.poligraph_outputs`, `scripts/convert_tool_runs.py`, `tests/test_tool_runs.py`.*
+- [x] **AC-03.9** PoliGraph MUST label the main cases (WP-2.6) and the ladder cases (WP-3.5). *Evidence: `results/runs/{main,ladder}/S2/`; 31/34 and 31/35 policies parsed (PoliGraph rejects 1582, 642, 760 and, on the ladder, 988 as "not like a privacy policy").*
+- [x] **AC-03.10** S1 and S2 MUST be scored under the full, common and native readings, with coverage
+  reported. *Evidence: `results/scores/main.json`, `results/scores/ladder.json`, `docs/baseline-report.md`.*
 - [ ] **AC-03.11** S1 and S2 MUST run on the real-flow sample (WP-4.3).
 - [ ] **AC-03.12** Failure state: a tool that cannot run after one full day of effort MUST be
   documented with its reason and reported as not runnable.
@@ -342,25 +344,25 @@ flowchart LR
 - Any change to the answer keys or the scorer's metric definitions.
 
 ### 5. Acceptance Criteria
-- [ ] **AC-04.1** The six stages MUST follow the data contracts in `docs/pipeline.md`: tagger, tools,
+- [x] **AC-04.1** The six stages MUST follow the data contracts in `docs/pipeline.md`: tagger, tools,
   mismatch finder, four specialist reviewers, aggregator and evidence verifier.
-- [ ] **AC-04.2** Reviewers MUST be able to call `search_policy`, `retrieve_dpdp` and `lookup_sdk`,
+- [x] **AC-04.2** Reviewers MUST be able to call `search_policy`, `retrieve_dpdp` and `lookup_sdk`,
   at most 3 calls each. An unknown tool MUST return an error message, and tool-call validity MUST be
   logged.
-- [ ] **AC-04.3** The verifier MUST drop a finding whose quote is not verbatim in the inputs (an empty
+- [x] **AC-04.3** The verifier MUST drop a finding whose quote is not verbatim in the inputs (an empty
   quote is allowed only for an omission) or whose sections do not exist. It MUST mark a finding
   uncertain when the LLM check finds no support.
-- [ ] **AC-04.4** Every flow MUST receive a disclosure label (clear, vague, omitted or incorrect).
-- [ ] **AC-04.5** A1–A5 MUST be configuration switches of one implementation.
-- [ ] **AC-04.6** Edge cases MUST be handled: no candidates, a non-JSON reply, an unknown tool, a quote
+- [x] **AC-04.4** Every flow MUST receive a disclosure label (clear, vague, omitted or incorrect).
+- [x] **AC-04.5** A1–A5 MUST be configuration switches of one implementation.
+- [x] **AC-04.6** Edge cases MUST be handled: no candidates, a non-JSON reply, an unknown tool, a quote
   not found, an invalid section name, and a prompt longer than the context window.
-- [ ] **AC-04.7** Failure handling MUST match the baselines: failed calls saved, `--redo-failed`, a
+- [x] **AC-04.7** Failure handling MUST match the baselines: failed calls saved, `--redo-failed`, a
   deadline guard and seed-first ordering.
-- [ ] **AC-04.8** Unit tests with a scripted fake LLM MUST cover the tool loop, the aggregator and the
+- [x] **AC-04.8** Unit tests with a scripted fake LLM MUST cover the tool loop, the aggregator and the
   verifier, without API access.
-- [ ] **AC-04.9** A 5-case pilot MUST record seconds and LLM calls per run, and extrapolate to the full
+- [x] **AC-04.9** A 5-case pilot MUST record seconds and LLM calls per run, and extrapolate to the full
   run budget (WP-2.8).
-- [ ] **AC-04.10** `full` MUST run on the main benchmark with seed 0 by MS-2 (WP-2.8).
+- [x] **AC-04.10** `full` MUST run on the main benchmark with seed 0 by MS-2 (WP-2.8).
 - [ ] **AC-04.11** `full` MUST run with seeds 0–2 on the main and ladder benchmarks (WP-3.2).
 - [ ] **AC-04.12** A1–A5 MUST run with seed 0 on the main benchmark (WP-3.3). A5 (oracle tagger) is not
   applied to the ladder.
@@ -416,19 +418,19 @@ flowchart LR
 - Training on held-out policies.
 
 ### 5. Acceptance Criteria
-- [ ] **AC-05.1** Training data MUST come from the 80 training policies only, with a test asserting
+- [x] **AC-05.1** Training data MUST come from the 80 training policies only, with a test asserting
   that they are disjoint from the 35 held-out policies.
-- [ ] **AC-05.2** B3 MUST be evaluated zero-shot on all held-out paragraphs.
-- [ ] **AC-05.3** QLoRA MUST train Qwen2.5-3B (4-bit, rank 16, 2 epochs) on a Kaggle T4, and the
+- [x] **AC-05.2** B3 MUST be evaluated zero-shot on all held-out paragraphs.
+- [x] **AC-05.3** QLoRA MUST train Qwen2.5-3B (4-bit, rank 16, 2 epochs) on a Kaggle T4, and the
   adapter MUST be saved.
-- [ ] **AC-05.4** S3 PrivBERT (`mukund/privbert`) MUST be fine-tuned on the same split.
-- [ ] **AC-05.5** Metrics MUST be computed:
+- [x] **AC-05.4** S3 PrivBERT (`mukund/privbert`) MUST be fine-tuned on the same split.
+- [x] **AC-05.5** Metrics MUST be computed:
   - category macro-F1 over the 10 OPP-115 categories;
   - tuple F1 for (category, data type, does/does not);
   - tuple F1 for (category, data type, third party).
 - [ ] **AC-05.6** S4 PolicyLint and PoliGraph statements MUST be mapped to the same tuples and scored
   (WP-3.6).
-- [ ] **AC-05.7** The fine-tuned tagger MUST be usable by the pipeline (a vLLM LoRA adapter or cached
+- [x] **AC-05.7** The fine-tuned tagger MUST be usable by the pipeline (a vLLM LoRA adapter or cached
   tags), enabling `full` vs A4 (WP-3.1).
 
 ### 6. Evidence & Validation
@@ -473,26 +475,28 @@ flowchart LR
 - Ladders for purpose, retention or children's data.
 
 ### 5. Acceptance Criteria
-- [ ] **AC-06.1** Each held-out policy MUST give one ladder for one collection or sharing flow (about 2
+- [x] **AC-06.1** Each held-out policy MUST give one ladder for one collection or sharing flow (about 2
   sharing ladders per collection ladder), using a data type PoliCheck can express.
-- [ ] **AC-06.2** The base policy MUST remove every sentence the annotations mark as covering the
+- [x] **AC-06.2** The base policy MUST remove every sentence the annotations mark as covering the
   target practice for the target data type or for generic data.
-- [ ] **AC-06.3** The four rungs (clear, explicit, vague, deleted) MUST differ from the deleted rung
+- [x] **AC-06.3** The four rungs (clear, explicit, vague, deleted) MUST differ from the deleted rung
   only by one inserted sentence, at the same position (automated test). The app MUST be identical
   across rungs.
-- [ ] **AC-06.4** Rung sentences MUST come from fixed templates. Gold labels are clear, incorrect,
+- [x] **AC-06.4** Rung sentences MUST come from fixed templates. Gold labels are clear, incorrect,
   vague and omitted.
-- [ ] **AC-06.5** Base-policy sentences that still mention the target data type next to a practice
+- [x] **AC-06.5** Base-policy sentences that still mention the target data type next to a practice
   verb MUST be auto-flagged in the check sheet.
-- [ ] **AC-06.6** Two members MUST check every rung independently. Only rungs both mark "ok" are used,
+- [ ] **AC-06.6** (WP-2.2, pending: needs two people; `check_sheet.csv` is ready) Two members MUST check every rung independently. Only rungs both mark "ok" are used,
   and the number dropped is reported.
-- [ ] **AC-06.7** The ladder MUST be exported in PoliCheck format for S1 and S2.
-- [ ] **AC-06.8** Ladder scoring MUST report:
+- [x] **AC-06.7** The ladder MUST be exported in PoliCheck format for S1 and S2.
+- [x] **AC-06.8** Ladder scoring MUST report:
   - label accuracy per rung;
   - paired differences between rungs (McNemar's test);
   - the confusion between neighbouring labels.
 
 ### 6. Evidence & Validation
+- Built 26 Oct (`scripts/build_ladder.py`): 35 ladders (23 sharing, 12 collection), 735 sentences
+  removed, residual flags on 23 ladders; S1 and S2 scored (`results/scores/ladder.json`).
 - `data/benchmark/ladder/` (cases, keys, `check_sheet.csv`, export).
 - `tests/test_ladder.py` (pure-insertion test, identical apps, expected labels).
 - `results/scores/ladder.json`.

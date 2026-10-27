@@ -1,0 +1,113 @@
+{
+ "case_id": "L586_r4",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "(\"Caribou Coffee\") knows that you care how information about you is used and shared, and we appreciate your trust that we will do so carefully.",
+   "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not disclose the actual collection of IP addresses or device IDs. Instead, it focuses on the user's trust and care regarding the use and sharing of their information. The cited DPDP text (Sec. 5(1) and Rule 3) pertains to the notice requirements for requesting conse"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9575167646310306,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9575167646310306,
+ "usage": {
+  "prompt": 1854,
+  "output": 260
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 73,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     9,
+     12,
+     13,
+     14,
+     15,
+     22,
+     19
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "(\"Caribou Coffee\") knows that you care how information about you is used and shared, and we appreciate your trust that we will do so carefully.",
+      "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The Information We Collect and the Purpose for Which We Use It",
+       "generic_quote": "Caribou Coffee Company, Inc. (''Caribou Coffee'') knows that you care how information about you is used and shared, and we appreciate your trust that we will do so carefully.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9575167646310306
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 35.37
+ }
+}

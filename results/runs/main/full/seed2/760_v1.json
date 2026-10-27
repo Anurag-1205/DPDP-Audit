@@ -1,0 +1,496 @@
+{
+ "case_id": "760_v1",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+   "rationale": "The policy explicitly states that the IP address and device information are collected.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence explicitly states that the IP address and device information are collected. This contradicts the finding that this information is undisclosed."
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+   "rationale": "The policy covers the collection of computer information generically.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence covers the collection of computer information generically, which does not justify the finding of an undisclosed collection of specific types of computer information."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The Smithsonian uses outside vendors to provide certain services, such as companies that process credit card transactions for the Smithsonian.",
+   "rationale": "The policy mentions sharing with third-party vendors but does not specifically mention Google Analytics.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions sharing with third-party vendors but does not specify Google Analytics. However, the finding is not supported because the policy does not disclose the sharing of cookies and tracking elements with Google Analytics."
+  },
+  {
+   "candidate_id": "c8",
+   "flow_id": "f7",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The Smithsonian uses outside vendors to provide certain services, such as companies that process credit card transactions for the Smithsonian.",
+   "rationale": "The policy mentions sharing with third-party vendors but does not specifically mention Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "Similar to finding 2, the policy evidence mentions sharing with third-party vendors but does not specify Google AdMob. The finding is not supported because the policy does not disclose the sharing of user online activities with Google AdMob."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9730413188387061,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9730413188387061,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9730413188387061,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f7": {
+   "label": "vague",
+   "confidence": 0.9730413188387061,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9720777809168463,
+ "usage": {
+  "prompt": 7818,
+  "output": 1247
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 43,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     13,
+     17,
+     3,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     13,
+     17,
+     3,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     4,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     9,
+     10,
+     11,
+     4,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Demographic is shared with admob for ['marketing'], the app uses it for Advertising",
+    "paragraphs": [
+     5,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f6",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     4,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f6",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Cookies and tracking elements indefinitely; retention statements: ['Indefinitely', 'Limited', 'Stated Period']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     4,
+     7,
+     13,
+     17,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f7",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     9,
+     10,
+     11,
+     5,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+      "rationale": "The policy explicitly states that the IP address and device information are collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements. This information is stored and used in the aggregate only, and is not used to contact you personally:",
+       "denial_quote": "",
+       "generic_quote": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the IP address and device information are collected."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+      "rationale": "The policy covers the collection of computer information generically.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+       "denial_quote": "",
+       "generic_quote": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy covers the collection of computer information generically."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The Smithsonian uses outside vendors to provide certain services, such as companies that process credit card transactions for the Smithsonian.",
+      "rationale": "The policy mentions sharing with third-party vendors but does not specifically mention Google Analytics.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "The Smithsonian uses outside vendors to provide certain services, such as companies that process credit card transactions for the Smithsonian. These third-party vendors will have access to the information needed to perform their functions, but may not use your information for any other purpose.",
+       "generic_quote": "The Smithsonian uses outside vendors to provide certain services, such as companies that process credit card transactions for the Smithsonian.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with third-party vendors but does not specifically mention Google Analytics."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The Smithsonian uses outside vendors to provide certain services, such as companies that process credit card transactions for the Smithsonian.",
+      "rationale": "The policy mentions sharing with third-party vendors but does not specifically mention Google AdMob.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "",
+       "denial_quote": "The Smithsonian uses outside vendors to provide certain services, such as companies that process credit card transactions for the Smithsonian. These third-party vendors will have access to the information needed to perform their functions, but may not use your information for any other purpose.",
+       "generic_quote": "The Smithsonian uses outside vendors to provide certain services, such as companies that process credit card transactions for the Smithsonian.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with third-party vendors but does not specifically mention Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9730413188387061
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Many content adjustments and customer service improvements are made based on the data derived from cookies.",
+      "rationale": "The policy explicitly states a purpose for cookies.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "Many content adjustments and customer service improvements are made based on the data derived from cookies.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states a purpose for cookies."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+      "rationale": "The policy explicitly states a purpose for demographic data.",
+      "raw": {
+       "candidate_id": "c5",
+       "purpose_quote": "The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states a purpose for demographic data."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Many content adjustments and customer service improvements are made based on the data derived from cookies.",
+      "rationale": "The policy explicitly states a purpose for cookies, indicating indefinite retention.",
+      "raw": {
+       "candidate_id": "c6",
+       "purpose_quote": "Many content adjustments and customer service improvements are made based on the data derived from cookies.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states a purpose for cookies, indicating indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9795835625899663
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c7",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "The data is retained for as long as necessary to support the mission of the Smithsonian Websites.",
+      "rationale": "The policy states that data is retained 'for as long as necessary' without specifying a limit.",
+      "raw": {
+       "candidate_id": "c7",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "The data is retained for as long as necessary to support the mission of the Smithsonian Websites.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that data is retained 'for as long as necessary' without specifying a limit."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9636084613218664
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 156.51
+ }
+}

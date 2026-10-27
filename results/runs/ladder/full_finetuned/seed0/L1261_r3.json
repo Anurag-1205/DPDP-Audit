@@ -1,0 +1,107 @@
+{
+ "case_id": "L1261_r3",
+ "system": "full_finetuned",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(5)",
+    "Rule 3"
+   ],
+   "evidence": "During the Zacks.Zacks Investment Research controls the process through an agreement with an e-mail service provider, which handles the distribution of e-mails from Zacks Investment Research and its business partners. We keep tight control over our marketing list at all times. We only give outside marketers the right to send you an e-mail through our e-mail service provider.",
+   "rationale": "The policy mentions sharing personal data with an email service provider and partners, but does not explicitly name Mixpanel. It also states that the recipient manages the data after transmission.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence discusses sharing personal data with an email service provider and business partners, but does not explicitly mention Mixpanel. Additionally, the evidence indicates that the recipient manages the data after transmission, which contradicts the finding of undisclosed sharing. The c"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.8941652860928893,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.8941652860928893,
+ "usage": {
+  "prompt": 1968,
+  "output": 295
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 12,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Contact with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     3,
+     10,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(5)",
+       "Rule 3"
+      ],
+      "evidence": "During the Zacks.Zacks Investment Research controls the process through an agreement with an e-mail service provider, which handles the distribution of e-mails from Zacks Investment Research and its business partners. We keep tight control over our marketing list at all times. We only give outside marketers the right to send you an e-mail through our e-mail service provider.",
+      "rationale": "The policy mentions sharing personal data with an email service provider and partners, but does not explicitly name Mixpanel. It also states that the recipient manages the data after transmission.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "During the Zacks.Zacks Investment Research controls the process through an agreement with an e-mail service provider, which handles the distribution of e-mails from Zacks Investment Research and its business partners. We keep tight control over our marketing list at all times. We only give outside marketers the right to send you an e-mail through our e-mail service provider.",
+       "denial_quote": "How that mailer manages your email address after that time is beyond Zacks.com control.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(5)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing personal data with an email service provider and partners, but does not explicitly name Mixpanel. It also states that the recipient manages the data after transmission."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.8941652860928893
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 59.09
+ }
+}

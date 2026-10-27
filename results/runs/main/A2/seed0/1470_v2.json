@@ -1,0 +1,250 @@
+{
+ "case_id": "1470_v2",
+ "system": "A2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Valve collects and processes the personally identifiable information (as defined below) they provide by creating a Steam account, by purchasing or selling subscriptions, or during any exchange with Valve in connection with the use of their Steam account.",
+   "rationale": "There is no explicit mention of sharing user profile data with Google AdMob, but there is a general statement about sharing data with third parties.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions Valve collecting and processing data, but does not explicitly state that user profile data is shared with Google AdMob. The cited DPDP text pertains to the notice requirement and does not address the issue of undisclosed sharing."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9556816140335426,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9556816140335426,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9556816140335426,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9623675573569856,
+ "usage": {
+  "prompt": 3278,
+  "output": 681
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 51,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     19,
+     6,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     19,
+     10,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     13,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions User profile",
+    "paragraphs": [
+     6,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you create a Steam account, Valve collects a user's email address and username, and at the user's option, first and last name.",
+      "rationale": "The policy explicitly states that Valve collects email address and username, which is under Contact.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you create a Steam account, Valve collects a user's email address and username, and at the user's option, first and last name.",
+       "denial_quote": "",
+       "generic_quote": "Valve collects and processes the personally identifiable information (as defined below) they provide by creating a Steam account, by purchasing or selling subscriptions, or during any exchange with Valve in connection with the use of their Steam account.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that Valve collects email address and username, which is under Contact."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "For example, when you sign in to Steam, Valve stores your user id and a combination of your IP address and time of login as a cookie on your hard drive.",
+      "rationale": "The policy mentions storing IP address and time of login, which falls under IP address and device IDs.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "For example, when you sign in to Steam, Valve stores your user id and a combination of your IP address and time of login as a cookie on your hard drive.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions storing IP address and time of login, which falls under IP address and device IDs."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Valve collects and processes the personally identifiable information (as defined below) they provide by creating a Steam account, by purchasing or selling subscriptions, or during any exchange with Valve in connection with the use of their Steam account.",
+      "rationale": "There is no explicit mention of sharing user profile data with Google AdMob, but there is a general statement about sharing data with third parties.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "Valve may share anonymous data, aggregated or not, with third parties.",
+       "generic_quote": "Valve collects and processes the personally identifiable information (as defined below) they provide by creating a Steam account, by purchasing or selling subscriptions, or during any exchange with Valve in connection with the use of their Steam account.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "There is no explicit mention of sharing user profile data with Google AdMob, but there is a general statement about sharing data with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9556816140335426
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Information regarding Steam billing, a users Steam account, a users Internet connection and the Valve software installed on a users computer is uploaded to the server in connection with the users use of Steam and Valve software.",
+      "rationale": "The policy states that computer information is uploaded to the server in connection with the user's use of Steam and Valve software, which aligns with the purpose 'Basic service/feature'.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "Information regarding Steam billing, a users Steam account, a users Internet connection and the Valve software installed on a users computer is uploaded to the server in connection with the users use of Steam and Valve software.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy states that computer information is uploaded to the server in connection with the user's use of Steam and Valve software, which aligns with the purpose 'Basic service/feature'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9690535006804286
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 76.93
+ }
+}

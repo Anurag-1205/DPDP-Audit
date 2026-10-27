@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import csv
+import re
 from functools import lru_cache
 
 from .paths import DATA
@@ -37,7 +38,33 @@ def gap_table() -> dict[str, dict]:
     }
 
 
+FOREIGN_LAW = re.compile(r"gdpr|article|ccpa|coppa|hipaa|cpra|ferpa", re.I)
+
+
+def normalise_section(s: str) -> str | None:
+    """Canonical DPDP unit name, or None if it is not a DPDP Act/Rules reference.
+
+    "Section 8(7)" -> "Sec. 8(7)", "Sec 6 (1)(d)" -> "Sec. 6(1)", "Rule 3(2)" -> "Rule 3";
+    "Article 6 GDPR" -> None.
+    """
+    s = str(s).strip()
+    if not s or FOREIGN_LAW.search(s):
+        return None
+    if "schedule" in s.lower():
+        return "Third Schedule" if "third" in s.lower() else None
+    m = re.match(r"(?:sec(?:tion)?s?\.?|s\.)\s*(\d+)\s*(?:\(\s*(\d+)\s*\))?", s, re.I)
+    if m:
+        return f"Sec. {m.group(1)}({m.group(2)})" if m.group(2) else f"Sec. {m.group(1)}"
+    m = re.match(r"rules?\s*(\d+)", s, re.I)
+    if m:
+        return f"Rule {m.group(1)}"
+    return None
+
+
 def citation_ok(gap_type: str, cited: list[str]) -> bool:
-    """True if at least one cited unit is accepted for this gap type."""
+    """True if at least one cited unit is accepted for this gap type.
+
+    Citations are normalised first, so "Rule 3(2)" counts as Rule 3 and "Section 5(1)" as Sec. 5(1).
+    """
     accepted = set(gap_table()[gap_type]["accepted"])
-    return any(c.strip() in accepted for c in cited)
+    return any((normalise_section(c) or str(c).strip()) in accepted for c in cited)

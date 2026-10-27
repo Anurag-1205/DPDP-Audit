@@ -1,0 +1,305 @@
+{
+ "case_id": "503_v1",
+ "system": "full_finetuned",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that personal information will be stored by the company, which aligns with the unspecified purpose of 'Additional service/feature'.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence provided does not actually disclose the app's practice. The rationale given misinterprets the lack of explicit mention in the policy as a compliance issue, whereas the policy does not require a specific mention of every data type and purpose in the policy document itself."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.972897685629468,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.972897685629468,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9622433035008289,
+ "usage": {
+  "prompt": 5561,
+  "output": 954
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 24,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Financial is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     6,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "User profile is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     6,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps User profile indefinitely; retention statements: none",
+    "paragraphs": [
+     11,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     2,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps Contact indefinitely; retention statements: none",
+    "paragraphs": [
+     2,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you purchase a product from our Sites, we ask you to provide information to fulfill your order, including your name, email address, phone, shipping address, billing address and method of payment to facilitate your purchase.",
+      "rationale": "The policy explicitly mentions collecting financial data, such as payment and billing information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you purchase a product from our Sites, we ask you to provide information to fulfill your order, including your name, email address, phone, shipping address, billing address and method of payment to facilitate your purchase.",
+       "denial_quote": "",
+       "generic_quote": "We collect the information you affirmatively choose to provide us, such as when you provide your name, contact information, the pages you access and similar information for such purposes as purchasing products, creating an account, joining our loyalty programs, filling out a survey, entering contests, participating in promotions or electronic activities, posting comments on bulletin boards or otherwise interacting with our Sites.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting financial data, such as payment and billing information."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you create an account through one of our Sites, this personal information will be stored by us.",
+      "rationale": "The policy mentions storing account information, which falls under user profile.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "If you create an account through one of our Sites, this personal information will be stored by us.",
+       "denial_quote": "",
+       "generic_quote": "We collect the information you affirmatively choose to provide us, such as when you provide your name, contact information, the pages you access and similar information for such purposes as purchasing products, creating an account, joining our loyalty programs, filling out a survey, entering contests, participating in promotions or electronic activities, posting comments on bulletin boards or otherwise interacting with our Sites.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions storing account information, which falls under user profile."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.972897685629468
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that personal information will be stored by the company, which aligns with the unspecified purpose of 'Additional service/feature'.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Indefinitely",
+       "purpose_quote": "If you create an account through one of our Sites, this personal information will be stored by us. If you purchase products as a Site Guest, we will not store the personally identifiable information you provide.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy states that personal information will be stored by the company, which aligns with the unspecified purpose of 'Additional service/feature'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9454506163745432
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "Upon your request, we will make reasonable efforts to delete your personal information from our database, however, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+      "rationale": "The policy states that it may be impossible to delete personal information without retaining some residual information for a period of time.",
+      "raw": {
+       "candidate_id": "c3",
+       "gap_type": "retention_mismatch",
+       "data_type": "User profile",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Indefinitely",
+       "retention_quote": "Upon your request, we will make reasonable efforts to delete your personal information from our database, however, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that it may be impossible to delete personal information without retaining some residual information for a period of time."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "If you create an account through one of our Sites, this personal information will be stored by us. If you purchase products as a Site Guest, we will not store the personally identifiable information you provide.",
+      "rationale": "The policy does not specify a retention period for contact information provided during purchases as a Site Guest.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "retention_mismatch",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Indefinitely",
+       "retention_quote": "If you create an account through one of our Sites, this personal information will be stored by us. If you purchase products as a Site Guest, we will not store the personally identifiable information you provide.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a retention period for contact information provided during purchases as a Site Guest."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9683816084984755
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 110.34
+ }
+}

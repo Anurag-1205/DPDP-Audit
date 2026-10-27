@@ -1,0 +1,302 @@
+{
+ "case_id": "627_v2",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "Cakes ordered through our dqcakes.com website are prepared at a DQ location, which are independently owned and operated franchises. We will share your cake order information, which may include the contact information you provide, to a franchised location for purposes of tracking, responding to, and fulfilling your order.",
+   "rationale": "The policy does not specify that contact information is collected for 'Additional service/feature'.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that contact information is shared for the purpose of tracking, responding to, and fulfilling cake orders. However, it does not specify that this contact information is collected for 'Additional service/feature', which supports the finding of a purpose mismatch."
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "Information Collected By Automated Means. We collect and use IP addresses to analyze trends, administer the site, track user movement, and gather broad demographic information for aggregate use. In some circumstances, an IP address may be considered personal information. We also collect information through the use of cookies. Cookies are pieces of data your web browser stores on your hard drive that we use to improve your user experience on our website. We and our third party vendors may also use cookies to provide you with our advertising messages on other websites you visit; these third party vendors may collect information about your online activities over time and across different websites based on these cookies. These activities provide us with important marketing information and lets us know how we are doing at attracting new visitors and maintaining relationships with our existing visitors. If you wish, you can set your browser to refuse cookies or delete any existing cookies from your computer, but this may negatively impact your experience on our website. Our third party vendors may collect additional information by automated means when you visit our website, such as browser type or operating system.",
+   "rationale": "The policy does not specify that IP addresses are collected for 'Analytics/Research'.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "merged_flows": [
+    "f2",
+    "f4"
+   ],
+   "verifier_reason": "The policy evidence explains that IP addresses are collected for analyzing trends, administering the site, tracking user movement, and gathering demographic information. It does not specify that IP addresses are collected for 'Analytics/Research', supporting the finding of a purpose mismatch."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We collect and use IP addresses to analyze trends, administer the site, track user movement, and gather broad demographic information for aggregate use.",
+   "rationale": "The policy only vaguely mentions the collection of IP addresses without specifying the exact data types or purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence only vaguely mentions the collection of IP addresses for analyzing trends, administering the site, and tracking user movement. It does not disclose the collection of location data, nor does it specify legal requirements for collecting location data. Therefore, the finding of an u"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9606558360356813,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Sec. 12(3)"
+   ],
+   "evidence": "The app keeps IP address and device IDs indefinitely; retention statements: ['Indefinitely', 'Unspecified']",
+   "rationale": "The policy does not specify a retention period for IP addresses and device IDs.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "quote not found in the policy"
+  }
+ ],
+ "token_prob": 0.9782556832124145,
+ "usage": {
+  "prompt": 7225,
+  "output": 1230
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 22,
+  "untagged_paragraphs": 0,
+  "claims": 47,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     6,
+     2,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     4,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Legal requirement",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     8,
+     9,
+     3,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     4,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "vague",
+    "reason": "the app keeps IP address and device IDs indefinitely; retention statements: ['Indefinitely', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     8,
+     9,
+     19,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect and use IP addresses to analyze trends, administer the site, track user movement, and gather broad demographic information for aggregate use.",
+      "rationale": "The policy only vaguely mentions the collection of IP addresses without specifying the exact data types or purposes."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9606558360356813
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Cakes ordered through our dqcakes.com website are prepared at a DQ location, which are independently owned and operated franchises. We will share your cake order information, which may include the contact information you provide, to a franchised location for purposes of tracking, responding to, and fulfilling your order.",
+      "rationale": "The policy does not specify that contact information is collected for 'Additional service/feature'."
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Information Collected By Automated Means. We collect and use IP addresses to analyze trends, administer the site, track user movement, and gather broad demographic information for aggregate use. In some circumstances, an IP address may be considered personal information. We also collect information through the use of cookies. Cookies are pieces of data your web browser stores on your hard drive that we use to improve your user experience on our website. We and our third party vendors may also use cookies to provide you with our advertising messages on other websites you visit; these third party vendors may collect information about your online activities over time and across different websites based on these cookies. These activities provide us with important marketing information and lets us know how we are doing at attracting new visitors and maintaining relationships with our existing visitors. If you wish, you can set your browser to refuse cookies or delete any existing cookies from your computer, but this may negatively impact your experience on our website. Our third party vendors may collect additional information by automated means when you visit our website, such as browser type or operating system.",
+      "rationale": "The policy does not specify that IP addresses are collected for 'Analytics/Research'."
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Information Collected By Automated Means. We collect and use IP addresses to analyze trends, administer the site, track user movement, and gather broad demographic information for aggregate use. In some circumstances, an IP address may be considered personal information. We also collect information through the use of cookies. Cookies are pieces of data your web browser stores on your hard drive that we use to improve your user experience on our website. We and our third party vendors may also use cookies to provide you with our advertising messages on other websites you visit; these third party vendors may collect information about your online activities over time and across different websites based on these cookies. These activities provide us with important marketing information and lets us know how we are doing at attracting new visitors and maintaining relationships with our existing visitors. If you wish, you can set your browser to refuse cookies or delete any existing cookies from your computer, but this may negatively impact your experience on our website. Our third party vendors may collect additional information by automated means when you visit our website, such as browser type or operating system.",
+      "rationale": "The policy does not specify that IP addresses are collected for 'Analytics/Research'."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9900816606571738
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Sec. 12(3)"
+      ],
+      "evidence": "The app keeps IP address and device IDs indefinitely; retention statements: ['Indefinitely', 'Unspecified']",
+      "rationale": "The policy does not specify a retention period for IP addresses and device IDs."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9840295529443883
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 100.7
+ }
+}

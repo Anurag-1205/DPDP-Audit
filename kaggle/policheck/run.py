@@ -1,4 +1,4 @@
-"""Kaggle kernel: run PoliCheck (S1) on the whole main benchmark, without Docker.
+"""Kaggle kernel: run PoliCheck (S1) on a whole benchmark split (SPLIT below), without Docker.
 
 Kaggle has no Docker, so the authors' image (python:2.7 + spaCy 2.0.12) is rebuilt as a
 micromamba Python 2.7 environment. The code reads and writes the fixed paths /ext and /src,
@@ -21,6 +21,7 @@ PC = f"{REPO}/data/external/PrivacyPolicyAnalysis"
 MAMBA = f"{WORK}/bin/micromamba"
 ENV = f"{WORK}/py27"
 NLP_MODEL_ID = "1yMB3TJt8oZX3-GHm9oB_eKU7oeJXfLbA"
+SPLIT = "sanity"           # "main", "ladder", or "sanity" (data/tools/policheck_sanity, AC-03.4)
 T_START = time.time()
 
 
@@ -58,7 +59,9 @@ def run_policheck():
     sys.path.insert(0, f"{REPO}/src")
     from pathlib import Path
     from dpdp_audit import tool_runs
-    tool_runs.prepare_ext(Path(f"{REPO}/data/benchmark/main/export/policheck"), None, "policheck")
+    export = (f"{REPO}/data/tools/policheck_sanity" if SPLIT == "sanity"
+              else f"{REPO}/data/benchmark/{SPLIT}/export/policheck")
+    tool_runs.prepare_ext(Path(export), None, "policheck")
     env = dict(os.environ, PATH=f"{ENV}/bin:{os.environ['PATH']}")
     log = open(f"{WORK}/policheck.log", "w")
     # the image's ENTRYPOINT, /src/main.sh: ontologies, then extraction, consistency, cleanup, labels

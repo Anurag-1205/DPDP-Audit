@@ -1,0 +1,158 @@
+{
+ "case_id": "503_v2",
+ "system": "full_finetuned",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy clearly states that no personal information is sold or rented to third parties, including Google AdMob, but does not explicitly deny sharing health data with them.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is described as (none: the policy is said not to mention it), which means there is no explicit statement in the policy regarding the sharing of health data with AdMob. Additionally, the cited DPDP text (Sec. 5(2) and Rule 3) pertains to the obligation to provide notices to data p"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9058778626764402,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9058778626764402,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9058778626764402,
+ "usage": {
+  "prompt": 2873,
+  "output": 401
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 24,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Financial is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     6,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Health with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     1,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "When you purchase a product from our Sites, we ask you to provide information to fulfill your order, including your name, email address, phone, shipping address, billing address and method of payment to facilitate your purchase.",
+      "rationale": "The policy explicitly states that financial data (such as payment and billing information) is collected, but does not specify the exact data types or purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you purchase a product from our Sites, we ask you to provide information to fulfill your order, including your name, email address, phone, shipping address, billing address and method of payment to facilitate your purchase.",
+       "denial_quote": "",
+       "generic_quote": "personal information, the information you provide",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that financial data (such as payment and billing information) is collected, but does not specify the exact data types or purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy clearly states that no personal information is sold or rented to third parties, including Google AdMob, but does not explicitly deny sharing health data with them.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We will not sell or rent the personally identifiable information you provide to us to any third party, except as stated herein.",
+       "generic_quote": "personal information, the information you provide",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy clearly states that no personal information is sold or rented to third parties, including Google AdMob, but does not explicitly deny sharing health data with them."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9058778626764402
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 38.57
+ }
+}

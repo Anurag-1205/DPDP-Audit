@@ -1,0 +1,309 @@
+{
+ "case_id": "303_control",
+ "system": "full",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We also log, and retain indefinitely, the IP address from which the account is initially created.",
+   "rationale": "The policy mentions logging IP addresses but does not explicitly state collecting contact details.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that device and OS information is used for advertising.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "Log data is certain information that is automatically collected by our systems when you visit reddit, including the type of software used to access the site (browser, operating system), the type of device you are using, the address of the external or internal page that referred you, and your IP address. This information is recorded for all visitors and is only linked to your account if you are signed in.",
+   "rationale": "The policy mentions collecting computer information but does not specify a purpose for it beyond analytics and improvement.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We do take efforts to make sure the platform keeps working. This includes using your information, where necessary, to stop spam and gaming and other activities that violate the user agreement.",
+   "rationale": "The policy does not mention sharing user online activities with Google Analytics specifically, but it does mention using such data internally for various purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9430877354373989,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9430877354373989,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9578437062451948,
+ "usage": {
+  "prompt": 5382,
+  "output": 839
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 54,
+  "untagged_paragraphs": 0,
+  "claims": 117,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2,
+     4,
+     5,
+     7,
+     9,
+     12,
+     13,
+     16,
+     17,
+     25,
+     41,
+     42,
+     43,
+     33
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['analytics/research', 'service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     24,
+     43,
+     44
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     10,
+     43
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     5,
+     23,
+     28,
+     30,
+     33,
+     46,
+     50,
+     44
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We also log, and retain indefinitely, the IP address from which the account is initially created.",
+      "rationale": "The policy mentions logging IP addresses but does not explicitly state collecting contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We also log, and retain indefinitely, the IP address from which the account is initially created.",
+       "generic_quote": "We take protecting your privacy seriously, and we want you to understand exactly how and why we use your information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions logging IP addresses but does not explicitly state collecting contact details."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do take efforts to make sure the platform keeps working. This includes using your information, where necessary, to stop spam and gaming and other activities that violate the user agreement.",
+      "rationale": "The policy does not mention sharing user online activities with Google Analytics specifically, but it does mention using such data internally for various purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "We do not add that information to your account.",
+       "generic_quote": "We do take efforts to make sure the platform keeps working. This includes using your information, where necessary, to stop spam and gaming and other activities that violate the user agreement.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention sharing user online activities with Google Analytics specifically, but it does mention using such data internally for various purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9430877354373989
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that device and OS information is used for advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "This information is used for analytics and to improve the reddit service; for example, we use device and OS information to track and fix bugs. It is also used to provide advertising as described below.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that device and OS information is used for advertising."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Log data is certain information that is automatically collected by our systems when you visit reddit, including the type of software used to access the site (browser, operating system), the type of device you are using, the address of the external or internal page that referred you, and your IP address. This information is recorded for all visitors and is only linked to your account if you are signed in.",
+      "rationale": "The policy mentions collecting computer information but does not specify a purpose for it beyond analytics and improvement.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "This information is used for analytics and to improve the reddit service; for example, we use device and OS information to track and fix bugs. It is also used to provide advertising as described below.",
+       "unspecified_purpose_quote": "Log data is certain information that is automatically collected by our systems when you visit reddit, including the type of software used to access the site (browser, operating system), the type of device you are using, the address of the external or internal page that referred you, and your IP address. This information is recorded for all visitors and is only linked to your account if you are signed in.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy mentions collecting computer information but does not specify a purpose for it beyond analytics and improvement."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9725996770529906
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence mentions logging and retaining IP addresses, but it does not explicitly state collecting contact details. Therefore, th'",
+  "llm_calls": 3,
+  "seconds": 101.74
+ }
+}

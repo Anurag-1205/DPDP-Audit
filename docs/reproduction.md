@@ -20,6 +20,10 @@ laptop; GPU steps run on Kaggle. Set up the environment first ([developer-guide.
 | Cell counts | `python scripts/count_cells.py` | `data/benchmark/cell_counts.csv` |
 | Main benchmark | `python scripts/generate_cases.py` | `data/benchmark/main/` |
 | Tool export | `python scripts/export_policheck.py --split main` | `data/benchmark/main/export/policheck/` |
+| Vagueness ladder | `python scripts/build_ladder.py && python scripts/export_policheck.py --split ladder` | `data/benchmark/ladder/` |
+| Dev split (training policies) | `python scripts/generate_cases.py --split dev --policy-set train --n-policies 12` | `data/benchmark/dev/` |
+
+`generate_cases.py` deletes the split folder first, so run the export again afterwards.
 
 **Check:** `git status data/` shows no changes. The regeneration is byte-identical.
 
@@ -61,10 +65,30 @@ tar xzf outputs/kaggle/results.tar.gz -C .     # unpacks results/ and outputs/lo
 - **Stage 0 model check:** recorded in `results/stage0_model_check.json`.
 - **Interactive alternative:** `notebooks/kaggle_qwen_vllm.ipynb`.
 
+### Pipeline, tagger and tools on Kaggle (one account)
+
+`scripts/kaggle_push_job.sh <job> [<job> ...]` uploads code, every split and `results/` as the private
+dataset `<kaggle user>/dpdp-audit`, then pushes `kaggle/<job>/` (the kernel metadata names the owner).
+
+| Job | What it runs | Output |
+|---|---|---|
+| `pipeline` | Prompted tagger (Qwen2.5-3B) over every paragraph, then the pipeline (Qwen2.5-7B-AWQ); the phases are the `JOBS` list at the top of `kaggle/pipeline/run.py` | `results/tagger/claims/prompted.jsonl`, `results/pipeline_pilot.json`, `results/runs/<split>/<config>/` |
+| `qlora` | QLoRA training (`scripts/train_tagger.py`), merged model served with vLLM, fine-tuned claims | `results/tagger/claims/finetuned.jsonl`, `results/tagger/qlora_training_info.json`, `qlora_adapter.tar.gz` |
+| `policheck`, `poligraph` | The tools on `SPLIT` (top of each `run.py`) | raw CSVs in the kernel's `results.tar.gz` |
+
+```bash
+kaggle kernels output <user>/dpdp-audit-<job> -p outputs/kaggle/<job> --file-pattern '(results\.tar\.gz|\.log)$'
+tar xzf outputs/kaggle/<job>/results.tar.gz -C .                         # pipeline, qlora
+python scripts/convert_tool_runs.py --split ladder --tools S1 S2           # after copying the tool CSVs
+```
+
 ## 5. Scores
 
 ```bash
-python scripts/score_runs.py --systems B1 B2 S1
+python scripts/score_runs.py --systems B1 B2 S1 S2 full
+python scripts/score_ladder.py --systems S1 S2
+python scripts/eval_tagger.py --gold results/tagger/heldout.jsonl \
+    --pred B3=results/tagger/B3_pred.jsonl S3=results/tagger/S3_pred.jsonl --claims prompted finetuned
 ```
 
 This writes `results/scores/main.json` and prints the table in

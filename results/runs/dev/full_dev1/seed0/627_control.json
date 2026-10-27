@@ -1,0 +1,205 @@
+{
+ "case_id": "627_control",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Most of our locations are independently owned and operated franchises, and we do not own or operate these locations.",
+   "rationale": "The policy does not specify which types of personal data are collected from locations.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not disclose the collection of location data. Instead, it explains that the company does not own or operate the locations where the data might be collected. The cited DPDP text pertains to the notice requirements for requesting consent, which is unrelated to the iss"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9486905350920989,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "P6: Cakes ordered through our dqcakes.com website are prepared at a DQ location, which are independently owned and operated franchises. We will share your cake order information, which may include the contact information you provide, to a franchised location for purposes of tracking, responding to, and fulfilling your order.",
+   "rationale": "The purpose for sharing contact information is to track, respond to, and fulfill orders, but the app uses it for an additional service/feature.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "quote not found in the policy"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "P4: Information Collected By Automated Means. We collect and use IP addresses to analyze trends, administer the site, track user movement, and gather broad demographic information for aggregate use. In some circumstances, an IP address may be considered personal information. We also collect information through the use of cookies.",
+   "rationale": "The purpose for collecting IP addresses is to analyze trends, administer the site, track user movement, and gather demographic information, but the app uses it for analytics/research.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "quote not found in the policy"
+  }
+ ],
+ "token_prob": 0.9560566273107467,
+ "usage": {
+  "prompt": 3884,
+  "output": 546
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 22,
+  "untagged_paragraphs": 0,
+  "claims": 47,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     6,
+     1,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     4,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Legal requirement",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     8,
+     9,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Most of our locations are independently owned and operated franchises, and we do not own or operate these locations.",
+      "rationale": "The policy does not specify which types of personal data are collected from locations."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9486905350920989
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "P6: Cakes ordered through our dqcakes.com website are prepared at a DQ location, which are independently owned and operated franchises. We will share your cake order information, which may include the contact information you provide, to a franchised location for purposes of tracking, responding to, and fulfilling your order.",
+      "rationale": "The purpose for sharing contact information is to track, respond to, and fulfill orders, but the app uses it for an additional service/feature."
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "P4: Information Collected By Automated Means. We collect and use IP addresses to analyze trends, administer the site, track user movement, and gather broad demographic information for aggregate use. In some circumstances, an IP address may be considered personal information. We also collect information through the use of cookies.",
+      "rationale": "The purpose for collecting IP addresses is to analyze trends, administer the site, track user movement, and gather demographic information, but the app uses it for analytics/research."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9634227195293946
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 68.48
+ }
+}

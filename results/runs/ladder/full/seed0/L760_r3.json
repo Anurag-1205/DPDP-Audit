@@ -1,0 +1,105 @@
+{
+ "case_id": "L760_r3",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Any further sharing or disclosure requires your consent.",
+   "rationale": "The policy indicates that sharing requires consent but does not specify what data types are shared with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states 'Any further sharing or disclosure requires your consent,' which aligns with the requirement in Sec. 5(1) and Rule 3 to provide a notice that includes the personal data and the purpose for which it is proposed to be processed. However, the policy does not specify the data "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9365721350270934,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9365721350270934,
+ "usage": {
+  "prompt": 1779,
+  "output": 246
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 16,
+  "untagged_paragraphs": 0,
+  "claims": 36,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Contact with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     9,
+     7,
+     14
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Any further sharing or disclosure requires your consent.",
+      "rationale": "The policy indicates that sharing requires consent but does not specify what data types are shared with third parties.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When we send you such information by email, you will always have an immediate opportunity to decline further communication. Please use the contact specified in the email so that we can remove you from the list that contains your name.",
+       "denial_quote": "",
+       "generic_quote": "Any further sharing or disclosure requires your consent.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy indicates that sharing requires consent but does not specify what data types are shared with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9365721350270934
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 33.83
+ }
+}

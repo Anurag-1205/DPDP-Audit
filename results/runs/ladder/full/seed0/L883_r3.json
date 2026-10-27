@@ -1,0 +1,107 @@
+{
+ "case_id": "L883_r3",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(5)",
+    "Rule 3"
+   ],
+   "evidence": "Changes to this privacy policy: This privacy policy may be amended from time to time. Any such changes will be posted on this page. We will notify you of any significant or material changes in the way we treat your information by placing a prominent notice on our site or sending a notice to the primary email address specified in your account.",
+   "rationale": "The policy does not explicitly state that contact information is shared with Mixpanel, but it mentions that personal data can be treated differently. There is no explicit denial either.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not explicitly mention sharing contact data with Mixpanel. Instead, it discusses general changes to the privacy policy and the process for obtaining consent. The cited sections of the DPDP Act focus on providing notices and obtaining consent, but do not specifically address "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9619662624026709,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9619662624026709,
+ "usage": {
+  "prompt": 1884,
+  "output": 348
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 24,
+  "untagged_paragraphs": 0,
+  "claims": 49,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Contact with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     3,
+     22
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(5)",
+       "Rule 3"
+      ],
+      "evidence": "Changes to this privacy policy: This privacy policy may be amended from time to time. Any such changes will be posted on this page. We will notify you of any significant or material changes in the way we treat your information by placing a prominent notice on our site or sending a notice to the primary email address specified in your account.",
+      "rationale": "The policy does not explicitly state that contact information is shared with Mixpanel, but it mentions that personal data can be treated differently. There is no explicit denial either.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Information you provide directly to us: When you register an account on TED.com, we ask you to provide a unique email address, first and last name, and password. You have the option of also providing profile information (such as location, occupation and your personal story). You may also choose to directly send us information such as email correspondence or search queries.",
+       "generic_quote": "Changes to this privacy policy: This privacy policy may be amended from time to time. Any such changes will be posted on this page. We will notify you of any significant or material changes in the way we treat your information by placing a prominent notice on our site or sending a notice to the primary email address specified in your account.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(5)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that contact information is shared with Mixpanel, but it mentions that personal data can be treated differently. There is no explicit denial either."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9619662624026709
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 44.58
+ }
+}

@@ -1,0 +1,103 @@
+{
+ "case_id": "L883_r4",
+ "system": "full_finetuned",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We ask you to provide a unique email address, first and last name, and password. You have the option of also providing profile information (such as location, occupation and your personal story). You may also choose to directly send us information such as email correspondence or search queries.",
+   "rationale": "The policy mentions the collection of personal data but does not specify whether it is shared with third parties.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided describes the types of personal data collected and the options for providing additional information, but it does not explicitly mention sharing contact data with third parties like Mixpanel. Additionally, the cited DPDP text pertains to the notice requirements for reques"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9571339542193232,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9571339542193232,
+ "usage": {
+  "prompt": 1693,
+  "output": 292
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 24,
+  "untagged_paragraphs": 0,
+  "claims": 27,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Contact",
+    "paragraphs": [
+     3,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We ask you to provide a unique email address, first and last name, and password. You have the option of also providing profile information (such as location, occupation and your personal story). You may also choose to directly send us information such as email correspondence or search queries.",
+      "rationale": "The policy mentions the collection of personal data but does not specify whether it is shared with third parties.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you register an account on TED.com, we ask you to provide a unique email address, first and last name, and password. You have the option of also providing profile information (such as location, occupation and your personal story). You may also choose to directly send us information such as email correspondence or search queries.",
+       "denial_quote": "",
+       "generic_quote": "We ask you to provide a unique email address, first and last name, and password. You have the option of also providing profile information (such as location, occupation and your personal story). You may also choose to directly send us information such as email correspondence or search queries.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions the collection of personal data but does not specify whether it is shared with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9571339542193232
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 33.1
+ }
+}

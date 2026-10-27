@@ -1,0 +1,274 @@
+{
+ "case_id": "642_control",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "This information does not identify you personally, but rather about your visit to our sites.",
+   "rationale": "The policy mentions that IP addresses and device IDs are collected for non-personally identifying purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+   "rationale": "The policy does not specify sharing of user online activities with specific third parties, only that contact information may be used for marketing purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9487009585470669,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9487009585470669,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9487009585470669,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9487009585470669,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9487009585470669,
+ "usage": {
+  "prompt": 3923,
+  "output": 675
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 15,
+  "untagged_paragraphs": 0,
+  "claims": 36,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     10,
+     12,
+     4,
+     14
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     10,
+     12,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     10,
+     12,
+     8,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     10
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+      "rationale": "The policy explicitly states that contact information is used for marketing purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+       "denial_quote": "",
+       "generic_quote": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that contact information is used for marketing purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "This information does not identify you personally, but rather about your visit to our sites.",
+      "rationale": "The policy mentions that IP addresses and device IDs are collected for non-personally identifying purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "When you visit our sites, our computers may automatically collect statistics about your visit. This information does not identify you personally, but rather about your visit to our sites.",
+       "denial_quote": "",
+       "generic_quote": "This information does not identify you personally, but rather about your visit to our sites.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that IP addresses and device IDs are collected for non-personally identifying purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "When you visit our sites, our computers may automatically collect statistics about your visit. This information does not identify you personally, but rather about your visit to our sites.",
+      "rationale": "The policy mentions that computer information is collected for non-personally identifying purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "When you visit our sites, our computers may automatically collect statistics about your visit. This information does not identify you personally, but rather about your visit to our sites.",
+       "denial_quote": "",
+       "generic_quote": "This information does not identify you personally, but rather about your visit to our sites.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that computer information is collected for non-personally identifying purposes."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+      "rationale": "The policy does not specify sharing of user online activities with specific third parties, only that contact information may be used for marketing purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify sharing of user online activities with specific third parties, only that contact information may be used for marketing purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9487009585470669
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": true, \"reason\": \"The policy evidence states that the collected data (IP addresses and device IDs) does not identify the user personally, which aligns with th'",
+  "llm_calls": 2,
+  "seconds": 77.36
+ }
+}

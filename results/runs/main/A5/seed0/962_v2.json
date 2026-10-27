@@ -1,0 +1,187 @@
+{
+ "case_id": "962_v2",
+ "system": "A5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Survey data",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect, or our third party ad server and/or content server may collect, certain Non-Personally Identifiable Information, that does not by itself identify a specific individual.",
+   "rationale": "The policy mentions collecting non-personally identifiable information but does not specify sharing of survey data with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting non-personally identifiable information, which is different from survey data. The cited DPDP text pertains to consent and notice requirements, not to sharing practices. Therefore, the evidence and cited text do not support the finding of an undisclosed sharing"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9522261755057976,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9365241422489079,
+ "usage": {
+  "prompt": 3904,
+  "output": 429
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 74,
+  "untagged_paragraphs": 0,
+  "claims": 202,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Survey data",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Survey data with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     10,
+     12,
+     15,
+     26,
+     28,
+     29,
+     30,
+     31,
+     32,
+     34,
+     44,
+     47,
+     61,
+     64,
+     66,
+     70,
+     71,
+     33
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['analytics/research', 'basic service/feature', 'other', 'service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     13,
+     16,
+     63,
+     71,
+     61
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect, or our third party ad server and/or content server may collect, certain Non-Personally Identifiable Information, that does not by itself identify a specific individual.",
+      "rationale": "The policy mentions collecting non-personally identifiable information but does not specify sharing of survey data with Google AdMob.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We will share your Personally Identifiable Information with third parties only in the ways that are described in this Privacy Policy.",
+       "generic_quote": "We may collect, or our third party ad server and/or content server may collect, certain Non-Personally Identifiable Information, that does not by itself identify a specific individual.",
+       "sections": [
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting non-personally identifiable information but does not specify sharing of survey data with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9522261755057976
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+      "rationale": "The policy mentions using IP addresses for diagnosing server issues and gathering demographic information, but also includes 'Advertising' as a purpose, indicating both specified and unspecified purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+       "unspecified_purpose_quote": "We do not ask you for, access or track any location based information from your mobile device at any time while downloading or using our App or Services.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy mentions using IP addresses for diagnosing server issues and gathering demographic information, but also includes 'Advertising' as a purpose, indicating both specified and unspecified purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9208221089920181
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 44.41
+ }
+}

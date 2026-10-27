@@ -1,0 +1,314 @@
+{
+ "case_id": "652_v1",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "We may ask you to provide your personal information, demographic information or information about your preferences or interests when you: Register for an account on the Sites Sign up to receive email newsletters from us Make a purchase on the Sites Enter a contest or sweepstakes Participate in surveys or special promotions Participate on social media accounts involving our authors, books or brands Participate in communities or forums on the Sites Submit user generated content on any part of the Sites that permit it Knowingly volunteer information on any other part of the Sites (e.g., request for customer service, submit a job application)",
+   "rationale": "The policy states that contact information is collected for basic service/feature but the app uses it for Personalization/Customization.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "We use the information we learn about you to help us personalize and continually improve your experience with PRH. We may use your personal and non-personal information in the following ways.",
+   "rationale": "The policy does not specify a retention period for personal data.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "We may collect certain information about your computer or other device that you use to access the Sites, including IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information.",
+   "rationale": "The policy only vaguely mentions collecting geolocation information without specifying the recipient or purpose.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9515779500987187,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9515779500987187,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "We may log certain information about your use of the Sites (e.g., log files, clickstream data, a reading history of the pages you view, your search terms and search results) and additional 'traffic data' (e.g., time of access, date of access, software crash reports, session identification number, access times, referring website addresses). When you use more than one of our Sites, we may match information collected from you through each of those Sites and combine that information into a single user record. We may also use and/or combine information we collect off-line or from third party sources to enhance and check the accuracy of your user records.",
+   "rationale": "The policy states that usage information is collected for basic service/feature but the app uses it for Additional service/feature.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "quote not found in the policy"
+  }
+ ],
+ "token_prob": 0.9671533685302839,
+ "usage": {
+  "prompt": 7246,
+  "output": 1065
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 45,
+  "untagged_paragraphs": 0,
+  "claims": 92,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     4,
+     29,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     3,
+     4,
+     5,
+     15,
+     17,
+     6,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "User profile is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     7,
+     33,
+     17,
+     26
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps User profile indefinitely; retention statements: ['Indefinitely', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     5,
+     7,
+     11,
+     15,
+     17,
+     18,
+     19,
+     26,
+     38,
+     39,
+     29
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     14,
+     18,
+     19,
+     20,
+     22,
+     23,
+     25,
+     34,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that personal information includes device information."
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "We may collect certain information about your computer or other device that you use to access the Sites, including IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information.",
+      "rationale": "The policy only vaguely mentions collecting geolocation information without specifying the recipient or purpose."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9515779500987187
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We may ask you to provide your personal information, demographic information or information about your preferences or interests when you: Register for an account on the Sites Sign up to receive email newsletters from us Make a purchase on the Sites Enter a contest or sweepstakes Participate in surveys or special promotions Participate on social media accounts involving our authors, books or brands Participate in communities or forums on the Sites Submit user generated content on any part of the Sites that permit it Knowingly volunteer information on any other part of the Sites (e.g., request for customer service, submit a job application)",
+      "rationale": "The policy states that contact information is collected for basic service/feature but the app uses it for Personalization/Customization."
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We may log certain information about your use of the Sites (e.g., log files, clickstream data, a reading history of the pages you view, your search terms and search results) and additional 'traffic data' (e.g., time of access, date of access, software crash reports, session identification number, access times, referring website addresses). When you use more than one of our Sites, we may match information collected from you through each of those Sites and combine that information into a single user record. We may also use and/or combine information we collect off-line or from third party sources to enhance and check the accuracy of your user records.",
+      "rationale": "The policy states that usage information is collected for basic service/feature but the app uses it for Additional service/feature."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9872007838009568
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "We use the information we learn about you to help us personalize and continually improve your experience with PRH. We may use your personal and non-personal information in the following ways.",
+      "rationale": "The policy does not specify a retention period for personal data."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9626813716911765
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": true, \"reason\": \"The policy evidence clearly states that contact information is collected for various purposes, including personalization and customization. '",
+  "llm_calls": 4,
+  "seconds": 91.54
+ }
+}

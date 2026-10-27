@@ -1,0 +1,338 @@
+{
+ "case_id": "1470_v1",
+ "system": "full",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions that Valve employs cookies and other technologies, which includes IP addresses and device identifiers.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that Valve software automatically generates and submits bug reports, which aligns with the 'Basic service/feature' purpose.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "While Valve collects personally identifiable information on a voluntary basis, for certain products and services Valve's collection of personally identifiable information may be a requirement for access to the product or service or to process a users order.",
+   "rationale": "The policy indicates that Valve collects personally identifiable information for certain products and services, but does not specify that it processes this information for analytics/research purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9519096008983625,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9519096008983625,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9519096008983625,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.969118856550165,
+ "usage": {
+  "prompt": 6526,
+  "output": 1062
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 51,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     19,
+     6,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     19,
+     10,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     13,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "User profile is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     19,
+     6,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps User profile indefinitely; retention statements: ['Indefinitely', 'Stated Period']",
+    "paragraphs": [
+     0,
+     2,
+     12,
+     19,
+     6,
+     11
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Valve collects a user's email address and username, and at the user's option, first and last name.",
+      "rationale": "The policy explicitly states that Valve collects email address, username, and optionally first and last name.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Valve collects a user's email address and username, and at the user's option, first and last name.",
+       "denial_quote": "",
+       "generic_quote": "Personally Identifiable Information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that Valve collects email address, username, and optionally first and last name."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions that Valve employs cookies and other technologies, which includes IP addresses and device identifiers.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Valves products, services and sites may employ cookies and other technologies such as web beacons and pixel tags. Cookies are bits of electronic information that can be transferred to a user's hard drive to customize a person's use of a product or online site, keep records of a user's access to an online site or product, or store information needed by the user on a regular basis.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that Valve employs cookies and other technologies, which includes IP addresses and device identifiers."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "While Valve collects personally identifiable information on a voluntary basis, for certain products and services Valve's collection of personally identifiable information may be a requirement for access to the product or service or to process a users order.",
+      "rationale": "The policy indicates that Valve collects personally identifiable information for certain products and services, but does not specify that it processes this information for analytics/research purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Valve has no obligation to keep private personally identifiable information that a user makes available to other users via Steam or other Valve software, such as in multiplayer chat or other public functions.",
+       "denial_quote": "",
+       "generic_quote": "Valve collects personally identifiable information on a voluntary basis, for certain products and services Valve's collection of personally identifiable information may be a requirement for access to the product or service or to process a user's order.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy indicates that Valve collects personally identifiable information for certain products and services, but does not specify that it processes this information for analytics/research purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9519096008983625
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that Valve software automatically generates and submits bug reports, which aligns with the 'Basic service/feature' purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "Valve software automatically generates and submits to Valve bug reports upon a crash or other fault in the Valve software, services or Steam games.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that Valve software automatically generates and submits bug reports, which aligns with the 'Basic service/feature' purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9816384117916696
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "Valve also stores on a users hard drive a unique authorization key or CD-Key that is either entered by the user or downloaded automatically during product registration. This authorization key is used to identify a user as valid and allow access to Valve's products, services and third party games. This key is necessary for Valve to supply any products and services subscribed by users.",
+      "rationale": "The policy states that the authorization key is stored indefinitely because it is necessary for supplying products and services.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "User profile",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "Valve also stores on a users hard drive a unique authorization key or CD-Key that is either entered by the user or downloaded automatically during product registration. This authorization key is used to identify a user as valid and allow access to Valve's products, services and third party games. This key is necessary for Valve to supply any products and services subscribed by users.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that the authorization key is stored indefinitely because it is necessary for supplying products and services."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9738085569604631
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is explicitly stated as (none: the policy is said not to mention it), which means there is no evidence that the app col'",
+  "llm_calls": 4,
+  "seconds": 114.19
+ }
+}

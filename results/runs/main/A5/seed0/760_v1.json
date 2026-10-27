@@ -1,0 +1,181 @@
+{
+ "case_id": "760_v1",
+ "system": "A5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f7",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "This information is stored and used in the aggregate only, and is not used to contact you personally.",
+   "rationale": "The policy mentions that Google Analytics is used for analyzing information, but does not explicitly state that user online activities are shared with Google.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the information is stored and used in aggregate only and is not used to contact the user personally. This contradicts the finding of undisclosed sharing of user online activities. Additionally, the cited DPDP text pertains to the notice requirements for consent reques"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f7": {
+   "label": "vague",
+   "confidence": 0.934822907572113,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9408364398909053,
+ "usage": {
+  "prompt": 3913,
+  "output": 397
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 39,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f6",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "vague",
+    "reason": "the app keeps Cookies and tracking elements indefinitely; retention statements: ['Other', 'Unspecified']",
+    "paragraphs": [
+     3,
+     4,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f7",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     4,
+     8,
+     10,
+     5,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "This information is stored and used in the aggregate only, and is not used to contact you personally.",
+      "rationale": "The policy mentions that Google Analytics is used for analyzing information, but does not explicitly state that user online activities are shared with Google.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Some Smithsonian Websites use third-party vendors, such as Google Analytics, to place cookies and analyze the information collected by cookies in order to make the Smithsonian Websites more interesting and useful to you.",
+       "denial_quote": "",
+       "generic_quote": "This information is stored and used in the aggregate only, and is not used to contact you personally.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that Google Analytics is used for analyzing information, but does not explicitly state that user online activities are shared with Google."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.934822907572113
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "The data is retained for as long as necessary to support the mission of the Smithsonian Websites.",
+      "rationale": "The policy states that data is retained 'for as long as necessary', which does not meet the requirement to erase data once the purpose is served.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "retention_mismatch",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "The data is retained for as long as necessary to support the mission of the Smithsonian Websites.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that data is retained 'for as long as necessary', which does not meet the requirement to erase data once the purpose is served."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9468499722096977
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 53.74
+ }
+}

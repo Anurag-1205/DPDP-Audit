@@ -1,0 +1,233 @@
+{
+ "case_id": "883_v2",
+ "system": "full_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "These third parties have access to your information only to perform these tasks on our behalf.",
+   "rationale": "The policy mentions third parties having access to information but does not specify Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that third parties have access to information, but it does not specifically mention Google AdMob. The cited DPDP text (Sec. 5(1) and Rule 3) pertains to notice requirements and does not address the issue of undisclosed sharing of data types or recipients."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "We do not knowingly collect personal information from children under 13.",
+   "rationale": "The policy does not allow for tracking, behavioral monitoring, or targeted advertising directed at children.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence 'We do not knowingly collect personal information from children under 13' aligns with the DPDP text Sec. 9(3) which prohibits tracking, behavioral monitoring, and targeted advertising directed at children. Additionally, Rule 10 requires verifiable consent from parents before proc"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9734470098202403,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9732047359320495,
+ "usage": {
+  "prompt": 3972,
+  "output": 658
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 25,
+  "untagged_paragraphs": 0,
+  "claims": 45,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     11,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     16,
+     11,
+     19
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     21,
+     22
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "These third parties have access to your information only to perform these tasks on our behalf.",
+      "rationale": "The policy mentions third parties having access to information but does not specify Google AdMob.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We may employ third parties to perform site-related services, including database management, maintenance services, analytics, marketing, billing and email distribution. These third parties have access to your information only to perform these tasks on our behalf.",
+       "denial_quote": "",
+       "generic_quote": "These third parties have access to your information only to perform these tasks on our behalf.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions third parties having access to information but does not specify Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9734470098202403
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7"
+      ],
+      "evidence": "We may collect non-personal information about the computer, mobile device or other device you use to access TED services, such as IP address, geolocation information, unique device identifiers, browser type, browser language and other transactional information.",
+      "rationale": "The policy explicitly states that IP addresses and device identifiers are collected for managing TED.com and tracking use of the content, which aligns with the 'Analytics/Research' purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "purpose_quote": "We may collect non-personal information about the computer, mobile device or other device you use to access TED services, such as IP address, geolocation information, unique device identifiers, browser type, browser language and other transactional information.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy explicitly states that IP addresses and device identifiers are collected for managing TED.com and tracking use of the content, which aligns with the 'Analytics/Research' purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9832092453167447
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "We do not knowingly collect personal information from children under 13.",
+      "rationale": "The policy does not allow for tracking, behavioral monitoring, or targeted advertising directed at children.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not allow for tracking, behavioral monitoring, or targeted advertising directed at children.",
+       "children_quote": "We do not knowingly collect personal information from children under 13."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9629579526591636
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 67.83
+ }
+}

@@ -1,0 +1,225 @@
+{
+ "case_id": "503_v2",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We generally do not share your information with companies who are not affiliated with us, but if we do, we will provide you with an opportunity to opt-out of these communications at any time by contacting us at Buffalo Wild Wings, 5500 Wayzata Blvd, 16th Floor, Minneapolis, MN 55416, Attn: Marketing Department or by using the opt-out instructions in the communications themselves.",
+   "rationale": "The policy does not mention sharing health data with Google AdMob or any other third parties, but it does state that personal information is shared with affiliated companies and third parties as needed.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions sharing personal information with affiliated companies and third parties, but it does not specifically address sharing health data with Google AdMob. Additionally, the cited DPDP text pertains to providing notice to data principals regarding their rights and the manner i"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9462446077724738,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9475262574255741,
+ "usage": {
+  "prompt": 4243,
+  "output": 776
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 43,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Marketing",
+    "paragraphs": [
+     3,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Financial is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     11,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Health with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     5,
+     6,
+     7,
+     9,
+     10,
+     14,
+     1,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We generally do not share your information with companies who are not affiliated with us, but if we do, we will provide you with an opportunity to opt-out of these communications at any time by contacting us at Buffalo Wild Wings, 5500 Wayzata Blvd, 16th Floor, Minneapolis, MN 55416, Attn: Marketing Department or by using the opt-out instructions in the communications themselves.",
+      "rationale": "The policy does not mention sharing health data with Google AdMob or any other third parties, but it does state that personal information is shared with affiliated companies and third parties as needed.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We do not share your information with companies who are not affiliated with us, but if we do, we will provide you with an opportunity to opt-out of these communications at any time by contacting us at Buffalo Wild Wings, 5500 Wayzata Blvd, 16th Floor, Minneapolis, MN 55416, Attn: Marketing Department or by using the opt-out instructions in the communications themselves.",
+       "generic_quote": "We generally do not share your information with companies who are not affiliated with us, but if we do, we will provide you with an opportunity to opt-out of these communications at any time by contacting us at Buffalo Wild Wings, 5500 Wayzata Blvd, 16th Floor, Minneapolis, MN 55416, Attn: Marketing Department or by using the opt-out instructions in the communications themselves.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention sharing health data with Google AdMob or any other third parties, but it does state that personal information is shared with affiliated companies and third parties as needed."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9462446077724738
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Cookies allow us to store products in your online shopping cart, process orders, and recognize whether or not you have visited our Sites before. This provides us with important marketing information and lets us know how we are doing at both attracting new visitors and maintaining relationships with our existing customers.",
+      "rationale": "The policy explicitly states that cookies are used for marketing purposes, which is a mismatch with the stated purpose of service operation and security.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Marketing",
+       "retention": "Unspecified",
+       "paragraphs": [
+        3,
+        4
+       ],
+       "purpose_quote": "Cookies allow us to store products in your online shopping cart, process orders, and recognize whether or not you have visited our Sites before. This provides us with important marketing information and lets us know how we are doing at both attracting new visitors and maintaining relationships with our existing customers.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that cookies are used for marketing purposes, which is a mismatch with the stated purpose of service operation and security."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "If you create an account through one of our Sites, this personal information will be stored by us. If you purchase products as a Site Guest, we will not store the personally identifiable information you provide.",
+      "rationale": "The policy states that financial information is stored for service operation and security purposes, which matches the stated purpose but is not aligned with the actual usage described.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Financial",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "paragraphs": [
+        11,
+        2
+       ],
+       "purpose_quote": "If you create an account through one of our Sites, this personal information will be stored by us. If you purchase products as a Site Guest, we will not store the personally identifiable information you provide.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that financial information is stored for service operation and security purposes, which matches the stated purpose but is not aligned with the actual usage described."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9488079070786745
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 44.46
+ }
+}

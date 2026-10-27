@@ -53,3 +53,12 @@ def test_native_reading_drops_vague():
 def test_cluster_bootstrap_paired_difference_of_identical_systems_is_zero():
     ci = score.cluster_bootstrap(KEYS, OUTS, score.f1_metric, n=50, outs_b=OUTS)
     assert ci == {"point": 0.0, "lo": 0.0, "hi": 0.0}
+
+
+def test_citation_check_normalises_subclauses():
+    from dpdp_audit.gaps import citation_ok
+    assert citation_ok("undisclosed_sharing", ["Rule 3(2)"])
+    assert citation_ok("undisclosed_collection", ["Section 6(1)(d)"])
+    assert citation_ok("retention_mismatch", ["Sec 8 (7)"])
+    assert not citation_ok("retention_mismatch", ["Sec. 5(1)"])
+    assert not citation_ok("childrens_data", ["Article 8 GDPR"])

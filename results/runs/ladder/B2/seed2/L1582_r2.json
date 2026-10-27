@@ -1,0 +1,31 @@
+{
+ "findings": [
+  {
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "The application requests 'ACCESS_FINE_LOCATION' permission, and retains the location data indefinitely without specifying a retention period. However, the policy states that it does not collect precise location and removes IP addresses after 18 months, but does not specify a retention period for location data."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": null
+  }
+ },
+ "case_id": "L1582_r2",
+ "system": "B2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "token_prob": 0.878333754360246,
+ "usage": {
+  "prompt": 2654,
+  "output": 146
+ },
+ "parse_error": null
+}

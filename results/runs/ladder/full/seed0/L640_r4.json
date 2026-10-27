@@ -1,0 +1,108 @@
+{
+ "case_id": "L640_r4",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The word \"computer\" means any device used to connect to a Website, including, but not limited to, mobile devices.",
+   "rationale": "The policy does not explicitly state that GameStop collects computer information, but it does mention computers in a generic way.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not directly address the collection of 'computer information' as defined in the context of the app's data handling practices. Instead, it merely defines what constitutes a 'computer' in a general sense. The cited DPDP text focuses on the notice requirements for data"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9363880837029083,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9363880837029083,
+ "usage": {
+  "prompt": 2315,
+  "output": 247
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 39,
+  "untagged_paragraphs": 0,
+  "claims": 76,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     5,
+     11,
+     15,
+     29,
+     16,
+     35
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The word \"computer\" means any device used to connect to a Website, including, but not limited to, mobile devices.",
+      "rationale": "The policy does not explicitly state that GameStop collects computer information, but it does mention computers in a generic way.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The word 'computer' means any device used to connect to a Website, including, but not to mobile devices.",
+       "generic_quote": "We do not collect information from children under 13.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that GameStop collects computer information, but it does mention computers in a generic way."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9363880837029083
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 30.8
+ }
+}

@@ -1,0 +1,330 @@
+{
+ "case_id": "640_v2",
+ "system": "full",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Personal identifier",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 4(2)"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions obtaining personal identifiers through various interactions, but does not specify a particular purpose for personalization.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "These companies and individuals have access to personal information needed to perform their functions, but they are not permitted to use such information for other purposes without our permission.",
+   "rationale": "The policy mentions that aggregated information is used for advertising purposes by third-party advertising companies, but does not specify the exact data type or recipient.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 4(2)"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions automatic collection of information, including cookies, for sending personalized emails.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9302008750199305,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.942468615597764,
+ "usage": {
+  "prompt": 5352,
+  "output": 922
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 42,
+  "untagged_paragraphs": 0,
+  "claims": 99,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     4,
+     5,
+     7,
+     8,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Personal identifier is collected for ['basic service/feature', 'service operation and security'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     3,
+     22,
+     31,
+     38
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature', 'personalization/customization'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     14,
+     16,
+     29,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     17,
+     18,
+     19,
+     21,
+     25,
+     30,
+     11,
+     23
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     10,
+     11,
+     32
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "These companies and individuals have access to personal information needed to perform their functions, but they are not permitted to use such information for other purposes without our permission.",
+      "rationale": "The policy mentions that aggregated information is used for advertising purposes by third-party advertising companies, but does not specify the exact data type or recipient.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We use third-party advertising companies to serve ads when you visit our Web site. These companies may use aggregated information (not including your name, address, email address or telephone number) about your visits to this and other Websites in order to provide advertisements about goods and services of interest to you.",
+       "denial_quote": "",
+       "generic_quote": "These companies and individuals have access to personal information needed to perform their functions, but they are not permitted to use such information for other purposes without our permission.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that aggregated information is used for advertising purposes by third-party advertising companies, but does not specify the exact data type or recipient."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9302008750199305
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 4(2)"
+      ],
+      "evidence": "We use customer contact information to customize future shopping for you, to improve our Websites and stores, to send you information about our company, and to inform you of sales and special offers.",
+      "rationale": "The policy explicitly states that contact information is used for customization and improvement.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "We use customer contact information to customize future shopping for you, to improve our Websites and stores, to send you information about our company, and to inform you of sales and special offers.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 4(2)"
+       ],
+       "rationale": "The policy explicitly states that contact information is used for customization and improvement."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 4(2)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions obtaining personal identifiers through various interactions, but does not specify a particular purpose for personalization.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "We obtain information about you when you search, buy, participate in a contest or questionnaire, communicate with customer service, or otherwise contact us or post information on our Websites.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 4(2)"
+       ],
+       "rationale": "The policy mentions obtaining personal identifiers through various interactions, but does not specify a particular purpose for personalization."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 4(2)"
+      ],
+      "evidence": "Cookies are alphanumeric identifiers that are placed by us on your computer's storage system through your web browser to enable our systems to recognize your browser when you make future visits to our Websites, and to store certain information (such as items placed in your shopping cart) between visits.",
+      "rationale": "The policy explicitly states that cookies are used for recognizing browsers and storing information.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "Cookies are alphanumeric identifiers that are placed by us on your computer's storage system through your web browser to enable our systems to recognize your browser when you make future visits to our Websites, and to store certain information (such as items placed in your shopping cart) between visits.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 4(2)"
+       ],
+       "rationale": "The policy explicitly states that cookies are used for recognizing browsers and storing information."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 4(2)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions automatic collection of information, including cookies, for sending personalized emails.",
+      "raw": {
+       "candidate_id": "c5",
+       "purpose_quote": "Automatic Collection of Information: If you purchase any products online, or have any other interaction with our Websites, we will receive and store information that you provide or that is generated by your actions. We may also send you personalized emails.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 4(2)"
+       ],
+       "rationale": "The policy mentions automatic collection of information, including cookies, for sending personalized emails."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9547363561755973
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is missing, and the cited sections do not address the purpose for which personal identifiers are being processed. The r'",
+  "llm_calls": 3,
+  "seconds": 117.66
+ }
+}

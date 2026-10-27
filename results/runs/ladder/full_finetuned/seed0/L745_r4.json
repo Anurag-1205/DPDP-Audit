@@ -1,0 +1,104 @@
+{
+ "case_id": "L745_r4",
+ "system": "full_finetuned",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention collecting any personal data, hence no disclosure is made.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states '(none: the policy is said not to mention it)', which means the policy does not explicitly mention collecting any personal data. However, this does not justify calling it an 'undisclosed collection' compliance gap. The DPDP Act requires notices and consents, but the absenc"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9266893060588023,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9266893060588023,
+ "usage": {
+  "prompt": 1605,
+  "output": 239
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 3,
+  "untagged_paragraphs": 0,
+  "claims": 0,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Computer information",
+    "paragraphs": [
+     1,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention collecting any personal data, hence no disclosure is made.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The information provided is 'as is' with all faults and without warranty of any kind, expressed or implied. National Chicken Council (NCC) makes no warranties or representations regarding the accuracy or completeness of the information contained herein.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy does not mention collecting any personal data, hence no disclosure is made."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9266893060588023
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 27.95
+ }
+}

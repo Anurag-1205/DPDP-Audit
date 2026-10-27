@@ -1,0 +1,210 @@
+{
+ "case_id": "359_control",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "In the course of using the website, we may ask you to provide us with certain information, including contact information, such as your as name, mailing address, email address, phone number, or fax number, unique identifiers, such as your user ID, user password, demographic information, such as your date of birth, age, gender, occupation, ticket holder status, game attendance, financial information, such as your credit card number or similar information.",
+   "rationale": "The policy does not specify that contact information is collected for the purpose of Additional service/feature.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that contact information can be collected for various purposes, but it does not specify that contact information is collected for the purpose of Additional service/feature. This aligns with the cited DPDP text in Sec. 5(1) and Sec. 6(1), which require the purpose for proce"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Types of information that may be collected\nThe following are the types of information we may collect:\nInformation You Provide Us: In the course of using the website, we may ask you to provide us with certain information, including contact information, such as your as name, mailing address, email address, phone number, or fax number, unique identifiers, such as your user ID, user password, demographic information, such as your date of birth, age, gender, occupation, ticket holder status, game attendance, financial information, such as your credit card number or similar information.",
+   "rationale": "The policy only provides generic categories of information that may be collected but does not specify that computer information is collected.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence only provides generic categories of information that may be collected, but it does not specify that computer information is collected. This does not directly address the requirement in Rule 3 to disclose the specific types of information collected for a particular purpose, such a"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9606988090753905,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "We may receive and store certain types of internet usage information whenever you visit the Website, such as your click-stream data and your IP address. See 'IP Addresses and Click-Stream Data' section below.",
+   "rationale": "The policy does not specify that IP addresses and device IDs are collected for the purpose of Analytics/Research.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "quote not found in the policy"
+  }
+ ],
+ "token_prob": 0.9714584491908678,
+ "usage": {
+  "prompt": 4789,
+  "output": 714
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 41,
+  "untagged_paragraphs": 0,
+  "claims": 104,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     8,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['basic service/feature', 'service operation and security', 'unspecified'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     8,
+     9,
+     21
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2,
+     3,
+     4,
+     6,
+     7,
+     8,
+     10,
+     11,
+     23,
+     21,
+     27
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Types of information that may be collected\nThe following are the types of information we may collect:\nInformation You Provide Us: In the course of using the website, we may ask you to provide us with certain information, including contact information, such as your as name, mailing address, email address, phone number, or fax number, unique identifiers, such as your user ID, user password, demographic information, such as your date of birth, age, gender, occupation, ticket holder status, game attendance, financial information, such as your credit card number or similar information.",
+      "rationale": "The policy only provides generic categories of information that may be collected but does not specify that computer information is collected."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9606988090753905
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "In the course of using the website, we may ask you to provide us with certain information, including contact information, such as your as name, mailing address, email address, phone number, or fax number, unique identifiers, such as your user ID, user password, demographic information, such as your date of birth, age, gender, occupation, ticket holder status, game attendance, financial information, such as your credit card number or similar information.",
+      "rationale": "The policy does not specify that contact information is collected for the purpose of Additional service/feature."
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We may receive and store certain types of internet usage information whenever you visit the Website, such as your click-stream data and your IP address. See 'IP Addresses and Click-Stream Data' section below.",
+      "rationale": "The policy does not specify that IP addresses and device IDs are collected for the purpose of Analytics/Research."
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9822180893063449
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 102.27
+ }
+}

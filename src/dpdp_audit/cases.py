@@ -2,9 +2,15 @@
 
 data/benchmark/<split>/cases/<case_id>/
     policy.txt          privacy policy, one paragraph (OPP-115 segment) per block
-    app/                build.gradle, AndroidManifest.xml, app_config.json, dataflows.json
-    meta.json           {"case_id", "policy_id", "kind", "planted": [...]}
-data/benchmark/<split>/answer_keys/<case_id>.json
+    app/                build.gradle, AndroidManifest.xml, dataflows.json
+                        (tools.app also reads app_config.json, package.json and requirements.txt
+                        when an app has them; generated cases do not)
+    meta.json           {"case_id", "policy_id", "policy_name"} -- never the answer
+data/benchmark/<split>/answer_keys/<case_id>.json   the answer: kind, findings, flow labels, planted gaps
+
+Systems under test must not read the case id or meta.json: ids such as "1028_control" name the
+case kind. B1, B2 and the pipeline build their prompts from policy.txt and app/ only
+(tests/test_pipeline.py::test_prompts_never_contain_case_id).
 """
 from __future__ import annotations
 

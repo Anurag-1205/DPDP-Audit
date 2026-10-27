@@ -1,0 +1,312 @@
+{
+ "case_id": "93_v1",
+ "system": "A3",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 7"
+   ],
+   "evidence": "This information does not identify you personally and is only used in the aggregate.",
+   "rationale": "The policy discloses collecting contact details but does not specify a purpose for Analytics/Research.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that the contact information is not personally identifiable and is used in aggregate, but it does not specify a purpose for Analytics/Research. The cited DPDP text requires specifying the purpose for processing personal data, which is missing here."
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 7"
+   ],
+   "evidence": "Cookies are text files which store your preferences. No personal information is ever stored in a PBS cookie, even if you have entered your name or email address on other parts of the Site.",
+   "rationale": "The policy discloses using IP addresses but does not specify a purpose for Analytics/Research.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions cookies storing preferences but does not specify a purpose for Analytics/Research. The cited DPDP text requires specifying the purpose for processing personal data, which is missing here."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 7"
+   ],
+   "evidence": "On some pages of the Site, you can submit content to be published, make community postings, comments, suggestions, and vote. We may collect name, address, and e-mail addresses in connection with these activities.",
+   "rationale": "The policy does not disclose collecting location data and does not specify a purpose for Analytics/Research.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes collecting names, addresses, and email addresses in connection with certain activities, but it does not mention collecting location data. The rationale incorrectly states that the policy does not disclose collecting location data and does not specify a purpose for Analy"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 7"
+   ],
+   "evidence": "On some pages of the Site, you can submit content to be published, make community postings, comments, suggestions, and vote. We may collect name, address, and e-mail addresses in connection with these activities.",
+   "rationale": "The policy does not disclose collecting demographic data and does not specify a purpose for Advertising.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes collecting names, addresses, and email addresses in connection with certain activities, but it does not mention collecting demographic data. The rationale incorrectly states that the policy does not disclose collecting demographic data and does not specify a purpose for"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9780553713941169,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9780553713941169,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9780553713941169,
+ "usage": {
+  "prompt": 4222,
+  "output": 1049
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 80,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     6,
+     7,
+     9,
+     14
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     13,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     8,
+     12,
+     20,
+     13,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Demographic is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     8,
+     12,
+     20,
+     28,
+     13
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7"
+      ],
+      "evidence": "This information does not identify you personally and is only used in the aggregate.",
+      "rationale": "The policy discloses collecting contact details but does not specify a purpose for Analytics/Research.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "While the majority of our Site is free, we may charge fees for select products and services. To enable the purchase of these and other products, we collect your telephone number, e-mail address, billing address and credit card information.",
+       "denial_quote": "",
+       "generic_quote": "This information does not identify you personally and is only used in the aggregate.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "This information does not identify you personally and is only used in the aggregate.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy discloses collecting contact details but does not specify a purpose for Analytics/Research."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7"
+      ],
+      "evidence": "Cookies are text files which store your preferences. No personal information is ever stored in a PBS cookie, even if you have entered your name or email address on other parts of the Site.",
+      "rationale": "The policy discloses using IP addresses but does not specify a purpose for Analytics/Research.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "As is common practice among web sites, we use 'cookies' and similar technologies. Cookies are text files which store your preferences. No personal information is ever stored in a PBS cookie, even if you have entered your name or email address on other parts of the Site.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Cookies are text files which store your preferences. No personal information is ever stored in a PBS cookie, even if you have entered your name or email address on other parts of the Site.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy discloses using IP addresses but does not specify a purpose for Analytics/Research."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7"
+      ],
+      "evidence": "On some pages of the Site, you can submit content to be published, make community postings, comments, suggestions, and vote. We may collect name, address, and e-mail addresses in connection with these activities.",
+      "rationale": "The policy does not disclose collecting location data and does not specify a purpose for Analytics/Research.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "On some pages of the Site, you can submit content to be published, make community postings, comments, suggestions, and vote. We may collect name, address, and e-mail addresses in connection with these activities.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "On some pages of the Site, you can submit content to be published, make community postings, comments, suggestions, and vote. We may collect name, address, and e-mail addresses in connection with these activities.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy does not disclose collecting location data and does not specify a purpose for Analytics/Research."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7"
+      ],
+      "evidence": "On some pages of the Site, you can submit content to be published, make community postings, comments, suggestions, and vote. We may collect name, address, and e-mail addresses in connection with these activities.",
+      "rationale": "The policy does not disclose collecting demographic data and does not specify a purpose for Advertising.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "On some pages of the Site, you can submit content to be published, make community postings, comments, suggestions, and vote. We may collect name, address, and e-mail addresses in connection with these activities.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "On some pages of the Site, you can submit content to be published, make community postings, comments, suggestions, and vote. We may collect name, address, and e-mail addresses in connection with these activities.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy does not disclose collecting demographic data and does not specify a purpose for Advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9780553713941169
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 111.62
+ }
+}
