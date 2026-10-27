@@ -22,6 +22,7 @@ MAMBA = f"{WORK}/bin/micromamba"
 ENV = f"{WORK}/py27"
 NLP_MODEL_ID = "1yMB3TJt8oZX3-GHm9oB_eKU7oeJXfLbA"
 SPLIT = "sanity"           # "main", "ladder", or "sanity" (data/tools/policheck_sanity, AC-03.4)
+STEP_LIMIT_S = 3600 if SPLIT == "sanity" else 3 * 3600   # main.sh as a whole
 T_START = time.time()
 
 
@@ -64,12 +65,22 @@ def run_policheck():
     tool_runs.prepare_ext(Path(export), None, "policheck")
     env = dict(os.environ, PATH=f"{ENV}/bin:{os.environ['PATH']}")
     log = open(f"{WORK}/policheck.log", "w")
-    # the image's ENTRYPOINT, /src/main.sh: ontologies, then extraction, consistency, cleanup, labels
-    proc = subprocess.run("bash /src/main.sh", shell=True, cwd="/src", env=env, stdout=log,
-                          stderr=subprocess.STDOUT)
+    # the image's ENTRYPOINT, /src/main.sh: ontologies, then extraction, consistency, cleanup, labels.
+    # bash -x logs each step, and the time limit turns a hang into a saved log (a sanity run once
+    # hung for 12 h with no output; the 140-case ladder takes 34 min).
+    proc = subprocess.Popen("bash -x /src/main.sh", shell=True, cwd="/src", env=env, stdout=log,
+                            stderr=subprocess.STDOUT, start_new_session=True)
+    try:
+        code = proc.wait(timeout=STEP_LIMIT_S)
+    except subprocess.TimeoutExpired:
+        import signal
+        os.killpg(proc.pid, signal.SIGKILL)
+        code = f"killed after {STEP_LIMIT_S}s"
+        print(subprocess.run("ps aux --sort=-%cpu | head -8", shell=True, capture_output=True,
+                             text=True).stdout, flush=True)
     log.close()
-    print(open(f"{WORK}/policheck.log").read()[-4000:], flush=True)
-    print(f"main.sh exit {proc.returncode} after {time.time() - T_START:.0f}s", flush=True)
+    print(open(f"{WORK}/policheck.log").read()[-6000:], flush=True)
+    print(f"main.sh exit {code} after {time.time() - T_START:.0f}s", flush=True)
     shutil.copy("/ext/policheck_results.csv", f"{WORK}/policheck_results.csv")
     n = sum(1 for _ in open(f"{WORK}/policheck_results.csv")) - 1
     print(f"{n} result rows", flush=True)
