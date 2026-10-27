@@ -334,3 +334,81 @@ def test_reviewer_prompt_explains_data_types():
     prompt = rv.build_prompt("notice", [_cand(d="Contact")], {1: "x"}, facts([]), [], rv.Tools(POLICY, True, 3),
                              get_config("full"))
     assert "email address" in prompt and "purpose \"Advertising\"" in prompt
+
+
+# ------------------------------------------------------------------- v2
+def test_v2_verifier_checks_only_chosen_gap_types():
+    findings = [_finding(gap_type="childrens_data", level="omission", evidence=""),
+                _finding(gap_type="undisclosed_collection", data_type="Contact")]
+    llm = FakeLLM([{"checks": [{"finding_id": 0, "supported": False}]}])
+    out = verify(findings, POLICY, [], llm, 0, llm_gaps=("undisclosed_collection", "purpose_mismatch"))
+    kids, coll = out["findings"]
+    assert not kids["uncertain"] and kids["supported"] is None        # not sent to the model
+    assert coll["uncertain"] and coll["supported"] is False           # finding_id 0 is the collection one
+    assert "childrens_data" not in llm.prompts[0]
+    # nothing of the chosen types: no LLM call at all
+    llm2 = FakeLLM([])
+    assert verify(findings[:1], POLICY, [], llm2, 0, llm_gaps=("purpose_mismatch",))["llm_calls"] == 0
+    assert llm2.prompts == []
+
+
+def test_v2_purpose_quote_counts_by_paragraph():
+    from dpdp_audit.pipeline.decide import derive
+    policy = "We ask for your email address when you register. This information is used to measure use of the site."
+    cand = dict(_cand(gap="purpose_mismatch", d="Contact"), recipient="first_party", purpose="Analytics/Research")
+    raw = {"purpose_quote": "This information is used to measure use of the site."}
+    assert derive(cand, raw, policy)["is_gap"]                                   # frozen rule: sentence only
+    assert not derive(cand, raw, policy, purpose_paragraph=True)["is_gap"]       # v2: its paragraph names email
+    other = "We ask for your email address when you register.\n\nThis information is used to measure use."
+    assert derive(cand, {"purpose_quote": "This information is used to measure use."}, other,
+                  purpose_paragraph=True)["is_gap"]                              # another paragraph: still a gap
+
+
+def test_v2_finder_purpose_switches():
+    paras = [Paragraph(0, "a", [claim(category="First Party Collection/Use", data_type="Generic personal information",
+                                      does="Does", purpose="Basic service/feature")])]
+    fl = [flow("f1", "Contact", purpose="Advertising")]
+    base = find_candidates(paras, facts(fl), POLICY)
+    assert [c["gap_type"] for c in base] == ["undisclosed_collection"]
+    both = find_candidates(paras, facts(fl), POLICY, purpose_always=True)
+    assert [c["gap_type"] for c in both] == ["undisclosed_collection", "purpose_mismatch"]
+    assert both[1]["reviewer"] == "purpose"
+
+
+def test_v2_configs_leave_frozen_configs_unchanged():
+    full = CONFIGS["full"]
+    assert full.llm_check_gaps is None and not full.purpose_paragraph and not full.purpose_search
+    assert not full.purpose_always and full.review_batch == 0 and full.max_paragraphs == 8
+    assert CONFIGS["v2_read"].max_paragraphs == 16 and CONFIGS["v2_batch"].review_batch == 1
+
+
+def test_v2_retention_quote_must_be_about_keeping_data():
+    from dpdp_audit.pipeline.decide import derive
+    policy = ("We collect this information in the following ways: forms and cookies. "
+              "Usage logs are kept indefinitely. We keep your account data while your account is open.")
+    ret = dict(_cand(gap="retention_mismatch", d="Contact"), recipient="first_party", retention="Indefinitely")
+    echo = {"retention_quote": "We collect this information in the following ways: forms and cookies.",
+            "retention": "indefinitely"}
+    assert not derive(ret, echo, policy)["is_gap"]                              # frozen rule is fooled
+    assert derive(ret, echo, policy, retention_check=True)["level"] == "omission"  # not about retention
+    limited = {"retention_quote": "We keep your account data while your account is open.", "retention": "indefinitely"}
+    assert derive(ret, limited, policy, retention_check=True)["is_gap"]         # says no "indefinitely"
+    real = {"retention_quote": "Usage logs are kept indefinitely.", "retention": "indefinitely"}
+    assert not derive(ret, real, policy, retention_check=True)["is_gap"]
+
+
+def test_full_v2_is_the_chosen_combination():
+    v2 = CONFIGS["full_v2"]
+    assert v2.llm_check_gaps == ("undisclosed_collection", "purpose_mismatch") and v2.purpose_paragraph
+    assert v2.max_paragraphs == 16 and v2.purpose_search and v2.review_batch == 1 and v2.retention_check
+    assert not v2.purpose_always and v2.tagger == "prompted"
+    assert replace(CONFIGS["full_v2_finetuned"], name="full_v2", tagger="prompted") == v2
+
+
+def test_v2_ablations_change_one_switch_of_full_v2_finetuned():
+    base = CONFIGS["full_v2_finetuned"]
+    for name, field_, value in [("A1_v2", "verifier", False), ("A2_v2", "retrieval", False),
+                                ("A3_v2", "specialists", False), ("A5_v2", "tagger", "oracle")]:
+        cfg = CONFIGS[name]
+        assert getattr(cfg, field_) == value
+        assert replace(cfg, name=base.name, **{field_: getattr(base, field_)}) == base

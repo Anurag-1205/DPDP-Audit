@@ -239,7 +239,9 @@ def review(role_name: str, candidates: list[dict], paragraphs: dict[int, str], f
         answers = reply.get("answers", reply.get("decisions", []))
         if isinstance(answers, list):
             answers = [a for a in answers if isinstance(a, dict)]
-            result["decisions"] = [derive(by_id[str(a.get("candidate_id"))], a, policy_text)
+            result["decisions"] = [derive(by_id[str(a.get("candidate_id"))], a, policy_text,
+                                          purpose_paragraph=cfg.purpose_paragraph,
+                                          retention_check=cfg.retention_check)
                                    for a in answers if str(a.get("candidate_id")) in by_id]
             result["unknown_answers"] = [str(a.get("candidate_id")) for a in answers
                                          if str(a.get("candidate_id")) not in by_id]

@@ -31,10 +31,10 @@ DEADLINE_MIN = 600
 T_START = time.time()
 
 # Prompts and decision rules frozen on 26 Oct after four dev-split iterations (docs/pipeline.md).
-JOBS = [   # WP-3.1: the fine-tuned tagger in the frozen pipeline (only the tagger changes)
-    {"phase": "runs", "split": "main", "configs": ["full_finetuned"], "seeds": [0, 1, 2]},
-    {"phase": "runs", "split": "ladder", "configs": ["full_finetuned"], "seeds": [0]},
-    {"phase": "score", "split": "main", "systems": ["full", "full_finetuned"]},
+# v2 (docs/pipeline.md#v2): developed on dev + dev2 only, frozen as full_v2 on 27 Oct and run on
+# main (3 seeds) and the ladder. Now: the ablations of v2 (seed 0, main), against full_v2_finetuned.
+JOBS = [
+    {"phase": "runs", "split": "main", "configs": ["A1_v2", "A2_v2", "A3_v2", "A5_v2"], "seeds": [0]},
 ]
 
 
@@ -147,7 +147,7 @@ def run():
        f"google-genai transformers==4.56.2")
     os.makedirs(f"{REPO}/outputs/logs", exist_ok=True)
     # the oracle tagger (A5) and tagging the held-out segments read the OPP-115 release
-    if any("A5" in j.get("configs", []) or j.get("heldout") for j in JOBS):
+    if any(c.startswith("A5") for j in JOBS for c in j.get("configs", [])) or any(j.get("heldout") for j in JOBS):
         sh(f"bash {REPO}/scripts/download_opp115.sh")
     sh(f"cd {REPO} && {sys.executable} scripts/build_dpdp_index.py", env=env_for(0, MODEL))
     servers = Servers()

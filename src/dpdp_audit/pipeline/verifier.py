@@ -6,7 +6,8 @@
 2. At least one cited section must exist among the DPDP units, after normalisation
    ("Section 8(7)" -> "Sec. 8(7)"; "Article 6 GDPR" is rejected). Otherwise it is dropped.
 3. One LLM call per case asks whether the cited text supports calling each finding a gap.
-   An unsupported finding is kept but marked uncertain (human review).
+   An unsupported finding is kept but marked uncertain (human review). `llm_gaps` limits this
+   check to some gap types (v2: collection and purpose); the others keep the deterministic checks.
 """
 from __future__ import annotations
 
@@ -112,7 +113,7 @@ Answer with JSON only:
 
 
 def verify(findings: list[dict], policy_text: str, flows: list[dict], llm, seed: int,
-           use_llm: bool = True) -> dict:
+           use_llm: bool = True, llm_gaps=None) -> dict:
     """Return {"findings": kept, "dropped": [...], "llm_calls", "error"}."""
     kept, dropped = [], []
     for f in findings:
@@ -135,11 +136,12 @@ def verify(findings: list[dict], policy_text: str, flows: list[dict], llm, seed:
         else:
             kept.append(dict(f, sections=secs))
     result = {"findings": kept, "dropped": dropped, "llm_calls": 0, "error": None, "usage": {}}
-    if not kept or not use_llm:
+    checked = [f for f in kept if llm_gaps is None or f["gap_type"] in llm_gaps]
+    if not checked or not use_llm:
         return result
     flow_map = {f["flow_id"]: f for f in flows}
     try:
-        resp = llm.complete(support_prompt(kept, flow_map), system=VERIFIER_SYSTEM, seed=seed)
+        resp = llm.complete(support_prompt(checked, flow_map), system=VERIFIER_SYSTEM, seed=seed)
         result["llm_calls"] = 1
         result["usage"] = resp.usage or {}
         reply = parse_json(resp.text)
@@ -149,7 +151,7 @@ def verify(findings: list[dict], policy_text: str, flows: list[dict], llm, seed:
         # fail open: the deterministic checks stand, the LLM check is recorded as missing
         result["error"] = str(exc)[:300]
         return result
-    for i, f in enumerate(kept):
+    for i, f in enumerate(checked):   # the same dicts as in kept
         c = checks.get(i)
         if c is None:
             continue
