@@ -27,10 +27,14 @@ Mean over three seeds (`results/scores/main.json`):
 
 | System | F1 (full) | F1 (collection/sharing) | same, vague = consistent | Label macro-F1 | False-alarm rate | Citation correct |
 |---|---|---|---|---|---|---|
-| B1 · single prompt, raw inputs | 0.182 | 0.183 | 0.246 | 0.177 | 0.971 | 0.318 |
+| B1 · single prompt, raw inputs | 0.182 | 0.183 | 0.246 | 0.177 | 0.971 | 0.325 |
 | B2 · single prompt, parsed facts + DPDP text | 0.181 | 0.176 | 0.206 | 0.107 | 0.745 | 0.894 |
 
-Seed 0 with 95% policy-level bootstrap intervals:
+Citation correctness normalises sub-clauses before matching ("Rule 3(2)" counts as Rule 3); this
+correction (26 Oct) moved B1 from 0.318 to 0.325 and changed nothing else.
+
+Seed 0 with 95% policy-level bootstrap intervals (`python scripts/score_runs.py --systems B1 B2
+--paired B2-B1`):
 
 | Measure | B1 | B2 | B2 − B1 (paired) |
 |---|---|---|---|
@@ -48,7 +52,7 @@ Recall by level (seed 0):
 
 1. **Over-flagging is the main failure.** B1 reports a gap in 97% of compliant apps.
 2. **Better inputs help safety and grounding, not detection.** Parsed facts and DPDP text cut false
-   alarms by about 0.29 (significant) and raise citation correctness from 0.32 to 0.89. F1 is
+   alarms by about 0.29 (significant) and raise citation correctness from 0.33 to 0.89. F1 is
    unchanged.
 3. **Explicit contradictions are found least often,** even though they are the easiest for a human
    reader.
