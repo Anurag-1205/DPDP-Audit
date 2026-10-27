@@ -86,6 +86,7 @@ DPDP-Audit/
 | Document | Contents |
 |---|---|
 | [docs/mid-submission-report.md](docs/mid-submission-report.md) | Stage 2 results (mid-submission) |
+| [docs/manual-checks.md](docs/manual-checks.md) | Manual checks to do by hand: owners and instructions |
 | [docs/README.md](docs/README.md) | Documentation index and reading paths |
 | [docs/getting-started.md](docs/getting-started.md) | The problem and every concept, from zero |
 | [docs/architecture.md](docs/architecture.md) | System context, components, design principles |
