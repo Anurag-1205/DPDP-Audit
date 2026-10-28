@@ -27,9 +27,9 @@ single-prompt baseline B2 on F1 (0.186 vs 0.181, same 7B model and inputs), alth
 false alarms on compliant apps (0.24 vs 0.75, significant): its verifier rejects most correct findings.
 **v2**, whose changes were found and chosen on development splits of training policies only (§4.1),
 reaches **F1 0.705** with our QLoRA-tuned tagger at a false-alarm rate of **0.27**. It is significantly
-ahead of every baseline in every view: +0.54 F1 over B2, +0.31 over a much stronger model given B2's
-prompt (Gemini 3 Flash, B4: F1 0.421, alarms on 97% of compliant apps), and +0.57 / +0.56 over PoliCheck
-/ PoliGraph. Our QLoRA tagger reads policies far better than prompting (category macro-F1 0.713 vs
+ahead of every baseline in every view and on every seed (paired differences, seed 0): +0.54 F1 over
+B2, +0.31 over a much stronger model given B2's prompt (Gemini 3 Flash, B4: F1 0.421, alarms on 97% of
+compliant apps), and +0.57 / +0.56 over PoliCheck / PoliGraph. Our QLoRA tagger reads policies far better than prompting (category macro-F1 0.713 vs
 0.311).
 
 Against our hypotheses: the falsifiable claim fails for v1 and holds for v2; the verifier costs more
@@ -127,7 +127,9 @@ run.
 | v1 `full_rv` − S2 PoliGraph | −0.002 [−0.116, +0.127] | −0.122 [−0.230, +0.007] | −0.079 [−0.170, +0.000] | **−0.647 [−0.824, −0.471]** |
 | v1 `full_finetuned_rv` − B2 | −0.039 [−0.124, +0.048] | +0.005 [−0.153, +0.170] | **−0.246 [−0.462, −0.044]** | **−0.441 [−0.676, −0.176]** |
 
-Bold: the interval excludes 0. As run, v1 `full` − B2 was +0.151 [+0.045, +0.259] on F1 and
+Bold: the interval excludes 0. The v2 comparisons with B2, B4 and both tools are also significant on
+seeds 1 and 2 (F1 gain over B2 +0.51 / +0.52, over B4 +0.28 / +0.26, over PoliCheck +0.56 / +0.53),
+so they do not depend on seed 0, v2's best seed. As run, v1 `full` − B2 was +0.151 [+0.045, +0.259] on F1 and
 −0.176 [−0.412, +0.059] on the false-alarm rate (not significant); that F1 gain came from findings the
 broken verifier never checked.
 
@@ -198,8 +200,8 @@ frozen `full` runs are kept unchanged above. Details and all dev numbers: [pipel
 | The retention reviewer echoes the app's "Indefinitely" and quotes an unrelated sentence, which cleared real gaps | A retention quote must be about keeping data, and "indefinitely" must be in it |
 
 One more change was tried and rejected on dev: checking the purpose of every flow whose notice is in
-doubt raised the false-alarm rate (+0.24, significant). As run, the chosen v2 gained +0.30 F1
-[+0.23, +0.39] over `full` on the pooled dev splits and +0.29 / +0.37 on main (prompted / fine-tuned
+doubt lowered F1 (−0.066 [−0.111, −0.022]) and raised the false-alarm rate (+0.24, borderline). As
+run, the chosen v2 gained +0.30 F1 [+0.23, +0.39] over `full` on the pooled dev splits and +0.29 / +0.37 on main (prompted / fine-tuned
 tagger), so the dev result carried over; with the fixed verifier the gain on main is +0.52 / +0.57.
 
 The v2 choice does not depend on the verifier bug: re-verified with the fixed reader, the dev ranking

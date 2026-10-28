@@ -104,13 +104,13 @@ flowchart LR
 | App readers and policy search | `tools/` | Implemented |
 | Answer-key rules, cell counts, case generator | `gold_rules.py`, `cells.py`, `generator.py` | Implemented |
 | PoliCheck export and adapter | `export_policheck.py`, `tool_runs.py` | Implemented |
-| PoliGraph adapter | `scripts/tools/run_poligraph.sh` | Implemented, not yet run |
+| PoliGraph adapter | `scripts/tools/run_poligraph.sh`, `kaggle/poligraph/` | Run on main and the ladder |
 | LLM client | `llm.py` | Implemented |
-| Single-pass baselines B1, B2, B4 | `baselines.py` | B1/B2 run; B4 pending |
+| Single-pass baselines B1, B2, B4 | `baselines.py` | Run (3 seeds each on main; B2 also on the ladder) |
 | Scorer | `score.py`, `scripts/score_runs.py` | Implemented |
-| DPDP-Audit pipeline and ablations | `pipeline/` | Planned (SPEC-04) |
-| Clause tagger training and evaluation | `tagger_*` | Planned (SPEC-05) |
-| Vagueness ladder | `ladder.py` | Planned (SPEC-06) |
+| DPDP-Audit pipeline and ablations | `pipeline/`, `scripts/run_pipeline.py`, `scripts/reverify.py` | v1 (frozen) and v2 run on main and the ladder; ablations on both (SPEC-04) |
+| Clause tagger training and evaluation | `tagger_data.py`, `tagger_eval.py`, `scripts/train_tagger.py` | QLoRA tagger trained and evaluated; S4 extraction comparison pending (SPEC-05) |
+| Vagueness ladder | `ladder.py` | Built and scored; two-person check in progress (SPEC-06) |
 | Selective accuracy | `selective.py` | Planned (SPEC-07) |
 
 ## Design principles
@@ -119,8 +119,8 @@ flowchart LR
    ([benchmark.md](benchmark.md#answer-key-rules)).
 2. **Same information for every LLM system.** B2 receives exactly the facts and DPDP text the pipeline
    receives, so a gain over B2 comes from the design, not from extra input.
-3. **Evidence gating.** The pipeline reports a gap only with a verbatim quote and an existing DPDP
-   section.
+3. **Evidence gating.** The pipeline reports a gap only with a verbatim quote (none for an omission,
+   where the policy has nothing to quote) and an existing DPDP section.
 4. **Fair tool comparison.** Tools are scored on the gap types they support, under both our reading
    and theirs ([evaluation.md](evaluation.md#fair-comparison)).
 5. **Reproducibility.** Fixed seeds, frozen mappings, a cached LLM client, byte-identical regeneration,

@@ -166,7 +166,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Naveen Mishra (M3); B4 runs: Anurag Kaushal |
-| **Status** | In progress (B1/B2 main done) |
+| **Status** | In progress (B1, B2, B4 on main × 3 seeds and B2 on the ladder × 3 done; real flows pending) |
 | **Milestone** | MS-1, MS-2 (B4 seed 0), MS-3 (B4 seeds 1–2, B2 ladder) |
 | **Depends on** | SPEC-01; SPEC-06 for ladder runs |
 | **Traces** | RQ1 · H2 |
@@ -176,7 +176,7 @@ flowchart LR
   and whether a stronger model beats both.
 - **Current Behavior:**
   - B1 and B2 ran on all 102 cases with three seeds on Qwen2.5-7B-Instruct-AWQ (612 runs);
-  - B4 has not run.
+  - B4 (gemini-3-flash-preview) ran on all 102 cases with three seeds (306 runs, 0 failed).
 - **Affected Systems:**
   - `src/dpdp_audit/baselines.py`, `llm.py`, `runs.py`;
   - `scripts/run_baselines.py`, `kaggle/b1b2/`, `notebooks/`;
@@ -210,7 +210,7 @@ flowchart LR
   10 hours and always pack their results.
 - [x] **AC-02.5** The Stage 0 model check MUST show the model answering with token log-probabilities.
 - [x] **AC-02.6** B4 MUST run on the main benchmark with seed 0 (WP-2.10, MS-2). *Evidence: `results/runs/main/B4/seed0/` (102 runs, 0 failed).*
-- [ ] **AC-02.7** B4 seeds 1–2 SHOULD run on the main benchmark (WP-3.4, MS-3).
+- [x] **AC-02.7** B4 seeds 1–2 SHOULD run on the main benchmark (WP-3.4, MS-3). *Evidence: `results/runs/main/B4/seed1/`, `seed2/` (204 runs, 0 failed, 27 Oct).*
 - [x] **AC-02.8** B2 MUST run on the 140 ladder cases with seeds 0–2 (WP-3.4, MS-3). *Evidence: `results/runs/ladder/B2/`.*
 - [ ] **AC-02.9** B1 and B2 MUST run on the real-flow sample (WP-4.3, SPEC-08).
 
@@ -232,7 +232,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Ishaan Giri (M2); PoliGraph runs: Nikhil Patidar (workstation) |
-| **Status** | In progress (PoliCheck smoke test done) |
+| **Status** | Main and ladder done (PoliCheck and PoliGraph); real flows pending |
 | **Milestone** | MS-2 (main), MS-3 (ladder), MS-4 (real flows) |
 | **Depends on** | SPEC-01; SPEC-06 for ladder runs |
 | **Traces** | RQ1, RQ2 · H1, H4 |
@@ -242,8 +242,8 @@ flowchart LR
   closest prior work: it labels each (data type, recipient) flow against the policy. PoliGraph is a
   newer knowledge-graph approach that runs the same check.
 - **Current Behavior:**
-  - The PoliCheck Docker image builds, and a 2-case smoke test ran and was converted to our format.
-  - The PoliGraph run script exists but has not run.
+  - PoliCheck and PoliGraph ran on all 102 main and 140 ladder cases (Kaggle) and were converted to our
+    format; PoliCheck passed the known-answer check (7 of 7).
 - **Affected Systems:**
   - `scripts/tools/`, `src/dpdp_audit/tool_runs.py`;
   - the PoliCheck Docker image;
@@ -313,7 +313,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Naveen Mishra (M3) |
-| **Status** | Planned |
+| **Status** | In progress (v1 and v2 on main × 3 and the ladder × 1; ablations on both) |
 | **Milestone** | MS-2 (v1, seed 0 on main), MS-3 (three seeds, ladder, ablations) |
 | **Depends on** | SPEC-01, SPEC-02 (LLM client, runner), SPEC-05 (fine-tuned tagger) |
 | **Traces** | RQ1, RQ4 · H1, H2, H3, H6 |
@@ -367,9 +367,9 @@ flowchart LR
 - [x] **AC-04.9** A 5-case pilot MUST record seconds and LLM calls per run, and extrapolate to the full
   run budget (WP-2.8).
 - [x] **AC-04.10** `full` MUST run on the main benchmark with seed 0 by MS-2 (WP-2.8).
-- [ ] **AC-04.11** `full` MUST run with seeds 0–2 on the main and ladder benchmarks (WP-3.2).
-- [ ] **AC-04.12** A1–A5 MUST run with seed 0 on the main benchmark (WP-3.3). A5 (oracle tagger) is not
-  applied to the ladder.
+- [ ] **AC-04.11** `full` MUST run with seeds 0–2 on the main and ladder benchmarks (WP-3.2). *Main done for v1 and v2 (3 seeds each); the ladder has seed 0 only.*
+- [x] **AC-04.12** A1–A5 MUST run with seed 0 on the main benchmark (WP-3.3). A5 (oracle tagger) is not
+  applied to the ladder. *Evidence: `results/runs/main/A1`, `A2`, `A3`, `A5` (v1) and `A1_v2`, `A2_v2`, `A3_v2`, `A5_v2` (v2), each re-verified as `*_rv`; A4 (prompted tagger) is `full` / `full_v2`.*
 - [ ] **AC-04.13** A per-flow confidence (seed agreement, token-probability tie-break) MUST be
   exported for SPEC-07.
 
@@ -393,7 +393,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Nikhil Patidar (M4); S4 extraction: Ishaan Giri |
-| **Status** | Planned |
+| **Status** | In progress (QLoRA tagger trained, 0.713 macro-F1, used in the pipeline; S4 pending) |
 | **Milestone** | MS-2 (should: tagger metrics), MS-3 (in the pipeline, S4) |
 | **Depends on** | SPEC-01 (split) |
 | **Traces** | RQ4 · H6 |
@@ -454,7 +454,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Anurag Kaushal (M1); second checker: Ishaan Giri |
-| **Status** | Planned |
+| **Status** | Built and scored; human check in progress (first checker done) |
 | **Milestone** | MS-2 |
 | **Depends on** | SPEC-01 |
 | **Traces** | RQ2, RQ3 · H4, H5 |

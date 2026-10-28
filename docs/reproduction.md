@@ -83,12 +83,23 @@ tar xzf outputs/kaggle/<job>/results.tar.gz -C .                         # pipel
 python scripts/convert_tool_runs.py --split ladder --tools S1 S2           # after copying the tool CSVs
 ```
 
+### Re-verifying saved runs (fixed verifier reader)
+
+`*_rv` runs re-run only the verifier on saved pipeline runs (needs the 7B model, e.g. the `reverify`
+phase of `kaggle/pipeline/run.py`):
+
+```bash
+python scripts/reverify.py --split main --systems full full_finetuned full_v2 full_v2_finetuned --seeds 0 1 2
+python scripts/reverify.py --split main --systems A2 A3 A5 A2_v2 A3_v2 A5_v2 --seeds 0
+```
+
 ## 5. Scores
 
 ```bash
 python scripts/score_runs.py --systems B1 B2 B4 S1 S2 full full_finetuned A1 A2 A3 A5 full_v2 full_v2_finetuned \
     A1_v2 A2_v2 A3_v2 A5_v2 --paired full_v2-full full_v2_finetuned-full_finetuned full_v2_finetuned-B2 …
 python scripts/score_runs.py --split dev --systems full v2_gate v2_read v2_purpose v2_batch   # and --split dev2
+python scripts/score_dev_pooled.py            # dev + dev2 pooled: the v2 choice (docs/pipeline.md#v2)
 python scripts/score_ladder.py --systems S1 S2 B2 full full_finetuned full_v2 full_v2_finetuned
 python scripts/eval_tagger.py --gold results/tagger/heldout.jsonl \
     --pred B3=results/tagger/B3_pred.jsonl S3=results/tagger/S3_pred.jsonl --claims prompted finetuned

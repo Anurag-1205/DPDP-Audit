@@ -87,7 +87,7 @@ level, no candidate on a control). A5 is therefore an upper bound on what the re
 independent measurement; the A4–A5 gap is the cost of reading errors.
 
 **Development split.** Prompts were developed on `data/benchmark/dev/` (33 cases, 11 controls, from
-12 *training* policies; `scripts/generate_cases.py --split dev --policy-set train --n-policies 12`),
+11 *training* policies (12 sampled, one without a control flow); `scripts/generate_cases.py --split dev --policy-set train --n-policies 12`),
 never on the evaluation cases. Four iterations, seed 0, prompted tagger (runs kept under
 `results/runs/dev/full_dev1…3` and `full`):
 
@@ -152,9 +152,10 @@ fair to the prompted tagger; every choice below was made with it.
 
 full_v2's row re-derives v2_batch's saved replies with the retention rule (the rule is deterministic;
 re-deriving with the rule off reproduces v2_batch exactly). Paired policy-level bootstrap on the
-pooled dev splits: full_v2 − full: F1 **+0.301 [+0.229, +0.392]**, false-alarm rate −0.118
-[−0.324, +0.088], label macro-F1 **+0.074 [+0.005, +0.150]**. v2_purpose was rejected (F1 −0.066
-[−0.112, −0.025], false alarms +0.235 [+0.029, +0.441] vs v2_read).
+pooled dev splits (`python scripts/score_dev_pooled.py` → `results/scores/dev_pooled.json`):
+full_v2 − full: F1 **+0.301 [+0.226, +0.391]**, false-alarm rate −0.118 [−0.295, +0.059], label
+macro-F1 **+0.074 [+0.001, +0.146]**. v2_purpose was rejected: F1 **−0.066 [−0.111, −0.022]** vs v2_read,
+with more false alarms (+0.235 [+0.000, +0.441], borderline).
 
 **Frozen 27 Oct** as `full_v2` (prompted tagger) and `full_v2_finetuned`, before any v2 run on main or
 the ladder. The dev numbers above were measured with the frozen verifier reader (see
