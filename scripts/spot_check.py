@@ -52,6 +52,8 @@ def annotated_text(policy, flow) -> str:
 
 
 def make():
+    if OUT.exists() and any(r.get("agrees", "").strip() for r in csv.DictReader(OUT.open())):
+        raise SystemExit(f"{OUT} already holds checkers' answers; not overwritten")
     ids, keys = sample()
     policies = {p.policy_id: p for p in load_all()}
     rows = []
@@ -74,15 +76,31 @@ def make():
 
 
 def score():
+    """Per checker, and across checkers: flows both reject (lower bound), flows either rejects (upper
+    bound), and agreement (Cohen's kappa on agrees yes/no). Rows of one checker = one per flow."""
     rows = list(csv.DictReader(OUT.open()))
     done = [r for r in rows if r["agrees"].strip()]
     if len(done) < len(rows):
         print(f"{len(rows) - len(done)} of {len(rows)} rows not checked yet")
-    wrong = [r for r in done if r["agrees"].strip().lower() in ("no", "n", "0", "false")]
-    report = {"flows_checked": len(done), "flows_wrong": len(wrong),
-              "error_rate": len(wrong) / len(done) if done else None,
-              "cases_with_an_error": len({r["case_id"] for r in wrong}),
-              "wrong": [{k: r[k] for k in ("case_id", "flow_id", "gold_label", "checker_label", "notes")} for r in wrong]}
+    no = lambda r: r["agrees"].strip().lower() in ("no", "n", "0", "false")
+    checkers = sorted({r.get("checker", "") for r in done})
+    by = {c: {(r["case_id"], r["flow_id"]): no(r) for r in done if r.get("checker", "") == c} for c in checkers}
+    flows = sorted(set.intersection(*(set(v) for v in by.values()))) if by else []
+    report = {"checkers": checkers, "flows": len(flows),
+              "per_checker": {c: {"flows_wrong": sum(by[c][f] for f in flows),
+                                  "error_rate": sum(by[c][f] for f in flows) / len(flows) if flows else None}
+                              for c in checkers}}
+    if len(checkers) == 2 and flows:
+        a, b = (by[c] for c in checkers)
+        both, either = sum(a[f] and b[f] for f in flows), sum(a[f] or b[f] for f in flows)
+        po = sum(a[f] == b[f] for f in flows) / len(flows)
+        pa, pb = sum(a[f] for f in flows) / len(flows), sum(b[f] for f in flows) / len(flows)
+        pe = pa * pb + (1 - pa) * (1 - pb)
+        report.update({"both_reject": both, "either_rejects": either,
+                       "error_rate_lower": both / len(flows), "error_rate_upper": either / len(flows),
+                       "agreement": po, "cohens_kappa": (po - pe) / (1 - pe) if pe < 1 else 1.0})
+    report["wrong"] = [{k: r.get(k, "") for k in ("checker", "case_id", "flow_id", "gold_label", "checker_label",
+                                                 "checker_gap", "notes")} for r in done if no(r)]
     (DATA / "spot_check" / "main_spot_check_result.json").write_text(json.dumps(report, indent=1))
     print(json.dumps({k: v for k, v in report.items() if k != "wrong"}, indent=1))
 

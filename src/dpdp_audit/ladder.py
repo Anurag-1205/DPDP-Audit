@@ -224,7 +224,16 @@ def build(seed: int = SEED, split: str = "ladder") -> dict:
     held = set(load_split()["heldout"])
     policies = [p for p in load_all() if f"{p.policy_id}_{p.name}" in held]
     split_dir = BENCH / split
+    # human-check files survive a rebuild: the checkers' own sheets, the disagreement list, and the
+    # merged check sheet once it holds answers (rebuilding must never erase people's work)
+    kept = {}
     if split_dir.exists():
+        for f in list(split_dir.glob("check_sheet_*.csv")) + list(split_dir.glob("disagreements.csv")):
+            kept[f.name] = f.read_bytes()
+        sheet = split_dir / "check_sheet.csv"
+        if sheet.exists() and any(r.get("checker_1_ok", "").strip() or r.get("checker_2_ok", "").strip()
+                                  for r in csv.DictReader(sheet.open())):
+            kept["check_sheet.csv"] = sheet.read_bytes()
         shutil.rmtree(split_dir)
     rows, removed_log = [], []
     for t in choose_targets(policies, seed):
@@ -269,6 +278,12 @@ def build(seed: int = SEED, split: str = "ladder") -> dict:
         w = csv.DictWriter(f, fieldnames=list(rows[0]))
         w.writeheader()
         w.writerows(rows)
+    if "check_sheet.csv" in kept:
+        old = [r["case_id"] for r in csv.DictReader(kept["check_sheet.csv"].decode().splitlines())]
+        if old != [r["case_id"] for r in rows]:
+            raise RuntimeError("the rebuilt ladder has different rungs from the filled check sheet")
+    for name, data in kept.items():
+        (split_dir / name).write_bytes(data)
     (split_dir / "removed_sentences.json").write_text(json.dumps(removed_log, indent=1))
     summary = {"ladders": len(removed_log), "cases": len(rows),
                "kinds": {k: sum(1 for r in removed_log if r["kind"] == k) for k in ("sharing", "collection")},
