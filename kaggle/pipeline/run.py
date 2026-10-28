@@ -31,10 +31,15 @@ DEADLINE_MIN = 600
 T_START = time.time()
 
 # Prompts and decision rules frozen on 26 Oct after four dev-split iterations (docs/pipeline.md).
-# v2 (docs/pipeline.md#v2): developed on dev + dev2 only, frozen as full_v2 on 27 Oct and run on
-# main (3 seeds) and the ladder. Now: the ablations of v2 (seed 0, main), against full_v2_finetuned.
+# Robust verifier (28 Oct): the frozen reader could not read 15-40% of the verifier's replies and
+# kept those findings unchecked. "reverify" re-runs only the verifier on saved runs (-> <system>_rv).
+DEV_SYSTEMS = ["full", "v2_gate", "v2_read", "v2_purpose", "v2_batch"]
 JOBS = [
-    {"phase": "runs", "split": "main", "configs": ["A1_v2", "A2_v2", "A3_v2", "A5_v2"], "seeds": [0]},
+    {"phase": "reverify", "split": "main", "systems": ["full", "full_finetuned", "full_v2", "full_v2_finetuned"],
+     "seeds": [0, 1, 2]},
+    {"phase": "reverify", "split": "main", "systems": ["A2", "A3", "A5", "A2_v2", "A3_v2", "A5_v2"], "seeds": [0]},
+    {"phase": "reverify", "split": "dev", "systems": DEV_SYSTEMS, "seeds": [0]},
+    {"phase": "reverify", "split": "dev2", "systems": DEV_SYSTEMS, "seeds": [0]},
 ]
 
 
@@ -180,6 +185,12 @@ def run():
                                   f"--split {job['split']} --workers 8 --shard {g}/2 --redo-failed "
                                   f"--deadline-min {remaining_min():.0f} "
                                   f"| tee outputs/logs/runs_{job['split']}_shard{g}.log", MODEL)
+            elif phase == "reverify":
+                servers.start(MODEL)
+                systems, seeds = " ".join(job["systems"]), " ".join(map(str, job["seeds"]))
+                sharded(lambda g: f"{py} scripts/reverify.py --split {job['split']} --systems {systems} "
+                                  f"--seeds {seeds} --workers 8 --shard {g}/2 "
+                                  f"| tee outputs/logs/reverify_{job['split']}_shard{g}.log", MODEL)
             elif phase == "baselines":
                 servers.start(MODEL)
                 systems, seeds = " ".join(job["systems"]), " ".join(map(str, job["seeds"]))

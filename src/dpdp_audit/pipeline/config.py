@@ -24,6 +24,8 @@ class Config:
     purpose_always: bool = False     # also check the purpose of flows whose notice is in doubt
     review_batch: int = 0            # max candidates per reviewer call (0 = all in one call)
     retention_check: bool = False    # a retention quote must be about keeping data
+    robust_verifier: bool = False    # read the verifier's reply robustly (the *_rv configurations)
+    verifier_max_tokens: int = 2048
 
 
 # Until the fine-tuned tagger passes SPEC-05, "full" uses the prompted tagger (the A4 setting);
@@ -58,6 +60,13 @@ V2_ABLATIONS = [replace(FULL_V2_FINETUNED, name="A1_v2", verifier=False),
                 replace(FULL_V2_FINETUNED, name="A5_v2", tagger="oracle")]
 for _c in (V2_GATE, V2_READ, V2_PURPOSE, V2_BATCH, FULL_V2, FULL_V2_FINETUNED, *V2_ABLATIONS):
     CONFIGS[_c.name] = _c
+
+
+# *_rv: the same configuration with the robust verifier reader (28 Oct). The frozen reader could
+# not read 15-40% of the verifier's replies and then kept every finding unchecked;
+# scripts/reverify.py re-runs only the verifier on a configuration's saved findings.
+for _name, _c in list(CONFIGS.items()):
+    CONFIGS[f"{_name}_rv"] = replace(_c, name=f"{_name}_rv", robust_verifier=True, verifier_max_tokens=4096)
 
 
 def get_config(name: str) -> Config:

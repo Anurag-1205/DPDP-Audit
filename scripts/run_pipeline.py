@@ -56,7 +56,7 @@ def main():
         print(f"tagger {t}: {len(idx)} tagged paragraphs", flush=True)
     any_cfg = next(iter(cfgs.values()))
     llm = LLM(temperature=any_cfg.reviewer_temperature)
-    verifier_llm = LLM(temperature=any_cfg.verifier_temperature)
+    verifier_llm = LLM(temperature=any_cfg.verifier_temperature, max_tokens=any_cfg.verifier_max_tokens)
     jobs = [(name, c, seed) for seed in args.seeds for name in args.configs for c in cases
             if needs_run(args.split, name, seed, c["case_id"], args.redo_failed)]
     print(f"shard {args.shard}: {len(jobs)} runs to do", flush=True)

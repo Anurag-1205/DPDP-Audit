@@ -47,7 +47,7 @@ def run_case(case: dict, llm, seed: int, cfg: Config, claims_index: dict[str, di
     agg = aggregate(facts["flows"], candidates, reviews, merge=cfg.specialists)
     if cfg.verifier:
         ver = verify(agg["findings"], policy, facts["flows"], verifier_llm or llm, seed,
-                     llm_gaps=cfg.llm_check_gaps)
+                     llm_gaps=cfg.llm_check_gaps, robust=cfg.robust_verifier)
     else:
         ver = {"findings": agg["findings"], "dropped": [], "llm_calls": 0, "error": None, "usage": {}}
 
@@ -76,6 +76,8 @@ def run_case(case: dict, llm, seed: int, cfg: Config, claims_index: dict[str, di
             "tool_calls_valid": sum(1 for t in tool_calls if t["valid"]),
             "undecided": agg["undecided"], "unknown_decisions": agg["unknown_decisions"],
             "verifier_error": ver["error"],
+            **({"verifier_parse": ver.get("parse"), "verifier_unchecked": ver.get("unchecked", 0),
+                "verifier_raw": ver.get("raw")} if cfg.robust_verifier else {}),
             "llm_calls": sum(r["llm_calls"] for r in reviews) + ver["llm_calls"],
             "seconds": round(time.time() - t0, 2),
         },
