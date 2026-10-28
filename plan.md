@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Version** | 2.0 (2026-10-25) |
-| **Status** | Stage 2 complete except WP-2.2 (ladder check) and the QLoRA tagger · see [mid-submission report](docs/mid-submission-report.md) |
+| **Status** | Stage 2 complete except WP-2.2 (ladder check: first checker done, second pending) · see [mid-submission report](docs/mid-submission-report.md) |
 | **Key dates** | Mid-submission **Fri 30 Oct 2026** · final submission **Sun 15 Nov 2026** |
 | **Team** | Anurag Kaushal (M1) · Ishaan Giri (M2) · Naveen Mishra (M3) · Nikhil Patidar (M4) |
 | **Related** | [specs.md](specs.md) (what each work package must deliver) · [docs/](docs/README.md) (architecture, guides) · [proposal](docs/Neural_Nexus_Final.pdf) |
@@ -307,6 +307,7 @@ L = likelihood, I = impact (H/M/L).
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-10-23 | Five-week stage plan derived from the proposal |
+| 2.3 | 2026-10-28 | Verifier reply bug found (15–40% of pipeline runs unreadable, findings kept unchecked); robust reader and `scripts/reverify.py`; every verifier-using run re-verified as `*_rv`, which the report now uses. v1 with a working verifier does not beat B2 on F1; v2 reaches F1 0.705 |
 | 2.2 | 2026-10-27 | Pipeline v2 (`full_v2`, `full_v2_finetuned`) developed on the dev splits (new `dev2`, 69 cases from 23 more training policies), frozen, then run on main (3 seeds) and the ladder; ablations repeated on v2 (`A*_v2`); B4 seeds 1–2 done; PoliCheck known-answer check done (7/7). The frozen v1 runs are kept |
 | 2.1 | 2026-10-26 | Stage 2 run by one member (Ishaan) on account `ishaan2312`: pipeline, ladder, tools on the ladder, B4 seed 0, ablations A1/A2/A3/A5 early; dev split for prompt development |
 | 2.0 | 2026-10-25 | Dated schedule (mid-submission 30 Oct, final 15 Nov); work packages, RACI, critical path, MoSCoW, risk register; comparison set S1 PoliCheck and S2 PoliGraph; PoliGraph on Nikhil's workstation |

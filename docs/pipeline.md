@@ -157,7 +157,10 @@ pooled dev splits: full_v2 − full: F1 **+0.301 [+0.229, +0.392]**, false-alarm
 [−0.112, −0.025], false alarms +0.235 [+0.029, +0.441] vs v2_read).
 
 **Frozen 27 Oct** as `full_v2` (prompted tagger) and `full_v2_finetuned`, before any v2 run on main or
-the ladder. The tool-calling problem (no reviewer calls a tool) is not addressed: the finder already
+the ladder. The dev numbers above were measured with the frozen verifier reader (see
+[Evidence verifier](#evidence-verifier)); re-verified with the robust reader the ranking is the same
+(pooled dev F1: `full` 0.19, `v2_purpose` 0.53, `v2_read` 0.58, `v2_gate` 0.59, `v2_batch` 0.60,
+`full_v2` 0.68). The tool-calling problem (no reviewer calls a tool) is not addressed: the finder already
 runs `search_policy` for every candidate, and showing more paragraphs covers what the calls would add.
 
 ## Reviewer agent loop
@@ -202,6 +205,16 @@ flowchart TD
 
 Section names are normalised before the check. For example, "Section 8(7)" becomes `Sec. 8(7)`, and
 "Article 6 GDPR" is rejected.
+
+**Reply bug (found 28 Oct) and the robust reader.** The LLM check asks for all of a case's checked
+findings in one reply. The 7B model often writes one `{"checks": [...]}` object per finding; the frozen
+reader parsed from the first `{` to the last `}`, failed, and kept every finding unchecked. This hit
+38% of `full` runs and 15–20% of v2 runs on main. `parse_checks` (used by every `*_rv` configuration)
+parses normally, then removes invalid escapes, then recovers every complete `finding_id`/`supported`
+pair; it stores the raw reply whenever normal parsing fails and counts findings left without a verdict
+(`verifier_parse`, `verifier_raw`, `verifier_unchecked` in the trace). `scripts/reverify.py` re-runs only
+the verifier on saved runs, so `X_rv` differs from `X` only in the verifier. After the fix: 0 unreadable
+replies in 2,346 runs, 14 findings without a verdict.
 
 ## Confidence per flow
 

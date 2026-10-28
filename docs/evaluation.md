@@ -25,6 +25,7 @@ flowchart LR
 | full | DPDP-Audit, frozen 26 Oct (prompted tagger; `full_finetuned` with the QLoRA tagger) | Qwen2.5-7B + tagger | all | 3 |
 | full_v2 | DPDP-Audit v2, chosen on the dev splits ([pipeline.md](pipeline.md#v2)); `full_v2_finetuned` with the QLoRA tagger | Qwen2.5-7B + tagger | all | 3 |
 | A1–A5 | Ablations | as full, one change each; `A*_v2` as full_v2_finetuned | all | 1 |
+| `*_rv` | The same runs with only the verifier re-run by the robust reply reader ([pipeline.md](pipeline.md#evidence-verifier)); the reported numbers | as the system | all | as the system |
 | S3 | PrivBERT | `mukund/privbert`, fine-tuned on our split | tagging only | 1 |
 | S4 | PolicyLint and PoliGraph extraction | Authors' code | statement extraction | 1 |
 | B3 | Prompted 3B tagger | Qwen2.5-3B-Instruct, zero-shot | tagging only | 1 |

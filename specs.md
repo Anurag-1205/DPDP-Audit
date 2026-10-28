@@ -275,7 +275,7 @@ flowchart LR
   with a unit test.
 - [x] **AC-03.4** PoliCheck SHOULD reproduce its result on the authors' example flows, to validate the
   set-up (WP-2.3). *Changed 26 Oct: the authors ship flows but neither policies nor labels, so nothing
-  can be reproduced; a six-policy known-answer check replaces it (`data/tools/policheck_sanity/`,
+  can be reproduced; a known-answer check replaces it (`data/tools/policheck_sanity/`,
   `scripts/check_policheck_sanity.py`). Evidence: `results/tools/policheck/sanity/check.json`, 7 of 7
   agree, covering all five labels (27 Oct). A first six-case version
   (`results/tools/policheck/sanity_6case/`) agreed on 5 of 6: PoliCheck reads "We share your location
@@ -384,6 +384,7 @@ flowchart LR
 - **Long policies:** the context limit is 12,288 tokens, so reviewers see only the paragraphs linked to
   their candidates.
 - **v2 (27 Oct):** the frozen pipeline's problems were fixed as new configurations (`full_v2`, `full_v2_finetuned`, switches in `pipeline/config.py`), chosen on the dev splits `dev` + `dev2` (training policies) and frozen before their single run on main and the ladder (constraint 3). The frozen v1 runs stay in every table. Details: `docs/pipeline.md#v2`.
+- **Verifier reply bug (28 Oct):** the frozen reader could not read 15–40% of the verifier's replies and kept those findings unchecked. Fixed by a robust reader; every verifier-using run was re-verified (`scripts/reverify.py`, configurations `*_rv`), and the reported numbers use these. The frozen runs are unchanged.
 
 ---
 

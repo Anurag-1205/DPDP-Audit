@@ -250,6 +250,13 @@ do not collect your {data}." and "We may collect information about you when you 
 | Recipients (sharing) | AdMob (Advertising) and Mixpanel (Analytics/Research), alternating |
 | Sentences removed for the base policies | 735 (2 ladders needed none) |
 | Ladders with residual-mention flags | 23 (see `removed_sentences.json`) |
+
+**Known inconsistency: "Personal identifier".** On its 3 ladders the inserted sentences say "your
+name and other personal identifiers" and the removal list includes "name" and "username"
+(`ladder.py`), while the pipeline's glossary and keywords (`pipeline/vocab.py`) and the OPP-115 type
+mean government identifiers (social security number, passport, driver's licence); PoliCheck's mapping
+uses `real_name`. The ladder is kept as built (rebuilding it would require re-running every system);
+results on these 3 ladders should be read with this in mind.
 | PoliCheck export | 140 of 140 flows (23% exact mapping) |
 
 - **Target choice:** the data type is drawn from the types the policy addresses for the practice

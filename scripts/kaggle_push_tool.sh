@@ -6,7 +6,7 @@ set -euo pipefail
 TOOL="$1"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 KAGGLE="${KAGGLE:-kaggle}"
-KAGGLE_USER="${KAGGLE_USER:-nikpatidar333}"
+KAGGLE_USER="${KAGGLE_USER:-$(python3 -c "import json,os;print(json.load(open(os.path.expanduser('~/.kaggle/kaggle.json')))['username'])")}"
 DATASET="$KAGGLE_USER/dpdp-audit"
 STAGE="$ROOT/outputs/kaggle_dataset"
 rm -rf "$STAGE" && mkdir -p "$STAGE"
