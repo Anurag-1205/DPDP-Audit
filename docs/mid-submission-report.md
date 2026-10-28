@@ -47,8 +47,8 @@ each with the policy's own words and the DPDP section ([getting-started.md](gett
 
 | Benchmark | Cases | Answer source | Status |
 |---|---|---|---|
-| Main | 102 (34 compliant controls, 68 variants), 118 gold gaps, 433 flows | Fixed rules over expert OPP-115 annotations; no LLM | Done; 20-case spot-check sheet ready, checks pending (AC-01.10) |
-| Vagueness ladder | 140 = 35 ladders × 4 rungs (clear, explicit, vague, deleted) | Templated sentence inserted into a base policy | Built and scored; two-person check pending (AC-06.6) |
+| Main | 102 (34 compliant controls, 68 variants), 118 gold gaps, 433 flows | Fixed rules over expert OPP-115 annotations; no LLM | Done; 20-case spot-check: first checker done, second pending (AC-01.10) |
+| Vagueness ladder | 140 = 35 ladders × 4 rungs (clear, explicit, vague, deleted) | Templated sentence inserted into a base policy | Built and scored; two-person check: first checker done, second pending (AC-06.6) |
 | Dev splits | `dev` 33 cases + `dev2` 69 cases, from 34 *training* policies | Same rules | Used only to develop the pipeline |
 
 Cases come from the 35 held-out OPP-115 policies (80/35 split, seed 13); regeneration is
@@ -127,7 +127,8 @@ run.
 | v1 `full_rv` − S2 PoliGraph | −0.002 [−0.116, +0.127] | −0.122 [−0.230, +0.007] | −0.079 [−0.170, +0.000] | **−0.647 [−0.824, −0.471]** |
 | v1 `full_finetuned_rv` − B2 | −0.039 [−0.124, +0.048] | +0.005 [−0.153, +0.170] | **−0.246 [−0.462, −0.044]** | **−0.441 [−0.676, −0.176]** |
 
-Bold: the interval excludes 0. The v2 comparisons with B2, B4 and both tools are also significant on
+Bold: the interval excludes 0. The intervals are not corrected for the number of comparisons; the
+headline ones lie far from 0. The v2 comparisons with B2, B4 and both tools are also significant on
 seeds 1 and 2 (F1 gain over B2 +0.51 / +0.52, over B4 +0.28 / +0.26, over PoliCheck +0.56 / +0.53),
 so they do not depend on seed 0, v2's best seed. As run, v1 `full` − B2 was +0.151 [+0.045, +0.259] on F1 and
 −0.176 [−0.412, +0.059] on the false-alarm rate (not significant); that F1 gain came from findings the
@@ -334,7 +335,7 @@ prompt is the prompted tagger's own, so only the weights differ.
 | Item (plan §7) | Priority | Status |
 |---|---|---|
 | Benchmark and B1/B2 | Must | Done |
-| Vagueness ladder built and checked | Must | Built and scored; **two-person check pending** |
+| Vagueness ladder built and checked | Must | Built and scored; **two-person check: first checker done, second pending** |
 | PoliCheck on main | Must | Done |
 | Pipeline v1 with a seed-0 run on main | Must | Done (3 seeds) |
 | Comparison table with intervals | Must | Done (§4) |

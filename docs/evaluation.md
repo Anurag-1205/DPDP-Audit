@@ -109,7 +109,8 @@ marked `uncertain` count as not reported and are listed separately.
 
 ## Selective accuracy
 
-**Status:** planned (SPEC-07). This measures how much human review each system needs before the rest
+**Status:** planned (SPEC-07). B4 has no token probabilities (Gemini returns none), so its ties need a fixed
+rule; every other LLM system stores one per run. This measures how much human review each system needs before the rest
 of its output can be trusted.
 
 ```mermaid
