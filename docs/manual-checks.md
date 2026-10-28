@@ -8,9 +8,9 @@ who does it, and exactly how.
 
 | # | Task | Why it matters | People | Due | Time per person |
 |---|---|---|---|---|---|
-| 1 | **Ladder check** (WP-2.2, AC-06.6) | The ladder results in the mid-submission report are provisional until every rung is checked | Naveen + one more member (to be confirmed) | **29 Oct** (before the mid-submission) | 3–4 h |
-| 2 | **Answer-key spot-check** (WP-3.7, AC-01.10) | Reports how often our scripted answer keys are wrong | Naveen + one more member (to be confirmed) | 3 Nov | 2–3 h |
-| 3 | **Review the mid-submission report** (gate G-2) | The plan requires two members to read the report before submission | Two members (to be confirmed) | 29 Oct | 30 min |
+| 1 | **Ladder check** (WP-2.2, AC-06.6) | The ladder results in the mid-submission report are provisional until every rung is checked | Naveen + Anurag Kaushal | **29 Oct** (before the mid-submission) | 3–4 h |
+| 2 | **Answer-key spot-check** (WP-3.7, AC-01.10) | Reports how often our scripted answer keys are wrong | Naveen + Anurag Kaushal | 3 Nov | 2–3 h |
+| 3 | **Review the mid-submission report** (gate G-2) | The plan requires two members to read the report before submission | Anurag Kaushal + one more member (to be confirmed) | 29 Oct | 30 min |
 | 4 | Real-flow labels (SPEC-08), later | Two independent labels per real data flow | to be assigned | 4–8 Nov | — |
 | 5 | Open-source case study checks (SPEC-08), later | Every pipeline finding checked by hand | to be assigned | 7–10 Nov | — |
 
