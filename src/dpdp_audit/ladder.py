@@ -296,14 +296,42 @@ def build(seed: int = SEED, split: str = "ladder") -> dict:
 
 
 # ------------------------------------------------------------------ checks
+def _ok(v) -> bool:
+    return str(v or "").strip().lower() in ("ok", "yes", "y", "1", "true")
+
+
+def settled(split: str = "ladder") -> dict[str, bool]:
+    """Joint answers for rungs the two checkers answered differently (disagreements.csv, column
+    `agreed`); rungs not settled yet are left out."""
+    p = BENCH / split / "disagreements.csv"
+    if not p.exists():
+        return {}
+    return {r["case_id"]: _ok(r["agreed"]) for r in csv.DictReader(p.open()) if r.get("agreed", "").strip()}
+
+
 def accepted_cases(split: str = "ladder") -> set[str] | None:
-    """Rungs both checkers marked ok; None while the check sheet is not filled in."""
+    """Rungs accepted by the human check; None while the check sheet is not filled in. A rung is
+    accepted when both checkers marked it ok, or, where they disagreed, when they settled on ok
+    together; a disagreement not settled yet counts as rejected."""
     p = BENCH / split / "check_sheet.csv"
     rows = list(csv.DictReader(p.open()))
     if not all(r["checker_1_ok"].strip() and r["checker_2_ok"].strip() for r in rows):
         return None
-    ok = lambda v: v.strip().lower() in ("ok", "yes", "y", "1", "true")
-    return {r["case_id"] for r in rows if ok(r["checker_1_ok"]) and ok(r["checker_2_ok"])}
+    joint = settled(split)
+    out = set()
+    for r in rows:
+        a, b = _ok(r["checker_1_ok"]), _ok(r["checker_2_ok"])
+        if (a and b) or (a != b and joint.get(r["case_id"], False)):
+            out.add(r["case_id"])
+    return out
+
+
+def check_status(split: str = "ladder") -> dict:
+    rows = list(csv.DictReader((BENCH / split / "check_sheet.csv").open()))
+    differ = [r["case_id"] for r in rows if _ok(r["checker_1_ok"]) != _ok(r["checker_2_ok"])]
+    joint = settled(split)
+    return {"rungs": len(rows), "checkers_agree": len(rows) - len(differ), "disagreements": len(differ),
+            "settled": sum(1 for c in differ if c in joint), "unsettled": sum(1 for c in differ if c not in joint)}
 
 
 # ----------------------------------------------------------------- scoring

@@ -11,7 +11,7 @@ import argparse
 import json
 
 from dpdp_audit.cases import case_dirs, load_case, load_key
-from dpdp_audit.ladder import RUNG_ORDER, accepted_cases, score_ladder
+from dpdp_audit.ladder import RUNG_ORDER, accepted_cases, check_status, score_ladder
 from dpdp_audit.paths import RESULTS
 from dpdp_audit.runs import load_runs, seeds_available
 
@@ -23,7 +23,10 @@ if __name__ == "__main__":
     keys = [load_key("ladder", c) for c in ids]
     accepted = accepted_cases()
     out = {"check_sheet_complete": accepted is not None,
-           "n_accepted": len(accepted) if accepted is not None else None}
+           "n_accepted": len(accepted) if accepted is not None else None,
+           "check_status": check_status() if accepted is not None else None}
+    if accepted is not None:
+        print("human check:", out["check_status"], "-> accepted rungs:", len(accepted))
     for system in args.systems:
         res = {}
         for seed in seeds_available("ladder", system):

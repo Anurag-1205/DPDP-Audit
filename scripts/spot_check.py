@@ -99,6 +99,21 @@ def score():
         report.update({"both_reject": both, "either_rejects": either,
                        "error_rate_lower": both / len(flows), "error_rate_upper": either / len(flows),
                        "agreement": po, "cohens_kappa": (po - pe) / (1 - pe) if pe < 1 else 1.0})
+        # joint answers for the flows the checkers answered differently (disagreements.csv, `agreed`)
+        dis = OUT.with_name("disagreements.csv")
+        joint = {}
+        if dis.exists():
+            joint = {(r["case_id"], r["flow_id"]): r["agreed"].strip().lower() in ("no", "n", "0", "false")
+                     for r in csv.DictReader(dis.open()) if r.get("agreed", "").strip()}
+        differ = [f for f in flows if a[f] != b[f]]
+        unsettled = [f for f in differ if f not in joint]
+        final = {f: a[f] if a[f] == b[f] else joint.get(f) for f in flows}
+        report.update({"disagreements": len(differ), "settled": len(differ) - len(unsettled),
+                       "unsettled": len(unsettled)})
+        if not unsettled:
+            wrong = sum(1 for f in flows if final[f])
+            report.update({"final_flows_wrong": wrong, "final_error_rate": wrong / len(flows),
+                           "final_cases_with_an_error": len({f[0] for f in flows if final[f]})})
     report["wrong"] = [{k: r.get(k, "") for k in ("checker", "case_id", "flow_id", "gold_label", "checker_label",
                                                  "checker_gap", "notes")} for r in done if no(r)]
     (DATA / "spot_check" / "main_spot_check_result.json").write_text(json.dumps(report, indent=1))
