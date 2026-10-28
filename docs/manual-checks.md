@@ -199,20 +199,42 @@ xxxx_v1,   f4,      Location,  admob,       …, vague,      undisclosed_sharing
    and computes the error rate for AC-01.10. Disagreements are then settled together and recorded in
    `notes`.
 
-## Next: settling the disagreements (Naveen and Anurag, by 7 Nov)
+## Next: settling the disagreements (Naveen and Anurag together, before 29 Oct evening)
 
 Both checks are in (ladder: 100 of 140 rungs accepted by both, agreement 76%, κ = 0.19; spot-check:
-agreement 77%, κ = 0.04). The guide says disagreements are settled together afterwards:
+agreement 77%, κ = 0.04). The disagreements are settled **together, in one sitting** (about 2 hours:
+33 ladder rungs and 22 spot-check flows, 2–3 minutes each).
 
-```bash
-PYTHONPATH=src python3 scripts/review_pack.py disagreements naveen anurag
-```
-
-This writes `data/benchmark/ladder/disagreements.csv` (33 rungs) and `data/spot_check/disagreements.csv`
-(22 flows), each with both answers and notes side by side. Sit together, re-read the policy for each
-row, and fill in `agreed` (`ok`/`no` for the ladder; `yes`/`no` for the spot-check) and `agreed_notes`.
-Most ladder disagreements are on the deleted rung: the rule in Task 1 rejects it when even a generic
-statement covers the flow. Commit only these two files; Ishaan then re-scores.
+1. Get the lists (already generated on the `pipeline-v2` branch):
+   ```bash
+   git fetch && git checkout -b settle-checks origin/pipeline-v2
+   ```
+   - `data/benchmark/ladder/disagreements.csv`: one row per rung you answered differently, with
+     `naveen_ok`, `naveen_notes`, `anurag_ok`, `anurag_notes` side by side;
+   - `data/spot_check/disagreements.csv`: one row per flow you answered differently (also flows you
+     both rejected with a different corrected label).
+2. For each row, open the reading pack (`outputs/review/ladder/L<id>.md` or
+   `outputs/review/spot_check/<case>.md`; run `review_pack.py ladder` / `spotcheck` if missing), read
+   both notes, re-read the policy, and agree on one answer:
+   - ladder: write `ok` or `no` in **`agreed`**;
+   - spot-check: write `yes` (the answer key is right) or `no` (it is wrong) in **`agreed`**;
+   - write one short sentence in **`agreed_notes`** (quote the deciding sentence).
+   Apply the rules of Tasks 1 and 2 as written. Most ladder disagreements are on the deleted rung: it
+   is `no` when even a generic statement ("we may share information with third parties") covers the
+   flow.
+3. Do not change any other column or file. Commit only the two files and push:
+   ```bash
+   git add data/benchmark/ladder/disagreements.csv data/spot_check/disagreements.csv
+   git commit -m "Settle check disagreements"
+   git push -u origin settle-checks
+   ```
+4. Ishaan then re-scores (a few minutes, no GPU):
+   ```bash
+   python scripts/score_ladder.py --systems S1 S2 B2 full full_finetuned full_v2 full_v2_finetuned
+   python scripts/spot_check.py score
+   ```
+   A rung counts when both of you marked it `ok`, or when you settled on `ok`; a row left empty
+   stays rejected. The spot-check then reports one final error rate instead of a range.
 
 ## Task 3 — Reviewing the mid-submission report
 
