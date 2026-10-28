@@ -23,12 +23,12 @@
 
 | ID | Title | Owner | Status | Milestone | Depends on |
 |---|---|---|---|---|---|
-| [SPEC-01](#spec-01--main-benchmark) | Main benchmark | Anurag | Done (spot-check by two members done; disagreements to settle) | MS-1 | — |
+| [SPEC-01](#spec-01--main-benchmark) | Main benchmark | Anurag | Done (spot-check by two members done and settled: key wrong on 10.3% of flows) | MS-1 | — |
 | [SPEC-02](#spec-02--single-pass-llm-baselines-b1-b2-b4) | Single-pass LLM baselines B1, B2, B4 | Naveen | In progress | MS-1 → MS-3 | SPEC-01 |
 | [SPEC-03](#spec-03--existing-tool-baselines-policheck-s1-and-poligraph-s2) | Existing-tool baselines: PoliCheck and PoliGraph | Ishaan | Main and ladder done; real flows pending | MS-2 → MS-4 | SPEC-01, SPEC-06 |
 | [SPEC-04](#spec-04--dpdp-audit-pipeline-and-ablations) | DPDP-Audit pipeline and ablations | Naveen | In progress (v1 frozen and v2 chosen on dev splits, both main × 3 seeds + ladder; ablations on v1 and v2) | MS-2 → MS-3 | SPEC-01, SPEC-02, SPEC-05 |
 | [SPEC-05](#spec-05--clause-tagger-fine-tuning-and-component-baselines) | Clause tagger: fine-tuning and component baselines | Nikhil | In progress (QLoRA 0.713 macro-F1, in the pipeline; S4 extraction pending) | MS-2 → MS-3 | SPEC-01 |
-| [SPEC-06](#spec-06--vagueness-ladder) | Vagueness ladder | Anurag | Built, checked by two members, scored on 100 accepted rungs | MS-2 | SPEC-01 |
+| [SPEC-06](#spec-06--vagueness-ladder) | Vagueness ladder | Anurag | Built, checked by two members, scored on 110 accepted rungs | MS-2 | SPEC-01 |
 | [SPEC-07](#spec-07--selective-accuracy) | Selective accuracy | Nikhil | Planned | MS-4 | SPEC-02, SPEC-03, SPEC-04, SPEC-06 |
 | [SPEC-08](#spec-08--real-world-validation) | Real-world validation: real flows and case study | Anurag | Planned | MS-4 | SPEC-02, SPEC-03, SPEC-04 |
 | [SPEC-09](#spec-09--evaluation-reporting-and-submissions) | Evaluation, reporting and submissions | Anurag | In progress | MS-2, MS-5 | all |
@@ -102,7 +102,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Anurag Kaushal (M1) |
-| **Status** | Done (spot-check done 28 Oct; disagreements to settle) |
+| **Status** | Done (spot-check done and settled 28 Oct) |
 | **Milestone** | MS-1 (24 Oct) |
 | **Depends on** | — |
 | **Traces** | RQ1 · H1, H2 |
@@ -148,7 +148,7 @@ flowchart LR
   reported (65% of flows exportable, 12% exact).
 - [x] **AC-01.9** Regeneration with the same seeds MUST reproduce the committed files byte for byte.
 - [x] **AC-01.10** A 20-case spot-check against the policy text MUST report the answer-key error rate
-  (WP-3.7). *Evidence: `data/spot_check/main_spot_check.csv` (two checkers, 87 flows each), `python scripts/spot_check.py score`; 2.3–25% of flows depending on the checker (κ = 0.04), report §5.*
+  (WP-3.7). *Evidence: `data/spot_check/main_spot_check.csv` (two checkers, 87 flows each), `python scripts/spot_check.py score`; independent checkers agreed on 77% of flows (κ = 0.04); after settling the 20 disagreements together (`data/spot_check/disagreements.csv`) the key is wrong on 9 of 87 flows (10.3%), in 6 of 20 cases; report §5.*
 
 ### 6. Evidence & Validation
 - `tests/test_benchmark.py`, `test_gold_rules.py`, `test_opp115.py`, `test_export.py` pass.
@@ -493,7 +493,7 @@ flowchart LR
 - [x] **AC-06.5** Base-policy sentences that still mention the target data type next to a practice
   verb MUST be auto-flagged in the check sheet.
 - [x] **AC-06.6** (WP-2.2) Two members MUST check every rung independently. Only rungs both mark "ok" are used,
-  and the number dropped is reported. *Evidence: `data/benchmark/ladder/check_sheet.csv` (Naveen, Anurag; 28 Oct): 100 of 140 rungs accepted, 40 dropped, agreement 76% (κ = 0.19); `results/scores/ladder.json`.*
+  and the number dropped is reported. *Evidence: `data/benchmark/ladder/check_sheet.csv` (Naveen, Anurag; 28 Oct): agreement 76% (κ = 0.19); the 33 disagreements settled together in `data/benchmark/ladder/disagreements.csv` (10 ok, 23 no); 110 of 140 rungs accepted, 30 dropped; `results/scores/ladder.json`.*
 - [x] **AC-06.7** The ladder MUST be exported in PoliCheck format for S1 and S2.
 - [x] **AC-06.8** Ladder scoring MUST report:
   - label accuracy per rung;

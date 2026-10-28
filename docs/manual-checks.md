@@ -8,8 +8,8 @@ who does it, and exactly how.
 
 | # | Task | Why it matters | People | Due | Time per person |
 |---|---|---|---|---|---|
-| 1 | **Ladder check** (WP-2.2, AC-06.6) | The ladder results in the mid-submission report are provisional until every rung is checked | Naveen + Anurag Kaushal (**done 28 Oct**) | **29 Oct** (before the mid-submission) | 3–4 h |
-| 2 | **Answer-key spot-check** (WP-3.7, AC-01.10) | Reports how often our scripted answer keys are wrong | Naveen + Anurag Kaushal (**done 28 Oct**) | 3 Nov | 2–3 h |
+| 1 | **Ladder check** (WP-2.2, AC-06.6) | The ladder results in the mid-submission report are provisional until every rung is checked | Naveen + Anurag Kaushal (**done and settled 28 Oct**) | **29 Oct** (before the mid-submission) | 3–4 h |
+| 2 | **Answer-key spot-check** (WP-3.7, AC-01.10) | Reports how often our scripted answer keys are wrong | Naveen + Anurag Kaushal (**done and settled 28 Oct**) | 3 Nov | 2–3 h |
 | 3 | **Review the mid-submission report** (gate G-2) | The plan requires two members to read the report before submission | Anurag Kaushal + one more member (to be confirmed) | 29 Oct | 30 min |
 | 4 | Real-flow labels (SPEC-08), later | Two independent labels per real data flow | to be assigned | 4–8 Nov | — |
 | 5 | Open-source case study checks (SPEC-08), later | Every pipeline finding checked by hand | to be assigned | 7–10 Nov | — |
@@ -199,9 +199,13 @@ xxxx_v1,   f4,      Location,  admob,       …, vague,      undisclosed_sharing
    and computes the error rate for AC-01.10. Disagreements are then settled together and recorded in
    `notes`.
 
-## Next: settling the disagreements (Naveen and Anurag together, before 29 Oct evening)
+## Settling the disagreements (Naveen and Anurag together; done 28 Oct)
 
-Both checks are in (ladder: 100 of 140 rungs accepted by both, agreement 76%, κ = 0.19; spot-check:
+**Done.** All 33 ladder and 20 spot-check disagreements are settled: 110 of 140 rungs accepted, and the
+answer key is wrong on 9 of 87 flows (10.3%). The steps below are kept as the record of how it was done
+and for later checks.
+
+Both checks were in (ladder: 100 of 140 rungs accepted by both, agreement 76%, κ = 0.19; spot-check:
 agreement 77%, κ = 0.04). The disagreements are settled **together, in one sitting** (about 2 hours:
 33 ladder rungs and 22 spot-check flows, 2–3 minutes each).
 
