@@ -1,0 +1,268 @@
+{
+ "case_id": "1498_v1",
+ "system": "A3_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Sec. 27(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly discloses collecting contact information.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is marked as (none), indicating no explicit disclosure of collecting contact information. The cited sections do not address the issue of purpose mismatch or the collection of contact data. Therefore, the finding is not supported."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Sec. 27(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting demographic information and specifies it can be used for basic services/features.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is marked as (none), indicating no explicit disclosure of collecting health data. The cited sections do not address the issue of undisclosed collection or the collection of health data. Therefore, the finding is not supported."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9816481670883025,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9816481670883025,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9816481670883025,
+ "usage": {
+  "prompt": 4306,
+  "output": 737
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 83,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     2,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     6,
+     7,
+     8,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     20,
+     31,
+     32,
+     33,
+     35,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Health is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     6,
+     7,
+     8,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     20,
+     31,
+     32,
+     33,
+     35,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Sec. 27(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly discloses collecting contact information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Contact information. For example, we might collect your name and street address. We might also collect your phone number or email.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy explicitly discloses collecting contact information."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Sec. 27(1)"
+      ],
+      "evidence": "If you use our mobile app, we may collect your GPS location or your device's unique identifier. We might also collect the type of mobile device you are using, or the version of the operating system your computer or device is running. We might look at how often you use the app and where you downloaded it.",
+      "rationale": "The policy discloses collecting location data and specifies it can be used for additional services/features.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "If you use our mobile app, we may collect your GPS location or your device's unique identifier. We might also collect the type of mobile device you are using, or the version of the operating system your computer or device is running. We might look at how often you use the app and where you downloaded it.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Additional service/feature",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy discloses collecting location data and specifies it can be used for additional services/features."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Sec. 27(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting demographic information and specifies it can be used for basic services/features.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Demographic information. We may collect information about events you like or products you buy. We might collect this as part of a survey, for example.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Basic service/feature",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy discloses collecting demographic information and specifies it can be used for basic services/features."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9816481670883025
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 63.08,
+  "reverified_from": "A3",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is marked as (none), indicating no explicit disclosure of collecting contact information. The cited sections do not address the issue of purpose mismatch or the collection of contact data. Therefore, the finding is not supported.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence is marked as (none), indicating no explicit disclosure of collecting health data. The cited sections do not address the issue of undisclosed collection or the collection of health data. Therefore, the finding is not supported.\"}]}"
+ }
+}

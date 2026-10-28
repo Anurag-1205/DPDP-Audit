@@ -1,0 +1,180 @@
+{
+ "case_id": "995_v2",
+ "system": "A5_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "Mohegan Sun does not share or sell your personal information to anyone.",
+   "rationale": "The policy explicitly states that personal data is not shared with anyone.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'Mohegan Sun does not share or sell your personal information to anyone.' does not specify the type of data being shared. It is vague and does not address the sharing of financial data specifically. Additionally, the cited DPDP text Sec. 5(2) and Rule 3 require the Data Fiduciary"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f5",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "Mohegan Sun does not share or sell your personal information to anyone.",
+   "rationale": "The policy explicitly states that personal data is not shared with anyone.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "Similar to finding 0, the policy evidence 'Mohegan Sun does not share or sell your personal information to anyone.' is vague and does not specify the type of data being shared. It is vague and does not address the sharing of computer information specifically. Additionally, the cited DPDP text Sec. 5"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9782362656445088,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9782362656445088,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9782362656445088,
+ "usage": {
+  "prompt": 3081,
+  "output": 663
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 7,
+  "untagged_paragraphs": 0,
+  "claims": 23,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Financial",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Financial",
+    "paragraphs": [
+     0,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f5",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Computer information",
+    "paragraphs": [
+     0,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "Mohegan Sun does not share or sell your personal information to anyone.",
+      "rationale": "The policy explicitly states that personal data is not shared with anyone.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Mohegan Sun does not share or sell your personal information to anyone.",
+       "generic_quote": "Mohegan Sun does not share or sell your personal information to anyone.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal data is not shared with anyone."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "Mohegan Sun does not share or sell your personal information to anyone.",
+      "rationale": "The policy explicitly states that personal data is not shared with anyone.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Mohegan Sun does not share or sell your personal information to anyone.",
+       "generic_quote": "Mohegan Sun does not share or sell your personal information to anyone.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal data is not shared with anyone."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9782362656445088
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 35.57,
+  "reverified_from": "A5",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence 'Mohegan Sun does not share or sell your personal information to anyone.' does not specify the type of data being shared. It is vague and does not address the sharing of financial data specifically. Additionally, the cited DPDP text Sec. 5(2) and Rule 3 require the Data Fiduciary to provide specific details about the personal data and purposes of processing, which are missing here.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"Similar to finding 0, the policy evidence 'Mohegan Sun does not share or sell your personal information to anyone.' is vague and does not specify the type of data being shared. It is vague and does not address the sharing of computer information specifically. Additionally, the cited DPDP text Sec. 5(2) and Rule 3 require the Data Fiduciary to provide specific details about the personal data and purposes of processing, which are missing here.\"}]}"
+ }
+}

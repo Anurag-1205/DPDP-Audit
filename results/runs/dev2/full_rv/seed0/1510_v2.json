@@ -1,0 +1,437 @@
+{
+ "case_id": "1510_v2",
+ "system": "full_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "JibJab collects user submitted information including but not limited to name, email address, and age to authenticate users and to send notifications to those users relating to the JibJab Sites and JibJab Services.",
+   "rationale": "The policy mentions collecting user information but does not specifically disclose the collection of location data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions collecting user information but does not specifically disclose the collection of location data. The cited DPDP text in Sec. 5(1) and Sec. 5(2) requires notices to inform Data Principals about the personal data and purposes for processing, which the policy does not provid"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "JibJab also implements several Google Analytics features that support Display Advertising.",
+   "rationale": "The policy mentions using Google Analytics but does not explicitly state that it shares data with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions using Google Analytics features but does not explicitly state that it shares data with Google AdMob. The cited DPDP text in Sec. 5(1) and Sec. 5(2) requires notices to inform Data Principals about the personal data and purposes for processing, which the policy does not p"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "JibJab may also collect other data either directly or via third-party sign-on services (e.g., Facebook Connect), including but not limited to: personal interests, gender, age, education and occupation, in order to enrich the user experience.",
+   "rationale": "The policy mentions collecting demographic data but does not specify that it shares this data with Firebase Analytics.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions collecting demographic data but does not specify that it shares this data with Firebase Analytics. The cited DPDP text in Sec. 5(1) and Sec. 5(2) requires notices to inform Data Principals about the personal data and purposes for processing, which the policy does not pro"
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8",
+    "Third Schedule"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for IP addresses and device IDs used for analytics/research.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy does not mention the retention period for IP addresses and device IDs used for analytics/research. The cited DPDP text in Sec. 8(7) and Rule 8 requires Data Fiduciaries to erase personal data once the specified purpose is no longer being served, which the policy does not specify for these"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9519362632946203,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9519362632946203,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9519362632946203,
+   "source": "notice"
+  },
+  "f6": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9712707269657913,
+ "usage": {
+  "prompt": 9643,
+  "output": 1533
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 44,
+  "untagged_paragraphs": 0,
+  "claims": 107,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     13,
+     8,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     25,
+     29,
+     38,
+     18,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     16,
+     17,
+     19,
+     20,
+     21,
+     22,
+     24,
+     27,
+     30,
+     31,
+     32
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Demographic with firebase_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     10,
+     16,
+     17,
+     22,
+     27,
+     30,
+     31,
+     32
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     11,
+     18
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps IP address and device IDs indefinitely; retention statements: ['Indefinitely', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     11,
+     13,
+     17,
+     25,
+     26,
+     27,
+     29,
+     30,
+     32,
+     35,
+     36,
+     38,
+     18
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "JibJab collects user submitted information including but not limited to name, email address, and age to authenticate users and to send notifications to those users relating to the JibJab Sites and JibJab Services.",
+      "rationale": "The policy mentions collecting user information but does not specifically disclose the collection of location data.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "JibJab collects user submitted information including but not limited to name, email address, and age to authenticate users and to send notifications to those users relating to the JibJab Sites and JibJab Services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy mentions collecting user information but does not specifically disclose the collection of location data."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "JibJab also implements several Google Analytics features that support Display Advertising.",
+      "rationale": "The policy mentions using Google Analytics but does not explicitly state that it shares data with Google AdMob.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "JibJab also implements several Google Analytics features that support Display Advertising.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy mentions using Google Analytics but does not explicitly state that it shares data with Google AdMob."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "JibJab may also collect other data either directly or via third-party sign-on services (e.g., Facebook Connect), including but not limited to: personal interests, gender, age, education and occupation, in order to enrich the user experience.",
+      "rationale": "The policy mentions collecting demographic data but does not specify that it shares this data with Firebase Analytics.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "JibJab may also collect other data either directly or via third-party sign-on services (e.g., Facebook Connect), including but not limited to: personal interests, gender, age, education and occupation, in order to enrich the user experience.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy mentions collecting demographic data but does not specify that it shares this data with Firebase Analytics."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9519362632946203
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We use the email address you provide upon registration to communicate with you regarding your account, your purchases and/or other transactions with JibJab, changes in our Terms of Service, Terms of Sale and/or Privacy Policy, and other matters relating to your account with JibJab. It also enables us to send you announcement emails about our new content, features, services, products, promotions, etc.",
+      "rationale": "The policy clearly states the purposes for which email addresses are used.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "We use the email address you provide upon registration to communicate with you regarding your account, your purchases and/or other transactions with JibJab, changes in our Terms of Service, Terms of Sale and/or Privacy Policy, and other matters relating to your account with JibJab. It also enables us to send you announcement emails about our new content, features, services, products, promotions, etc.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy clearly states the purposes for which email addresses are used."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "JibJab also logs non-personally-identifiable information such as IP address, aggregate user data, and browser type, from users and visitors to the site. This data is used to manage the website, track usage and improve the website services. This non-personally-identifiable information may be shared with third-parties to provide more relevant services and advertisements to users. User IP addresses may be recorded for security and monitoring purposes.",
+      "rationale": "The policy provides multiple purposes for which IP addresses are used.",
+      "raw": {
+       "candidate_id": "c5",
+       "purpose_quote": "JibJab also logs non-personally-identifiable information such as IP address, aggregate user data, and browser type, from users and visitors to the site. This data is used to manage the website, track usage and improve the website services. This non-personally-identifiable information may be shared with third-parties to provide more relevant services and advertisements to users. User IP addresses may be recorded for security and monitoring purposes.",
+       "unspecified_purpose_quote": "User IP addresses may be recorded for security and monitoring purposes.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy provides multiple purposes for which IP addresses are used."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9795950350961458
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8",
+       "Third Schedule"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for IP addresses and device IDs used for analytics/research.",
+      "raw": {
+       "candidate_id": "c6",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8",
+        "Third Schedule"
+       ],
+       "rationale": "The policy does not specify a retention period for IP addresses and device IDs used for analytics/research."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9822808825066079
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 161.47,
+  "reverified_from": "full",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

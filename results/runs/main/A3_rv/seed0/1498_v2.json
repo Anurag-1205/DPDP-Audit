@@ -1,0 +1,249 @@
+{
+ "case_id": "1498_v2",
+ "system": "A3_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Sec. 27(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting contact information and provides a generic statement about collecting information, but does not specify a purpose for the contact data.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is described as (none: the policy is said not to mention it), which means there is no evidence from the policy to support the finding. Additionally, the cited sections (Sec. 5(1), Sec. 6(1), Sec. 27(1)) do not address the specific issue of purpose mismatch for contact data. There"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9735892292724313,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9735892292724313,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9735892292724313,
+ "usage": {
+  "prompt": 3288,
+  "output": 962
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 83,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     2,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     6,
+     7,
+     8,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     20,
+     31,
+     32,
+     33,
+     35,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Cookies and tracking elements is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     6,
+     7,
+     8,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     20,
+     31,
+     32,
+     33,
+     35,
+     25
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Sec. 27(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting contact information and provides a generic statement about collecting information, but does not specify a purpose for the contact data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We collect information from and about you. Contact information. For example, we might collect your name and street address. We might also collect your phone number or email.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We collect information directly from you. For example, if you register for a promotion or buy tickets. We also collect information if you post a comment on our websites or ask us a question.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy discloses collecting contact information and provides a generic statement about collecting information, but does not specify a purpose for the contact data."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Sec. 27(1)"
+      ],
+      "evidence": "If you use our mobile app, we may collect your GPS location or your device's unique identifier. We might also collect the type of mobile device you are using, or the version of the operating system your computer or device is running. We might look at how often you use the app and where you downloaded it.",
+      "rationale": "The policy discloses collecting location data and provides a generic statement about collecting other information, but does not specify a purpose for the location data.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "If you use our mobile app, we may collect your GPS location or your device's unique identifier. We might also collect the type of mobile device you are using, or the version of the operating system your computer or device is running. We might look at how often you use the app and where you downloaded it.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Other information. If you use our website, we may collect information about the browser you're using. We might look at what site you came from, or what site you visit when you leave us. If you use our mobile app, we may collect your GPS location or your device's unique identifier. We might also collect the type of mobile device you are using, or the version of the operating system your computer or device is running. We might look at how often you use the app and where you downloaded it.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy discloses collecting location data and provides a generic statement about collecting other information, but does not specify a purpose for the location data."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Sec. 27(1)"
+      ],
+      "evidence": "We use tracking tools like browser cookies and web beacons. To learn more about these tools and to control them, please click here.",
+      "rationale": "The policy discloses collecting cookies and tracking elements and provides a generic statement about collecting other information, but does not specify a purpose for the cookies and tracking elements.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We use tracking tools like browser cookies and web beacons. To learn more about these tools and to control them, please click here.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Other information. If you use our website, we may collect information about the browser you're using. We might look at what site you came from, or what site you visit when you leave us. If you use our mobile app, we may collect your GPS location or your device's unique identifier. We might also collect the type of mobile device you are using, or the version of the operating system your computer or device is running. We might look at how often you use the app and where you downloaded it.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy discloses collecting cookies and tracking elements and provides a generic statement about collecting other information, but does not specify a purpose for the cookies and tracking elements."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9735892292724313
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 94.95,
+  "reverified_from": "A3",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

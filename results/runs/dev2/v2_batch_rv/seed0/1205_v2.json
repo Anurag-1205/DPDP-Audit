@@ -1,0 +1,286 @@
+{
+ "case_id": "1205_v2",
+ "system": "v2_batch_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Included in these log files are the date, the IP address and the URL of the request. Log files are typically deleted from our servers after 90 days. Aggregate information that does not personally identify you may be shared with funders or potential future advertisers.",
+   "rationale": "The policy mentions collecting cookies for authentication and other purposes, but does not specify the exact data types collected.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes the types of data included in log files and mentions the retention period, but does not explicitly state that computer information is being collected. Additionally, the cited DPDP text pertains to the notice requirements for consent, which is not directly related to the"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9439625909724897,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9482524890210348,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9775527364034172,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": 0.9747215723061649,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9611223471757766,
+ "usage": {
+  "prompt": 5896,
+  "output": 921
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 8,
+  "untagged_paragraphs": 0,
+  "claims": 24,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     7,
+     5,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     7,
+     4,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     7,
+     5,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     7,
+     4,
+     5
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Information you submit to our web site will be used to contact you if you have subscribed to our newsletter, if you have made a donation or if you respond to an action request made by the Center.",
+      "rationale": "The policy does not explicitly state that CRP collects personal data types like contact details for additional services, but it does mention using information submitted to contact users.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "The Center for Responsive Politics (CRP) is the sole owner of the information collected from users on OpenSecrets.org.",
+       "generic_quote": "Information you submit to our web site will be used to contact you if you have subscribed to our newsletter, if you have made a donation or if you respond to an action request made by the Center.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that CRP collects personal data types like contact details for additional services, but it does mention using information submitted to contact users."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9439625909724897
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Included in these log files are the date, the IP address and the URL of the request. Log files are typically deleted from our servers after 90 days. Aggregate information that does not personally identify you may be shared with funders or potential future advertisers.",
+      "rationale": "The policy mentions collecting cookies for authentication and other purposes, but does not specify the exact data types collected.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "OpenSecrets.org uses temporary session 'cookies' (data that is generated on our web server and stored on your computer) for authentication and other purposes. These cookies contain no personally identifiable information and are deleted when the browser window is closed.",
+       "denial_quote": "",
+       "generic_quote": "Included in these log files are the date, the IP address and the URL of the request. Log files are typically deleted from our servers after 90 days. Aggregate information that does not personally identify you may be shared with funders or potential future advertisers.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting cookies for authentication and other purposes, but does not specify the exact data types collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9482524890210348
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Information you submit to our web site will be used to contact you if you have subscribed to our newsletter, if you have made a donation or if you respond to an action request made by the Center.",
+      "rationale": "The policy does not explicitly mention collecting contact details for advertising purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "disclosing_quote": "",
+       "denial_quote": "The Center for Responsive Politics (CRP) is the sole owner of the information collected from users on OpenSecrets.org.",
+       "generic_quote": "Information you submit to our web site will be used to contact you if you have subscribed to our newsletter, if you have made a donation or if you respond to an action request made by the Center.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting contact details for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9775527364034172
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "A user may set his or her browser to disallow cookies. In such a case, some features of the website may not work as intended. In addition, third party social networking services and advertisements are displayed on OpenSecrets.org which may use cookies as well.",
+      "rationale": "The policy mentions cookies but does not explicitly state the collection of computer information.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "OpenSecrets.org uses temporary session 'cookies' (data that is generated on our web server and stored on your computer) for authentication and other purposes. These cookies contain no personally identifiable information and are deleted when the browser window is closed.",
+       "denial_quote": "",
+       "generic_quote": "A user may set his or her browser to disallow cookies. In such a case, some features of the website may not work as intended. In addition, third party social networking services and advertisements are displayed on OpenSecrets.org which may use cookies as well.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions cookies but does not explicitly state the collection of computer information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9747215723061649
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 5,
+  "seconds": 136.14,
+  "reverified_from": "v2_batch",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

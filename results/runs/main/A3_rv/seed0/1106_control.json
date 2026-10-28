@@ -1,0 +1,327 @@
+{
+ "case_id": "1106_control",
+ "system": "A3_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(5)",
+    "Sec. 9(3)"
+   ],
+   "evidence": "personal information",
+   "rationale": "The policy discloses collecting personal information for various purposes, but does not specify marketing as a purpose.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions 'personal information' without specifying marketing as a purpose. The cited sections (Sec. 5(1), Sec. 6(5), Sec. 9(3)) discuss notice, consent, and processing of personal data of children, but do not explicitly address the collection of contact information for marketing "
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(5)",
+    "Sec. 9(3)"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions using cookies and tracking technologies but does not specify them for advertising purposes.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the policy does not mention the collection of IP addresses and device IDs for advertising purposes. While the policy mentions using cookies and tracking technologies, it does not specify these for advertising. However, the finding is not supported because the evidence"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(5)",
+    "Sec. 9(3)"
+   ],
+   "evidence": "We or our third party marketing partners (such as Google Analytics and Adobe Analytics) use cookies, analytics, remarketing and other technology to help us provide users with a better service and a more customized web experience. Additionally, our business partners use tracking services, analytics and other technologies to monitor visits to allstate.com.",
+   "rationale": "The policy mentions using location information for better service and web experience but does not specify it for additional service/feature purposes.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions using location information for better service and web experience but does not specify it for additional service/feature purposes. However, the finding is not supported because the evidence does not actually disclose the app's practice regarding the collection of location"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(5)",
+    "Sec. 9(3)"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions using cookies and tracking technologies but does not specify them for personalization/customization purposes.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the policy does not mention the use of cookies and tracking elements for personalization/customization purposes. While the policy mentions using cookies and tracking technologies, it does not specify these for personalization/customization. However, the finding is not"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9667444843973978,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9667444843973978,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9667444843973978,
+ "usage": {
+  "prompt": 6268,
+  "output": 1915
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 47,
+  "untagged_paragraphs": 0,
+  "claims": 82,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     12,
+     15,
+     21,
+     38,
+     40,
+     5,
+     44
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     12,
+     15,
+     21,
+     38,
+     40,
+     30,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location is collected for ['service operation and security'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     10,
+     9,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is shared with firebase_analytics for ['advertising'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     16,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(5)",
+       "Sec. 9(3)"
+      ],
+      "evidence": "personal information",
+      "rationale": "The policy discloses collecting personal information for various purposes, but does not specify marketing as a purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may provide your information to persons or organizations within and outside of Allstate. This would be done as required or permitted by law. For example, we may do this to: Fulfill a transaction you requested or service your policy Market our products Handle your claim Prevent fraud Comply with requests from regulatory and law enforcement authorities Participate in insurance support organizations Send you push notifications",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "purpose_quote": "To market our products, handle your claim, prevent fraud, comply with requests from regulatory and law enforcement authorities, participate in insurance support organizations, send you push notifications",
+       "unspecified_purpose_quote": "We use and share your personal information. We may provide your information to persons or organizations within and outside of Allstate. This would be done as required or permitted by law.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(5)",
+        "Sec. 9(3)"
+       ],
+       "rationale": "The policy discloses collecting personal information for various purposes, but does not specify marketing as a purpose."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(5)",
+       "Sec. 9(3)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using cookies and tracking technologies but does not specify them for advertising purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Additionally, our business partners use tracking services, analytics and other technologies to monitor visits to allstate.com. The website may also use web beacons (also called 'clear GIFs' or 'pixel tags') in conjunction with cookies. If you prefer, you can choose to not accept cookies by changing the settings on your web browser. Many commercial Internet sites use cookies; a cookie enables the site to label you as a particular user, but it does not identify you by name or address unless you have provided us with such information (over the Internet or otherwise) or set up preferences in your browser to do so automatically.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "To show ads, including targeted or interest-based advertising",
+       "unspecified_purpose_quote": "The website may also use web beacons (also called 'clear GIFs' or 'pixel tags') in conjunction with cookies. If you prefer, you can choose to not accept cookies by changing the settings on your web browser. Many commercial Internet sites use cookies; a cookie enables the site to label you as a particular user, but it does not identify you by name or address unless you have provided us with such information (over the Internet or otherwise) or set up preferences in your browser to do so automatically.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(5)",
+        "Sec. 9(3)"
+       ],
+       "rationale": "The policy mentions using cookies and tracking technologies but does not specify them for advertising purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(5)",
+       "Sec. 9(3)"
+      ],
+      "evidence": "We or our third party marketing partners (such as Google Analytics and Adobe Analytics) use cookies, analytics, remarketing and other technology to help us provide users with a better service and a more customized web experience. Additionally, our business partners use tracking services, analytics and other technologies to monitor visits to allstate.com.",
+      "rationale": "The policy mentions using location information for better service and web experience but does not specify it for additional service/feature purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Your location information is stored on Allstate's servers and retained by Allstate until you delete the application from your device. When we execute such searches on your behalf we do not transfer your identity or personally identifiable information to third parties, other than with service providers necessary to help perform this function. This information is not used to create a profile about you or your activities.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "To provide a better service and a more customized web experience",
+       "unspecified_purpose_quote": "We or our third party marketing partners (such as Google Analytics and Adobe Analytics) use cookies, analytics, remarketing and other technology to help us provide users with a better service and a more customized web experience. Additionally, our business partners use tracking services, analytics and other technologies to monitor visits to allstate.com.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(5)",
+        "Sec. 9(3)"
+       ],
+       "rationale": "The policy mentions using location information for better service and web experience but does not specify it for additional service/feature purposes."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(5)",
+       "Sec. 9(3)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using cookies and tracking technologies but does not specify them for personalization/customization purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Additionally, our business partners use tracking services, analytics and other technologies to monitor visits to allstate.com. The website may also use web beacons (also called 'clear GIFs' or 'pixel tags') in conjunction with cookies. If you prefer, you can choose to not accept cookies by changing the settings on your web browser. Many commercial Internet sites use cookies; a cookie enables the site to label you as a particular user, but it does not identify you by name or address unless you have provided us with such information (over the Internet or otherwise) or set up preferences in your browser to do so automatically.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "To tailor content or recommendations to the user",
+       "unspecified_purpose_quote": "The website may also use web beacons (also called 'clear GIFs' or 'pixel tags') in conjunction with cookies. If you prefer, you can choose to not accept cookies by changing the settings on your web browser. Many commercial Internet sites use cookies; a cookie enables the site to label you as a particular user, but it does not identify you by name or address unless you have provided us with such information (over the Internet or otherwise) or set up preferences in your browser to do so automatically.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(5)",
+        "Sec. 9(3)"
+       ],
+       "rationale": "The policy mentions using cookies and tracking technologies but does not specify them for personalization/customization purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9667444843973978
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 186.86,
+  "reverified_from": "A3",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": true, \"reason\": \"The policy evidence mentions 'personal information' without specifying marketing as a purpose. The cited sections (Sec. 5(1), Sec. 6(5), Sec. 9(3)) discuss notice, consent, and processing of personal data of children, but do not explicitly address the collection of contact information for marketing purposes. Therefore, the finding is supported.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence states that the policy does not mention the collection of IP addresses and device IDs for advertising purposes. While the policy mentions using cookies and tracking technologies, it does not specify these for advertising. However, the finding is not supported because the evidence does not actually disclose the app's practice regarding the collection of IP addresses and device IDs for advertising.\"}]}\n\n{\"checks\": [{\"finding_id\": 2, \"supported\": false, \"reason\": \"The policy evidence mentions using location information for better service and web experience but does not specify it for additional service/feature purposes. However, the finding is not supported because the evidence does not actually disclose the app's practice regarding the collection of location information for additional service/feature purposes.\"}]}\n\n{\"checks\": [{\"finding_id\": 3, \"supported\": false, \"reason\": \"The policy evidence states that the policy does not mention the use of cookies and tracking elements for personalization/customization purposes. While the policy mentions using cookies and tracking technologies, it does not specify these for personalization/customization. However, the finding is not supported because the evidence does not actually disclose the app's practice regarding the use of cookies and tracking elements for personalization/customization.\"}]}"
+ }
+}

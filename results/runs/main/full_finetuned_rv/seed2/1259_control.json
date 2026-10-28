@@ -1,0 +1,188 @@
+{
+ "case_id": "1259_control",
+ "system": "full_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We ask for your name, email address, and other personal information when you register to use certain features of our Web site, or if you sign up for special or personalized services, such as our discussion boards or email newsletters. We also may ask for this information at other times, such as when you enter contests or other promotions sponsored by The Motley Fool and/or our partners. We sometimes conduct surveys as well, although you do not have to respond to them.",
+   "rationale": "The policy mentions collecting personal information but does not specify IP addresses or device IDs.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence does not explicitly mention IP addresses or device IDs, which supports the finding of undisclosed collection. The cited DPDP text emphasizes the need to inform the data principal about the personal data and the purpose for which it is proposed to be processed, which is relevant t"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that cookies are used for record-keeping purposes and storing preferences, which aligns with the basic service/feature purpose.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is explicitly stated as (none), indicating that the policy does not mention the use of cookies and tracking elements. However, the rationale provided states that the policy aligns with the basic service/feature purpose, which contradicts the finding of purpose mismatch. Therefore"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9814417626810126,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9675045124877922,
+ "usage": {
+  "prompt": 4506,
+  "output": 701
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 71,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     8,
+     17,
+     39,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['additional service/feature', 'advertising', 'analytics/research', 'marketing', 'service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     5,
+     12,
+     13
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We ask for your name, email address, and other personal information when you register to use certain features of our Web site, or if you sign up for special or personalized services, such as our discussion boards or email newsletters. We also may ask for this information at other times, such as when you enter contests or other promotions sponsored by The Motley Fool and/or our partners. We sometimes conduct surveys as well, although you do not have to respond to them.",
+      "rationale": "The policy mentions collecting personal information but does not specify IP addresses or device IDs.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "We ask for your name, email address, and other personal information when you register to use certain features of our Web site, or if you sign up for special or personalized services, such as our discussion boards or email newsletters. We also may ask for this information at other times, such as when you enter contests or other promotions sponsored by The Motley Fool and/or our partners. We sometimes conduct surveys as well, although you do not have to respond to them.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting personal information but does not specify IP addresses or device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9814417626810126
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that cookies are used for record-keeping purposes and storing preferences, which aligns with the basic service/feature purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "We use a feature known as a 'cookie.' Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+       "unspecified_purpose_quote": "We discuss cookies later in this Privacy Statement.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that cookies are used for record-keeping purposes and storing preferences, which aligns with the basic service/feature purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9535672622945719
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 39.68,
+  "reverified_from": "full_finetuned",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

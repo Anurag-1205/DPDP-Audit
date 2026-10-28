@@ -1,0 +1,198 @@
+{
+ "case_id": "207_control",
+ "system": "full_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9767607770495512,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9767607770495512,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9712313626209095,
+ "usage": {
+  "prompt": 3170,
+  "output": 594
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 34,
+  "untagged_paragraphs": 0,
+  "claims": 68,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     14,
+     13,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['advertising'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     20,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     14,
+     3,
+     11
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Email addresses, mobile phone numbers, and credit card information are used only for providing you the services you requested upon creating your account.",
+      "rationale": "The policy explicitly mentions collecting email addresses, mobile phone numbers, and credit card information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Email addresses, mobile phone numbers, and credit card information are used only for providing you the services you requested upon creating your account.",
+       "denial_quote": "",
+       "generic_quote": "Information collected automatically : When you visit our sites and use our apps, we automatically collect and store information about your computer or mobile device and your activities. This information includes: Your computer's IP address Technical information about your computer or mobile device (such as type of device, web browser or operating system) Your preferences and settings (time zone, language, etc.) Your mobile device's unique ID number Your mobile device's geographic location (specific geographic location if you've enabled collection of that information, or general geographic location automatically) The URL of the last web page you visited before coming to one of our sites The words you have looked up and results you selected The ads you clicked on How long you visited our sites or used our apps and which services and features you used For app users, the online or offline status of Your app",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting email addresses, mobile phone numbers, and credit card information."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Your mobile device's geographic location (specific geographic location if you've enabled collection of that information, or general geographic location automatically)",
+      "rationale": "The policy mentions collecting geographic location but denies sharing it with third parties.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Your mobile device's geographic location (specific geographic location if you've enabled collection of that information, or general geographic location automatically)",
+       "denial_quote": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting geographic location but denies sharing it with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9767607770495512
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We use mobile device IDs (the unique identifier assigned to a device by the manufacturer), instead of cookies, to recognize you. We do this to store your preferences and track your use of our apps.",
+      "rationale": "The policy explicitly states that device IDs are used for storing preferences and tracking app usage, which aligns with the purpose of personalization/customization.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Personalization/Customization",
+       "retention": "Unspecified",
+       "purpose_quote": "We use mobile device IDs (the unique identifier assigned to a device by the manufacturer), instead of cookies, to recognize you. We do this to store your preferences and track your use of our apps.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that device IDs are used for storing preferences and tracking app usage, which aligns with the purpose of personalization/customization."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9657019481922677
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 61.56,
+  "reverified_from": "full",
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}
