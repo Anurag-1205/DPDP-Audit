@@ -8,8 +8,8 @@ who does it, and exactly how.
 
 | # | Task | Why it matters | People | Due | Time per person |
 |---|---|---|---|---|---|
-| 1 | **Ladder check** (WP-2.2, AC-06.6) | The ladder results in the mid-submission report are provisional until every rung is checked | Naveen + Anurag Kaushal | **29 Oct** (before the mid-submission) | 3–4 h |
-| 2 | **Answer-key spot-check** (WP-3.7, AC-01.10) | Reports how often our scripted answer keys are wrong | Naveen + Anurag Kaushal | 3 Nov | 2–3 h |
+| 1 | **Ladder check** (WP-2.2, AC-06.6) | The ladder results in the mid-submission report are provisional until every rung is checked | Naveen + Anurag Kaushal (**done 28 Oct**) | **29 Oct** (before the mid-submission) | 3–4 h |
+| 2 | **Answer-key spot-check** (WP-3.7, AC-01.10) | Reports how often our scripted answer keys are wrong | Naveen + Anurag Kaushal (**done 28 Oct**) | 3 Nov | 2–3 h |
 | 3 | **Review the mid-submission report** (gate G-2) | The plan requires two members to read the report before submission | Anurag Kaushal + one more member (to be confirmed) | 29 Oct | 30 min |
 | 4 | Real-flow labels (SPEC-08), later | Two independent labels per real data flow | to be assigned | 4–8 Nov | — |
 | 5 | Open-source case study checks (SPEC-08), later | Every pipeline finding checked by hand | to be assigned | 7–10 Nov | — |
@@ -198,6 +198,21 @@ xxxx_v1,   f4,      Location,  admob,       …, vague,      undisclosed_sharing
    This reports how often the two checkers agreed, re-scores the ladder on the rungs both accepted,
    and computes the error rate for AC-01.10. Disagreements are then settled together and recorded in
    `notes`.
+
+## Next: settling the disagreements (Naveen and Anurag, by 7 Nov)
+
+Both checks are in (ladder: 100 of 140 rungs accepted by both, agreement 76%, κ = 0.19; spot-check:
+agreement 77%, κ = 0.04). The guide says disagreements are settled together afterwards:
+
+```bash
+PYTHONPATH=src python3 scripts/review_pack.py disagreements naveen anurag
+```
+
+This writes `data/benchmark/ladder/disagreements.csv` (33 rungs) and `data/spot_check/disagreements.csv`
+(22 flows), each with both answers and notes side by side. Sit together, re-read the policy for each
+row, and fill in `agreed` (`ok`/`no` for the ladder; `yes`/`no` for the spot-check) and `agreed_notes`.
+Most ladder disagreements are on the deleted rung: the rule in Task 1 rejects it when even a generic
+statement covers the flow. Commit only these two files; Ishaan then re-scores.
 
 ## Task 3 — Reviewing the mid-submission report
 

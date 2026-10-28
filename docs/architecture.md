@@ -110,7 +110,7 @@ flowchart LR
 | Scorer | `score.py`, `scripts/score_runs.py` | Implemented |
 | DPDP-Audit pipeline and ablations | `pipeline/`, `scripts/run_pipeline.py`, `scripts/reverify.py` | v1 (frozen) and v2 run on main and the ladder; ablations on both (SPEC-04) |
 | Clause tagger training and evaluation | `tagger_data.py`, `tagger_eval.py`, `scripts/train_tagger.py` | QLoRA tagger trained and evaluated; S4 extraction comparison pending (SPEC-05) |
-| Vagueness ladder | `ladder.py` | Built and scored; two-person check in progress (SPEC-06) |
+| Vagueness ladder | `ladder.py` | Built, checked by two members and scored (SPEC-06) |
 | Selective accuracy | `selective.py` | Planned (SPEC-07) |
 
 ## Design principles

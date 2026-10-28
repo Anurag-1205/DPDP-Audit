@@ -36,7 +36,9 @@ Against our hypotheses: the falsifiable claim fails for v1 and holds for v2; the
 recall than the 5 points allowed (H3 fails: 61 points in v1, 11 in v2); the gain over B1/B2 is largest
 on explicit gaps (second half of H2 fails); the fine-tuned tagger does not close half the gap to gold
 annotations (H6 fails); and v2 reports almost no collection or purpose gaps by itself; its verifier
-sends nearly all of them to human review.
+sends nearly all of them to human review. Two members checked the ladder (100 of 140 rungs accepted) and 20
+answer keys (2.3–25% of flows wrong, depending on the checker); their agreement is low (κ = 0.19 and
+0.04) and will be settled before the final report.
 
 ## 2. Problem and benchmark
 
@@ -47,8 +49,8 @@ each with the policy's own words and the DPDP section ([getting-started.md](gett
 
 | Benchmark | Cases | Answer source | Status |
 |---|---|---|---|
-| Main | 102 (34 compliant controls, 68 variants), 118 gold gaps, 433 flows | Fixed rules over expert OPP-115 annotations; no LLM | Done; 20-case spot-check: first checker done, second pending (AC-01.10) |
-| Vagueness ladder | 140 = 35 ladders × 4 rungs (clear, explicit, vague, deleted) | Templated sentence inserted into a base policy | Built and scored; two-person check: first checker done, second pending (AC-06.6) |
+| Main | 102 (34 compliant controls, 68 variants), 118 gold gaps, 433 flows | Fixed rules over expert OPP-115 annotations; no LLM | Done; 20-case spot-check by two members: key error rate 2.3–25% (§5) (AC-01.10) |
+| Vagueness ladder | 140 = 35 ladders × 4 rungs (clear, explicit, vague, deleted) | Templated sentence inserted into a base policy | Built, checked by two members (100 of 140 rungs accepted) and scored (AC-06.6) |
 | Dev splits | `dev` 33 cases + `dev2` 69 cases, from 34 *training* policies | Same rules | Used only to develop the pipeline |
 
 Cases come from the 35 held-out OPP-115 policies (80/35 split, seed 13); regeneration is
@@ -255,29 +257,51 @@ About 84 findings per seed go to human review.
 
 ## 5. Vagueness ladder (RQ2, H4)
 
-Accuracy of the target flow's disclosure label per rung (seed 0; all 140 rungs, since the
-two-person check is pending). Labels do not depend on the verifier, so the bug of §4.2 does not affect
-this section; the ladder had no unreadable verifier reply.
+**Human check (AC-06.6).** Two members (Naveen Mishra, Anurag Kaushal) checked every rung
+independently. Only rungs both marked "ok" are scored: **100 of 140** (clear 33, explicit 30, vague 26,
+deleted 11); 10 ladders keep all four rungs. The checkers agreed on 107 of 140 rungs (76%, Cohen's
+κ = 0.19). Most disagreements are on the deleted rung (Naveen rejected 6, Anurag 24): the guide rejects
+a deleted rung when even a generic statement ("may be shared with third-party service providers")
+covers the flow, and Anurag applied this strictly. The disagreements will be settled together before
+the final report; until then the conservative rule (both "ok") stands.
+
+Accuracy of the target flow's disclosure label per accepted rung (seed 0). Labels do not depend on
+the verifier, so the bug of §4.2 does not affect this section.
 
 | System | clear | explicit | vague | deleted | explicit − vague (McNemar p) |
 |---|---|---|---|---|---|
-| S1 PoliCheck | 0.20 | 0.77 | 0.40 | 0.74 | +0.37 (p = 0.015) |
-| S2 PoliGraph | 0.40 | 0.00 | 0.03 | 0.97 | −0.03 (p = 1.00) |
+| S1 PoliCheck | 0.18 | 0.73 | 0.42 | 0.82 | +0.38 (p = 0.049) |
+| S2 PoliGraph | 0.36 | 0.00 | 0.04 | 0.91 | −0.04 (p = 1.00) |
 | B2 (seeds 0–2: same scores, outputs differ in 87 of 140 cases) | 0.00 | 0.00 | 1.00 | 0.00 | −1.00 |
-| full | **1.00** | 0.60 | 0.80 | 0.14 | −0.20 (p = 0.14) |
-| full_finetuned | **1.00** | 0.71 | 0.80 | 0.09 | −0.09 (p = 0.45) |
-| full_v2 | **1.00** | 0.69 | 0.80 | 0.11 | −0.11 (p = 0.42) |
-| full_v2_finetuned | **1.00** | 0.71 | 0.80 | 0.09 | −0.09 (p = 0.45) |
+| full | **1.00** | 0.53 | 0.85 | 0.09 | −0.25 (p = 0.15) |
+| full_finetuned | **1.00** | 0.77 | 0.85 | 0.09 | −0.04 (p = 1.00) |
+| full_v2 | **1.00** | 0.63 | 0.85 | 0.09 | −0.12 (p = 0.51) |
+| full_v2_finetuned | **1.00** | 0.77 | 0.85 | 0.09 | −0.04 (p = 1.00) |
 
-- PoliCheck is the only system for which H4 holds as stated (less accurate on vague than explicit).
-- PoliGraph has no contradiction label and ignores the generic sentence, so it reads three rungs out
-  of four as "omitted".
+- **H4** (every system is less accurate on the vague rung than on the explicit rung) holds only for
+  PoliCheck (p = 0.049); for the pipeline the vague rung is read as well as or better than the
+  explicit one.
+- **The deleted rung is a real pipeline error.** On the 11 deleted rungs both checkers accept as clean,
+  `full_v2_finetuned` is right once and reads 7 as "vague": the pipeline over-reads generic wording
+  even where the checkers found none. PoliCheck reads 9 of the 11 correctly as "omitted".
+- PoliGraph has no contradiction label and ignores the generic sentence, so it reads most rungs as
+  "omitted".
 - B2 calls every flow "vague" on every rung of every ladder.
-- `full` reads the clear rung perfectly and mostly reads the deleted rung as vague (22 of 35): the
-  base policies still contain generic statements (flagged on 23 ladders), which is what the human
-  check must settle.
-- PoliCheck's low clear-rung score comes from the data-type mapping (exact only for Location) and
-  from not resolving the Mixpanel domain to an entity.
+- PoliCheck's low clear-rung score comes from the data-type mapping (exact only for Location), from not
+  resolving the Mixpanel domain to an entity, and from reading a parent company ("Google") as vague.
+- On all 140 rungs (before the check) the picture was the same (e.g. `full_v2_finetuned` 1.00 / 0.71 /
+  0.80 / 0.09).
+
+### Answer-key spot-check (AC-01.10)
+
+The same two members checked 87 flows of 20 main cases against the policy text. Naveen disagreed with
+the scripted answer on 10 flows (11.5%), Anurag on 14 (16.1%); they agreed with each other on 77%
+of flows (κ = 0.04), so the error rate is uncertain: **between 2.3% (2 flows both reject) and 25%
+(22 flows either rejects)**. The 2 flows both reject (1264_v1 f4, 962_v2 f3) have the same cause: the
+policy explicitly denies the practice ("does not … disclose", "We do not ask for, access or track any
+location"), so the label should be *incorrect*. Several other disagreements concern only the gap
+level (e.g. retention vague vs omission). The disagreements will be settled together before the final
+report; the answer keys stay frozen until then.
 
 ## 6. Clause tagger (RQ4, SPEC-05)
 
@@ -335,7 +359,7 @@ prompt is the prompted tagger's own, so only the weights differ.
 | Item (plan §7) | Priority | Status |
 |---|---|---|
 | Benchmark and B1/B2 | Must | Done |
-| Vagueness ladder built and checked | Must | Built and scored; **two-person check: first checker done, second pending** |
+| Vagueness ladder built and checked | Must | Done: checked by two members, scored on the 100 accepted rungs; disagreements to be settled jointly |
 | PoliCheck on main | Must | Done |
 | Pipeline v1 with a seed-0 run on main | Must | Done (3 seeds) |
 | Comparison table with intervals | Must | Done (§4) |
@@ -365,7 +389,7 @@ prompt is the prompted tagger's own, so only the weights differ.
 | Work | When |
 |---|---|
 | Statement-extraction comparison S4 (PolicyLint, PoliGraph) on tuple F1 | 31 Oct–3 Nov |
-| Ladder two-person check, answer-key spot-check; re-score on accepted rungs | 27–29 Oct |
+| Settle the checkers' disagreements (ladder, spot-check) together | by 7 Nov |
 | Full system on the ladder, seeds 1–2; PoliCheck/PolicyLint extraction comparison (S4) | 31 Oct–3 Nov |
 | Selective accuracy (SPEC-07) from the three seeds | 6–9 Nov |
 | Real-flow sample and case study (SPEC-08) | 4–10 Nov |

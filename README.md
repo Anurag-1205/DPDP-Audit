@@ -3,7 +3,7 @@
 **A controlled benchmark and an evidence-gated LLM agent for checking app privacy compliance under
 India's Digital Personal Data Protection (DPDP) Act, 2023.**
 
-> Course project, Language Models and Agents. Status: Stage 2 (mid-submission) complete except the second checker of the human checks.
+> Course project, Language Models and Agents. Status: Stage 2 (mid-submission) complete.
 > Mid-submission **30 Oct 2026** · final submission **15 Nov 2026** · [plan](plan.md) · [specs](specs.md)
 
 ## Overview

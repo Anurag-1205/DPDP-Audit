@@ -5,7 +5,7 @@ The benchmark supplies test cases whose correct answers are known in advance. It
 | Part | Cases | Answer source | Status |
 |---|---|---|---|
 | Main benchmark | 102 (34 controls, 68 variants) | Scripted rules over OPP-115 annotations | Implemented |
-| Vagueness ladder | 140 (35 ladders × 4 rungs) | Construction (templated rung sentences) | Built; human check pending (SPEC-06) |
+| Vagueness ladder | 140 (35 ladders × 4 rungs) | Construction (templated rung sentences) | Built; checked by two members, 100 of 140 rungs accepted (SPEC-06) |
 | Real flows | ~25 apps, 60–80 flows | Two independent human labels (Cohen's κ) | Planned (SPEC-08) |
 | Open-source case study | 3–5 repositories | Every finding checked by hand | Planned (SPEC-08) |
 
