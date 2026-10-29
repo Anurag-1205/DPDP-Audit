@@ -96,18 +96,14 @@ python scripts/reverify.py --split main --systems A2 A3 A5 A2_v2 A3_v2 A5_v2 --s
 ## 5. Scores
 
 ```bash
-python scripts/score_runs.py --systems B1 B2 B4 S1 S2 full full_finetuned A1 A2 A3 A5 full_v2 full_v2_finetuned \
-    A1_v2 A2_v2 A3_v2 A5_v2 --paired full_v2-full full_v2_finetuned-full_finetuned full_v2_finetuned-B2 …
-python scripts/score_runs.py --split dev --systems full v2_gate v2_read v2_purpose v2_batch   # and --split dev2
-python scripts/score_dev_pooled.py            # dev + dev2 pooled: the v2 choice (docs/pipeline.md#v2)
-python scripts/score_ladder.py --systems S1 S2 B2 full full_finetuned full_v2 full_v2_finetuned
-python scripts/eval_tagger.py --gold results/tagger/heldout.jsonl \
-    --pred B3=results/tagger/B3_pred.jsonl S3=results/tagger/S3_pred.jsonl --claims prompted finetuned
+bash scripts/score_all.sh     # every file in results/scores/, from the committed runs; no GPU, ~2 min
 ```
 
-This writes `results/scores/main.json` and prints the table in
-[stage-1-report.md](stage-1-report.md). With 1,000 bootstrap re-samples it
-takes about a minute.
+The script lists the exact commands: `score_runs.py` on main (27 systems, 59 paired comparisons) and on
+`dev` / `dev2`, `score_dev_pooled.py` (the v2 choice, [pipeline.md](pipeline.md#v2)), `score_ladder.py`
+(accepted rungs only), `eval_tagger.py` (needs the OPP-115 download) and `spot_check.py score`. Run
+on a fresh clone it rewrites `results/scores/` byte for byte (checked 29 Oct), so `git status` stays
+clean. Bootstrap intervals use 1,000 re-samples with seed 0.
 
 ## 6. Tests
 

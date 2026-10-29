@@ -36,11 +36,16 @@ if __name__ == "__main__":
         from dpdp_audit.pipeline.claims import load_claims
         from dpdp_audit.tagger_data import claims_examples
         gold_claims = claims_examples("heldout")
+        if not gold_claims:   # an empty gold set would score every tagger 0.0 without an error
+            raise SystemExit("no held-out OPP-115 segments found; run scripts/download_opp115.sh first")
         for name in args.claims:
             index = load_claims(name)
             pred = [{"policy_id": g["policy_id"], "segment_id": g["segment_id"],
                      "categories": index[g["hash"]]["categories"], "claims": index[g["hash"]]["claims"]}
                     for g in gold_claims if g["hash"] in index]
+            if len(pred) < len(gold_claims):
+                raise SystemExit(f"claims_{name}: {len(gold_claims) - len(pred)} of {len(gold_claims)} "
+                                 "held-out segments have no claims; re-run the tagger")
             r = evaluate(gold_claims, pred)
             r.update(evaluate_tuples(gold_claims, pred))
             r["unparseable"] = sum(1 for g in gold_claims if index.get(g["hash"], {}).get("parse_error"))
