@@ -74,3 +74,11 @@ def test_tools_are_scored_like_the_taggers():
                                     ("7", 1): [s4.to_claim("we", True, "location")]})
     r = evaluate_tuples(gold, pred)
     assert r["tuple_does"]["precision"] == 0.5 and r["tuple_does"]["recall"] == 1.0
+
+
+def test_own_name_rule_finds_the_company_in_its_domain_or_title():
+    is_own = s4.own_name_rule({"1028": "RedOrbit, Inc. Privacy Statement", "1050": "Privacy"},
+                              {"1028": "redorbit.com", "1050": "honda.com"})
+    assert is_own("redorbit inc.", "1028") and is_own("Honda Motor", "1050")
+    assert not is_own("Google", "1028") and not is_own("the company", "1050")
+    assert s4.to_claim("Honda Motor", True, "email", own=True)["category"] == s4.FIRST

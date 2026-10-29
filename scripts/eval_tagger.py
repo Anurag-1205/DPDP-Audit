@@ -66,7 +66,16 @@ if __name__ == "__main__":
         if pg_stats["policies"] < len({k[0] for k in keys}):
             print(f"S4 PoliGraph: graphs for {pg_stats['policies']} of {len({k[0] for k in keys})} policies "
                   "(a missing policy predicts no tuple)")
-        for name, claims, stats in (("S4_policylint", pl, pl_stats), ("S4_poligraph", pg, pg_stats)):
+        # sensitivity: the company's own name read as the first party (src/dpdp_audit/s4.py)
+        from dpdp_audit.opp115 import load_all
+        titles = {str(g["policy_id"]): g["text"] for g in gold_claims if int(g["segment_id"]) == 0}
+        domains = {p.policy_id: p.name for p in load_all() if p.policy_id in titles}
+        is_own = s4.own_name_rule(titles, domains)
+        pl_own, pl_own_stats = s4.policylint_claims(is_own=is_own)
+        pg_own, pg_own_stats = s4.poligraph_claims(gold_claims, is_own=is_own)
+        for name, claims, stats in (("S4_policylint", pl, pl_stats), ("S4_poligraph", pg, pg_stats),
+                                    ("S4_policylint_own_name", pl_own, pl_own_stats),
+                                    ("S4_poligraph_own_name", pg_own, pg_own_stats)):
             r = evaluate_tuples(gold_claims, s4.as_predictions(gold_claims, claims))
             r["stats"] = stats
             s4_results[name] = r

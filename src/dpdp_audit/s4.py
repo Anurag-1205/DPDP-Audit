@@ -10,6 +10,12 @@ F1 as the taggers (tagger_eval.evaluate_tuples) on the same 1,140 held-out OPP-1
 Terms are mapped by the ordered rules of data/tools/s4_mapping.csv (first match wins), written
 from the OPP-115 annotation guidelines before any S4 output was seen.
 
+Sensitivity (added after the first results, 29 Oct): neither tool resolves the company's own
+name to the first party ("Honda Motor", "pbs"), so such statements map to a Named third party.
+`own_name_rule` treats an entity as the first party when a distinctive word of it appears in the
+policy's website domain or title (segment 0). The S4 rows use the frozen mapping; the
+`*_own_name` rows show the effect of this one change.
+
 Raw tool outputs (Kaggle, kaggle/policheck and kaggle/poligraph with SPLIT = "s4"):
 - results/tools/policylint/s4/policylint_s4.json: per segment file s4_<policy>_<segment>, the
   statements as normalised by PolicyLint itself (its ontologies and filters);
@@ -52,8 +58,23 @@ def map_term(term: str, kind: str) -> str:
     raise ValueError(f"no {kind} rule matches {term!r}")   # the last rule of each kind matches all
 
 
-def to_claim(entity: str, collect: bool, data: str) -> dict:
-    party = map_term(entity, "entity")
+OWN_NAME_STOP = {"inc", "group", "company", "corp", "corporation", "llc", "ltd", "the", "network", "networks",
+                 "media", "services", "service", "of", "and", "co", "limited", "holdings", "international",
+                 "online", "website", "site", "web"}
+
+
+def own_name_rule(titles: dict[str, str], domains: dict[str, str]):
+    """is_own(entity, policy_id): a distinctive word of the entity is in the policy's domain or title."""
+    def is_own(entity: str, pid: str) -> bool:
+        words = [w for w in re.findall(r"[a-z0-9]+", entity.lower()) if len(w) >= 3 and w not in OWN_NAME_STOP]
+        stem = re.sub(r"\.(com|org|net|edu|gov|co|us|uk)$", "", domains.get(pid, "").lower()).replace("www.", "")
+        hay = (stem + " " + _norm(titles.get(pid, ""))).split()
+        return any(w in hay or w in stem for w in words)
+    return is_own
+
+
+def to_claim(entity: str, collect: bool, data: str, own: bool = False) -> dict:
+    party = "first party" if own else map_term(entity, "entity")
     first = party == "first party"
     return {"category": FIRST if first else THIRD, "data_type": map_term(data, "data"),
             "does": "Does" if collect else "Does Not", "third_party": "" if first else party}
@@ -64,8 +85,8 @@ def _norm(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", text).strip()
 
 
-def policylint_claims(path: Path = POLICYLINT) -> tuple[dict, dict]:
-    """{(policy_id, segment_id): [claims]} and counts."""
+def policylint_claims(path: Path = POLICYLINT, is_own=None) -> tuple[dict, dict]:
+    """{(policy_id, segment_id): [claims]} and counts. is_own: optional own_name_rule."""
     segs = json.loads(path.read_text())["segments"]
     out, stats = {}, {"segments": len(segs), "statements": 0, "raw_statements": 0}
     for name, v in segs.items():
@@ -74,13 +95,13 @@ def policylint_claims(path: Path = POLICYLINT) -> tuple[dict, dict]:
         stats["raw_statements"] += len(v["raw"])
         claims = []
         for entity, action, data, _sentence in v["statements"]:
-            claims.append(to_claim(entity, action == "collect", data))
+            claims.append(to_claim(entity, action == "collect", data, own=bool(is_own and is_own(entity, key[0]))))
         stats["statements"] += len(claims)
         out[key] = claims
     return out, stats
 
 
-def poligraph_claims(segments: list[dict], path: Path = POLIGRAPH) -> tuple[dict, dict]:
+def poligraph_claims(segments: list[dict], path: Path = POLIGRAPH, is_own=None) -> tuple[dict, dict]:
     """segments: [{"policy_id", "segment_id", "text"}]; returns {(policy_id, segment_id): [claims]}."""
     graphs = json.loads(path.read_text())
     by_policy: dict[str, list] = {}
@@ -97,7 +118,7 @@ def poligraph_claims(segments: list[dict], path: Path = POLIGRAPH) -> tuple[dict
             if e["source"] == NO_ACTOR:
                 stats["no_actor_edges"] += 1
                 continue
-            claim = to_claim(e["source"], True, e["target"])
+            claim = to_claim(e["source"], True, e["target"], own=bool(is_own and is_own(e["source"], pid)))
             for sentence in e.get("text") or []:
                 stats["sentences"] += 1
                 ns = _norm(sentence)
