@@ -1,0 +1,108 @@
+{
+ "case_id": "L503_r4",
+ "system": "full_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5",
+    "Sec. 6",
+    "Rule 3"
+   ],
+   "evidence": "We use the personal information we collect for various purposes, including to complete a purchase that you initiate, to respond to your requests for information, to manage our Sites, to allow you to participate in electronic activities, marketing analysis, marketing communications, facilitating loyalty programs, and for other lawful purposes.",
+   "rationale": "The policy mentions collecting information from third parties but does not specify sharing with Mixpanel.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9842120024165323,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9842120024165323,
+ "usage": {
+  "prompt": 1625,
+  "output": 218
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 35,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     5,
+     6,
+     7,
+     1,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5",
+       "Sec. 6",
+       "Rule 3"
+      ],
+      "evidence": "We use the personal information we collect for various purposes, including to complete a purchase that you initiate, to respond to your requests for information, to manage our Sites, to allow you to participate in electronic activities, marketing analysis, marketing communications, facilitating loyalty programs, and for other lawful purposes.",
+      "rationale": "The policy mentions collecting information from third parties but does not specify sharing with Mixpanel.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "In some cases, we may also collect information from third-party sources, including social media sites and other sites with which we may partner on BWW branded promotions. For example, if you post a comment on our Facebook page or send us a message on Twitter, we may collect and use that information as described in this Privacy Policy.",
+       "denial_quote": "",
+       "generic_quote": "We use the personal information we collect for various purposes, including to complete a purchase that you initiate, to respond to your requests for information, to manage our Sites, to allow you to participate in electronic activities, marketing analysis, marketing communications, facilitating loyalty programs, and for other lawful purposes.",
+       "sections": [
+        "Sec. 5",
+        "Sec. 6",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting information from third parties but does not specify sharing with Mixpanel."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9842120024165323
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 0.06
+ }
+}

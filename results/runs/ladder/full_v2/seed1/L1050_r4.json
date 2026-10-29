@@ -1,0 +1,109 @@
+{
+ "case_id": "L1050_r4",
+ "system": "full_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "Your name, address, email address, telephone number, and where applicable, credit card information and purchase details, will be provided to the participating Honda/Acura Dealer you choose who will fulfill your order. Honda and Acura dealers are independent from American Honda.",
+   "rationale": "The policy does not explicitly disclose sharing location data but mentions sharing personal data with dealers.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.935688447295416,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.935688447295416,
+ "usage": {
+  "prompt": 1984,
+  "output": 153
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 70,
+  "untagged_paragraphs": 0,
+  "claims": 161,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     30,
+     34,
+     38,
+     50,
+     62,
+     64,
+     65,
+     12,
+     54
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "Your name, address, email address, telephone number, and where applicable, credit card information and purchase details, will be provided to the participating Honda/Acura Dealer you choose who will fulfill your order. Honda and Acura dealers are independent from American Honda.",
+      "rationale": "The policy does not explicitly disclose sharing location data but mentions sharing personal data with dealers.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We will not store your friends or family's email addresses.",
+       "generic_quote": "Your name, address, email address, telephone number, and where applicable, credit card information and purchase details, will be provided to the participating Honda/Acura Dealer you choose who will fulfill your order. Honda and Acura dealers are independent from American Honda.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly disclose sharing location data but mentions sharing personal data with dealers."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.935688447295416
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 0.1
+ }
+}

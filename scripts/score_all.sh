@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Regenerate every score file in results/scores/ from the committed runs (no GPU, about 2 minutes).
+# Regenerate every file in results/scores/ and results/confidence/ from the committed runs (no GPU, about 2 minutes).
 # Needs the OPP-115 download (scripts/download_opp115.sh) for the tagger scores.
 #   bash scripts/score_all.sh
 set -euo pipefail
@@ -34,3 +34,7 @@ $PY scripts/score_ladder.py --systems S1 S2 B2 full full_finetuned full_v2 full_
 $PY scripts/eval_tagger.py --gold results/tagger/heldout.jsonl \
     --pred B3=results/tagger/B3_pred.jsonl S3=results/tagger/S3_pred.jsonl --claims prompted finetuned
 $PY scripts/spot_check.py score
+
+# per-flow confidence over seeds for selective accuracy (AC-04.13, SPEC-07)
+$PY scripts/export_confidence.py --split main --systems B1 B2 B4 full full_finetuned full_v2 full_v2_finetuned S1 S2
+$PY scripts/export_confidence.py --split ladder --systems B2 full full_finetuned full_v2 full_v2_finetuned S1 S2

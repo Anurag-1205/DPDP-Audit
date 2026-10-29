@@ -1,0 +1,105 @@
+{
+ "case_id": "L1259_r3",
+ "system": "full_v2_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "This Privacy Statement answers the following questions:\nWe may share information with our partners.",
+   "rationale": "The policy explicitly states that personally identifiable information is not disclosed, but mentions sharing information with partners.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9555950269082724,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9555950269082724,
+ "usage": {
+  "prompt": 1286,
+  "output": 149
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 48,
+  "untagged_paragraphs": 0,
+  "claims": 52,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     15,
+     20,
+     25,
+     2,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "This Privacy Statement answers the following questions:\nWe may share information with our partners.",
+      "rationale": "The policy explicitly states that personally identifiable information is not disclosed, but mentions sharing information with partners.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Will The Motley Fool Disclose Any of Your Personal Information-\nThe Motley Fool will not disclose any personally identifiable information about individual users, except as described in this Privacy Statement.",
+       "generic_quote": "This Privacy Statement answers the following questions:\nWe may share information with our partners.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy explicitly states that personally identifiable information is not disclosed, but mentions sharing information with partners."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9555950269082724
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 0.07
+ }
+}

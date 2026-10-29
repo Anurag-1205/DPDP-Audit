@@ -367,11 +367,11 @@ flowchart LR
 - [x] **AC-04.9** A 5-case pilot MUST record seconds and LLM calls per run, and extrapolate to the full
   run budget (WP-2.8).
 - [x] **AC-04.10** `full` MUST run on the main benchmark with seed 0 by MS-2 (WP-2.8).
-- [ ] **AC-04.11** `full` MUST run with seeds 0–2 on the main and ladder benchmarks (WP-3.2). *Main done for v1 and v2 (3 seeds each); the ladder has seed 0 only.*
+- [x] **AC-04.11** `full` MUST run with seeds 0–2 on the main and ladder benchmarks (WP-3.2). *Evidence: `results/runs/{main,ladder}/{full,full_finetuned,full_v2,full_v2_finetuned}/seed{0,1,2}/`; ladder seeds 1–2 ran on 29 Oct (1,120 runs, 0 failed calls); `results/scores/ladder.json`.*
 - [x] **AC-04.12** A1–A5 MUST run with seed 0 on the main benchmark (WP-3.3). A5 (oracle tagger) is not
   applied to the ladder. *Evidence: `results/runs/main/A1`, `A2`, `A3`, `A5` (v1) and `A1_v2`, `A2_v2`, `A3_v2`, `A5_v2` (v2), each re-verified as `*_rv`; A4 (prompted tagger) is `full` / `full_v2`.*
-- [ ] **AC-04.13** A per-flow confidence (seed agreement, token-probability tie-break) MUST be
-  exported for SPEC-07.
+- [x] **AC-04.13** A per-flow confidence (seed agreement, token-probability tie-break) MUST be
+  exported for SPEC-07. *Evidence: `src/dpdp_audit/confidence.py`, `scripts/export_confidence.py` → `results/confidence/{main,ladder}.json` (ladder rows marked `accepted`); `tests/test_confidence.py`.*
 
 ### 6. Evidence & Validation
 - `tests/test_pipeline.py` passes, together with the existing suite.

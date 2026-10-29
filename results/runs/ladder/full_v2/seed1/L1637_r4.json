@@ -1,0 +1,103 @@
+{
+ "case_id": "L1637_r4",
+ "system": "full_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly mention sharing computer information with Google AdMob, and instead focuses on using the data internally for analysis.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9386070388966059,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9386070388966059,
+ "usage": {
+  "prompt": 1160,
+  "output": 152
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 12,
+  "untagged_paragraphs": 0,
+  "claims": 26,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Computer information",
+    "paragraphs": [
+     3,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly mention sharing computer information with Google AdMob, and instead focuses on using the data internally for analysis.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "This analysis enables us to track how our users engage over a date range, who our users are generally, and how their behavior varies by attribute (e.g., male vs. female). Illini Media may use this type of analysis to refine our advertising and content strategies.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention sharing computer information with Google AdMob, and instead focuses on using the data internally for analysis."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9386070388966059
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 0.11
+ }
+}

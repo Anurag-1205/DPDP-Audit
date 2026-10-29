@@ -1,0 +1,104 @@
+{
+ "case_id": "L962_r3",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you download our App and use our Services, we automatically collect information on the type of device you use and the operating system version, so we know the best application version to provide you with.",
+   "rationale": "The policy mentions sharing information with partners but does not specify Mixpanel or any analytics company. It also states that device information is used for providing the best application version.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes the collection of device information for providing the best application version, not for sharing with Mixpanel or any analytics company. The cited DPDP text pertains to the notice requirement for requests for consent, which is not relevant to the issue of undisclosed sh"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9369483086036207,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9369483086036207,
+ "usage": {
+  "prompt": 1825,
+  "output": 254
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 71,
+  "untagged_paragraphs": 0,
+  "claims": 130,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     10,
+     17,
+     16
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you download our App and use our Services, we automatically collect information on the type of device you use and the operating system version, so we know the best application version to provide you with.",
+      "rationale": "The policy mentions sharing information with partners but does not specify Mixpanel or any analytics company. It also states that device information is used for providing the best application version.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may share information with our partners.",
+       "denial_quote": "",
+       "generic_quote": "We use information held about you in the following ways: (c) Device Information. When you download our App and use our Services, we automatically collect information on the type of device you use and the operating system version, so we know the best application version to provide you with.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing information with partners but does not specify Mixpanel or any analytics company. It also states that device information is used for providing the best application version."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9369483086036207
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 33.61
+ }
+}

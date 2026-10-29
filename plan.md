@@ -307,6 +307,7 @@ L = likelihood, I = impact (H/M/L).
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-10-23 | Five-week stage plan derived from the proposal |
+| 2.5 | 2026-10-29 | Stage 3 started: pipeline seeds 1–2 on the ladder (AC-04.11, 1,120 runs); per-flow confidence export for SPEC-07 (AC-04.13); S4 extraction jobs and term mapping (WP-3.6) |
 | 2.4 | 2026-10-29 | Ladder and spot-check disagreements settled together by Naveen and Anurag: 110 of 140 rungs accepted (was 100 before settling); answer key wrong on 9 of 87 checked flows (10.3%). Report §5 updated; H4 now fails for every system |
 | 2.3 | 2026-10-28 | Verifier reply bug found (15–40% of pipeline runs unreadable, findings kept unchecked); robust reader and `scripts/reverify.py`; every verifier-using run re-verified as `*_rv`, which the report now uses. v1 with a working verifier does not beat B2 on F1; v2 reaches F1 0.705 |
 | 2.2 | 2026-10-27 | Pipeline v2 (`full_v2`, `full_v2_finetuned`) developed on the dev splits (new `dev2`, 69 cases from 23 more training policies), frozen, then run on main (3 seeds) and the ladder; ablations repeated on v2 (`A*_v2`); B4 seeds 1–2 done; PoliCheck known-answer check done (7/7). The frozen v1 runs are kept |

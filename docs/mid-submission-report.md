@@ -64,10 +64,10 @@ byte-identical. Ladder rungs differ from the deleted rung by exactly one sentenc
 | B1 | One prompt, raw policy and app files | Qwen2.5-7B-Instruct-AWQ | main × 3 seeds |
 | B2 | One prompt, parsed app facts + retrieved DPDP text (exactly the pipeline's inputs) | same | main × 3, ladder × 3 |
 | B4 | B2's prompt to a stronger model | gemini-3-flash-preview | main × 3 |
-| full | **DPDP-Audit**: tagger → tools → mismatch finder → 4 specialist reviewer agents → aggregator → evidence verifier | prompted Qwen2.5-3B tagger, Qwen2.5-7B reviewers | main × 3, ladder × 1 |
-| full_finetuned | the same pipeline with our QLoRA-tuned tagger (only the tagger changes) | QLoRA Qwen2.5-3B tagger, Qwen2.5-7B reviewers | main × 3, ladder × 1 |
+| full | **DPDP-Audit**: tagger → tools → mismatch finder → 4 specialist reviewer agents → aggregator → evidence verifier | prompted Qwen2.5-3B tagger, Qwen2.5-7B reviewers | main × 3, ladder × 3 |
+| full_finetuned | the same pipeline with our QLoRA-tuned tagger (only the tagger changes) | QLoRA Qwen2.5-3B tagger, Qwen2.5-7B reviewers | main × 3, ladder × 3 |
 | A1–A5 | Ablations (verifier off; no retrieval; one generalist reviewer; oracle tagger) | same | main × 1 |
-| full_v2, full_v2_finetuned | v2 of the pipeline, chosen on the dev splits (§4.1), with the prompted / QLoRA tagger | same | main × 3, ladder × 1 |
+| full_v2, full_v2_finetuned | v2 of the pipeline, chosen on the dev splits (§4.1), with the prompted / QLoRA tagger | same | main × 3, ladder × 3 |
 | `*_rv` | the same runs with only the verifier re-run, using the fixed reply reader (§4.2) | same | as the system it re-checks |
 
 **How the pipeline decides.** The 3B tagger turns each policy paragraph into structured claims; the
@@ -290,6 +290,10 @@ the verifier, so the bug of §4.2 does not affect this section.
 - B2 calls every flow "vague" on every rung of every ladder.
 - PoliCheck's low clear-rung score comes from the data-type mapping (exact only for Location), from not
   resolving the Mixpanel domain to an entity, and from reading a parent company ("Google") as vague.
+- **Seeds 1–2** (run 29 Oct) give the same picture for every pipeline: clear 1.00 on every seed,
+  explicit 0.53–0.77, vague 0.78–0.88, deleted 0.07–0.21, and no seed shows a significant
+  explicit − vague difference (p ≥ 0.057). With the QLoRA tagger, v1 and v2 give the same label on
+  every rung and seed: a ladder case has one flow, so v2's changes rarely change the prompt.
 - On all 140 rungs (before the check) the picture was the same (e.g. `full_v2_finetuned` 1.00 / 0.71 /
   0.80 / 0.09).
 
@@ -377,7 +381,7 @@ prompt is the prompted tagger's own, so only the weights differ.
 | PoliGraph on main | Should | Done (31/34 policies parsed) |
 | Tagger results: B3, QLoRA, PrivBERT | Should | Done; QLoRA also run in the pipeline (`full_finetuned`, WP-3.1 early) |
 | B4 seed 0; PoliCheck on ladder | Should | Both done (B4 also seeds 1–2) |
-| Full system on the ladder | Could | Done (seed 0) |
+| Full system on the ladder | Could | Done (3 seeds) |
 | Ablations | Won't by 30 Oct | A1, A2, A3, A5 done early on v1, and repeated on v2 (A4 = the prompted-tagger run of each version) |
 
 **Deviations.**
@@ -399,7 +403,6 @@ prompt is the prompted tagger's own, so only the weights differ.
 | Work | When |
 |---|---|
 | Statement-extraction comparison S4 (PolicyLint, PoliGraph) on tuple F1 | 31 Oct–3 Nov |
-| Full system on the ladder, seeds 1–2 | 31 Oct–3 Nov |
 | Selective accuracy (SPEC-07) from the three seeds | 6–9 Nov |
 | Real-flow sample and case study (SPEC-08) | 4–10 Nov |
 | Failure analysis, hypothesis verdicts, final report | 11–15 Nov |

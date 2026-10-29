@@ -1,0 +1,104 @@
+{
+ "case_id": "L1545_r2",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "What information about you do we share with other parties?",
+   "rationale": "The policy explicitly states that personal identifiers are not shared with third parties, but does not provide specific information on sharing with Mixpanel.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided ('What information about you do we share with other parties?') does not actually disclose the app's practice regarding sharing personal identifiers with Mixpanel. Instead, it asks a general question about sharing practices. The cited DPDP text (Sec. 5(1) and Rule 3) pert"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.943330425709215,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.943330425709215,
+ "usage": {
+  "prompt": 1645,
+  "output": 241
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 23,
+  "untagged_paragraphs": 0,
+  "claims": 50,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Personal identifier",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Personal identifier with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     2,
+     14,
+     5
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "What information about you do we share with other parties?",
+      "rationale": "The policy explicitly states that personal identifiers are not shared with third parties, but does not provide specific information on sharing with Mixpanel.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We do not share your name and other personal identifiers with third parties.",
+       "denial_quote": "",
+       "generic_quote": "What information about you do we share with other parties?",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal identifiers are not shared with third parties, but does not provide specific information on sharing with Mixpanel."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.943330425709215
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 33.91
+ }
+}
