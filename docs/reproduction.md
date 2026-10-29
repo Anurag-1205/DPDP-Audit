@@ -101,7 +101,9 @@ bash scripts/score_all.sh     # every file in results/scores/, from the committe
 
 The script lists the exact commands: `score_runs.py` on main (27 systems, 59 paired comparisons) and on
 `dev` / `dev2`, `score_dev_pooled.py` (the v2 choice, [pipeline.md](pipeline.md#v2)), `score_ladder.py`
-(accepted rungs only), `eval_tagger.py` (needs the OPP-115 download) and `spot_check.py score`. Run
+(accepted rungs only), `score_ablations.py` (v2 ablations per seed), `eval_tagger.py --s4` (taggers and S4;
+needs the OPP-115 download), `spot_check.py score` and `export_confidence.py` (per-flow confidence).
+`python scripts/interval_tables.py` prints the report's interval tables (Appendix A). Run
 on a fresh clone it rewrites `results/scores/` byte for byte (checked 29 Oct), so `git status` stays
 clean. Bootstrap intervals use 1,000 re-samples with seed 0.
 

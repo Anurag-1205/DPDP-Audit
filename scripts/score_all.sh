@@ -29,10 +29,11 @@ for split in dev dev2; do
 done
 $PY scripts/score_dev_pooled.py
 
-# vagueness ladder (accepted rungs only), clause tagger, answer-key spot-check
-$PY scripts/score_ladder.py --systems S1 S2 B2 full full_finetuned full_v2 full_v2_finetuned
+# vagueness ladder (accepted rungs only), ablations, clause tagger and S4 extraction, answer-key spot-check
+$PY scripts/score_ladder.py --systems S1 S2 B2 full full_finetuned full_v2 full_v2_finetuned A2_v2 A3_v2
+$PY scripts/score_ablations.py      # v2 ablations on seeds 0-2 (WP-3.3)
 $PY scripts/eval_tagger.py --gold results/tagger/heldout.jsonl \
-    --pred B3=results/tagger/B3_pred.jsonl S3=results/tagger/S3_pred.jsonl --claims prompted finetuned
+    --pred B3=results/tagger/B3_pred.jsonl S3=results/tagger/S3_pred.jsonl --claims prompted finetuned --s4
 $PY scripts/spot_check.py score
 
 # per-flow confidence over seeds for selective accuracy (AC-04.13, SPEC-07)

@@ -109,7 +109,7 @@ flowchart LR
 | Single-pass baselines B1, B2, B4 | `baselines.py` | Run (3 seeds each on main; B2 also on the ladder) |
 | Scorer | `score.py`, `scripts/score_runs.py` | Implemented |
 | DPDP-Audit pipeline and ablations | `pipeline/`, `scripts/run_pipeline.py`, `scripts/reverify.py` | v1 (frozen) and v2 run on main and the ladder; ablations on both (SPEC-04) |
-| Clause tagger training and evaluation | `tagger_data.py`, `tagger_eval.py`, `scripts/train_tagger.py` | QLoRA tagger trained and evaluated; S4 extraction comparison pending (SPEC-05) |
+| Clause tagger training and evaluation | `tagger_data.py`, `tagger_eval.py`, `scripts/train_tagger.py` | QLoRA tagger trained and evaluated; S4 extraction comparison done (`s4.py`) (SPEC-05) |
 | Vagueness ladder | `ladder.py` | Built, checked by two members and scored (SPEC-06) |
 | Selective accuracy | `selective.py` | Planned (SPEC-07) |
 

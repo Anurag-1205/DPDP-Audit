@@ -26,8 +26,8 @@
 | [SPEC-01](#spec-01--main-benchmark) | Main benchmark | Anurag | Done (spot-check by two members done and settled: key wrong on 10.3% of flows) | MS-1 | — |
 | [SPEC-02](#spec-02--single-pass-llm-baselines-b1-b2-b4) | Single-pass LLM baselines B1, B2, B4 | Naveen | In progress | MS-1 → MS-3 | SPEC-01 |
 | [SPEC-03](#spec-03--existing-tool-baselines-policheck-s1-and-poligraph-s2) | Existing-tool baselines: PoliCheck and PoliGraph | Ishaan | Main and ladder done; real flows pending | MS-2 → MS-4 | SPEC-01, SPEC-06 |
-| [SPEC-04](#spec-04--dpdp-audit-pipeline-and-ablations) | DPDP-Audit pipeline and ablations | Naveen | In progress (v1 frozen and v2 chosen on dev splits, both main × 3 seeds + ladder; ablations on v1 and v2) | MS-2 → MS-3 | SPEC-01, SPEC-02, SPEC-05 |
-| [SPEC-05](#spec-05--clause-tagger-fine-tuning-and-component-baselines) | Clause tagger: fine-tuning and component baselines | Nikhil | In progress (QLoRA 0.713 macro-F1, in the pipeline; S4 extraction pending) | MS-2 → MS-3 | SPEC-01 |
+| [SPEC-04](#spec-04--dpdp-audit-pipeline-and-ablations) | DPDP-Audit pipeline and ablations | Naveen | Done (v1 and v2, main and ladder × 3 seeds; ablations on v1 (seed 0) and v2 (3 seeds); per-flow confidence exported) | MS-2 → MS-3 | SPEC-01, SPEC-02, SPEC-05 |
+| [SPEC-05](#spec-05--clause-tagger-fine-tuning-and-component-baselines) | Clause tagger: fine-tuning and component baselines | Nikhil | Done (QLoRA 0.713 macro-F1, in the pipeline; S4 tuple F1 0.106 / 0.234 vs QLoRA 0.479) | MS-2 → MS-3 | SPEC-01 |
 | [SPEC-06](#spec-06--vagueness-ladder) | Vagueness ladder | Anurag | Built, checked by two members, scored on 110 accepted rungs | MS-2 | SPEC-01 |
 | [SPEC-07](#spec-07--selective-accuracy) | Selective accuracy | Nikhil | Planned | MS-4 | SPEC-02, SPEC-03, SPEC-04, SPEC-06 |
 | [SPEC-08](#spec-08--real-world-validation) | Real-world validation: real flows and case study | Anurag | Planned | MS-4 | SPEC-02, SPEC-03, SPEC-04 |
@@ -313,7 +313,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Naveen Mishra (M3) |
-| **Status** | In progress (v1 and v2 on main × 3 and the ladder × 1; ablations on both) |
+| **Status** | Done (v1 and v2 on main and the ladder × 3 seeds; ablations on v1 and v2; confidence export) |
 | **Milestone** | MS-2 (v1, seed 0 on main), MS-3 (three seeds, ladder, ablations) |
 | **Depends on** | SPEC-01, SPEC-02 (LLM client, runner), SPEC-05 (fine-tuned tagger) |
 | **Traces** | RQ1, RQ4 · H1, H2, H3, H6 |
@@ -369,7 +369,7 @@ flowchart LR
 - [x] **AC-04.10** `full` MUST run on the main benchmark with seed 0 by MS-2 (WP-2.8).
 - [x] **AC-04.11** `full` MUST run with seeds 0–2 on the main and ladder benchmarks (WP-3.2). *Evidence: `results/runs/{main,ladder}/{full,full_finetuned,full_v2,full_v2_finetuned}/seed{0,1,2}/`; ladder seeds 1–2 ran on 29 Oct (1,120 runs, 0 failed calls); `results/scores/ladder.json`.*
 - [x] **AC-04.12** A1–A5 MUST run with seed 0 on the main benchmark (WP-3.3). A5 (oracle tagger) is not
-  applied to the ladder. *Evidence: `results/runs/main/A1`, `A2`, `A3`, `A5` (v1) and `A1_v2`, `A2_v2`, `A3_v2`, `A5_v2` (v2), each re-verified as `*_rv`; A4 (prompted tagger) is `full` / `full_v2`.*
+  applied to the ladder. *Evidence: `results/runs/main/A1`, `A2`, `A3`, `A5` (v1) and `A1_v2`, `A2_v2`, `A3_v2`, `A5_v2` (v2), each re-verified as `*_rv`; v2 ablations also on seeds 1–2 and A2_v2 / A3_v2 on the ladder × 3 (29 Oct, `scripts/score_ablations.py` → `results/scores/ablations.json`); A4 (prompted tagger) is `full` / `full_v2`.*
 - [x] **AC-04.13** A per-flow confidence (seed agreement, token-probability tie-break) MUST be
   exported for SPEC-07. *Evidence: `src/dpdp_audit/confidence.py`, `scripts/export_confidence.py` → `results/confidence/{main,ladder}.json` (ladder rows marked `accepted`); `tests/test_confidence.py`.*
 
@@ -393,7 +393,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Nikhil Patidar (M4); S4 extraction: Ishaan Giri |
-| **Status** | In progress (QLoRA tagger trained, 0.713 macro-F1, used in the pipeline; S4 pending) |
+| **Status** | Done (QLoRA tagger trained, 0.713 macro-F1, used in the pipeline; S4 scored 29 Oct) |
 | **Milestone** | MS-2 (should: tagger metrics), MS-3 (in the pipeline, S4) |
 | **Depends on** | SPEC-01 (split) |
 | **Traces** | RQ4 · H6 |
@@ -434,8 +434,8 @@ flowchart LR
   - category macro-F1 over the 10 OPP-115 categories;
   - tuple F1 for (category, data type, does/does not);
   - tuple F1 for (category, data type, third party).
-- [ ] **AC-05.6** S4 PolicyLint and PoliGraph statements MUST be mapped to the same tuples and scored
-  (WP-3.6).
+- [x] **AC-05.6** S4 PolicyLint and PoliGraph statements MUST be mapped to the same tuples and scored
+  (WP-3.6). *Evidence: Kaggle 29 Oct (`kaggle/policheck`, `kaggle/poligraph`, `SPLIT = "s4"`) → `results/tools/{policylint,poligraph}/s4/`; mapping `data/tools/s4_mapping.csv` (fixed before any output); `src/dpdp_audit/s4.py`, `tests/test_s4.py`; `results/scores/tagger.json` (`S4_*`, tuple F1 0.106 PolicyLint, 0.234 PoliGraph; `*_own_name` sensitivity); docs/evaluation.md#statement-extraction-s4.*
 - [x] **AC-05.7** The fine-tuned tagger MUST be usable by the pipeline (a vLLM LoRA adapter or cached
   tags), enabling `full` vs A4 (WP-3.1).
 
@@ -664,8 +664,8 @@ flowchart LR
 - [ ] **AC-09.3** The mid-submission package (plan §7) MUST be complete and submitted by 30 Oct
   (WP-2.11).
 - [x] **AC-09.4** The 20-case answer-key spot-check MUST report an error rate (WP-3.7). *Evidence: report §5.*
-- [ ] **AC-09.5** Results tables for every system MUST include 95% intervals, with paired comparisons
-  for the falsifiable claim (WP-3.8).
+- [x] **AC-09.5** Results tables for every system MUST include 95% intervals, with paired comparisons
+  for the falsifiable claim (WP-3.8). *Evidence: report §4 (paired) and Appendix A (every system, main and ladder), generated by `scripts/interval_tables.py`; `results/scores/{main,ladder,ablations}.json`.*
 - [ ] **AC-09.6** Verdicts on H1–H6 and the falsifiable claim MUST be stated, including those that fail
   (WP-5.1).
 - [ ] **AC-09.7** A failure analysis with worked hard cases, and a cost table (tokens, GPU or CPU time

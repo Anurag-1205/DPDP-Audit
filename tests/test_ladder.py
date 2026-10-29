@@ -93,3 +93,12 @@ def test_accepted_rungs_use_the_joint_settlement(tmp_path, monkeypatch):
         w = csv.writer(f); w.writerow(["case_id", "agreed"]); w.writerows([("L1_r2", "ok"), ("L1_r3", "")])
     assert ladder.accepted_cases() == {"L1_r1", "L1_r2"}              # settled ok; L1_r3 still open
     assert ladder.check_status() == {"rungs": 4, "checkers_agree": 2, "disagreements": 2, "settled": 1, "unsettled": 1}
+
+
+def test_rung_accuracy_interval_resamples_ladders():
+    from dpdp_audit.ladder import accuracy_ci
+    by_ladder = {f"L{i}": {"clear": True, "explicit": i % 2 == 0} for i in range(20)}
+    ci = accuracy_ci(by_ladder, n=200)
+    assert ci["clear"] == [1.0, 1.0]
+    assert ci["explicit"][0] < 0.5 < ci["explicit"][1]
+    assert ci["vague"] is None

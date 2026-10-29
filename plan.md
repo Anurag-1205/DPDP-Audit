@@ -40,7 +40,7 @@ Detailed scope per work package: [specs.md](specs.md).
 | MS-0 | Setup | 15 Oct | Roles agreed; repository; PoliCheck builds; Qwen answers on Kaggle | **Done** |
 | MS-1 | Benchmark and simplest baselines | 24 Oct | 102 cases with keys; B1/B2 scored on every case (SPEC-01, SPEC-02) | **Done** |
 | MS-2 | **Mid-submission** | **30 Oct** | Must-have package of §7 complete and submitted | Package ready; ladder check done |
-| MS-3 | Experiments complete | 7 Nov | All main and ladder runs, ablations, tagger results, spot-check (SPEC-02…06) | Planned |
+| MS-3 | Experiments complete | 7 Nov | All main and ladder runs, ablations, tagger results, spot-check (SPEC-02…06) | **Done** (29 Oct) |
 | MS-4 | Evaluation complete | 11 Nov | Selective accuracy, real flows, case study (SPEC-07, SPEC-08) | Planned |
 | MS-5 | **Final submission** | **15 Nov** | Final report, slides, release, reproduction check (SPEC-09) | Planned |
 
@@ -307,6 +307,7 @@ L = likelihood, I = impact (H/M/L).
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-10-23 | Five-week stage plan derived from the proposal |
+| 2.6 | 2026-10-29 | Stage 3 complete: S4 scored (WP-3.6; tuple F1 PolicyLint 0.106, PoliGraph 0.234, QLoRA 0.479); v2 ablations on 3 seeds and A2/A3 on the ladder (WP-3.3); 95% intervals for every system (WP-3.8). Without DPDP retrieval v2 is as good or better on every seed |
 | 2.5 | 2026-10-29 | Stage 3 started: pipeline seeds 1–2 on the ladder (AC-04.11, 1,120 runs); per-flow confidence export for SPEC-07 (AC-04.13); S4 extraction jobs and term mapping (WP-3.6) |
 | 2.4 | 2026-10-29 | Ladder and spot-check disagreements settled together by Naveen and Anurag: 110 of 140 rungs accepted (was 100 before settling); answer key wrong on 9 of 87 checked flows (10.3%). Report §5 updated; H4 now fails for every system |
 | 2.3 | 2026-10-28 | Verifier reply bug found (15–40% of pipeline runs unreadable, findings kept unchecked); robust reader and `scripts/reverify.py`; every verifier-using run re-verified as `*_rv`, which the report now uses. v1 with a working verifier does not beat B2 on F1; v2 reaches F1 0.705 |

@@ -372,4 +372,25 @@ def score_ladder(keys: list[dict], outs: list[dict], accepted: set[str] | None =
         both = [v for v in by_ladder.values() if a in v and b in v]
         paired[f"{a}_vs_{b}"] = dict(mcnemar([v[a] for v in both], [v[b] for v in both]), n=len(both),
                                      difference=(sum(v[a] for v in both) - sum(v[b] for v in both)) / max(1, len(both)))
-    return {"accuracy": acc, "n_ladders": len(by_ladder), "paired": paired, "confusion": confusion}
+    return {"accuracy": acc, "accuracy_ci": accuracy_ci(by_ladder), "n_ladders": len(by_ladder),
+            "paired": paired, "confusion": confusion}
+
+
+def accuracy_ci(by_ladder: dict[str, dict[str, bool]], n: int = 1000, seed: int = 0) -> dict:
+    """95% interval of each rung's accuracy, re-sampling ladders (one ladder per policy, so this is
+    the policy-level bootstrap of score.cluster_bootstrap)."""
+    import random
+    rng = random.Random(seed)
+    ladders = sorted(by_ladder)
+    stats = {r: [] for r in RUNG_ORDER}
+    for _ in range(n):
+        sample = [by_ladder[rng.choice(ladders)] for _ in ladders]
+        for r in RUNG_ORDER:
+            vals = [v[r] for v in sample if r in v]
+            if vals:
+                stats[r].append(sum(vals) / len(vals))
+    out = {}
+    for r, xs in stats.items():
+        xs.sort()
+        out[r] = [xs[int(0.025 * (len(xs) - 1))], xs[int(0.975 * (len(xs) - 1))]] if xs else None
+    return out

@@ -41,10 +41,11 @@ comparison is with the LLM systems only, and coverage is reported next to F1.
 | S2 PoliGraph | ✓ | ✓ | ✓ | Main and ladder done |
 | B1 | ✓ | — | ✓ | Done (306 runs) |
 | B2 | ✓ | ✓ | ✓ | Main and ladder done (3 seeds each) |
+| S4 PolicyLint, PoliGraph (extraction) | — | — | — | 1,140 held-out OPP-115 segments, tuple F1 (done) |
 | B4 | ✓ | — | — | Done (3 seeds) |
-| full, full_finetuned | ✓ | ✓ | ✓ | Main 3 seeds, ladder seed 0 |
-| full_v2, full_v2_finetuned | ✓ | ✓ | ✓ | Main 3 seeds, ladder seed 0 |
-| A1–A5 | ✓ | — | — | A1, A2, A3, A5 on the frozen pipeline; A1_v2, A2_v2, A3_v2, A5_v2 on v2 (A4 on v2 = full_v2) |
+| full, full_finetuned | ✓ | ✓ | ✓ | Main and ladder, 3 seeds |
+| full_v2, full_v2_finetuned | ✓ | ✓ | ✓ | Main and ladder, 3 seeds |
+| A1–A5 | ✓ | A2_v2, A3_v2 | — | A1, A2, A3, A5 on the frozen pipeline (seed 0); A1_v2, A2_v2, A3_v2, A5_v2 on v2, 3 seeds (A4 on v2 = full_v2); A2_v2, A3_v2 on the ladder, 3 seeds |
 
 ## Run and scoring flow
 
