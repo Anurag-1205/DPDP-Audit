@@ -34,11 +34,16 @@ T_START = time.time()
 # Robust verifier (28 Oct): the frozen reader could not read 15-40% of the verifier's replies and
 # kept those findings unchecked. "reverify" re-runs only the verifier on saved runs (-> <system>_rv).
 DEV_SYSTEMS = ["full", "v2_gate", "v2_read", "v2_purpose", "v2_batch"]
-# WP-3.2 / AC-04.11 (29 Oct): seeds 1-2 of the four pipelines on the ladder (seed 0 ran on 27 Oct).
-# The ladder is scored on flow labels, which the verifier does not change, so no re-verify is needed.
+# WP-3.3 extension (29 Oct): v2 ablations on seeds 1-2 of main (seed 0 ran on 27 Oct), re-verified
+# with the robust reader (A1_v2 has no verifier), and A2_v2 / A3_v2 on the ladder, seeds 0-2. A1 is
+# not run on the ladder (its flow labels equal the full system's: the verifier does not change
+# labels); A5 is not applied to the ladder (AC-04.12).
+# Earlier: ladder seeds 1-2 of the four pipelines (AC-04.11), 29 Oct.
+V2_ABLATIONS = ["A1_v2", "A2_v2", "A3_v2", "A5_v2"]
 JOBS = [
-    {"phase": "runs", "split": "ladder", "configs": ["full", "full_finetuned", "full_v2", "full_v2_finetuned"],
-     "seeds": [1, 2]},
+    {"phase": "runs", "split": "main", "configs": V2_ABLATIONS, "seeds": [1, 2]},
+    {"phase": "reverify", "split": "main", "systems": ["A2_v2", "A3_v2", "A5_v2"], "seeds": [1, 2]},
+    {"phase": "runs", "split": "ladder", "configs": ["A2_v2", "A3_v2"], "seeds": [0, 1, 2]},
 ]
 
 
