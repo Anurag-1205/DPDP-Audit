@@ -1,13 +1,10 @@
 # DPDP-Audit — Mid-submission report (Stage 2)
 
-- **Date:** 28 October 2026 (submission due 30 October)
+- **Date:** 29 October 2026 (submission due 30 October)
 - **Team:** Anurag Kaushal · Ishaan Giri · Naveen Mishra · Nikhil Patidar
 - **Covers:** MS-0 to MS-2 · SPEC-01 to SPEC-06 · plan §7 (must-have package)
-- **Reproduce:** every number below is regenerated from committed runs by
-  `python scripts/score_runs.py --systems B1 B2 B4 S1 S2 full full_finetuned A1 A2 A3 A5 full_v2 full_v2_finetuned
-  full_rv full_finetuned_rv full_v2_rv full_v2_finetuned_rv A1_v2 A2_v2_rv A3_v2_rv A5_v2_rv A2_rv A3_rv A5_rv --paired …`,
-  `python scripts/score_ladder.py --systems S1 S2 B2 full full_finetuned full_v2 full_v2_finetuned` and
-  `python scripts/eval_tagger.py …`
+- **Reproduce:** every number below is regenerated from the committed runs, without a GPU, by
+  `bash scripts/score_all.sh` (about 2 minutes; it rewrites `results/scores/` identically)
   ([reproduction.md](reproduction.md)).
 
 ## 1. Summary
@@ -357,7 +354,7 @@ prompt is the prompted tagger's own, so only the weights differ.
    more than doubles the tagger's macro-F1, but in the pipeline its gain is small (+0.04 F1, not
    significant; +0.10 on collection/sharing, significant).
 6. **The agents did not use their tools.** Reviewers may call `search_policy`, `retrieve_dpdp` and
-   `lookup_sdk` (tested), but in all 1,432 pipeline runs they answered directly from the paragraphs
+   `lookup_sdk` (tested), but in all 3,209 pipeline runs (main, ladder and dev splits) they answered directly from the paragraphs
    given, with zero tool calls; a single generalist reviewer (A3) and no retrieval (A2) do as well. In
    practice the reviewers work as single-step evidence extractors, which weakens the "agent" part of
    the design; the gain comes from the pipeline around them.
@@ -402,7 +399,7 @@ prompt is the prompted tagger's own, so only the weights differ.
 | Work | When |
 |---|---|
 | Statement-extraction comparison S4 (PolicyLint, PoliGraph) on tuple F1 | 31 Oct–3 Nov |
-| Full system on the ladder, seeds 1–2; PoliCheck/PolicyLint extraction comparison (S4) | 31 Oct–3 Nov |
+| Full system on the ladder, seeds 1–2 | 31 Oct–3 Nov |
 | Selective accuracy (SPEC-07) from the three seeds | 6–9 Nov |
 | Real-flow sample and case study (SPEC-08) | 4–10 Nov |
 | Failure analysis, hypothesis verdicts, final report | 11–15 Nov |
