@@ -1,0 +1,298 @@
+{
+ "case_id": "1259_v1",
+ "system": "A3_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy states a purpose for cookies but does not specify a purpose for tracking elements.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence provided is 'none: the policy is said not to mention it', which means there is no evidence from the policy to support the existence of a purpose for tracking elements. The cited sections of the DPDP Act discuss notices and retention periods, but do not address the specific issue "
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 6(5)",
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "Upon your request, we will remove your personal information from the website but we will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our Fool Rules and take other actions otherwise permitted by law.",
+   "rationale": "The policy states that personal data will be retained 'as necessary' for legal obligations, resolving disputes, and enforcing rules.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9302021143350389,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9449685732052144,
+ "usage": {
+  "prompt": 5894,
+  "output": 929
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 71,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     8,
+     17,
+     39,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['additional service/feature', 'advertising', 'analytics/research', 'marketing', 'service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     5,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Cookies and tracking elements indefinitely; retention statements: ['Indefinitely', 'Limited']",
+    "paragraphs": [
+     38,
+     12,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Demographic is collected for ['analytics/research'], the app uses it for Advertising",
+    "paragraphs": [
+     18,
+     33,
+     14,
+     20
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 27(1)",
+       "Sec. 37(1)"
+      ],
+      "evidence": "These features may collect your IP address, which page you are visiting on our site, and may set a cookie to enable the feature to function properly.",
+      "rationale": "The policy explicitly states that the Motley Fool collects IP addresses, which is a specific type of 'device IDs'.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "These features may collect your IP address, which page you are visiting on our site, and may set a cookie to enable the feature to function properly.",
+       "denial_quote": "",
+       "generic_quote": "We also may ask for this information at other times, such as when you enter contests or other promotions sponsored by The Motley Fool and/or our partners.",
+       "sections": [
+        "Sec. 27(1)",
+        "Sec. 37(1)"
+       ],
+       "rationale": "The policy explicitly states that the Motley Fool collects IP addresses, which is a specific type of 'device IDs'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9302021143350389
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy states a purpose for cookies but does not specify a purpose for tracking elements.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "We use a feature known as a 'cookie.' Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+       "unspecified_purpose_quote": "We discuss cookies later in this Privacy Statement.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states a purpose for cookies but does not specify a purpose for tracking elements."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9515172480642478
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 6(5)",
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "Upon your request, we will remove your personal information from the website but we will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our Fool Rules and take other actions otherwise permitted by law.",
+      "rationale": "The policy states that personal data will be retained 'as necessary' for legal obligations, resolving disputes, and enforcing rules.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "Upon your request, we will remove your personal information from the website but we will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our Fool Rules and take other actions otherwise permitted by law.",
+       "sections": [
+        "Sec. 6(5)",
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that personal data will be retained 'as necessary' for legal obligations, resolving disputes, and enforcing rules."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.958280221325728
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 4(2)",
+       "Rule 8"
+      ],
+      "evidence": "We conduct research on our users' demographics, interests, and behavior based upon the information you provide us when you register or participate in contests or other promotions on our site, or based upon information we receive from other sources. This research is usually compiled and analyzed on an aggregated basis, but may also be combined with personal information to help us improve your experience. We may also notify you of products, services, or areas of our site that we think may interest you based on the information we've received.",
+      "rationale": "The policy specifies demographic data is used for advertising and improving user experience, indicating a specific purpose. However, it also mentions providing aggregate information to advertisers, which implies unspecified purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Demographic",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "We conduct research on our users' demographics, interests, and behavior based upon the information you provide us when you register or participate in contests or other promotions on our site, or based upon information we receive from other sources. This research is usually compiled and analyzed on an aggregated basis, but may also be combined with personal information to help us improve your experience. We may also notify you of products, services, or areas of our site that we think may interest you based on the information we've received.",
+       "unspecified_purpose_quote": "The Motley Fool will not disclose any personally identifiable information about individual users, except as described in this Privacy Statement. With the few exceptions that we explain here, we do not give, rent, lend, or sell individual information to our advertisers, although we do provide aggregate information.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 4(2)",
+        "Rule 8"
+       ],
+       "rationale": "The policy specifies demographic data is used for advertising and improving user experience, indicating a specific purpose. However, it also mentions providing aggregate information to advertisers, which implies unspecified purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.939874709095843
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 5,
+  "seconds": 92.33
+ }
+}

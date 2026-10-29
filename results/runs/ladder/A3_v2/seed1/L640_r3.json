@@ -1,0 +1,109 @@
+{
+ "case_id": "L640_r3",
+ "system": "A3_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 37(1)",
+    "Rule 6",
+    "Sec. 11(2)"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions collecting various types of information, including computer information, but does not specify whether it collects 'Computer information' explicitly.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the policy does not mention collecting 'Computer information,' which means there is no explicit disclosure of the collection of this data type. However, the cited sections (Sec. 37(1), Rule 6, Sec. 11(2)) are unrelated to the issue of undisclosed collection of compute"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9558436801251008,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9558436801251008,
+ "usage": {
+  "prompt": 2012,
+  "output": 299
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 39,
+  "untagged_paragraphs": 0,
+  "claims": 46,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     11,
+     27,
+     16,
+     29
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 37(1)",
+       "Rule 6",
+       "Sec. 11(2)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions collecting various types of information, including computer information, but does not specify whether it collects 'Computer information' explicitly.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Other examples of information we receive from other sources include updated delivery and address information from our carriers or other third parties, which we use to correct our records; account information, purchase or redemption information, and page-view information from business partners who operate their own websites or for which we provide any services; search term and search result information from searches conducted through the website; and credit history information from credit bureaus, which we use to help prevent and detect fraud.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 37(1)",
+        "Rule 6",
+        "Sec. 11(2)"
+       ],
+       "rationale": "The policy mentions collecting various types of information, including computer information, but does not specify whether it collects 'Computer information' explicitly."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9558436801251008
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 33.8
+ }
+}

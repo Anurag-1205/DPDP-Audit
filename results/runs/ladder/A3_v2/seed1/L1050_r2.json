@@ -1,0 +1,103 @@
+{
+ "case_id": "L1050_r2",
+ "system": "A3_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(2)",
+    "Sec. 7"
+   ],
+   "evidence": "We do not share your precise location with third parties.",
+   "rationale": "The policy explicitly states that location data is not shared with third parties, but does not disclose specific sharing practices.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9435343898586288,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9435343898586288,
+ "usage": {
+  "prompt": 1321,
+  "output": 133
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 70,
+  "untagged_paragraphs": 0,
+  "claims": 108,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     65,
+     10,
+     54
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(2)",
+       "Sec. 7"
+      ],
+      "evidence": "We do not share your precise location with third parties.",
+      "rationale": "The policy explicitly states that location data is not shared with third parties, but does not disclose specific sharing practices.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not share your precise location with third parties.",
+       "generic_quote": "Web beacons collect only a limited amount of information including cookies and time and date of viewing and do not contain personally identifiable information.",
+       "sections": [
+        "Sec. 5(2)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy explicitly states that location data is not shared with third parties, but does not disclose specific sharing practices."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9435343898586288
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 13.98
+ }
+}

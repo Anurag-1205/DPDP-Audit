@@ -1,0 +1,107 @@
+{
+ "case_id": "L1050_r2",
+ "system": "A2_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "If you wish to not have this information used for the purpose of serving you targeted ads, you may opt-out by going to: http://preferences.truste.com/preference.html?affiliateId=99. Please note this does not opt you out of being served advertising. You will continue to receive generic ads.",
+   "rationale": "The policy does not disclose sharing of location data with Mixpanel or any other third party, but mentions that web beacons collect limited information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9580124609748043,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9580124609748043,
+ "usage": {
+  "prompt": 954,
+  "output": 278
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 70,
+  "untagged_paragraphs": 0,
+  "claims": 108,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     65,
+     10,
+     54
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you wish to not have this information used for the purpose of serving you targeted ads, you may opt-out by going to: http://preferences.truste.com/preference.html?affiliateId=99. Please note this does not opt you out of being served advertising. You will continue to receive generic ads.",
+      "rationale": "The policy does not disclose sharing of location data with Mixpanel or any other third party, but mentions that web beacons collect limited information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "These files enable DoubleClick to recognize a unique cookie on your Web browser, which in turn enables us to learn which advertisements bring users to our website. It does not contain your name, address, telephone number, or email address. In short, web beacons collect only a limited amount of information including cookies and time and date of viewing and do not contain personally identifiable information.",
+       "generic_quote": "If you wish to not have this information used for the purpose of serving you targeted ads, you may opt-out by going to: http://preferences.truste.com/preference.html?affiliateId=99. Please note this does not opt you out of being served advertising. You will continue to receive generic ads.",
+       "data_type": "Location",
+       "recipient": "Mixpanel (Mixpanel, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose sharing of location data with Mixpanel or any other third party, but mentions that web beacons collect limited information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9580124609748043
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 27.46
+ }
+}

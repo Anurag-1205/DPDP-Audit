@@ -1,0 +1,104 @@
+{
+ "case_id": "L745_r4",
+ "system": "A2_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify any data collection and only provides a disclaimer.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the policy does not mention the collection of computer information, which means there is no explicit disclosure of this data collection. However, the finding claims an undisclosed collection, which is not supported by the evidence provided. Additionally, the cited sec"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9615700348539952,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9615700348539952,
+ "usage": {
+  "prompt": 1246,
+  "output": 275
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 3,
+  "untagged_paragraphs": 0,
+  "claims": 0,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Computer information",
+    "paragraphs": [
+     1,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify any data collection and only provides a disclaimer.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The information provided is 'as is' with all faults and without warranty of any kind, expressed or implied. National Chicken Council (NCC) makes no warranties or representations regarding the accuracy or completeness of the information contained herein.",
+       "generic_quote": "The information provided is 'as is' with all faults and without warranty of any kind, expressed or implied. National Chicken Council (NCC) makes no warranties or representations regarding the accuracy or completeness of the information contained herein.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify any data collection and only provides a disclaimer."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9615700348539952
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 24.96
+ }
+}

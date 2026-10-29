@@ -1,0 +1,186 @@
+{
+ "case_id": "1468_v1",
+ "system": "A5_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "However, we will not post information that we know directly and clearly identifies you (such as your real name or email address) unless you provide that information voluntarily for such use.",
+   "rationale": "The policy does not explicitly disclose sharing contact details with Google AdMob. It mentions sharing gameplay information and cookies but does not specify sharing contact details.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f5",
+   "data_type": "Survey data",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "We will retain your personal information for as long as your account is active or as needed to provide you services.",
+   "rationale": "The policy states that personal data will be retained 'for as long as your account is active or as needed to provide you services', indicating indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "incorrect",
+   "confidence": 0.9430039941736829,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9542622153862098,
+ "usage": {
+  "prompt": 3186,
+  "output": 410
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 62,
+  "untagged_paragraphs": 0,
+  "claims": 160,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Contact",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not share Contact",
+    "paragraphs": [
+     39,
+     15,
+     42
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f5",
+    "data_type": "Survey data",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Survey data indefinitely; retention statements: ['Limited', 'Unspecified']",
+    "paragraphs": [
+     17,
+     22,
+     51,
+     14
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "However, we will not post information that we know directly and clearly identifies you (such as your real name or email address) unless you provide that information voluntarily for such use.",
+      "rationale": "The policy does not explicitly disclose sharing contact details with Google AdMob. It mentions sharing gameplay information and cookies but does not specify sharing contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "However, we will not post information that we know directly and clearly identifies you (such as your real name or email address) unless you provide that information voluntarily for such use.",
+       "generic_quote": "Some of our Online Services offer SNS features and Widgets, such as the Facebook 'Like' button, Google + button, or the Share This button. These third-party SNS features may set a cookie to enable the Feature to function properly and may collect information about you when you use them, such as your IP address and which page you are visiting on our site. SNS features and Widgets are either hosted by a third party or hosted directly by our Online Services. Your interactions with these Features are governed by the privacy policy of the company providing the Feature. Please review each company's governing policies before using their services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly disclose sharing contact details with Google AdMob. It mentions sharing gameplay information and cookies but does not specify sharing contact details."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9430039941736829
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "We will retain your personal information for as long as your account is active or as needed to provide you services.",
+      "rationale": "The policy states that personal data will be retained 'for as long as your account is active or as needed to provide you services', indicating indefinite retention.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Survey data",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "We will retain your personal information for as long as your account is active or as needed to provide you services.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that personal data will be retained 'for as long as your account is active or as needed to provide you services', indicating indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9655204365987368
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 48.8
+ }
+}

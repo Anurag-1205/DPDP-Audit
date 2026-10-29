@@ -1,0 +1,105 @@
+{
+ "case_id": "L1470_r4",
+ "system": "A3_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 6(5)",
+    "Rule 7",
+    "Sec. 11(2)"
+   ],
+   "evidence": "Valve gives users the option to receive promotional email communications from Valve. Users may opt out of these communications. Instructions for discontinuing receipt of promotional email communications from Valve will be provided in email communications to users.",
+   "rationale": "The policy mentions sharing of personally identifiable information but does not specify Mixpanel as a recipient. It also does not explicitly state that the data is not shared with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.969920093736363,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.969920093736363,
+ "usage": {
+  "prompt": 1214,
+  "output": 303
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 28,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Contact",
+    "paragraphs": [
+     13,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 6(5)",
+       "Rule 7",
+       "Sec. 11(2)"
+      ],
+      "evidence": "Valve gives users the option to receive promotional email communications from Valve. Users may opt out of these communications. Instructions for discontinuing receipt of promotional email communications from Valve will be provided in email communications to users.",
+      "rationale": "The policy mentions sharing of personally identifiable information but does not specify Mixpanel as a recipient. It also does not explicitly state that the data is not shared with third parties.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Valve gives users the option to receive promotional email communications from Valve. Users may opt out of these communications. Instructions for discontinuing receipt of promotional email communications from Valve will be provided in email communications to users.",
+       "denial_quote": "",
+       "generic_quote": "Personally identifiable information is information that can be used to uniquely identify a user such as name, address or credit card number. If you are an EU user, 'personally identifiable information' means 'personal data' within the meaning of article 2 a) of the Directive 95/46 of 24 October 1995. You may be asked to provide personally identifiable information during the sign in process, and then in connection with the use of Valves products, services and online sites. While Valve collects personally identifiable information on a voluntary basis, for certain products and services Valve's collection of personally identifiable information may be a requirement for access to the product or service or to process a users order.",
+       "sections": [
+        "Sec. 6(5)",
+        "Rule 7",
+        "Sec. 11(2)"
+       ],
+       "rationale": "The policy mentions sharing of personally identifiable information but does not specify Mixpanel as a recipient. It also does not explicitly state that the data is not shared with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.969920093736363
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 32.82
+ }
+}

@@ -1,0 +1,102 @@
+{
+ "case_id": "L642_r2",
+ "system": "A3_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 7",
+    "Rule 6"
+   ],
+   "evidence": "Farlex is not responsible for the privacy practices, privacy statements, or content regarding these other sites.",
+   "rationale": "The policy explicitly states that no sharing occurs with third parties, contradicting the sharing claim.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9308062299568727,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9308062299568727,
+ "usage": {
+  "prompt": 1196,
+  "output": 123
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 14,
+  "untagged_paragraphs": 0,
+  "claims": 11,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not share IP address and device IDs",
+    "paragraphs": [
+     2,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 7",
+       "Rule 6"
+      ],
+      "evidence": "Farlex is not responsible for the privacy practices, privacy statements, or content regarding these other sites.",
+      "rationale": "The policy explicitly states that no sharing occurs with third parties, contradicting the sharing claim.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We do not share your device identifiers and IP address with third parties.",
+       "denial_quote": "",
+       "generic_quote": "Farlex is not responsible for the privacy practices, privacy statements, or content regarding these other sites.",
+       "sections": [
+        "Sec. 7",
+        "Rule 6"
+       ],
+       "rationale": "The policy explicitly states that no sharing occurs with third parties, contradicting the sharing claim."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9308062299568727
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 14.77
+ }
+}

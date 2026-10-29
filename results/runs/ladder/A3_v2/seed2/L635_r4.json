@@ -1,0 +1,106 @@
+{
+ "case_id": "L635_r4",
+ "system": "A3_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 11(2)",
+    "Sec. 7",
+    "Sec. 12(2)"
+   ],
+   "evidence": "We do not control our affiliates' or third parties' use of your information after we share it, but we use reasonable efforts to obtain our affiliates' and third parties' agreement to protect the confidentiality, security, and integrity of any personal information we share with them or that we permit them to collect directly.",
+   "rationale": "The policy explicitly states the transfer of personal data to SCEA for specific purposes, indicating a lack of disclosure for the sharing of personal identifiers.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9346546622138271,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9346546622138271,
+ "usage": {
+  "prompt": 1239,
+  "output": 204
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 37,
+  "untagged_paragraphs": 0,
+  "claims": 45,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Personal identifier",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Personal identifier with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     28,
+     25,
+     31
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 11(2)",
+       "Sec. 7",
+       "Sec. 12(2)"
+      ],
+      "evidence": "We do not control our affiliates' or third parties' use of your information after we share it, but we use reasonable efforts to obtain our affiliates' and third parties' agreement to protect the confidentiality, security, and integrity of any personal information we share with them or that we permit them to collect directly.",
+      "rationale": "The policy explicitly states the transfer of personal data to SCEA for specific purposes, indicating a lack of disclosure for the sharing of personal identifiers.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Data from Sony Online Services accounts is transferred from SNEA to SCEA for community administration and, depending on your child's age, marketing purposes.",
+       "denial_quote": "",
+       "generic_quote": "We do not control our affiliates' or third parties' use of your information after we share it, but we use reasonable efforts to obtain our affiliates' and third parties' agreement to protect the confidentiality, security, and integrity of any personal information we share with them or that we permit them to collect directly.",
+       "sections": [
+        "Sec. 11(2)",
+        "Sec. 7",
+        "Sec. 12(2)"
+       ],
+       "rationale": "The policy explicitly states the transfer of personal data to SCEA for specific purposes, indicating a lack of disclosure for the sharing of personal identifiers."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9346546622138271
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 0.06
+ }
+}

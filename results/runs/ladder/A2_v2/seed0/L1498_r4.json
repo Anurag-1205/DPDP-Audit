@@ -1,0 +1,103 @@
+{
+ "case_id": "L1498_r4",
+ "system": "A2_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We collect information from and about you.",
+   "rationale": "The policy explicitly denies collecting computer information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'We collect information from and about you' does not specify the type of information collected. The cited DPDP text Sec. 5(1) and Rule 3 require a detailed notice regarding the personal data and purposes for processing, but the policy evidence does not provide this detail. Additi"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.955951422817986,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.955951422817986,
+ "usage": {
+  "prompt": 1192,
+  "output": 225
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 30,
+  "untagged_paragraphs": 0,
+  "claims": 26,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect information from and about you.",
+      "rationale": "The policy explicitly denies collecting computer information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect computer information such as device and browser information including browser type, operating system, device type or model, screen resolution, hardware, internet service provider.",
+       "generic_quote": "We collect information from and about you.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly denies collecting computer information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.955951422817986
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 21.2
+ }
+}

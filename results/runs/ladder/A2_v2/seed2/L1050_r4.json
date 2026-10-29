@@ -1,0 +1,103 @@
+{
+ "case_id": "L1050_r4",
+ "system": "A2_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Your provision of this information in connection with seeking employment at American Honda is voluntary and you determine the extent of the information you provide. Your decision not to provide such information may affect our ability to consider you for employment.",
+   "rationale": "The policy explicitly states that the information is not shared with third parties, thus indicating no sharing with Mixpanel.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9693612947454117,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9693612947454117,
+ "usage": {
+  "prompt": 999,
+  "output": 184
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 70,
+  "untagged_paragraphs": 0,
+  "claims": 110,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     65,
+     12,
+     54
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Your provision of this information in connection with seeking employment at American Honda is voluntary and you determine the extent of the information you provide. Your decision not to provide such information may affect our ability to consider you for employment.",
+      "rationale": "The policy explicitly states that the information is not shared with third parties, thus indicating no sharing with Mixpanel.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "This information is collected and maintained through Oracle's Taleo service and is not shared except between the Taleo service and American Honda (and its affiliated companies), or between American Honda and its affiliated companies, as necessary for employment decisions.",
+       "generic_quote": "Your provision of this information in connection with seeking employment at American Honda is voluntary and you determine the extent of the information you provide. Your decision not to provide such information may affect our ability to consider you for employment.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the information is not shared with third parties, thus indicating no sharing with Mixpanel."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9693612947454117
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 0.03
+ }
+}
