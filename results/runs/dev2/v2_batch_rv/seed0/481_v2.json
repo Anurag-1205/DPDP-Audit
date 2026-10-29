@@ -1,0 +1,467 @@
+{
+ "case_id": "481_v2",
+ "system": "v2_batch_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "identifying information",
+   "rationale": "The policy explicitly mentions gathering identifying information, which aligns with the Contact data type.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions gathering identifying information, which aligns with the Contact data type. The cited DPDP text requires the notice to inform the Data Principal about the personal data and the purpose for which it is proposed to be processed, which is consistent with the finding."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 8"
+   ],
+   "evidence": "The News-Post employs 'cookies' in circumstances that require session data or require user verification.",
+   "rationale": "The policy does not specify any particular purpose for cookies and only mentions their usage for session data or user verification.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence only mentions the usage of cookies for session data or user verification, not for analytics/research. The cited DPDP text pertains to the notice and consent requirements, which do not address the purpose mismatch for cookies. Therefore, the evidence does not justify the finding."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you take advantage of these site features, you are agreeing to share personal information with other users.",
+   "rationale": "The policy explicitly denies collecting information about children, but it does not specify not collecting user profiles for advertising.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions sharing personal information with other users, but it does not explicitly deny collecting user profiles for advertising. The cited DPDP text pertains to notice and consent requirements, which do not address the specific issue of undisclosed collection of user profiles fo"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The News-Post gathers identifying information about you only when you provide that information on a voluntary basis for such purposes as member or subscriber registration, reader comments and blogs, contests, news alerts, purchasing products and using social networking tools.",
+   "rationale": "The policy explicitly states that the News-Post does not collect information about children, which aligns with the purpose of collecting demographic data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting identifying information only when provided voluntarily for specific purposes, but it does not explicitly state that the News-Post does not collect demographic data. The cited DPDP text pertains to notice and consent requirements, which do not address the speci"
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "Demographic",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a time limit for erasing demographic data after the purpose is served.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9462082714153774,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9599688605691034,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.8972693158540475,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9652249123360577,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9407148769362114,
+ "usage": {
+  "prompt": 11580,
+  "output": 1531
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 19,
+  "untagged_paragraphs": 0,
+  "claims": 38,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     5,
+     6,
+     11,
+     18,
+     2,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     5,
+     6,
+     11,
+     18,
+     13,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['additional service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     3,
+     2,
+     14,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "User profile is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     5,
+     6,
+     11,
+     18,
+     15,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Demographic is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     5,
+     6,
+     11,
+     18,
+     15,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Demographic indefinitely; retention statements: ['Indefinitely', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     5,
+     8,
+     17,
+     18
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "identifying information",
+      "rationale": "The policy explicitly mentions gathering identifying information, which aligns with the Contact data type.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "The News-Post gathers identifying information about you only when you provide that information on a voluntary basis for such purposes as member or subscriber registration, reader comments and blogs, contests, news alerts, purchasing products and using social networking tools.",
+       "denial_quote": "",
+       "generic_quote": "identifying information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions gathering identifying information, which aligns with the Contact data type."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9462082714153774
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The News-Post performs statistical analyses of its server logs to study the use and popularity of various areas of our site. We also look at IP addresses to analyze where we are getting our audience.",
+      "rationale": "The policy explicitly mentions using IP addresses for analytics, which aligns with the purpose of 'Analytics/Research'.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We use third-party advertising companies to serve ads when you visit websites operated by The News-Post. These companies may use information (not including your name, address, email address or telephone number) about your visits to this and other Web sites in order to provide advertisements about goods and services of interest to you.",
+       "denial_quote": "",
+       "generic_quote": "The News-Post performs statistical analyses of its server logs to study the use and popularity of various areas of our site. We also look at IP addresses to analyze where we are getting our audience.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions using IP addresses for analytics, which aligns with the purpose of 'Analytics/Research'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9599688605691034
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you take advantage of these site features, you are agreeing to share personal information with other users.",
+      "rationale": "The policy explicitly denies collecting information about children, but it does not specify not collecting user profiles for advertising.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "We do not specifically collect information about children.",
+       "generic_quote": "When you take advantage of these site features, you are agreeing to share personal information with other users.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly denies collecting information about children, but it does not specify not collecting user profiles for advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.8972693158540475
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The News-Post gathers identifying information about you only when you provide that information on a voluntary basis for such purposes as member or subscriber registration, reader comments and blogs, contests, news alerts, purchasing products and using social networking tools.",
+      "rationale": "The policy explicitly states that the News-Post does not collect information about children, which aligns with the purpose of collecting demographic data.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "We do not specifically collect information about children.",
+       "generic_quote": "The News-Post gathers identifying information about you only when you provide that information on a voluntary basis for such purposes as member or subscriber registration, reader comments and blogs, contests, news alerts, purchasing products and using social networking tools.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the News-Post does not collect information about children, which aligns with the purpose of collecting demographic data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9652249123360577
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "The News-Post employs 'cookies' in circumstances that require session data or require user verification.",
+      "rationale": "The policy does not specify any particular purpose for cookies and only mentions their usage for session data or user verification.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "The News-Post employs 'cookies' in circumstances that require session data or require user verification.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify any particular purpose for cookies and only mentions their usage for session data or user verification."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9251228205460797
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a time limit for erasing demographic data after the purpose is served.",
+      "raw": {
+       "candidate_id": "c6",
+       "data_type": "Demographic",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a time limit for erasing demographic data after the purpose is served."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9504950808966025
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 7,
+  "seconds": 120.18,
+  "reverified_from": "v2_batch",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

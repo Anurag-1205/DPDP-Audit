@@ -1,0 +1,149 @@
+{
+ "case_id": "883_v1",
+ "system": "A5_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9642779442739405,
+ "usage": {
+  "prompt": 1376,
+  "output": 316
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 25,
+  "untagged_paragraphs": 0,
+  "claims": 73,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps Computer information indefinitely; retention statements: none",
+    "paragraphs": [
+     11,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f5",
+    "data_type": "Social media data",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps Social media data indefinitely; retention statements: none",
+    "paragraphs": [
+     8,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "This information may be used to offer you optimized TED.com experiences based on your device or location.",
+      "rationale": "The policy states that the information will be used to offer optimized experiences, implying indefinite retention.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "retention_mismatch",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "This information may be used to offer you optimized TED.com experiences based on your device or location.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that the information will be used to offer optimized experiences, implying indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "When you share or recommend any TED.com content using your Facebook profile, your action is governed by Facebook's privacy policy. Likewise, when you share or recommend any TED.com content through other social media outlets, your actions are governed by their privacy policies.",
+      "rationale": "The policy mentions that actions are governed by the respective social media privacy policies, which typically do not specify a limited retention period, implying indefinite retention.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "retention_mismatch",
+       "data_type": "Social media data",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "When you share or recommend any TED.com content using your Facebook profile, your action is governed by Facebook's privacy policy. Likewise, when you share or recommend any TED.com content through other social media outlets, your actions are governed by their privacy policies.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy mentions that actions are governed by the respective social media privacy policies, which typically do not specify a limited retention period, implying indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9642779442739405
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 41.37,
+  "reverified_from": "A5",
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

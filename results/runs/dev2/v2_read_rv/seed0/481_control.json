@@ -1,0 +1,237 @@
+{
+ "case_id": "481_control",
+ "system": "v2_read_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The News-Post gathers identifying information about you only when you provide that information on a voluntary basis for such purposes as member or subscriber registration, reader comments and blogs, contests, news alerts, purchasing products and using social networking tools.",
+   "rationale": "The policy explicitly states that identifying information is collected, which covers contact details.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that identifying information is gathered for various purposes including member or subscriber registration, reader comments and blogs, contests, news alerts, purchasing products, and using social networking tools. This covers contact details, and the cited DPDP text require"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 8"
+   ],
+   "evidence": "The News-Post employs 'cookies' in circumstances that require session data or require user verification.",
+   "rationale": "The policy does not specify any particular purpose for cookies and only mentions their usage for session data or user verification.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence only mentions the use of cookies for session data or user verification, but does not specify any analytics or research purposes. The cited DPDP text requires a clear and specific purpose for consent, and since the policy does not specify the purpose for cookies beyond session dat"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9637089552507593,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9637089552507593,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9444158878984195,
+ "usage": {
+  "prompt": 5068,
+  "output": 814
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 19,
+  "untagged_paragraphs": 0,
+  "claims": 38,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     5,
+     6,
+     11,
+     18,
+     2,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     5,
+     6,
+     11,
+     18,
+     13,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['additional service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     3,
+     2,
+     14,
+     13
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The News-Post gathers identifying information about you only when you provide that information on a voluntary basis for such purposes as member or subscriber registration, reader comments and blogs, contests, news alerts, purchasing products and using social networking tools.",
+      "rationale": "The policy explicitly states that identifying information is collected, which covers contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "The News-Post gathers identifying information about you only when you provide that information on a voluntary basis for such purposes as member or subscriber registration, reader comments and blogs, contests, news alerts, purchasing products and using social networking tools.",
+       "denial_quote": "",
+       "generic_quote": "The News-Post gathers identifying information about you only when you provide that information on a voluntary basis for such purposes as member or subscriber registration, reader comments and blogs, contests, news alerts, purchasing products and using social networking tools.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that identifying information is collected, which covers contact details."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We also look at IP addresses to analyze where we are getting our audience.",
+      "rationale": "The policy mentions the use of IP addresses for analytics, which covers IP address and device IDs.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We also look at IP addresses to analyze where we are getting our audience.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions the use of IP addresses for analytics, which covers IP address and device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9637089552507593
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "The News-Post employs 'cookies' in circumstances that require session data or require user verification.",
+      "rationale": "The policy does not specify any particular purpose for cookies and only mentions their usage for session data or user verification.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "The News-Post employs 'cookies' in circumstances that require session data or require user verification.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify any particular purpose for cookies and only mentions their usage for session data or user verification."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9251228205460797
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 43.51,
+  "reverified_from": "v2_read",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

@@ -1,0 +1,450 @@
+{
+ "case_id": "928_v2",
+ "system": "full_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We do not rent, sell or share personal information about you with other people or nonaffiliated companies except under any of the following circumstances:",
+   "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, and the denial quote suggests no such data is collected.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence does not explicitly mention collecting IP addresses or device IDs, and the cited DPDP text requires disclosure of personal data and purposes for processing. Since the policy does not mention these data types, it supports the finding of an undisclosed collection."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "If you provide us with your postal or e-mail address or telephone number, this information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+   "rationale": "The policy mentions collecting various types of personal data but does not specifically disclose the collection of computer information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence discusses the use of postal or email addresses and telephone numbers, but does not specifically mention collecting computer information. The cited DPDP text pertains to the notice requirements for personal data and does not address the issue of undisclosed collection of computer "
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Sometimes a third-party contractor will use cookies on one of the sites they create and manage for us -- for example, our Job Opportunities site.",
+   "rationale": "The policy mentions third-party contractors using cookies but does not specify sharing with Google Analytics.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f6",
+   "data_type": "User online activities",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "We retain the services of outside contractors to provide services, including mailing list administration and our Job Opportunities pages. We require that these contractors keep information obtained through our web site secure and confidential. We also require that these contractors use personal information obtained through our web site only on behalf of the Federal Reserve.",
+   "rationale": "The policy states that contractors retain information 'only on behalf of the Federal Reserve,' which suggests indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9546874357251236,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9521826889174543,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9634928705617716,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9616730718831816,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "clear",
+   "confidence": 0.9781687811271282,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9593299794024435,
+ "usage": {
+  "prompt": 9849,
+  "output": 1258
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 54,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     6,
+     15,
+     18,
+     19,
+     21,
+     25,
+     30
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     6,
+     15,
+     18,
+     19,
+     21,
+     25,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     6,
+     15,
+     18,
+     19,
+     21,
+     25,
+     7,
+     8
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     11,
+     13,
+     19,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f6",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "User online activities is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     6,
+     15,
+     18,
+     19,
+     21,
+     25,
+     8,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f6",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps User online activities indefinitely; retention statements: ['Indefinitely', 'Limited', 'Unspecified']",
+    "paragraphs": [
+     3,
+     4,
+     6,
+     15,
+     16,
+     18,
+     20,
+     21,
+     22,
+     25,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you provide us with your postal or e-mail address or telephone number, this information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+      "rationale": "The policy explicitly states that personal data such as postal or email addresses are collected and used for specific purposes, thus fulfilling the requirement of disclosing the data type and purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "If you provide us with your postal or e-mail address or telephone number, this information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+       "denial_quote": "",
+       "generic_quote": "When you fill out our online forms, they are returned to us via electronic mail. Your responses are not encrypted. We cannot guarantee the security of information sent via electronic mail.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal data such as postal or email addresses are collected and used for specific purposes, thus fulfilling the requirement of disclosing the data type and purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9546874357251236
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do not rent, sell or share personal information about you with other people or nonaffiliated companies except under any of the following circumstances:",
+      "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, and the denial quote suggests no such data is collected.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "When you fill out our online forms, they are returned to us via electronic mail. Your responses are not encrypted. We cannot guarantee the security of information sent via electronic mail.",
+       "generic_quote": "We do not rent, sell or share personal information about you with other people or nonaffiliated companies except under any of the following circumstances:",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, and the denial quote suggests no such data is collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9521826889174543
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you provide us with your postal or e-mail address or telephone number, this information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+      "rationale": "The policy mentions collecting various types of personal data but does not specifically disclose the collection of computer information.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "When you fill out our online forms, they are returned to us via electronic mail. Your responses are not encrypted. We cannot guarantee the security of information sent via electronic mail.",
+       "generic_quote": "If you provide us with your postal or e-mail address or telephone number, this information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting various types of personal data but does not specifically disclose the collection of computer information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9634928705617716
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Sometimes a third-party contractor will use cookies on one of the sites they create and manage for us -- for example, our Job Opportunities site.",
+      "rationale": "The policy mentions third-party contractors using cookies but does not specify sharing with Google Analytics.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Sometimes a third-party contractor will use cookies on one of the sites they create and manage for us -- for example, our Job Opportunities site.",
+       "denial_quote": "",
+       "generic_quote": "Some aggregate web site analysis is performed for us by Google Analytics (http://www.google.com/analytics/) and may involve the use of cookies set by Google.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions third-party contractors using cookies but does not specify sharing with Google Analytics."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9616730718831816
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We perform analyses on our web server's log files to identify, among other things: Our site's most popular pages; The browsers and operating systems most often used by our visitors; The sites and search engines that have referred visitors to our site; and The domains from which our users visit us.",
+      "rationale": "The policy explicitly discloses collecting user online activities for analytics/research purposes.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We perform analyses on our web server's log files to identify, among other things: Our site's most popular pages; The browsers and operating systems most often used by our visitors; The sites and search engines that have referred visitors to our site; and The domains from which our users visit us.",
+       "denial_quote": "",
+       "generic_quote": "Any information collected on this web site, whether individual or aggregate, is for Federal Reserve use only.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly discloses collecting user online activities for analytics/research purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9781687811271282
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "We retain the services of outside contractors to provide services, including mailing list administration and our Job Opportunities pages. We require that these contractors keep information obtained through our web site secure and confidential. We also require that these contractors use personal information obtained through our web site only on behalf of the Federal Reserve.",
+      "rationale": "The policy states that contractors retain information 'only on behalf of the Federal Reserve,' which suggests indefinite retention.",
+      "raw": {
+       "candidate_id": "c6",
+       "data_type": "User online activities",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "We retain the services of outside contractors to provide services, including mailing list administration and our Job Opportunities pages. We require that these contractors keep information obtained through our web site secure and confidential. We also require that these contractors use personal information obtained through our web site only on behalf of the Federal Reserve.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that contractors retain information 'only on behalf of the Federal Reserve,' which suggests indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9457750282000015
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 7,
+  "seconds": 122.11
+ }
+}

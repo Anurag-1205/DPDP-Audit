@@ -22,6 +22,7 @@ laptop; GPU steps run on Kaggle. Set up the environment first ([developer-guide.
 | Tool export | `python scripts/export_policheck.py --split main` | `data/benchmark/main/export/policheck/` |
 | Vagueness ladder | `python scripts/build_ladder.py && python scripts/export_policheck.py --split ladder` | `data/benchmark/ladder/` |
 | Dev split (training policies) | `python scripts/generate_cases.py --split dev --policy-set train --n-policies 12` | `data/benchmark/dev/` |
+| Second dev split (v2) | `python scripts/generate_cases.py --split dev2 --policy-set train --n-policies 24 --exclude-splits dev` | `data/benchmark/dev2/` |
 
 `generate_cases.py` deletes the split folder first, so run the export again afterwards.
 
@@ -82,18 +83,29 @@ tar xzf outputs/kaggle/<job>/results.tar.gz -C .                         # pipel
 python scripts/convert_tool_runs.py --split ladder --tools S1 S2           # after copying the tool CSVs
 ```
 
+### Re-verifying saved runs (fixed verifier reader)
+
+`*_rv` runs re-run only the verifier on saved pipeline runs (needs the 7B model, e.g. the `reverify`
+phase of `kaggle/pipeline/run.py`):
+
+```bash
+python scripts/reverify.py --split main --systems full full_finetuned full_v2 full_v2_finetuned --seeds 0 1 2
+python scripts/reverify.py --split main --systems A2 A3 A5 A2_v2 A3_v2 A5_v2 --seeds 0
+```
+
 ## 5. Scores
 
 ```bash
-python scripts/score_runs.py --systems B1 B2 S1 S2 full
-python scripts/score_ladder.py --systems S1 S2
-python scripts/eval_tagger.py --gold results/tagger/heldout.jsonl \
-    --pred B3=results/tagger/B3_pred.jsonl S3=results/tagger/S3_pred.jsonl --claims prompted finetuned
+bash scripts/score_all.sh     # every file in results/scores/, from the committed runs; no GPU, ~2 min
 ```
 
-This writes `results/scores/main.json` and prints the table in
-[stage-1-report.md](stage-1-report.md). With 1,000 bootstrap re-samples it
-takes about a minute.
+The script lists the exact commands: `score_runs.py` on main (27 systems, 59 paired comparisons) and on
+`dev` / `dev2`, `score_dev_pooled.py` (the v2 choice, [pipeline.md](pipeline.md#v2)), `score_ladder.py`
+(accepted rungs only), `score_ablations.py` (v2 ablations per seed), `eval_tagger.py --s4` (taggers and S4;
+needs the OPP-115 download), `spot_check.py score` and `export_confidence.py` (per-flow confidence).
+`python scripts/interval_tables.py` prints the report's interval tables (Appendix A). Run
+on a fresh clone it rewrites `results/scores/` byte for byte (checked 29 Oct), so `git status` stays
+clean. Bootstrap intervals use 1,000 re-samples with seed 0.
 
 ## 6. Tests
 

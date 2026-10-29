@@ -87,7 +87,7 @@ level, no candidate on a control). A5 is therefore an upper bound on what the re
 independent measurement; the A4–A5 gap is the cost of reading errors.
 
 **Development split.** Prompts were developed on `data/benchmark/dev/` (33 cases, 11 controls, from
-12 *training* policies; `scripts/generate_cases.py --split dev --policy-set train --n-policies 12`),
+11 *training* policies (12 sampled, one without a control flow); `scripts/generate_cases.py --split dev --policy-set train --n-policies 12`),
 never on the evaluation cases. Four iterations, seed 0, prompted tagger (runs kept under
 `results/runs/dev/full_dev1…3` and `full`):
 
@@ -112,6 +112,57 @@ on dev (0 of 8).
 | Purpose | a verified quote giving the app's purpose for the data type | — | the data type appears only without a purpose (verified quote) | otherwise |
 | Retention | the policy keeps data indefinitely | a stated period or limit | retention mentioned without a period | nothing about retention |
 | Children | — (always a gap for a child-directed app sending data to an ad/tracking SDK) | a verified children statement | — | no children statement |
+
+## v2
+
+The first evaluation runs showed problems (the verifier's LLM check rejects correct findings, purpose
+gaps are rarely found). Looking at main-benchmark errors would be tuning on evaluation cases, so v2
+was developed on training policies only, and every change is a switch of `pipeline/config.py`: the
+frozen `full` and `full_finetuned` runs are unchanged and stay in every table.
+
+**Dev splits.** `dev` (33 cases) plus a new `dev2` (69 cases from 23 more training policies;
+`scripts/generate_cases.py --split dev2 --policy-set train --n-policies 24 --exclude-splits dev`), 102
+cases from 34 policies with 118 gold gaps, about the size of main. No policy is shared with dev, main
+or the ladder. The fine-tuned tagger was trained on all training policies, so the dev splits are only
+fair to the prompted tagger; every choice below was made with it.
+
+**What the dev analysis found.**
+- The LLM check rejected every correct children's-data and retention finding on dev; it is right to
+  reject most collection and purpose findings.
+- 7 of the 8 dev purpose gaps were never checked: the tagger missed the collection claim, so the
+  finder proposed a collection gap instead of checking the purpose.
+- A purpose quote such as "this information is used to ..." was rejected because the sentence itself
+  does not name the data type.
+- 17 of 47 false collection findings had the disclosing paragraph cut by the 8-paragraph limit; in
+  most of the others the paragraph was shown but the reviewer, answering several candidates at once,
+  quoted nothing.
+- The retention reviewer echoes the app's own "Indefinitely" and, with more paragraphs, quotes an
+  unrelated sentence, which the frozen rule reads as "the policy keeps data indefinitely, no gap".
+
+**Variants** (seed 0, prompted tagger; runs under `results/runs/dev*/v2_*`):
+
+| Config | Change | F1 | False-alarm rate | Label macro-F1 |
+|---|---|---|---|---|
+| full (frozen) | — | 0.322 | 0.41 | 0.308 |
+| v2_gate | LLM check only on collection and purpose findings; a purpose quote counts if its paragraph names the data type | 0.527 | 0.41 | 0.308 |
+| v2_read | + up to 16 paragraphs per reviewer; purpose searches with the purpose's everyday words (4 hits) | 0.524 | 0.35 | 0.318 |
+| v2_purpose | + a purpose candidate for every flow whose notice is in doubt | 0.458 | 0.59 | 0.379 |
+| v2_batch | v2_read + one candidate per reviewer call | 0.548 | 0.29 | 0.382 |
+| **full_v2** | v2_batch + a retention quote must be about keeping data, and "indefinitely" must be in it | **0.623** | **0.29** | **0.382** |
+
+full_v2's row re-derives v2_batch's saved replies with the retention rule (the rule is deterministic;
+re-deriving with the rule off reproduces v2_batch exactly). Paired policy-level bootstrap on the
+pooled dev splits (`python scripts/score_dev_pooled.py` → `results/scores/dev_pooled.json`):
+full_v2 − full: F1 **+0.301 [+0.226, +0.391]**, false-alarm rate −0.118 [−0.295, +0.059], label
+macro-F1 **+0.074 [+0.001, +0.146]**. v2_purpose was rejected: F1 **−0.066 [−0.111, −0.022]** vs v2_read,
+with more false alarms (+0.235 [+0.000, +0.441], borderline).
+
+**Frozen 27 Oct** as `full_v2` (prompted tagger) and `full_v2_finetuned`, before any v2 run on main or
+the ladder. The dev numbers above were measured with the frozen verifier reader (see
+[Evidence verifier](#evidence-verifier)); re-verified with the robust reader the ranking is the same
+(pooled dev F1: `full` 0.19, `v2_purpose` 0.53, `v2_read` 0.58, `v2_gate` 0.59, `v2_batch` 0.60,
+`full_v2` 0.68). The tool-calling problem (no reviewer calls a tool) is not addressed: the finder already
+runs `search_policy` for every candidate, and showing more paragraphs covers what the calls would add.
 
 ## Reviewer agent loop
 
@@ -155,6 +206,16 @@ flowchart TD
 
 Section names are normalised before the check. For example, "Section 8(7)" becomes `Sec. 8(7)`, and
 "Article 6 GDPR" is rejected.
+
+**Reply bug (found 28 Oct) and the robust reader.** The LLM check asks for all of a case's checked
+findings in one reply. The 7B model often writes one `{"checks": [...]}` object per finding; the frozen
+reader parsed from the first `{` to the last `}`, failed, and kept every finding unchecked. This hit
+38% of `full` runs and 15–20% of v2 runs on main. `parse_checks` (used by every `*_rv` configuration)
+parses normally, then removes invalid escapes, then recovers every complete `finding_id`/`supported`
+pair; it stores the raw reply whenever normal parsing fails and counts findings left without a verdict
+(`verifier_parse`, `verifier_raw`, `verifier_unchecked` in the trace). `scripts/reverify.py` re-runs only
+the verifier on saved runs, so `X_rv` differs from `X` only in the verifier. After the fix: 0 unreadable
+replies in 2,346 runs, 14 findings without a verdict.
 
 ## Confidence per flow
 

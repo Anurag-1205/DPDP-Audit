@@ -1,0 +1,165 @@
+{
+ "case_id": "1106_control",
+ "system": "A1_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions IP addresses being gathered for various purposes, but does not specify advertising as a purpose for IP addresses.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9549820359280806,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9451123145734857,
+ "usage": {
+  "prompt": 3053,
+  "output": 373
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 47,
+  "untagged_paragraphs": 0,
+  "claims": 62,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['analytics/research', 'unspecified'], the app uses it for Advertising",
+    "paragraphs": [
+     7,
+     15,
+     19,
+     20,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with firebase_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     12,
+     13,
+     19,
+     32,
+     16,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We or our third party marketing partners (such as Google Analytics and Adobe Analytics) use cookies, analytics, remarketing and other technology to help us provide users with a better service and a more customized web experience.",
+      "rationale": "The policy explicitly mentions sharing personal data with third-party marketing partners, including Google Analytics.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We or our third party marketing partners (such as Google Analytics and Adobe Analytics) use cookies, analytics, remarketing and other technology to help us provide users with a better service and a more customized web experience.",
+       "denial_quote": "",
+       "generic_quote": "We use and share your personal information as required or permitted by law. For example, we may do this to: Fulfill a transaction you requested or service your policy Market our products Handle your claim Prevent fraud Comply with requests from regulatory and law enforcement authorities Participate in insurance support organizations Send you push notifications",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions sharing personal data with third-party marketing partners, including Google Analytics."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9549820359280806
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions IP addresses being gathered for various purposes, but does not specify advertising as a purpose for IP addresses.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "As true of most sites, we gather certain information automatically and store it in log files. This information may include internet protocol (IP) addresses, browser type, internet service provider (ISP), referring/exit pages, operating system, date/time stamp, and/or clickstream data.",
+       "unspecified_purpose_quote": "We use your location information to search for information you request - including agent searches identify the location of an accident you are reporting",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy mentions IP addresses being gathered for various purposes, but does not specify advertising as a purpose for IP addresses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9352425932188907
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 19.74
+ }
+}

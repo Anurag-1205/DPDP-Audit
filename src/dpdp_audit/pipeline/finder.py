@@ -11,7 +11,7 @@ from dataclasses import dataclass, field
 from ..opp115 import GENERIC_TYPES
 from ..tools import lookup_sdk, search_policy
 from .claims import AUDIENCES, FIRST_PARTY, RETENTION, THIRD_PARTY_SHARING
-from .vocab import data_words
+from .vocab import PURPOSES, data_words
 
 GENERIC_PURPOSES = {"unspecified", "other", ""}
 LIMITED_RETENTION = {"Stated Period", "Limited"}
@@ -58,14 +58,30 @@ def _query(flow: dict, practice: str) -> str:
     return f"share {flow['data_type']} {words} with third parties {who} {practice} {flow.get('purpose', '')}"
 
 
-def find_candidates(paras: list[Paragraph], facts: dict, policy_text: str) -> list[dict]:
-    """Every (flow, gap type) check the claims do not settle as compliant."""
+def _purpose_query(flow: dict) -> str:
+    """v2: a purpose search in the words policies use ("statistics, research" for Analytics)."""
+    purpose = flow.get("purpose", "")
+    return f"we use {data_words(flow['data_type'])} information for {purpose} {PURPOSES.get(purpose, '')}"
+
+
+def find_candidates(paras: list[Paragraph], facts: dict, policy_text: str, purpose_search: bool = False,
+                    purpose_always: bool = False) -> list[dict]:
+    """Every (flow, gap type) check the claims do not settle as compliant.
+
+    purpose_search (v2): purpose candidates search with the purpose's everyday words, 4 hits.
+    purpose_always (v2): a flow whose notice is in doubt also gets a purpose candidate, so its
+    purpose is checked when the reviewer finds the notice clear (the aggregator drops the purpose
+    finding when the notice gap stands).
+    """
     out = []
     child = facts["permissions"]["child_directed"]
 
     def add(flow, gap_type, level, reason, hits, query):
         linked = sorted({i for i, _ in hits})
-        searched = [r["paragraph"] for r in search_policy(policy_text, query, k=2)]
+        k = 2
+        if gap_type == "purpose_mismatch" and purpose_search:
+            query, k = _purpose_query(flow), 4
+        searched = [r["paragraph"] for r in search_policy(policy_text, query, k=k)]
         out.append({
             "candidate_id": f"c{len(out) + 1}",
             "flow_id": flow["flow_id"], "data_type": flow["data_type"], "recipient": flow["recipient"],
@@ -94,6 +110,10 @@ def find_candidates(paras: list[Paragraph], facts: dict, policy_text: str) -> li
                 else:
                     add(flow, "undisclosed_collection", "omission", f"no collection statement mentions {d}",
                         [], q)
+                if purpose_always:
+                    add(flow, "purpose_mismatch", "omission",
+                        f"{d} may be collected; the app uses it for {flow.get('purpose')}", coll_not + generic,
+                        _query(flow, "purpose use"))
             else:
                 stated = {_low(c["purpose"]) for _, c in coll}
                 if purpose not in stated:
@@ -129,6 +149,10 @@ def find_candidates(paras: list[Paragraph], facts: dict, policy_text: str) -> li
                         "or generic data", share + generic, q)
                 else:
                     add(flow, "undisclosed_sharing", "omission", f"no sharing statement mentions {d}", [], q)
+                if purpose_always:
+                    add(flow, "purpose_mismatch", "omission",
+                        f"{d} may be shared with {rec}; the app uses it for {flow.get('purpose')}",
+                        share + generic, _query(flow, "purpose"))
             else:
                 stated = {_low(c["purpose"]) for _, c in named}
                 if purpose not in stated:

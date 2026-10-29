@@ -1,0 +1,111 @@
+{
+ "case_id": "L1050_r3",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not disclose any sharing of location data and explicitly states that email addresses of friends or family are not stored.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the policy does not mention sharing location data, which does not directly address the issue of undisclosed sharing. Additionally, the cited DPDP text pertains to the obligation to provide notice to data principals regarding their personal data and purposes of process"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9351922085107038,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9351922085107038,
+ "usage": {
+  "prompt": 2388,
+  "output": 213
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 70,
+  "untagged_paragraphs": 0,
+  "claims": 161,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     30,
+     34,
+     38,
+     50,
+     62,
+     64,
+     65,
+     12,
+     54
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not disclose any sharing of location data and explicitly states that email addresses of friends or family are not stored.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Once registered, you may email your configurations to friends or family. If you choose to do so, we will not store your friends or family's email addresses.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose any sharing of location data and explicitly states that email addresses of friends or family are not stored."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9351922085107038
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 31.9
+ }
+}

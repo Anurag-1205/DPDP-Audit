@@ -1,0 +1,104 @@
+{
+ "case_id": "L1261_r2",
+ "system": "full_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Additionally, Zacks Investment Research is selective about which companies we permit to send you an offer. Zacks will use names for Market Research Our goal is for the e-mails to be of value to you.",
+   "rationale": "The policy does not explicitly state sharing with Mixpanel, but mentions sharing with 'companies' and 'third parties'.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions sharing with 'companies' and 'third parties', but does not explicitly state sharing with Mixpanel. However, the evidence also includes a statement about Zacks Investment Research using names for market research and sending emails for value to the user. This suggests that"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.928156485458811,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.928156485458811,
+ "usage": {
+  "prompt": 1781,
+  "output": 285
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 12,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Contact with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     3,
+     1,
+     10
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Additionally, Zacks Investment Research is selective about which companies we permit to send you an offer. Zacks will use names for Market Research Our goal is for the e-mails to be of value to you.",
+      "rationale": "The policy does not explicitly state sharing with Mixpanel, but mentions sharing with 'companies' and 'third parties'.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "With your approval, we use the information you provide us in the following ways:",
+       "generic_quote": "Additionally, Zacks Investment Research is selective about which companies we permit to send you an offer. Zacks will use names for Market Research Our goal is for the e-mails to be of value to you.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state sharing with Mixpanel, but mentions sharing with 'companies' and 'third parties'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.928156485458811
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 36.41
+ }
+}

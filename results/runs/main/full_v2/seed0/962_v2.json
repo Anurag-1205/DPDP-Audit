@@ -1,0 +1,408 @@
+{
+ "case_id": "962_v2",
+ "system": "full_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "This Privacy Policy describes the types of information we may collect from you or that you may provide to us.",
+   "rationale": "The policy mentions collecting non-personally identifiable information but does not explicitly state collecting personally identifiable information like contact details.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting non-personally identifiable information but does not explicitly state collecting personally identifiable information like contact details. This does not justify an undisclosed collection finding because the evidence does not confirm the collection of contact d"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "We collect several types of information about visitors and/or users of our Services.",
+   "rationale": "The policy explicitly states that they do not collect personally identifiable information, which includes location data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy explicitly states that they do not collect personally identifiable information, which includes location data. This directly contradicts the finding of undisclosed collection, making it unsupported."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Survey data",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 9(3)",
+    "Sec. 11(2)",
+    "Sec. 12(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may provide Non-Personally Identifiable Information about our customers sales, traffic patterns, and related Website information to third party advertisers.",
+   "rationale": "The policy explicitly states that no personal data is disclosed to third parties, contradicting the sharing of survey data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9236993298427764,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9533117206246946,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9543921178144225,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9521070206838445,
+ "usage": {
+  "prompt": 10004,
+  "output": 1068
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 74,
+  "untagged_paragraphs": 0,
+  "claims": 156,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     8,
+     9,
+     10,
+     11,
+     15,
+     17,
+     19,
+     20,
+     24,
+     41,
+     44,
+     73,
+     65
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     13,
+     61,
+     29,
+     43
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     8,
+     9,
+     10,
+     11,
+     15,
+     17,
+     19,
+     20,
+     24,
+     41,
+     44,
+     13,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Survey data",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Survey data with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     15,
+     17,
+     26,
+     29,
+     32,
+     34,
+     64,
+     28,
+     33
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     13,
+     61,
+     16,
+     64
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "This Privacy Policy describes the types of information we may collect from you or that you may provide to us.",
+      "rationale": "The policy mentions collecting non-personally identifiable information but does not explicitly state collecting personally identifiable information like contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "disclosing_quote": "We may collect, or our third party ad server and/or content server may collect, certain Non-Personally Identifiable Information, that does not by itself identify a specific individual.",
+       "denial_quote": "We do not collect personally identifiable information from children.",
+       "generic_quote": "This Privacy Policy describes the types of information we may collect from you or that you may provide to us.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting non-personally identifiable information but does not explicitly state collecting personally identifiable information like contact details."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9236993298427764
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "We collect several types of information about visitors and/or users of our Services.",
+      "rationale": "The policy explicitly states that they do not collect personally identifiable information, which includes location data.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "disclosing_quote": "",
+       "denial_quote": "We may collect, or our third party ad server and/or content server may collect, certain Non-Personally Identifiable Information, that does not by itself identify a specific individual.",
+       "generic_quote": "We collect several types of information about visitors and/or users of our Services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy explicitly states that they do not collect personally identifiable information, which includes location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9533117206246946
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 9(3)",
+       "Sec. 11(2)",
+       "Sec. 12(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may provide Non-Personally Identifiable Information about our customers sales, traffic patterns, and related Website information to third party advertisers.",
+      "rationale": "The policy explicitly states that no personal data is disclosed to third parties, contradicting the sharing of survey data.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Survey data",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "disclosing_quote": "",
+       "denial_quote": "We do not sell, trade, rent or disclose your information to others, except as provided herein:",
+       "generic_quote": "We may provide Non-Personally Identifiable Information about our customers sales, traffic patterns, and related Website information to third party advertisers.",
+       "sections": [
+        "Sec. 9(3)",
+        "Sec. 11(2)",
+        "Sec. 12(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that no personal data is disclosed to third parties, contradicting the sharing of survey data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9543921178144225
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+      "rationale": "The policy explicitly states the purposes for using IP addresses, which aligns with the Basic service/feature purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states the purposes for using IP addresses, which aligns with the Basic service/feature purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9739448282528295
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 2"
+      ],
+      "evidence": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+      "rationale": "The policy mentions using IP addresses for advertising, but also lists other unspecified uses.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+       "unspecified_purpose_quote": "We and our third party ad server will collect and use your IP address and certain Non-Personally Identifiable Information about you, such as your browser type, the server your computer is logged onto, the area code and zip code associated with your server and whether you responded to a particular advertisement.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 2"
+       ],
+       "rationale": "The policy mentions using IP addresses for advertising, but also lists other unspecified uses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9551871068845
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 105.63
+ }
+}

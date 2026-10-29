@@ -1,0 +1,105 @@
+{
+ "case_id": "L1259_r4",
+ "system": "full_v2_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "These features may collect your IP address, which page you are visiting on our site, and may set a cookie to enable the feature to function properly.Your interactions with these Social Media Features are governed by the privacy policy of the company providing it.",
+   "rationale": "The policy explicitly states that personal information is not disclosed, and provides a generic statement about collecting IP addresses and cookies.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9366722247547244,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9366722247547244,
+ "usage": {
+  "prompt": 1358,
+  "output": 185
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 48,
+  "untagged_paragraphs": 0,
+  "claims": 52,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     15,
+     20,
+     25,
+     9,
+     10
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "These features may collect your IP address, which page you are visiting on our site, and may set a cookie to enable the feature to function properly.Your interactions with these Social Media Features are governed by the privacy policy of the company providing it.",
+      "rationale": "The policy explicitly states that personal information is not disclosed, and provides a generic statement about collecting IP addresses and cookies.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Will The Motley Fool Disclose Any of Your Personal Information-\nThe Motley Fool will not disclose any personally identifiable information about individual users, except as described in this Privacy Statement.",
+       "generic_quote": "These features may collect your IP address, which page you are visiting on our site, and may set a cookie to enable the feature to function properly.Your interactions with these Social Media Features are governed by the privacy policy of the company providing it.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy explicitly states that personal information is not disclosed, and provides a generic statement about collecting IP addresses and cookies."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9366722247547244
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 0.07
+ }
+}

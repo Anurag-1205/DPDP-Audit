@@ -1,0 +1,362 @@
+{
+ "case_id": "856_v1",
+ "system": "v2_read",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states multiple purposes for using contact information.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "personal information you knowingly choose to disclose and website use information collected by us as you interact with our website",
+   "rationale": "The policy explicitly states that personal information is collected, which falls under demographic data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Web beacons are not used to access your personally identifiable information on the Science Website; they are a technique we use to compile aggregated statistics about our Website usage.",
+   "rationale": "The policy mentions collecting web beacon data, which includes IP addresses and device IDs.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9314025314460238,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9314025314460238,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9578206062612921,
+ "usage": {
+  "prompt": 8798,
+  "output": 1162
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 36,
+  "untagged_paragraphs": 0,
+  "claims": 75,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['additional service/feature'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     6,
+     2,
+     16,
+     7,
+     30
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     24,
+     26,
+     25,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Demographic is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     11,
+     17,
+     20,
+     26,
+     29,
+     32,
+     2,
+     31
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     11,
+     17,
+     20,
+     26,
+     29,
+     32,
+     7,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps IP address and device IDs indefinitely; retention statements: ['Indefinitely', 'Limited', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     2,
+     5,
+     6,
+     9,
+     10,
+     11,
+     14,
+     16,
+     17,
+     21,
+     24,
+     27,
+     32,
+     7,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "personal information you knowingly choose to disclose and website use information collected by us as you interact with our website",
+      "rationale": "The policy explicitly states that personal information is collected, which falls under demographic data.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "When you visit the Science Website there are two types of information you might provide to us: personal information you knowingly choose to disclose and website use information collected by us as you interact with our website.",
+       "denial_quote": "",
+       "generic_quote": "personal information you knowingly choose to disclose and website use information collected by us as you interact with our website",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal information is collected, which falls under demographic data."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Web beacons are not used to access your personally identifiable information on the Science Website; they are a technique we use to compile aggregated statistics about our Website usage.",
+      "rationale": "The policy mentions collecting web beacon data, which includes IP addresses and device IDs.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Our web pages may contain electronic images known as web beacons (sometimes called single-pixel GIFs) that allow us to count users who have visited those pages and to deliver co-branded services. Web beacons are not used to access your personally identifiable information on the Science Website; they are a technique we use to compile aggregated statistics about our Website usage. Web beacons collect only a limited set of information including a cookie number, time and date of a page view, and a description of the page on which the web beacon resides.",
+       "denial_quote": "We do not collect personal information from your device in a way that identifies you.",
+       "generic_quote": "Web beacons are used to compile aggregated statistics about our Website usage.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting web beacon data, which includes IP addresses and device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9314025314460238
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states multiple purposes for using contact information.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "We may use your contact information in order to send you e-mail, postal mail, or other communications regarding updates at the Science Website, such as Job Alerts, newsletters, new opportunities, and additional listings which may be interest [sic] to you. We may also use it to send you information about third-party products and services that match your interests and preferences, if you opt in for this communication.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states multiple purposes for using contact information."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "A cookie is a text file that is placed on your hard drive by a web page server. Cookies are not used to run programs or deliver viruses to your computer. Cookies are uniquely assigned to your computer, and can only be read by a web server in the domain that issued the cookie to you. One of the primary purposes of cookies is to provide a convenience feature to save you time. The purpose of a cookie is to tell the web server that you have returned to a specific page.",
+      "rationale": "The policy mentions multiple uses for cookies, but does not specify a singular purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "A cookie is a text file that is placed on your hard drive by a web page server. Cookies are not used to run programs or deliver viruses to your computer. Cookies are uniquely assigned to your computer, and can only be read by a web server in the domain that issued the cookie to you. One of the primary purposes of cookies is to provide a convenience feature to save you time. The purpose of a cookie is to tell the web server that you have returned to a specific page.",
+       "unspecified_purpose_quote": "When you return to the Science Website, the information you previously provided can be retrieved, so you can easily use the features that you customized. We also use cookies to track click streams and for load balancing.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy mentions multiple uses for cookies, but does not specify a singular purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9565707946956641
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8",
+       "Third Schedule"
+      ],
+      "evidence": "It is not our practice to restrict access to our resume database to any particular customer(s). Please be advised that your current employer or an entity affiliated with your current employer might be a customer of the Science Careers.org sites. We are not responsible for any actions or results that may occur as a result of any customer's access to and/or use of your resume.",
+      "rationale": "The policy does not specify a retention period for IP addresses and device IDs, indicating indefinite retention.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "retention_mismatch",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "retention": "indefinitely",
+       "retention_quote": "It is not our practice to restrict access to our resume database to any particular customer(s). Please be advised that your current employer or an entity affiliated with your current employer might be a customer of the Science Careers.org sites. We are not responsible for any actions or results that may occur as a result of any customer's access to and/or use of your resume.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8",
+        "Third Schedule"
+       ],
+       "rationale": "The policy does not specify a retention period for IP addresses and device IDs, indicating indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9854884926421884
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence does not mention the collection of contact information for any specific purpose. The rationale incorrectly assumes the '",
+  "llm_calls": 4,
+  "seconds": 61.78
+ }
+}

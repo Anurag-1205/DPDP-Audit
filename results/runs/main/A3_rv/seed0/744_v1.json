@@ -1,0 +1,351 @@
+{
+ "case_id": "744_v1",
+ "system": "A3_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 6"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention collecting IP addresses or device IDs, and thus no retention period is stated.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy does not mention collecting IP addresses or device IDs, and thus no retention period is stated. However, the evidence does not disclose the app's practice; it merely states that the policy does not mention it."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 6"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention collecting location data, and thus no retention period is stated.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy does not mention collecting location data, and thus no retention period is stated. However, the evidence does not disclose the app's practice; it merely states that the policy does not mention it."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 28(5)",
+    "Sec. 7"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting demographic information, and the retention period is unspecified but could be indefinitely as per the Act.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy discloses collecting demographic information, and the retention period is unspecified but could be indefinitely as per the Act. The evidence contradicts the finding since the policy actually mentions collecting demographic data."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.961026446186643,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.961026446186643,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.961026446186643,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.961026446186643,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.961026446186643,
+ "usage": {
+  "prompt": 5505,
+  "output": 1081
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 26,
+  "untagged_paragraphs": 0,
+  "claims": 53,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     4,
+     5,
+     10,
+     12,
+     3,
+     25
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     4,
+     5,
+     10,
+     12,
+     3,
+     17
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     4,
+     5,
+     10,
+     12,
+     3,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Demographic is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     4,
+     5,
+     10,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Demographic indefinitely; retention statements: ['Indefinitely', 'Limited', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     4,
+     5,
+     7,
+     9,
+     12,
+     16,
+     18
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 6"
+      ],
+      "evidence": "To create an account for the Curse Features, we require you to provide your name, email address and country in which you reside. You will also need to create a screen name.",
+      "rationale": "The policy discloses collecting personal information including email addresses, but does not specify retention periods.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "To create an account for the Curse Features, we require you to provide your name, email address and country in which you reside. You will also need to create a screen name.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 6"
+       ],
+       "rationale": "The policy discloses collecting personal information including email addresses, but does not specify retention periods."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 6"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention collecting IP addresses or device IDs, and thus no retention period is stated.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 6"
+       ],
+       "rationale": "The policy does not mention collecting IP addresses or device IDs, and thus no retention period is stated."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 6"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention collecting location data, and thus no retention period is stated.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 6"
+       ],
+       "rationale": "The policy does not mention collecting location data, and thus no retention period is stated."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 28(5)",
+       "Sec. 7"
+      ],
+      "evidence": "Additionally, we may also collect other types of information (known as demographic information) such as your gender, hobbies, occupation, platform preferences, and other game ownership information. This demographic information may be associated with your personal information.",
+      "rationale": "The policy discloses collecting demographic information, and the retention period is unspecified but could be indefinitely as per the Act.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Additionally, we may also collect other types of information (known as demographic information) such as your gender, hobbies, occupation, platform preferences, and other game ownership information. This demographic information may be associated with your personal information.",
+       "denial_quote": "",
+       "generic_quote": "demographic information",
+       "retention_quote": "In case the Board determines that there are sufficient grounds to proceed with inquiry, it may, for reasons to be recorded in writing, inquire into the affairs of any person for ascertaining whether such person is complying with or has complied with the provisions of this Act.",
+       "retention": "indefinitely",
+       "sections": [
+        "Sec. 28(5)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy discloses collecting demographic information, and the retention period is unspecified but could be indefinitely as per the Act."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 28(5)",
+       "Sec. 7"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting demographic information, and the retention period is unspecified but could be indefinitely as per the Act.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "Additionally, we may also collect other types of information (known as demographic information) such as your gender, hobbies, occupation, platform preferences, and other game ownership information. This demographic information may be associated with your personal information.",
+       "denial_quote": "",
+       "generic_quote": "demographic information",
+       "retention_quote": "In case the Board determines that there are sufficient grounds to proceed with inquiry, it may, for reasons to be recorded in writing, inquire into the affairs of any person for ascertaining whether such person is complying with or has complied with the provisions of this Act.",
+       "retention": "indefinitely",
+       "sections": [
+        "Sec. 28(5)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy discloses collecting demographic information, and the retention period is unspecified but could be indefinitely as per the Act."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.961026446186643
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 106.02,
+  "reverified_from": "A3",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

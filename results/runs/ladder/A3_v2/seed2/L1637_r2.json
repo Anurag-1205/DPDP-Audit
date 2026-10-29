@@ -1,0 +1,102 @@
+{
+ "case_id": "L1637_r2",
+ "system": "A3_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "Illini Media also uses Google Analytics that allows us to analyze data on our users' demographics (age, gender) and interests (affinity categories, other categories). Specifically, we are able analyze the this type of data:",
+   "rationale": "The policy explicitly states that device and browser information is not shared with third parties, but also mentions using Google Analytics, which could imply sharing.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9398440821519674,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9398440821519674,
+ "usage": {
+  "prompt": 1115,
+  "output": 159
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 12,
+  "untagged_paragraphs": 0,
+  "claims": 9,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Computer information",
+    "paragraphs": [
+     2,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "Illini Media also uses Google Analytics that allows us to analyze data on our users' demographics (age, gender) and interests (affinity categories, other categories). Specifically, we are able analyze the this type of data:",
+      "rationale": "The policy explicitly states that device and browser information is not shared with third parties, but also mentions using Google Analytics, which could imply sharing.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We do not share your device and browser information with third parties.",
+       "denial_quote": "",
+       "generic_quote": "Illini Media also uses Google Analytics that allows us to analyze data on our users' demographics (age, gender) and interests (affinity categories, other categories). Specifically, we are able analyze the this type of data:",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that device and browser information is not shared with third parties, but also mentions using Google Analytics, which could imply sharing."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9398440821519674
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 18.81
+ }
+}

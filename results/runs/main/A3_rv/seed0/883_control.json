@@ -1,0 +1,156 @@
+{
+ "case_id": "883_control",
+ "system": "A3_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9595501035055278,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9595501035055278,
+ "usage": {
+  "prompt": 1920,
+  "output": 539
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 25,
+  "untagged_paragraphs": 0,
+  "claims": 55,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     11,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     6,
+     10,
+     14,
+     18,
+     20,
+     11,
+     12
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 7",
+       "Sec. 4(2)",
+       "Sec. 12(2)",
+       "Sec. 12(3)"
+      ],
+      "evidence": "We use various technologies to manage TED.com and track use of the content we provide, including: the IP address used when registering and submitting content to the site standard web analytics information aggregated data about email click-through rates and video viewing information collected through HTML cookies, Flash cookies, web beacons, and similar technologies.",
+      "rationale": "The policy explicitly states collecting IP addresses and device identifiers for analytics/research purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may collect non-personal information about the computer, mobile device or other device you use to access TED services, such as IP address, geolocation information, unique device identifiers, browser type, browser language and other transactional information.",
+       "denial_quote": "",
+       "generic_quote": "non-personal information",
+       "purpose_quote": "We use various technologies to manage TED.com and track use of the content we provide, including: the IP address used when registering and submitting content to the site standard web analytics information aggregated data about email click-through rates and video viewing information collected through HTML cookies, Flash cookies, web beacons, and similar technologies.",
+       "unspecified_purpose_quote": "We may use the information that we collect for any other purposes disclosed to you at the time we collect your information or pursuant to your consent.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 7",
+        "Sec. 4(2)",
+        "Sec. 12(2)",
+        "Sec. 12(3)"
+       ],
+       "rationale": "The policy explicitly states collecting IP addresses and device identifiers for analytics/research purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 7",
+       "Sec. 4(2)",
+       "Sec. 12(2)",
+       "Sec. 12(3)"
+      ],
+      "evidence": "When you register an account on TED.com, we ask you to provide a unique email address, first and last name, and password. You have the option of also providing profile information (such as location, occupation and your personal story).",
+      "rationale": "The policy mentions collecting location but does not specify its use beyond generic statements.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "When you register an account on TED.com, we ask you to provide a unique email address, first and last name, and password. You have the option of also providing profile information (such as location, occupation and your personal story).",
+       "denial_quote": "",
+       "generic_quote": "personal information, information you provide",
+       "purpose_quote": "We use various technologies to manage TED.com and track use of the content we provide, including: the IP address used when registering and submitting content to the site standard web analytics information aggregated data about email click-through rates and video viewing information collected through HTML cookies, Flash cookies, web beacons, and similar technologies.",
+       "unspecified_purpose_quote": "We may use the information that we collect for any other purposes disclosed to you at the time we collect your information or pursuant to your consent.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 7",
+        "Sec. 4(2)",
+        "Sec. 12(2)",
+        "Sec. 12(3)"
+       ],
+       "rationale": "The policy mentions collecting location but does not specify its use beyond generic statements."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9595501035055278
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 60.86,
+  "reverified_from": "A3",
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

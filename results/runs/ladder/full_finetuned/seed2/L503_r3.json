@@ -1,0 +1,106 @@
+{
+ "case_id": "L503_r3",
+ "system": "full_finetuned",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6",
+    "Rule 3"
+   ],
+   "evidence": "We encourage you to read this Privacy Policy carefully to understand what personal information we may collect from you through our Sites, how we may use or share this information, and what steps you may take to control such use or sharing.",
+   "rationale": "The policy mentions sharing information with partners but does not specify Mixpanel or any IP addresses and device IDs.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not explicitly mention sharing IP addresses and device IDs with Mixpanel. Instead, it generally refers to sharing personal information with partners. The cited DPDP text focuses on the notice requirements for consent requests, which is not directly related to the is"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9611076570114165,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9611076570114165,
+ "usage": {
+  "prompt": 1634,
+  "output": 235
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 19,
+  "untagged_paragraphs": 0,
+  "claims": 16,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     7,
+     1
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6",
+       "Rule 3"
+      ],
+      "evidence": "We encourage you to read this Privacy Policy carefully to understand what personal information we may collect from you through our Sites, how we may use or share this information, and what steps you may take to control such use or sharing.",
+      "rationale": "The policy mentions sharing information with partners but does not specify Mixpanel or any IP addresses and device IDs.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may share information with our partners.",
+       "denial_quote": "",
+       "generic_quote": "We encourage you to read this Privacy Policy carefully to understand what personal information we may collect from you through our Sites, how we may use or share this information, and what steps you may take to control such use or sharing.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing information with partners but does not specify Mixpanel or any IP addresses and device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9611076570114165
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 31.01
+ }
+}

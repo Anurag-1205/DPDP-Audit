@@ -1,0 +1,387 @@
+{
+ "case_id": "303_v2",
+ "system": "A3_v2_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Sec. 9(5)",
+    "Rule 10"
+   ],
+   "evidence": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us. If you believe someone 12 or younger is using our site without parental consent, please contact us.",
+   "rationale": "The policy explicitly states that individuals under the age of 13 may not create an account, indicating it is not aimed at children and adhering to COPPA.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 4(2)"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify any purpose for collecting contact details, and no mention is made of using them for advertising.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence is explicitly stated as (none: the policy is said not to mention it), and the cited sections (Sec. 5(1) and Sec. 4(2)) discuss the requirement for notices and lawful purposes but do not address the specific purpose for which contact details are collected or used for advertising. "
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "To understand who clicks our mobile ads and to avoid showing you the same ad over and over again, we share your device's unique advertising identifier, its IP address, and a list of subreddits used to generate a particular page for you (which may include your subscriptions) with our ad partners, who decide which ads to display for you.",
+   "rationale": "The policy explicitly mentions sharing the device's unique advertising identifier and IP address with 'ad partners' for advertising purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us.",
+   "rationale": "The policy states that individuals under the age of 13 cannot create an account, but the application is marked as child_directed=True and processes IP addresses and device IDs for advertising purposes.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9731701967969696,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "vague",
+   "confidence": 0.9580647715445408,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.957293792101656,
+ "usage": {
+  "prompt": 7334,
+  "output": 1230
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 54,
+  "untagged_paragraphs": 0,
+  "claims": 70,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     15,
+     16,
+     17,
+     28,
+     30,
+     44,
+     23
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends User online activities to the analytics SDK Google Analytics",
+    "paragraphs": [
+     39
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature', 'personalization/customization'], the app uses it for Advertising",
+    "paragraphs": [
+     5,
+     12,
+     44,
+     33,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     15,
+     16,
+     17,
+     30,
+     44,
+     43
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     39
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 7",
+       "Sec. 11(2)"
+      ],
+      "evidence": "We use a tool called Google Analytics to help us understand how users interact with our website. It tells us aggregate usage and traffic information, such as how the site was accessed, how long visitors stayed, and the number of first-time visitors to the site.",
+      "rationale": "The policy explicitly mentions sharing user online activities with Google Analytics, which falls under the 'Analytics/Research' purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We use a tool called Google Analytics to help us understand how users interact with our website. It tells us aggregate usage and traffic information, such as how the site was accessed, how long visitors stayed, and the number of first-time visitors to the site.",
+       "denial_quote": "",
+       "generic_quote": "Anonymous, aggregated information that cannot be linked back to an individual user may be made available to third parties.",
+       "sections": [
+        "Sec. 7",
+        "Sec. 11(2)"
+       ],
+       "rationale": "The policy explicitly mentions sharing user online activities with Google Analytics, which falls under the 'Analytics/Research' purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9731701967969696
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Sec. 9(5)",
+       "Rule 10"
+      ],
+      "evidence": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us. If you believe someone 12 or younger is using our site without parental consent, please contact us.",
+      "rationale": "The policy explicitly states that individuals under the age of 13 may not create an account, indicating it is not aimed at children and adhering to COPPA.",
+      "raw": {
+       "candidate_id": "c2",
+       "children_quote": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us. If you believe someone 12 or younger is using our site without parental consent, please contact us.",
+       "data_type": "User online activities",
+       "recipient": "Google Analytics (Google, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "sections": [
+        "Sec. 9(3)",
+        "Sec. 9(5)",
+        "Rule 10"
+       ],
+       "rationale": "The policy explicitly states that individuals under the age of 13 may not create an account, indicating it is not aimed at children and adhering to COPPA."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9497931008810608
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 4(2)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify any purpose for collecting contact details, and no mention is made of using them for advertising.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 4(2)"
+       ],
+       "rationale": "The policy does not specify any purpose for collecting contact details, and no mention is made of using them for advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9559396322486176
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "To understand who clicks our mobile ads and to avoid showing you the same ad over and over again, we share your device's unique advertising identifier, its IP address, and a list of subreddits used to generate a particular page for you (which may include your subscriptions) with our ad partners, who decide which ads to display for you.",
+      "rationale": "The policy explicitly mentions sharing the device's unique advertising identifier and IP address with 'ad partners' for advertising purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "To understand who clicks our mobile ads and to avoid showing you the same ad over and over again, we share your device's unique advertising identifier, its IP address, and a list of subreddits used to generate a particular page for you (which may include your subscriptions) with our ad partners, who decide which ads to display for you.",
+       "denial_quote": "",
+       "generic_quote": "To understand who clicks our mobile ads and to avoid showing you the same ad over and over again, we share your device's unique advertising identifier, its IP address, and a list of subreddits used to generate a particular page for you (which may include your subscriptions) with our ad partners, who decide which ads to display for you.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions sharing the device's unique advertising identifier and IP address with 'ad partners' for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9580647715445408
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us.",
+      "rationale": "The policy states that individuals under the age of 13 cannot create an account, but the application is marked as child_directed=True and processes IP addresses and device IDs for advertising purposes.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "children_quote": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy states that individuals under the age of 13 cannot create an account, but the application is marked as child_directed=True and processes IP addresses and device IDs for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9495012590370918
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 115.86,
+  "reverified_from": "A3_v2",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

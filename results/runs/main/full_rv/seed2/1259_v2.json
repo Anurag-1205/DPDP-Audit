@@ -1,0 +1,237 @@
+{
+ "case_id": "1259_v2",
+ "system": "full_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy clearly states that IP addresses are collected for site security and to understand user behavior, which aligns with the purpose 'Service Operation and Security'.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not mention IP addresses or device IDs, and the rationale incorrectly states that the policy clearly states these data types for site security and understanding user behavior. There is no evidence in the policy that supports this finding."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may also collect your email address when you submit content to our sites (for example, a contest entry, or a review of a product).",
+   "rationale": "The policy mentions collecting computer information and uses it for various purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided only mentions collecting email addresses for specific purposes like contest entries or product reviews. It does not disclose the collection of 'computer information' for 'Basic service/feature' without specifying what kind of computer information is collected and for wha"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9398760752584373,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9528263759361832,
+ "usage": {
+  "prompt": 5170,
+  "output": 805
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 137,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['advertising', 'basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     23,
+     40,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     5,
+     8,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     7,
+     11,
+     12,
+     22,
+     27,
+     34,
+     39,
+     42,
+     51,
+     55,
+     37,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may also collect your email address when you submit content to our sites (for example, a contest entry, or a review of a product).",
+      "rationale": "The policy mentions collecting computer information and uses it for various purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We may also use tiny electronic images (called 'single-pixel GIFs' or 'Web beacons'), which allow us to count users who have visited specific pages or access certain cookies.",
+       "denial_quote": "",
+       "generic_quote": "We may also collect your email address when you submit content to our sites (for example, a contest entry, or a review of a product).",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting computer information and uses it for various purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9398760752584373
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "If you sign up for a special offer from an advertiser (for example, in our \"What Every Fool Needs\" or \"Special Offers\" areas, or whatever we call them if we change their names), we will provide your individual contact information (for example, name, mailing address, email address, and/or telephone number), so that the advertiser or its agent can fulfill the special offer.",
+      "rationale": "The policy explicitly states that contact information is used to fulfill special offers from advertisers.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "If you sign up for a special offer from an advertiser (for example, in our 'What Every Fool Needs' or 'Special Offers' areas, or whatever we call them if we change their names), we will provide your individual contact information (for example, name, mailing address, email address, and/or telephone number), so that the advertiser or its agent can fulfill the special offer.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that contact information is used to fulfill special offers from advertisers."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy clearly states that IP addresses are collected for site security and to understand user behavior, which aligns with the purpose 'Service Operation and Security'.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "We collect IP addresses for site security and to help us understand how people use our sites so that we can improve our sites and our users' respective experiences. For similar quality reasons, we use a feature known as a 'cookie'.",
+       "unspecified_purpose_quote": "Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy clearly states that IP addresses are collected for site security and to understand user behavior, which aligns with the purpose 'Service Operation and Security'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9657766766139292
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 82.54,
+  "reverified_from": "full",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence provided does not mention IP addresses or device IDs, and the rationale incorrectly states that the policy clearly states these data types for site security and understanding user behavior. There is no evidence in the policy that supports this finding.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence provided only mentions collecting email addresses for specific purposes like contest entries or product reviews. It does not disclose the collection of 'computer information' for 'Basic service/feature' without specifying what kind of computer information is collected and for what purpose. Additionally, the cited rules do not directly address the issue of undisclosed collection.\"}]}"
+ }
+}

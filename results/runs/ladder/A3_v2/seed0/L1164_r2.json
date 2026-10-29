@@ -1,0 +1,106 @@
+{
+ "case_id": "L1164_r2",
+ "system": "A3_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Sec. 7",
+    "Sec. 17(1)"
+   ],
+   "evidence": "Our servers may also automatically collect information about you, your online behavior and your computer, mobile or other device. The information collected may include, without limitation, the make, model, settings, specifications (e.g., CPU speed, connection speed, browser type, operating system, device identifier) and geographic location of you and/or your computer, mobile or other device, as well as date/time stamp, IP address, pages visited, time of visits, content viewed, ads viewed, the site(s), application(s), destination(s), and/or service(s) you arrived from, and other clickstream data.",
+   "rationale": "The policy discloses that data can be shared for various purposes, including analytics/research, but does not specify Mixpanel or any other specific recipient.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9461796863117795,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9461796863117795,
+ "usage": {
+  "prompt": 1283,
+  "output": 301
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 38,
+  "untagged_paragraphs": 0,
+  "claims": 37,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     15,
+     6,
+     5
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Sec. 7",
+       "Sec. 17(1)"
+      ],
+      "evidence": "Our servers may also automatically collect information about you, your online behavior and your computer, mobile or other device. The information collected may include, without limitation, the make, model, settings, specifications (e.g., CPU speed, connection speed, browser type, operating system, device identifier) and geographic location of you and/or your computer, mobile or other device, as well as date/time stamp, IP address, pages visited, time of visits, content viewed, ads viewed, the site(s), application(s), destination(s), and/or service(s) you arrived from, and other clickstream data.",
+      "rationale": "The policy discloses that data can be shared for various purposes, including analytics/research, but does not specify Mixpanel or any other specific recipient.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We reserve the right to identify you from your Registration Information and/or to merge or co-mingle anonymous or non-personally identifiable data about you, your offline and online behavior, and/or your computer, mobile or other device (including its geographic location), with your Registration Information and/or other personally identifiable data for any lawful business purpose.",
+       "denial_quote": "",
+       "generic_quote": "Our servers may also automatically collect information about you, your online behavior and your computer, mobile or other device. The information collected may include, without limitation, the make, model, settings, specifications (e.g., CPU speed, connection speed, browser type, operating system, device identifier) and geographic location of you and/or your computer, mobile or other device, as well as date/time stamp, IP address, pages visited, time of visits, content viewed, ads viewed, the site(s), application(s), destination(s), and/or service(s) you arrived from, and other clickstream data.",
+       "sections": [
+        "Sec. 5(2)",
+        "Sec. 7",
+        "Sec. 17(1)"
+       ],
+       "rationale": "The policy discloses that data can be shared for various purposes, including analytics/research, but does not specify Mixpanel or any other specific recipient."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9461796863117795
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 37.2
+ }
+}

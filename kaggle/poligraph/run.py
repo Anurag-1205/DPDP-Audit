@@ -28,7 +28,8 @@ PG = f"{WORK}/PoliGraph"
 ENV = f"{WORK}/pgenv"
 PY = f"{ENV}/bin/python"
 OUT = f"{WORK}/poligraph"
-SPLIT = "ladder"           # benchmark split to run: "main" or "ladder"
+SPLIT = "s4"               # "main", "ladder", or "s4": statement extraction on the 35 held-out
+                           # OPP-115 policies, built from their segments (WP-3.6, AC-05.6)
 EXPORT = f"{REPO}/data/benchmark/{SPLIT}/export/policheck"
 T_START = time.time()
 
@@ -147,10 +148,42 @@ def prepare_inputs() -> list[str]:
     return dirs
 
 
+def prepare_inputs_s4() -> list[tuple[str, str]]:
+    """One html per held-out policy: its OPP-115 segments in order, one <p> per line."""
+    import json
+    segs: dict[str, list] = {}
+    for line in open(f"{REPO}/results/tagger/heldout.jsonl"):
+        seg = json.loads(line)
+        segs.setdefault(seg["policy_id"], []).append((seg["segment_id"], seg["text"]))
+    os.makedirs(f"{OUT}/html", exist_ok=True)
+    os.makedirs(f"{OUT}/policies", exist_ok=True)
+    dirs = []
+    for pid, items in sorted(segs.items()):
+        lines = [l.strip() for _, text in sorted(items) for l in text.split("\n") if l.strip()]
+        body = "\n".join(f"<p>{html.escape(l)}</p>" for l in lines)
+        path = f"{OUT}/html/{pid}.html"
+        with open(path, "w") as f:
+            f.write(f"<html><head><title>Privacy Policy</title></head><body>{body}</body></html>")
+        dirs.append((pid, path))
+    print(f"{len(dirs)} policies, {sum(len(v) for v in segs.values())} segments", flush=True)
+    return dirs
+
+
+EXPORT_EDGES = """
+import json, sys, yaml
+out = {}
+for pid, d in (a.split("=", 1) for a in sys.argv[2:]):
+    g = yaml.safe_load(open(d + "/graph-original.yml"))
+    out[pid] = [{k: e.get(k) for k in ("source", "target", "key", "text")} for e in g["links"]]
+json.dump(out, open(sys.argv[1], "w"))
+print("exported", len(out), "graphs,", sum(len(v) for v in out.values()), "edges")
+"""
+
+
 def main():
     find_repo()
     setup()
-    policies = prepare_inputs()
+    policies = prepare_inputs_s4() if SPLIT == "s4" else prepare_inputs()
     workdirs = []
     for pid, path in policies:
         d = policy_dir(pid)
@@ -167,6 +200,15 @@ def main():
     dirs = " ".join(workdirs)
     for step in ("init_document", "run_annotators", "build_graph"):
         sh(f"{PY} -m poligrapher.scripts.{step} {dirs}", cwd=PG)
+    if SPLIT == "s4":
+        with open(f"{WORK}/export_edges.py", "w") as f:
+            f.write(EXPORT_EDGES)
+        built = [(pid, policy_dir(pid)) for pid, _ in policies
+                 if os.path.exists(f"{policy_dir(pid)}/graph-original.yml")]
+        args = " ".join(f"{pid}={d}" for pid, d in built)
+        sh(f"{PY} {WORK}/export_edges.py {OUT}/poligraph_s4.json {args}")
+        print(f"done in {time.time() - T_START:.0f}s: graphs for {len(built)} of {len(policies)} policies", flush=True)
+        return
     fc = f"{PG}/analyses/flow-consistency"
     sh(f"{PY} {fc}/convert_flow_csv.py {OUT}/flows_noheader.csv {OUT}/dns_cache {OUT}/flows.json", cwd=PG)
     sh(f"{PY} {fc}/check-policheck-flow-consistency.py {OUT}/flows.json {OUT}/poligraph_results.csv "

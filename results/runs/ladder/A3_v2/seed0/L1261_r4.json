@@ -1,0 +1,106 @@
+{
+ "case_id": "L1261_r4",
+ "system": "A3_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 6(5)",
+    "Rule 7",
+    "Sec. 11(2)"
+   ],
+   "evidence": "We keep tight control over our marketing list at all times. We only give outside marketers the right to send you an e-mail through our e-mail service provider.",
+   "rationale": "The policy mentions controlling the marketing list and giving rights to select companies, indicating no broad sharing but rather controlled distribution.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9092862610731578,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9092862610731578,
+ "usage": {
+  "prompt": 1289,
+  "output": 179
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 12,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Contact with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     3,
+     10,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 6(5)",
+       "Rule 7",
+       "Sec. 11(2)"
+      ],
+      "evidence": "We keep tight control over our marketing list at all times. We only give outside marketers the right to send you an e-mail through our e-mail service provider.",
+      "rationale": "The policy mentions controlling the marketing list and giving rights to select companies, indicating no broad sharing but rather controlled distribution.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Additionally, Zacks Investment Research is selective about which companies we permit to send you an offer. Zacks will use names for Market Research Our goal is for the e-mails to be of value to you.",
+       "generic_quote": "We keep tight control over our marketing list at all times. We only give outside marketers the right to send you an e-mail through our e-mail service provider.",
+       "sections": [
+        "Sec. 6(5)",
+        "Rule 7",
+        "Sec. 11(2)"
+       ],
+       "rationale": "The policy mentions controlling the marketing list and giving rights to select companies, indicating no broad sharing but rather controlled distribution."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9092862610731578
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 0.06
+ }
+}

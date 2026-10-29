@@ -1,0 +1,102 @@
+{
+ "case_id": "L1468_r2",
+ "system": "A3_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The Company may also keep track of IP addresses used to access its Online Services for various reasons. An IP address is a number that is used by a networked device and will identify your point of connection to the internet. Depending on your network configuration, it may also identify your computer, or other device. A MAC address or other device ID identifies one specific piece of hardware. These log files are tied to your personal information in certain circumstances, such as if you have linked your console user account to Online Service accounts offered by the Company.",
+   "rationale": "The policy explicitly states that no sharing occurs, contradicting the sharing claim.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9822889733340414,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9822889733340414,
+ "usage": {
+  "prompt": 1150,
+  "output": 209
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 54,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not share IP address and device IDs",
+    "paragraphs": [
+     8,
+     29
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The Company may also keep track of IP addresses used to access its Online Services for various reasons. An IP address is a number that is used by a networked device and will identify your point of connection to the internet. Depending on your network configuration, it may also identify your computer, or other device. A MAC address or other device ID identifies one specific piece of hardware. These log files are tied to your personal information in certain circumstances, such as if you have linked your console user account to Online Service accounts offered by the Company.",
+      "rationale": "The policy explicitly states that no sharing occurs, contradicting the sharing claim.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not share your device identifiers and IP address with third parties.",
+       "generic_quote": "The Company may also keep track of IP addresses used to access its Online Services for various reasons. An IP address is a number that is used by a networked device and will identify your point of connection to the internet. Depending on your network configuration, it may also identify your computer, or other device. A MAC address or other device ID identifies one specific piece of hardware. These log files are tied to your personal information in certain circumstances, such as if you have linked your console user account to Online Service accounts offered by the Company.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that no sharing occurs, contradicting the sharing claim."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9822889733340414
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 21.4
+ }
+}

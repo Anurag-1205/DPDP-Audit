@@ -1,0 +1,199 @@
+{
+ "case_id": "928_v2",
+ "system": "A3_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 7",
+    "Rule 6"
+   ],
+   "evidence": "If you provide us with your postal or e-mail address or telephone number, this information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+   "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, and instead refers to generic personal information. There is no explicit disclosure or denial of these specific data types.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence does not explicitly mention collecting IP addresses or device IDs, and instead refers to generic personal information. The cited DPDP text does not address the specific collection of IP addresses or device IDs but rather focuses on the use of personal data for specified purposes "
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f6",
+   "data_type": "User online activities",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Sec. 6(5)"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for user online activities data, and there is no indication that the data will be deleted after serving its purpose.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9215850615510879,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9347967077381827,
+ "usage": {
+  "prompt": 3516,
+  "output": 585
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 19,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     9,
+     4,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f6",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps User online activities indefinitely; retention statements: none",
+    "paragraphs": [
+     2,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 7",
+       "Rule 6"
+      ],
+      "evidence": "If you provide us with your postal or e-mail address or telephone number, this information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+      "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, and instead refers to generic personal information. There is no explicit disclosure or denial of these specific data types.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "This analysis does not involve personally identifiable information.",
+       "generic_quote": "If you provide us with your postal or e-mail address or telephone number, this information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+       "sections": [
+        "Sec. 7",
+        "Rule 6"
+       ],
+       "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, and instead refers to generic personal information. There is no explicit disclosure or denial of these specific data types."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9215850615510879
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Sec. 6(5)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for user online activities data, and there is no indication that the data will be deleted after serving its purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "User online activities",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Sec. 6(5)"
+       ],
+       "rationale": "The policy does not specify a retention period for user online activities data, and there is no indication that the data will be deleted after serving its purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9480083539252775
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 34.46,
+  "reverified_from": "A3_v2",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

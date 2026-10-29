@@ -1,0 +1,280 @@
+{
+ "case_id": "531_control",
+ "system": "v2_purpose_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "The information we collect for statistical analysis and technical improvements is maintained indefinitely.",
+   "rationale": "The policy mentions maintaining the data indefinitely without specifying a purpose.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence indicates that the data is maintained indefinitely without specifying a purpose, which contradicts the requirement in Sec. 5(1) and Rule 8 to specify the purpose for which the data is processed and the time period for which it should be retained."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy clearly states that third parties do not collect PII on behalf of NARA, thus no collection is disclosed.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is omitted, and there is no indication of any collection of location data. Therefore, the finding does not meet the criteria for a compliance gap as there is no evidence of non-disclosure."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9656070118340511,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9656070118340511,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9722188479314748,
+ "usage": {
+  "prompt": 5722,
+  "output": 814
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 52,
+  "untagged_paragraphs": 0,
+  "claims": 94,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     8,
+     12,
+     21,
+     20,
+     23
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs may be collected; the app uses it for Basic service/feature",
+    "paragraphs": [
+     8,
+     12,
+     21,
+     23,
+     22,
+     20,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     8,
+     12,
+     21,
+     20,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location may be collected; the app uses it for Basic service/feature",
+    "paragraphs": [
+     8,
+     12,
+     21,
+     23,
+     22,
+     11,
+     20
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "The IP address (a number that is automatically assigned to your computer when you are using the Internet) from which you access our site; The type of browser and operating system used to access our site; The date and time you access our site; The Internet address of the website from which you linked directly to our site; The country and state from which you access our site; The pages you visit and the information you request; and Search terms used to get to our website from an external search engine and terms used on our site using our search engine.",
+      "rationale": "The policy explicitly discloses the collection of various IP-related data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "The IP address (a number that is automatically assigned to your computer when you are using the Internet) from which you access our site; The type of browser and operating system used to access our site; The date and time you access our site; The Internet address of the website from which you linked directly to our site; The country and state from which you access our site; The pages you visit and the information you request; and Search terms used to get to our website from an external search engine and terms used on our site using our search engine.",
+       "denial_quote": "",
+       "generic_quote": "Any PII they collect on their own behalf is not shared with NARA.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly discloses the collection of various IP-related data."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy clearly states that third parties do not collect PII on behalf of NARA, thus no collection is disclosed.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "Third party hosts of the embedded media do not collect personally identifiable information (PII) on behalf of NARA. Any PII they collect on their own behalf is not shared with NARA.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy clearly states that third parties do not collect PII on behalf of NARA, thus no collection is disclosed."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9656070118340511
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "The information we collect for statistical analysis and technical improvements is maintained indefinitely.",
+      "rationale": "The policy mentions maintaining the data indefinitely without specifying a purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "The information we collect for statistical analysis and technical improvements is maintained indefinitely.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy mentions maintaining the data indefinitely without specifying a purpose."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "The information we collect for statistical analysis and technical improvements is maintained indefinitely.",
+      "rationale": "The policy mentions maintaining the data indefinitely without specifying a purpose.",
+      "raw": {
+       "candidate_id": "c4",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "The information we collect for statistical analysis and technical improvements is maintained indefinitely.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy mentions maintaining the data indefinitely without specifying a purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9788306840288987
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 76.14,
+  "reverified_from": "v2_purpose",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": true, \"reason\": \"The policy evidence indicates that the data is maintained indefinitely without specifying a purpose, which contradicts the requirement in Sec. 5(1) and Rule 8 to specify the purpose for which the data is processed and the time period for which it should be retained.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence is omitted, and there is no indication of any collection of location data. Therefore, the finding does not meet the criteria for a compliance gap as there is no evidence of non-disclosure.\"}]}"
+ }
+}

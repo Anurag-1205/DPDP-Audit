@@ -1,0 +1,565 @@
+{
+ "case_id": "1468_v2",
+ "system": "full_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The Company collects personal information from you on a voluntary basis.",
+   "rationale": "The policy mentions the collection of computer information and links it to personal information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the company collects personal information, not computer information. Additionally, the cited DPDP text pertains to the notice requirements for personal data, not the disclosure of collection practices. Therefore, the evidence does not support an undisclosed collection"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The Company may use such information as set forth in this Privacy Policy whether or not you register for or use the Online Services.",
+   "rationale": "The policy does not explicitly mention sharing IP addresses and device IDs with Google AdMob, but it does state that personal data may be shared under certain conditions, which could include sharing with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention the handling of children's data specifically.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "Please note that this Privacy Policy applies only to information submitted and collected online through the Online Services, and does not apply to information that may be collected by the Company offline. In addition, this Privacy Policy does not apply to websites or services maintained by other companies or organizations (such as those who promote the Company's products and services or sell related items) and the Company cannot and does not guarantee the security of any personal information disclosed to those third parties.",
+   "rationale": "The policy does not specify any time period for retaining personal data, indicating indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9802096084974841,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9403648144868527,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9591579196775679,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": 0.9858656964736549,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.962542739319134,
+ "usage": {
+  "prompt": 19333,
+  "output": 1798
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 62,
+  "untagged_paragraphs": 0,
+  "claims": 151,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     12,
+     13,
+     14,
+     15,
+     19,
+     23,
+     25,
+     33,
+     36,
+     39,
+     40,
+     49,
+     42
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     31,
+     19,
+     33,
+     42
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     12,
+     13,
+     14,
+     15,
+     19,
+     23,
+     25,
+     33,
+     36,
+     39,
+     40,
+     49,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     9,
+     19,
+     33,
+     35,
+     39,
+     40,
+     41,
+     42,
+     43,
+     45,
+     47,
+     49,
+     58,
+     60,
+     31
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     22,
+     54,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     12,
+     13,
+     14,
+     15,
+     19,
+     23,
+     25,
+     33,
+     36,
+     39,
+     40,
+     49,
+     42
+    ]
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Contact indefinitely; retention statements: ['Indefinitely', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     4,
+     5,
+     6,
+     8,
+     14,
+     23,
+     25,
+     26,
+     27,
+     28,
+     36,
+     37,
+     40,
+     43,
+     46,
+     47,
+     48,
+     49,
+     51,
+     55,
+     56,
+     58,
+     15
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you submit personal information to the Company, it will usually take the form of: Registration for Online Services, websites, jobs, products, contests, and special events; Subscribing to newsletters or alerts; Posting in or commenting on our message boards, forums, news blogs, chat rooms, or other Online Services; Purchasing a product or services through our online stores; Purchasing DLC, virtual items, or virtual currency for use with our software and/or Online Services; Using \"tell a friend,\" \"email this page,\" or other E-Card features; Requesting technical support; Downloading demos, programs, or other software; Participating in polls, surveys, and questionnaires; or Otherwise through use of our software, including console products, mobile products, and personal computer products, and through the use of our online products or Online Services where personal information is required for use and/or participation.",
+      "rationale": "The policy explicitly states that personal information is collected through various interactions with the Company.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you submit personal information to the Company, it will usually take the form of: Registration for Online Services, websites, jobs, products, contests, and special events; Subscribing to newsletters or alerts; Posting in or commenting on our message boards, forums, news blogs, chat rooms, or other Online Services; Purchasing a product or services through our online stores; Purchasing DLC, virtual items, or virtual currency for use with our software and/or Online Services; Using 'tell a friend,' 'email this page,' or other E-Card features; Requesting technical support; Downloading demos, programs, or other software; Participating in polls, surveys, and questionnaires; or Otherwise through use of our software, including console products, mobile products, and personal computer products, and through the use of our online products or Online Services where personal information is required for use and/or participation.",
+       "denial_quote": "",
+       "generic_quote": "The Company collects personal information from you on a voluntary basis. When you submit personal information to the Company, it will usually take the form of: Registration for Online Services, websites, jobs, products, contests, and special events; Subscribing to newsletters or alerts; Posting in or commenting on our message boards, forums, news blogs, chat rooms, or other Online Services; Purchasing a product or services through our online stores; Purchasing DLC, virtual items, or virtual currency for use with our software and/or Online Services; Using 'tell a friend,' 'email this page,' or other E-Card features; Requesting technical support; Downloading demos, programs, or other software; Participating in polls, surveys, and questionnaires; or Otherwise through use of our software, including console products, mobile products, and personal computer products, and through the use of our online products or Online Services where personal information is required for use and/or participation.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal information is collected through various interactions with the Company."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9802096084974841
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The Company collects personal information from you on a voluntary basis.",
+      "rationale": "The policy mentions the collection of computer information and links it to personal information.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "The Company may use 'cookies' and other passive technologies including clear gifs to collect certain non-personal information from you in connection with your use of the Online Services, such as the pages you visit and the features you use. Our cookies are linked to personal information.",
+       "denial_quote": "",
+       "generic_quote": "The Company collects personal information from you on a voluntary basis.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions the collection of computer information and links it to personal information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9403648144868527
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The Company may use such information as set forth in this Privacy Policy whether or not you register for or use the Online Services.",
+      "rationale": "The policy does not explicitly mention sharing IP addresses and device IDs with Google AdMob, but it does state that personal data may be shared under certain conditions, which could include sharing with third parties.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "We may share your personal information with third parties in connection with an investigation of fraud, intellectual property infringements, or other activity that is illegal or may expose you or us to legal liability, including as required by law enforcement or other government officials. We also may share your personal information with third parties when we have reason to believe that a disclosure is necessary to address potential or actual injury or interference with our rights, property, operations, users, or others who may be harmed or may suffer loss or damage, or when we believe that disclosure is necessary to protect our rights, investigate, or enforce our terms and conditions, combat fraud and/or comply with a judicial proceeding, court order, or legal process served on the Company.",
+       "generic_quote": "The Company may use such information as set forth in this Privacy Policy whether or not you register for or use the Online Services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention sharing IP addresses and device IDs with Google AdMob, but it does state that personal data may be shared under certain conditions, which could include sharing with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9591579196775679
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you submit personal information to the Company, it will usually take the form of: Registration for Online Services, websites, jobs, products, contests, and special events; Subscribing to newsletters or alerts; Posting in or commenting on our message boards, forums, news blogs, chat rooms, or other Online Services; Purchasing a product or services through our online stores; Purchasing DLC, virtual items, or virtual currency for use with our software and/or Online Services; Using \"tell a friend,\" \"email this page,\" or other E-Card features; Requesting technical support; Downloading demos, programs, or other software; Participating in polls, surveys, and questionnaires; or Otherwise through use of our software, including console products, mobile products, and personal computer products, and through the use of our online products or Online Services where personal information is required for use and/or participation.",
+      "rationale": "The policy explicitly mentions collecting contact details through various interactions.",
+      "raw": {
+       "candidate_id": "c6",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Indefinitely",
+       "disclosing_quote": "When you submit personal information to the Company, it will usually take the form of: Registration for Online Services, websites, jobs, products, contests, and special events; Subscribing to newsletters or alerts; Posting in or commenting on our message boards, forums, news blogs, chat rooms, or other Online Services; Purchasing a product or services through our online stores; Purchasing DLC, virtual items, or virtual currency for use with our software and/or Online Services; Using 'tell a friend,' 'email this page,' or other E-Card features; Requesting technical support; Downloading demos, programs, or other software; Participating in polls, surveys, and questionnaires; or Otherwise through use of our software, including console products, mobile products, and personal computer products, and through the use of our online products or Online Services where personal information is required for use and/or participation.",
+       "denial_quote": "",
+       "generic_quote": "The Company collects personal information from you on a voluntary basis.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting contact details through various interactions."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9858656964736549
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "The Company may also keep track of IP addresses used to access its Online Services for various reasons.",
+      "rationale": "The policy states that IP addresses are tracked for various reasons, indicating the basic service/feature purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "The Company may also keep track of IP addresses used to access its Online Services for various reasons.",
+       "unspecified_purpose_quote": "Depending on your network configuration, it may also identify your computer, or other device.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy states that IP addresses are tracked for various reasons, indicating the basic service/feature purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9467541049926316
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "Please note that this Privacy Policy applies only to information submitted and collected online through the Online Services, and does not apply to information that may be collected by the Company offline. In addition, this Privacy Policy does not apply to websites or services maintained by other companies or organizations (such as those who promote the Company's products and services or sell related items) and the Company cannot and does not guarantee the security of any personal information disclosed to those third parties.",
+      "rationale": "The policy does not specify any time period for retaining personal data, indicating indefinite retention.",
+      "raw": {
+       "candidate_id": "c7",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "Please note that this Privacy Policy applies only to information submitted and collected online through the Online Services, and does not apply to information that may be collected by the Company offline. In addition, this Privacy Policy does not apply to websites or services maintained by other companies or organizations (such as those who promote the Company's products and services or sell related items) and the Company cannot and does not guarantee the security of any personal information disclosed to those third parties.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify any time period for retaining personal data, indicating indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9724729390966422
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention the handling of children's data specifically.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        22,
+        54,
+        4
+       ],
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not mention the handling of children's data specifically."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9529740920091049
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 8,
+  "seconds": 233.99
+ }
+}

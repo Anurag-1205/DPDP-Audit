@@ -1,0 +1,447 @@
+{
+ "case_id": "559_v2",
+ "system": "v2_batch",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We will only use the personal information you provide for its intended purpose.",
+   "rationale": "The policy denies collecting contact details and instead refers to personal information broadly.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "Session cookies do not contain personal information and once you close your browser, the cookies disappear. The Library uses session cookies on our site for technical purposes such as to enable you to more easily navigate throughout the Library's websites. Session cookies only collect non-personally identifiable data.",
+   "rationale": "The policy mentions session cookies being used for technical purposes but does not specify 'Service Operation and Security' as a purpose.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "The Library of Congress strives to provide the best experience for our Web and SMS users. To that end, the Library automatically collects and stores the following non-personally identifiable information: The name of the domain from which you access the Internet, The Internet Protocol address of your Internet provider's gateway, or in some cases, the computer you are using, The date and time you access the Library's site, The URL of the pages you visit and files you download, The Internet address of the website from which you linked directly to our site, Characteristics of your system, and Search terms used to come to the site and while on the site (in aggregate only).",
+   "rationale": "The policy explicitly mentions automatic collection of non-personally identifiable information, which includes characteristics of the system and search terms, but does not mention collecting location data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We will not disclose your personal information to other outside parties without first obtaining your permission.",
+   "rationale": "The policy does not explicitly state that the IP address and device IDs are shared with Google AdMob, but it does mention that personal information is disclosed to contractors or associates without consent.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly state that it does not track or monitor children's data for advertising purposes.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9261845762689072,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9630424157765375,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9736701741573967,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9369849408451619,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9574436785602508,
+ "usage": {
+  "prompt": 9323,
+  "output": 1400
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 24,
+  "untagged_paragraphs": 0,
+  "claims": 66,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     5,
+     7,
+     12,
+     23,
+     6,
+     18
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     8,
+     9,
+     2,
+     7,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Survey data",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not collect Survey data",
+    "paragraphs": [
+     4,
+     20,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not collect Location",
+    "paragraphs": [
+     4,
+     0
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     13,
+     4,
+     0
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     14,
+     15,
+     17
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We will only use the personal information you provide for its intended purpose.",
+      "rationale": "The policy denies collecting contact details and instead refers to personal information broadly.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "disclosing_quote": "",
+       "denial_quote": "We will only collect personal information that you voluntarily provide.",
+       "generic_quote": "We will only use the personal information you provide for its intended purpose.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy denies collecting contact details and instead refers to personal information broadly."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9261845762689072
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The Library uses persistent cookies to improve our web metrics by distinguishing between new and returning visitors; to prevent repeated prompting to complete our customer satisfaction survey, to anonymously aggregate data on how visitors use our sites and to \"remember\" preferences that you voluntarily provide in order to create a more seamless experience.",
+      "rationale": "The policy explicitly states that the Library collects and uses persistent cookies for analytics/research purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "The Library uses persistent cookies to improve our web metrics by distinguishing between new and returning visitors; to prevent repeated prompting to complete our customer satisfaction survey, to anonymously aggregate data on how visitors use our sites and to 'remember' preferences that you voluntarily provide in order to create a more seamless experience.",
+       "denial_quote": "",
+       "generic_quote": "The Library may also use other third party forms and surveys allowing you to provide feedback.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the Library collects and uses persistent cookies for analytics/research purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9630424157765375
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "The Library of Congress strives to provide the best experience for our Web and SMS users. To that end, the Library automatically collects and stores the following non-personally identifiable information: The name of the domain from which you access the Internet, The Internet Protocol address of your Internet provider's gateway, or in some cases, the computer you are using, The date and time you access the Library's site, The URL of the pages you visit and files you download, The Internet address of the website from which you linked directly to our site, Characteristics of your system, and Search terms used to come to the site and while on the site (in aggregate only).",
+      "rationale": "The policy explicitly mentions automatic collection of non-personally identifiable information, which includes characteristics of the system and search terms, but does not mention collecting location data.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "The Library of Congress strives to provide the best experience for our Web and SMS users. To that end, the Library automatically collects and stores the following non-personally identifiable information: The name of the domain from which you access the Internet, The Internet Protocol address of your Internet provider's gateway, or in some cases, the computer you are using, The date and time you access the Library's site, The URL of the pages you visit and files you download, The Internet address of the website from which you linked directly to our site, Characteristics of your system, and Search terms used to come to the site and while on the site (in aggregate only).",
+       "generic_quote": "The Library of Congress strives to provide the best experience for our Web and SMS users. To that end, the Library automatically collects and stores the following non-personally identifiable information: The name of the domain from which you access the Internet, The Internet Protocol address of your Internet provider's gateway, or in some cases, the computer you are using, The date and time you access the Library's site, The URL of the pages you visit and files you download, The Internet address of the website from which you linked directly to our site, Characteristics of your system, and Search terms used to come to the site and while on the site (in aggregate only).",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions automatic collection of non-personally identifiable information, which includes characteristics of the system and search terms, but does not mention collecting location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9736701741573967
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We will not disclose your personal information to other outside parties without first obtaining your permission.",
+      "rationale": "The policy does not explicitly state that the IP address and device IDs are shared with Google AdMob, but it does mention that personal information is disclosed to contractors or associates without consent.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "We will only disclose personal information to contractors or associates to carry out your requests; these third parties follow our privacy policy or prominently display their own.",
+       "generic_quote": "We will only disclose personal information to outside organizations without first obtaining your permission.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that the IP address and device IDs are shared with Google AdMob, but it does mention that personal information is disclosed to contractors or associates without consent."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9369849408451619
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "Session cookies do not contain personal information and once you close your browser, the cookies disappear. The Library uses session cookies on our site for technical purposes such as to enable you to more easily navigate throughout the Library's websites. Session cookies only collect non-personally identifiable data.",
+      "rationale": "The policy mentions session cookies being used for technical purposes but does not specify 'Service Operation and Security' as a purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Session cookies do not contain personal information and once you close your browser, the cookies disappear. The Library uses session cookies on our site for technical purposes such as to enable you to more easily navigate throughout the Library's websites. Session cookies only collect non-personally identifiable data.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy mentions session cookies being used for technical purposes but does not specify 'Service Operation and Security' as a purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9687970021825569
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly state that it does not track or monitor children's data for advertising purposes.",
+      "raw": {
+       "candidate_id": "c6",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        14,
+        15,
+        17
+       ],
+       "children_quote": "",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not explicitly state that it does not track or monitor children's data for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9759829621309447
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence does not disclose the collection of contact details. Instead, it refers to personal information broadly. The cited DPDP'",
+  "llm_calls": 7,
+  "seconds": 122.6
+ }
+}

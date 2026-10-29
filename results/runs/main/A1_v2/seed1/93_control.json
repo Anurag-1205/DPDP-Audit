@@ -1,0 +1,185 @@
+{
+ "case_id": "93_control",
+ "system": "A1_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 8"
+   ],
+   "evidence": "We (which includes our service providers) will use these addresses to respond to the general purposes for which we collected the information, to provide services and to operate the Site, including to respond to inquiries, to process credit card payments and billing, shipping, e-mail distribution, list processing and analysis, promotions management, to send information about PBS programs, Site, services, membership or to correspond about a purchase or product offers.",
+   "rationale": "The policy does not specify a particular purpose for handling contact data, but mentions various unspecified purposes for using contact information.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "A. Personally Identifiable Information\nPBS will not collect personally identifiable information from you, other than what you supply to us on a voluntary basis upon request. Personally identifiable information includes, but is not limited to, name, address, e-mail address, telephone number, and credit card information.",
+   "rationale": "The policy explicitly states that PBS does not collect personally identifiable information, which includes location data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9676845576440145,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9544351191885576,
+ "usage": {
+  "prompt": 2798,
+  "output": 396
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 51,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['additional service/feature', 'basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     6,
+     7,
+     8,
+     9,
+     20,
+     14,
+     33,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     10,
+     11,
+     12,
+     13,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "A. Personally Identifiable Information\nPBS will not collect personally identifiable information from you, other than what you supply to us on a voluntary basis upon request. Personally identifiable information includes, but is not limited to, name, address, e-mail address, telephone number, and credit card information.",
+      "rationale": "The policy explicitly states that PBS does not collect personally identifiable information, which includes location data.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "B. Non-personally Identifiable Information\nIn addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site. This information helps us improve the experience you and other visitors have with the Site.",
+       "generic_quote": "A. Personally Identifiable Information\nPBS will not collect personally identifiable information from you, other than what you supply to us on a voluntary basis upon request. Personally identifiable information includes, but is not limited to, name, address, e-mail address, telephone number, and credit card information.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that PBS does not collect personally identifiable information, which includes location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9676845576440145
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "We (which includes our service providers) will use these addresses to respond to the general purposes for which we collected the information, to provide services and to operate the Site, including to respond to inquiries, to process credit card payments and billing, shipping, e-mail distribution, list processing and analysis, promotions management, to send information about PBS programs, Site, services, membership or to correspond about a purchase or product offers.",
+      "rationale": "The policy does not specify a particular purpose for handling contact data, but mentions various unspecified purposes for using contact information.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We (which includes our service providers) will use these addresses to respond to the general purposes for which we collected the information, to provide services and to operate the Site, including to respond to inquiries, to process credit card payments and billing, shipping, e-mail distribution, list processing and analysis, promotions management, to send information about PBS programs, Site, services, membership or to correspond about a purchase or product offers.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a particular purpose for handling contact data, but mentions various unspecified purposes for using contact information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9411856807331007
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 43.02
+ }
+}

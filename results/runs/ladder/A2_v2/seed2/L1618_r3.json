@@ -1,0 +1,104 @@
+{
+ "case_id": "L1618_r3",
+ "system": "A2_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "An IP address is your computer's location on the Internet.",
+   "rationale": "The policy does not explicitly mention collecting computer information but mentions IP addresses. It also does not deny collecting computer information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions an IP address as your computer's location on the Internet, which implies the collection of computer information. However, the policy does not explicitly state that the app collects this information. Additionally, the cited DPDP text pertains to the notice requirements fo"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.928109422056349,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.928109422056349,
+ "usage": {
+  "prompt": 1314,
+  "output": 248
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 37,
+  "untagged_paragraphs": 0,
+  "claims": 30,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     8,
+     34
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "An IP address is your computer's location on the Internet.",
+      "rationale": "The policy does not explicitly mention collecting computer information but mentions IP addresses. It also does not deny collecting computer information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "An IP address is your computer's location on the Internet.",
+       "generic_quote": "We require you provide your email address or your first name as a username and a password that will allow you to change your PIN as needed.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting computer information but mentions IP addresses. It also does not deny collecting computer information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.928109422056349
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 25.79
+ }
+}

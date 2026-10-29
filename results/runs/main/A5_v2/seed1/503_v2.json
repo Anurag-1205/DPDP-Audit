@@ -1,0 +1,118 @@
+{
+ "case_id": "503_v2",
+ "system": "A5_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may share your information within the BWW organization and with our franchisees, with current and future affiliated companies, and with reputable third parties as needed to provide better services to you.",
+   "rationale": "The policy does not explicitly mention sharing health data with Google AdMob, but it does state that personal data can be shared with third parties for various purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9688547881905755,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9688547881905755,
+ "usage": {
+  "prompt": 1753,
+  "output": 179
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 69,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Health with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     7,
+     8,
+     9,
+     10,
+     14,
+     1
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may share your information within the BWW organization and with our franchisees, with current and future affiliated companies, and with reputable third parties as needed to provide better services to you.",
+      "rationale": "The policy does not explicitly mention sharing health data with Google AdMob, but it does state that personal data can be shared with third parties for various purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We generally do not share your information with companies who are not affiliated with us, but if we do, we will provide you with an opportunity to opt-out of these communications at any time.",
+       "generic_quote": "We may share your information within the BWW organization and with our franchisees, with current and future affiliated companies, and with reputable third parties as needed to provide better services to you.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention sharing health data with Google AdMob, but it does state that personal data can be shared with third parties for various purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9688547881905755
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 17.16
+ }
+}

@@ -1,0 +1,112 @@
+{
+ "case_id": "L962_r3",
+ "system": "A2_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We will share your Personally Identifiable Information with third parties only in the ways that are described in this Privacy Policy.",
+   "rationale": "The policy mentions sharing with partners but does not specify Mixpanel or analytics purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9787350890222151,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9787350890222151,
+ "usage": {
+  "prompt": 817,
+  "output": 177
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 71,
+  "untagged_paragraphs": 0,
+  "claims": 42,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     10,
+     27,
+     16
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We will share your Personally Identifiable Information with third parties only in the ways that are described in this Privacy Policy.",
+      "rationale": "The policy mentions sharing with partners but does not specify Mixpanel or analytics purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may share information with our partners.",
+       "denial_quote": "",
+       "generic_quote": "We will share your Personally Identifiable Information with third parties only in the ways that are described in this Privacy Policy.",
+       "data_type": "Computer information",
+       "recipient": "Mixpanel (Mixpanel, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "paragraphs": [
+        10,
+        27,
+        16
+       ],
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with partners but does not specify Mixpanel or analytics purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9787350890222151
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 19.03
+ }
+}

@@ -1,0 +1,147 @@
+{
+ "case_id": "1419_control",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9496749997367265,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9496749997367265,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9496749997367265,
+ "usage": {
+  "prompt": 1739,
+  "output": 295
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 35,
+  "untagged_paragraphs": 0,
+  "claims": 89,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     7,
+     17,
+     5,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     7,
+     17,
+     4,
+     13
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "\"Personally identifiable information\" is information that tells us who you are, such as your name, screen name, email address, postal address, phone number, credit card information, birth date/year and gender.",
+      "rationale": "The policy explicitly states that personally identifiable information is collected, covering the contact data type.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Personally identifiable information is information that tells us who you are, such as your name, screen name, email address, postal address, phone number, credit card information, birth date/year and gender.",
+       "denial_quote": "",
+       "generic_quote": "We collect and maintain personally identifiable information and automatic information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personally identifiable information is collected, covering the contact data type."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "The Site uses web beacons to gather automatic information such as the duration of a visit to the Site, the web pages viewed, a user's geographical information (e.g., city, state, zip code), IP address, and type of web browser.",
+      "rationale": "The policy mentions that web beacons are used to gather various types of information, including location-derived data, but does not explicitly state that location data is collected.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "The Site uses web beacons to gather automatic information such as the duration of a visit to the Site, the web pages viewed, a user's geographical information (e.g., city, state, zip code), IP address, and type of web browser.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that web beacons are used to gather various types of information, including location-derived data, but does not explicitly state that location data is collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9496749997367265
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 68.06
+ }
+}

@@ -1,0 +1,497 @@
+{
+ "case_id": "746_v1",
+ "system": "v2_purpose",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may use cookies, web beacons/pixel tags, log files, and other technologies to collect certain information about visitors to our website, use of our online services, and interactions with our emails and online advertisements.",
+   "rationale": "The policy does not explicitly mention collecting location data and instead discusses collecting information from visitors generally.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f4",
+   "data_type": "Social media data",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that social media data is used for advertising.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f5",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy clearly states that it does not collect personal information from children under 13, indicating no collection of health-related data from children.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9470773449148464,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9470773449148464,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "omitted",
+   "confidence": 0.9470773449148464,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.960653402260415,
+ "usage": {
+  "prompt": 8033,
+  "output": 1475
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 64,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     2,
+     8,
+     26,
+     20,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     7,
+     13,
+     20,
+     14,
+     26
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     4,
+     5,
+     6,
+     9,
+     13,
+     16,
+     17,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location may be collected; the app uses it for Additional service/feature",
+    "paragraphs": [
+     3,
+     4,
+     5,
+     6,
+     9,
+     13,
+     16,
+     17,
+     8,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "Social media data",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Social media data is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     4,
+     5,
+     6,
+     9,
+     13,
+     16,
+     17,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f4",
+    "data_type": "Social media data",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Social media data may be collected; the app uses it for Advertising",
+    "paragraphs": [
+     3,
+     4,
+     5,
+     6,
+     9,
+     13,
+     16,
+     17,
+     20,
+     26,
+     14
+    ]
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f5",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Health is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     4,
+     5,
+     6,
+     9,
+     13,
+     16,
+     17,
+     28,
+     27
+    ]
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f5",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Health may be collected; the app uses it for Basic service/feature",
+    "paragraphs": [
+     3,
+     4,
+     5,
+     6,
+     9,
+     13,
+     16,
+     17,
+     19,
+     14,
+     21
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may use cookies, web beacons/pixel tags, log files, and other technologies to collect certain information about visitors to our website, use of our online services, and interactions with our emails and online advertisements.",
+      "rationale": "The policy does not explicitly mention collecting location data and instead discusses collecting information from visitors generally.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "This site is intended for general audiences, and Kraft does not direct the site to collect, or knowingly collect, any personal information from children under the age of 13.",
+       "generic_quote": "We may use cookies, web beacons/pixel tags, log files, and other technologies to collect certain information about visitors to our website, use of our online services, and interactions with our emails and online advertisements.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting location data and instead discusses collecting information from visitors generally."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may share your email address with a third-party, such as a media agency, to send you interest-based advertising on our behalf. We may also share aggregated or de-identified information about you, including based on your email address, with our advertising and marketing partners, and third-party media platforms, including social media sites, to allow them to send targeted advertising messages and/or conduct analyses on our behalf.",
+      "rationale": "The policy explicitly mentions sharing email addresses for advertising purposes, which includes interest-based advertising.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We may share your email address with a third-party, such as a media agency, to send you interest-based advertising on our behalf. We may also share aggregated or de-identified information about you, including based on your email address, with our advertising and marketing partners, and third-party media platforms, including social media sites, to allow them to send targeted advertising messages and/or conduct analyses on our behalf.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions sharing email addresses for advertising purposes, which includes interest-based advertising."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy clearly states that it does not collect personal information from children under 13, indicating no collection of health-related data from children.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "",
+       "denial_quote": "This site is intended for general audiences, and Kraft does not direct the site to collect, or knowingly collect, any personal information from children under the age of 13.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy clearly states that it does not collect personal information from children under 13, indicating no collection of health-related data from children."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9470773449148464
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "To take full advantage of our offers, you may choose to register on our site. In the registration process, we request certain information (such as your contact information and age) so we can provide you with the communications you request, tailor our website to better meet your needs and customize our contacts with you.",
+      "rationale": "The policy clearly states that contact information is used for registration, communication, tailoring, and customization.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "To take full advantage of our offers, you may choose to register on our site. In the registration process, we request certain information (such as your contact information and age) so we can provide you with the communications you request, tailor our website to better meet your needs and customize our contacts with you.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy clearly states that contact information is used for registration, communication, tailoring, and customization."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "When you view the site using a mobile device, in addition to the other information we may collect from your actions, we may collect your mobile phone number, device identifier, and geolocation information as well as other non-personal information, such as your device type and carrier.",
+      "rationale": "The policy explicitly states that IP addresses and device IDs are collected for viewing the site and other actions.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "When you view the site using a mobile device, in addition to the other information we may collect from your actions, we may collect your mobile phone number, device identifier, and geolocation information as well as other non-personal information, such as your device type and carrier.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that IP addresses and device IDs are collected for viewing the site and other actions."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy clearly states that location data is used for participating in interactive features.",
+      "raw": {
+       "candidate_id": "c4",
+       "purpose_quote": "When you participate in certain interactive features on our site, such as using our recipe exchange, recipe ratings and product ratings and reviews, you may submit information and content, such as recipes, ratings, comments, pictures, etc. to the site. You may also provide us with certain information like your e-mail address, nickname, city and state of residency.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy clearly states that location data is used for participating in interactive features."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that social media data is used for advertising.",
+      "raw": {
+       "candidate_id": "c6",
+       "purpose_quote": "Some of these advertisers and ad networks may use technology such as cookies and web beacons/pixel tags when they advertise on our site, which will also send these advertisers and ad networks information including your IP address, ISP, browser type, and whether you have Flash installed. Some of these advertisers and ad networks also may use anonymous data, such as demographic data, received from third parties to assist in the delivery of advertisements to you.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that social media data is used for advertising."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We may obtain information about you from other sources, including commercially available sources, such as data aggregators and public databases. This information may include your name, demographic information, interests, and publicly-observed data, such as from social media and shopping behavior.",
+      "rationale": "The policy does not specify a purpose for collecting health data.",
+      "raw": {
+       "candidate_id": "c8",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We may obtain information about you from other sources, including commercially available sources, such as data aggregators and public databases. This information may include your name, demographic information, interests, and publicly-observed data, such as from social media and shopping behavior.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy does not specify a purpose for collecting health data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9742294596059836
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": true, \"reason\": \"The policy evidence does not explicitly mention collecting location data but discusses collecting information from visitors generally. The c'",
+  "llm_calls": 3,
+  "seconds": 148.71
+ }
+}

@@ -1,0 +1,104 @@
+{
+ "case_id": "L744_r4",
+ "system": "full_v2_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 6(5)",
+    "Rule 3"
+   ],
+   "evidence": "We may also disclose and otherwise use, on an anonymous basis, affiliation, position, interests and other non-personal information about customers.",
+   "rationale": "The policy explicitly states that personal information is not disclosed for marketing purposes unless consent is given, which aligns with the requirement that consent covers only what the notice describes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9753407879593015,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9753407879593015,
+ "usage": {
+  "prompt": 1321,
+  "output": 172
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 24,
+  "untagged_paragraphs": 0,
+  "claims": 32,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Contact with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     12,
+     3,
+     23
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 6(5)",
+       "Rule 3"
+      ],
+      "evidence": "We may also disclose and otherwise use, on an anonymous basis, affiliation, position, interests and other non-personal information about customers.",
+      "rationale": "The policy explicitly states that personal information is not disclosed for marketing purposes unless consent is given, which aligns with the requirement that consent covers only what the notice describes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We will not disclose your personal information to third parties for marketing purposes when you have not opted into receiving or have opted out of receiving such third party offers and/or newsletters through the Site(s).",
+       "generic_quote": "We may also disclose and otherwise use, on an anonymous basis, affiliation, position, interests and other non-personal information about customers.",
+       "sections": [
+        "Sec. 6(5)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal information is not disclosed for marketing purposes unless consent is given, which aligns with the requirement that consent covers only what the notice describes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9753407879593015
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 0.16
+ }
+}

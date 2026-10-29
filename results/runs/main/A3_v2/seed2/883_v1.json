@@ -1,0 +1,398 @@
+{
+ "case_id": "883_v1",
+ "system": "A3_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 7",
+    "Sec. 4(2)"
+   ],
+   "evidence": "",
+   "rationale": "The policy specifies using collected information for fulfilling service requests and registrations, but does not explicitly state 'Analytics/Research' as a purpose.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 4(2)",
+    "Rule 8"
+   ],
+   "evidence": "We use various technologies to manage TED.com and track use of the content we provide, including: the IP address used when registering and submitting content to the site standard web analytics information aggregated data about email click-through rates and video viewing information collected through HTML cookies, Flash cookies, web beacons, and similar technologies.",
+   "rationale": "The policy does not specify a purpose for collecting computer information, only mentioning it in a general context.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Rule 8",
+    "Sec. 8(7)",
+    "Sec. 12(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for the collected data.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Social media data",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 8(7)",
+    "Sec. 12(2)",
+    "Sec. 12(3)"
+   ],
+   "evidence": "When you share or recommend any TED.com content using your Facebook profile, your action is governed by Facebook's privacy policy. Likewise, when you share or recommend any TED.com content through other social media outlets, your actions are governed by their privacy policies.",
+   "rationale": "The policy does not explicitly disclose the collection of social media data, but it mentions collecting personal information and tracking information. It also discusses the right to correction and erasure, as well as general obligations regarding data retention.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Social media data",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Sec. 12(3)"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for social media data, and there is no indication that it will be erased once the purpose is no longer served.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "incorrect",
+   "confidence": 0.9311205138511456,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9479335883051491,
+ "usage": {
+  "prompt": 7192,
+  "output": 1013
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 25,
+  "untagged_paragraphs": 0,
+  "claims": 45,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     11,
+     19,
+     9,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Computer information is collected for ['analytics/research', 'unspecified'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     9,
+     11,
+     13,
+     4,
+     24
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps Computer information indefinitely; retention statements: none",
+    "paragraphs": [
+     11,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Social media data",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Social media data is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     3,
+     5,
+     13,
+     17,
+     18,
+     8,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Social media data",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps Social media data indefinitely; retention statements: none",
+    "paragraphs": [
+     8,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 7",
+       "Sec. 4(2)"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies using collected information for fulfilling service requests and registrations, but does not explicitly state 'Analytics/Research' as a purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "purpose_quote": "We may use the information that we collect to fulfill your requests for services and information. For example, we may use your contact information to respond to your customer service requests, or to enable registration for one of our conferences.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 7",
+        "Sec. 4(2)"
+       ],
+       "rationale": "The policy specifies using collected information for fulfilling service requests and registrations, but does not explicitly state 'Analytics/Research' as a purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9396044910493938
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 4(2)",
+       "Rule 8"
+      ],
+      "evidence": "We use various technologies to manage TED.com and track use of the content we provide, including: the IP address used when registering and submitting content to the site standard web analytics information aggregated data about email click-through rates and video viewing information collected through HTML cookies, Flash cookies, web beacons, and similar technologies.",
+      "rationale": "The policy does not specify a purpose for collecting computer information, only mentioning it in a general context.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We use various technologies to manage TED.com and track use of the content we provide, including: the IP address used when registering and submitting content to the site standard web analytics information aggregated data about email click-through rates and video viewing information collected through HTML cookies, Flash cookies, web beacons, and similar technologies.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 4(2)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a purpose for collecting computer information, only mentioning it in a general context."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9377314436160193
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Rule 8",
+       "Sec. 8(7)",
+       "Sec. 12(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for the collected data.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Rule 8",
+        "Sec. 8(7)",
+        "Sec. 12(1)"
+       ],
+       "rationale": "The policy does not specify a retention period for the collected data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9852416461243126
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 8(7)",
+       "Sec. 12(2)",
+       "Sec. 12(3)"
+      ],
+      "evidence": "When you share or recommend any TED.com content using your Facebook profile, your action is governed by Facebook's privacy policy. Likewise, when you share or recommend any TED.com content through other social media outlets, your actions are governed by their privacy policies.",
+      "rationale": "The policy does not explicitly disclose the collection of social media data, but it mentions collecting personal information and tracking information. It also discusses the right to correction and erasure, as well as general obligations regarding data retention.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "When you share or recommend any TED.com content using your Facebook profile, your action is governed by Facebook's privacy policy. Likewise, when you share or recommend any TED.com content through other social media outlets, your actions are governed by their privacy policies.",
+       "generic_quote": "We collect two kinds of information: Personal information that you directly provide to us, which includes information you supply when you register an account with us. Automatically collected, non-personal information, which includes tracking information gathered as you use TED.com.",
+       "sections": [
+        "Sec. 8(7)",
+        "Sec. 12(2)",
+        "Sec. 12(3)"
+       ],
+       "rationale": "The policy does not explicitly disclose the collection of social media data, but it mentions collecting personal information and tracking information. It also discusses the right to correction and erasure, as well as general obligations regarding data retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9311205138511456
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Sec. 12(3)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for social media data, and there is no indication that it will be erased once the purpose is no longer served.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "Social media data",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Sec. 12(3)"
+       ],
+       "rationale": "The policy does not specify a retention period for social media data, and there is no indication that it will be erased once the purpose is no longer served."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9459698468848735
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is missing, and the rationale incorrectly infers a purpose mismatch without explicit policy language supporting \\'Analyt'",
+  "llm_calls": 6,
+  "seconds": 113.44
+ }
+}

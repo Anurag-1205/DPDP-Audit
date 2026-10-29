@@ -1,0 +1,289 @@
+{
+ "case_id": "207_v1",
+ "system": "full_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+   "rationale": "The policy does not specify collecting contact details but mentions collecting information automatically.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the app does not share certain types of data with ad companies or analytics companies, but it does not explicitly state that it does not collect contact details. The cited DPDP text pertains to notices and consents rather than the collection of personal data. Therefor"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+   "rationale": "The policy mentions using mobile phone numbers for SMS messages, but does not state sharing them.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the app does not share certain types of data with ad companies or analytics companies, but it does not explicitly state that it does not share financial data. The cited DPDP text pertains to notices and consents rather than the sharing of personal data. Therefore, the"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9247116829831339,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9247116829831339,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "incorrect",
+   "confidence": 0.9247116829831339,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9452068155877008,
+ "usage": {
+  "prompt": 5776,
+  "output": 980
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 34,
+  "untagged_paragraphs": 0,
+  "claims": 68,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     14,
+     13,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['advertising'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     20,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     14,
+     3,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Financial",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Financial with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     1,
+     9,
+     10,
+     11,
+     8,
+     13
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+      "rationale": "The policy does not specify collecting contact details but mentions collecting information automatically.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+       "generic_quote": "Information collected automatically: When you visit our sites and use our apps, we automatically collect and store information about your computer or mobile device and your activities.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify collecting contact details but mentions collecting information automatically."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "Your mobile device's unique ID number\nYour mobile device's geographic location (specific geographic location if you've enabled collection of that information, or general geographic location automatically)",
+      "rationale": "The policy explicitly mentions collecting mobile device unique ID and location, but does not state sharing it.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Your mobile device's unique ID number\nYour mobile device's geographic location (specific geographic location if you've enabled collection of that information, or general geographic location automatically)",
+       "denial_quote": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting mobile device unique ID and location, but does not state sharing it."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+      "rationale": "The policy mentions using mobile phone numbers for SMS messages, but does not state sharing them.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We use your mobile phone number only to send you SMS messages that you've requested.",
+       "denial_quote": "We do not provide ad companies or analytics companies with your name, address, email address, phone number, or credit card information.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions using mobile phone numbers for SMS messages, but does not state sharing them."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9247116829831339
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We use mobile device IDs (the unique identifier assigned to a device by the manufacturer), instead of cookies, to recognize you. We do this to store your preferences and track your use of our apps.",
+      "rationale": "The policy explicitly states that device IDs are used for storing preferences and tracking app usage, which aligns with the purpose of personalization/customization.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Personalization/Customization",
+       "retention": "Unspecified",
+       "purpose_quote": "We use mobile device IDs (the unique identifier assigned to a device by the manufacturer), instead of cookies, to recognize you. We do this to store your preferences and track your use of our apps.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that device IDs are used for storing preferences and tracking app usage, which aligns with the purpose of personalization/customization."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9657019481922677
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 99.63,
+  "reverified_from": "full",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence states that the app does not share certain types of data with ad companies or analytics companies, but it does not explicitly state that it does not collect contact details. The cited DPDP text pertains to notices and consents rather than the collection of personal data. Therefore, the evidence does not justify calling it an undisclosed collection of contact details.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence states that the app does not share certain types of data with ad companies or analytics companies, but it does not explicitly state that it does not share financial data. The cited DPDP text pertains to notices and consents rather than the sharing of personal data. Therefore, the evidence does not justify calling it an undisclosed sharing of financial data.\"}]}"
+ }
+}

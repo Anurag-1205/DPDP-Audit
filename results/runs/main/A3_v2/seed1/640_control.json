@@ -1,0 +1,117 @@
+{
+ "case_id": "640_control",
+ "system": "A3_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 12(2)",
+    "Sec. 12(3)",
+    "Rule 10"
+   ],
+   "evidence": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+   "rationale": "The policy mentions collecting various types of information, but does not specifically mention collecting personal identifiers. It does state that personal information is collected, but not in a way that specifies personal identifiers.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states 'We receive and store any information you enter on our Websites or that you give us in any other way.' This evidence actually discloses the app's practice of collecting various types of information, which includes personal identifiers. The cited DPDP text does not directly"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9478456729768266,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9478456729768266,
+ "usage": {
+  "prompt": 2044,
+  "output": 291
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 42,
+  "untagged_paragraphs": 0,
+  "claims": 69,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Personal identifier is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     6,
+     30,
+     18,
+     0
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 12(2)",
+       "Sec. 12(3)",
+       "Rule 10"
+      ],
+      "evidence": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+      "rationale": "The policy mentions collecting various types of information, but does not specifically mention collecting personal identifiers. It does state that personal information is collected, but not in a way that specifies personal identifiers.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We receive and store any information you enter on our Websites or that you give us in any other way. You can choose not to provide certain information, but this will limit your ability to purchase products offered on the Websites, or to take advantage of some features or promotions.",
+       "generic_quote": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+       "sections": [
+        "Sec. 12(2)",
+        "Sec. 12(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy mentions collecting various types of information, but does not specifically mention collecting personal identifiers. It does state that personal information is collected, but not in a way that specifies personal identifiers."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9478456729768266
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 33.65
+ }
+}

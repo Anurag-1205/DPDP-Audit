@@ -1,0 +1,189 @@
+{
+ "case_id": "1106_control",
+ "system": "full_v2_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 2"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states the use of IP addresses for gathering information and storing it in log files, but does not specify the exact purpose of processing IP addresses.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the use of IP addresses for gathering information and storing it in log files is explicitly mentioned, which contradicts the finding of purpose mismatch. Additionally, the cited DPDP text does not provide any basis for concluding that there is a purpose mismatch regar"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6",
+    "Rule 3"
+   ],
+   "evidence": "Third-party advertising technology uses information derived from your visits to this Web site and the sites on which we advertise to present ads to you and uses cookies to track activity.",
+   "rationale": "The policy explicitly mentions sharing cookies and web beacons with third-party advertising technology, which includes Firebase Analytics.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9594037076090162,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9478120382331665,
+ "usage": {
+  "prompt": 3602,
+  "output": 452
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 47,
+  "untagged_paragraphs": 0,
+  "claims": 62,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['analytics/research', 'unspecified'], the app uses it for Advertising",
+    "paragraphs": [
+     7,
+     15,
+     19,
+     20,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with firebase_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     12,
+     13,
+     19,
+     32,
+     16,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6",
+       "Rule 3"
+      ],
+      "evidence": "Third-party advertising technology uses information derived from your visits to this Web site and the sites on which we advertise to present ads to you and uses cookies to track activity.",
+      "rationale": "The policy explicitly mentions sharing cookies and web beacons with third-party advertising technology, which includes Firebase Analytics.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Third-party advertising technology uses information derived from your visits to this Web site and the sites on which we advertise to present ads to you and uses cookies to track activity.",
+       "denial_quote": "",
+       "generic_quote": "Additionally, our business partners use tracking services, analytics and other technologies to monitor visits to allstate.com. The website may also use web beacons (also called 'clear GIFs' or 'pixel tags') in conjunction with cookies.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions sharing cookies and web beacons with third-party advertising technology, which includes Firebase Analytics."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9594037076090162
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 2"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states the use of IP addresses for gathering information and storing it in log files, but does not specify the exact purpose of processing IP addresses.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "As true of most sites, we gather certain information automatically and store it in log files. This information may include internet protocol (IP) addresses, browser type, internet service provider (ISP), referring/exit pages, operating system, date/time stamp, and/or clickstream data.",
+       "unspecified_purpose_quote": "We use your location information to search for information you request - including agent searches identify the location of an accident you are reporting",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 2"
+       ],
+       "rationale": "The policy explicitly states the use of IP addresses for gathering information and storing it in log files, but does not specify the exact purpose of processing IP addresses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9362203688573167
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 57.2
+ }
+}

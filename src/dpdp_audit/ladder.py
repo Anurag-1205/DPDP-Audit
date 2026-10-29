@@ -224,7 +224,16 @@ def build(seed: int = SEED, split: str = "ladder") -> dict:
     held = set(load_split()["heldout"])
     policies = [p for p in load_all() if f"{p.policy_id}_{p.name}" in held]
     split_dir = BENCH / split
+    # human-check files survive a rebuild: the checkers' own sheets, the disagreement list, and the
+    # merged check sheet once it holds answers (rebuilding must never erase people's work)
+    kept = {}
     if split_dir.exists():
+        for f in list(split_dir.glob("check_sheet_*.csv")) + list(split_dir.glob("disagreements.csv")):
+            kept[f.name] = f.read_bytes()
+        sheet = split_dir / "check_sheet.csv"
+        if sheet.exists() and any(r.get("checker_1_ok", "").strip() or r.get("checker_2_ok", "").strip()
+                                  for r in csv.DictReader(sheet.open())):
+            kept["check_sheet.csv"] = sheet.read_bytes()
         shutil.rmtree(split_dir)
     rows, removed_log = [], []
     for t in choose_targets(policies, seed):
@@ -269,6 +278,12 @@ def build(seed: int = SEED, split: str = "ladder") -> dict:
         w = csv.DictWriter(f, fieldnames=list(rows[0]))
         w.writeheader()
         w.writerows(rows)
+    if "check_sheet.csv" in kept:
+        old = [r["case_id"] for r in csv.DictReader(kept["check_sheet.csv"].decode().splitlines())]
+        if old != [r["case_id"] for r in rows]:
+            raise RuntimeError("the rebuilt ladder has different rungs from the filled check sheet")
+    for name, data in kept.items():
+        (split_dir / name).write_bytes(data)
     (split_dir / "removed_sentences.json").write_text(json.dumps(removed_log, indent=1))
     summary = {"ladders": len(removed_log), "cases": len(rows),
                "kinds": {k: sum(1 for r in removed_log if r["kind"] == k) for k in ("sharing", "collection")},
@@ -281,14 +296,42 @@ def build(seed: int = SEED, split: str = "ladder") -> dict:
 
 
 # ------------------------------------------------------------------ checks
+def _ok(v) -> bool:
+    return str(v or "").strip().lower() in ("ok", "yes", "y", "1", "true")
+
+
+def settled(split: str = "ladder") -> dict[str, bool]:
+    """Joint answers for rungs the two checkers answered differently (disagreements.csv, column
+    `agreed`); rungs not settled yet are left out."""
+    p = BENCH / split / "disagreements.csv"
+    if not p.exists():
+        return {}
+    return {r["case_id"]: _ok(r["agreed"]) for r in csv.DictReader(p.open()) if r.get("agreed", "").strip()}
+
+
 def accepted_cases(split: str = "ladder") -> set[str] | None:
-    """Rungs both checkers marked ok; None while the check sheet is not filled in."""
+    """Rungs accepted by the human check; None while the check sheet is not filled in. A rung is
+    accepted when both checkers marked it ok, or, where they disagreed, when they settled on ok
+    together; a disagreement not settled yet counts as rejected."""
     p = BENCH / split / "check_sheet.csv"
     rows = list(csv.DictReader(p.open()))
     if not all(r["checker_1_ok"].strip() and r["checker_2_ok"].strip() for r in rows):
         return None
-    ok = lambda v: v.strip().lower() in ("ok", "yes", "y", "1", "true")
-    return {r["case_id"] for r in rows if ok(r["checker_1_ok"]) and ok(r["checker_2_ok"])}
+    joint = settled(split)
+    out = set()
+    for r in rows:
+        a, b = _ok(r["checker_1_ok"]), _ok(r["checker_2_ok"])
+        if (a and b) or (a != b and joint.get(r["case_id"], False)):
+            out.add(r["case_id"])
+    return out
+
+
+def check_status(split: str = "ladder") -> dict:
+    rows = list(csv.DictReader((BENCH / split / "check_sheet.csv").open()))
+    differ = [r["case_id"] for r in rows if _ok(r["checker_1_ok"]) != _ok(r["checker_2_ok"])]
+    joint = settled(split)
+    return {"rungs": len(rows), "checkers_agree": len(rows) - len(differ), "disagreements": len(differ),
+            "settled": sum(1 for c in differ if c in joint), "unsettled": sum(1 for c in differ if c not in joint)}
 
 
 # ----------------------------------------------------------------- scoring
@@ -329,4 +372,25 @@ def score_ladder(keys: list[dict], outs: list[dict], accepted: set[str] | None =
         both = [v for v in by_ladder.values() if a in v and b in v]
         paired[f"{a}_vs_{b}"] = dict(mcnemar([v[a] for v in both], [v[b] for v in both]), n=len(both),
                                      difference=(sum(v[a] for v in both) - sum(v[b] for v in both)) / max(1, len(both)))
-    return {"accuracy": acc, "n_ladders": len(by_ladder), "paired": paired, "confusion": confusion}
+    return {"accuracy": acc, "accuracy_ci": accuracy_ci(by_ladder), "n_ladders": len(by_ladder),
+            "paired": paired, "confusion": confusion}
+
+
+def accuracy_ci(by_ladder: dict[str, dict[str, bool]], n: int = 1000, seed: int = 0) -> dict:
+    """95% interval of each rung's accuracy, re-sampling ladders (one ladder per policy, so this is
+    the policy-level bootstrap of score.cluster_bootstrap)."""
+    import random
+    rng = random.Random(seed)
+    ladders = sorted(by_ladder)
+    stats = {r: [] for r in RUNG_ORDER}
+    for _ in range(n):
+        sample = [by_ladder[rng.choice(ladders)] for _ in ladders]
+        for r in RUNG_ORDER:
+            vals = [v[r] for v in sample if r in v]
+            if vals:
+                stats[r].append(sum(vals) / len(vals))
+    out = {}
+    for r, xs in stats.items():
+        xs.sort()
+        out[r] = [xs[int(0.025 * (len(xs) - 1))], xs[int(0.975 * (len(xs) - 1))]] if xs else None
+    return out

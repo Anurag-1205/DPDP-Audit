@@ -6,7 +6,13 @@
 2. At least one cited section must exist among the DPDP units, after normalisation
    ("Section 8(7)" -> "Sec. 8(7)"; "Article 6 GDPR" is rejected). Otherwise it is dropped.
 3. One LLM call per case asks whether the cited text supports calling each finding a gap.
-   An unsupported finding is kept but marked uncertain (human review).
+   An unsupported finding is kept but marked uncertain (human review). `llm_gaps` limits this
+   check to some gap types (v2: collection and purpose); the others keep the deterministic checks.
+
+robust=True (the `*_rv` configurations): the frozen reader failed on 15-40% of replies and then
+kept every finding unchecked. The robust reader repairs invalid escapes and, failing that, recovers
+every complete {"finding_id", "supported"} pair; the raw reply is kept whenever plain parsing fails,
+and findings that still get no check are counted (`unchecked`).
 """
 from __future__ import annotations
 
@@ -111,8 +117,43 @@ Answer with JSON only:
 {{"checks": [{{"finding_id": 0, "supported": true, "reason": "..."}}]}}"""
 
 
+_BAD_ESCAPE = re.compile(r'\\(?!["\\/bfnrtu])')
+_ID = re.compile(r'"finding_id"\s*:\s*"?(-?\d+)"?')
+_SUPPORTED = re.compile(r'"supported"\s*:\s*"?(true|false|yes|no)"?', re.I)
+_REASON = re.compile(r'"reason"\s*:\s*"(.*?)"\s*[,}]', re.S)
+
+
+def parse_checks(text: str) -> tuple[dict[int, dict], str]:
+    """The verifier's checks by finding_id, and how they were read: "json", "repaired" (invalid
+    escapes removed) or "salvaged" (complete pairs recovered one by one). Raises ValueError if
+    no check can be read."""
+    def from_reply(reply):
+        items = reply.get("checks", []) if isinstance(reply, dict) else reply
+        return {int(c["finding_id"]): c for c in items if isinstance(c, dict)
+                and str(c.get("finding_id", "")).lstrip("-").isdigit()}
+    for mode, t in (("json", text), ("repaired", _BAD_ESCAPE.sub("", text or ""))):
+        try:
+            checks = from_reply(parse_json(t))
+            if checks:
+                return checks, mode
+        except (ValueError, AttributeError, TypeError):
+            pass
+    checks = {}
+    starts = [m.start() for m in _ID.finditer(text or "")]
+    for a, b in zip(starts, starts[1:] + [len(text or "")]):
+        chunk = text[a:b]
+        fid, sup = _ID.search(chunk), _SUPPORTED.search(chunk)
+        if fid and sup:
+            reason = _REASON.search(chunk)
+            checks[int(fid.group(1))] = {"finding_id": int(fid.group(1)), "supported": sup.group(1).lower(),
+                                         "reason": reason.group(1) if reason else ""}
+    if not checks:
+        raise ValueError(f"no check found in reply: {(text or '')[:200]!r}")
+    return checks, "salvaged"
+
+
 def verify(findings: list[dict], policy_text: str, flows: list[dict], llm, seed: int,
-           use_llm: bool = True) -> dict:
+           use_llm: bool = True, llm_gaps=None, robust: bool = False) -> dict:
     """Return {"findings": kept, "dropped": [...], "llm_calls", "error"}."""
     kept, dropped = [], []
     for f in findings:
@@ -135,21 +176,31 @@ def verify(findings: list[dict], policy_text: str, flows: list[dict], llm, seed:
         else:
             kept.append(dict(f, sections=secs))
     result = {"findings": kept, "dropped": dropped, "llm_calls": 0, "error": None, "usage": {}}
-    if not kept or not use_llm:
+    checked = [f for f in kept if llm_gaps is None or f["gap_type"] in llm_gaps]
+    if not checked or not use_llm:
         return result
     flow_map = {f["flow_id"]: f for f in flows}
     try:
-        resp = llm.complete(support_prompt(kept, flow_map), system=VERIFIER_SYSTEM, seed=seed)
+        resp = llm.complete(support_prompt(checked, flow_map), system=VERIFIER_SYSTEM, seed=seed)
         result["llm_calls"] = 1
         result["usage"] = resp.usage or {}
-        reply = parse_json(resp.text)
-        checks = {int(c["finding_id"]): c for c in reply.get("checks", [])
-                  if isinstance(c, dict) and str(c.get("finding_id", "")).lstrip("-").isdigit()}
+        if robust:
+            try:
+                checks, result["parse"] = parse_checks(resp.text)
+            finally:
+                if result.get("parse") != "json":
+                    result["raw"] = resp.text
+        else:
+            reply = parse_json(resp.text)
+            checks = {int(c["finding_id"]): c for c in reply.get("checks", [])
+                      if isinstance(c, dict) and str(c.get("finding_id", "")).lstrip("-").isdigit()}
     except (ValueError, AttributeError, TypeError) as exc:
         # fail open: the deterministic checks stand, the LLM check is recorded as missing
         result["error"] = str(exc)[:300]
+        result["unchecked"] = len(checked)
         return result
-    for i, f in enumerate(kept):
+    result["unchecked"] = sum(1 for i in range(len(checked)) if i not in checks)
+    for i, f in enumerate(checked):   # the same dicts as in kept
         c = checks.get(i)
         if c is None:
             continue

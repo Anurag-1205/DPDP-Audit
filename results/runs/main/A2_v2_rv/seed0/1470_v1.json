@@ -1,0 +1,371 @@
+{
+ "case_id": "1470_v1",
+ "system": "A2_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5",
+    "Rule 3"
+   ],
+   "evidence": "Valves products, services and sites may employ cookies and other technologies such as web beacons and pixel tags.",
+   "rationale": "The policy explicitly mentions IP addresses and device IDs being collected and used for service operation and security.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions that Valves products, services and sites may employ cookies and other technologies such as web beacons and pixel tags. This does not explicitly disclose the collection of IP addresses and device IDs. Additionally, the cited DPDP text pertains to the notice given to the d"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you create a Steam account, Valve collects a user's email address and username, and at the user's option, first and last name.",
+   "rationale": "The policy does not specify any purpose for collecting user profile data, only that it includes information like email address, username, and optionally first and last name.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided only describes what data is collected when creating a Steam account but does not mention the purpose for which this data is collected. The cited DPDP text pertains to the notice given to the data principal and does not address the issue of purpose mismatch."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8",
+    "Third Schedule"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for user profile data used for analytics/research.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9602260197584173,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.97048725396001,
+ "usage": {
+  "prompt": 7295,
+  "output": 1152
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 49,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['additional service/feature', 'service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     6,
+     13,
+     3,
+     10,
+     15
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     3,
+     4,
+     13,
+     10,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     13,
+     3,
+     6,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "User profile is collected for ['service operation and security'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     13,
+     6,
+     3,
+     2,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps User profile indefinitely; retention statements: none",
+    "paragraphs": [
+     6,
+     11
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5",
+       "Rule 3"
+      ],
+      "evidence": "Valves products, services and sites may employ cookies and other technologies such as web beacons and pixel tags.",
+      "rationale": "The policy explicitly mentions IP addresses and device IDs being collected and used for service operation and security.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Information regarding Steam billing, a users Steam account, a users Internet connection and the Valve software installed on a users computer is uploaded to the server in connection with the users use of Steam and Valve software.",
+       "denial_quote": "",
+       "generic_quote": "Valves products, services and sites may employ cookies and other technologies such as web beacons and pixel tags.",
+       "sections": [
+        "Sec. 5",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions IP addresses and device IDs being collected and used for service operation and security."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9602260197584173
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "When you create a Steam account, Valve collects a user's email address and username, and at the user's option, first and last name.",
+      "rationale": "The policy explicitly states that contact details are collected for creating a Steam account, which aligns with providing basic service/feature.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "When you create a Steam account, Valve collects a user's email address and username, and at the user's option, first and last name.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that contact details are collected for creating a Steam account, which aligns with providing basic service/feature."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.98507850634112
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Information regarding Steam billing, a users Steam account, a users Internet connection and the Valve software installed on a users computer is uploaded to the server in connection with the users use of Steam and Valve software.",
+      "rationale": "The policy states that computer information is uploaded to the server in connection with the user's use of Steam and Valve software, which aligns with the purpose of providing basic service/feature.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "Information regarding Steam billing, a users Steam account, a users Internet connection and the Valve software installed on a users computer is uploaded to the server in connection with the users use of Steam and Valve software.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy states that computer information is uploaded to the server in connection with the user's use of Steam and Valve software, which aligns with the purpose of providing basic service/feature."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.973535248523591
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you create a Steam account, Valve collects a user's email address and username, and at the user's option, first and last name.",
+      "rationale": "The policy does not specify any purpose for collecting user profile data, only that it includes information like email address, username, and optionally first and last name.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "User profile",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "Indefinitely",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "When you create a Steam account, Valve collects a user's email address and username, and at the user's option, first and last name.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify any purpose for collecting user profile data, only that it includes information like email address, username, and optionally first and last name."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9445210500450527
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8",
+       "Third Schedule"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for user profile data used for analytics/research.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "retention_mismatch",
+       "data_type": "User profile",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8",
+        "Third Schedule"
+       ],
+       "rationale": "The policy does not specify a retention period for user profile data used for analytics/research."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9890754451318691
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 81.72,
+  "reverified_from": "A2_v2",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence mentions that Valves products, services and sites may employ cookies and other technologies such as web beacons and pixel tags. This does not explicitly disclose the collection of IP addresses and device IDs. Additionally, the cited DPDP text pertains to the notice given to the data principal and does not address the issue of undisclosed collection.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence provided only describes what data is collected when creating a Steam account but does not mention the purpose for which this data is collected. The cited DPDP text pertains to the notice given to the data principal and does not address the issue of purpose mismatch.\"}]}"
+ }
+}

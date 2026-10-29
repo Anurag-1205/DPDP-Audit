@@ -1,0 +1,182 @@
+{
+ "case_id": "1259_v1",
+ "system": "A5_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "Data Retention Upon your request, we will remove your personal information from the website but we will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our Fool Rules and take other actions otherwise permitted by law.",
+   "rationale": "The policy states that personal data will be retained and used as necessary for legal obligations, resolving disputes, and enforcing rules, which implies indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9736809388391519,
+ "usage": {
+  "prompt": 2923,
+  "output": 339
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 181,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Cookies and tracking elements indefinitely; retention statements: ['Limited', 'Unspecified']",
+    "paragraphs": [
+     7,
+     38,
+     12,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Demographic is collected for ['analytics/research', 'marketing'], the app uses it for Advertising",
+    "paragraphs": [
+     12,
+     18,
+     33,
+     14,
+     20
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "To determine aggregate information about users, including demographic and usage information.",
+      "rationale": "The policy explicitly states that demographic information is used for determining aggregate information, which includes advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Demographic",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "To determine aggregate information about users, including demographic and usage information.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that demographic information is used for determining aggregate information, which includes advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9875781008866383
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "Data Retention Upon your request, we will remove your personal information from the website but we will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our Fool Rules and take other actions otherwise permitted by law.",
+      "rationale": "The policy states that personal data will be retained and used as necessary for legal obligations, resolving disputes, and enforcing rules, which implies indefinite retention.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "retention_mismatch",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "Data Retention Upon your request, we will remove your personal information from the website but we will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our Fool Rules and take other actions otherwise permitted by law.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that personal data will be retained and used as necessary for legal obligations, resolving disputes, and enforcing rules, which implies indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9597837767916653
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 35.04,
+  "reverified_from": "A5_v2",
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

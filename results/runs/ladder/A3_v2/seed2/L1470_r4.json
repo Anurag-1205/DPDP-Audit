@@ -1,0 +1,105 @@
+{
+ "case_id": "L1470_r4",
+ "system": "A3_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 6(5)",
+    "Rule 7",
+    "Sec. 11(2)"
+   ],
+   "evidence": "Valve gives users the option to receive promotional email communications from Valve. Users may opt out of these communications. Instructions for discontinuing receipt of promotional email communications from Valve will be provided in email communications to users.",
+   "rationale": "The policy mentions sharing promotional communications but does not specify sharing personally identifiable information for analytics/research.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9396494731863336,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9396494731863336,
+ "usage": {
+  "prompt": 1214,
+  "output": 144
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 28,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Contact",
+    "paragraphs": [
+     13,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 6(5)",
+       "Rule 7",
+       "Sec. 11(2)"
+      ],
+      "evidence": "Valve gives users the option to receive promotional email communications from Valve. Users may opt out of these communications. Instructions for discontinuing receipt of promotional email communications from Valve will be provided in email communications to users.",
+      "rationale": "The policy mentions sharing promotional communications but does not specify sharing personally identifiable information for analytics/research.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Valve gives users the option to receive promotional email communications from Valve. Users may opt out of these communications. Instructions for discontinuing receipt of promotional email communications from Valve will be provided in email communications to users.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 6(5)",
+        "Rule 7",
+        "Sec. 11(2)"
+       ],
+       "rationale": "The policy mentions sharing promotional communications but does not specify sharing personally identifiable information for analytics/research."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9396494731863336
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 16.78
+ }
+}

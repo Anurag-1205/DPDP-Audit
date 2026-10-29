@@ -1,0 +1,103 @@
+{
+ "case_id": "L1498_r2",
+ "system": "A2_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We do not collect your device and browser information.",
+   "rationale": "The policy explicitly states that device and browser information are not collected, thus meeting the requirement of not collecting such data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence clearly states that the app does not collect device and browser information, which aligns with the requirement under Section 5(1) and Rule 3 of the DPDP Act to inform the user about the personal data and purposes for processing it. Since the app does not collect this data, it mee"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9596305788107092,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9596305788107092,
+ "usage": {
+  "prompt": 1188,
+  "output": 207
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 31,
+  "untagged_paragraphs": 0,
+  "claims": 27,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not collect Computer information",
+    "paragraphs": [
+     4,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do not collect your device and browser information.",
+      "rationale": "The policy explicitly states that device and browser information are not collected, thus meeting the requirement of not collecting such data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect your device and browser information.",
+       "generic_quote": "We collect information from and about you.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that device and browser information are not collected, thus meeting the requirement of not collecting such data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9596305788107092
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 17.67
+ }
+}

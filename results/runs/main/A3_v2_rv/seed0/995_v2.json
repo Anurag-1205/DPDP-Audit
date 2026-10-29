@@ -1,0 +1,327 @@
+{
+ "case_id": "995_v2",
+ "system": "A3_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "Certain information, such as address or email address, can be updated or corrected simply by calling Customer Service at 1.888.777.7920.",
+   "rationale": "The policy explicitly states that no data is collected from children, which implies no collection of location data from children.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not indicate any collection of data, let alone location data from children. Instead, it describes how certain information can be updated or corrected through customer service. The cited DPDP text does not mention location data or children's data, so it does not supp"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 9(3)",
+    "Sec. 17(3)",
+    "Rule 10"
+   ],
+   "evidence": "Information received such as name, email address, home address and data collected regarding areas of interest is stored in a database. The database is available for Mohegan Sun's usage only and is not shared with anyone.",
+   "rationale": "The policy explicitly states that no data is collected from children, which aligns with the prohibition against tracking or behavioral monitoring of children and targeted advertising.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not indicate any collection of demographic data for marketing purposes. It only mentions storing information for internal use. The cited DPDP text does not mention demographic data or marketing activities, so it does not support the finding of undisclosed collection"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(2)",
+    "Sec. 8(7)",
+    "Sec. 11(2)"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that personal information is not shared with anyone, thus meeting the notice and consent requirements.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "Mohegan Sun does not share or sell your personal information to anyone.",
+   "rationale": "The policy explicitly states that no personal information is shared, thus meeting the notice and consent requirements.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9706250677607191,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9636528358740123,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9399343466315867,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9383010357140911,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9531283214951023,
+ "usage": {
+  "prompt": 6474,
+  "output": 948
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 7,
+  "untagged_paragraphs": 0,
+  "claims": 4,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Location",
+    "paragraphs": [
+     3,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Demographic",
+    "paragraphs": [
+     4,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Financial",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Financial",
+    "paragraphs": [
+     0,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Computer information",
+    "paragraphs": [
+     0,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "Certain information, such as address or email address, can be updated or corrected simply by calling Customer Service at 1.888.777.7920.",
+      "rationale": "The policy explicitly states that no data is collected from children, which implies no collection of location data from children.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "This site is not intended for children. Children may use this site only with the direct supervision of their parent or legal guardian. We do not attempt to collect any data or personal information from children.",
+       "generic_quote": "Certain information, such as address or email address, can be updated or corrected simply by calling Customer Service at 1.888.777.7920.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy explicitly states that no data is collected from children, which implies no collection of location data from children."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9706250677607191
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 9(3)",
+       "Sec. 17(3)",
+       "Rule 10"
+      ],
+      "evidence": "Information received such as name, email address, home address and data collected regarding areas of interest is stored in a database. The database is available for Mohegan Sun's usage only and is not shared with anyone.",
+      "rationale": "The policy explicitly states that no data is collected from children, which aligns with the prohibition against tracking or behavioral monitoring of children and targeted advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "This site is not intended for children. Children may use this site only with the direct supervision of their parent or legal guardian. We do not attempt to collect any data or personal information from children.",
+       "generic_quote": "Information received such as name, email address, home address and data collected regarding areas of interest is stored in a database. The database is available for Mohegan Sun's usage only and is not shared with anyone.",
+       "sections": [
+        "Sec. 9(3)",
+        "Sec. 17(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy explicitly states that no data is collected from children, which aligns with the prohibition against tracking or behavioral monitoring of children and targeted advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9636528358740123
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(2)",
+       "Sec. 8(7)",
+       "Sec. 11(2)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that personal information is not shared with anyone, thus meeting the notice and consent requirements.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "Mohegan Sun does not share or sell your personal information to anyone.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(2)",
+        "Sec. 8(7)",
+        "Sec. 11(2)"
+       ],
+       "rationale": "The policy explicitly states that personal information is not shared with anyone, thus meeting the notice and consent requirements."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9399343466315867
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "Mohegan Sun does not share or sell your personal information to anyone.",
+      "rationale": "The policy explicitly states that no personal information is shared, thus meeting the notice and consent requirements.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Mohegan Sun does not share or sell your personal information to anyone.",
+       "denial_quote": "",
+       "generic_quote": "Mohegan Sun does not share or sell your personal information to anyone.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that no personal information is shared, thus meeting the notice and consent requirements."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9383010357140911
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 5,
+  "seconds": 64.05,
+  "reverified_from": "A3_v2",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

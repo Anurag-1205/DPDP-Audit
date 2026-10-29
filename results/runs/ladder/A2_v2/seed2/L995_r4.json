@@ -1,0 +1,103 @@
+{
+ "case_id": "L995_r4",
+ "system": "A2_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "If you have a question regarding any of the above information, please contact us at the following email address and we will be happy to get back to you. Contact information@mohegansun.com.",
+   "rationale": "The policy does not disclose the collection of location data and explicitly denies the collection of specific types of data like addresses and email addresses.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not actually disclose the collection of location data. Instead, it provides contact information for inquiries, which is unrelated to the collection of personal data. Additionally, the cited DPDP text pertains to notices and consents, not to the disclosure of data co"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9513762489305169,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9513762489305169,
+ "usage": {
+  "prompt": 1258,
+  "output": 256
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 6,
+  "untagged_paragraphs": 0,
+  "claims": 1,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Location",
+    "paragraphs": [
+     2,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you have a question regarding any of the above information, please contact us at the following email address and we will be happy to get back to you. Contact information@mohegansun.com.",
+      "rationale": "The policy does not disclose the collection of location data and explicitly denies the collection of specific types of data like addresses and email addresses.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Certain information, such as address or email address, can be updated or corrected simply by calling Customer Service at 1.888.777.7920.",
+       "generic_quote": "If you have a question regarding any of the above information, please contact us at the following email address and we will be happy to get back to you. Contact information@mohegansun.com.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose the collection of location data and explicitly denies the collection of specific types of data like addresses and email addresses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9513762489305169
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 27.51
+ }
+}

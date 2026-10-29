@@ -1,0 +1,102 @@
+{
+ "case_id": "L642_r3",
+ "system": "A3_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 7",
+    "Sec. 2"
+   ],
+   "evidence": "We use these statistics about your visit for aggregation purposes only. These statistics are used to help us improve the performance of our Web sites.",
+   "rationale": "The policy does not disclose sharing of IP addresses and device IDs with third parties, and explicitly states that the collected information does not identify individuals personally.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9471362149018521,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9471362149018521,
+ "usage": {
+  "prompt": 1169,
+  "output": 161
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 14,
+  "untagged_paragraphs": 0,
+  "claims": 9,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions IP address and device IDs",
+    "paragraphs": [
+     4,
+     5
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 7",
+       "Sec. 2"
+      ],
+      "evidence": "We use these statistics about your visit for aggregation purposes only. These statistics are used to help us improve the performance of our Web sites.",
+      "rationale": "The policy does not disclose sharing of IP addresses and device IDs with third parties, and explicitly states that the collected information does not identify individuals personally.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "When you visit our sites, our computers may automatically collect statistics about your visit. This information does not identify you personally, but rather about your visit to our sites.",
+       "generic_quote": "We use these statistics about your visit for aggregation purposes only. These statistics are used to help us improve the performance of our Web sites.",
+       "sections": [
+        "Sec. 7",
+        "Sec. 2"
+       ],
+       "rationale": "The policy does not disclose sharing of IP addresses and device IDs with third parties, and explicitly states that the collected information does not identify individuals personally."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9471362149018521
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 18.2
+ }
+}

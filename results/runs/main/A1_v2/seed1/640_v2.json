@@ -1,0 +1,248 @@
+{
+ "case_id": "640_v2",
+ "system": "A1_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+   "rationale": "The policy mentions that personal information is received and stored, but does not specifically disclose the collection of personal identifiers.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We also may employ other companies and individuals to perform functions on our behalf. Examples include order fulfillment, package delivery, postal mail and email communications, customer lists management, data analysis, marketing services and assistance which may include content and ads presented on other websites or mobile applications, credit card processing, and customer relationship management. These companies and individuals have access to personal information needed to perform their functions, but they are not permitted to use such information for other purposes without our permission.",
+   "rationale": "The policy mentions third-party advertising companies, but does not specifically mention Google AdMob by name.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9351582982497059,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9548259395488948,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9537282250997151,
+ "usage": {
+  "prompt": 4993,
+  "output": 715
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 42,
+  "untagged_paragraphs": 0,
+  "claims": 69,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Personal identifier is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     6,
+     30,
+     18,
+     0
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     18,
+     19,
+     21,
+     22,
+     23,
+     25,
+     27,
+     30,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f5",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Computer information is collected for ['unspecified'], the app uses it for Advertising",
+    "paragraphs": [
+     11,
+     28,
+     30,
+     26
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+      "rationale": "The policy mentions that personal information is received and stored, but does not specifically disclose the collection of personal identifiers.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "You can choose not to provide certain information, but this will limit your ability to purchase products offered on the Websites, or to take advantage of some features or promotions.",
+       "generic_quote": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that personal information is received and stored, but does not specifically disclose the collection of personal identifiers."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9351582982497059
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We also may employ other companies and individuals to perform functions on our behalf. Examples include order fulfillment, package delivery, postal mail and email communications, customer lists management, data analysis, marketing services and assistance which may include content and ads presented on other websites or mobile applications, credit card processing, and customer relationship management. These companies and individuals have access to personal information needed to perform their functions, but they are not permitted to use such information for other purposes without our permission.",
+      "rationale": "The policy mentions third-party advertising companies, but does not specifically mention Google AdMob by name.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We use third-party advertising companies to serve ads when you visit our Web site. These companies may use aggregated information (not including your name, address, email address or telephone number) about your visits to this and other Websites in order to provide advertisements about goods and services of interest to you.",
+       "denial_quote": "",
+       "generic_quote": "We also may employ other companies and individuals to perform functions on our behalf. Examples include order fulfillment, package delivery, postal mail and email communications, customer lists management, data analysis, marketing services and assistance which may include content and ads presented on other websites or mobile applications, credit card processing, and customer relationship management. These companies and individuals have access to personal information needed to perform their functions, but they are not permitted to use such information for other purposes without our permission.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions third-party advertising companies, but does not specifically mention Google AdMob by name."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9548259395488948
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 37(3)"
+      ],
+      "evidence": "We also may log the length of time of your visit and the number of times you visit and purchase from us. We assign you one or more unique identifiers to help keep track of your future visits",
+      "rationale": "The policy mentions logging visit times and unique identifiers but does not explicitly state that this data is used for advertising.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "We also may log the length of time of your visit and the number of times you visit and purchase from us. We assign you one or more unique identifiers to help keep track of your future visits",
+       "unspecified_purpose_quote": "The information we receive or can determine from your interaction with our Websites includes your Internet (IP) address; login and password information; email address; web browser type and version; operating system and computer platform; purchase history, which we may aggregate with similar information from other customers; the full Uniform Resource Locator (URL) clickstream to, through, and from our Websites, including date and time; one or more unique identifiers; products you viewed or searched for; areas of our Websites you visited; and the phone number you used to call our toll-free number. We also may log the length of time of your visit and the number of times you visit and purchase from us",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 37(3)"
+       ],
+       "rationale": "The policy mentions logging visit times and unique identifiers but does not explicitly state that this data is used for advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9712004375005446
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 83.1
+ }
+}

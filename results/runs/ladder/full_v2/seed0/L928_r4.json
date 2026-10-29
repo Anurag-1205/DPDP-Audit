@@ -1,0 +1,106 @@
+{
+ "case_id": "L928_r4",
+ "system": "full_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Personal Information",
+   "rationale": "The policy explicitly states that the site does not collect personal data from children under 13, thus indicating no collection of IP addresses and device IDs from such users.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided ('Personal Information') does not specifically mention IP addresses and device IDs. The cited DPDP text (Sec. 5(1) and Rule 3) focuses on the need to inform the data principal about the personal data and purposes for processing, but does not address the specific issue of"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.951021547870127,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.951021547870127,
+ "usage": {
+  "prompt": 1843,
+  "output": 274
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 24,
+  "untagged_paragraphs": 0,
+  "claims": 40,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2,
+     13,
+     14,
+     21
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Personal Information",
+      "rationale": "The policy explicitly states that the site does not collect personal data from children under 13, thus indicating no collection of IP addresses and device IDs from such users.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Our site is not directed toward children under 13. Nonetheless, we are committed to comply with applicable laws and requirements, such as the Children's Online Privacy Protection Act. We do not knowingly collect personal data from children under 13.",
+       "generic_quote": "Personal Information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the site does not collect personal data from children under 13, thus indicating no collection of IP addresses and device IDs from such users."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.951021547870127
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 31.07
+ }
+}

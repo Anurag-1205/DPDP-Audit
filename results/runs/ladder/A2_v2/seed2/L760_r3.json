@@ -1,0 +1,106 @@
+{
+ "case_id": "L760_r3",
+ "system": "A2_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Comments The Smithsonian is a large organization with many people sharing responsibility for the content of our Websites. Please help us respond to your comments and inquiries by sending them to the appropriate Smithsonian office. Consult our special Web page to help you determine where to send your inquiry at http://www.si.edu/contacts. If you have questions about this Privacy Statement, please contact us via email at Privacy@si.edu.",
+   "rationale": "The policy indicates that users can opt-out of receiving emails, but does not specify that contact data is shared with Mixpanel for analytics purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9592597550462542,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9592597550462542,
+ "usage": {
+  "prompt": 809,
+  "output": 285
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 16,
+  "untagged_paragraphs": 0,
+  "claims": 18,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Contact",
+    "paragraphs": [
+     7,
+     14
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Comments The Smithsonian is a large organization with many people sharing responsibility for the content of our Websites. Please help us respond to your comments and inquiries by sending them to the appropriate Smithsonian office. Consult our special Web page to help you determine where to send your inquiry at http://www.si.edu/contacts. If you have questions about this Privacy Statement, please contact us via email at Privacy@si.edu.",
+      "rationale": "The policy indicates that users can opt-out of receiving emails, but does not specify that contact data is shared with Mixpanel for analytics purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "When we send you such information by email, you will always have an immediate opportunity to decline further communication. Please use the contact specified in the email so that we can remove you from the list that contains your name. If you are uncertain about whom to contact, you may contact our webmaster at webmaster@si.edu.",
+       "generic_quote": "Comments The Smithsonian is a large organization with many people sharing responsibility for the content of our Websites. Please help us respond to your comments and inquiries by sending them to the appropriate Smithsonian office. Consult our special Web page to help you determine where to send your inquiry at http://www.si.edu/contacts. If you have questions about this Privacy Statement, please contact us via email at Privacy@si.edu.",
+       "data_type": "Contact",
+       "recipient": "Mixpanel (Mixpanel, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy indicates that users can opt-out of receiving emails, but does not specify that contact data is shared with Mixpanel for analytics purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9592597550462542
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 27.8
+ }
+}

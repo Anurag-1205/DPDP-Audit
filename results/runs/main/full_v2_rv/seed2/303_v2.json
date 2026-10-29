@@ -1,0 +1,565 @@
+{
+ "case_id": "303_v2",
+ "system": "full_v2_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Sec. 9(5)",
+    "Rule 10"
+   ],
+   "evidence": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us. If you believe someone 12 or younger is using our site without parental consent, please contact us.",
+   "rationale": "The policy does not explicitly state that user online activities are not tracked or monitored for children, nor does it mention obtaining verifiable parental consent.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "This document is our Privacy Policy, which describes what information we collect and what it's used for. It applies to all interactions with reddit.com, including interactions with our site through buttons and widgets. It also applies to reddit.tv and mobile applications produced by reddit.",
+   "rationale": "The policy does not explicitly state that contact details are collected, nor does it deny such collection.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not explicitly state that contact details are collected, but neither does it deny such collection. Therefore, the evidence is inconclusive regarding the collection of contact details. Additionally, the cited DPDP text pertains to the notice requirements for consent "
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Our apps collect certain information about your device, including its IP address, device type, and its current operating system. This information is used for analytics and to improve the reddit service; for example, we use device and OS information to track and fix bugs. It is also used to provide advertising as described below. All stored IP addresses, except the account creation IP address, are deleted after 90 days. We only associate this information with your account when you are signed in.",
+   "rationale": "The policy mentions sharing IP addresses and device IDs with Google Analytics, which is a specific third-party tool used for analytics.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c8",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us.",
+   "rationale": "The policy does not explicitly state that it complies with the restrictions on tracking, behavioral monitoring, or targeted advertising for children under 13.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9199784574899823,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9626885102319483,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9410201388443354,
+   "source": "notice"
+  },
+  "f6": {
+   "label": "vague",
+   "confidence": 0.9421894158643562,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9550226098511984,
+ "usage": {
+  "prompt": 13697,
+  "output": 1710
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 54,
+  "untagged_paragraphs": 0,
+  "claims": 117,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2,
+     4,
+     5,
+     7,
+     9,
+     12,
+     13,
+     16,
+     17,
+     25,
+     41,
+     42,
+     43,
+     33
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['analytics/research', 'service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     24,
+     43,
+     44,
+     10,
+     46
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     10,
+     43,
+     44,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     5,
+     23,
+     28,
+     30,
+     33,
+     46,
+     50,
+     44
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends User online activities to the analytics SDK Google Analytics",
+    "paragraphs": [
+     39
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2,
+     4,
+     5,
+     7,
+     9,
+     12,
+     13,
+     16,
+     17,
+     25,
+     41,
+     42,
+     43,
+     33
+    ]
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     5,
+     23,
+     27,
+     28,
+     30,
+     33,
+     44,
+     46,
+     50,
+     43
+    ]
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     39
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you create an account, you are required to provide a username and password, and may opt to provide an email address.",
+      "rationale": "The policy explicitly mentions collecting email addresses, which falls under the Contact data type.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you create an account, you are required to provide a username and password, and may opt to provide an email address.",
+       "denial_quote": "",
+       "generic_quote": "personal data",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting email addresses, which falls under the Contact data type."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9199784574899823
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5",
+       "Sec. 6",
+       "Rule 3"
+      ],
+      "evidence": "We use a tool called Google Analytics to help us understand how users interact with our website. It tells us aggregate usage and traffic information, such as how the site was accessed, how long visitors stayed, and the number of first-time visitors to the site.",
+      "rationale": "The policy explicitly mentions sharing user online activities with Google Analytics for analytics/research purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We use a tool called Google Analytics to help us understand how users interact with our website. It tells us aggregate usage and traffic information, such as how the site was accessed, how long visitors stayed, and the number of first-time visitors to the site.",
+       "denial_quote": "",
+       "generic_quote": "To make our ads relevant to you, Adzerk receives information about the page the ad will appear on. This information includes the subreddits used to generate that page (which may include your subscriptions), as well as your IP address from which your general location (your country or city area) can be inferred.",
+       "sections": [
+        "Sec. 5",
+        "Sec. 6",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions sharing user online activities with Google Analytics for analytics/research purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9626885102319483
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "This document is our Privacy Policy, which describes what information we collect and what it's used for. It applies to all interactions with reddit.com, including interactions with our site through buttons and widgets. It also applies to reddit.tv and mobile applications produced by reddit.",
+      "rationale": "The policy does not explicitly state that contact details are collected, nor does it deny such collection.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "",
+       "denial_quote": "However, reddits mobile apps provide a unique and convenient way to experience reddit. This portion of our privacy policy describes the information our apps collect, how we use it, and how it all fits in with the reddit youre already familiar with.",
+       "generic_quote": "This document is our Privacy Policy, which describes what information we collect and what it's used for. It applies to all interactions with reddit.com, including interactions with our site through buttons and widgets. It also applies to reddit.tv and mobile applications produced by reddit.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that contact details are collected, nor does it deny such collection."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9410201388443354
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Our apps collect certain information about your device, including its IP address, device type, and its current operating system. This information is used for analytics and to improve the reddit service; for example, we use device and OS information to track and fix bugs. It is also used to provide advertising as described below. All stored IP addresses, except the account creation IP address, are deleted after 90 days. We only associate this information with your account when you are signed in.",
+      "rationale": "The policy mentions sharing IP addresses and device IDs with Google Analytics, which is a specific third-party tool used for analytics.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "We use a tool called Google Analytics to help us understand how users interact with our website. It tells us aggregate usage and traffic information, such as how the site was accessed, how long visitors stayed, and the number of first-time visitors to the site. To learn more about Google Analytics and how it uses your data, please visit http://www.google.com/analytics/learn/privacy.html.",
+       "denial_quote": "",
+       "generic_quote": "Our apps collect certain information about your device, including its IP address, device type, and its current operating system. This information is used for analytics and to improve the reddit service; for example, we use device and OS information to track and fix bugs. It is also used to provide advertising as described below. All stored IP addresses, except the account creation IP address, are deleted after 90 days. We only associate this information with your account when you are signed in.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing IP addresses and device IDs with Google Analytics, which is a specific third-party tool used for analytics."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9421894158643562
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 2"
+      ],
+      "evidence": "This information is used for analytics and to improve the reddit service; for example, we use device and OS information to track and fix bugs. It is also used to provide advertising as described below.",
+      "rationale": "The policy explicitly states that IP addresses and device information are used for analytics and improving the service, as well as providing advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "This information is used for analytics and to improve the reddit service; for example, we use device and OS information to track and fix bugs. It is also used to provide advertising as described below.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 2"
+       ],
+       "rationale": "The policy explicitly states that IP addresses and device information are used for analytics and improving the service, as well as providing advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9459163254899078
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "This information is used for analytics and to improve the reddit service; for example, we use device and OS information to track and fix bugs. It is also used to provide advertising as described below.",
+      "rationale": "The policy explicitly states that device and OS information is used for advertising.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "This information is used for analytics and to improve the reddit service; for example, we use device and OS information to track and fix bugs. It is also used to provide advertising as described below.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that device and OS information is used for advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9856444853059816
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Sec. 9(5)",
+       "Rule 10"
+      ],
+      "evidence": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us. If you believe someone 12 or younger is using our site without parental consent, please contact us.",
+      "rationale": "The policy does not explicitly state that user online activities are not tracked or monitored for children, nor does it mention obtaining verifiable parental consent.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "childrens_data",
+       "data_type": "User online activities",
+       "recipient": "Google Analytics (Google, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "children_quote": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us. If you believe someone 12 or younger is using our site without parental consent, please contact us.",
+       "sections": [
+        "Sec. 9(3)",
+        "Sec. 9(5)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not explicitly state that user online activities are not tracked or monitored for children, nor does it mention obtaining verifiable parental consent."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9689323193668704
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us.",
+      "rationale": "The policy does not explicitly state that it complies with the restrictions on tracking, behavioral monitoring, or targeted advertising for children under 13.",
+      "raw": {
+       "candidate_id": "c8",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "children_quote": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not explicitly state that it complies with the restrictions on tracking, behavioral monitoring, or targeted advertising for children under 13."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9738112262162044
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 9,
+  "seconds": 216.97,
+  "reverified_from": "full_v2",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

@@ -1,0 +1,108 @@
+{
+ "case_id": "L891_r3",
+ "system": "full",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify sharing of IP addresses and device IDs with Google AdMob or any other specific recipient. It only mentions sharing with partners and vendors without specifying the exact data types or purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the policy does not mention sharing of IP addresses and device IDs with Google AdMob or any other specific recipient. However, the app flow indicates that these data types are indeed shared with AdMob for advertising purposes. This discrepancy means the policy evidenc"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.8315507686975202,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.8315507686975202,
+ "usage": {
+  "prompt": 2183,
+  "output": 263
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 41,
+  "untagged_paragraphs": 0,
+  "claims": 95,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     11,
+     13,
+     19,
+     21,
+     31,
+     38
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify sharing of IP addresses and device IDs with Google AdMob or any other specific recipient. It only mentions sharing with partners and vendors without specifying the exact data types or purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not control and are not responsible for how these third parties use your information.",
+       "generic_quote": "We may share information with our partners.\nWe do share information with our partners and vendors, but the policy does not specify the exact data types shared or the purpose of sharing, only that the sharing is for various unspecified purposes.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify sharing of IP addresses and device IDs with Google AdMob or any other specific recipient. It only mentions sharing with partners and vendors without specifying the exact data types or purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.8315507686975202
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 35.04
+ }
+}

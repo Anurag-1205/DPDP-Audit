@@ -1,0 +1,181 @@
+{
+ "case_id": "995_control",
+ "system": "A3_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that no data or personal information is collected from children.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing, and the cited sections of the DPDP Act do not address the collection of location data from children. The rationale provided does not justify the finding of an undisclosed collection of location data."
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Sec. 17(3)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that no data is collected from children and directly supervises their use, complying with the prohibition on tracking and targeted advertising.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing, and the cited sections of the DPDP Act do not address the collection of demographic data from children. The rationale provided does not justify the finding of an undisclosed collection of demographic data."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9843722610934671,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9333040137004274,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9588381373969472,
+ "usage": {
+  "prompt": 3177,
+  "output": 404
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 7,
+  "untagged_paragraphs": 0,
+  "claims": 4,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Location",
+    "paragraphs": [
+     3,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Demographic",
+    "paragraphs": [
+     4,
+     1
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that no data or personal information is collected from children.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "This site is not intended for children. Children may use this site only with the direct supervision of their parent or legal guardian. We do not attempt to collect any data or personal information from children.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy explicitly states that no data or personal information is collected from children."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9843722610934671
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Sec. 17(3)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that no data is collected from children and directly supervises their use, complying with the prohibition on tracking and targeted advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "This site is not intended for children. Children may use this site only with the direct supervision of their parent or legal guardian. We do not attempt to collect any data or personal information from children.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 9(3)",
+        "Sec. 17(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy explicitly states that no data is collected from children and directly supervises their use, complying with the prohibition on tracking and targeted advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9333040137004274
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 47.15
+ }
+}

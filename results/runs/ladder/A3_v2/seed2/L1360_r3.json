@@ -1,0 +1,107 @@
+{
+ "case_id": "L1360_r3",
+ "system": "A3_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 7",
+    "Sec. 11(2)",
+    "Sec. 12(2)"
+   ],
+   "evidence": "We may share information with our partners.",
+   "rationale": "The policy mentions sharing with partners but does not specify Mixpanel, and does not explicitly deny sharing personal identifiers with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9104851463902293,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9104851463902293,
+ "usage": {
+  "prompt": 1171,
+  "output": 127
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 23,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Personal identifier",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Personal identifier with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     6,
+     7,
+     8,
+     10
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 7",
+       "Sec. 11(2)",
+       "Sec. 12(2)"
+      ],
+      "evidence": "We may share information with our partners.",
+      "rationale": "The policy mentions sharing with partners but does not specify Mixpanel, and does not explicitly deny sharing personal identifiers with third parties.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The Hill may share information with our partners.",
+       "generic_quote": "We may share information with our partners.",
+       "sections": [
+        "Sec. 7",
+        "Sec. 11(2)",
+        "Sec. 12(2)"
+       ],
+       "rationale": "The policy mentions sharing with partners but does not specify Mixpanel, and does not explicitly deny sharing personal identifiers with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9104851463902293
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 15.2
+ }
+}

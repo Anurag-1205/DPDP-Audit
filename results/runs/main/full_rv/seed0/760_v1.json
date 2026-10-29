@@ -1,0 +1,483 @@
+{
+ "case_id": "760_v1",
+ "system": "full_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+   "rationale": "The policy explicitly states that IP addresses and device information are collected.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence explicitly states that IP addresses and device information are collected, which supports the finding of undisclosed collection. The cited DPDP text (Sec. 5(1) and Rule 3) requires the notice to inform the Data Principal about the personal data and its purpose, which is not fully "
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+   "rationale": "The policy explicitly states that IP addresses and device information are collected.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "Similar to finding 0, the policy evidence explicitly states that IP addresses and device information are collected, supporting the finding of undisclosed collection. The cited DPDP text (Sec. 5(1) and Rule 3) requires the notice to inform the Data Principal about the personal data and its purpose, w"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+   "rationale": "The policy mentions that demographic and interest data is used but does not explicitly state that it is shared.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions that demographic and interest data is used but does not explicitly state that it is shared. This does not support the finding of undisclosed sharing. The cited DPDP text (Sec. 5(1) and Rule 3) requires the notice to inform the Data Principal about the personal data and i"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9771324728435602,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9771324728435602,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9771324728435602,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f7": {
+   "label": "clear",
+   "confidence": 0.9771324728435602,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9723551149859473,
+ "usage": {
+  "prompt": 8745,
+  "output": 1669
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 43,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     13,
+     17,
+     3,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     13,
+     17,
+     3,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     4,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     9,
+     10,
+     11,
+     4,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Demographic is shared with admob for ['marketing'], the app uses it for Advertising",
+    "paragraphs": [
+     5,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f6",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     4,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f6",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Cookies and tracking elements indefinitely; retention statements: ['Indefinitely', 'Limited', 'Stated Period']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     4,
+     7,
+     13,
+     17,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f7",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     9,
+     10,
+     11,
+     5,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+      "rationale": "The policy explicitly states that IP addresses and device information are collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+       "denial_quote": "",
+       "generic_quote": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that IP addresses and device information are collected."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+      "rationale": "The policy explicitly states that IP addresses and device information are collected.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+       "denial_quote": "",
+       "generic_quote": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that IP addresses and device information are collected."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+      "rationale": "The policy mentions that demographic and interest data is used but does not explicitly state that it is shared.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "Some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+       "generic_quote": "Some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that demographic and interest data is used but does not explicitly state that it is shared."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+      "rationale": "The policy mentions that demographic and interest data is used but does not explicitly state that it is shared.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "",
+       "denial_quote": "Some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+       "generic_quote": "Some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that demographic and interest data is used but does not explicitly state that it is shared."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9771324728435602
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Many content adjustments and customer service improvements are made based on the data derived from cookies.",
+      "rationale": "The policy explicitly states that cookies are used for content adjustments and customer service improvements.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "Many content adjustments and customer service improvements are made based on the data derived from cookies.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that cookies are used for content adjustments and customer service improvements."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+      "rationale": "The policy clearly states that demographic data is used for understanding visitors and customizing websites.",
+      "raw": {
+       "candidate_id": "c5",
+       "purpose_quote": "The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy clearly states that demographic data is used for understanding visitors and customizing websites."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Many content adjustments and customer service improvements are made based on the data derived from cookies.",
+      "rationale": "The policy explicitly states that cookies are used for content adjustments and customer service improvements, indicating an unspecified retention period.",
+      "raw": {
+       "candidate_id": "c6",
+       "purpose_quote": "Many content adjustments and customer service improvements are made based on the data derived from cookies.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that cookies are used for content adjustments and customer service improvements, indicating an unspecified retention period."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9763244107924152
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c7",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "The data is retained for as long as necessary to support the mission of the Smithsonian Websites.",
+      "rationale": "The policy states that data is retained 'for as long as necessary' without specifying a limit.",
+      "raw": {
+       "candidate_id": "c7",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "The data is retained for as long as necessary to support the mission of the Smithsonian Websites.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that data is retained 'for as long as necessary' without specifying a limit."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9636084613218664
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 170.42,
+  "reverified_from": "full",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": true, \"reason\": \"The policy evidence explicitly states that IP addresses and device information are collected, which supports the finding of undisclosed collection. The cited DPDP text (Sec. 5(1) and Rule 3) requires the notice to inform the Data Principal about the personal data and its purpose, which is not fully addressed in the policy evidence.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": true, \"reason\": \"Similar to finding 0, the policy evidence explicitly states that IP addresses and device information are collected, supporting the finding of undisclosed collection. The cited DPDP text (Sec. 5(1) and Rule 3) requires the notice to inform the Data Principal about the personal data and its purpose, which is not fully addressed in the policy evidence.\"}]}\n\n{\"checks\": [{\"finding_id\": 2, \"supported\": false, \"reason\": \"The policy evidence mentions that demographic and interest data is used but does not explicitly state that it is shared. This does not support the finding of undisclosed sharing. The cited DPDP text (Sec. 5(1) and Rule 3) requires the notice to inform the Data Principal about the personal data and its purpose, which is not fully addressed in the policy evidence.\"}]}"
+ }
+}

@@ -1,0 +1,153 @@
+{
+ "case_id": "1259_control",
+ "system": "full_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9665309306020426,
+ "usage": {
+  "prompt": 2934,
+  "output": 385
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 137,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['advertising', 'basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     23,
+     40,
+     4,
+     3,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     5,
+     8,
+     24,
+     4,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "If you sign up for a special offer from an advertiser (for example, in our \"What Every Fool Needs\" or \"Special Offers\" areas, or whatever we call them if we change their names), we will provide your individual contact information (for example, name, mailing address, email address, and/or telephone number), so that the advertiser or its agent can fulfill the special offer.",
+      "rationale": "The policy explicitly states the purpose of collecting contact information for additional services and features.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "If you sign up for a special offer from an advertiser (for example, in our 'What Every Fool Needs' or 'Special Offers' areas, or whatever we call them if we change their names), we will provide your individual contact information (for example, name, mailing address, email address, and/or telephone number), so that the advertiser or its agent can fulfill the special offer.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states the purpose of collecting contact information for additional services and features."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9747765193011657
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 27(1)"
+      ],
+      "evidence": "We collect IP addresses for site security and to help us understand how people use our sites so that we can improve our sites and our users' respective experiences.",
+      "rationale": "The policy explicitly states the purpose for collecting IP addresses, which matches the Service Operation and Security purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "purpose_quote": "We collect IP addresses for site security and to help us understand how people use our sites so that we can improve our sites and our users' respective experiences.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 27(1)"
+       ],
+       "rationale": "The policy explicitly states the purpose for collecting IP addresses, which matches the Service Operation and Security purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9582853419029197
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 50.6
+ }
+}

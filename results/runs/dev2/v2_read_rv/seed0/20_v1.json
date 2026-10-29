@@ -1,0 +1,264 @@
+{
+ "case_id": "20_v1",
+ "system": "v2_read_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Sec. 3"
+   ],
+   "evidence": "We collect two basic types of information from you in conjunction with your use of the Sites: non-personally identifiable information and personally identifiable information.",
+   "rationale": "The policy mentions collecting usage data, which falls under 'User online activities'. However, it does not specify the retention period.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not explicitly mention the collection of user online activities. Instead, it broadly states that they collect non-personally identifiable information and personally identifiable information. The cited sections of the DPDP Act focus on providing notices and consents,"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9492133168032464,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9492133168032464,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9492133168032464,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9591349780603059,
+ "usage": {
+  "prompt": 5784,
+  "output": 792
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 36,
+  "untagged_paragraphs": 0,
+  "claims": 95,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not collect Contact",
+    "paragraphs": [
+     5,
+     3,
+     23
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not collect Location",
+    "paragraphs": [
+     5,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not collect User online activities",
+    "paragraphs": [
+     5,
+     10,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps User online activities indefinitely; retention statements: ['Indefinitely', 'Limited', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     5,
+     20,
+     22,
+     29,
+     34,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Sec. 3"
+      ],
+      "evidence": "any information that can individually identify you and includes, your name, address, phone number, and email address, or non-personally identifiable information that has been linked to such personally identifiable information.",
+      "rationale": "The policy explicitly mentions collecting personally identifiable information, which includes contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "personally identifiable information",
+       "denial_quote": "",
+       "generic_quote": "any information that can individually identify you and includes, your name, address, phone number, and email address, or non-personally identifiable information that has been linked to such personally identifiable information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Sec. 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting personally identifiable information, which includes contact details."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Sec. 7"
+      ],
+      "evidence": "We collect and store your devices source IP address which may disclose the general location of your device at the time you access the Sites.",
+      "rationale": "The policy clearly states that the company collects and stores the source IP address, which can reveal the general location of the device.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We collect and store your devices source IP address which may disclose the general location of your device at the time you access the Sites.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Sec. 7"
+       ],
+       "rationale": "The policy clearly states that the company collects and stores the source IP address, which can reveal the general location of the device."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Sec. 3"
+      ],
+      "evidence": "We collect two basic types of information from you in conjunction with your use of the Sites: non-personally identifiable information and personally identifiable information.",
+      "rationale": "The policy mentions collecting usage data, which falls under 'User online activities'. However, it does not specify the retention period.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We collect two basic types of information from you in conjunction with your use of the Sites: non-personally identifiable information and personally identifiable information.",
+       "denial_quote": "",
+       "generic_quote": "We collect two basic types of information from you in conjunction with your use of the Sites: non-personally identifiable information and personally identifiable information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Sec. 3"
+       ],
+       "rationale": "The policy mentions collecting usage data, which falls under 'User online activities'. However, it does not specify the retention period."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9492133168032464
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "The time period for which we keep information varies according to the purpose for which it is used for. In some cases, there are legal requirements to keep data for a minimum period. Unless there is a specific legal requirement for us to keep the information, we will retain it for no longer than is necessary for the purposes for which the data was collected or for which it is to be further processed.",
+      "rationale": "The policy states that data will be retained for as long as necessary, but does not specify an end date, hence indefinite retention.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "User online activities",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "The time period for which we keep information varies according to the purpose for which it is used for. In some cases, there are legal requirements to keep data for a minimum period. Unless there is a specific legal requirement for us to keep the information, we will retain it for no longer than is necessary for the purposes for which the data was collected or for which it is to be further processed.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that data will be retained for as long as necessary, but does not specify an end date, hence indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9690566393173654
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 23.13,
+  "reverified_from": "v2_read",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

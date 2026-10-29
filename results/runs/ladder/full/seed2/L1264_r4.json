@@ -1,0 +1,104 @@
+{
+ "case_id": "L1264_r4",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "The information you enter on a donation or payment page may be shared with third-party service providers (such as services that verify credit card data).",
+   "rationale": "The policy mentions sharing with third-party service providers but does not specify Google AdMob. It also states that IP addresses are used for logging and troubleshooting, which does not explicitly disclose sharing with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions sharing with third-party service providers but does not specify Google AdMob. However, the app flow indicates that location data is shared with AdMob for advertising purposes, which is not disclosed in the policy evidence. Additionally, the cited sections of the DPDP Act"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9220122037408371,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9220122037408371,
+ "usage": {
+  "prompt": 1683,
+  "output": 298
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 12,
+  "untagged_paragraphs": 0,
+  "claims": 20,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     4,
+     9,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "The information you enter on a donation or payment page may be shared with third-party service providers (such as services that verify credit card data).",
+      "rationale": "The policy mentions sharing with third-party service providers but does not specify Google AdMob. It also states that IP addresses are used for logging and troubleshooting, which does not explicitly disclose sharing with Google AdMob.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Our website uses cookies for these reasons: so that you don't have to reenter information on action, donate, or payment pages; for tracking traffic so that we can evaluate and improve the website; and to facilitate outreach based on visitors' interests.",
+       "generic_quote": "The information you enter on a donation or payment page may be shared with third-party service providers (such as services that verify credit card data).",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy mentions sharing with third-party service providers but does not specify Google AdMob. It also states that IP addresses are used for logging and troubleshooting, which does not explicitly disclose sharing with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9220122037408371
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 39.61
+ }
+}

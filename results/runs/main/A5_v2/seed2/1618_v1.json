@@ -1,0 +1,128 @@
+{
+ "case_id": "1618_v1",
+ "system": "A5_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "MediaNews does not and cannot condition a child's participation in any of our online activities on the disclosure of more information than is reasonably necessary to participate in the activity.",
+   "rationale": "The policy does not explicitly mention collecting health data, but mentions collecting additional personal information in contests and promotions.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence discusses conditions for children's participation in online activities and does not address the collection of health data. The cited DPDP text pertains to notices for consent requests and does not directly address the issue of undisclosed collection of health data. Therefore, the"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "incorrect",
+   "confidence": 0.9499003629937326,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9499003629937326,
+ "usage": {
+  "prompt": 3209,
+  "output": 247
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 45,
+  "untagged_paragraphs": 0,
+  "claims": 162,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Health is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     4,
+     5,
+     6,
+     7,
+     10,
+     12,
+     13,
+     14,
+     15,
+     16,
+     19,
+     35,
+     42,
+     34
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "MediaNews does not and cannot condition a child's participation in any of our online activities on the disclosure of more information than is reasonably necessary to participate in the activity.",
+      "rationale": "The policy does not explicitly mention collecting health data, but mentions collecting additional personal information in contests and promotions.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "MediaNews does not and cannot condition a child's participation in any of our online activities on the disclosure of more information than is reasonably necessary to participate in the activity.",
+       "generic_quote": "MediaNews may request additional PIN from you upon your optional entry in any sweepstakes, contests, promotions or special offers found on MediaNews Web sites.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting health data, but mentions collecting additional personal information in contests and promotions."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9499003629937326
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 29.08
+ }
+}

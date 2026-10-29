@@ -27,6 +27,7 @@ from .paths import OUTPUTS, ROOT
 load_dotenv(ROOT / ".env")
 CACHE_DIR = OUTPUTS / "cache" / "llm"
 GEMINI_THINKING_TOKENS = 16384
+GEMINI_TIMEOUT_MS = 300_000   # per request; a timed-out call is retried like any transient error
 
 
 @dataclass
@@ -78,13 +79,16 @@ class GeminiKeys:
 
     def current(self):
         from google import genai
+        from google.genai import types
         with self.lock:
             live = [k for k in self.keys if k not in self.dead]
             if not live:
                 raise QuotaExhausted(f"all {len(self.keys)} Gemini keys used up their daily quota")
             key = live[self.i % len(live)]
             if key not in self.clients:
-                self.clients[key] = genai.Client(api_key=key)
+                # a request without a time limit once hung for hours and stalled a whole run
+                self.clients[key] = genai.Client(api_key=key, http_options=types.HttpOptions(
+                    timeout=GEMINI_TIMEOUT_MS))
             return key, self.clients[key]
 
     def exhausted(self, key):

@@ -1,0 +1,523 @@
+{
+ "case_id": "98_v1",
+ "system": "A2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "geolocation (if using a mobile application and you consent to providing it)",
+   "rationale": "The policy does not mention collecting geolocation data for advertising purposes, but does mention it under specific conditions.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions 'geolocation' but does not specify the purpose or recipient of the data. The finding is about undisclosed collection for advertising purposes, which is not covered by the provided policy evidence."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "Location",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify any time limit for retaining geolocation data.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy does not mention any time limit for retaining geolocation data, which is required by Sec. 8(7) and Rule 8."
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "User profile",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Personal Information",
+   "rationale": "The policy explicitly lists the types of user profile information collected.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states 'Personal Information', which is too vague to determine if it includes user profile data specifically. The finding assumes more specificity than the policy provides."
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f5",
+   "data_type": "User profile",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify any time limit for retaining user profile data.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy does not mention any time limit for retaining user profile data, which is required by Sec. 8(7) and Rule 8."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9639712081686062,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9639712081686062,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9639712081686062,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "incorrect",
+   "confidence": 0.9639712081686062,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9639712081686062,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9714554728281743,
+ "usage": {
+  "prompt": 5861,
+  "output": 1081
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 41,
+  "untagged_paragraphs": 0,
+  "claims": 90,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     6,
+     8,
+     9,
+     13,
+     15,
+     16,
+     17,
+     19,
+     21,
+     24,
+     26,
+     36
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     6,
+     8,
+     9,
+     13,
+     15,
+     16,
+     17,
+     19,
+     21,
+     24,
+     26,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     6,
+     8,
+     9,
+     13,
+     15,
+     16,
+     17,
+     19,
+     21,
+     24,
+     26,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     6,
+     8,
+     9,
+     13,
+     15,
+     16,
+     17,
+     19,
+     21,
+     24,
+     26,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Location indefinitely; retention statements: ['Indefinitely', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     3,
+     5,
+     6,
+     9,
+     11,
+     12,
+     13,
+     15,
+     16,
+     17,
+     18,
+     21,
+     22,
+     24,
+     25,
+     34,
+     30
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "User profile is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     6,
+     8,
+     9,
+     13,
+     15,
+     16,
+     17,
+     19,
+     21,
+     24,
+     26,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f5",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps User profile indefinitely; retention statements: ['Indefinitely', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     3,
+     5,
+     6,
+     9,
+     11,
+     12,
+     13,
+     15,
+     16,
+     17,
+     18,
+     21,
+     22,
+     24,
+     25,
+     34,
+     30,
+     32
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "name, mailing address, telephone number, e-mail address, user name and password (for account administration)",
+      "rationale": "The policy explicitly lists the types of contact information collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "name, mailing address, telephone number, e-mail address, user name and password (for account administration)",
+       "denial_quote": "",
+       "generic_quote": "Personal Information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly lists the types of contact information collected."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "device ID, including IP address",
+      "rationale": "The policy mentions collecting device IDs which include IP addresses.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "device ID, including IP address",
+       "denial_quote": "",
+       "generic_quote": "Personal Information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting device IDs which include IP addresses."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "geolocation (if using a mobile application and you consent to providing it)",
+      "rationale": "The policy specifically mentions collecting geolocation data under certain conditions.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "geolocation (if using a mobile application and you consent to providing it)",
+       "denial_quote": "",
+       "generic_quote": "Personal Information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifically mentions collecting geolocation data under certain conditions."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "geolocation (if using a mobile application and you consent to providing it)",
+      "rationale": "The policy does not mention collecting geolocation data for advertising purposes, but does mention it under specific conditions.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "geolocation (if using a mobile application and you consent to providing it)",
+       "generic_quote": "Personal Information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention collecting geolocation data for advertising purposes, but does mention it under specific conditions."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Personal Information",
+      "rationale": "The policy explicitly lists the types of user profile information collected.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "username, password, preferences, profile or account settings",
+       "denial_quote": "",
+       "generic_quote": "Personal Information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly lists the types of user profile information collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9639712081686062
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify any time limit for retaining geolocation data.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "retention_mismatch",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify any time limit for retaining geolocation data."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify any time limit for retaining user profile data.",
+      "raw": {
+       "candidate_id": "c7",
+       "gap_type": "retention_mismatch",
+       "data_type": "User profile",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify any time limit for retaining user profile data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9789397374877425
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 93.16,
+  "reverified_from": "A2",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

@@ -1,0 +1,103 @@
+{
+ "case_id": "L93_r4",
+ "system": "A3_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "We may collect name, address, and e-mail addresses in connection with these activities.",
+   "rationale": "The policy mentions collecting email addresses and other personal data for specific services but does not explicitly mention collecting location data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided discusses collecting name, address, and email addresses, which is different from the finding of undisclosed collection of location data. The cited sections of the DPDP Act focus on providing notices regarding personal data and purposes of processing, but they do not addr"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9470978134861683,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9470978134861683,
+ "usage": {
+  "prompt": 1631,
+  "output": 243
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 37,
+  "untagged_paragraphs": 0,
+  "claims": 27,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Location",
+    "paragraphs": [
+     6,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "We may collect name, address, and e-mail addresses in connection with these activities.",
+      "rationale": "The policy mentions collecting email addresses and other personal data for specific services but does not explicitly mention collecting location data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "While the majority of our Site is free, we may charge fees for select products and services. To enable the purchase of these and other products, we collect your telephone number, e-mail address, billing address and credit card information.",
+       "generic_quote": "We may collect name, address, and e-mail addresses in connection with these activities.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy mentions collecting email addresses and other personal data for specific services but does not explicitly mention collecting location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9470978134861683
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 24.64
+ }
+}

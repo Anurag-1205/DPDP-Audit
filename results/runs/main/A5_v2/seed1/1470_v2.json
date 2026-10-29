@@ -1,0 +1,122 @@
+{
+ "case_id": "1470_v2",
+ "system": "A5_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "Valve may use personally identifiable information provided by users to send them information about Valve, including news about product updates, contests, events, and other promotional materials, but only if the users agree to receive such communications. Valve will not share any personally identifiable information with third parties for marketing purposes without your consent.",
+   "rationale": "The policy explicitly states that Valve will not share personally identifiable information for marketing purposes without consent.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9744832459640123,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9744832459640123,
+ "usage": {
+  "prompt": 1767,
+  "output": 179
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 58,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User profile with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     2,
+     4,
+     5,
+     7,
+     8,
+     14,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "Valve may use personally identifiable information provided by users to send them information about Valve, including news about product updates, contests, events, and other promotional materials, but only if the users agree to receive such communications. Valve will not share any personally identifiable information with third parties for marketing purposes without your consent.",
+      "rationale": "The policy explicitly states that Valve will not share personally identifiable information for marketing purposes without consent.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Valve will not share any personally identifiable information with third parties for marketing purposes without your consent.",
+       "generic_quote": "Valve may use personally identifiable information provided by users to send them information about Valve, including news about product updates, contests, events, and other promotional materials, but only if the users agree to receive such communications. Valve will not share any personally identifiable information with third parties for marketing purposes without your consent.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that Valve will not share personally identifiable information for marketing purposes without consent."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9744832459640123
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 19.73
+ }
+}

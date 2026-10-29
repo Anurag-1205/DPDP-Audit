@@ -1,0 +1,244 @@
+{
+ "case_id": "559_control",
+ "system": "v2_read",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We will only collect personal information that you voluntarily provide.",
+   "rationale": "The policy clearly states that personal information is collected, but does not specify a particular data type like contact details.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that personal information is collected, but does not specify a particular data type like contact details. The cited DPDP text requires specifying the personal data and the purpose for processing it. Since the policy does not specify the data type, it fails to meet this req"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a purpose for cookies and does not indicate they are used for service operation and security.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is empty, indicating no mention of the purpose for cookies. The cited DPDP text pertains to providing a notice, which is not relevant to the omission of the purpose for cookies. Therefore, the finding is not supported."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Survey data",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "To that end, the Library automatically collects and stores the following non-personally identifiable information: The name of the domain from which you access the Internet, The Internet Protocol address of your Internet provider's gateway, or in some cases, the computer you are using, The date and time you access the Library's site, The URL of the pages you visit and files you download, The Internet address of the website from which you linked directly to our site, Characteristics of your system, and Search terms used to come to the site and while on the site (in aggregate only).",
+   "rationale": "The policy mentions collecting non-personally identifiable information and characteristics of the system, which falls under analytics/research.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes collecting non-personally identifiable information, which does not align with the finding of undisclosed collection of survey data. The cited DPDP text requires specifying the personal data and the purpose for processing it. Since the policy does not mention survey data"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9351226183789506,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9351226183789506,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9396233571507195,
+ "usage": {
+  "prompt": 4693,
+  "output": 628
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 24,
+  "untagged_paragraphs": 0,
+  "claims": 66,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     5,
+     7,
+     12,
+     23,
+     6,
+     18
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     8,
+     9,
+     2,
+     7,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Survey data",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not collect Survey data",
+    "paragraphs": [
+     4,
+     20,
+     10
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We will only collect personal information that you voluntarily provide.",
+      "rationale": "The policy clearly states that personal information is collected, but does not specify a particular data type like contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We will only collect personal information that you voluntarily provide.",
+       "denial_quote": "",
+       "generic_quote": "personal information, information you provide",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy clearly states that personal information is collected, but does not specify a particular data type like contact details."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "To that end, the Library automatically collects and stores the following non-personally identifiable information: The name of the domain from which you access the Internet, The Internet Protocol address of your Internet provider's gateway, or in some cases, the computer you are using, The date and time you access the Library's site, The URL of the pages you visit and files you download, The Internet address of the website from which you linked directly to our site, Characteristics of your system, and Search terms used to come to the site and while on the site (in aggregate only).",
+      "rationale": "The policy mentions collecting non-personally identifiable information and characteristics of the system, which falls under analytics/research.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "The Library wants to provide our users with the best online experience possible. As such, we use commercial software products to analyze and report on aggregated web metrics data.",
+       "denial_quote": "",
+       "generic_quote": "non-personally identifiable information, characteristics of your system",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting non-personally identifiable information and characteristics of the system, which falls under analytics/research."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9351226183789506
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a purpose for cookies and does not indicate they are used for service operation and security.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Session cookies only collect non-personally identifiable data.\nWhile you will still be able to access most features of the Library's websites, certain features may not work as well or may be unavailable to you.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy does not specify a purpose for cookies and does not indicate they are used for service operation and security."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9441240959224886
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 76.77
+ }
+}

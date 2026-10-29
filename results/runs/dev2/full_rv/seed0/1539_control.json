@@ -1,0 +1,244 @@
+{
+ "case_id": "1539_control",
+ "system": "full_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions collecting location data but does not specify a purpose for it.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is marked as (none), indicating that the policy does not mention the collection of location data. However, the rationale states that the policy mentions collecting location data but does not specify a purpose for it. This contradiction means the evidence does not justify the find"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions using Google Analytics and Quantcast for internal business purposes.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is marked as (none), indicating that the policy does not mention the sharing of cookies and tracking elements. However, the rationale states that the policy mentions using Google Analytics and Quantcast for internal business purposes. This contradiction means the evidence does no"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9705302752147813,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9705302752147813,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9676368576196592,
+ "usage": {
+  "prompt": 5297,
+  "output": 839
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 27,
+  "untagged_paragraphs": 0,
+  "claims": 66,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     7,
+     11,
+     12,
+     4,
+     8
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location is collected for ['service operation and security'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     5,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     2,
+     9,
+     10,
+     12,
+     20,
+     15,
+     18
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Name and email address when registering for an account with us\nName, billing address, shipping address, phone number, email address and credit card information for purchase of Premium membership and purchases from Shop Geocaching (shop.geocaching.com).\nProfile information such as your home location, your profile photo, your occupation, your address, any photo uploads, etc.\nAny information required by contest or sweepstakes entries or other promotions.\nInformation and content you provide through the discussion forums, your geocache and trackable logs or by email to us.\nEmail address when you sign up to receive our newsletter or other communications from us.\nEmail addresses of people you know when you participate in a referral program.",
+      "rationale": "The policy explicitly lists various forms of contact data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Name and email address when registering for an account with us\nName, billing address, shipping address, phone number, email address and credit card information for purchase of Premium membership and purchases from Shop Geocaching (shop.geocaching.com).\nProfile information such as your home location, your profile photo, your occupation, your address, any photo uploads, etc.\nAny information required by contest or sweepstakes entries or other promotions.\nInformation and content you provide through the discussion forums, your geocache and trackable logs or by email to us.\nEmail address when you sign up to receive our newsletter or other communications from us.\nEmail addresses of people you know when you participate in a referral program.",
+       "denial_quote": "",
+       "generic_quote": "We receive and store any information you give us when interacting with our services or in any other way, including through Geocaching API-enabled third party applications or services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly lists various forms of contact data."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using Google Analytics and Quantcast for internal business purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "For our own internal business purposes, such as analyzing the use of our services via Google Analytics and Quantcast, market research, and website and mobile application optimization.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions using Google Analytics and Quantcast for internal business purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9705302752147813
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions collecting location data but does not specify a purpose for it.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "When you use our services, we automatically receive and record information from your browser or mobile device, including: Your location\nThe latitude and longitude of any location-based search you perform\n",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy mentions collecting location data but does not specify a purpose for it."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9647434400245372
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 119.33,
+  "reverified_from": "full",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is marked as (none), indicating that the policy does not mention the collection of location data. However, the rationale states that the policy mentions collecting location data but does not specify a purpose for it. This contradiction means the evidence does not justify the finding.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence is marked as (none), indicating that the policy does not mention the sharing of cookies and tracking elements. However, the rationale states that the policy mentions using Google Analytics and Quantcast for internal business purposes. This contradiction means the evidence does not justify the finding.\"}]}"
+ }
+}

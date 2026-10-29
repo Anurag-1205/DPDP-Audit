@@ -1,0 +1,312 @@
+{
+ "case_id": "531_v2",
+ "system": "v2_batch_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "The information we collect for statistical analysis and technical improvements is maintained indefinitely.",
+   "rationale": "The policy explicitly states that third parties do not collect PII on behalf of NARA, thus no collection of location data is disclosed.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions indefinite retention of data collected for statistical analysis and technical improvements, but does not disclose the collection of location data. The cited sections of the DPDP Act focus on providing notices to data principals regarding their rights and the purposes of "
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The essential information shared on these third party sites is available on archives.gov. In almost every case, the documents and records displayed on a third party are available in the Online Catalog.",
+   "rationale": "The policy explicitly states that the system does not read or place anything on the user's hard drive, implying no sharing of IP addresses and device IDs.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention any restrictions on processing IP addresses and device IDs for advertising purposes.",
+   "reviewer": "children",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9473243210701094,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9637809088081521,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9627705100827579,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9590730682501672,
+ "usage": {
+  "prompt": 7121,
+  "output": 884
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 52,
+  "untagged_paragraphs": 0,
+  "claims": 94,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     8,
+     12,
+     21,
+     20,
+     23
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     8,
+     12,
+     21,
+     20,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     14,
+     15,
+     16,
+     18,
+     19,
+     21,
+     35,
+     38,
+     20,
+     23
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "omission",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The IP address (a number that is automatically assigned to your computer when you are using the Internet) from which you access our site; The type of browser and operating system used to access our site; The date and time you access our site; The Internet address of the website from which you linked directly to our site; The country and state from which you access our site; The pages you visit and the information you request; and Search terms used to get to our website from an external search engine and terms used on our site using our search engine.",
+      "rationale": "The policy explicitly states that the IP address and other device identifiers are collected during visits to the site.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "The IP address (a number that is automatically assigned to your computer when you are using the Internet) from which you access our site; The type of browser and operating system used to access our site; The date and time you access our site; The Internet address of the website from which you linked directly to our site; The country and state from which you access our site; The pages you visit and the information you request; and Search terms used to get to our website from an external search engine and terms used on our site using our search engine.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the IP address and other device identifiers are collected during visits to the site."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9473243210701094
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "The information we collect for statistical analysis and technical improvements is maintained indefinitely.",
+      "rationale": "The policy explicitly states that third parties do not collect PII on behalf of NARA, thus no collection of location data is disclosed.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Where possible, we embed the media in a way that minimizes the use of cookies. Third party hosts of the embedded media do not collect personally identifiable information (PII) on behalf of NARA. Any PII they collect on their own behalf is not shared with NARA.",
+       "generic_quote": "The information we collect for statistical analysis and technical improvements is maintained indefinitely.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy explicitly states that third parties do not collect PII on behalf of NARA, thus no collection of location data is disclosed."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9637809088081521
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The essential information shared on these third party sites is available on archives.gov. In almost every case, the documents and records displayed on a third party are available in the Online Catalog.",
+      "rationale": "The policy explicitly states that the system does not read or place anything on the user's hard drive, implying no sharing of IP addresses and device IDs.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "Our system does not read or place anything on your hard drive when recognizing your browser's capabilities.",
+       "generic_quote": "The essential information shared on these third party sites is available on archives.gov. In almost every case, the documents and records displayed on a third party are available in the Online Catalog.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the system does not read or place anything on the user's hard drive, implying no sharing of IP addresses and device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9627705100827579
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention any restrictions on processing IP addresses and device IDs for advertising purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "children_quote": "",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not mention any restrictions on processing IP addresses and device IDs for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9624165330396496
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 5,
+  "seconds": 83.48,
+  "reverified_from": "v2_batch",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}
