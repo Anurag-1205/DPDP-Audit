@@ -21,7 +21,8 @@ PC = f"{REPO}/data/external/PrivacyPolicyAnalysis"
 MAMBA = f"{WORK}/bin/micromamba"
 ENV = f"{WORK}/py27"
 NLP_MODEL_ID = "1yMB3TJt8oZX3-GHm9oB_eKU7oeJXfLbA"
-SPLIT = "sanity"           # "main", "ladder", or "sanity" (data/tools/policheck_sanity, AC-03.4)
+SPLIT = "s4"               # "main", "ladder", "sanity" (data/tools/policheck_sanity, AC-03.4) or "s4"
+#   s4: PolicyLint statement extraction on the 1,140 held-out OPP-115 segments (WP-3.6, AC-05.6)
 STEP_LIMIT_S = 3600 if SPLIT == "sanity" else 3 * 3600   # main.sh as a whole
 T_START = time.time()
 
@@ -86,14 +87,45 @@ def run_policheck():
     print(f"{n} result rows", flush=True)
 
 
+def run_policylint_s4():
+    """PolicyLint's extraction step only, one plaintext file per held-out segment (the unit the
+    taggers are scored on), then s4_export_policylint.py writes its statements as JSON."""
+    import json
+    plain = f"{PC}/ext/plaintext_policies"
+    shutil.rmtree(plain, ignore_errors=True)
+    os.makedirs(plain)
+    n = 0
+    for line in open(f"{REPO}/results/tagger/heldout.jsonl"):
+        seg = json.loads(line)
+        with open(f"{plain}/s4_{seg['policy_id']}_{seg['segment_id']}.txt", "w") as f:
+            f.write("\n".join(l.strip() for l in seg["text"].split("\n") if l.strip()) + "\n")
+        n += 1
+    print(f"{n} segments", flush=True)
+    env = dict(os.environ, PATH=f"{ENV}/bin:{os.environ['PATH']}")
+    shutil.copy(f"{REPO}/kaggle/policheck/s4_export_policylint.py", "/src/s4_export_policylint.py")
+    script = " && ".join([
+        "cp /ext/data/data_ontology_policylint.pickle data_ontology.pickle",
+        "cp /ext/data/entity_ontology_policylint.pickle entity_ontology.pickle",
+        "mkdir -p /ext/input/policySubsets /ext/output/policy /ext/output/analytics /ext/output/log "
+        "/ext/output/log_data",
+        "find /ext/plaintext_policies -type f > /ext/input/policySubsets/1.txt",
+        "python2 PatternExtractionNotebook.py 1 > /ext/s4_extraction.log 2>&1",
+        f"python2 s4_export_policylint.py {WORK}/policylint_s4.json",
+    ])
+    t0 = time.time()
+    subprocess.run(f"bash -x -c '{script}'", shell=True, cwd="/src", env=env, check=True, timeout=STEP_LIMIT_S)
+    print(f"PolicyLint on {n} segments in {time.time() - t0:.0f}s", flush=True)
+
+
 if __name__ == "__main__":
     try:
         find_repo()
         setup()
-        run_policheck()
+        run_policylint_s4() if SPLIT == "s4" else run_policheck()
     finally:
         with tarfile.open(f"{WORK}/results.tar.gz", "w:gz") as t:
-            for p in (f"{WORK}/policheck_results.csv", f"{WORK}/policheck.log", f"{PC}/ext/policylint_results.csv"):
+            for p in (f"{WORK}/policheck_results.csv", f"{WORK}/policheck.log", f"{PC}/ext/policylint_results.csv",
+                      f"{WORK}/policylint_s4.json", f"{PC}/ext/s4_extraction.log"):
                 if os.path.exists(p):
                     t.add(p, arcname=os.path.basename(p))
             for p in glob.glob(f"{PC}/ext/*.log"):

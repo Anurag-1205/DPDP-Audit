@@ -1,0 +1,23 @@
+kind,order,pattern,value,source
+data,1,\b(social media|social network|facebook|twitter|linkedin|instagram|google\+)\b,Social media data,OPP-115: data from a social media service the user connected
+data,2,\b(health|medical|prescription|medication|fitness|heart rate|step count)\b,Health,OPP-115: health conditions and monitoring data
+data,3,\b(credit card|debit card|card number|payment|billing|financial|bank|credit score|purchase|transaction)\b,Financial,OPP-115: card data and other payment information
+data,4,\b(survey|questionnaire)\b,Survey data,OPP-115: data collected through surveys
+data,5,\b(ssn|social security|driver'?s licen[cs]e|passport|national id|government[- ]issued|tax id|personal identifier)\b,Personal identifier,OPP-115: identifiers that uniquely identify a person (SSN; driver's license)
+data,6,\b(ip address|device id|device identifier|mac address|imei|android id|advertising id|advertising identifier|aaid|idfa|udid|serial number|sim serial|unique device|gsfid)\b,IP address and device IDs,OPP-115: device IDs; MAC address; IP address
+data,7,\b(cookie|cookies|beacon|beacons|pixel|clear gif|web bug|tracking technolog|local storage|flash)\w*,Cookies and tracking elements,OPP-115: cookies; beacons and similar stored identifiers
+data,8,\b(contact|e-?mail|phone|telephone|mobile number|fax|postal address|mailing address|street address|home address|billing address|address|person name|(?<!user )name)\b,Contact,OPP-115: name; email address; phone number; street address
+data,9,\b(geo\w*|location|gps|latitude|longitude|zip|postal code|city|country|region)\b,Location,OPP-115: geo-location at any granularity; ZIP code; city
+data,10,\b(browser|operating system|os|device type|device information|device model|hardware|software|computer|platform|screen resolution|language|carrier|mobile device)\b,Computer information,OPP-115: operating system; web browser; similar device information
+data,11,\b(usage|browsing|click\w*|page views?|pages visited|activit\w*|search history|search quer\w*|logs?|log data|log file\w*|interaction\w*|referr\w*|time spent|visit\w*)\b,User online activities,OPP-115: pages visited; time spent; general online behaviour
+data,12,\b(age|gender|birth\w*|demographic\w*|occupation|education|income|marital|ethnic\w*|race|sex)\b,Demographic,OPP-115: gender; age; occupation; education
+data,13,\b(account|profile|username|user name|password|preference\w*|user id|comments?|uploads?|photos?|posts?)\b,User profile,OPP-115: profile data; uploaded content; comments; profile preferences
+data,14,\b(personal information|personal data|personally identifiable|pii|personal detail\w*|information about you)\b,Generic personal information,OPP-115: 'personal information' in general
+data,15,^(unspecified_data|information|data|info|details|content|unspecified data)$,Unspecified,OPP-115: 'information' very generically
+data,99,.*,Other,OPP-115: a specific type not covered above
+entity,1,^(we|we_implicit|first party|i|us|our company|the company)$,first party,PolicyLint and PoliGraph name the first party 'we'
+entity,2,\b(affiliate\w*|subsidiar\w*|parent compan\w*|sister compan\w*|related compan\w*|corporate famil\w*|family of compan\w*|group compan\w*)\b,Other part of company/affiliate,OPP-115: other parts of the company
+entity,3,^(other )?(users?|members?|visitors?|community)$,Other users,OPP-115: other users of the site or app
+entity,4,^(public|the public|general public|anyone|everyone)$,Public,OPP-115: made public
+entity,5,^(third[ _-]part(y|ies)|third_party_implicit|partners?|business partners?|trusted partners?|companies|organizations?|entities|others?|vendors?|parties|outside parties|unaffiliated (companies|third parties)|non-affiliated (companies|third parties))$,Unnamed third party,OPP-115: generically 'third party' or 'partner'
+entity,99,.*,Named third party,OPP-115: explicitly named (e.g. Facebook) or at least characterised (e.g. 'advertising partner'; 'data broker')

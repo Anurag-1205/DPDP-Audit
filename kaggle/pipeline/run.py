@@ -34,12 +34,11 @@ T_START = time.time()
 # Robust verifier (28 Oct): the frozen reader could not read 15-40% of the verifier's replies and
 # kept those findings unchecked. "reverify" re-runs only the verifier on saved runs (-> <system>_rv).
 DEV_SYSTEMS = ["full", "v2_gate", "v2_read", "v2_purpose", "v2_batch"]
+# WP-3.2 / AC-04.11 (29 Oct): seeds 1-2 of the four pipelines on the ladder (seed 0 ran on 27 Oct).
+# The ladder is scored on flow labels, which the verifier does not change, so no re-verify is needed.
 JOBS = [
-    {"phase": "reverify", "split": "main", "systems": ["full", "full_finetuned", "full_v2", "full_v2_finetuned"],
-     "seeds": [0, 1, 2]},
-    {"phase": "reverify", "split": "main", "systems": ["A2", "A3", "A5", "A2_v2", "A3_v2", "A5_v2"], "seeds": [0]},
-    {"phase": "reverify", "split": "dev", "systems": DEV_SYSTEMS, "seeds": [0]},
-    {"phase": "reverify", "split": "dev2", "systems": DEV_SYSTEMS, "seeds": [0]},
+    {"phase": "runs", "split": "ladder", "configs": ["full", "full_finetuned", "full_v2", "full_v2_finetuned"],
+     "seeds": [1, 2]},
 ]
 
 
