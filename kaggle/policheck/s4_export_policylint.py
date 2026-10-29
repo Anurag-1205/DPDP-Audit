@@ -31,6 +31,8 @@ class NoDB(object):
 
 def main(out_path):
     con.init(dataOntologyFilename='data_ontology.pickle', entityOntologyFilename='entity_ontology.pickle')
+    if 'we' not in con.Entity.ontology.nodes():   # loadPrivacyPolicyResults maps the first party to 'we'
+        raise SystemExit('entity ontology has no "we" node: every first-party statement would be dropped')
     nlp = spacy.load('/ext/NlpFinalModel')
     segments = {}
     for path in sorted(glob.glob('/ext/output/policy/*.pickle')):

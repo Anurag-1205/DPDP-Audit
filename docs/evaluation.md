@@ -98,6 +98,31 @@ marked `uncertain` count as not reported and are listed separately.
 4. Mappings and rules are frozen before test runs, and no system is tuned on evaluation cases.
 5. Coverage (the share of gap types a system can detect) is reported next to F1.
 
+### Statement extraction (S4)
+
+S4 asks how well PolicyLint and PoliGraph read a policy, compared with our taggers, on the same
+1,140 held-out OPP-115 segments and with the same tuple F1 (`tagger_eval.evaluate_tuples`):
+(category, data type, does/does not) for collection and sharing, and (category, data type, third
+party) for sharing.
+
+- **Inputs.** PolicyLint gets one plaintext file per segment and runs only its extraction step;
+  its statements are exported after its own normalisation (`loadPrivacyPolicyResults`: entity
+  and data resolved to its ontologies, its user and negation filters). PoliGraph opens a browser
+  per document, so it gets one document per policy, its segments in order; each graph edge is
+  assigned to every segment whose text contains the edge's sentence. Jobs: `kaggle/policheck` and
+  `kaggle/poligraph` with `SPLIT = "s4"`.
+- **Mapping.** A statement becomes a claim: entity "we" → First Party Collection/Use, any other
+  entity → Third Party Sharing/Collection; collect → Does, not collect → Does Not. Data and entity
+  terms map to OPP-115 values by the ordered rules in `data/tools/s4_mapping.csv` (first match
+  wins), written from the OPP-115 annotation guidelines and committed before any S4 output came
+  back. Following the guidelines, a characterised entity ("advertiser", "analytics provider") is a
+  *Named third party*; "third party" or "partner" alone is *Unnamed*.
+- **Known limits.** PoliGraph keeps only positive statements, so it cannot produce a Does Not
+  tuple; its passive-voice edges (`UNSPECIFIED_ACTOR`) name no entity and are left out (counted).
+  Neither tool labels the other OPP-115 categories, so S4 reports tuple F1 only.
+- **Scoring.** `python scripts/eval_tagger.py … --s4` (in `scripts/score_all.sh`) writes
+  `S4_policylint` and `S4_poligraph` to `results/scores/tagger.json`, with extraction counts.
+
 ### Statistics
 
 - **Seeds:** 3 for the headline LLM systems (B1, B2, B4, full, full_v2), 1 for the ablations; the deterministic

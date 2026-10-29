@@ -104,8 +104,11 @@ def run_policylint_s4():
     env = dict(os.environ, PATH=f"{ENV}/bin:{os.environ['PATH']}")
     shutil.copy(f"{REPO}/kaggle/policheck/s4_export_policylint.py", "/src/s4_export_policylint.py")
     script = " && ".join([
-        "cp /ext/data/data_ontology_policylint.pickle data_ontology.pickle",
-        "cp /ext/data/entity_ontology_policylint.pickle entity_ontology.pickle",
+        # PoliCheck's ontologies (an extension of PolicyLint's, also used for S1): the entity
+        # ontology shipped for PolicyLint has no "we" node, so every first-party statement was
+        # dropped as unknown (first run, 29 Oct: 1,252 of 1,523 statements)
+        "cp /ext/data/data_ontology_policheck.pickle data_ontology.pickle",
+        "cp /ext/data/entity_ontology_policheck.pickle entity_ontology.pickle",
         "mkdir -p /ext/input/policySubsets /ext/output/policy /ext/output/analytics /ext/output/log "
         "/ext/output/log_data",
         "find /ext/plaintext_policies -type f > /ext/input/policySubsets/1.txt",
