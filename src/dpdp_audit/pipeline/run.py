@@ -4,11 +4,12 @@ from __future__ import annotations
 import time
 
 from ..baselines import app_facts
+from ..gaps import LEVEL_TO_LABEL, gap_table
 from ..tools.policy_search import split_paragraphs
 from .aggregator import aggregate
 from .claims import load_claims, para_hash
 from .config import Config
-from .finder import Paragraph, find_candidates
+from .finder import Paragraph, all_candidates, find_candidates
 from .reviewers import review
 from .verifier import verify
 
@@ -24,6 +25,15 @@ def tag(policy_text: str, claims_index: dict[str, dict]) -> list[Paragraph]:
     return out
 
 
+def rules_only(candidates: list[dict]) -> dict:
+    """R0: a pseudo-review that accepts every candidate at the finder's suggested level."""
+    decisions = [{"candidate_id": c["candidate_id"], "is_gap": True, "level": c["suggested_level"],
+                  "label": LEVEL_TO_LABEL[c["suggested_level"]], "sections": gap_table()[c["gap_type"]]["gold"],
+                  "evidence": "", "rationale": c["reason"]} for c in candidates]
+    return {"reviewer": "rules", "decisions": decisions, "tool_calls": [], "parse_error": None, "llm_calls": 0,
+            "token_prob": None, "usage": {}}
+
+
 def run_case(case: dict, llm, seed: int, cfg: Config, claims_index: dict[str, dict] | None = None,
              verifier_llm=None) -> dict:
     t0 = time.time()
@@ -31,20 +41,28 @@ def run_case(case: dict, llm, seed: int, cfg: Config, claims_index: dict[str, di
     policy = case["policy"]
     paras = tag(policy, claims_index)
     facts = app_facts(case["app_dir"])
-    candidates = find_candidates(paras, facts, policy, purpose_search=cfg.purpose_search,
-                                 purpose_always=cfg.purpose_always)
+    if cfg.finder_filter:
+        candidates = find_candidates(paras, facts, policy, purpose_search=cfg.purpose_search,
+                                     purpose_always=cfg.purpose_always)
+    else:   # B5
+        candidates = all_candidates(facts)
     para_text = {p.index: p.text for p in paras}
 
-    if cfg.specialists:
+    if cfg.single_call:   # B5: one generalist call
+        groups = [("generalist", candidates)]
+    elif cfg.specialists:
         groups = [(r, [c for c in candidates if c["reviewer"] == r]) for r in REVIEW_ORDER]
     else:
         groups = [("generalist", candidates)]
     if cfg.review_batch:   # v2 option: at most review_batch candidates per reviewer call
         n = cfg.review_batch
         groups = [(r, cs[i:i + n]) for r, cs in groups for i in range(0, len(cs), n)]
-    reviews = [review(name, cands, para_text, facts, policy, llm, seed, cfg) for name, cands in groups if cands]
+    if cfg.review:
+        reviews = [review(name, cands, para_text, facts, policy, llm, seed, cfg) for name, cands in groups if cands]
+    else:   # R0: every candidate is reported at the finder's level, with the gap's DPDP sections
+        reviews = [rules_only(candidates)]
 
-    agg = aggregate(facts["flows"], candidates, reviews, merge=cfg.specialists)
+    agg = aggregate(facts["flows"], candidates, reviews, merge=cfg.specialists or cfg.single_call)
     if cfg.verifier:
         ver = verify(agg["findings"], policy, facts["flows"], verifier_llm or llm, seed,
                      llm_gaps=cfg.llm_check_gaps, robust=cfg.robust_verifier)
@@ -72,6 +90,8 @@ def run_case(case: dict, llm, seed: int, cfg: Config, claims_index: dict[str, di
             "candidates": candidates,
             "reviews": [{k: r[k] for k in ("reviewer", "decisions", "parse_error", "llm_calls", "token_prob")}
                         for r in reviews],
+            **({"paragraphs_shown": [r.get("paragraphs_shown") for r in reviews],
+                "paragraphs_total": len(paras)} if cfg.whole_policy else {}),
             "tool_calls": tool_calls,
             "tool_calls_valid": sum(1 for t in tool_calls if t["valid"]),
             "undecided": agg["undecided"], "unknown_decisions": agg["unknown_decisions"],
