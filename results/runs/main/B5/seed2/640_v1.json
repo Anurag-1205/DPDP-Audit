@@ -1,0 +1,516 @@
+{
+ "case_id": "640_v1",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+   "rationale": "The policy states that the company receives and stores contact information, and it specifies a purpose for personalization/customization but does not mention indefinite retention.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions receiving and storing contact information and specifies a purpose for personalization/customization, but does not mention indefinite retention. This aligns with the cited DPDP text which requires specifying the personal data and purpose for processing, but does not manda"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that the company does not collect personal identifiers from children under 13.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "merged_flows": [
+    "f2",
+    "f4"
+   ],
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is explicitly stated as (none: the policy is said not to mention it), indicating no collection of personal identifiers. Therefore, there is no undisclosed collection as per the DPDP text."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The information we receive or can determine from your interaction with our Websites includes your Internet (IP) address; login and password information; email address; web browser type and version; operating system and computer platform; purchase history, which we may aggregate with similar information from other customers; the full Uniform Resource Locator (URL) clickstream to, through, and from our Websites, including date and time; one or more unique identifiers; products you viewed or searched for; areas of our Websites you visited; and the phone number you used to call our toll-free number.",
+   "rationale": "The policy states that the company collects cookies and tracking elements and specifies a purpose for analytics/research but does not mention indefinite retention.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence lists various types of data collected, including cookies and tracking elements, and specifies a purpose for analytics/research, but does not mention indefinite retention. This aligns with the cited DPDP text which requires specifying the personal data and purpose for processing, "
+  },
+  {
+   "candidate_id": "c9",
+   "flow_id": "f4",
+   "data_type": "Personal identifier",
+   "gap_type": "retention_mismatch",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We assign you one or more unique identifiers to help keep track of your future visits",
+   "rationale": "The policy states that the company retains personal identifiers for a limited time.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9793206672984678,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9793206672984678,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9793206672984678,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9793206672984678,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9793206672984678,
+ "usage": {
+  "prompt": 7131,
+  "output": 2399
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 42,
+  "untagged_paragraphs": 0,
+  "claims": 99,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f4",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+      "rationale": "The policy states that the company receives and stores contact information, and it specifies a purpose for personalization/customization but does not mention indefinite retention.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+       "denial_quote": "",
+       "generic_quote": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+       "purpose_quote": "We use customer contact information to customize future shopping for you, to improve our Websites and stores, to send you information about our company, and to inform you of sales and special offers.",
+       "unspecified_purpose_quote": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We assign you one or more unique identifiers to help keep track of your future visits",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that the company receives and stores contact information, and it specifies a purpose for personalization/customization but does not mention indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use customer contact information to customize future shopping for you, to improve our Websites and stores, to send you information about our company, and to inform you of sales and special offers.",
+      "rationale": "The policy states that the company receives and stores contact information, and it specifies a purpose for personalization/customization but does not mention indefinite retention.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+       "denial_quote": "",
+       "generic_quote": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+       "purpose_quote": "We use customer contact information to customize future shopping for you, to improve our Websites and stores, to send you information about our company, and to inform you of sales and special offers.",
+       "unspecified_purpose_quote": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We assign you one or more unique identifiers to help keep track of your future visits",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that the company receives and stores contact information, and it specifies a purpose for personalization/customization but does not mention indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that the company does not collect personal identifiers from children under 13.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "Our Websites, services and applications are designed for and directed at people 13 years of age or older. We do not knowingly collect information from children under 13.",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the company does not collect personal identifiers from children under 13."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that the company does not collect personal identifiers from children under 13.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "Our Websites, services and applications are designed for and directed at people 13 years of age or older. We do not knowingly collect information from children under 13.",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the company does not collect personal identifiers from children under 13."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The information we receive or can determine from your interaction with our Websites includes your Internet (IP) address; login and password information; email address; web browser type and version; operating system and computer platform; purchase history, which we may aggregate with similar information from other customers; the full Uniform Resource Locator (URL) clickstream to, through, and from our Websites, including date and time; one or more unique identifiers; products you viewed or searched for; areas of our Websites you visited; and the phone number you used to call our toll-free number.",
+      "rationale": "The policy states that the company collects cookies and tracking elements and specifies a purpose for analytics/research but does not mention indefinite retention.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We automatically collect information about your interactions with our Websites, including your Internet (IP) address, web browser type and version, operating system and computer platform, purchase history, full URL clickstream, unique identifiers, products you viewed or searched for, areas of our Websites you visited, and the phone number you used to call our toll-free number.",
+       "denial_quote": "",
+       "generic_quote": "We automatically collect information about your interactions with our Websites, including your Internet (IP) address, web browser type and version, operating system and computer platform, purchase history, full URL clickstream, unique identifiers, products you viewed or searched for, areas of our Websites you visited, and the phone number you used to call our toll-free number.",
+       "purpose_quote": "We use tracking pixels/web beacons, 'cookies', or other technologies to receive and store certain information, and this information may also be used by certain third-party advertisers with which we have agreements.",
+       "unspecified_purpose_quote": "We automatically collect information about your interactions with our Websites, including your Internet (IP) address, web browser type and version, operating system and computer platform, purchase history, full URL clickstream, unique identifiers, products you viewed or searched for, areas of our Websites you visited, and the phone number you used to call our toll-free number.",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We assign you one or more unique identifiers to help keep track of your future visits",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that the company collects cookies and tracking elements and specifies a purpose for analytics/research but does not mention indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Like many websites, we may use tracking pixels/web beacons, \"cookies\", or other technologies to receive and store certain information, and this information may also be used by certain third-party advertisers with which we have agreements.",
+      "rationale": "The policy states that the company uses cookies and tracking elements but does not specify a purpose beyond analytics/research and does not mention indefinite retention.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We use tracking pixels/web beacons, 'cookies', or other technologies to receive and store certain information, and this information may also be used by certain third-party advertisers with which we have agreements.",
+       "denial_quote": "",
+       "generic_quote": "We use tracking pixels/web beacons, 'cookies', or other technologies to receive and store certain information, and this information may also be used by certain third-party advertisers with which we have agreements.",
+       "purpose_quote": "We use tracking pixels/web beacons, 'cookies', or other technologies to receive and store certain information, and this information may also be used by certain third-party advertisers with which we have agreements.",
+       "unspecified_purpose_quote": "We use tracking pixels/web beacons, 'cookies', or other technologies to receive and store certain information, and this information may also be used by certain third-party advertisers with which we have agreements.",
+       "only_unspecified_purposes": true,
+       "retention_quote": "We assign you one or more unique identifiers to help keep track of your future visits",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that the company uses cookies and tracking elements but does not specify a purpose beyond analytics/research and does not mention indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+      "rationale": "The policy states that the company receives and stores personal identifiers and specifies a purpose for personalization/customization but does not mention indefinite retention.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+       "denial_quote": "",
+       "generic_quote": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+       "purpose_quote": "We use customer contact information to customize future shopping for you, to improve our Websites and stores, to send you information about our company, and to inform you of sales and special offers.",
+       "unspecified_purpose_quote": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We assign you one or more unique identifiers to help keep track of your future visits",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that the company receives and stores personal identifiers and specifies a purpose for personalization/customization but does not mention indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that the company receives and stores personal identifiers and specifies a purpose for personalization/customization but does not mention indefinite retention.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+       "denial_quote": "",
+       "generic_quote": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+       "purpose_quote": "We use customer contact information to customize future shopping for you, to improve our Websites and stores, to send you information about our company, and to inform you of sales and special offers.",
+       "unspecified_purpose_quote": "We receive and store any information you enter on our Websites or that you give us in any other way.",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We assign you one or more unique identifiers to help keep track of your future visits",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that the company receives and stores personal identifiers and specifies a purpose for personalization/customization but does not mention indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c9",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We assign you one or more unique identifiers to help keep track of your future visits",
+      "rationale": "The policy states that the company retains personal identifiers for a limited time.",
+      "raw": {
+       "candidate_id": "c9",
+       "disclosing_quote": "We assign you one or more unique identifiers to help keep track of your future visits",
+       "denial_quote": "",
+       "generic_quote": "We assign you one or more unique identifiers to help keep track of your future visits",
+       "purpose_quote": "We use customer contact information to customize future shopping for you, to improve our Websites and stores, to send you information about our company, and to inform you of sales and special offers.",
+       "unspecified_purpose_quote": "We assign you one or more unique identifiers to help keep track of your future visits",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We assign you one or more unique identifiers to help keep track of your future visits",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that the company retains personal identifiers for a limited time."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9793206672984678
+   }
+  ],
+  "paragraphs_shown": [
+   42
+  ],
+  "paragraphs_total": 42,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 253.01
+ }
+}

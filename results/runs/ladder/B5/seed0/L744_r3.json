@@ -1,0 +1,156 @@
+{
+ "case_id": "L744_r3",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you enter a contest or sweepstakes with Curse, in addition to your screen name, name and email address, we will ask for your mailing address in case we have to mail you a prize, and may ask you to opt into receiving a third party's offers and/or newsletter.",
+   "rationale": "The policy indicates that personal information may be shared with partners, which could include Mixpanel for analytics.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9642586193499629,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9642586193499629,
+ "usage": {
+  "prompt": 3016,
+  "output": 537
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 24,
+  "untagged_paragraphs": 0,
+  "claims": 40,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you enter a contest or sweepstakes with Curse, in addition to your screen name, name and email address, we will ask for your mailing address in case we have to mail you a prize, and may ask you to opt into receiving a third party's offers and/or newsletter.",
+      "rationale": "The policy indicates that personal information may be shared with partners, which could include Mixpanel for analytics.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "Mixpanel (Mixpanel, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "disclosing_quote": "Additionally, we may also collect other types of information (known as demographic information) such as your gender, hobbies, occupation, platform preferences, and other game ownership information. This demographic information may be associated with your personal information.",
+       "denial_quote": "",
+       "generic_quote": "We may share information with our partners. You will also need to create a screen name. When you enter a contest or sweepstakes with Curse, in addition to your screen name, name and email address, we will ask for your mailing address in case we have to mail you a prize, and may ask you to opt into receiving a third party's offers and/or newsletter.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy indicates that personal information may be shared with partners, which could include Mixpanel for analytics."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that personal information is used for various purposes, including sending messages and tracking interactions.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Contact",
+       "recipient": "Mixpanel (Mixpanel, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "purpose_quote": "We use your e-mail address to send you messages about the Curse Features and other general announcements. We keep track of your interactions with us, including but not limited to your activity within the Curse Features. We may use personal information that you provide to us to send messages to you in response to your request to perform an activity in connection with your use of any of the Curse Features. We may also use your personal information to contact you when necessary.",
+       "unspecified_purpose_quote": "We may share information with our partners. You will also need to create a screen name. When you enter a contest or sweepstakes with Curse, in addition to your screen name, name and email address, we will ask for your mailing address in case we have to mail you a prize, and may ask you to opt into receiving a third party's offers and/or newsletter.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal information is used for various purposes, including sending messages and tracking interactions."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9642586193499629
+   }
+  ],
+  "paragraphs_shown": [
+   24
+  ],
+  "paragraphs_total": 24,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 54.7
+ }
+}

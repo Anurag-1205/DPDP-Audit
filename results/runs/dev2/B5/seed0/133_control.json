@@ -1,0 +1,291 @@
+{
+ "case_id": "133_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy specifies a purpose for using contact details but does not explicitly state that the purpose is 'basic service/feature'.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is stated as (none), indicating no explicit mention of the purpose 'basic service/feature' for contact details. The rationale provided does not align with the evidence since there is no policy evidence to support the finding."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting IP addresses and device IDs but does not specify a purpose for 'additional service/feature'.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "Similar to finding 0, the policy evidence is stated as (none), indicating no explicit mention of the purpose 'additional service/feature' for IP addresses and device IDs. The rationale provided does not align with the evidence since there is no policy evidence to support the finding."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9790109096798236,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9790109096798236,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null,
+   "source": "finder"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9790109096798236,
+ "usage": {
+  "prompt": 5378,
+  "output": 1457
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 43,
+  "untagged_paragraphs": 0,
+  "claims": 76,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The types of personally identifiable information that may be collected at these pages and elsewhere include but are not limited to: name, address, gender, e-mail address, telephone number, fax number and credit or debit card information.",
+      "rationale": "The policy discloses collecting contact details and specifies a purpose for using such information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Through Time Inc. publications, websites, and other media, you can order publications and products; engage in various activities like entering contests or sweepstakes, playing games, taking quizzes, voting in polls or otherwise expressing an opinion; subscribe to one of our services, such as newsletters; or participate in one of our online forums or communities.",
+       "denial_quote": "",
+       "generic_quote": "The types of personally identifiable information that may be collected at these pages and elsewhere include but are not limited to: name, address, gender, e-mail address, telephone number, fax number and credit or debit card information.",
+       "purpose_quote": "We may use the information you provide about yourself or others to fulfill requests for our publications, products or services, to respond to inquiries about offerings and to offer other products, programs or services that may be of interest.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact details and specifies a purpose for using such information."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies a purpose for using contact details but does not explicitly state that the purpose is 'basic service/feature'.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "The types of personally identifiable information that may be collected at these pages and elsewhere include but are not limited to: name, address, gender, e-mail address, telephone number, fax number and credit or debit card information.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We may use the information you provide about yourself or others to fulfill requests for our publications, products or services, to respond to inquiries about offerings and to offer other products, programs or services that may be of interest.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies a purpose for using contact details but does not explicitly state that the purpose is 'basic service/feature'."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting IP addresses and device IDs but does not specify a purpose for 'additional service/feature'.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "At some Time Inc. sites and through certain promotions, you can submit information about other people. For example, you might submit a person's name, mailing and/or e-mail address to send a gift or electronic greeting card. The types of personally identifiable information that may be collected about other people at these pages include: recipient's name, address, e-mail address and telephone number.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We may combine information we receive with outside records and share such information with third parties for use on our behalf to enhance our ability to market to you those products or services that may be of interest to you.",
+       "unspecified_purpose_quote": "We may also collect certain non-personally identifiable information when you visit our web pages or use our applications, such as the type of browser and operating system you are using, your IP address, your device identifiers, your Internet or wireless service provider, and location-based information.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting IP addresses and device IDs but does not specify a purpose for 'additional service/feature'."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may also collect certain non-personally identifiable information when you visit our web pages or use our applications, such as the type of browser and operating system you are using, your IP address, your device identifiers, your Internet or wireless service provider, and location-based information.",
+      "rationale": "The policy discloses collecting IP addresses and device IDs but does not specify a purpose for 'additional service/feature'.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We may combine information we receive with outside records and share such information with third parties for use on our behalf to enhance our ability to market to you those products or services that may be of interest to you.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We may also collect certain non-personally identifiable information when you visit our web pages or use our applications, such as the type of browser and operating system you are using, your IP address, your device identifiers, your Internet or wireless service provider, and location-based information.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting IP addresses and device IDs but does not specify a purpose for 'additional service/feature'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9790109096798236
+   }
+  ],
+  "paragraphs_shown": [
+   43
+  ],
+  "paragraphs_total": 43,
+  "reviewer_parse": [
+   "salvaged"
+  ],
+  "reviewer_raw": [
+   "{\n  \"action\": \"final\",\n  \"answers\": [\n    {\n      \"candidate_id\": \"c1\",\n      \"disclosing_quote\": \"Through Time Inc. publications, websites, and other media, you can order publications and products; engage in various activities like entering contests or sweepstakes, playing games, taking quizzes, voting in polls or otherwise expressing an opinion; subscribe to one of our services, such as newsletters; or participate in one of our online forums or communities.\",\n      \"denial_quote\": \"\",\n      \"generic_quote\": \"The types of personally identifiable information that may be collected at these pages and elsewhere include but are not limited to: name, address, gender, e-mail address, telephone number, fax number and credit or debit card information.\",\n      \"purpose_quote\": \"We may use the information you provide about yourself or others to fulfill requests for our publications, products or services, to respond to inquiries about offerings and to offer other products, programs or services that may be of interest.\",\n      \"unspecified_purpose_quote\": \"\",\n      \"only_unspecified_purposes\": false,\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"The policy discloses collecting contact details and specifies a purpose for using such information.\"\n    },\n    {\n      \"candidate_id\": \"c2\",\n      \"disclosing_quote\": \"The types of personally identifiable information that may be collected at these pages and elsewhere include but are not limited to: name, address, gender, e-mail address, telephone number, fax number and credit or debit card information.\",\n      \"denial_quote\": \"\",\n      \"generic_quote\": \"\",\n      \"purpose_quote\": \"We may use the information you provide about yourself or others to fulfill requests for our publications, products or services, to respond to inquiries about offerings and to offer other products, programs or services that may be of interest.\",\n      \"unspecified_purpose_quote\": \"\",\n      \"only_unspecified_purposes\": false,\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"The policy specifies a purpose for using contact details but does not explicitly state that the purpose is 'basic service/feature'.\"\n    },\n    {\n      \"candidate_id\": \"c3\",\n      \"disclosing_quote\": \"At some Time Inc. sites and through certain promotions, you can submit information about other people. For example, you might submit a person's name, mailing and/or e-mail address to send a gift or electronic greeting card. The types of personally identifiable information that may be collected about other people at these pages include: recipient's name, address, e-mail address and telephone number.\",\n      \"denial_quote\": \"\",\n      \"generic_quote\": \"\",\n      \"purpose_quote\": \"We may combine information we receive with outside records and share such information with third parties for use on our behalf to enhance our ability to market to you those products or services that may be of interest to you.\",\n      \"unspecified_purpose_quote\": \"We may also collect certain non-personally identifiable information when you visit our web pages or use our applications, such as the type of browser and operating system you are using, your IP address, your device identifiers, your Internet or wireless service provider, and location-based information.\",\n      \"only_unspecified_purposes\": true,\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"The policy discloses collecting IP addresses and device IDs but does not specify a purpose for 'additional service/feature'.\"\n    },\n    {\n      \"candidate_id\": \"c4\",\n      \"disclosing_quote\": \"We may combine information we receive with outside records and share such information with third parties for use on our behalf to enhance our ability to market to you those products or services that may be of interest to you.\",\n      \"denial_quote\": \"\",\n      \"generic_quote\": \"\",\n      \"purpose_quote\": \"\",\n      \"unspecified_purpose_quote\": \"We may also collect certain non-personally identifiable information when you visit our web pages or use our applications, such as the type of browser and operating system you are using, your IP address, your device identifiers, your Internet or wireless service provider, and location-based information.\",\n      \"only_unspecified_purposes\": true,\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"The policy discloses collecting IP addresses and device IDs but does not specify a purpose for 'additional service/feature'.\"\n    },\n    {\n      \"candidate_id\": \"c5\",\n      \"disclosing_quote\": \"To enhance your experience on our Services, we may place \"cookies\" on your computer or device to store your preferences.\",\n      \"denial_quote\": \"\",\n      \"generic_quote\": \"Cookies are small text files that we place in your computer or device to store your preferences.\",\n      \"purpose_quote\": \"We use cookies (and Local Shared Objects, HTML5, cache cookies, web beacons, or clear gifs) to understand usage of the Services and to improve our content and offerings and to deliver advertisements that you might be interested in.\",\n      \"unspecified_purpose_quote\": \"\",\n      \"only_unspecified_purposes\": false,\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"The policy discloses collecting cookies and specifies a purpose for using such information.\"\n    },\n    {\n      \"candidate_id\": \"c6\",\n      \"disclosing_quote\": \"To enhance your experience on our Services, we may place \"cookies\" on your computer or device to store your preferences.\",\n      \"denial_quote\": \"\",\n      \"generic_quote\": \"Cookies are small text files that we place in your computer or device to store your preferences.\",\n      \"purpose_quote\": \"We use cookies (and Local Shared Objects, HTML5, cache cookies, web beacons, or clear gifs) to understand usage of the Services and to improve our content and offerings and to deliver advertisements that you might be interested in.\",\n      \"unspecified_purpose_quote\": \"\",\n      \"only_unspecified_purposes\": false,\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"The policy discloses collecting cookies and specifies a purpose for using such information.\"\n    }\n  ]\n}"
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [
+   "c5",
+   "c6"
+  ],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is stated as (none), indicating no explicit mention of the purpose 'basic service/feature' for contact details. The rationale provided does not align with the evidence since there is no policy evidence to support the finding.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"Similar to finding 0, the policy evidence is stated as (none), indicating no explicit mention of the purpose 'additional service/feature' for IP addresses and device IDs. The rationale provided does not align with the evidence since there is no policy evidence to support the finding.\"}]}",
+  "llm_calls": 2,
+  "seconds": 126.35
+ }
+}

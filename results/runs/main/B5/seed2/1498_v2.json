@@ -1,0 +1,440 @@
+{
+ "case_id": "1498_v2",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We collect information from and about you.",
+   "rationale": "The policy discloses collecting contact information but does not specify a purpose beyond basic service/feature usage.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence 'We collect information from and about you' is vague and does not specify the data type or purpose. The cited DPDP text Sec. 5(1) and Rule 3 require specifying the personal data and purpose for processing, which is missing. Therefore, this finding is supported."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting financial information but does not specify a purpose beyond basic service/feature usage.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is '(none: the policy is said not to mention it)', meaning there is no disclosure of collecting financial information. The cited DPDP text Sec. 5(1) and Rule 3 still require specifying the personal data and purpose for processing, but since there is no disclosure at all, this fin"
+  },
+  {
+   "candidate_id": "c8",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses using cookies and tracking elements but does not specify a purpose beyond marketing.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is '(none: the policy is said not to mention it)', meaning there is no disclosure of using cookies and tracking elements. The cited DPDP text Sec. 5(1) and Rule 3 still require specifying the personal data and purpose for processing, but since there is no disclosure at all, this "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9859766629632953,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9859766629632953,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9859766629632953,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9859766629632953,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9859766629632953,
+ "usage": {
+  "prompt": 4514,
+  "output": 1920
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 83,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect information from and about you.",
+      "rationale": "The policy discloses collecting contact information but does not specify a purpose beyond basic service/feature usage.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We collect information from and about you. [P2]",
+       "denial_quote": "",
+       "generic_quote": "We collect information from and about you. [P2]",
+       "purpose_quote": "We use information to respond to your requests or questions. [P10]",
+       "unspecified_purpose_quote": "We use information to improve our products and services. [P11]\nWe use information to look at site trends and customer interests. [P12]\nWe use information for security purposes. [P13]\nWe use information for marketing purposes. [P14]\nWe use information to send you transactional communications. [P15]",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact information but does not specify a purpose beyond basic service/feature usage."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting contact information but does not specify a purpose beyond basic service/feature usage.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We collect information from and about you. [P2]",
+       "denial_quote": "",
+       "generic_quote": "We collect information from and about you. [P2]",
+       "purpose_quote": "We use information to respond to your requests or questions. [P10]",
+       "unspecified_purpose_quote": "We use information to improve our products and services. [P11]\nWe use information to look at site trends and customer interests. [P12]\nWe use information for security purposes. [P13]\nWe use information for marketing purposes. [P14]\nWe use information to send you transactional communications. [P15]",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact information but does not specify a purpose beyond basic service/feature usage."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you use our mobile app, we may collect your GPS location or your device's unique identifier.",
+      "rationale": "The policy discloses collecting location data but does not specify a purpose beyond marketing.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We may collect your GPS location or your device's unique identifier. [P6]",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use information for marketing purposes. [P14]",
+       "unspecified_purpose_quote": "We use information to improve our products and services. [P11]\nWe use information to look at site trends and customer interests. [P12]\nWe use information for security purposes. [P13]\nWe use information for marketing purposes. [P14]\nWe use information to send you transactional communications. [P15]",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting location data but does not specify a purpose beyond marketing."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use information for marketing purposes.",
+      "rationale": "The policy discloses collecting location data but does not specify a purpose beyond marketing.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We may collect your GPS location or your device's unique identifier. [P6]",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use information for marketing purposes. [P14]",
+       "unspecified_purpose_quote": "We use information to improve our products and services. [P11]\nWe use information to look at site trends and customer interests. [P12]\nWe use information for security purposes. [P13]\nWe use information for marketing purposes. [P14]\nWe use information to send you transactional communications. [P15]",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting location data but does not specify a purpose beyond marketing."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting financial information but does not specify a purpose beyond basic service/feature usage.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "Payment and billing information. [P3]",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use information to respond to your requests or questions. [P10]",
+       "unspecified_purpose_quote": "We use information to improve our products and services. [P11]\nWe use information to look at site trends and customer interests. [P12]\nWe use information for security purposes. [P13]\nWe use information for marketing purposes. [P14]\nWe use information to send you transactional communications. [P15]",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting financial information but does not specify a purpose beyond basic service/feature usage."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting financial information but does not specify a purpose beyond basic service/feature usage.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "Payment and billing information. [P3]",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use information to respond to your requests or questions. [P10]",
+       "unspecified_purpose_quote": "We use information to improve our products and services. [P11]\nWe use information to look at site trends and customer interests. [P12]\nWe use information for security purposes. [P13]\nWe use information for marketing purposes. [P14]\nWe use information to send you transactional communications. [P15]",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting financial information but does not specify a purpose beyond basic service/feature usage."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use tracking tools like browser cookies and web beacons.",
+      "rationale": "The policy discloses using cookies and tracking elements but does not specify a purpose beyond marketing.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "We use tracking tools like browser cookies and web beacons. [P8]",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use information for marketing purposes. [P14]",
+       "unspecified_purpose_quote": "We use information to improve our products and services. [P11]\nWe use information to look at site trends and customer interests. [P12]\nWe use information for security purposes. [P13]\nWe use information for marketing purposes. [P14]\nWe use information to send you transactional communications. [P15]",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses using cookies and tracking elements but does not specify a purpose beyond marketing."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses using cookies and tracking elements but does not specify a purpose beyond marketing.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "We use tracking tools like browser cookies and web beacons. [P8]",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use information for marketing purposes. [P14]",
+       "unspecified_purpose_quote": "We use information to improve our products and services. [P11]\nWe use information to look at site trends and customer interests. [P12]\nWe use information for security purposes. [P13]\nWe use information for marketing purposes. [P14]\nWe use information to send you transactional communications. [P15]",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses using cookies and tracking elements but does not specify a purpose beyond marketing."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9859766629632953
+   }
+  ],
+  "paragraphs_shown": [
+   40
+  ],
+  "paragraphs_total": 40,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 143.7
+ }
+}

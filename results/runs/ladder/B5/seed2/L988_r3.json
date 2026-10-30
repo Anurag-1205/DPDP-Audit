@@ -1,0 +1,155 @@
+{
+ "case_id": "L988_r3",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect information about you when you use our services.",
+   "rationale": "The policy discloses collecting computer information for basic service purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'We may collect information about you when you use our services' does not specify the type of data (computer information) or the purpose (basic service/feature). Therefore, it does not justify an undisclosed collection finding."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9766396726447085,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9766396726447085,
+ "usage": {
+  "prompt": 1278,
+  "output": 364
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 1,
+  "untagged_paragraphs": 0,
+  "claims": 1,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect information about you when you use our services.",
+      "rationale": "The policy discloses collecting computer information for basic service purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may collect information about you when you use our services.",
+       "denial_quote": "",
+       "generic_quote": "We may collect information about you when you use our services.",
+       "purpose_quote": "providing the service or feature the user asked for (account, orders, delivery, support)",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting computer information for basic service purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies the purpose of collecting computer information as providing the service.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We may collect information about you when you use our services.",
+       "denial_quote": "",
+       "generic_quote": "We may collect information about you when you use our services.",
+       "purpose_quote": "providing the service or feature the user asked for (account, orders, delivery, support)",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies the purpose of collecting computer information as providing the service."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9766396726447085
+   }
+  ],
+  "paragraphs_shown": [
+   1
+  ],
+  "paragraphs_total": 1,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 26.26
+ }
+}

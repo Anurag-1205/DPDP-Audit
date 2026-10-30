@@ -1,0 +1,635 @@
+{
+ "case_id": "1582_v2",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We collect information when you register, sign in and use our sites and services. We also may get information from other companies.",
+   "rationale": "The policy does not specifically mention IP addresses and device IDs being collected for additional service/feature purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions collecting information during registration, signing in, and using the site, but does not specify IP addresses and device IDs being collected for additional service/feature purposes. The cited DPDP text requires a notice to inform the Data Principal about the personal dat"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+   "rationale": "The policy does not specifically mention location data being collected for additional service/feature purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence lists location as one of the data points collected during a search, but does not specify it being collected for additional service/feature purposes. The cited DPDP text requires a notice to inform the Data Principal about the personal data and its purpose, which is not provided f"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses that cookies and tracking elements are used for operating services and providing a relevant search experience.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that cookies and tracking elements are used for operating services and providing a relevant search experience, which contradicts the finding that they are undisclosed. Additionally, the cited DPDP text pertains to the notice requirement, which is not directly related to th"
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We collect information when you register, sign in and use our sites and services. We also may get information from other companies.",
+   "rationale": "The policy does not mention sharing demographic data with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c9",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When a Microsoft site or service collects age information, it will block users under 13 or obtain consent from a parent or guardian before their child can use it.",
+   "rationale": "The policy explicitly mentions handling data for children under 13.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c10",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+   "rationale": "The policy does not mention sharing IP addresses and device IDs with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c12",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When a Microsoft site or service collects age information, it will block users under 13 or obtain consent from a parent or guardian before their child can use it.",
+   "rationale": "The policy explicitly mentions handling data for children under 13.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9733980116471633,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "incorrect",
+   "confidence": 0.9733980116471633,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9733980116471633,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9733980116471633,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "incorrect",
+   "confidence": 0.9733980116471633,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9733980116471633,
+ "usage": {
+  "prompt": 4947,
+  "output": 1969
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 89,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c10",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c11",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c12",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect information when you register, sign in and use our sites and services. We also may get information from other companies.",
+      "rationale": "The policy does not specifically mention IP addresses and device IDs being collected for additional service/feature purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "generic_quote": "We collect information when you register, sign in and use our sites and services. We also may get information from other companies.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specifically mention IP addresses and device IDs being collected for additional service/feature purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use these cookies to operate Bing and MSN services and provide you a more relevant search experience.",
+      "rationale": "The policy states that cookies are used for operating services and providing a relevant search experience, but does not specify the exact purpose of IP addresses and device IDs.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "We use these cookies to operate Bing and MSN services and provide you a more relevant search experience.",
+       "disclosing_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "denial_quote": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that cookies are used for operating services and providing a relevant search experience, but does not specify the exact purpose of IP addresses and device IDs."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+      "rationale": "The policy does not specifically mention location data being collected for additional service/feature purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+       "generic_quote": "We collect information when you register, sign in and use our sites and services. We also may get information from other companies.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specifically mention location data being collected for additional service/feature purposes."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+      "rationale": "The policy states that location data is collected during searches, but does not specify the exact purpose of location data for additional service/feature purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "purpose_quote": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+       "disclosing_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "denial_quote": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that location data is collected during searches, but does not specify the exact purpose of location data for additional service/feature purposes."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses that cookies and tracking elements are used for operating services and providing a relevant search experience.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses that cookies and tracking elements are used for operating services and providing a relevant search experience."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use these cookies to operate Bing and MSN services and provide you a more relevant search experience.",
+      "rationale": "The policy states that cookies are used for operating services and providing a relevant search experience, but does not specify the exact purpose of cookies for service operation and security.",
+      "raw": {
+       "candidate_id": "c6",
+       "purpose_quote": "We use these cookies to operate Bing and MSN services and provide you a more relevant search experience.",
+       "disclosing_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that cookies are used for operating services and providing a relevant search experience, but does not specify the exact purpose of cookies for service operation and security."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect information when you register, sign in and use our sites and services. We also may get information from other companies.",
+      "rationale": "The policy does not mention sharing demographic data with Google AdMob.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "",
+       "denial_quote": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+       "generic_quote": "We collect information when you register, sign in and use our sites and services. We also may get information from other companies.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention sharing demographic data with Google AdMob."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use demographic information - gender, country, age and postal code but not your name or contact information - from your Microsoft account to provide personalized ads to you.",
+      "rationale": "The policy states that demographic information is used for providing personalized ads, but does not specify the exact purpose of sharing demographic data with Google AdMob.",
+      "raw": {
+       "candidate_id": "c8",
+       "purpose_quote": "We use demographic information - gender, country, age and postal code but not your name or contact information - from your Microsoft account to provide personalized ads to you.",
+       "disclosing_quote": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that demographic information is used for providing personalized ads, but does not specify the exact purpose of sharing demographic data with Google AdMob."
+      }
+     },
+     {
+      "candidate_id": "c9",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When a Microsoft site or service collects age information, it will block users under 13 or obtain consent from a parent or guardian before their child can use it.",
+      "rationale": "The policy explicitly mentions handling data for children under 13.",
+      "raw": {
+       "candidate_id": "c9",
+       "children_quote": "When a Microsoft site or service collects age information, it will block users under 13 or obtain consent from a parent or guardian before their child can use it.",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions handling data for children under 13."
+      }
+     },
+     {
+      "candidate_id": "c10",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+      "rationale": "The policy does not mention sharing IP addresses and device IDs with Google AdMob.",
+      "raw": {
+       "candidate_id": "c10",
+       "disclosing_quote": "",
+       "denial_quote": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+       "generic_quote": "We collect information when you register, sign in and use our sites and services. We also may get information from other companies.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention sharing IP addresses and device IDs with Google AdMob."
+      }
+     },
+     {
+      "candidate_id": "c11",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+      "rationale": "The policy states that IP addresses and device IDs are collected during searches, but does not specify the exact purpose of sharing them with Google AdMob.",
+      "raw": {
+       "candidate_id": "c11",
+       "purpose_quote": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+       "disclosing_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that IP addresses and device IDs are collected during searches, but does not specify the exact purpose of sharing them with Google AdMob."
+      }
+     },
+     {
+      "candidate_id": "c12",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When a Microsoft site or service collects age information, it will block users under 13 or obtain consent from a parent or guardian before their child can use it.",
+      "rationale": "The policy explicitly mentions handling data for children under 13.",
+      "raw": {
+       "candidate_id": "c12",
+       "children_quote": "When a Microsoft site or service collects age information, it will block users under 13 or obtain consent from a parent or guardian before their child can use it.",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions handling data for children under 13."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9733980116471633
+   }
+  ],
+  "paragraphs_shown": [
+   32
+  ],
+  "paragraphs_total": 32,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 152.48
+ }
+}

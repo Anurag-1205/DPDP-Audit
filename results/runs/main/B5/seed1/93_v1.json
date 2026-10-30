@@ -1,0 +1,612 @@
+{
+ "case_id": "93_v1",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9662346681813903,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9662346681813903,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "incorrect",
+   "confidence": 0.9662346681813903,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "incorrect",
+   "confidence": 0.9662346681813903,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "omitted",
+   "confidence": 0.9662346681813903,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "[P4]",
+    "[P12]",
+    "[P14]",
+    "[P28]",
+    "[P29]",
+    "[P30]"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that PBS does not collect personal identifiable information except what is voluntarily provided, and does not specify any analytics/research purposes.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "[P12]",
+    "[P14]",
+    "[P28]",
+    "[P29]",
+    "[P30]"
+   ],
+   "evidence": "In addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site.",
+   "rationale": "The policy specifies that cookies do not store personal information, but does not provide a clear purpose for collecting non-personally identifiable information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "[P28]",
+    "[P29]",
+    "[P30]"
+   ],
+   "evidence": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+   "rationale": "The policy clearly states the purpose for collecting location data is for analytics/research.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "[P28]",
+    "[P29]",
+    "[P30]"
+   ],
+   "evidence": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+   "rationale": "The policy clearly states the purpose for collecting demographic data is for analytics/research.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c9",
+   "flow_id": "f5",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "[P17]",
+    "[P18]",
+    "[P26]",
+    "[P32]"
+   ],
+   "evidence": "",
+   "rationale": "The policy explains that personal information can be used for various purposes but does not specify any basic service/feature purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9662346681813903,
+ "usage": {
+  "prompt": 4127,
+  "output": 2004
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 80,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f5",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c10",
+    "flow_id": "f5",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P4]",
+       "[P12]",
+       "[P14]",
+       "[P28]",
+       "[P29]",
+       "[P30]"
+      ],
+      "evidence": "information such as IP Addresses and cookies, which allow for a better use of the Site.",
+      "rationale": "The policy explicitly states that PBS does not collect personal identifiable information except what is voluntarily provided, and does not specify any analytics/research purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "PBS will not collect personally identifiable information from you, other than what you supply to us on a voluntary basis upon request.",
+       "generic_quote": "information such as IP Addresses and cookies, which allow for a better use of the Site.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P4]",
+        "[P12]",
+        "[P14]",
+        "[P28]",
+        "[P29]",
+        "[P30]"
+       ],
+       "rationale": "The policy explicitly states that PBS does not collect personal identifiable information except what is voluntarily provided, and does not specify any analytics/research purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P4]",
+       "[P12]",
+       "[P14]",
+       "[P28]",
+       "[P29]",
+       "[P30]"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that PBS does not collect personal identifiable information except what is voluntarily provided, and does not specify any analytics/research purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "PBS will not collect personally identifiable information from you, other than what you supply to us on a voluntary basis upon request.",
+       "generic_quote": "information such as IP Addresses and cookies, which allow for a better use of the Site.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P4]",
+        "[P12]",
+        "[P14]",
+        "[P28]",
+        "[P29]",
+        "[P30]"
+       ],
+       "rationale": "The policy explicitly states that PBS does not collect personal identifiable information except what is voluntarily provided, and does not specify any analytics/research purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P12]",
+       "[P14]",
+       "[P28]",
+       "[P29]",
+       "[P30]"
+      ],
+      "evidence": "In addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site.",
+      "rationale": "The policy specifies that cookies do not store personal information, but does not provide a clear purpose for collecting non-personally identifiable information.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "No personal information is ever stored in a PBS cookie, even if you have entered your name or email address on other parts of the Site.",
+       "generic_quote": "In addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "In addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P12]",
+        "[P14]",
+        "[P28]",
+        "[P29]",
+        "[P30]"
+       ],
+       "rationale": "The policy specifies that cookies do not store personal information, but does not provide a clear purpose for collecting non-personally identifiable information."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P12]",
+       "[P14]",
+       "[P28]",
+       "[P29]",
+       "[P30]"
+      ],
+      "evidence": "In addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site.",
+      "rationale": "The policy specifies that cookies do not store personal information, but does not provide a clear purpose for collecting non-personally identifiable information.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "No personal information is ever stored in a PBS cookie, even if you have entered your name or email address on other parts of the Site.",
+       "generic_quote": "In addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "In addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P12]",
+        "[P14]",
+        "[P28]",
+        "[P29]",
+        "[P30]"
+       ],
+       "rationale": "The policy specifies that cookies do not store personal information, but does not provide a clear purpose for collecting non-personally identifiable information."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "[P28]",
+       "[P29]",
+       "[P30]"
+      ],
+      "evidence": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+      "rationale": "The policy clearly states the purpose for collecting location data is for analytics/research.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+       "generic_quote": "",
+       "purpose_quote": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P28]",
+        "[P29]",
+        "[P30]"
+       ],
+       "rationale": "The policy clearly states the purpose for collecting location data is for analytics/research."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P28]",
+       "[P29]",
+       "[P30]"
+      ],
+      "evidence": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+      "rationale": "The policy clearly states the purpose for collecting location data is for analytics/research.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "",
+       "denial_quote": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+       "generic_quote": "",
+       "purpose_quote": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P28]",
+        "[P29]",
+        "[P30]"
+       ],
+       "rationale": "The policy clearly states the purpose for collecting location data is for analytics/research."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "[P28]",
+       "[P29]",
+       "[P30]"
+      ],
+      "evidence": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+      "rationale": "The policy clearly states the purpose for collecting demographic data is for analytics/research.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "",
+       "denial_quote": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+       "generic_quote": "",
+       "purpose_quote": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P28]",
+        "[P29]",
+        "[P30]"
+       ],
+       "rationale": "The policy clearly states the purpose for collecting demographic data is for analytics/research."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P28]",
+       "[P29]",
+       "[P30]"
+      ],
+      "evidence": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+      "rationale": "The policy clearly states the purpose for collecting demographic data is for analytics/research.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "",
+       "denial_quote": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+       "generic_quote": "",
+       "purpose_quote": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P28]",
+        "[P29]",
+        "[P30]"
+       ],
+       "rationale": "The policy clearly states the purpose for collecting demographic data is for analytics/research."
+      }
+     },
+     {
+      "candidate_id": "c9",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P17]",
+       "[P18]",
+       "[P26]",
+       "[P32]"
+      ],
+      "evidence": "",
+      "rationale": "The policy explains that personal information can be used for various purposes but does not specify any basic service/feature purposes.",
+      "raw": {
+       "candidate_id": "c9",
+       "disclosing_quote": "",
+       "denial_quote": "We will typically explain the extent of use at the time you are asked to provide personal information. If you do not want this information to be collected or used by us for these purposes, you can simply 'opt out.'",
+       "generic_quote": "We will typically explain the extent of use at the time you are asked to provide personal information. If you do not want this information to be collected or used by us for these purposes, you can simply 'opt out.'",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We will typically explain the extent of use at the time you are asked to provide personal information. If you do not want this information to be collected or used by us for these purposes, you can simply 'opt out.'",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P17]",
+        "[P18]",
+        "[P26]",
+        "[P32]"
+       ],
+       "rationale": "The policy explains that personal information can be used for various purposes but does not specify any basic service/feature purposes."
+      }
+     },
+     {
+      "candidate_id": "c10",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P17]",
+       "[P18]",
+       "[P26]",
+       "[P32]"
+      ],
+      "evidence": "",
+      "rationale": "The policy explains that personal information can be used for various purposes but does not specify any basic service/feature purposes.",
+      "raw": {
+       "candidate_id": "c10",
+       "disclosing_quote": "",
+       "denial_quote": "We will typically explain the extent of use at the time you are asked to provide personal information. If you do not want this information to be collected or used by us for these purposes, you can simply 'opt out.'",
+       "generic_quote": "We will typically explain the extent of use at the time you are asked to provide personal information. If you do not want this information to be collected or used by us for these purposes, you can simply 'opt out.'",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We will typically explain the extent of use at the time you are asked to provide personal information. If you do not want this information to be collected or used by us for these purposes, you can simply 'opt out.'",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P17]",
+        "[P18]",
+        "[P26]",
+        "[P32]"
+       ],
+       "rationale": "The policy explains that personal information can be used for various purposes but does not specify any basic service/feature purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9662346681813903
+   }
+  ],
+  "paragraphs_shown": [
+   40
+  ],
+  "paragraphs_total": 40,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 213.38
+ }
+}

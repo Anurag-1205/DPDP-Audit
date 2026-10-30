@@ -1,0 +1,355 @@
+{
+ "case_id": "1470_control",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+   "rationale": "The policy does not disclose the collection of contact details.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that Valve will not share any personally identifiable information with other parties, which implies that they do not collect such information. However, the rationale mentions that the policy does not disclose the collection of contact details, which is a vague statement an"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+   "rationale": "The policy discloses the collection of IP addresses and device IDs for sending promotional communications.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that Valve will not share any personally identifiable information with other parties, but the rationale indicates that the policy discloses the collection of IP addresses and device IDs for sending promotional communications. This contradicts the policy evidence and sugges"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+   "rationale": "The policy discloses the collection of computer information and specifies purposes for using such information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "Similar to finding 1, the policy evidence states that Valve will not share any personally identifiable information with other parties, but the rationale indicates that the policy discloses the collection of computer information and specifies purposes for using such information. This again contradict"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9806626207765802,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9806626207765802,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9806626207765802,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9806626207765802,
+ "usage": {
+  "prompt": 4067,
+  "output": 1332
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 51,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+      "rationale": "The policy does not disclose the collection of contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+       "generic_quote": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose the collection of contact details."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not disclose the collection of contact details.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+       "generic_quote": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose the collection of contact details."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+      "rationale": "The policy discloses the collection of IP addresses and device IDs for sending promotional communications.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Valve may use personally identifiable information provided by users to send them information about Valve, including news about product updates, contests, events, and other promotional materials, but only if the users agree to receive such communications.",
+       "denial_quote": "",
+       "generic_quote": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+       "purpose_quote": "Valve may use personally identifiable information provided by users to send them information about Valve, including news about product updates, contests, events, and other promotional materials, but only if the users agree to receive such communications.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of IP addresses and device IDs for sending promotional communications."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the collection of IP addresses and device IDs for sending promotional communications.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Valve may use personally identifiable information provided by users to send them information about Valve, including news about product updates, contests, events, and other promotional materials, but only if the users agree to receive such communications.",
+       "denial_quote": "",
+       "generic_quote": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+       "purpose_quote": "Valve may use personally identifiable information provided by users to send them information about Valve, including news about product updates, contests, events, and other promotional materials, but only if the users agree to receive such communications.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of IP addresses and device IDs for sending promotional communications."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+      "rationale": "The policy discloses the collection of computer information and specifies purposes for using such information.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "Valve collects a user's email address and username, and at the user's option, first and last name.",
+       "denial_quote": "",
+       "generic_quote": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+       "purpose_quote": "Valve uses personally identifiable information internally by Valve to deliver, develop and improve products, content and services, to which users have subscribed, and to answer users requests.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of computer information and specifies purposes for using such information."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the collection of computer information and specifies purposes for using such information.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "Valve uses personally identifiable information internally by Valve to deliver, develop and improve products, content and services, to which users have subscribed, and to answer users requests.",
+       "denial_quote": "",
+       "generic_quote": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+       "purpose_quote": "Valve uses personally identifiable information internally by Valve to deliver, develop and improve products, content and services, to which users have subscribed, and to answer users requests.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of computer information and specifies purposes for using such information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9806626207765802
+   }
+  ],
+  "paragraphs_shown": [
+   20
+  ],
+  "paragraphs_total": 20,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 132.35
+ }
+}

@@ -1,0 +1,154 @@
+{
+ "case_id": "L1637_r3",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may share information with our partners. You can opt out of all newsletters, but you may still receive occasional notices regarding your specific usage of the site.",
+   "rationale": "The policy explicitly states that the data is used for tracking user engagement and refining advertising strategies.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9872436279132377,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9872436279132377,
+ "usage": {
+  "prompt": 1316,
+  "output": 495
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 12,
+  "untagged_paragraphs": 0,
+  "claims": 26,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may share information with our partners. You can opt out of all newsletters, but you may still receive occasional notices regarding your specific usage of the site.",
+      "rationale": "The policy explicitly states that the data is used for tracking user engagement and refining advertising strategies.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "This analysis enables us to track how our users engage over a date range, who our users are generally, and how their behavior varies by attribute (e.g., male vs. female). Illini Media may use this type of analysis to refine our advertising and content strategies.",
+       "denial_quote": "",
+       "generic_quote": "We may share information with our partners. You can opt out of all newsletters, but you may still receive occasional notices regarding your specific usage of the site.",
+       "purpose_quote": "This analysis enables us to track how our users engage over a date range, who our users are generally, and how their behavior varies by attribute (e.g., male vs. female). Illini Media may use this type of analysis to refine our advertising and content strategies.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the data is used for tracking user engagement and refining advertising strategies."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that the data is used for tracking user engagement and refining advertising strategies.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "This analysis enables us to track how our users engage over a date range, who our users are generally, and how their behavior varies by attribute (e.g., male vs. female). Illini Media may use this type of analysis to refine our advertising and content strategies.",
+       "denial_quote": "",
+       "generic_quote": "We may share information with our partners. You can opt out of all newsletters, but you may still receive occasional notices regarding your specific usage of the site.",
+       "purpose_quote": "This analysis enables us to track how our users engage over a date range, who our users are generally, and how their behavior varies by attribute (e.g., male vs. female). Illini Media may use this type of analysis to refine our advertising and content strategies.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the data is used for tracking user engagement and refining advertising strategies."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9872436279132377
+   }
+  ],
+  "paragraphs_shown": [
+   12
+  ],
+  "paragraphs_total": 12,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 41.95
+ }
+}

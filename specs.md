@@ -213,6 +213,7 @@ flowchart LR
 - [x] **AC-02.7** B4 seeds 1–2 SHOULD run on the main benchmark (WP-3.4, MS-3). *Evidence: `results/runs/main/B4/seed1/`, `seed2/` (204 runs, 0 failed, 27 Oct).*
 - [x] **AC-02.8** B2 MUST run on the 140 ladder cases with seeds 0–2 (WP-3.4, MS-3). *Evidence: `results/runs/ladder/B2/`.*
 - [ ] **AC-02.9** B1 and B2 MUST run on the real-flow sample (WP-4.3, SPEC-08).
+- [x] **AC-02.10** (added 30 Oct, Ishaan; for team confirmation) Self-consistency versions `B1_sc`, `B2_sc`, `B4_sc` SHOULD be reported: per flow the majority label over the three seeds, and the findings at least two seeds report. *Evidence: `scripts/build_self_consistency.py` → `results/runs/{main,ladder}/*_sc/`; `results/scores/main.json`.*
 
 ### 6. Evidence & Validation
 - `results/runs/main/B1/`, `results/runs/main/B2/` (306 runs each).
@@ -372,6 +373,7 @@ flowchart LR
   applied to the ladder. *Evidence: `results/runs/main/A1`, `A2`, `A3`, `A5` (v1) and `A1_v2`, `A2_v2`, `A3_v2`, `A5_v2` (v2), each re-verified as `*_rv`; v2 ablations also on seeds 1–2 and A2_v2 / A3_v2 on the ladder × 3 (29 Oct, `scripts/score_ablations.py` → `results/scores/ablations.json`); A4 (prompted tagger) is `full` / `full_v2`.*
 - [x] **AC-04.13** A per-flow confidence (seed agreement, token-probability tie-break) MUST be
   exported for SPEC-07. *Evidence: `src/dpdp_audit/confidence.py`, `scripts/export_confidence.py` → `results/confidence/{main,ladder}.json` (ladder rows marked `accepted`); `tests/test_confidence.py`.*
+- [x] **AC-04.14** (added 30 Oct, Ishaan; for team confirmation) Two baselines built from the pipeline's parts SHOULD be compared with `full_v2_finetuned`: **R0** (QLoRA tagger and finder only, every candidate reported, no LLM) and **B5** (one generalist call over the whole policy, evidence first, then v2's rules, aggregator and verifier; no tagger or finder filtering). B5 is fixed on the dev splits and runs on main and the ladder only after a reply-quality gate (≤ 3% unreadable). *Evidence: `pipeline/config.py` (`R0`, `R0_prompted`, `B5`), `tests/test_baselines_from_parts.py`, `scripts/check_replies.py`; R0 on all splits, B5 on dev (gate 2.9% unreadable), main and the ladder × 3 seeds (0 failed calls); report §4.3.*
 
 ### 6. Evidence & Validation
 - `tests/test_pipeline.py` passes, together with the existing suite.

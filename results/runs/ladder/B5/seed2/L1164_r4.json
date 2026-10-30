@@ -1,0 +1,156 @@
+{
+ "case_id": "L1164_r4",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 2",
+    "Sec. 12"
+   ],
+   "evidence": "We reserve the right to use the information we collect about your computer, mobile or other device (including its geographic location), which may at times be able to identify you, for any lawful business purpose, including without limitation to help diagnose problems with our servers, to gather broad demographic information, analyze trends, track users movements around the Service, and to otherwise administer the Service. Geographic location information about you and/or your computer, mobile or other device may specifically be used to show you content and sponsored messaging based on geographic location.",
+   "rationale": "The policy states that location information is collected and used for various business purposes, including analytics/research.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9831389784774169,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9831389784774169,
+ "usage": {
+  "prompt": 3262,
+  "output": 700
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 38,
+  "untagged_paragraphs": 0,
+  "claims": 75,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 2(D)",
+       "Sec. 12"
+      ],
+      "evidence": "We reserve the right to use the information we collect about your computer, mobile or other device (including its geographic location), which may at times be able to identify you, for any lawful business purpose, including without limitation to help diagnose problems with our servers, to gather broad demographic information, analyze trends, track users movements around the Service, and to otherwise administer the Service. Geographic location information about you and/or your computer, mobile or other device may specifically be used to show you content and sponsored messaging based on geographic location.",
+      "rationale": "The policy states that location information is collected and used for various business purposes, including analytics/research.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Location",
+       "recipient": "Mixpanel (Mixpanel, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "disclosing_quote": "Our servers may also automatically collect information about you, your online behavior and your computer, mobile or other device. The information collected may include, without limitation, the make, model, settings, specifications (e.g., CPU speed, connection speed, browser type, operating system, device identifier) and geographic location of you and/or your computer, mobile or other device, as well as date/time stamp, IP address, pages visited, time of visits, content viewed, ads viewed, the site(s), application(s), destination(s), and/or service(s) you arrived from, and other clickstream data.",
+       "denial_quote": "",
+       "generic_quote": "We reserve the right to use the information we collect about your computer, mobile or other device (including its geographic location), which may at times be able to identify you, for any lawful business purpose, including without limitation to help diagnose problems with our servers, to gather broad demographic information, analyze trends, track users movements around the Service, and to otherwise administer the Service. Geographic location information about you and/or your computer, mobile or other device may specifically be used to show you content and sponsored messaging based on geographic location.",
+       "sections": [
+        "Sec. 2(D)",
+        "Sec. 12"
+       ],
+       "rationale": "The policy states that location information is collected and used for various business purposes, including analytics/research."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 2(D)",
+       "Sec. 12"
+      ],
+      "evidence": "We reserve the right to use the information we collect about your computer, mobile or other device (including its geographic location), which may at times be able to identify you, for any lawful business purpose, including without limitation to help diagnose problems with our servers, to gather broad demographic information, analyze trends, track users movements around the Service, and to otherwise administer the Service. Geographic location information about you and/or your computer, mobile or other device may specifically be used to show you content and sponsored messaging based on geographic location.",
+      "rationale": "The policy provides specific purposes for collecting location information, including analytics/research.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Location",
+       "recipient": "Mixpanel (Mixpanel, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "purpose_quote": "We reserve the right to use the information we collect about your computer, mobile or other device (including its geographic location), which may at times be able to identify you, for any lawful business purpose, including without limitation to help diagnose problems with our servers, to gather broad demographic information, analyze trends, track users movements around the Service, and to otherwise administer the Service. Geographic location information about you and/or your computer, mobile or other device may specifically be used to show you content and sponsored messaging based on geographic location.",
+       "unspecified_purpose_quote": "Our servers may also automatically collect information about you, your online behavior and your computer, mobile or other device. The information collected may include, without limitation, the make, model, settings, specifications (e.g., CPU speed, connection speed, browser type, operating system, device identifier) and geographic location of you and/or your computer, mobile or other device, as well as date/time stamp, IP address, pages visited, time of visits, content viewed, ads viewed, the site(s), application(s), destination(s), and/or service(s) you arrived from, and other clickstream data.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 2(D)",
+        "Sec. 12"
+       ],
+       "rationale": "The policy provides specific purposes for collecting location information, including analytics/research."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9831389784774169
+   }
+  ],
+  "paragraphs_shown": [
+   38
+  ],
+  "paragraphs_total": 38,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 94.09
+ }
+}

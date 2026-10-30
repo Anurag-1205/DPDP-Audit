@@ -1,0 +1,137 @@
+{
+ "case_id": "L1545_r1",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9726086045619458,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9726086045619458,
+ "usage": {
+  "prompt": 3077,
+  "output": 283
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 23,
+  "untagged_paragraphs": 0,
+  "claims": 49,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Personal identifier",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Personal identifier",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We share your name and other personal identifiers with our analytics provider Mixpanel to understand how the app is used.",
+      "rationale": "The policy explicitly states that personal identifiers are shared with Mixpanel for the purpose of understanding how the app is used.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We share your name and other personal identifiers with our analytics provider Mixpanel to understand how the app is used.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "to understand how the app is used",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal identifiers are shared with Mixpanel for the purpose of understanding how the app is used."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "to understand how the app is used",
+      "rationale": "The policy clearly states the purpose for which personal identifiers are used, which matches the specified purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We share your name and other personal identifiers with our analytics provider Mixpanel to understand how the app is used.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "to understand how the app is used",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy clearly states the purpose for which personal identifiers are used, which matches the specified purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9726086045619458
+   }
+  ],
+  "paragraphs_shown": [
+   23
+  ],
+  "paragraphs_total": 23,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 27.15
+ }
+}

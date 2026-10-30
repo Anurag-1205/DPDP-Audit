@@ -1,0 +1,156 @@
+{
+ "case_id": "745_control",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly denies the use of cookies for collecting personal information or unrelated purposes.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the policy explicitly denies the use of cookies for collecting personal information or unrelated purposes, which contradicts the finding of a purpose mismatch. Additionally, the policy evidence is stated as being non-existent, which further invalidates the finding."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9778801144619668,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9778801144619668,
+ "usage": {
+  "prompt": 1360,
+  "output": 441
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 4,
+  "untagged_paragraphs": 0,
+  "claims": 12,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do not use cookies to collect personal information, and we do not use cookies to retrieve information from your computer for purposes that are unrelated to the Web site or your interaction with the Web site.",
+      "rationale": "The policy explicitly denies the use of cookies for collecting personal information or unrelated purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not use cookies to collect personal information, and we do not use cookies to retrieve information from your computer for purposes that are unrelated to the Web site or your interaction with the Web site.",
+       "generic_quote": "We do not use cookies to collect personal information, and we do not use cookies to retrieve information from your computer for purposes that are unrelated to the Web site or your interaction with the Web site.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly denies the use of cookies for collecting personal information or unrelated purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly denies the use of cookies for collecting personal information or unrelated purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We do not use cookies to collect personal information, and we do not use cookies to retrieve information from your computer for purposes that are unrelated to the Web site or your interaction with the Web site.",
+       "generic_quote": "We do not use cookies to collect personal information, and we do not use cookies to retrieve information from your computer for purposes that are unrelated to the Web site or your interaction with the Web site.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly denies the use of cookies for collecting personal information or unrelated purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9778801144619668
+   }
+  ],
+  "paragraphs_shown": [
+   4
+  ],
+  "paragraphs_total": 4,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 32.34
+ }
+}

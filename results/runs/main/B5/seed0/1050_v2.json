@@ -1,0 +1,497 @@
+{
+ "case_id": "1050_v2",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9633122176541409,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9633122176541409,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9633122176541409,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9633122176541409,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "[P2]",
+    "[P8]",
+    "[P9]"
+   ],
+   "evidence": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through).",
+   "rationale": "The policy explicitly states that no personally identifiable information is shared, but it does mention gathering anonymous information.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "[P22]",
+    "[P28]",
+    "[P34]",
+    "[P36]",
+    "[P38]"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that no location data is collected or shared, and it does not specify any purposes for collecting location data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f3",
+   "data_type": "Personal identifier",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "[P5]",
+    "[P6]",
+    "[P7]",
+    "[P11]",
+    "[P12]",
+    "[P18]"
+   ],
+   "evidence": "",
+   "rationale": "The policy provides a generic definition of personal information and mentions collecting it for various purposes, including enhancing the user experience.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "[P9]",
+    "[P19]"
+   ],
+   "evidence": "We use cookies to provide you with a convenience feature to save you time and provide a more personalized experience on our site.",
+   "rationale": "The policy provides a generic description of using cookies and does not specify any additional purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9633122176541409,
+ "usage": {
+  "prompt": 6142,
+  "output": 1459
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 72,
+  "untagged_paragraphs": 0,
+  "claims": 166,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P2]",
+       "[P8]",
+       "[P9]"
+      ],
+      "evidence": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through).",
+      "rationale": "The policy explicitly states that no personally identifiable information is shared, but it does mention gathering anonymous information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "You can visit our Web Sites without sharing personally identifiable information.",
+       "generic_quote": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through).",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through).",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P2]",
+        "[P8]",
+        "[P9]"
+       ],
+       "rationale": "The policy explicitly states that no personally identifiable information is shared, but it does mention gathering anonymous information."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P2]",
+       "[P8]",
+       "[P9]"
+      ],
+      "evidence": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through).",
+      "rationale": "The policy explicitly states that no personally identifiable information is shared, but it does mention gathering anonymous information.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "You can visit our Web Sites without sharing personally identifiable information.",
+       "generic_quote": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through).",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through).",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P2]",
+        "[P8]",
+        "[P9]"
+       ],
+       "rationale": "The policy explicitly states that no personally identifiable information is shared, but it does mention gathering anonymous information."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P22]",
+       "[P28]",
+       "[P34]",
+       "[P36]",
+       "[P38]"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that no location data is collected or shared, and it does not specify any purposes for collecting location data.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect or share any of this information nor is this information personally identifiable.",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We do not collect or share any of this information nor is this information personally identifiable.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P22]",
+        "[P28]",
+        "[P34]",
+        "[P36]",
+        "[P38]"
+       ],
+       "rationale": "The policy explicitly states that no location data is collected or shared, and it does not specify any purposes for collecting location data."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P22]",
+       "[P28]",
+       "[P34]",
+       "[P36]",
+       "[P38]"
+      ],
+      "evidence": "We do not collect or share any of this information nor is this information personally identifiable.",
+      "rationale": "The policy explicitly states that no location data is collected or shared, and it does not specify any purposes for collecting location data.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect or share any of this information nor is this information personally identifiable.",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We do not collect or share any of this information nor is this information personally identifiable.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P22]",
+        "[P28]",
+        "[P34]",
+        "[P36]",
+        "[P38]"
+       ],
+       "rationale": "The policy explicitly states that no location data is collected or shared, and it does not specify any purposes for collecting location data."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P5]",
+       "[P6]",
+       "[P7]",
+       "[P11]",
+       "[P12]",
+       "[P18]"
+      ],
+      "evidence": "\"Personally identifiable information or personal information\" refers to any information that identifies or can be used to contact or locate you such as name, mailing address, phone number, email address, social security number, and account number.",
+      "rationale": "The policy provides a generic definition of personal information and mentions collecting it for various purposes, including enhancing the user experience.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "Personally identifiable information or personal information refers to any information that identifies or can be used to contact or locate you such as name, mailing address, phone number, email address, social security number, and account number.",
+       "purpose_quote": "We may request personally identifiable information in order to enhance your experience on our web sites.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P5]",
+        "[P6]",
+        "[P7]",
+        "[P11]",
+        "[P12]",
+        "[P18]"
+       ],
+       "rationale": "The policy provides a generic definition of personal information and mentions collecting it for various purposes, including enhancing the user experience."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P5]",
+       "[P6]",
+       "[P7]",
+       "[P11]",
+       "[P12]",
+       "[P18]"
+      ],
+      "evidence": "",
+      "rationale": "The policy provides a generic definition of personal information and mentions collecting it for various purposes, including enhancing the user experience.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "Personally identifiable information or personal information refers to any information that identifies or can be used to contact or locate you such as name, mailing address, phone number, email address, social security number, and account number.",
+       "purpose_quote": "We may request personally identifiable information in order to enhance your experience on our web sites.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P5]",
+        "[P6]",
+        "[P7]",
+        "[P11]",
+        "[P12]",
+        "[P18]"
+       ],
+       "rationale": "The policy provides a generic definition of personal information and mentions collecting it for various purposes, including enhancing the user experience."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P9]",
+       "[P19]"
+      ],
+      "evidence": "We use cookies to provide you with a convenience feature to save you time and provide a more personalized experience on our site.",
+      "rationale": "The policy provides a generic description of using cookies and does not specify any additional purposes.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "We use cookies to provide you with a convenience feature to save you time and provide a more personalized experience on our site.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We use cookies to provide you with a convenience feature to save you time and provide a more personalized experience on our site.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P9]",
+        "[P19]"
+       ],
+       "rationale": "The policy provides a generic description of using cookies and does not specify any additional purposes."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P9]",
+       "[P19]"
+      ],
+      "evidence": "We use cookies to provide you with a convenience feature to save you time and provide a more personalized experience on our site.",
+      "rationale": "The policy provides a generic description of using cookies and does not specify any additional purposes.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "We use cookies to provide you with a convenience feature to save you time and provide a more personalized experience on our site.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We use cookies to provide you with a convenience feature to save you time and provide a more personalized experience on our site.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P9]",
+        "[P19]"
+       ],
+       "rationale": "The policy provides a generic description of using cookies and does not specify any additional purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9633122176541409
+   }
+  ],
+  "paragraphs_shown": [
+   43
+  ],
+  "paragraphs_total": 72,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 192.74
+ }
+}

@@ -1,0 +1,156 @@
+{
+ "case_id": "L325_r1",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy specifies that personal information is used for various internal purposes, but does not specify a particular purpose for IP addresses and device identifiers beyond advertising.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the policy does not mention the use of IP addresses and device IDs for any specific purpose beyond advertising. However, the app flow indicates that these data types are being sent to AdMob without specifying their purpose. This contradicts the requirement to inform t"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9595370369614192,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9595370369614192,
+ "usage": {
+  "prompt": 2614,
+  "output": 456
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 28,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We share your device identifiers and IP address with our advertising partner Google (AdMob)",
+      "rationale": "The policy explicitly states that IP addresses and device identifiers are shared with Google AdMob for advertising purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We share your device identifiers and IP address with our advertising partner Google (AdMob)",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use personal information and non-personal information for internal purposes, including: ... enabling you to enter sweepstakes, contests and other promotions; ... and enabling purchases of goods and services.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that IP addresses and device identifiers are shared with Google AdMob for advertising purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies that personal information is used for various internal purposes, but does not specify a particular purpose for IP addresses and device identifiers beyond advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We share your device identifiers and IP address with our advertising partner Google (AdMob)",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use personal information and non-personal information for internal purposes, including: ... enabling you to enter sweepstakes, contests and other promotions; ... and enabling purchases of goods and services.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies that personal information is used for various internal purposes, but does not specify a particular purpose for IP addresses and device identifiers beyond advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9595370369614192
+   }
+  ],
+  "paragraphs_shown": [
+   18
+  ],
+  "paragraphs_total": 18,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 40.69
+ }
+}

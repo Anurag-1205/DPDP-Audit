@@ -1,0 +1,154 @@
+{
+ "case_id": "L1264_r3",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may share information with our partners.",
+   "rationale": "The policy does not disclose sharing of location data with Google AdMob and does not specify any purposes for location data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9725393772525909,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9725393772525909,
+ "usage": {
+  "prompt": 1220,
+  "output": 377
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 21,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may share information with our partners.",
+      "rationale": "The policy does not disclose sharing of location data with Google AdMob and does not specify any purposes for location data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Public Citizen does not automatically collect personal information from people who visit or interact with our website.",
+       "generic_quote": "We may share information with our partners.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Our website uses cookies for these reasons: so that you don't have to reenter information on action, donate, or payment pages; for tracking traffic so that we can evaluate and improve the website; and to facilitate outreach based on visitors' interests.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose sharing of location data with Google AdMob and does not specify any purposes for location data."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Our website uses cookies for these reasons: so that you don't have to reenter information on action, donate, or payment pages; for tracking traffic so that we can evaluate and improve the website; and to facilitate outreach based on visitors' interests.",
+      "rationale": "The policy does not specify any purposes for location data and does not mention sharing location data with third parties.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Public Citizen does not automatically collect personal information from people who visit or interact with our website.",
+       "generic_quote": "We may share information with our partners.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Our website uses cookies for these reasons: so that you don't have to reenter information on action, donate, or payment pages; for tracking traffic so that we can evaluate and improve the website; and to facilitate outreach based on visitors' interests.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify any purposes for location data and does not mention sharing location data with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9725393772525909
+   }
+  ],
+  "paragraphs_shown": [
+   13
+  ],
+  "paragraphs_total": 13,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 41.47
+ }
+}

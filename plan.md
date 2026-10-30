@@ -307,6 +307,7 @@ L = likelihood, I = impact (H/M/L).
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-10-23 | Five-week stage plan derived from the proposal |
+| 2.7 | 2026-10-30 | Baselines from the pipeline's parts: R0 rules only (F1 0.524, false alarms 0.91), B5 one call evidence first (F1 0.557, 3 seeds; v2 ahead by +0.13–0.16 on every seed), self-consistency B1/B2/B4 (B4 +0.058). Report §4.3 |
 | 2.6 | 2026-10-29 | Stage 3 complete: S4 scored (WP-3.6; tuple F1 PolicyLint 0.106, PoliGraph 0.234, QLoRA 0.479); v2 ablations on 3 seeds and A2/A3 on the ladder (WP-3.3); 95% intervals for every system (WP-3.8). Without DPDP retrieval v2 is as good or better on every seed |
 | 2.5 | 2026-10-29 | Stage 3 started: pipeline seeds 1–2 on the ladder (AC-04.11, 1,120 runs); per-flow confidence export for SPEC-07 (AC-04.13); S4 extraction jobs and term mapping (WP-3.6) |
 | 2.4 | 2026-10-29 | Ladder and spot-check disagreements settled together by Naveen and Anurag: 110 of 140 rungs accepted (was 100 before settling); answer key wrong on 9 of 87 checked flows (10.3%). Report §5 updated; H4 now fails for every system |

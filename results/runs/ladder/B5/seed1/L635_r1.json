@@ -1,0 +1,141 @@
+{
+ "case_id": "L635_r1",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9350574937365482,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9350574937365482,
+ "usage": {
+  "prompt": 4067,
+  "output": 342
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 37,
+  "untagged_paragraphs": 0,
+  "claims": 78,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Personal identifier",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Personal identifier",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 7",
+       "Sec. 14"
+      ],
+      "evidence": "We share your name and other personal identifiers with our analytics provider Mixpanel to understand how the app is used.",
+      "rationale": "The policy mentions sharing personal identifiers with Mixpanel for analytics purposes, but does not specify the sharing explicitly.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "undisclosed_sharing",
+       "data_type": "Personal identifier",
+       "recipient": "Mixpanel (Mixpanel, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "SCEA may use cookies to anonymously track interest in, and collect aggregate information on, our websites.",
+       "generic_quote": "We share your name and other personal identifiers with our analytics provider Mixpanel to understand how the app is used.",
+       "sections": [
+        "Sec. 7",
+        "Sec. 14"
+       ],
+       "rationale": "The policy mentions sharing personal identifiers with Mixpanel for analytics purposes, but does not specify the sharing explicitly."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 7",
+       "Sec. 14"
+      ],
+      "evidence": "We share your name and other personal identifiers with our analytics provider Mixpanel to understand how the app is used.",
+      "rationale": "The purpose quote matches the 'Analytics/Research' category, but the sharing is not explicitly stated.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Personal identifier",
+       "recipient": "Mixpanel (Mixpanel, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "purpose_quote": "We share your name and other personal identifiers with our analytics provider Mixpanel to understand how the app is used.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 7",
+        "Sec. 14"
+       ],
+       "rationale": "The purpose quote matches the 'Analytics/Research' category, but the sharing is not explicitly stated."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9350574937365482
+   }
+  ],
+  "paragraphs_shown": [
+   37
+  ],
+  "paragraphs_total": 37,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 34.24
+ }
+}

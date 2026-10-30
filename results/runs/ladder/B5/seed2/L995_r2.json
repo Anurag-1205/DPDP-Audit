@@ -1,0 +1,150 @@
+{
+ "case_id": "L995_r2",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "We do not collect your precise location.",
+   "rationale": "The policy explicitly states that no precise location data is collected.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence 'We do not collect your precise location' directly supports the finding of an undisclosed collection of location data. The cited Sec. 5(1) of the DPDP Act emphasizes the need to inform the data principal about the personal data and its purpose, which aligns with the finding that "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9664718226710447,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9664718226710447,
+ "usage": {
+  "prompt": 1384,
+  "output": 411
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 6,
+  "untagged_paragraphs": 0,
+  "claims": 11,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "We do not collect your precise location.",
+      "rationale": "The policy explicitly states that no precise location data is collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect your precise location.",
+       "generic_quote": "Certain information, such as address or email address, can be updated or corrected simply by calling Customer Service at 1.888.777.7920.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy explicitly states that no precise location data is collected."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions the purpose of collecting certain information, but not for the basic service/feature.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect your precise location.",
+       "generic_quote": "Certain information, such as address or email address, can be updated or corrected simply by calling Customer Service at 1.888.777.7920.",
+       "purpose_quote": "This site is not intended for children. Children may use this site only with the direct supervision of their parent or legal guardian.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy mentions the purpose of collecting certain information, but not for the basic service/feature."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9664718226710447
+   }
+  ],
+  "paragraphs_shown": [
+   6
+  ],
+  "paragraphs_total": 6,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 29.12
+ }
+}

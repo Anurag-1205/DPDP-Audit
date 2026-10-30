@@ -1,0 +1,354 @@
+{
+ "case_id": "82_control",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses the collection of contact details and provides a purpose for their use.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states 'the policy discloses the collection of contact details and provides a purpose for their use,' which actually supports the app's practice rather than indicating a compliance gap."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "information you provide",
+   "rationale": "The policy discloses the collection of IP address and device IDs and provides purposes for their use.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We reserve the right to identify you from information you provide to us and/or to merge or co-mingle anonymous or non-personally identifiable data about you, your offline and online behavior, and/or your computer, mobile or other device (including its geographic location), with the information you provide to use and/or other personally identifiable data for any lawful business purpose.",
+   "rationale": "The policy discloses the collection of location data but does not specify a purpose for its use.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.986667735483344,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.986667735483344,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "incorrect",
+   "confidence": 0.986667735483344,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.986667735483344,
+ "usage": {
+  "prompt": 6897,
+  "output": 1575
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 46,
+  "untagged_paragraphs": 0,
+  "claims": 114,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "You provide us information about yourself, such as your name and email address, when you register with the Service.",
+      "rationale": "The policy discloses the collection of contact details and provides a purpose for their use.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "You provide us information about yourself, such as your name and email address, when you register with the Service.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "purpose_quote": "We use the information you submit (including any personal information) to operate, maintain and provide to you the features and functionality of the Service or otherwise in connection with our business in relation to the Service.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of contact details and provides a purpose for their use."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the collection of contact details and provides a purpose for their use.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "You provide us information about yourself, such as your name and email address, when you register with the Service.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "purpose_quote": "We use the information you submit (including any personal information) to operate, maintain and provide to you the features and functionality of the Service or otherwise in connection with our business in relation to the Service.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of contact details and provides a purpose for their use."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "information you provide",
+      "rationale": "The policy discloses the collection of IP address and device IDs and provides purposes for their use.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "When you visit the Website, we may send one or more cookies - a small text file containing a string of alphanumeric characters - to your computer, mobile or other device.",
+       "denial_quote": "",
+       "generic_quote": "information you provide",
+       "purpose_quote": "We use cookies, clear gifs and log file information to: (a) remember information so that you will not have to re-enter it during your visit or the next time you visit the Website; (b) provide custom, personalized content and information; (c) monitor the effectiveness of the Service; (d) monitor aggregate metrics such as total number of visitors and traffic; (e) diagnose or fix technology problems reported by our users or engineers that are associated with the IP addresses controlled by a specific web company or ISP; and (f) help you efficiently access your information after you sign in to the Website.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of IP address and device IDs and provides purposes for their use."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use cookies, clear gifs and log file information to: (a) remember information so that you will not have to re-enter it during your visit or the next time you visit the Website; (b) provide custom, personalized content and information; (c) monitor the effectiveness of the Service; (d) monitor aggregate metrics such as total number of visitors and traffic; (e) diagnose or fix technology problems reported by our users or engineers that are associated with the IP addresses controlled by a specific web company or ISP; and (f) help you efficiently access your information after you sign in to the Website.",
+      "rationale": "The policy discloses the collection of IP address and device IDs and provides purposes for their use.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "When you visit the Website, we may send one or more cookies - a small text file containing a string of alphanumeric characters - to your computer, mobile or other device.",
+       "denial_quote": "",
+       "generic_quote": "information you provide",
+       "purpose_quote": "We use cookies, clear gifs and log file information to: (a) remember information so that you will not have to re-enter it during your visit or the next time you visit the Website; (b) provide custom, personalized content and information; (c) monitor the effectiveness of the Service; (d) monitor aggregate metrics such as total number of visitors and traffic; (e) diagnose or fix technology problems reported by our users or engineers that are associated with the IP addresses controlled by a specific web company or ISP; and (f) help you efficiently access your information after you sign in to the Website.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of IP address and device IDs and provides purposes for their use."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We reserve the right to identify you from information you provide to us and/or to merge or co-mingle anonymous or non-personally identifiable data about you, your offline and online behavior, and/or your computer, mobile or other device (including its geographic location), with the information you provide to use and/or other personally identifiable data for any lawful business purpose.",
+      "rationale": "The policy discloses the collection of location data but does not specify a purpose for its use.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "We reserve the right to identify you from information you provide to us and/or to merge or co-mingle anonymous or non-personally identifiable data about you, your offline and online behavior, and/or your computer, mobile or other device (including its geographic location), with the information you provide to use and/or other personally identifiable data for any lawful business purpose.",
+       "generic_quote": "personal information",
+       "purpose_quote": "We reserve the right to use, transfer, sell and share aggregated, anonymous data about our users as a group for any lawful business purpose, such as analyzing usage trends and seeking compatible advertisers, sponsors, clients and customers.",
+       "unspecified_purpose_quote": "We reserve the right to identify you from information you provide to us and/or to merge or co-mingle anonymous or non-personally identifiable data about you, your offline and online behavior, and/or your computer, mobile or other device (including its geographic location), with the information you provide to use and/or other personally identifiable data for any lawful business purpose.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of location data but does not specify a purpose for its use."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We reserve the right to identify you from information you provide to us and/or to merge or co-mingle anonymous or non-personally identifiable data about you, your offline and online behavior, and/or your computer, mobile or other device (including its geographic location), with the information you provide to use and/or other personally identifiable data for any lawful business purpose.",
+      "rationale": "The policy discloses the collection of location data but does not specify a purpose for its use.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "",
+       "denial_quote": "We reserve the right to identify you from information you provide to us and/or to merge or co-mingle anonymous or non-personally identifiable data about you, your offline and online behavior, and/or your computer, mobile or other device (including its geographic location), with the information you provide to use and/or other personally identifiable data for any lawful business purpose.",
+       "generic_quote": "personal information",
+       "purpose_quote": "We reserve the right to use, transfer, sell and share aggregated, anonymous data about our users as a group for any lawful business purpose, such as analyzing usage trends and seeking compatible advertisers, sponsors, clients and customers.",
+       "unspecified_purpose_quote": "We reserve the right to identify you from information you provide to us and/or to merge or co-mingle anonymous or non-personally identifiable data about you, your offline and online behavior, and/or your computer, mobile or other device (including its geographic location), with the information you provide to use and/or other personally identifiable data for any lawful business purpose.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of location data but does not specify a purpose for its use."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.986667735483344
+   }
+  ],
+  "paragraphs_shown": [
+   46
+  ],
+  "paragraphs_total": 46,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 2,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 130.08
+ }
+}

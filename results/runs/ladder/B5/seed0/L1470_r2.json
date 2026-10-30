@@ -1,0 +1,154 @@
+{
+ "case_id": "L1470_r2",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We do not share your email address and contact details with third parties.",
+   "rationale": "The policy explicitly states that Valve does not share contact details with third parties and does not mention any purpose for this data type.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9706446268201007,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9706446268201007,
+ "usage": {
+  "prompt": 2092,
+  "output": 370
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 37,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do not share your email address and contact details with third parties.",
+      "rationale": "The policy explicitly states that Valve does not share contact details with third parties and does not mention any purpose for this data type.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not share your email address and contact details with third parties.",
+       "generic_quote": "Valve's privacy policy does not extend to external websites and companies or third party publishers with links to or from Valves products and online websites or who collect personally identifiable information through their game available on Steam.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Such anonymous data does not allow the identification of the users to which it relates.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that Valve does not share contact details with third parties and does not mention any purpose for this data type."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Such anonymous data does not allow the identification of the users to which it relates.",
+      "rationale": "The policy does not specify any purpose for contact details and explicitly states that they are not shared with third parties.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We do not share your email address and contact details with third parties.",
+       "generic_quote": "Valve's privacy policy does not extend to external websites and companies or third party publishers with links to or from Valves products and online websites or who collect personally identifiable information through their game available on Steam.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Such anonymous data does not allow the identification of the users to which it relates.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify any purpose for contact details and explicitly states that they are not shared with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9706446268201007
+   }
+  ],
+  "paragraphs_shown": [
+   18
+  ],
+  "paragraphs_total": 18,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 49.53
+ }
+}

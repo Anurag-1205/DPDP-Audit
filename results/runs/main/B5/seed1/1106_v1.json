@@ -1,0 +1,622 @@
+{
+ "case_id": "1106_v1",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "personal information",
+   "rationale": "The policy discloses collecting contact details for transactional purposes and specifies retention until deletion.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "merged_flows": [
+    "f1",
+    "f5"
+   ],
+   "verifier_reason": "The policy evidence states that the app collects personal information for transactional purposes and specifies retention until deletion. However, the finding claims that the app collects contact details for marketing purposes without specifying retention. This contradicts the disclosed policy and do"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting location data for additional service purposes and specifies retention until deletion.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the app collects location data for additional service purposes and specifies retention until deletion. However, the finding claims that the app collects IP addresses and device IDs for advertising purposes without disclosing this in the policy. This contradicts the di"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting cookies and tracking elements for analytics purposes and specifies retention until deletion.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the app collects cookies and tracking elements for analytics purposes and specifies retention until deletion. However, the finding claims that the app collects location data for additional service purposes without disclosing this in the policy. This contradicts the di"
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting cookies and tracking elements for analytics purposes and specifies retention until deletion.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c11",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy specifies retention until deletion but does not give a purpose for indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9867785099615166,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9867785099615166,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9867785099615166,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9867785099615166,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9867785099615166,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9867785099615166,
+ "usage": {
+  "prompt": 6868,
+  "output": 2198
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 47,
+  "untagged_paragraphs": 0,
+  "claims": 82,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c10",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c11",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "personal information",
+      "rationale": "The policy discloses collecting contact details for transactional purposes and specifies retention until deletion.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We gather personal information from you and from outside sources for business purposes.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "purpose_quote": "Fulfill a transaction you requested or service your policy",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information until you delete the application from your device.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact details for transactional purposes and specifies retention until deletion."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting contact details for transactional purposes and specifies retention until deletion.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We gather personal information from you and from outside sources for business purposes.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "purpose_quote": "Fulfill a transaction you requested or service your policy",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information until you delete the application from your device.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact details for transactional purposes and specifies retention until deletion."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting location data for additional service purposes and specifies retention until deletion.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We use your location information to search for information you request - including agent searches identify the location of an accident you are reporting",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Additional service/feature",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "Your location information is stored on Allstate's servers and retained by Allstate until you delete the application from your device.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting location data for additional service purposes and specifies retention until deletion."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting location data for additional service purposes and specifies retention until deletion.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We use your location information to search for information you request - including agent searches identify the location of an accident you are reporting",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Additional service/feature",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "Your location information is stored on Allstate's servers and retained by Allstate until you delete the application from your device.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting location data for additional service purposes and specifies retention until deletion."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting cookies and tracking elements for analytics purposes and specifies retention until deletion.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We use Mobile analytics software to allow us to better understand the functionality of our Mobile Software on your phone. This software may record information such as how often you use the application, the events that occur within the application, aggregated usage, performance data, and where the application was downloaded from. We will link the information we store within the analytics software to any personally identifiable information you submit within the mobile app.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Analytics/Research",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information until you delete the application from your device.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting cookies and tracking elements for analytics purposes and specifies retention until deletion."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting cookies and tracking elements for analytics purposes and specifies retention until deletion.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We use Mobile analytics software to allow us to better understand the functionality of our Mobile Software on your phone. This software may record information such as how often you use the application, the events that occur within the application, aggregated usage, performance data, and where the application was downloaded from. We will link the information we store within the analytics software to any personally identifiable information you submit within the mobile app.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Analytics/Research",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information until you delete the application from your device.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting cookies and tracking elements for analytics purposes and specifies retention until deletion."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting cookies and tracking elements for analytics purposes and specifies retention until deletion.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "We use Mobile analytics software to allow us to better understand the functionality of our Mobile Software on your phone. This software may record information such as how often you use the application, the events that occur within the application, aggregated usage, performance data, and where the application was downloaded from. We will link the information we store within the analytics software to any personally identifiable information you submit within the mobile app.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Personalization/Customization",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information until you delete the application from your device.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting cookies and tracking elements for analytics purposes and specifies retention until deletion."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting cookies and tracking elements for analytics purposes and specifies retention until deletion.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "We use Mobile analytics software to allow us to better understand the functionality of our Mobile Software on your phone. This software may record information such as how often you use the application, the events that occur within the application, aggregated usage, performance data, and where the application was downloaded from. We will link the information we store within the analytics software to any personally identifiable information you submit within the mobile app.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Personalization/Customization",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information until you delete the application from your device.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting cookies and tracking elements for analytics purposes and specifies retention until deletion."
+      }
+     },
+     {
+      "candidate_id": "c9",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "personal information",
+      "rationale": "The policy discloses collecting contact details for transactional purposes and specifies retention until deletion.",
+      "raw": {
+       "candidate_id": "c9",
+       "disclosing_quote": "We gather personal information from you and from outside sources for business purposes.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "purpose_quote": "Fulfill a transaction you requested or service your policy",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information until you delete the application from your device.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact details for transactional purposes and specifies retention until deletion."
+      }
+     },
+     {
+      "candidate_id": "c10",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting contact details for transactional purposes and specifies retention until deletion.",
+      "raw": {
+       "candidate_id": "c10",
+       "disclosing_quote": "We gather personal information from you and from outside sources for business purposes.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "purpose_quote": "Fulfill a transaction you requested or service your policy",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information until you delete the application from your device.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact details for transactional purposes and specifies retention until deletion."
+      }
+     },
+     {
+      "candidate_id": "c11",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies retention until deletion but does not give a purpose for indefinite retention.",
+      "raw": {
+       "candidate_id": "c11",
+       "disclosing_quote": "We retain your information until you delete the application from your device.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "retention_quote": "We retain your information until you delete the application from your device.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies retention until deletion but does not give a purpose for indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9867785099615166
+   }
+  ],
+  "paragraphs_shown": [
+   47
+  ],
+  "paragraphs_total": 47,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 233.73
+ }
+}

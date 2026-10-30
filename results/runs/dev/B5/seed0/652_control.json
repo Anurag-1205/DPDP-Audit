@@ -1,0 +1,457 @@
+{
+ "case_id": "652_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9777501041192904,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9777501041192904,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9777501041192904,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "[P3]",
+    "[P16]"
+   ],
+   "evidence": "We collect this information in the following ways:",
+   "rationale": "The policy discloses collecting personal information and specifies a purpose of personalization.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "[P6]",
+    "[P7]",
+    "[P8]",
+    "[P9]",
+    "[P10]",
+    "[P11]",
+    "[P12]",
+    "[P13]",
+    "[P14]",
+    "[P15]",
+    "[P16]",
+    "[P17]"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting computer information and specifies purposes of service operation and security.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "[P6]",
+    "[P7]",
+    "[P8]",
+    "[P9]",
+    "[P10]",
+    "[P11]",
+    "[P12]",
+    "[P13]",
+    "[P14]",
+    "[P15]",
+    "[P16]",
+    "[P17]"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting computer information and specifies purposes of service operation and security.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9777501041192904,
+ "usage": {
+  "prompt": 5657,
+  "output": 1121
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 45,
+  "untagged_paragraphs": 0,
+  "claims": 92,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P3]",
+       "[P16]"
+      ],
+      "evidence": "We collect this information in the following ways:",
+      "rationale": "The policy discloses collecting personal information and specifies a purpose of personalization.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may ask you to provide your personal information, demographic information or information about your preferences or interests when you: ... Enter a contest or sweepstakes Participate in surveys or special promotions ...",
+       "denial_quote": "",
+       "generic_quote": "We collect this information in the following ways:",
+       "purpose_quote": "To personalize content and experiences on our Sites and within emails sent to you, including providing you recommendations based on your preferences",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P3]",
+        "[P16]"
+       ],
+       "rationale": "The policy discloses collecting personal information and specifies a purpose of personalization."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P3]",
+       "[P16]"
+      ],
+      "evidence": "Provide you with the products and services you request Post your user generated content to our Sites as you request Communicate with you about your account or transactions with us and send you information about features on our Sites Communicate with you about changes to our policies Send you newsletters, offers and promotions for our products and services, third party products and services, or special events by email or another medium Personalize content and experiences on our Sites and within emails sent to you, including providing you recommendations based on your preferences Serve you targeted advertising, both on our Sites and elsewhere online, based on information we previously collected from you, including your activity on the Sites or activity on third party sites and applications Administer our loyalty programs Administer contests, sweepstakes, promotions, and surveys Optimize or improve our products, services and operations Detect, investigate, and prevent activities that may violate our policies or be illegal Perform statistical, demographic, and marketing analyses of users of the Sites and recipients of our emails, including browsing and purchasing patterns",
+      "rationale": "The policy only mentions personalization generically without specifying a purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "We collect this information in the following ways:",
+       "purpose_quote": "To personalize content and experiences on our Sites and within emails sent to you, including providing you recommendations based on your preferences",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P3]",
+        "[P16]"
+       ],
+       "rationale": "The policy only mentions personalization generically without specifying a purpose."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P6]",
+       "[P7]",
+       "[P8]",
+       "[P9]",
+       "[P10]",
+       "[P11]",
+       "[P12]",
+       "[P13]",
+       "[P14]",
+       "[P15]",
+       "[P16]",
+       "[P17]"
+      ],
+      "evidence": "We may collect certain information about your computer or other device that you use to access the Sites, including IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information.",
+      "rationale": "The policy discloses collecting computer information and specifies purposes of service operation and security.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "We may collect certain information about your computer or other device that you use to access the Sites, including IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information.",
+       "purpose_quote": "To run and secure the service: security, fraud prevention, debugging, crash reports",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P6]",
+        "[P7]",
+        "[P8]",
+        "[P9]",
+        "[P10]",
+        "[P11]",
+        "[P12]",
+        "[P13]",
+        "[P14]",
+        "[P15]",
+        "[P16]",
+        "[P17]"
+       ],
+       "rationale": "The policy discloses collecting computer information and specifies purposes of service operation and security."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P6]",
+       "[P7]",
+       "[P8]",
+       "[P9]",
+       "[P10]",
+       "[P11]",
+       "[P12]",
+       "[P13]",
+       "[P14]",
+       "[P15]",
+       "[P16]",
+       "[P17]"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting computer information and specifies purposes of service operation and security.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "We may collect certain information about your computer or other device that you use to access the Sites, including IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information.",
+       "purpose_quote": "To run and secure the service: security, fraud prevention, debugging, crash reports",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P6]",
+        "[P7]",
+        "[P8]",
+        "[P9]",
+        "[P10]",
+        "[P11]",
+        "[P12]",
+        "[P13]",
+        "[P14]",
+        "[P15]",
+        "[P16]",
+        "[P17]"
+       ],
+       "rationale": "The policy discloses collecting computer information and specifies purposes of service operation and security."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P6]",
+       "[P7]",
+       "[P8]",
+       "[P9]",
+       "[P10]",
+       "[P11]",
+       "[P12]",
+       "[P13]",
+       "[P14]",
+       "[P15]",
+       "[P16]",
+       "[P17]"
+      ],
+      "evidence": "We may collect certain information about your computer or other device that you use to access the Sites, including IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information.",
+      "rationale": "The policy discloses collecting computer information and specifies purposes of service operation and security.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We may collect certain information about your computer or other device that you use to access the Sites, including IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "To run and secure the service: security, fraud prevention, debugging, crash reports",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P6]",
+        "[P7]",
+        "[P8]",
+        "[P9]",
+        "[P10]",
+        "[P11]",
+        "[P12]",
+        "[P13]",
+        "[P14]",
+        "[P15]",
+        "[P16]",
+        "[P17]"
+       ],
+       "rationale": "The policy discloses collecting computer information and specifies purposes of service operation and security."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P6]",
+       "[P7]",
+       "[P8]",
+       "[P9]",
+       "[P10]",
+       "[P11]",
+       "[P12]",
+       "[P13]",
+       "[P14]",
+       "[P15]",
+       "[P16]",
+       "[P17]"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting computer information and specifies purposes of service operation and security.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We may collect certain information about your computer or other device that you use to access the Sites, including IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "To run and secure the service: security, fraud prevention, debugging, crash reports",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P6]",
+        "[P7]",
+        "[P8]",
+        "[P9]",
+        "[P10]",
+        "[P11]",
+        "[P12]",
+        "[P13]",
+        "[P14]",
+        "[P15]",
+        "[P16]",
+        "[P17]"
+       ],
+       "rationale": "The policy discloses collecting computer information and specifies purposes of service operation and security."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9777501041192904
+   }
+  ],
+  "paragraphs_shown": [
+   45
+  ],
+  "paragraphs_total": 45,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 111.26
+ }
+}

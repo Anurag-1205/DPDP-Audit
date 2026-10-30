@@ -1,0 +1,348 @@
+{
+ "case_id": "32_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "If, however, you wish to register to become a member of the Services, you are required to provide certain Personal Information (e.g., your name and e-mail address)",
+   "rationale": "No specific mention of collecting contact details.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting Personal Information such as name and email address but does not specifically mention collecting contact details. The cited DPDP text requires disclosure of personal data and its purpose, but there is no evidence of undisclosed collection of contact details."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "Your privacy is important to us and we have prepared this Privacy Policy to explain to you how we collect, use, and share information we obtain through your use of the Internet sites, applications and services",
+   "rationale": "Discloses collecting IP addresses and device IDs for usage data and diagnostic purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not explicitly disclose the collection of IP addresses and device IDs. The rationale states that these are disclosed for usage data and diagnostic purposes, which contradicts the finding of undisclosed collection."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "Your privacy is important to us and we have prepared this Privacy Policy to explain to you how we collect, use, and share information we obtain through your use of the Internet sites, applications and services",
+   "rationale": "Discloses collecting location data for monitoring purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not explicitly disclose the collection of location data for advertising purposes. The rationale states that location data is disclosed for monitoring purposes, which contradicts the finding of undisclosed collection."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9695566076828183,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9695566076828183,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9695566076828183,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9695566076828183,
+ "usage": {
+  "prompt": 4840,
+  "output": 1433
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 29,
+  "untagged_paragraphs": 0,
+  "claims": 60,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "If, however, you wish to register to become a member of the Services, you are required to provide certain Personal Information (e.g., your name and e-mail address)",
+      "rationale": "No specific mention of collecting contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "If, however, you wish to register to become a member of the Services, you are required to provide certain Personal Information (e.g., your name and e-mail address)",
+       "generic_quote": "Your privacy is important to us and we have prepared this Privacy Policy to explain to you how we collect, use, and share information we obtain through your use of the Internet sites, applications and services",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "No specific mention of collecting contact details."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "No specific mention of using contact details for basic service purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "If, however, you wish to register to become a member of the Services, you are required to provide certain Personal Information (e.g., your name and e-mail address)",
+       "generic_quote": "Your privacy is important to us and we have prepared this Privacy Policy to explain to you how we collect, use, and share information we obtain through your use of the Internet sites, applications and services",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "No specific mention of using contact details for basic service purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7(1)"
+      ],
+      "evidence": "Your privacy is important to us and we have prepared this Privacy Policy to explain to you how we collect, use, and share information we obtain through your use of the Internet sites, applications and services",
+      "rationale": "Discloses collecting IP addresses and device IDs for usage data and diagnostic purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We automatically collect certain information to help us understand how our users use the Services (which we will refer to in this Privacy Policy collectively as 'Usage Data')",
+       "denial_quote": "",
+       "generic_quote": "Your privacy is important to us and we have prepared this Privacy Policy to explain to you how we collect, use, and share information we obtain through your use of the Internet sites, applications and services",
+       "purpose_quote": "We use your Personal Information to fulfill your requests for products and services, to improve our Services, and to contact you from time to time about us, and our products and services",
+       "unspecified_purpose_quote": "We will use such Usage Data to diagnose problems with our servers and software, to administer the Services, and to gather demographic information",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 7(1)"
+       ],
+       "rationale": "Discloses collecting IP addresses and device IDs for usage data and diagnostic purposes."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 7(1)"
+      ],
+      "evidence": "",
+      "rationale": "Purpose mismatch between diagnostic purposes and basic service purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We will use such Usage Data to diagnose problems with our servers and software, to administer the Services, and to gather demographic information",
+       "denial_quote": "",
+       "generic_quote": "Your privacy is important to us and we have prepared this Privacy Policy to explain to you how we collect, use, and share information we obtain through your use of the Internet sites, applications and services",
+       "purpose_quote": "We use your Personal Information to fulfill your requests for products and services, to improve our Services, and to contact you from time to time about us, and our products and services",
+       "unspecified_purpose_quote": "We will use such Usage Data to diagnose problems with our servers and software, to administer the Services, and to gather demographic information",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 7(1)"
+       ],
+       "rationale": "Purpose mismatch between diagnostic purposes and basic service purposes."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 15(1)"
+      ],
+      "evidence": "Your privacy is important to us and we have prepared this Privacy Policy to explain to you how we collect, use, and share information we obtain through your use of the Internet sites, applications and services",
+      "rationale": "Discloses collecting location data for monitoring purposes.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We may also collect additional information about you when you visit certain features of the Services or the pages of certain of our partners when you interact with offers and advertisements, when you contact us for support, when you log into the Services with your account, when you complete a survey, or when you enter promotions",
+       "denial_quote": "",
+       "generic_quote": "Your privacy is important to us and we have prepared this Privacy Policy to explain to you how we collect, use, and share information we obtain through your use of the Internet sites, applications and services",
+       "purpose_quote": "We may use pixel tags, which are small graphic files that allow us to monitor the use of the Services",
+       "unspecified_purpose_quote": "We may use pixel tags, which are small graphic files that allow us to monitor the use of the Services",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 15(1)"
+       ],
+       "rationale": "Discloses collecting location data for monitoring purposes."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 15(1)"
+      ],
+      "evidence": "",
+      "rationale": "Purpose mismatch between monitoring purposes and advertising purposes.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We may use pixel tags, which are small graphic files that allow us to monitor the use of the Services",
+       "denial_quote": "",
+       "generic_quote": "Your privacy is important to us and we have prepared this Privacy Policy to explain to you how we collect, use, and share information we obtain through your use of the Internet sites, applications and services",
+       "purpose_quote": "We may use pixel tags, which are small graphic files that allow us to monitor the use of the Services",
+       "unspecified_purpose_quote": "We may use pixel tags, which are small graphic files that allow us to monitor the use of the Services",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 15(1)"
+       ],
+       "rationale": "Purpose mismatch between monitoring purposes and advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9695566076828183
+   }
+  ],
+  "paragraphs_shown": [
+   29
+  ],
+  "paragraphs_total": 29,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence mentions collecting Personal Information such as name and email address but does not specifically mention collecting contact details. The cited DPDP text requires disclosure of personal data and its purpose, but there is no evidence of undisclosed collection of contact details.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence does not explicitly disclose the collection of IP addresses and device IDs. The rationale states that these are disclosed for usage data and diagnostic purposes, which contradicts the finding of undisclosed collection.\"}]}\n\n{\"checks\": [{\"finding_id\": 2, \"supported\": false, \"reason\": \"The policy evidence does not explicitly disclose the collection of location data for advertising purposes. The rationale states that location data is disclosed for monitoring purposes, which contradicts the finding of undisclosed collection.\"}]}",
+  "llm_calls": 2,
+  "seconds": 145.25
+ }
+}

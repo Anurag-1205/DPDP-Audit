@@ -1,0 +1,155 @@
+{
+ "case_id": "L640_r4",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "This information is also used to contact visitors to learn more about specific problems they might have reported or to give them rewards, if such a reward program is part of the survey.",
+   "rationale": "The policy explicitly states that contact information is used for order processing and related communications.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes the use of contact information for learning about specific problems and rewarding participants, which does not align with the finding of undisclosed collection. Additionally, the cited DPDP text pertains to the notice requirements for consent requests, which is unrelate"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9782175071472217,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9782175071472217,
+ "usage": {
+  "prompt": 5023,
+  "output": 566
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 39,
+  "untagged_paragraphs": 0,
+  "claims": 76,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "This information is also used to contact visitors to learn more about specific problems they might have reported or to give them rewards, if such a reward program is part of the survey.",
+      "rationale": "The policy explicitly states that contact information is used for order processing and related communications.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you place an order with us online, in a store or in any other way, your contact information is used to communicate related information, such as order and shipment confirmation, release date changes and requests for more information to facilitate processing your order.",
+       "denial_quote": "",
+       "generic_quote": "This information is also used to contact visitors to learn more about specific problems they might have reported or to give them rewards, if such a reward program is part of the survey.",
+       "purpose_quote": "When you place an order with us online, in a store or in any other way, your contact information is used to communicate related information, such as order and shipment confirmation, release date changes and requests for more information to facilitate processing your order.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that contact information is used for order processing and related communications."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that contact information is used for order processing and related communications, which is a basic service/feature.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "When you place an order with us online, in a store or in any other way, your contact information is used to communicate related information, such as order and shipment confirmation, release date changes and requests for more information to facilitate processing your order.",
+       "denial_quote": "",
+       "generic_quote": "This information is also used to contact visitors to learn more about specific problems they might have reported or to give them rewards, if such a reward program is part of the survey.",
+       "purpose_quote": "When you place an order with us online, in a store or in any other way, your contact information is used to communicate related information, such as order and shipment confirmation, release date changes and requests for more information to facilitate processing your order.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that contact information is used for order processing and related communications, which is a basic service/feature."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9782175071472217
+   }
+  ],
+  "paragraphs_shown": [
+   39
+  ],
+  "paragraphs_total": 39,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 57.04
+ }
+}

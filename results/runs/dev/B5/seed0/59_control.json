@@ -1,0 +1,358 @@
+{
+ "case_id": "59_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "Similar to c1, the policy explicitly states that Liquor.com does not collect personal information beyond what is necessary for email distribution and does not disclose it without consent.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is marked as (none), indicating that the policy does not mention the collection of contact data. Therefore, there is no evidence to support a purpose mismatch. Additionally, the cited sections of the DPDP Act focus on providing notices and do not address the collection of persona"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy specifies that IP addresses are used for diagnosing server issues and gathering demographic information, but does not explicitly state that they are used for analytics/research.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is marked as (none), indicating that the policy does not mention the collection of IP addresses and device IDs. Therefore, there is no evidence to support an undisclosed collection. The cited sections of the DPDP Act focus on providing notices and do not address the collection of"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that some of the ads are delivered to you by advertising partners using information about your visits, but does not mention cookies specifically.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is marked as (none), indicating that the policy does not mention the collection of cookies and tracking elements. Therefore, there is no evidence to support an undisclosed collection. The cited sections of the DPDP Act focus on providing notices and do not address the collection "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9619941536709802,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9619941536709802,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9619941536709802,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9619941536709802,
+ "usage": {
+  "prompt": 3343,
+  "output": 1453
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 22,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Liquor.com will not disclose your personal information to any third party without your consent, except to a third party as required to help us distribute our email publication.",
+      "rationale": "The policy explicitly states that Liquor.com does not collect personal information beyond what is necessary for email distribution and does not disclose it without consent.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Liquor.com does not collect any other personal information that you do not expressly provide.",
+       "generic_quote": "Liquor.com will not disclose your personal information to any third party without your consent, except to a third party as required to help us distribute our email publication.",
+       "purpose_quote": "Liquor.com may use this data to improve our site and/or personalize your experience at our site, in order to bring you more targeted and relevant content and to display such content according to your preferences.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that Liquor.com does not collect personal information beyond what is necessary for email distribution and does not disclose it without consent."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "Similar to c1, the policy explicitly states that Liquor.com does not collect personal information beyond what is necessary for email distribution and does not disclose it without consent.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Liquor.com does not collect any other personal information that you do not expressly provide.",
+       "generic_quote": "Liquor.com will not disclose your personal information to any third party without your consent, except to a third party as required to help us distribute our email publication.",
+       "purpose_quote": "Liquor.com may use this data to improve our site and/or personalize your experience at our site, in order to bring you more targeted and relevant content and to display such content according to your preferences.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "Similar to c1, the policy explicitly states that Liquor.com does not collect personal information beyond what is necessary for email distribution and does not disclose it without consent."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies that IP addresses are used for diagnosing server issues and gathering demographic information, but does not explicitly state that they are used for analytics/research.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "Your Internet Protocol ('IP') address is usually associated with the place from which you enter the Internet, like your Internet Service Provider, your company or your university. We may, from time to time, use your IP address to help diagnose problems with our server, gather broad demographic information and administer our Website.",
+       "generic_quote": "",
+       "purpose_quote": "We may use this information to find out how subscribers use our service and site.",
+       "unspecified_purpose_quote": "We may, from time to time, use your IP address to help diagnose problems with our server, gather broad demographic information and administer our Website.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies that IP addresses are used for diagnosing server issues and gathering demographic information, but does not explicitly state that they are used for analytics/research."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may, from time to time, use your IP address to help diagnose problems with our server, gather broad demographic information and administer our Website.",
+      "rationale": "The policy specifies that IP addresses are used for diagnosing server issues and gathering demographic information, but does not explicitly state that they are used for analytics/research.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "Your Internet Protocol ('IP') address is usually associated with the place from which you enter the Internet, like your Internet Service Provider, your company or your university. We may, from time to time, use your IP address to help diagnose problems with our server, gather broad demographic information and administer our Website.",
+       "generic_quote": "",
+       "purpose_quote": "We may use this information to find out how subscribers use our service and site.",
+       "unspecified_purpose_quote": "We may, from time to time, use your IP address to help diagnose problems with our server, gather broad demographic information and administer our Website.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies that IP addresses are used for diagnosing server issues and gathering demographic information, but does not explicitly state that they are used for analytics/research."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that some of the ads are delivered to you by advertising partners using information about your visits, but does not mention cookies specifically.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "Some of the ads appearing on this Web site are delivered to you by our web advertising partners. Information about your visit to their site, such as number of times you have viewed an ad (but not your name, address or other personal information), is used to serve ads to you.",
+       "generic_quote": "",
+       "purpose_quote": "Some of our advertisers may serve you cookies as well.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that some of the ads are delivered to you by advertising partners using information about your visits, but does not mention cookies specifically."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Some of our advertisers may serve you cookies as well.",
+      "rationale": "The policy states that some of the ads are delivered to you by advertising partners using information about your visits, but does not mention cookies specifically.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "",
+       "denial_quote": "Some of the ads appearing on this Web site are delivered to you by our web advertising partners. Information about your visit to their site, such as number of times you have viewed an ad (but not your name, address or other personal information), is used to serve ads to you.",
+       "generic_quote": "",
+       "purpose_quote": "Some of our advertisers may serve you cookies as well.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that some of the ads are delivered to you by advertising partners using information about your visits, but does not mention cookies specifically."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9619941536709802
+   }
+  ],
+  "paragraphs_shown": [
+   13
+  ],
+  "paragraphs_total": 13,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 146.39
+ }
+}
