@@ -1,10 +1,12 @@
-# DPDP-Audit — Mid-submission report (Stage 2)
+# DPDP-Audit — Mid-submission report (Stages 2 and 3)
 
-- **Date:** 29 October 2026 (submission due 30 October)
+- **Date:** 30 October 2026 (submission due 30 October)
 - **Team:** Anurag Kaushal · Ishaan Giri · Naveen Mishra · Nikhil Patidar
-- **Covers:** MS-0 to MS-2 · SPEC-01 to SPEC-06 · plan §7 (must-have package)
+- **Covers:** MS-0 to MS-3 · SPEC-01 to SPEC-06 · plan §7 (must-have package); Stage 3 (experiments,
+  MS-3) was completed early, on 29–30 Oct, and is included
 - **Reproduce:** every number below is regenerated from the committed runs, without a GPU, by
-  `bash scripts/score_all.sh` (about 2 minutes; it rewrites `results/scores/` identically)
+  `bash scripts/score_all.sh` (about 2 minutes; it rewrites `results/scores/` and `results/confidence/`
+  identically)
   ([reproduction.md](reproduction.md)).
 
 ## 1. Summary
@@ -29,11 +31,13 @@ B2, +0.31 over a much stronger model given B2's prompt (Gemini 3 Flash, B4: F1 0
 compliant apps), and +0.57 / +0.56 over PoliCheck / PoliGraph. Our QLoRA tagger reads policies far better than prompting (category macro-F1 0.713 vs
 0.311).
 
-Against our hypotheses: the falsifiable claim fails for v1 and holds for v2; the verifier costs more
+Against our hypotheses: the falsifiable claim and H1 (beating both tools on collection and sharing)
+fail for v1 and hold for v2; the verifier costs more
 recall than the 5 points allowed (H3 fails: 61 points in v1, 11 in v2); the gain over B1/B2 is largest
 on explicit gaps (second half of H2 fails); the fine-tuned tagger does not close half the gap to gold
 annotations (H6 fails); no system is significantly less accurate on vague ladder rungs than on
-explicit ones (H4 fails); and v2 reports almost no collection or purpose gaps by itself; its verifier
+explicit ones (H4 fails); H5 (review effort) needs selective accuracy, which is Stage 4; and v2
+reports almost no collection or purpose gaps by itself; its verifier
 sends nearly all of them to human review. Baselines built from the pipeline's parts (§4.3) show where the gain comes
 from: rules alone (no LLM) already reach F1 0.52 but alarm on 91% of compliant apps, and one LLM call
 with evidence-first rules reaches 0.56; the full structure adds a significant +0.13 to +0.16 on top. Two members checked the ladder and 20 answer keys
@@ -68,9 +72,15 @@ byte-identical. Ladder rungs differ from the deleted rung by exactly one sentenc
 | B4 | B2's prompt to a stronger model | gemini-3-flash-preview | main × 3 |
 | full | **DPDP-Audit**: tagger → tools → mismatch finder → 4 specialist reviewer agents → aggregator → evidence verifier | prompted Qwen2.5-3B tagger, Qwen2.5-7B reviewers | main × 3, ladder × 3 |
 | full_finetuned | the same pipeline with our QLoRA-tuned tagger (only the tagger changes) | QLoRA Qwen2.5-3B tagger, Qwen2.5-7B reviewers | main × 3, ladder × 3 |
-| A1–A5 | Ablations (verifier off; no retrieval; one generalist reviewer; oracle tagger) | same | main × 1 |
+| A1–A5 | Ablations (verifier off; no retrieval; one generalist reviewer; oracle tagger) | same | main × 1 (v1), main × 3 and A2/A3 ladder × 3 (v2) |
 | full_v2, full_v2_finetuned | v2 of the pipeline, chosen on the dev splits (§4.1), with the prompted / QLoRA tagger | same | main × 3, ladder × 3 |
 | `*_rv` | the same runs with only the verifier re-run, using the fixed reply reader (§4.2) | same | as the system it re-checks |
+| R0 | Rules only: the QLoRA tagger and the finder, every candidate reported (`R0_prompted`: prompted tagger) (§4.3) | no LLM | main, ladder (deterministic) |
+| B5 | One call over the whole policy, evidence first, then v2's rules and verifier (§4.3) | Qwen2.5-7B-Instruct-AWQ | main × 3, ladder × 3 |
+| `B1_sc`, `B2_sc`, `B4_sc` | Self-consistency: the majority over the three seeds (§4.3) | as the system | derived from 3 seeds |
+
+Component systems (policy → claims, §6): S3 PrivBERT (fine-tuned classifier), S4 PolicyLint and
+PoliGraph statement extraction, B3 prompted Qwen2.5-3B, and our QLoRA Qwen2.5-3B tagger.
 
 **How the pipeline decides.** The 3B tagger turns each policy paragraph into structured claims; the
 deterministic finder proposes every flow the claims do not clearly cover; each reviewer agent copies
@@ -139,6 +149,11 @@ broken verifier never checked.
 **Falsifiable claim** (beats PoliCheck and PoliGraph on their gap types and B2 on the full benchmark,
 in F1 and false-alarm rate): **fails for v1**, whose F1 gain over B2 and the tools is below 5 points
 and whose intervals include 0; **holds for v2** in every view, with significantly fewer false alarms.
+
+**H1** (the full system beats PoliCheck and PoliGraph on collection and sharing): **holds for v2**,
+in both the common view (+0.561 and +0.535 F1) and the tools' native reading (+0.222 and +0.334), all
+significant, with label macro-F1 0.495 against 0.225 and 0.197; **fails for v1** (`full_rv` − S1:
+−0.097 common, not significant; −0.192 native, significant).
 
 **H2** (the full system beats B1 and B2 on F1, most on vague and omission gaps). F1 per gap level
 (mean over seeds):
@@ -290,6 +305,7 @@ adds ([evaluation.md](evaluation.md#systems-under-test)):
 | System | F1 | F1 common | Label macro-F1 | False-alarm rate | Citation correct |
 |---|---|---|---|---|---|
 | R0 (no LLM) | 0.524 | 0.551 | 0.430 | 0.912 | 1.000 |
+| R0_prompted (prompted tagger) | 0.374 | 0.308 | 0.367 | 1.000 | 1.000 |
 | B5 (mean of 3 seeds) | 0.557 | 0.423 | 0.206 | 0.255 | 0.350 |
 | B1_sc / B2_sc | 0.179 / 0.182 | 0.183 / 0.177 | 0.169 / 0.111 | 0.971 / 0.676 | 0.304 / 0.949 |
 | B4_sc | 0.473 | 0.328 | 0.292 | 0.971 | 1.000 |
@@ -437,11 +453,18 @@ prompt is the prompted tagger's own, so only the weights differ.
    `lookup_sdk` (tested), but in all 3,209 pipeline runs (main, ladder and dev splits) they answered directly from the paragraphs
    given, with zero tool calls; a single generalist reviewer (A3) and no retrieval (A2) do as well. In
    practice the reviewers work as single-step evidence extractors, which weakens the "agent" part of
-   the design; the gain comes from the pipeline around them.
-7. **Collection and purpose gaps are not solved.** Every system misses most purpose mismatches; v2
+   the design; the gain comes from the pipeline around them. Over three seeds, retrieval of DPDP text
+   does not help on any seed (without it v2 is as good or better).
+7. **Each layer of the design is measurable (§4.3).** Rules alone (tagger and finder, no LLM) reach
+   F1 0.52 but alarm on 91% of compliant apps; one evidence-first LLM call with the same decision
+   rules reaches 0.56 at 0.26 false alarms; the full structure (tagger, finder, one candidate per
+   call, specialist briefs) adds a significant +0.13 to +0.16 F1 on every seed, mostly on collection
+   and sharing and on citing the right sections. The decisive parts are evidence-first review with
+   rule-based decisions, the finder's filtering and the verifier; tools and retrieval are not.
+8. **Collection and purpose gaps are not solved.** Every system misses most purpose mismatches; v2
    reports almost none by itself, because its verifier sends nearly all collection and purpose findings
    to human review.
-8. **Silent failures must be counted.** The verifier bug went unnoticed because a failed check kept the
+9. **Silent failures must be counted.** The verifier bug went unnoticed because a failed check kept the
    finding. Every fail-open path is now counted in the run traces and reported (§4.2).
 
 ## 8. Status against the plan
@@ -459,6 +482,8 @@ prompt is the prompted tagger's own, so only the weights differ.
 | B4 seed 0; PoliCheck on ladder | Should | Both done (B4 also seeds 1–2) |
 | Full system on the ladder | Could | Done (3 seeds) |
 | Ablations | Won't by 30 Oct | A1, A2, A3, A5 done early on v1 (seed 0), and on v2 with 3 seeds (A4 = the prompted-tagger run of each version) |
+| Stage 3 (MS-3, due 7 Nov) | — | Done early: ladder × 3 seeds, S4 extraction, intervals for every system, per-flow confidence export |
+| Baselines from the pipeline's parts (R0, B5, `*_sc`) | Added 30 Oct | Done (§4.3); recorded in specs.md for team confirmation |
 
 **Deviations.**
 - AC-03.4: the PoliCheck authors ship flows but neither policies nor labels, so their result cannot
@@ -473,6 +498,14 @@ prompt is the prompted tagger's own, so only the weights differ.
 - The verifier reply bug (§4.2) was found on 28 Oct. The frozen runs are unchanged; the corrected
   numbers come from `*_rv` runs that re-run only the verifier.
 - PoliGraph ran on Kaggle instead of the workstation.
+- R0, B5 and the self-consistency baselines were added on 30 Oct, after the main results, to measure
+  what each layer of the design adds. B5's prompt is the reviewers' own; it was fixed on the dev splits
+  (one change: more output tokens and a reader that keeps complete answers, after 12 of 102 dev
+  replies were cut off) and ran on main only after a reply-quality gate set in advance.
+- S4: the entity ontology shipped for PolicyLint has no first-party node, so a first run dropped
+  every first-party statement; PolicyLint's statements are normalised with the PoliCheck ontologies
+  (an extension of PolicyLint's, also used for S1). The term mapping was fixed before any S4 output;
+  the own-name sensitivity (§6) was added after the first results and is reported separately.
 
 ## 9. Remaining plan (to 15 Nov)
 
