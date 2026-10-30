@@ -1,0 +1,605 @@
+{
+ "case_id": "1259_v1",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses the collection of contact details and specifies indefinite retention.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the app asks for name, email address, and other personal information, but does not explicitly mention collecting contact details. The cited DPDP text requires specifying the personal data and purpose for processing, which is omitted here."
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses the collection of cookies and does not specify a retention period.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "merged_flows": [
+    "f3",
+    "f4"
+   ],
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the app asks for name, email address, and other personal information, but does not explicitly mention collecting cookies. The cited DPDP text requires specifying the personal data and purpose for processing, which is omitted here."
+  },
+  {
+   "candidate_id": "c9",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses the collection of cookies and does not specify a retention period.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c10",
+   "flow_id": "f5",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We ask for your name, email address, and other personal information when you register to use certain features of our Web site, or if you sign up for special or personalized services, such as our discussion boards or email newsletters.",
+   "rationale": "The policy discloses the collection of demographic data and specifies indefinite retention.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions asking for name, email address, and other personal information, but does not explicitly disclose the collection of demographic data. The cited DPDP text requires specifying the personal data and purpose for processing, which is vague here."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9917745364117885,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9917745364117885,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9917745364117885,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9917745364117885,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9917745364117885,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9917745364117885,
+ "usage": {
+  "prompt": 7570,
+  "output": 3124
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 137,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c10",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c11",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We ask for your name, email address, and other personal information when you register to use certain features of our Web site, or if you sign up for special or personalized services, such as our discussion boards or email newsletters.",
+      "rationale": "The policy discloses the collection of contact details and specifies indefinite retention.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "The Motley Fool collects information about our readers so that we can provide a more interesting and useful service, as well as more appropriate advertising.",
+       "denial_quote": "",
+       "generic_quote": "We ask for your name, email address, and other personal information when you register to use certain features of our Web site, or if you sign up for special or personalized services, such as our discussion boards or email newsletters.",
+       "purpose_quote": "The Motley Fool collects personal information to provide you, the user, with the best and most personalized experience possible, and to provide our advertisers with an efficient way to reach the right audience.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "Upon your request, we will remove your personal information from the website but we will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our Fool Rules and take other actions otherwise permitted by law.",
+       "retention": "indefinitely",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of contact details and specifies indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the collection of contact details and specifies indefinite retention.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "The Motley Fool collects information about our readers so that we can provide a more interesting and useful service, as well as more appropriate advertising.",
+       "denial_quote": "",
+       "generic_quote": "We ask for your name, email address, and other personal information when you register to use certain features of our Web site, or if you sign up for special or personalized services, such as our discussion boards or email newsletters.",
+       "purpose_quote": "The Motley Fool collects personal information to provide you, the user, with the best and most personalized experience possible, and to provide our advertisers with an efficient way to reach the right audience.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "Upon your request, we will remove your personal information from the website but we will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our Fool Rules and take other actions otherwise permitted by law.",
+       "retention": "indefinitely",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of contact details and specifies indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect IP addresses for site security and to help us understand how people use our sites so that we can improve our sites and our users' respective experiences.",
+      "rationale": "The policy discloses the collection of IP addresses and specifies indefinite retention.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We collect IP addresses for site security and to help us understand how people use our sites so that we can improve our sites and our users' respective experiences.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "The Motley Fool collects IP addresses for site security and to help us understand how people use our sites so that we can improve our sites and our users' respective experiences.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "Upon your request, we will remove your personal information from the website but we will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our Fool Rules and take other actions otherwise permitted by law.",
+       "retention": "indefinitely",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of IP addresses and specifies indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect IP addresses for site security and to help us understand how people use our sites so that we can improve our sites and our users' respective experiences.",
+      "rationale": "The policy discloses the collection of IP addresses and specifies indefinite retention.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We collect IP addresses for site security and to help us understand how people use our sites so that we can improve our sites and our users' respective experiences.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "The Motley Fool collects IP addresses for site security and to help us understand how people use our sites so that we can improve our sites and our users' respective experiences.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "Upon your request, we will remove your personal information from the website but we will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our Fool Rules and take other actions otherwise permitted by law.",
+       "retention": "indefinitely",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of IP addresses and specifies indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+      "rationale": "The policy discloses the collection of cookies and does not specify a retention period.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We use a feature known as a 'cookie.' Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+       "denial_quote": "",
+       "generic_quote": "Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+       "purpose_quote": "The Motley Fool uses cookies to provide you, the user, with the best and most personalized experience possible, and to provide our advertisers with an efficient way to reach the right audience.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We do not provide the third-party service providers with your name, address, email address, or telephone number.",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of cookies and does not specify a retention period."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the collection of cookies and does not specify a retention period.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We use a feature known as a 'cookie.' Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+       "denial_quote": "",
+       "generic_quote": "Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+       "purpose_quote": "The Motley Fool uses cookies to provide you, the user, with the best and most personalized experience possible, and to provide our advertisers with an efficient way to reach the right audience.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We do not provide the third-party service providers with your name, address, email address, or telephone number.",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of cookies and does not specify a retention period."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+      "rationale": "The policy discloses the collection of cookies and does not specify a retention period.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "We use a feature known as a 'cookie.' Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+       "denial_quote": "",
+       "generic_quote": "Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+       "purpose_quote": "The Motley Fool uses cookies to provide you, the user, with the best and most personalized experience possible, and to provide our advertisers with an efficient way to reach the right audience.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We do not provide the third-party service providers with your name, address, email address, or telephone number.",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of cookies and does not specify a retention period."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the collection of cookies and does not specify a retention period.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "We use a feature known as a 'cookie.' Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+       "denial_quote": "",
+       "generic_quote": "Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+       "purpose_quote": "The Motley Fool uses cookies to provide you, the user, with the best and most personalized experience possible, and to provide our advertisers with an efficient way to reach the right audience.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We do not provide the third-party service providers with your name, address, email address, or telephone number.",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of cookies and does not specify a retention period."
+      }
+     },
+     {
+      "candidate_id": "c9",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the collection of cookies and does not specify a retention period.",
+      "raw": {
+       "candidate_id": "c9",
+       "disclosing_quote": "We use a feature known as a 'cookie.' Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+       "denial_quote": "",
+       "generic_quote": "Cookies contain bits of information that websites transfer to your computer's hard drive for record-keeping purposes. Cookies can make the Web more convenient by storing information about your preferences on a site.",
+       "purpose_quote": "The Motley Fool uses cookies to provide you, the user, with the best and most personalized experience possible, and to provide our advertisers with an efficient way to reach the right audience.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We do not provide the third-party service providers with your name, address, email address, or telephone number.",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of cookies and does not specify a retention period."
+      }
+     },
+     {
+      "candidate_id": "c10",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We ask for your name, email address, and other personal information when you register to use certain features of our Web site, or if you sign up for special or personalized services, such as our discussion boards or email newsletters.",
+      "rationale": "The policy discloses the collection of demographic data and specifies indefinite retention.",
+      "raw": {
+       "candidate_id": "c10",
+       "disclosing_quote": "If you enter stocks into a Watchlist or premium Scorecard, we will save that information, and use it to identify content that we think is relevant to you. We will also use that information in the aggregate to help us better understand what our community and our premium members are interested in, so we can create and target our content better.",
+       "denial_quote": "",
+       "generic_quote": "We ask for your name, email address, and other personal information when you register to use certain features of our Web site, or if you sign up for special or personalized services, such as our discussion boards or email newsletters.",
+       "purpose_quote": "The Motley Fool collects personal information to provide you, the user, with the best and most personalized experience possible, and to provide our advertisers with an efficient way to reach the right audience.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "Upon your request, we will remove your personal information from the website but we will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our Fool Rules and take other actions otherwise permitted by law.",
+       "retention": "indefinitely",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of demographic data and specifies indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c11",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the collection of demographic data and specifies indefinite retention.",
+      "raw": {
+       "candidate_id": "c11",
+       "disclosing_quote": "If you enter stocks into a Watchlist or premium Scorecard, we will save that information, and use it to identify content that we think is relevant to you. We will also use that information in the aggregate to help us better understand what our community and our premium members are interested in, so we can create and target our content better.",
+       "denial_quote": "",
+       "generic_quote": "We ask for your name, email address, and other personal information when you register to use certain features of our Web site, or if you sign up for special or personalized services, such as our discussion boards or email newsletters.",
+       "purpose_quote": "The Motley Fool collects personal information to provide you, the user, with the best and most personalized experience possible, and to provide our advertisers with an efficient way to reach the right audience.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "Upon your request, we will remove your personal information from the website but we will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our Fool Rules and take other actions otherwise permitted by law.",
+       "retention": "indefinitely",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of demographic data and specifies indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9917745364117885
+   }
+  ],
+  "paragraphs_shown": [
+   54
+  ],
+  "paragraphs_total": 56,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence states that the app asks for name, email address, and other personal information, but does not explicitly mention collecting contact details. The cited DPDP text requires specifying the personal data and purpose for processing, which is omitted here.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence states that the app asks for name, email address, and other personal information, but does not explicitly mention collecting cookies. The cited DPDP text requires specifying the personal data and purpose for processing, which is omitted here.\"}]}\n\n{\"checks\": [{\"finding_id\": 2, \"supported\": false, \"reason\": \"The policy evidence mentions asking for name, email address, and other personal information, but does not explicitly disclose the collection of demographic data. The cited DPDP text requires specifying the personal data and purpose for processing, which is vague here.\"}]}",
+  "llm_calls": 2,
+  "seconds": 307.19
+ }
+}

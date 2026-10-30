@@ -1,0 +1,156 @@
+{
+ "case_id": "L928_r4",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but it does mention collecting contact information and using it for specific purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the policy does not explicitly mention collecting IP addresses or device IDs, which means there is no evidence of the app's practice regarding these data types. Additionally, the cited DPDP text pertains to the notice requirements for requesting consent and does not a"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9513192624614465,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9513192624614465,
+ "usage": {
+  "prompt": 2195,
+  "output": 594
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 24,
+  "untagged_paragraphs": 0,
+  "claims": 40,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but it does mention collecting contact information and using it for specific purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "If you provide us with your postal or e-mail address or telephone number, this information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+       "generic_quote": "We respect your privacy.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We may also file your comments to improve the site, or review and discard the information.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but it does mention collecting contact information and using it for specific purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using cookies for various purposes, including remembering user selections and enabling functionality, which aligns with the basic service/feature purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "A cookie is a text file that a web site can send to your browser and which may then be placed on your computer. We may use cookies on this site in the following ways:",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "A transient, memory-resident 'cookie' may be invoked in certain cases. For example, on the CASSIDI site a cookie is required to remember your selections as you move from page to page and enable CASSIDI's functionality. These cookies will disappear when your browser is closed. If you check the 'Stay logged in' option, the cookie will persist for a maximum of 2 weeks before another login is required.",
+       "unspecified_purpose_quote": "Sometimes a third-party contractor will use cookies on one of the sites they create and manage for us -- for example, our Job Opportunities site.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions using cookies for various purposes, including remembering user selections and enabling functionality, which aligns with the basic service/feature purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9513192624614465
+   }
+  ],
+  "paragraphs_shown": [
+   24
+  ],
+  "paragraphs_total": 24,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 78.0
+ }
+}

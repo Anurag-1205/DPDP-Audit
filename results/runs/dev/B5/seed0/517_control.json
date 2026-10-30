@@ -1,0 +1,339 @@
+{
+ "case_id": "517_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly mention using contact details for basic service/feature purposes.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence provided does not actually disclose the app's practice of using contact details for basic service/feature purposes. The rationale states that the policy does not explicitly mention this, but the evidence provided does not confirm or deny the practice."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Information indicating that you are a patient at the hospital or receiving treatment or other health-related services from Kaleida Health; information about your health condition (such as a disease you may have); information about health care products or services you have received or may receive in the future (such as an operation); or information about your health care benefits under an insurance plan (such as whether a prescription is covered); when combined with: demographic information (such as your name, address, or insurance status); unique numbers that may identify you (such as your social security number, your phone number, or your driver's license number); and other types of information that may identify who you are.",
+   "rationale": "The policy does not explicitly mention collecting location data for marketing purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not actually disclose the app's practice of collecting location data for marketing purposes. The rationale states that the policy does not explicitly mention this, but the evidence provided does not confirm or deny the practice."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.992172256847636,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.992172256847636,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.992172256847636,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.992172256847636,
+ "usage": {
+  "prompt": 6898,
+  "output": 1703
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 66,
+  "untagged_paragraphs": 0,
+  "claims": 138,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Information indicating that you are a patient at the hospital or receiving treatment or other health-related services from Kaleida Health; information about your health condition (such as a disease you may have); information about health care products or services you have received or may receive in the future (such as an operation); or information about your health care benefits under an insurance plan (such as whether a prescription is covered); when combined with: demographic information (such as your name, address, or insurance status); unique numbers that may identify you (such as your social security number, your phone number, or your driver's license number); and other types of information that may identify who you are.",
+      "rationale": "The policy does not explicitly mention collecting contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "Information indicating that you are a patient at the hospital or receiving treatment or other health-related services from Kaleida Health; information about your health condition (such as a disease you may have); information about health care products or services you have received or may receive in the future (such as an operation); or information about your health care benefits under an insurance plan (such as whether a prescription is covered); when combined with: demographic information (such as your name, address, or insurance status); unique numbers that may identify you (such as your social security number, your phone number, or your driver's license number); and other types of information that may identify who you are.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting contact details."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly mention using contact details for basic service/feature purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "Information indicating that you are a patient at the hospital or receiving treatment or other health-related services from Kaleida Health; information about your health condition (such as a disease you may have); information about health care products or services you have received or may receive in the future (such as an operation); or information about your health care benefits under an insurance plan (such as whether a prescription is covered); when combined with: demographic information (such as your name, address, or insurance status); unique numbers that may identify you (such as your social security number, your phone number, or your driver's license number); and other types of information that may identify who you are.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention using contact details for basic service/feature purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+      "rationale": "The policy mentions using health information for business operations, which is a generic purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "denial_quote": "",
+       "generic_quote": "Information indicating that you are a patient at the hospital or receiving treatment or other health-related services from Kaleida Health; information about your health condition (such as a disease you may have); information about health care products or services you have received or may receive in the future (such as an operation); or information about your health care benefits under an insurance plan (such as whether a prescription is covered); when combined with: demographic information (such as your name, address, or insurance status); unique numbers that may identify you (such as your social security number, your phone number, or your driver's license number); and other types of information that may identify who you are.",
+       "purpose_quote": "Kaleida Health may use your health information or share it with others in order to conduct our business operations.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions using health information for business operations, which is a generic purpose."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Kaleida Health may use your health information or share it with others in order to conduct our business operations.",
+      "rationale": "The policy mentions using health information for business operations, which is a generic purpose.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Kaleida Health may use your health information or share it with others in order to conduct our business operations.",
+       "denial_quote": "",
+       "generic_quote": "Information indicating that you are a patient at the hospital or receiving treatment or other health-related services from Kaleida Health; information about your health condition (such as a disease you may have); information about health care products or services you have received or may receive in the future (such as an operation); or information about your health care benefits under an insurance plan (such as whether a prescription is covered); when combined with: demographic information (such as your name, address, or insurance status); unique numbers that may identify you (such as your social security number, your phone number, or your driver's license number); and other types of information that may identify who you are.",
+       "purpose_quote": "Kaleida Health may use your health information or share it with others in order to conduct our business operations.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions using health information for business operations, which is a generic purpose."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Information indicating that you are a patient at the hospital or receiving treatment or other health-related services from Kaleida Health; information about your health condition (such as a disease you may have); information about health care products or services you have received or may receive in the future (such as an operation); or information about your health care benefits under an insurance plan (such as whether a prescription is covered); when combined with: demographic information (such as your name, address, or insurance status); unique numbers that may identify you (such as your social security number, your phone number, or your driver's license number); and other types of information that may identify who you are.",
+      "rationale": "The policy does not explicitly mention collecting location data for marketing purposes.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "Information indicating that you are a patient at the hospital or receiving treatment or other health-related services from Kaleida Health; information about your health condition (such as a disease you may have); information about health care products or services you have received or may receive in the future (such as an operation); or information about your health care benefits under an insurance plan (such as whether a prescription is covered); when combined with: demographic information (such as your name, address, or insurance status); unique numbers that may identify you (such as your social security number, your phone number, or your driver's license number); and other types of information that may identify who you are.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting location data for marketing purposes."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly mention using location data for marketing purposes.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "Information indicating that you are a patient at the hospital or receiving treatment or other health-related services from Kaleida Health; information about your health condition (such as a disease you may have); information about health care products or services you have received or may receive in the future (such as an operation); or information about your health care benefits under an insurance plan (such as whether a prescription is covered); when combined with: demographic information (such as your name, address, or insurance status); unique numbers that may identify you (such as your social security number, your phone number, or your driver's license number); and other types of information that may identify who you are.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention using location data for marketing purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.992172256847636
+   }
+  ],
+  "paragraphs_shown": [
+   50
+  ],
+  "paragraphs_total": 66,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 195.21
+ }
+}

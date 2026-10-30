@@ -1,0 +1,713 @@
+{
+ "case_id": "303_v2",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "personal information",
+   "rationale": "The policy explicitly states that it does not collect personally identifiable information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "merged_flows": [
+    "f1",
+    "f5"
+   ],
+   "verifier_reason": "The policy evidence states that the app does not collect personally identifiable information, but the finding suggests that the app collects contact information. The evidence does not justify the finding."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 13",
+    "Rule 12"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses the use of Google Analytics for understanding user interaction.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing and the rationale mentions the use of Google Analytics for understanding user interaction, which does not align with the finding of undisclosed collection of IP addresses and device IDs for advertising purposes."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 18",
+    "Rule 10"
+   ],
+   "evidence": "technologies we use",
+   "rationale": "The policy mentions the use of technologies without specifying the exact data types.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions 'technologies we use' without specifying the exact data types, which does not justify the finding of undisclosed collection of computer information for advertising purposes."
+  },
+  {
+   "candidate_id": "c8",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 13",
+    "Rule 12"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses the use of Google Analytics for understanding user interaction.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing and the rationale mentions the use of Google Analytics for understanding user interaction, which does not align with the finding of purpose mismatch regarding user online activities for analytics/research purposes."
+  },
+  {
+   "candidate_id": "c9",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 39",
+    "Rule 9"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions that it is not aimed at children and does not accept users under 13.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c12",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 44",
+    "Rule 11"
+   ],
+   "evidence": "To understand who clicks our mobile ads and to avoid showing you the same ad over and over again, we share your device's unique advertising identifier, its IP address, and a list of subreddits used to generate a particular page for you (which may include your subscriptions) with our ad partners, who decide which ads to display for you.",
+   "rationale": "The policy discloses the sharing of device identifiers and IP addresses for advertising purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c14",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 39",
+    "Rule 9"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions that it is not aimed at children and does not accept users under 13.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9760377483662005,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9760377483662005,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9760377483662005,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9760377483662005,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9760377483662005,
+   "source": "notice"
+  },
+  "f6": {
+   "label": "vague",
+   "confidence": 0.9760377483662005,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9760377483662005,
+ "usage": {
+  "prompt": 6638,
+  "output": 1806
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 54,
+  "untagged_paragraphs": 0,
+  "claims": 117,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c10",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c11",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c12",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c13",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c14",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "personal information",
+      "rationale": "The policy explicitly states that it does not collect personally identifiable information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not allow other parties to collect personally identifiable information from users on reddit.",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that it does not collect personally identifiable information."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that it does not collect personally identifiable information.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We do not allow other parties to collect personally identifiable information from users on reddit.",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that it does not collect personally identifiable information."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 13",
+       "Rule 12"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the use of Google Analytics for understanding user interaction.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We use a tool called Google Analytics to help us understand how users interact with our website. It tells us aggregate usage and traffic information, such as how the site was accessed, how long visitors stayed, and the number of first-time visitors to the site.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 13",
+        "Rule 12"
+       ],
+       "rationale": "The policy discloses the use of Google Analytics for understanding user interaction."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 13",
+       "Rule 12"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the use of Google Analytics for understanding user interaction.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We use a tool called Google Analytics to help us understand how users interact with our website. It tells us aggregate usage and traffic information, such as how the site was accessed, how long visitors stayed, and the number of first-time visitors to the site.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 13",
+        "Rule 12"
+       ],
+       "rationale": "The policy discloses the use of Google Analytics for understanding user interaction."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 18",
+       "Rule 10"
+      ],
+      "evidence": "technologies we use",
+      "rationale": "The policy mentions the use of technologies without specifying the exact data types.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We use technologies we use",
+       "denial_quote": "",
+       "generic_quote": "technologies we use",
+       "sections": [
+        "Sec. 18",
+        "Rule 10"
+       ],
+       "rationale": "The policy mentions the use of technologies without specifying the exact data types."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 18",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions the use of technologies without specifying the exact data types.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We use technologies we use",
+       "denial_quote": "",
+       "generic_quote": "technologies we use",
+       "sections": [
+        "Sec. 18",
+        "Rule 10"
+       ],
+       "rationale": "The policy mentions the use of technologies without specifying the exact data types."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 13",
+       "Rule 12"
+      ],
+      "evidence": "We use a tool called Google Analytics to help us understand how users interact with our website. It tells us aggregate usage and traffic information, such as how the site was accessed, how long visitors stayed, and the number of first-time visitors to the site.",
+      "rationale": "The policy discloses the use of Google Analytics for understanding user interaction.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "We use a tool called Google Analytics to help us understand how users interact with our website. It tells us aggregate usage and traffic information, such as how the site was accessed, how long visitors stayed, and the number of first-time visitors to the site.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 13",
+        "Rule 12"
+       ],
+       "rationale": "The policy discloses the use of Google Analytics for understanding user interaction."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 13",
+       "Rule 12"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the use of Google Analytics for understanding user interaction.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "We use a tool called Google Analytics to help us understand how users interact with our website. It tells us aggregate usage and traffic information, such as how the site was accessed, how long visitors stayed, and the number of first-time visitors to the site.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 13",
+        "Rule 12"
+       ],
+       "rationale": "The policy discloses the use of Google Analytics for understanding user interaction."
+      }
+     },
+     {
+      "candidate_id": "c9",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 39",
+       "Rule 9"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions that it is not aimed at children and does not accept users under 13.",
+      "raw": {
+       "candidate_id": "c9",
+       "disclosing_quote": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 39",
+        "Rule 9"
+       ],
+       "rationale": "The policy mentions that it is not aimed at children and does not accept users under 13."
+      }
+     },
+     {
+      "candidate_id": "c10",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "personal information",
+      "rationale": "The policy explicitly states that it does not collect personally identifiable information.",
+      "raw": {
+       "candidate_id": "c10",
+       "disclosing_quote": "",
+       "denial_quote": "We do not allow other parties to collect personally identifiable information from users on reddit.",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that it does not collect personally identifiable information."
+      }
+     },
+     {
+      "candidate_id": "c11",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that it does not collect personally identifiable information.",
+      "raw": {
+       "candidate_id": "c11",
+       "disclosing_quote": "",
+       "denial_quote": "We do not allow other parties to collect personally identifiable information from users on reddit.",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that it does not collect personally identifiable information."
+      }
+     },
+     {
+      "candidate_id": "c12",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 44",
+       "Rule 11"
+      ],
+      "evidence": "To understand who clicks our mobile ads and to avoid showing you the same ad over and over again, we share your device's unique advertising identifier, its IP address, and a list of subreddits used to generate a particular page for you (which may include your subscriptions) with our ad partners, who decide which ads to display for you.",
+      "rationale": "The policy discloses the sharing of device identifiers and IP addresses for advertising purposes.",
+      "raw": {
+       "candidate_id": "c12",
+       "disclosing_quote": "To understand who clicks our mobile ads and to avoid showing you the same ad over and over again, we share your device's unique advertising identifier, its IP address, and a list of subreddits used to generate a particular page for you (which may include your subscriptions) with our ad partners, who decide which ads to display for you.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 44",
+        "Rule 11"
+       ],
+       "rationale": "The policy discloses the sharing of device identifiers and IP addresses for advertising purposes."
+      }
+     },
+     {
+      "candidate_id": "c13",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 44",
+       "Rule 11"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the sharing of device identifiers and IP addresses for advertising purposes.",
+      "raw": {
+       "candidate_id": "c13",
+       "disclosing_quote": "To understand who clicks our mobile ads and to avoid showing you the same ad over and over again, we share your device's unique advertising identifier, its IP address, and a list of subreddits used to generate a particular page for you (which may include your subscriptions) with our ad partners, who decide which ads to display for you.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 44",
+        "Rule 11"
+       ],
+       "rationale": "The policy discloses the sharing of device identifiers and IP addresses for advertising purposes."
+      }
+     },
+     {
+      "candidate_id": "c14",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 39",
+       "Rule 9"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions that it is not aimed at children and does not accept users under 13.",
+      "raw": {
+       "candidate_id": "c14",
+       "disclosing_quote": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 39",
+        "Rule 9"
+       ],
+       "rationale": "The policy mentions that it is not aimed at children and does not accept users under 13."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9760377483662005
+   }
+  ],
+  "paragraphs_shown": [
+   54
+  ],
+  "paragraphs_total": 54,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 177.95
+ }
+}

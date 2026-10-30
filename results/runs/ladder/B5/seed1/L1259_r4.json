@@ -1,0 +1,156 @@
+{
+ "case_id": "L1259_r4",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "These parties are all subject to confidentiality agreements that restrict their use and disclosure of information they obtain through their relationship with The Motley Fool.",
+   "rationale": "There is no explicit mention of sharing location data with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9778309365370523,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9778309365370523,
+ "usage": {
+  "prompt": 4201,
+  "output": 384
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 48,
+  "untagged_paragraphs": 0,
+  "claims": 114,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "These parties are all subject to confidentiality agreements that restrict their use and disclosure of information they obtain through their relationship with The Motley Fool.",
+      "rationale": "There is no explicit mention of sharing location data with Google AdMob.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Location",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "The Motley Fool will not disclose any personally identifiable information about individual users, except as described in this Privacy Statement.",
+       "generic_quote": "These parties are all subject to confidentiality agreements that restrict their use and disclosure of information they obtain through their relationship with The Motley Fool.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "There is no explicit mention of sharing location data with Google AdMob."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using single-pixel GIFs for various purposes, but does not explicitly state that location data is used for advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Location",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "The Motley Fool uses single-pixel GIFs in the following ways: To count and recognize users. To conduct research on behalf of some partners on their websites, and for auditing purposes. To determine aggregate information about users, including demographic and usage information. To determine which email messages were opened (and when), as well as acted upon when we send HTML-formatted email messages (messages resembling Web pages that include graphics).",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions using single-pixel GIFs for various purposes, but does not explicitly state that location data is used for advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9778309365370523
+   }
+  ],
+  "paragraphs_shown": [
+   48
+  ],
+  "paragraphs_total": 48,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 49.25
+ }
+}

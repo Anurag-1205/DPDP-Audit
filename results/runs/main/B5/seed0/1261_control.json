@@ -1,0 +1,326 @@
+{
+ "case_id": "1261_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly discloses using contact information for marketing purposes.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that there is no explicit disclosure of using contact information for marketing purposes. The rationale provided contradicts the evidence."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention collecting financial data for any specific purpose.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that there is no explicit mention of collecting financial data for any specific purpose. The rationale provided contradicts the evidence."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9753572965444901,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9753572965444901,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9753572965444901,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9753572965444901,
+ "usage": {
+  "prompt": 2897,
+  "output": 1057
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 40,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "Everyone who submits personal information to Zacks Investment Research online will receive, via e-mail, our free weekly newsletters: Profit from the Pros.",
+      "rationale": "The policy explicitly discloses collecting contact information for marketing purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Everyone who submits personal information to Zacks Investment Research online will receive, via e-mail, our free weekly newsletters: Profit from the Pros.",
+       "denial_quote": "",
+       "generic_quote": "the information you may choose to provide includes any or all of the following: email address, name, postal address, and phone number.",
+       "purpose_quote": "We use the information you provide us in the following ways: Through Profit from the Pros, we provide original and exclusive content from Zacks Investment Research and Zacks.com.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy explicitly discloses collecting contact information for marketing purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly discloses using contact information for marketing purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Everyone who submits personal information to Zacks Investment Research online will receive, via e-mail, our free weekly newsletters: Profit from the Pros.",
+       "denial_quote": "",
+       "generic_quote": "the information you may choose to provide includes any or all of the following: email address, name, postal address, and phone number.",
+       "purpose_quote": "We use the information you provide us in the following ways: Through Profit from the Pros, we provide original and exclusive content from Zacks Investment Research and Zacks.com.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy explicitly discloses using contact information for marketing purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet.",
+      "rationale": "The policy mentions using cookies for enhancing user experience, but does not specify a clear purpose for 'Service Operation and Security'.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet.",
+       "unspecified_purpose_quote": "Cookies: Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet. These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy mentions using cookies for enhancing user experience, but does not specify a clear purpose for 'Service Operation and Security'."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet.",
+      "rationale": "The policy mentions using cookies for enhancing user experience, but does not specify a clear purpose for 'Service Operation and Security'.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet.",
+       "unspecified_purpose_quote": "Cookies: Zacks Investment Research uses cookies, tags, pixels and similar technologies to enhance your experience on the internet. These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy mentions using cookies for enhancing user experience, but does not specify a clear purpose for 'Service Operation and Security'."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention collecting financial data for any specific purpose.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy does not mention collecting financial data for any specific purpose."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention using financial data for any specific purpose.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy does not mention using financial data for any specific purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9753572965444901
+   }
+  ],
+  "paragraphs_shown": [
+   13
+  ],
+  "paragraphs_total": 13,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence states that there is no explicit disclosure of using contact information for marketing purposes. The rationale provided contradicts the evidence.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence states that there is no explicit mention of collecting financial data for any specific purpose. The rationale provided contradicts the evidence.\"}]}",
+  "llm_calls": 2,
+  "seconds": 151.0
+ }
+}

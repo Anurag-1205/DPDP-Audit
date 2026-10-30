@@ -1,0 +1,158 @@
+{
+ "case_id": "L640_r4",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9631737007675751,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "[P3]",
+    "[P4]",
+    "[P18]"
+   ],
+   "evidence": "We use customer contact information to customize future shopping for you, to improve our Websites and stores, to send you information about our company, and to inform you of sales and special offers.",
+   "rationale": "The policy explicitly discloses the collection of contact information for basic service purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9631737007675751,
+ "usage": {
+  "prompt": 4515,
+  "output": 412
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 39,
+  "untagged_paragraphs": 0,
+  "claims": 76,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P3]",
+       "[P4]",
+       "[P18]"
+      ],
+      "evidence": "We use customer contact information to customize future shopping for you, to improve our Websites and stores, to send you information about our company, and to inform you of sales and special offers.",
+      "rationale": "The policy explicitly discloses the collection of contact information for basic service purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you place an order with us online, in a store or in any other way, your contact information is used to communicate related information, such as order and shipment confirmation, release date changes and requests for more information to facilitate processing your order.",
+       "denial_quote": "",
+       "generic_quote": "We use customer contact information to customize future shopping for you, to improve our Websites and stores, to send you information about our company, and to inform you of sales and special offers.",
+       "purpose_quote": "To provide the service or feature the user asked for (account, orders, delivery, support)",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P3]",
+        "[P4]",
+        "[P18]"
+       ],
+       "rationale": "The policy explicitly discloses the collection of contact information for basic service purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P4]",
+       "[P18]"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the use of contact information for various purposes, including basic service provision.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We use customer contact information to customize future shopping for you, to improve our Websites and stores, to send you information about our company, and to inform you of sales and special offers.",
+       "denial_quote": "",
+       "generic_quote": "We use customer contact information to customize future shopping for you, to improve our Websites and stores, to send you information about our company, and to inform you of sales and special offers.",
+       "purpose_quote": "To provide the service or feature the user asked for (account, orders, delivery, support)",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P4]",
+        "[P18]"
+       ],
+       "rationale": "The policy discloses the use of contact information for various purposes, including basic service provision."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9631737007675751
+   }
+  ],
+  "paragraphs_shown": [
+   39
+  ],
+  "paragraphs_total": 39,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 42.05
+ }
+}

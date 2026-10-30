@@ -26,6 +26,13 @@ class Config:
     retention_check: bool = False    # a retention quote must be about keeping data
     robust_verifier: bool = False    # read the verifier's reply robustly (the *_rv configurations)
     verifier_max_tokens: int = 2048
+    # baselines built from the pipeline's parts (30 Oct; docs/evaluation.md#systems-under-test)
+    review: bool = True              # False (R0): no reviewers; every finder candidate is reported
+    finder_filter: bool = True       # False (B5): check every flow against every gap type the app facts allow
+    whole_policy: bool = False       # B5: the reviewer reads the whole policy, not the linked paragraphs
+    single_call: bool = False        # B5: one generalist call for all candidates (aggregator rules kept)
+    reviewer_max_tokens: int = 2048
+    robust_reviewer: bool = False    # B5: keep the complete answers of a cut-off or malformed reply
 
 
 # Until the fine-tuned tagger passes SPEC-05, "full" uses the prompted tagger (the A4 setting);
@@ -59,6 +66,24 @@ V2_ABLATIONS = [replace(FULL_V2_FINETUNED, name="A1_v2", verifier=False),
                 replace(FULL_V2_FINETUNED, name="A3_v2", specialists=False),
                 replace(FULL_V2_FINETUNED, name="A5_v2", tagger="oracle")]
 for _c in (V2_GATE, V2_READ, V2_PURPOSE, V2_BATCH, FULL_V2, FULL_V2_FINETUNED, *V2_ABLATIONS):
+    CONFIGS[_c.name] = _c
+
+# Baselines from the pipeline's parts (30 Oct), each against the headline full_v2_finetuned:
+# R0  rules only: the QLoRA tagger and the finder, every candidate reported with the gap's
+#     DPDP sections from the fixed table (as for the tools); no LLM review, no verifier.
+# B5  one call, evidence first: no tagger or finder filtering; one generalist call over the whole
+#     policy (in order, within the reviewers' prompt budget) quotes the evidence for every
+#     (flow, gap type) the app facts allow; v2's decision rules, aggregator and verifier decide.
+#     No tools and no DPDP retrieval (A2 showed retrieval does not help), robust verifier reader.
+R0 = replace(FULL_V2_FINETUNED, name="R0", review=False, verifier=False)
+R0_PROMPTED = replace(R0, name="R0_prompted", tagger="prompted")
+# B5 on the dev splits (30 Oct): 12 of 102 replies were unreadable, 9 of them cut at 3,072 output
+# tokens, which left their candidates undecided; B5 now gets 4,096 tokens (the longest prompt is
+# about 7k tokens of the 12,288) and the robust reader, before any run on main or the ladder.
+B5 = replace(FULL_V2, name="B5", finder_filter=False, whole_policy=True, single_call=True, review_batch=0,
+             max_tool_calls=0, retrieval=False, reviewer_max_tokens=4096, robust_reviewer=True,
+             robust_verifier=True, verifier_max_tokens=4096)
+for _c in (R0, R0_PROMPTED, B5):
     CONFIGS[_c.name] = _c
 
 

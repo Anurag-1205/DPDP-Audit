@@ -55,7 +55,8 @@ def main():
     for t, idx in claims.items():
         print(f"tagger {t}: {len(idx)} tagged paragraphs", flush=True)
     any_cfg = next(iter(cfgs.values()))
-    llm = LLM(temperature=any_cfg.reviewer_temperature)
+    llms = {name: LLM(temperature=c.reviewer_temperature, max_tokens=c.reviewer_max_tokens) for name, c in cfgs.items()}
+    llm = llms[next(iter(cfgs))]
     verifier_llm = LLM(temperature=any_cfg.verifier_temperature, max_tokens=any_cfg.verifier_max_tokens)
     jobs = [(name, c, seed) for seed in args.seeds for name in args.configs for c in cases
             if needs_run(args.split, name, seed, c["case_id"], args.redo_failed)]
@@ -70,7 +71,7 @@ def main():
         cfg = cfgs[name]
         start = time.time()
         try:
-            out = run_case(case, llm, seed, cfg, claims_index=claims[cfg.tagger], verifier_llm=verifier_llm)
+            out = run_case(case, llms[name], seed, cfg, claims_index=claims[cfg.tagger], verifier_llm=verifier_llm)
         except Exception as exc:  # e.g. prompt longer than the context window, or a timeout
             flow_ids = [f["flow_id"] for f in get_flows(case["app_dir"])]
             out = dict(normalise({}, flow_ids), case_id=case["case_id"], system=name, seed=seed,

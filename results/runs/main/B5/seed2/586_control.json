@@ -1,0 +1,340 @@
+{
+ "case_id": "586_control",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting contact details and specifies their use for additional service/feature.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is explicitly stated as (none), indicating no disclosure of the purpose for processing contact details. The cited DPDP text does not provide evidence of a purpose mismatch for contact data. Therefore, the finding is not supported."
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f3",
+   "data_type": "Financial",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting financial information and specifies its use for basic service/feature.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "Similar to finding 0, the policy evidence is explicitly stated as (none), indicating no disclosure of the purpose for processing financial data. The cited DPDP text does not provide evidence of a purpose mismatch for financial data. Therefore, the finding is not supported."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9693413580097126,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9693413580097126,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9693413580097126,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9693413580097126,
+ "usage": {
+  "prompt": 3861,
+  "output": 1027
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 34,
+  "untagged_paragraphs": 0,
+  "claims": 74,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you submit an order we ask for your name, email address, billing address, shipping address, telephone number, fax number and credit card information.",
+      "rationale": "The policy discloses collecting contact details and specifies their use for basic service/feature.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you submit an order we ask for your name, email address, billing address, shipping address, telephone number, fax number and credit card information.",
+       "denial_quote": "",
+       "generic_quote": "All changes will become effective when posted, and by continuing to use the Site following the posting of any changes, you agree to be bound by such modified Privacy Statement.",
+       "purpose_quote": "To provide the service or feature the user asked for (account, orders, delivery, support)",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact details and specifies their use for basic service/feature."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting contact details and specifies their use for additional service/feature.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "When you register your Caribou Gift Card on the Site, we ask for your name, email address, phone number and mailing address.",
+       "denial_quote": "",
+       "generic_quote": "The Information We Collect and How We Use It",
+       "purpose_quote": "To administer the Caribou Gift Card program and for replacing lost or stolen Caribou Gift Cards",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact details and specifies their use for additional service/feature."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use cookies to enhance the browsing and shopping experience on the Site.",
+      "rationale": "The policy discloses collecting cookies and specifies their use for personalization/Customization.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We use cookies to enhance the browsing and shopping experience on the Site.",
+       "denial_quote": "",
+       "generic_quote": "The Information We Collect and How We Use It",
+       "purpose_quote": "To personalize the browsing and shopping experience",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting cookies and specifies their use for personalization/Customization."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use cookies to enhance the browsing and shopping experience on the Site.",
+      "rationale": "The policy discloses collecting cookies and specifies their use for personalization/Customization.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We use cookies to enhance the browsing and shopping experience on the Site.",
+       "denial_quote": "",
+       "generic_quote": "The Information We Collect and How We Use It",
+       "purpose_quote": "To personalize the browsing and shopping experience",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting cookies and specifies their use for personalization/Customization."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Your credit card information is sent to, and processed by third party financial institutions and their vendors.",
+      "rationale": "The policy discloses collecting financial information and specifies its use for basic service/feature.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "Your credit card information is sent to, and processed by third party financial institutions and their vendors.",
+       "denial_quote": "",
+       "generic_quote": "The Information We Collect and How We Use It",
+       "purpose_quote": "To process payments for orders",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting financial information and specifies its use for basic service/feature."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting financial information and specifies its use for basic service/feature.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "Your credit card information is sent to, and processed by third party financial institutions and their vendors.",
+       "denial_quote": "",
+       "generic_quote": "The Information We Collect and How We Use It",
+       "purpose_quote": "To process payments for orders",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting financial information and specifies its use for basic service/feature."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9693413580097126
+   }
+  ],
+  "paragraphs_shown": [
+   34
+  ],
+  "paragraphs_total": 34,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is explicitly stated as (none), indicating no disclosure of the purpose for processing contact details. The cited DPDP text does not provide evidence of a purpose mismatch for contact data. Therefore, the finding is not supported.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"Similar to finding 0, the policy evidence is explicitly stated as (none), indicating no disclosure of the purpose for processing financial data. The cited DPDP text does not provide evidence of a purpose mismatch for financial data. Therefore, the finding is not supported.\"}]}",
+  "llm_calls": 2,
+  "seconds": 84.4
+ }
+}

@@ -1,4 +1,4 @@
-"""Ablations of v2 on three seeds (WP-3.3): each ablation against the headline system, per seed.
+"""Ablations of v2 on three seeds (WP-3.3), and the B5 baseline: each against the headline system, per seed.
 
   python scripts/score_ablations.py
 
@@ -16,7 +16,8 @@ from dpdp_audit.runs import load_runs
 
 HEADLINE = "full_v2_finetuned_rv"
 ABLATIONS = {"A1_v2": "verifier off", "A2_v2_rv": "no DPDP retrieval",
-             "A3_v2_rv": "one generalist reviewer, no aggregator", "A5_v2_rv": "oracle tagger"}
+             "A3_v2_rv": "one generalist reviewer, no aggregator", "A5_v2_rv": "oracle tagger",
+             "B5": "baseline: one call over the whole policy, evidence first (no tagger, finder or agents)"}
 SEEDS = [0, 1, 2]
 
 

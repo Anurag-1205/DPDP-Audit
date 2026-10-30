@@ -19,6 +19,7 @@ message. Every tool call is logged with its validity.
 from __future__ import annotations
 
 import json
+import re
 
 from ..baselines import SYSTEM as BASE_SYSTEM
 from ..llm import parse_json
@@ -71,6 +72,43 @@ ROLES = {
 GENERALIST = {"title": "generalist", "gaps": list(EVIDENCE),
               "focus": "notice and consent, purpose limitation, retention and children's data under the Act."}
 TOOL_RESULT_CHARS = 2500
+
+
+_BAD_ESCAPE = re.compile(r'\\(?!["\\/bfnrtu])')
+
+
+def parse_reply_robust(text: str) -> tuple[dict, str]:
+    """B5: read a reviewer reply, and if it is cut off or malformed keep every complete answer.
+
+    Returns (reply, mode): "json", "repaired" (invalid escapes removed) or "salvaged" (the complete
+    objects of the "answers" array, read one by one up to the first broken one). Raises ValueError
+    if nothing can be read.
+    """
+    for mode, t in (("json", text), ("repaired", _BAD_ESCAPE.sub("", text or ""))):
+        try:
+            reply = parse_json(t)
+            if isinstance(reply, dict):
+                return reply, mode
+        except ValueError:
+            pass
+    t = _BAD_ESCAPE.sub("", text or "")
+    dec, answers = json.JSONDecoder(), []
+    for m in re.finditer(r'"answers"\s*:\s*\[', t):   # every answers array (a reply may hold several objects)
+        i = m.end()
+        while True:
+            while i < len(t) and t[i] in " \t\r\n,":
+                i += 1
+            if i >= len(t) or t[i] != "{":
+                break
+            try:
+                obj, i = dec.raw_decode(t, i)
+            except json.JSONDecodeError:
+                break
+            if isinstance(obj, dict):
+                answers.append(obj)
+    if not answers:
+        raise ValueError(f"no complete answer in reply: {t[:200]!r}")
+    return {"action": "final", "answers": answers}, "salvaged"
 
 
 def role_for(name: str) -> dict:
@@ -147,12 +185,19 @@ def build_prompt(role_name: str, candidates: list[dict], paragraphs: dict[int, s
     for c in candidates:
         sdk = lookup_sdk(c["recipient"]) if c["recipient"] != "first_party" else None
         recipient = f"{sdk['name']} ({sdk['vendor']}, {sdk['category']})" if sdk else c["recipient"]
-        cand_view.append({"candidate_id": c["candidate_id"], "gap_type": c["gap_type"], "data_type": c["data_type"],
-                          "recipient": recipient, "purpose": c["purpose"], "retention": c["retention"],
-                          "paragraphs": c["paragraphs"]})
+        view = {"candidate_id": c["candidate_id"], "gap_type": c["gap_type"], "data_type": c["data_type"],
+                "recipient": recipient, "purpose": c["purpose"], "retention": c["retention"]}
+        if not cfg.whole_policy:
+            view["paragraphs"] = c["paragraphs"]
+        cand_view.append(view)
     dpdp = "\n".join(f"[{u['id']}] {u['title']}: {u['text'][:500]}" for u in dpdp_units) \
         if dpdp_units else "(not provided)"
     gaps = sorted({c["gap_type"] for c in candidates}, key=list(EVIDENCE).index)
+    read = ("policy" if cfg.whole_policy else
+            "paragraphs (and search the policy if they do not settle it)")
+    tool_text = (f"You may first call tools (at most {cfg.max_tool_calls} calls in total), one per reply:\n"
+                 f"{chr(10).join(TOOL_LINES[t] for t in tools.names)}\nThen give the final answer:\n"
+                 if cfg.max_tool_calls else "Give the final answer:\n")
     head = f"You are the {role['title']} reviewer. Focus: {role['focus']}\n\n"
     body = f"""Application: child_directed = {facts['permissions']['child_directed']}
 
@@ -167,26 +212,27 @@ Relevant DPDP text:
 {dpdp}
 
 Your job is to find evidence in the policy, not to guess. For every candidate, read the
-paragraphs (and search the policy if they do not settle it) and answer with these fields, copying
+{read} and answer with these fields, copying
 sentences from the policy word for word:
 {chr(10).join(EVIDENCE[g] for g in gaps)}
 Every answer also has "sections" (the DPDP units the duty comes from, e.g. ["Sec. 5(1)", "Rule 3"])
 and "rationale" (one short sentence).
 
-You may first call tools (at most {cfg.max_tool_calls} calls in total), one per reply:
-{chr(10).join(TOOL_LINES[t] for t in tools.names)}
-Then give the final answer:
-{{"action": "final", "answers": [{{"candidate_id": "...", ..., "sections": ["..."], "rationale": "..."}}]}}
+{tool_text}{{"action": "final", "answers": [{{"candidate_id": "...", ..., "sections": ["..."], "rationale": "..."}}]}}
 Reply with one JSON object only."""
     # policy paragraphs fill what is left of the budget, keeping room for tool results
     budget = cfg.prompt_char_budget - len(head) - len(body) - cfg.max_tool_calls * TOOL_RESULT_CHARS
+    order = sorted(paragraphs) if cfg.whole_policy else select_paragraphs(candidates, cfg.max_paragraphs)
     shown = []
-    for i in select_paragraphs(candidates, cfg.max_paragraphs):
+    for i in order:
         text = paragraphs.get(i, "")
         if text and len(text) + 8 <= budget:
             shown.append(f"[P{i}] {text}")
             budget -= len(text) + 8
-    return (f"{head}Policy paragraphs linked to the candidates ([P<n>] = paragraph number):\n<<<\n"
+        elif cfg.whole_policy:   # B5 reads the policy in order: stop at the first paragraph that does not fit
+            break
+    title = ("The privacy policy" if cfg.whole_policy else "Policy paragraphs linked to the candidates")
+    return (f"{head}{title} ([P<n>] = paragraph number):\n<<<\n"
             f"{chr(10).join(shown) or '(none)'}\n>>>\n\n{body}")
 
 
@@ -200,12 +246,13 @@ def review(role_name: str, candidates: list[dict], paragraphs: dict[int, str], f
     tools = Tools(policy_text, cfg.retrieval, cfg.dpdp_k)
     units = dpdp_units_for(candidates, cfg.dpdp_k) if cfg.retrieval else []
     base = build_prompt(role_name, candidates, paragraphs, facts, units, tools, cfg)
+    shown = len(re.findall(r"^\[P\d+\] ", base.split("\n>>>\n", 1)[0], flags=re.M))
     system = system_prompt(role_name)
     by_id = {c["candidate_id"]: c for c in candidates}
     transcript, log, calls = [], [], 0
     usage = {"prompt": 0, "output": 0}
     result = {"reviewer": role_name, "decisions": [], "tool_calls": log, "parse_error": None, "token_prob": None,
-              "unknown_answers": []}
+              "unknown_answers": [], "paragraphs_shown": shown, "paragraphs_total": len(paragraphs)}
     for step in range(cfg.max_tool_calls + 1):
         prompt = base
         if transcript:
@@ -217,9 +264,16 @@ def review(role_name: str, candidates: list[dict], paragraphs: dict[int, str], f
         for k in usage:
             usage[k] += (resp.usage or {}).get(k, 0) or 0
         try:
-            reply = parse_json(resp.text)
+            if cfg.robust_reviewer:
+                reply, result["parse_mode"] = parse_reply_robust(resp.text)
+                if result["parse_mode"] != "json":
+                    result["raw"] = resp.text
+            else:
+                reply = parse_json(resp.text)
         except ValueError as exc:
             result["parse_error"] = str(exc)[:300]
+            if cfg.robust_reviewer:
+                result["raw"] = resp.text
             break
         if not isinstance(reply, dict):
             result["parse_error"] = "reply is not a JSON object"

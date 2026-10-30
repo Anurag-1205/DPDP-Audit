@@ -1,0 +1,328 @@
+{
+ "case_id": "1050_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9797271523751371,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9797271523751371,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9797271523751371,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "[P8]"
+   ],
+   "evidence": "We may gather and store certain anonymous information about your visit.",
+   "rationale": "The policy only mentions gathering anonymous information and does not specify a purpose.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "[P8]"
+   ],
+   "evidence": "We may gather and store certain anonymous information about your visit.",
+   "rationale": "The policy only mentions gathering anonymous information and does not specify a purpose.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9797271523751371,
+ "usage": {
+  "prompt": 6111,
+  "output": 1561
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 72,
+  "untagged_paragraphs": 0,
+  "claims": 166,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P6]",
+       "[P11]"
+      ],
+      "evidence": "We may request personally identifiable information in order to enhance your experience on our web sites. There are instances where American Honda requests personally identifiable information to provide the web site visitor a service or correspondence (such as promotions and mailed brochures). This information, such as name, mailing address, email address, type of request and possibly additional information, is collected and stored in a manner appropriate to the nature of the data and is used to fulfill your request.",
+      "rationale": "The policy explicitly states collecting personal information for enhancing user experience and fulfilling requests.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may request personally identifiable information in order to enhance your experience on our web sites. There are instances where American Honda requests personally identifiable information to provide the web site visitor a service or correspondence (such as promotions and mailed brochures). This information, such as name, mailing address, email address, type of request and possibly additional information, is collected and stored in a manner appropriate to the nature of the data and is used to fulfill your request.",
+       "denial_quote": "",
+       "generic_quote": "We may request personally identifiable information in order to enhance your experience on our web sites.",
+       "purpose_quote": "There are instances where American Honda requests personally identifiable information to provide the web site visitor a service or correspondence (such as promotions and mailed brochures). This information, such as name, mailing address, email address, type of request and possibly additional information, is collected and stored in a manner appropriate to the nature of the data and is used to fulfill your request.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P6]",
+        "[P11]"
+       ],
+       "rationale": "The policy explicitly states collecting personal information for enhancing user experience and fulfilling requests."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P6]",
+       "[P11]"
+      ],
+      "evidence": "There are instances where American Honda requests personally identifiable information to provide the web site visitor a service or correspondence (such as promotions and mailed brochures). This information, such as name, mailing address, email address, type of request and possibly additional information, is collected and stored in a manner appropriate to the nature of the data and is used to fulfill your request.",
+      "rationale": "The policy provides the purpose for collecting personal information, which matches the 'Additional service/feature' purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We may request personally identifiable information in order to enhance your experience on our web sites. There are instances where American Honda requests personally identifiable information to provide the web site visitor a service or correspondence (such as promotions and mailed brochures). This information, such as name, mailing address, email address, type of request and possibly additional information, is collected and stored in a manner appropriate to the nature of the data and is used to fulfill your request.",
+       "denial_quote": "",
+       "generic_quote": "We may request personally identifiable information in order to enhance your experience on our web sites.",
+       "purpose_quote": "There are instances where American Honda requests personally identifiable information to provide the web site visitor a service or correspondence (such as promotions and mailed brochures). This information, such as name, mailing address, email address, type of request and possibly additional information, is collected and stored in a manner appropriate to the nature of the data and is used to fulfill your request.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P6]",
+        "[P11]"
+       ],
+       "rationale": "The policy provides the purpose for collecting personal information, which matches the 'Additional service/feature' purpose."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P8]"
+      ],
+      "evidence": "We may gather and store certain anonymous information about your visit.",
+      "rationale": "The policy only mentions gathering anonymous information and does not specify a purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We Collect and Use Anonymous Information We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through). This information does not identify you personally.",
+       "generic_quote": "We may gather and store certain anonymous information about your visit.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through). This information does not identify you personally.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P8]"
+       ],
+       "rationale": "The policy only mentions gathering anonymous information and does not specify a purpose."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P8]"
+      ],
+      "evidence": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through). This information does not identify you personally.",
+      "rationale": "The policy only mentions gathering anonymous information and does not specify a purpose.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "We Collect and Use Anonymous Information We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through). This information does not identify you personally.",
+       "generic_quote": "We may gather and store certain anonymous information about your visit.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through). This information does not identify you personally.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P8]"
+       ],
+       "rationale": "The policy only mentions gathering anonymous information and does not specify a purpose."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P8]"
+      ],
+      "evidence": "We may gather and store certain anonymous information about your visit.",
+      "rationale": "The policy only mentions gathering anonymous information and does not specify a purpose.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We Collect and Use Anonymous Information We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through). This information does not identify you personally.",
+       "denial_quote": "",
+       "generic_quote": "We may gather and store certain anonymous information about your visit.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through). This information does not identify you personally.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P8]"
+       ],
+       "rationale": "The policy only mentions gathering anonymous information and does not specify a purpose."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P8]"
+      ],
+      "evidence": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through). This information does not identify you personally.",
+      "rationale": "The policy only mentions gathering anonymous information and does not specify a purpose.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We Collect and Use Anonymous Information We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through). This information does not identify you personally.",
+       "denial_quote": "",
+       "generic_quote": "We may gather and store certain anonymous information about your visit.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through). This information does not identify you personally.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P8]"
+       ],
+       "rationale": "The policy only mentions gathering anonymous information and does not specify a purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9797271523751371
+   }
+  ],
+  "paragraphs_shown": [
+   44
+  ],
+  "paragraphs_total": 72,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 203.97
+ }
+}

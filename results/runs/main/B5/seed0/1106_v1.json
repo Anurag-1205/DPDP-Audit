@@ -1,0 +1,621 @@
+{
+ "case_id": "1106_v1",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We gather personal information from you and from outside sources for business purposes.",
+   "rationale": "The policy discloses collecting contact information and specifies purposes for retaining the data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "merged_flows": [
+    "f1",
+    "f5"
+   ],
+   "verifier_reason": "The policy evidence does not disclose the collection of contact information. Instead, it states a general purpose for gathering personal information, which is insufficient to justify the finding of an undisclosed collection of contact data."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting IP addresses and device IDs for advertising purposes and specifies retention.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is explicitly stated as (none), indicating that the policy does not mention the collection of IP addresses and device IDs. Therefore, there is no evidence to support the finding of an undisclosed collection of these data types."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting location data for additional service/feature purposes and specifies retention.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "Similar to finding 1, the policy evidence is explicitly stated as (none), indicating that the policy does not mention the collection of location data. Therefore, there is no evidence to support the finding of an undisclosed collection of location data."
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We use cookies, analytics and other technologies to help: Evaluate our marketing campaigns Analyze how customers use our website and applications Develop new services Know how many visitors have seen or clicked on our ads",
+   "rationale": "The policy discloses collecting cookies and tracking elements for personalization/customization purposes and specifies retention.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c11",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy specifies retention for contact information for analytics/research purposes.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9874227111043424,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9874227111043424,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9874227111043424,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9874227111043424,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9874227111043424,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9874227111043424,
+ "usage": {
+  "prompt": 6876,
+  "output": 2925
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 47,
+  "untagged_paragraphs": 0,
+  "claims": 82,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c10",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c11",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We gather personal information from you and from outside sources for business purposes.",
+      "rationale": "The policy discloses collecting contact information and specifies purposes for retaining the data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We gather personal information from you and from outside sources for business purposes.",
+       "denial_quote": "",
+       "generic_quote": "We gather personal information from you and from outside sources for business purposes.",
+       "purpose_quote": "We may provide your information to persons or organizations within and outside of Allstate. This would be done as required or permitted by law. For example, we may do this to: Fulfill a transaction you requested or service your policy Market our products Handle your claim Prevent fraud Comply with requests from regulatory and law enforcement authorities Participate in insurance support organizations Send you push notifications",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information as long as necessary to comply with applicable laws, regulations, and contractual obligations, or as needed to provide you with services, resolve disputes, and enforce our agreements.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact information and specifies purposes for retaining the data."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting contact information and specifies purposes for retaining the data.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We gather personal information from you and from outside sources for business purposes.",
+       "denial_quote": "",
+       "generic_quote": "We gather personal information from you and from outside sources for business purposes.",
+       "purpose_quote": "We may provide your information to persons or organizations within and outside of Allstate. This would be done as required or permitted by law. For example, we may do this to: Fulfill a transaction you requested or service your policy Market our products Handle your claim Prevent fraud Comply with requests from regulatory and law enforcement authorities Participate in insurance support organizations Send you push notifications",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information as long as necessary to comply with applicable laws, regulations, and contractual obligations, or as needed to provide you with services, resolve disputes, and enforce our agreements.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact information and specifies purposes for retaining the data."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting IP addresses and device IDs for advertising purposes and specifies retention.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We use cookies, analytics and other technologies to help: Evaluate our marketing campaigns Analyze how customers use our website and applications Develop new services Know how many visitors have seen or clicked on our ads",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use cookies, analytics and other technologies to help: Evaluate our marketing campaigns Analyze how customers use our website and applications Develop new services Know how many visitors have seen or clicked on our ads",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information as long as necessary to comply with applicable laws, regulations, and contractual obligations, or as needed to provide you with services, resolve disputes, and enforce our agreements.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting IP addresses and device IDs for advertising purposes and specifies retention."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting IP addresses and device IDs for advertising purposes and specifies retention.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We use cookies, analytics and other technologies to help: Evaluate our marketing campaigns Analyze how customers use our website and applications Develop new services Know how many visitors have seen or clicked on our ads",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use cookies, analytics and other technologies to help: Evaluate our marketing campaigns Analyze how customers use our website and applications Develop new services Know how many visitors have seen or clicked on our ads",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information as long as necessary to comply with applicable laws, regulations, and contractual obligations, or as needed to provide you with services, resolve disputes, and enforce our agreements.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting IP addresses and device IDs for advertising purposes and specifies retention."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting location data for additional service/feature purposes and specifies retention.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We use Mobile analytics software to allow us to better understand the functionality of our Mobile Software on your phone. This software may record information such as how often you use the application, the events that occur within the application, aggregated usage, performance data, and where the application was downloaded from.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use Mobile analytics software to allow us to better understand the functionality of our Mobile Software on your phone. This software may record information such as how often you use the application, the events that occur within the application, aggregated usage, performance data, and where the application was downloaded from.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information as long as necessary to comply with applicable laws, regulations, and contractual obligations, or as needed to provide you with services, resolve disputes, and enforce our agreements.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting location data for additional service/feature purposes and specifies retention."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting location data for additional service/feature purposes and specifies retention.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We use Mobile analytics software to allow us to better understand the functionality of our Mobile Software on your phone. This software may record information such as how often you use the application, the events that occur within the application, aggregated usage, performance data, and where the application was downloaded from.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use Mobile analytics software to allow us to better understand the functionality of our Mobile Software on your phone. This software may record information such as how often you use the application, the events that occur within the application, aggregated usage, performance data, and where the application was downloaded from.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information as long as necessary to comply with applicable laws, regulations, and contractual obligations, or as needed to provide you with services, resolve disputes, and enforce our agreements.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting location data for additional service/feature purposes and specifies retention."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use cookies, analytics and other technologies to help: Evaluate our marketing campaigns Analyze how customers use our website and applications Develop new services Know how many visitors have seen or clicked on our ads",
+      "rationale": "The policy discloses collecting cookies and tracking elements for personalization/customization purposes and specifies retention.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "We use cookies, analytics and other technologies to help: Evaluate our marketing campaigns Analyze how customers use our website and applications Develop new services Know how many visitors have seen or clicked on our ads",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use cookies, analytics and other technologies to help: Evaluate our marketing campaigns Analyze how customers use our website and applications Develop new services Know how many visitors have seen or clicked on our ads",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information as long as necessary to comply with applicable laws, regulations, and contractual obligations, or as needed to provide you with services, resolve disputes, and enforce our agreements.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting cookies and tracking elements for personalization/customization purposes and specifies retention."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use cookies, analytics and other technologies to help: Evaluate our marketing campaigns Analyze how customers use our website and applications Develop new services Know how many visitors have seen or clicked on our ads",
+      "rationale": "The policy discloses collecting cookies and tracking elements for personalization/customization purposes and specifies retention.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "We use cookies, analytics and other technologies to help: Evaluate our marketing campaigns Analyze how customers use our website and applications Develop new services Know how many visitors have seen or clicked on our ads",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use cookies, analytics and other technologies to help: Evaluate our marketing campaigns Analyze how customers use our website and applications Develop new services Know how many visitors have seen or clicked on our ads",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information as long as necessary to comply with applicable laws, regulations, and contractual obligations, or as needed to provide you with services, resolve disputes, and enforce our agreements.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting cookies and tracking elements for personalization/customization purposes and specifies retention."
+      }
+     },
+     {
+      "candidate_id": "c9",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We gather personal information from you and from outside sources for business purposes.",
+      "rationale": "The policy discloses collecting contact information for analytics/research purposes and specifies retention.",
+      "raw": {
+       "candidate_id": "c9",
+       "disclosing_quote": "We gather personal information from you and from outside sources for business purposes.",
+       "denial_quote": "",
+       "generic_quote": "We gather personal information from you and from outside sources for business purposes.",
+       "purpose_quote": "We may provide your information to persons or organizations within and outside of Allstate. This would be done as required or permitted by law. For example, we may do this to: Fulfill a transaction you requested or service your policy Market our products Handle your claim Prevent fraud Comply with requests from regulatory and law enforcement authorities Participate in insurance support organizations Send you push notifications",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information as long as necessary to comply with applicable laws, regulations, and contractual obligations, or as needed to provide you with services, resolve disputes, and enforce our agreements.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact information for analytics/research purposes and specifies retention."
+      }
+     },
+     {
+      "candidate_id": "c10",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting contact information for analytics/research purposes and specifies retention.",
+      "raw": {
+       "candidate_id": "c10",
+       "disclosing_quote": "We gather personal information from you and from outside sources for business purposes.",
+       "denial_quote": "",
+       "generic_quote": "We gather personal information from you and from outside sources for business purposes.",
+       "purpose_quote": "We may provide your information to persons or organizations within and outside of Allstate. This would be done as required or permitted by law. For example, we may do this to: Fulfill a transaction you requested or service your policy Market our products Handle your claim Prevent fraud Comply with requests from regulatory and law enforcement authorities Participate in insurance support organizations Send you push notifications",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information as long as necessary to comply with applicable laws, regulations, and contractual obligations, or as needed to provide you with services, resolve disputes, and enforce our agreements.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact information for analytics/research purposes and specifies retention."
+      }
+     },
+     {
+      "candidate_id": "c11",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies retention for contact information for analytics/research purposes.",
+      "raw": {
+       "candidate_id": "c11",
+       "disclosing_quote": "We retain your information as long as necessary to comply with applicable laws, regulations, and contractual obligations, or as needed to provide you with services, resolve disputes, and enforce our agreements.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We may provide your information to persons or organizations within and outside of Allstate. This would be done as required or permitted by law. For example, we may do this to: Fulfill a transaction you requested or service your policy Market our products Handle your claim Prevent fraud Comply with requests from regulatory and law enforcement authorities Participate in insurance support organizations Send you push notifications",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We retain your information as long as necessary to comply with applicable laws, regulations, and contractual obligations, or as needed to provide you with services, resolve disputes, and enforce our agreements.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies retention for contact information for analytics/research purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9874227111043424
+   }
+  ],
+  "paragraphs_shown": [
+   47
+  ],
+  "paragraphs_total": 47,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 349.54
+ }
+}

@@ -1,0 +1,205 @@
+{
+ "case_id": "L1618_r4",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9448668876872248,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "[P6]",
+    "[P8]",
+    "[P26]",
+    "[P28]",
+    "[P29]",
+    "[P30]",
+    "[P31]",
+    "[P32]",
+    "[P33]",
+    "[P34]",
+    "[P35]",
+    "[P36]"
+   ],
+   "evidence": "In addition, MediaNews may share PIN, CIN and/or aggregate information with third parties such as advertisers and business partners.",
+   "rationale": "The policy mentions collecting IP addresses and computer identifying information, but does not specify a purpose for collecting these data types in a child-directed context.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9448668876872248,
+ "usage": {
+  "prompt": 3825,
+  "output": 443
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 37,
+  "untagged_paragraphs": 0,
+  "claims": 58,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P6]",
+       "[P8]",
+       "[P26]",
+       "[P28]",
+       "[P29]",
+       "[P30]",
+       "[P31]",
+       "[P32]",
+       "[P33]",
+       "[P34]",
+       "[P35]",
+       "[P36]"
+      ],
+      "evidence": "an IP address is your computer's location on the Internet.",
+      "rationale": "The policy mentions collecting IP addresses and computer identifying information, but does not specify a purpose for collecting these data types in a child-directed context.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "MediaNews uses web beacons provided by third-party advertising companies to help manage our online advertising.",
+       "denial_quote": "",
+       "generic_quote": "an IP address is your computer's location on the Internet.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "In addition, MediaNews may share PIN, CIN and/or aggregate information with third parties such as advertisers and business partners.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P6]",
+        "[P8]",
+        "[P26]",
+        "[P28]",
+        "[P29]",
+        "[P30]",
+        "[P31]",
+        "[P32]",
+        "[P33]",
+        "[P34]",
+        "[P35]",
+        "[P36]"
+       ],
+       "rationale": "The policy mentions collecting IP addresses and computer identifying information, but does not specify a purpose for collecting these data types in a child-directed context."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P6]",
+       "[P8]",
+       "[P26]",
+       "[P28]",
+       "[P29]",
+       "[P30]",
+       "[P31]",
+       "[P32]",
+       "[P33]",
+       "[P34]",
+       "[P35]",
+       "[P36]"
+      ],
+      "evidence": "In addition, MediaNews may share PIN, CIN and/or aggregate information with third parties such as advertisers and business partners.",
+      "rationale": "The policy mentions collecting IP addresses and computer identifying information, but does not specify a purpose for collecting these data types in a child-directed context.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "MediaNews uses web beacons provided by third-party advertising companies to help manage our online advertising.",
+       "denial_quote": "",
+       "generic_quote": "an IP address is your computer's location on the Internet.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "In addition, MediaNews may share PIN, CIN and/or aggregate information with third parties such as advertisers and business partners.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P6]",
+        "[P8]",
+        "[P26]",
+        "[P28]",
+        "[P29]",
+        "[P30]",
+        "[P31]",
+        "[P32]",
+        "[P33]",
+        "[P34]",
+        "[P35]",
+        "[P36]"
+       ],
+       "rationale": "The policy mentions collecting IP addresses and computer identifying information, but does not specify a purpose for collecting these data types in a child-directed context."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9448668876872248
+   }
+  ],
+  "paragraphs_shown": [
+   37
+  ],
+  "paragraphs_total": 37,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 53.23
+ }
+}
