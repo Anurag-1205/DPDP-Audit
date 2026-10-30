@@ -85,3 +85,15 @@ def test_self_consistency_keeps_findings_of_most_seeds():
             {"findings": [f("Contact", "undisclosed_collection", "omission", "c")]}]
     got = majority_findings(runs)
     assert len(got) == 1 and got[0]["level"] == "omission" and got[0]["evidence"] == "b" and got[0]["votes"] == 3
+
+
+def test_robust_reviewer_reader_keeps_complete_answers():
+    from dpdp_audit.pipeline.reviewers import parse_reply_robust
+    cut = '{"action": "final", "answers": [{"candidate_id": "c1", "x": "a\\\'b"}, {"candidate_id": "c2"}, {"candidate_id": "c3", "disc'
+    reply, mode = parse_reply_robust(cut)
+    assert mode == "salvaged" and [a["candidate_id"] for a in reply["answers"]] == ["c1", "c2"]
+    two = '{"action": "final", "answers": [{"candidate_id": "c1"}]}\n{"action": "final", "answers": [{"candidate_id": "c2"}]}'
+    assert [a["candidate_id"] for a in parse_reply_robust(two)[0]["answers"]] == ["c1", "c2"]
+    assert parse_reply_robust('{"action": "final", "answers": []}')[1] == "json"
+    with pytest.raises(ValueError):
+        parse_reply_robust("I cannot answer.")

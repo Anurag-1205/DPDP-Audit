@@ -92,6 +92,8 @@ def run_case(case: dict, llm, seed: int, cfg: Config, claims_index: dict[str, di
                         for r in reviews],
             **({"paragraphs_shown": [r.get("paragraphs_shown") for r in reviews],
                 "paragraphs_total": len(paras)} if cfg.whole_policy else {}),
+            **({"reviewer_parse": [r.get("parse_mode") for r in reviews],
+                "reviewer_raw": [r.get("raw") for r in reviews]} if cfg.robust_reviewer else {}),
             "tool_calls": tool_calls,
             "tool_calls_valid": sum(1 for t in tool_calls if t["valid"]),
             "undecided": agg["undecided"], "unknown_decisions": agg["unknown_decisions"],

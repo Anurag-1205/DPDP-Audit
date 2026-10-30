@@ -32,6 +32,7 @@ class Config:
     whole_policy: bool = False       # B5: the reviewer reads the whole policy, not the linked paragraphs
     single_call: bool = False        # B5: one generalist call for all candidates (aggregator rules kept)
     reviewer_max_tokens: int = 2048
+    robust_reviewer: bool = False    # B5: keep the complete answers of a cut-off or malformed reply
 
 
 # Until the fine-tuned tagger passes SPEC-05, "full" uses the prompted tagger (the A4 setting);
@@ -76,8 +77,12 @@ for _c in (V2_GATE, V2_READ, V2_PURPOSE, V2_BATCH, FULL_V2, FULL_V2_FINETUNED, *
 #     No tools and no DPDP retrieval (A2 showed retrieval does not help), robust verifier reader.
 R0 = replace(FULL_V2_FINETUNED, name="R0", review=False, verifier=False)
 R0_PROMPTED = replace(R0, name="R0_prompted", tagger="prompted")
-B5 = replace(FULL_V2, name="B5", finder_filter=False, whole_policy=True, single_call=True, review_batch=0, max_tool_calls=0,
-             retrieval=False, reviewer_max_tokens=3072, robust_verifier=True, verifier_max_tokens=4096)
+# B5 on the dev splits (30 Oct): 12 of 102 replies were unreadable, 9 of them cut at 3,072 output
+# tokens, which left their candidates undecided; B5 now gets 4,096 tokens (the longest prompt is
+# about 7k tokens of the 12,288) and the robust reader, before any run on main or the ladder.
+B5 = replace(FULL_V2, name="B5", finder_filter=False, whole_policy=True, single_call=True, review_batch=0,
+             max_tool_calls=0, retrieval=False, reviewer_max_tokens=4096, robust_reviewer=True,
+             robust_verifier=True, verifier_max_tokens=4096)
 for _c in (R0, R0_PROMPTED, B5):
     CONFIGS[_c.name] = _c
 

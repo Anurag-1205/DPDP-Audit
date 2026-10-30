@@ -74,6 +74,43 @@ GENERALIST = {"title": "generalist", "gaps": list(EVIDENCE),
 TOOL_RESULT_CHARS = 2500
 
 
+_BAD_ESCAPE = re.compile(r'\\(?!["\\/bfnrtu])')
+
+
+def parse_reply_robust(text: str) -> tuple[dict, str]:
+    """B5: read a reviewer reply, and if it is cut off or malformed keep every complete answer.
+
+    Returns (reply, mode): "json", "repaired" (invalid escapes removed) or "salvaged" (the complete
+    objects of the "answers" array, read one by one up to the first broken one). Raises ValueError
+    if nothing can be read.
+    """
+    for mode, t in (("json", text), ("repaired", _BAD_ESCAPE.sub("", text or ""))):
+        try:
+            reply = parse_json(t)
+            if isinstance(reply, dict):
+                return reply, mode
+        except ValueError:
+            pass
+    t = _BAD_ESCAPE.sub("", text or "")
+    dec, answers = json.JSONDecoder(), []
+    for m in re.finditer(r'"answers"\s*:\s*\[', t):   # every answers array (a reply may hold several objects)
+        i = m.end()
+        while True:
+            while i < len(t) and t[i] in " \t\r\n,":
+                i += 1
+            if i >= len(t) or t[i] != "{":
+                break
+            try:
+                obj, i = dec.raw_decode(t, i)
+            except json.JSONDecodeError:
+                break
+            if isinstance(obj, dict):
+                answers.append(obj)
+    if not answers:
+        raise ValueError(f"no complete answer in reply: {t[:200]!r}")
+    return {"action": "final", "answers": answers}, "salvaged"
+
+
 def role_for(name: str) -> dict:
     return GENERALIST if name == "generalist" else ROLES[name]
 
@@ -227,9 +264,16 @@ def review(role_name: str, candidates: list[dict], paragraphs: dict[int, str], f
         for k in usage:
             usage[k] += (resp.usage or {}).get(k, 0) or 0
         try:
-            reply = parse_json(resp.text)
+            if cfg.robust_reviewer:
+                reply, result["parse_mode"] = parse_reply_robust(resp.text)
+                if result["parse_mode"] != "json":
+                    result["raw"] = resp.text
+            else:
+                reply = parse_json(resp.text)
         except ValueError as exc:
             result["parse_error"] = str(exc)[:300]
+            if cfg.robust_reviewer:
+                result["raw"] = resp.text
             break
         if not isinstance(reply, dict):
             result["parse_error"] = "reply is not a JSON object"
