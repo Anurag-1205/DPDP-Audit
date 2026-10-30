@@ -8,7 +8,7 @@ look at any system's output (PoliCheck, B2, our pipeline) before the labels are 
 
 | | |
 |---|---|
-| **Labellers** | Anurag Kaushal and Ishaan Giri (plan WP-4.2) |
+| **Labellers** | Naveen Mishra and Anurag Kaushal |
 | **Time** | about 20 minutes for the practice round, about 2.5 to 3 hours for the 61 flows |
 | **Due** | 7 Nov (settled labels) |
 
@@ -34,8 +34,8 @@ look at any system's output (PoliCheck, B2, our pipeline) before the labels are 
    discuss flows until both of you have finished.
 4. **Merge and settle together** (one person runs these after both have pushed their sheets):
    ```bash
-   PYTHONPATH=src python3 scripts/real_flow_labels.py merge anurag ishaan          # agreement, kappa
-   PYTHONPATH=src python3 scripts/real_flow_labels.py disagreements anurag ishaan  # disagreements.csv
+   PYTHONPATH=src python3 scripts/real_flow_labels.py merge naveen anurag          # agreement, kappa
+   PYTHONPATH=src python3 scripts/real_flow_labels.py disagreements naveen anurag  # disagreements.csv
    ```
    Sit together, re-read each disagreement, and fill `agreed` and a short `reason` in
    `data/real_flows/disagreements.csv`. Then run `settle` and `keys`.

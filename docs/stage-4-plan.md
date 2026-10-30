@@ -13,7 +13,7 @@
 | Part | Spec | Owner (plan §5) | Output |
 |---|---|---|---|
 | A. Real-flow sample | SPEC-08, AC-08.1 | Anurag | `data/real_flows/sample.csv`, archived policies |
-| B. Real-flow labels | AC-08.2 | Anurag + Ishaan | two independent label sheets, κ, settled labels |
+| B. Real-flow labels | AC-08.2 | Naveen + Anurag | two independent label sheets, κ, settled labels |
 | C. Real-flow runs and scores | AC-08.3, AC-02.9 | Ishaan | `results/runs/real_flows/`, `results/scores/real_flows.json` |
 | D. Open-source case study | AC-08.4 | Naveen | `data/case_study/`, hand-checked findings |
 | E. Selective accuracy | SPEC-07 | Nikhil | `results/scores/selective_{main,ladder}.json`, `results/figures/` |
