@@ -1,0 +1,155 @@
+{
+ "case_id": "L98_r3",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not disclose sharing of IP addresses with specific recipients, nor does it specify any purpose for collecting IP addresses.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9621978317644385,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9621978317644385,
+ "usage": {
+  "prompt": 2737,
+  "output": 395
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 36,
+  "untagged_paragraphs": 0,
+  "claims": 82,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not disclose sharing of IP addresses with specific recipients, nor does it specify any purpose for collecting IP addresses.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We may share information with our partners.",
+       "generic_quote": "We may share information with our partners. Additionally, when users request pages on our Online Services, our servers automatically log the IP address of the particular user. The IP address is a unique number assigned to your computer in order to identify it whenever you are surfing the web.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "The IP address is a unique number assigned to your computer in order to identify it whenever you are surfing the web.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose sharing of IP addresses with specific recipients, nor does it specify any purpose for collecting IP addresses."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The IP address is a unique number assigned to your computer in order to identify it whenever you are surfing the web.",
+      "rationale": "The policy does not specify any purpose for collecting IP addresses, only that they are logged for identification.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We may share information with our partners.",
+       "generic_quote": "We may share information with our partners. Additionally, when users request pages on our Online Services, our servers automatically log the IP address of the particular user. The IP address is a unique number assigned to your computer in order to identify it whenever you are surfing the web.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "The IP address is a unique number assigned to your computer in order to identify it whenever you are surfing the web.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify any purpose for collecting IP addresses, only that they are logged for identification."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9621978317644385
+   }
+  ],
+  "paragraphs_shown": [
+   36
+  ],
+  "paragraphs_total": 36,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 50.39
+ }
+}

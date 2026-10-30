@@ -34,16 +34,17 @@ T_START = time.time()
 # Robust verifier (28 Oct): the frozen reader could not read 15-40% of the verifier's replies and
 # kept those findings unchecked. "reverify" re-runs only the verifier on saved runs (-> <system>_rv).
 DEV_SYSTEMS = ["full", "v2_gate", "v2_read", "v2_purpose", "v2_batch"]
-# WP-3.3 extension (29 Oct): v2 ablations on seeds 1-2 of main (seed 0 ran on 27 Oct), re-verified
-# with the robust reader (A1_v2 has no verifier), and A2_v2 / A3_v2 on the ladder, seeds 0-2. A1 is
-# not run on the ladder (its flow labels equal the full system's: the verifier does not change
-# labels); A5 is not applied to the ladder (AC-04.12).
-# Earlier: ladder seeds 1-2 of the four pipelines (AC-04.11), 29 Oct.
-V2_ABLATIONS = ["A1_v2", "A2_v2", "A3_v2", "A5_v2"]
+# Baseline B5 (30 Oct, docs/evaluation.md): one call, evidence first. The dev splits first; the
+# configuration was changed once on dev (4,096 output tokens and the robust reader, after 12 of 102
+# replies were unreadable) and is frozen now. Main and the ladder run only if the dev replies pass
+# the gate (at most 3% unreadable, no failed call; reply quality only, no scores).
+# Earlier: v2 ablations on seeds 1-2 and on the ladder; ladder seeds 1-2 (29 Oct).
 JOBS = [
-    {"phase": "runs", "split": "main", "configs": V2_ABLATIONS, "seeds": [1, 2]},
-    {"phase": "reverify", "split": "main", "systems": ["A2_v2", "A3_v2", "A5_v2"], "seeds": [1, 2]},
-    {"phase": "runs", "split": "ladder", "configs": ["A2_v2", "A3_v2"], "seeds": [0, 1, 2]},
+    {"phase": "runs", "split": "dev", "configs": ["B5"], "seeds": [0]},
+    {"phase": "runs", "split": "dev2", "configs": ["B5"], "seeds": [0]},
+    {"phase": "gate", "system": "B5", "splits": ["dev", "dev2"], "max_unreadable": 0.03},
+    {"phase": "runs", "split": "main", "configs": ["B5"], "seeds": [0, 1, 2]},
+    {"phase": "runs", "split": "ladder", "configs": ["B5"], "seeds": [0, 1, 2]},
 ]
 
 
@@ -189,6 +190,9 @@ def run():
                                   f"--split {job['split']} --workers 8 --shard {g}/2 --redo-failed "
                                   f"--deadline-min {remaining_min():.0f} "
                                   f"| tee outputs/logs/runs_{job['split']}_shard{g}.log", MODEL)
+            elif phase == "gate":   # stops the remaining jobs if the check fails
+                sh(f"cd {REPO} && {py} scripts/check_replies.py --system {job['system']} "
+                   f"--splits {' '.join(job['splits'])} --max-unreadable {job['max_unreadable']}")
             elif phase == "reverify":
                 servers.start(MODEL)
                 systems, seeds = " ".join(job["systems"]), " ".join(map(str, job["seeds"]))

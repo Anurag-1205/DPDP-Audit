@@ -1,0 +1,79 @@
+{
+ "case_id": "676_control",
+ "system": "B2_sc",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "findings": [
+  {
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 6"
+   ],
+   "evidence": "The policy does not specify retention periods, but the application retains this data indefinitely.",
+   "votes": 2
+  },
+  {
+   "flow_id": "f2",
+   "data_type": "Computer information",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 6"
+   ],
+   "evidence": "The policy does not specify retention periods, but the application retains this data indefinitely.",
+   "votes": 2
+  },
+  {
+   "flow_id": "f3",
+   "data_type": "User online activities",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 4(1)",
+    "Sec. 5(1)",
+    "Rule 6"
+   ],
+   "evidence": "The policy states the purpose is 'Analytics/Research', but the application uses this data for 'Service Operation and Security'.",
+   "votes": 2
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 1.0
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 1.0
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 1.0
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.3333333333333333
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": 0.3333333333333333
+  }
+ },
+ "token_prob": 0.9677474628694483,
+ "usage": {
+  "prompt": 9324,
+  "output": 1286
+ },
+ "parse_error": null,
+ "self_consistency_of": "B2",
+ "seeds": [
+  0,
+  1,
+  2
+ ]
+}

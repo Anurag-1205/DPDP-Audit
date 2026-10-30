@@ -1,0 +1,672 @@
+{
+ "case_id": "1510_v2",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 10",
+    "Sec. 12",
+    "Sec. 13",
+    "Sec. 14"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specifically mention collecting contact details.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy does not specifically mention collecting contact details, but the finding does not provide any evidence of the app's actual practices. Therefore, the finding cannot be supported as it lacks evidence of the app's practice."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 11",
+    "Sec. 15"
+   ],
+   "evidence": "",
+   "rationale": "The policy only mentions generic logging of IP addresses.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "merged_flows": [
+    "f2",
+    "f6"
+   ],
+   "evidence_removed": false,
+   "verifier_reason": "The policy only mentions generic logging of IP addresses, which does not justify a purpose mismatch. The finding does not provide evidence of the app's actual practices related to IP addresses and device IDs. Therefore, the finding cannot be supported."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 17",
+    "Sec. 18"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention collecting location data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy does not mention collecting location data, but the finding does not provide any evidence of the app's actual practices. Therefore, the finding cannot be supported as it lacks evidence of the app's practice."
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 15",
+    "Sec. 16"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses sharing cookies and tracking elements with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c9",
+   "flow_id": "f5",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 17",
+    "Sec. 18"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention collecting demographic data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c13",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 11",
+    "Sec. 15"
+   ],
+   "evidence": "",
+   "rationale": "The policy only mentions generic logging of IP addresses.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9710588071655218,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9710588071655218,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9710588071655218,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9710588071655218,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "omitted",
+   "confidence": 0.9710588071655218,
+   "source": "notice"
+  },
+  "f6": {
+   "label": "clear",
+   "confidence": 0.9710588071655218,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9710588071655218,
+ "usage": {
+  "prompt": 7049,
+  "output": 1528
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 44,
+  "untagged_paragraphs": 0,
+  "claims": 107,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c10",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c11",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c12",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c13",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 10",
+       "Sec. 12",
+       "Sec. 13",
+       "Sec. 14"
+      ],
+      "evidence": "JibJab collects user submitted information including but not limited to name, email address, and age to authenticate users and to send notifications to those users relating to the JibJab Sites and JibJab Services.",
+      "rationale": "The policy does not specifically mention collecting contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "By submitting personal information on any of the JibJab Sites or through any of the JibJab Services, you affirmatively consent to this Privacy Policy and agree to have such personal information (to the extent disclosed by you either directly to JibJab or via third-party sign on services) collected by JibJab (or its agents or contractors) and transferred to and processed in the United States.",
+       "generic_quote": "JibJab collects user submitted information including but not limited to name, email address, and age to authenticate users and to send notifications to those users relating to the JibJab Sites and JibJab Services.",
+       "sections": [
+        "Sec. 10",
+        "Sec. 12",
+        "Sec. 13",
+        "Sec. 14"
+       ],
+       "rationale": "The policy does not specifically mention collecting contact details."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 10",
+       "Sec. 12",
+       "Sec. 13",
+       "Sec. 14"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specifically mention collecting contact details.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "By submitting personal information on any of the JibJab Sites or through any of the JibJab Services, you affirmatively consent to this Privacy Policy and agree to have such personal information (to the extent disclosed by you either directly to JibJab or via third-party sign on services) collected by JibJab (or its agents or contractors) and transferred to and processed in the United States.",
+       "generic_quote": "JibJab collects user submitted information including but not limited to name, email address, and age to authenticate users and to send notifications to those users relating to the JibJab Sites and JibJab Services.",
+       "sections": [
+        "Sec. 10",
+        "Sec. 12",
+        "Sec. 13",
+        "Sec. 14"
+       ],
+       "rationale": "The policy does not specifically mention collecting contact details."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 11",
+       "Sec. 15"
+      ],
+      "evidence": "JibJab also logs non-personally-identifiable information such as IP address, aggregate user data, and browser type, from users and visitors to the site.",
+      "rationale": "The policy discloses collecting IP addresses.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "JibJab also logs non-personally-identifiable information such as IP address, aggregate user data, and browser type, from users and visitors to the site.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 11",
+        "Sec. 15"
+       ],
+       "rationale": "The policy discloses collecting IP addresses."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 11",
+       "Sec. 15"
+      ],
+      "evidence": "",
+      "rationale": "The policy only mentions generic logging of IP addresses.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "JibJab also logs non-personally-identifiable information such as IP address, aggregate user data, and browser type, from users and visitors to the site.",
+       "sections": [
+        "Sec. 11",
+        "Sec. 15"
+       ],
+       "rationale": "The policy only mentions generic logging of IP addresses."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 17",
+       "Sec. 18"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention collecting location data.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 17",
+        "Sec. 18"
+       ],
+       "rationale": "The policy does not mention collecting location data."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 17",
+       "Sec. 18"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention collecting location data.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 17",
+        "Sec. 18"
+       ],
+       "rationale": "The policy does not mention collecting location data."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 15",
+       "Sec. 16"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses sharing cookies and tracking elements with Google AdMob.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "JibJab also utilizes 'Google Analytics' to track usage and improve the website services. This data is used to manage the website, track usage and improve the website services. This non-personally-identifiable information may be shared with third-parties to provide more relevant services and advertisements to users.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 15",
+        "Sec. 16"
+       ],
+       "rationale": "The policy discloses sharing cookies and tracking elements with Google AdMob."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 15",
+       "Sec. 16"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention collecting cookies and tracking elements for advertising purposes.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 15",
+        "Sec. 16"
+       ],
+       "rationale": "The policy does not mention collecting cookies and tracking elements for advertising purposes."
+      }
+     },
+     {
+      "candidate_id": "c9",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 17",
+       "Sec. 18"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention collecting demographic data.",
+      "raw": {
+       "candidate_id": "c9",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 17",
+        "Sec. 18"
+       ],
+       "rationale": "The policy does not mention collecting demographic data."
+      }
+     },
+     {
+      "candidate_id": "c10",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 17",
+       "Sec. 18"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention collecting demographic data.",
+      "raw": {
+       "candidate_id": "c10",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 17",
+        "Sec. 18"
+       ],
+       "rationale": "The policy does not mention collecting demographic data."
+      }
+     },
+     {
+      "candidate_id": "c11",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 11",
+       "Sec. 15"
+      ],
+      "evidence": "JibJab also logs non-personally-identifiable information such as IP address, aggregate user data, and browser type, from users and visitors to the site.",
+      "rationale": "The policy discloses collecting IP addresses.",
+      "raw": {
+       "candidate_id": "c11",
+       "disclosing_quote": "JibJab also logs non-personally-identifiable information such as IP address, aggregate user data, and browser type, from users and visitors to the site.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 11",
+        "Sec. 15"
+       ],
+       "rationale": "The policy discloses collecting IP addresses."
+      }
+     },
+     {
+      "candidate_id": "c12",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 11",
+       "Sec. 15"
+      ],
+      "evidence": "",
+      "rationale": "The policy only mentions generic logging of IP addresses.",
+      "raw": {
+       "candidate_id": "c12",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 11",
+        "Sec. 15"
+       ],
+       "rationale": "The policy only mentions generic logging of IP addresses."
+      }
+     },
+     {
+      "candidate_id": "c13",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 11",
+       "Sec. 15"
+      ],
+      "evidence": "",
+      "rationale": "The policy only mentions generic logging of IP addresses.",
+      "raw": {
+       "candidate_id": "c13",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 11",
+        "Sec. 15"
+       ],
+       "rationale": "The policy only mentions generic logging of IP addresses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9710588071655218
+   }
+  ],
+  "paragraphs_shown": [
+   38
+  ],
+  "paragraphs_total": 44,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 137.0
+ }
+}

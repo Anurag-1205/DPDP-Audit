@@ -1,0 +1,190 @@
+{
+ "case_id": "L642_r4",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9690212964451053,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "[P5]",
+    "[P6]",
+    "[P7]",
+    "[P8]",
+    "[P9]",
+    "[P10]",
+    "[P11]",
+    "[P12]",
+    "[P13]"
+   ],
+   "evidence": "When you visit our sites, our computers may automatically collect statistics about your visit. This information does not identify you personally, but rather about your visit to our sites. We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use. We use these statistics about your visit for aggregation purposes only.",
+   "rationale": "The policy states that IP addresses are collected for statistics and aggregation purposes, which aligns with the 'Analytics/Research' purpose.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9690212964451053,
+ "usage": {
+  "prompt": 1797,
+  "output": 659
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 14,
+  "untagged_paragraphs": 0,
+  "claims": 37,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P5]",
+       "[P6]",
+       "[P7]",
+       "[P8]",
+       "[P9]",
+       "[P10]",
+       "[P11]",
+       "[P12]",
+       "[P13]"
+      ],
+      "evidence": "When you visit our sites, our computers may automatically collect statistics about your visit. This information does not identify you personally, but rather about your visit to our sites. We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use. We use these statistics about your visit for aggregation purposes only.",
+      "rationale": "The policy states that IP addresses are collected for statistics and aggregation purposes, which aligns with the 'Analytics/Research' purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you visit our sites, our computers may automatically collect statistics about your visit. This information does not identify you personally, but rather about your visit to our sites. We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use. We use these statistics about your visit for aggregation purposes only.",
+       "denial_quote": "",
+       "generic_quote": "When you visit our sites, our computers may automatically collect statistics about your visit. This information does not identify you personally, but rather about your visit to our sites. We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use. We use these statistics about your visit for aggregation purposes only.",
+       "purpose_quote": "We use these statistics about your visit for aggregation purposes only.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P5]",
+        "[P6]",
+        "[P7]",
+        "[P8]",
+        "[P9]",
+        "[P10]",
+        "[P11]",
+        "[P12]",
+        "[P13]"
+       ],
+       "rationale": "The policy states that IP addresses are collected for statistics and aggregation purposes, which aligns with the 'Analytics/Research' purpose."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P5]",
+       "[P6]",
+       "[P7]",
+       "[P8]",
+       "[P9]",
+       "[P10]",
+       "[P11]",
+       "[P12]",
+       "[P13]"
+      ],
+      "evidence": "We use these statistics about your visit for aggregation purposes only.",
+      "rationale": "The policy clearly states the purpose for collecting IP addresses and device IDs, which is for statistical and aggregation purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "When you visit our sites, our computers may automatically collect statistics about your visit. This information does not identify you personally, but rather about your visit to our sites. We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use. We use these statistics about your visit for aggregation purposes only.",
+       "denial_quote": "",
+       "generic_quote": "When you visit our sites, our computers may automatically collect statistics about your visit. This information does not identify you personally, but rather about your visit to our sites. We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use. We use these statistics about your visit for aggregation purposes only.",
+       "purpose_quote": "We use these statistics about your visit for aggregation purposes only.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P5]",
+        "[P6]",
+        "[P7]",
+        "[P8]",
+        "[P9]",
+        "[P10]",
+        "[P11]",
+        "[P12]",
+        "[P13]"
+       ],
+       "rationale": "The policy clearly states the purpose for collecting IP addresses and device IDs, which is for statistical and aggregation purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9690212964451053
+   }
+  ],
+  "paragraphs_shown": [
+   14
+  ],
+  "paragraphs_total": 14,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 77.11
+ }
+}

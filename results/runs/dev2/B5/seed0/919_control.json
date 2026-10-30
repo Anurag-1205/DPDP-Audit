@@ -1,0 +1,320 @@
+{
+ "case_id": "919_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9762826713527947,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9762826713527947,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9762826713527947,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "[P5]"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions using log analysis tools but does not specify the exact data types used for analytics/research.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "User profile",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [],
+   "evidence": "",
+   "rationale": "The policy does not mention collecting or using user profile information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9762826713527947,
+ "usage": {
+  "prompt": 1342,
+  "output": 859
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 7,
+  "untagged_paragraphs": 0,
+  "claims": 12,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P1]",
+       "[P2]"
+      ],
+      "evidence": "However, the following applications do use cookies to store user login information which is intended to make the application more user-friendly:",
+      "rationale": "The policy explicitly states that cookies are used for a basic service/feature.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "However, the following applications do use cookies to store user login information which is intended to make the application more user-friendly:",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "which is intended to make the application more user-friendly",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P1]",
+        "[P2]"
+       ],
+       "rationale": "The policy explicitly states that cookies are used for a basic service/feature."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P1]",
+       "[P2]"
+      ],
+      "evidence": "which is intended to make the application more user-friendly",
+      "rationale": "The policy explicitly states that cookies are used for a basic service/feature.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "However, the following applications do use cookies to store user login information which is intended to make the application more user-friendly:",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "which is intended to make the application more user-friendly",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P1]",
+        "[P2]"
+       ],
+       "rationale": "The policy explicitly states that cookies are used for a basic service/feature."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P5]"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using log analysis tools but does not specify the exact data types used for analytics/research.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We use log analysis tools to create summary statistics, which are used for purposes such as assessing what information is of most interest, determining technical design specifications, and identifying system performance or problem areas.",
+       "generic_quote": "",
+       "purpose_quote": "We use log analysis tools to create summary statistics, which are used for purposes such as assessing what information is of most interest, determining technical design specifications, and identifying system performance or problem areas.",
+       "unspecified_purpose_quote": "We use log analysis tools to create summary statistics, which are used for purposes such as assessing what information is of most interest, determining technical design specifications, and identifying system performance or problem areas.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P5]"
+       ],
+       "rationale": "The policy mentions using log analysis tools but does not specify the exact data types used for analytics/research."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P5]"
+      ],
+      "evidence": "We use log analysis tools to create summary statistics, which are used for purposes such as assessing what information is of most interest, determining technical design specifications, and identifying system performance or problem areas.",
+      "rationale": "The policy mentions using log analysis tools but does not specify the exact data types used for analytics/research.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "We use log analysis tools to create summary statistics, which are used for purposes such as assessing what information is of most interest, determining technical design specifications, and identifying system performance or problem areas.",
+       "generic_quote": "",
+       "purpose_quote": "We use log analysis tools to create summary statistics, which are used for purposes such as assessing what information is of most interest, determining technical design specifications, and identifying system performance or problem areas.",
+       "unspecified_purpose_quote": "We use log analysis tools to create summary statistics, which are used for purposes such as assessing what information is of most interest, determining technical design specifications, and identifying system performance or problem areas.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P5]"
+       ],
+       "rationale": "The policy mentions using log analysis tools but does not specify the exact data types used for analytics/research."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [],
+      "evidence": "",
+      "rationale": "The policy does not mention collecting or using user profile information.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [],
+       "rationale": "The policy does not mention collecting or using user profile information."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [],
+      "evidence": "",
+      "rationale": "The policy does not mention collecting or using user profile information.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [],
+       "rationale": "The policy does not mention collecting or using user profile information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9762826713527947
+   }
+  ],
+  "paragraphs_shown": [
+   7
+  ],
+  "paragraphs_total": 7,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 56.19
+ }
+}

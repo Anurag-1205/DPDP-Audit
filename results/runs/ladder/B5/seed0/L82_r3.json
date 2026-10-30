@@ -1,0 +1,163 @@
+{
+ "case_id": "L82_r3",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Company may share your personally identifiable information or information about your computer, mobile or other device with our affiliates and third parties solely for the purpose of providing services to you.",
+   "rationale": "The policy does not mention collecting location data, and there is no specific purpose stated for it.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions sharing 'personally identifiable information or information about your computer, mobile or other device' but does not specify the types of data collected. However, the finding is based on the absence of a mention of 'location data' and the lack of a specific purpose for "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9624865318840743,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9624865318840743,
+ "usage": {
+  "prompt": 4989,
+  "output": 538
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 39,
+  "untagged_paragraphs": 0,
+  "claims": 88,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Company may share your personally identifiable information or information about your computer, mobile or other device with our affiliates and third parties solely for the purpose of providing services to you.",
+      "rationale": "The policy does not mention collecting location data, and there is no specific purpose stated for it.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "We do not provide any personally identifiable information to these third-party ad servers or ad networks without your consent.",
+       "generic_quote": "We may share your personally identifiable information or information about your computer, mobile or other device with our affiliates and third parties solely for the purpose of providing services to you.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention collecting location data, and there is no specific purpose stated for it."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "Similar to c1, the policy does not specify a purpose for location data and does not mention collecting it.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "We do not provide any personally identifiable information to these third-party ad servers or ad networks without your consent.",
+       "generic_quote": "We may share your personally identifiable information or information about your computer, mobile or other device with our affiliates and third parties solely for the purpose of providing services to you.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "Similar to c1, the policy does not specify a purpose for location data and does not mention collecting it."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9624865318840743
+   }
+  ],
+  "paragraphs_shown": [
+   39
+  ],
+  "paragraphs_total": 39,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 55.85
+ }
+}

@@ -1,0 +1,680 @@
+{
+ "case_id": "1582_v1",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9807567363849269,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9807567363849269,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9807567363849269,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9807567363849269,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9807567363849269,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "[P4]",
+    "[P6]"
+   ],
+   "evidence": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+   "rationale": "The policy specifies limited retention periods for IP addresses and cookies.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "[P5]"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for location data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "[P2]",
+    "[P6]"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses that cookies are used for operating services and providing a more relevant search experience, and specifies limited retention periods for IP addresses and cookies.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "[P29]"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions using demographic information from Microsoft accounts indefinitely.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c9",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "[P29]"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions using demographic information from Microsoft accounts indefinitely.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c10",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "[P4]",
+    "[P6]"
+   ],
+   "evidence": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+   "rationale": "The policy denies collecting contact details and specifies limited retention periods for IP addresses and cookies.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c12",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "retention_mismatch",
+   "level": "explicit",
+   "sections": [
+    "[P4]",
+    "[P6]"
+   ],
+   "evidence": "We remove the entirety of the IP address after 6 months, cookies and other cross session identifiers, after 18 months.",
+   "rationale": "The policy denies collecting contact details and specifies limited retention periods for IP addresses and cookies.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9807567363849269,
+ "usage": {
+  "prompt": 3664,
+  "output": 2187
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 89,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c10",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c11",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c12",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P4]",
+       "[P6]"
+      ],
+      "evidence": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+      "rationale": "The policy specifies limited retention periods for IP addresses and cookies.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "generic_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "retention_quote": "We store search terms (and the cookie IDs associated with search terms) separately from any account information that directly identifies the user, such as name, e-mail address, or phone numbers. We have technological safeguards in place designed to prevent the unauthorized correlation of this data and we remove the entirety of the IP address after 6 months, cookies and other cross session identifiers, after 18 months.",
+       "retention": "limited",
+       "sections": [
+        "[P4]",
+        "[P6]"
+       ],
+       "rationale": "The policy specifies limited retention periods for IP addresses and cookies."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P6]"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies limited retention periods for IP addresses and cookies.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "retention_quote": "We store search terms (and the cookie IDs associated with search terms) separately from any account information that directly identifies the user, such as name, e-mail address, or phone numbers. We have technological safeguards in place designed to prevent the unauthorized correlation of this data and we remove the entirety of the IP address after 6 months, cookies and other cross session identifiers, after 18 months.",
+       "retention": "limited",
+       "sections": [
+        "[P6]"
+       ],
+       "rationale": "The policy specifies limited retention periods for IP addresses and cookies."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P5]"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for location data.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "retention_quote": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+       "retention": "unspecified",
+       "sections": [
+        "[P5]"
+       ],
+       "rationale": "The policy does not specify a retention period for location data."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P5]"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for location data.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "retention_quote": "When you conduct a search, Microsoft collects the following: Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+       "retention": "unspecified",
+       "sections": [
+        "[P5]"
+       ],
+       "rationale": "The policy does not specify a retention period for location data."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P2]",
+       "[P6]"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses that cookies are used for operating services and providing a more relevant search experience, and specifies limited retention periods for IP addresses and cookies.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "When you use Bing and MSN services, we will place one or more 'cookies' on your machine. For example, Bing uses a cookie with a unique identifier known as the Search ID to operate the service and enable certain search features. If you sign into Bing or other Microsoft services using a Microsoft account, we will set or read one or more additional cookies.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use these cookies to operate Bing and MSN services and provide you a more relevant search experience.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We remove the entirety of the IP address after 6 months, cookies and other cross session identifiers, after 18 months.",
+       "retention": "limited",
+       "sections": [
+        "[P2]",
+        "[P6]"
+       ],
+       "rationale": "The policy discloses that cookies are used for operating services and providing a more relevant search experience, and specifies limited retention periods for IP addresses and cookies."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P2]",
+       "[P6]"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses that cookies are used for operating services and providing a more relevant search experience, and specifies limited retention periods for IP addresses and cookies.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We use these cookies to operate Bing and MSN services and provide you a more relevant search experience.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use and protect this information as described in the Collecting Your Information section of this statement.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We remove the entirety of the IP address after 6 months, cookies and other cross session identifiers, after 18 months.",
+       "retention": "limited",
+       "sections": [
+        "[P2]",
+        "[P6]"
+       ],
+       "rationale": "The policy discloses that cookies are used for operating services and providing a more relevant search experience, and specifies limited retention periods for IP addresses and cookies."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P29]"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using demographic information from Microsoft accounts indefinitely.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "retention_quote": "We use demographic information - gender, country, age and postal code but not your name or contact information - from your Microsoft account to provide personalized ads to you.",
+       "retention": "indefinitely",
+       "sections": [
+        "[P29]"
+       ],
+       "rationale": "The policy mentions using demographic information from Microsoft accounts indefinitely."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P29]"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using demographic information from Microsoft accounts indefinitely.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "retention_quote": "We use demographic information - gender, country, age and postal code but not your name or contact information - from your Microsoft account to provide personalized ads to you.",
+       "retention": "indefinitely",
+       "sections": [
+        "[P29]"
+       ],
+       "rationale": "The policy mentions using demographic information from Microsoft accounts indefinitely."
+      }
+     },
+     {
+      "candidate_id": "c9",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P29]"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using demographic information from Microsoft accounts indefinitely.",
+      "raw": {
+       "candidate_id": "c9",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "retention_quote": "We use demographic information - gender, country, age and postal code but not your name or contact information - from your Microsoft account to provide personalized ads to you.",
+       "retention": "indefinitely",
+       "sections": [
+        "[P29]"
+       ],
+       "rationale": "The policy mentions using demographic information from Microsoft accounts indefinitely."
+      }
+     },
+     {
+      "candidate_id": "c10",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P4]",
+       "[P6]"
+      ],
+      "evidence": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+      "rationale": "The policy denies collecting contact details and specifies limited retention periods for IP addresses and cookies.",
+      "raw": {
+       "candidate_id": "c10",
+       "disclosing_quote": "",
+       "denial_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "generic_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "retention_quote": "We remove the entirety of the IP address after 6 months, cookies and other cross session identifiers, after 18 months.",
+       "retention": "limited",
+       "sections": [
+        "[P4]",
+        "[P6]"
+       ],
+       "rationale": "The policy denies collecting contact details and specifies limited retention periods for IP addresses and cookies."
+      }
+     },
+     {
+      "candidate_id": "c11",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P4]",
+       "[P6]"
+      ],
+      "evidence": "",
+      "rationale": "The policy denies collecting contact details and specifies limited retention periods for IP addresses and cookies.",
+      "raw": {
+       "candidate_id": "c11",
+       "disclosing_quote": "",
+       "denial_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "generic_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "retention_quote": "We remove the entirety of the IP address after 6 months, cookies and other cross session identifiers, after 18 months.",
+       "retention": "limited",
+       "sections": [
+        "[P4]",
+        "[P6]"
+       ],
+       "rationale": "The policy denies collecting contact details and specifies limited retention periods for IP addresses and cookies."
+      }
+     },
+     {
+      "candidate_id": "c12",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "[P4]",
+       "[P6]"
+      ],
+      "evidence": "We remove the entirety of the IP address after 6 months, cookies and other cross session identifiers, after 18 months.",
+      "rationale": "The policy denies collecting contact details and specifies limited retention periods for IP addresses and cookies.",
+      "raw": {
+       "candidate_id": "c12",
+       "disclosing_quote": "",
+       "denial_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "generic_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "retention_quote": "We remove the entirety of the IP address after 6 months, cookies and other cross session identifiers, after 18 months.",
+       "retention": "limited",
+       "sections": [
+        "[P4]",
+        "[P6]"
+       ],
+       "rationale": "The policy denies collecting contact details and specifies limited retention periods for IP addresses and cookies."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9807567363849269
+   }
+  ],
+  "paragraphs_shown": [
+   32
+  ],
+  "paragraphs_total": 32,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 228.55
+ }
+}

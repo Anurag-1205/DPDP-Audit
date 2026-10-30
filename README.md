@@ -43,6 +43,8 @@ Gemini 3 Flash (mean of three seeds); one deterministic run for the tools.
 | B1 · one prompt, raw inputs | 0.182 | 0.971 | 0.325 |
 | B2 · one prompt, parsed facts + DPDP text | 0.181 | 0.745 | 0.894 |
 | B4 · B2's prompt, Gemini 3 Flash | 0.421 | 0.971 | 0.996 |
+| R0 · rules only (tagger + finder, no LLM) | 0.524 | 0.912 | 1.000 |
+| B5 · one call over the whole policy, evidence first | 0.557 | 0.255 | 0.350 |
 | DPDP-Audit v1 (frozen), prompted tagger | 0.186 | 0.235 | 1.000 |
 | DPDP-Audit v1 (frozen), QLoRA tagger | 0.168 | 0.275 | 1.000 |
 | **DPDP-Audit v2, prompted tagger** | 0.692 | 0.294 | **1.000** |
@@ -52,7 +54,8 @@ Pipeline rows use the fixed verifier reply reader (the frozen reader could not r
 replies and kept those findings unchecked; see the report, §4.2). With the same model and inputs, v1
 does not beat B2 on F1 but raises far fewer false alarms. v2, whose changes were chosen on development
 splits of training policies only, reaches F1 0.705 with the QLoRA tagger, significantly ahead of every
-baseline in every view (B2: +0.54 F1; B4: +0.31 F1, −0.77 false-alarm rate). Details, ablations and the ladder:
+baseline in every view (B2: +0.54 F1; B4: +0.31 F1, −0.77 false-alarm rate), and ahead of the
+baselines built from its own parts (R0 rules only; B5 one evidence-first call) by +0.13 F1 or more. Details, ablations and the ladder:
 [docs/mid-submission-report.md](docs/mid-submission-report.md) and [docs/pipeline.md](docs/pipeline.md#v2).
 
 ## Quick start

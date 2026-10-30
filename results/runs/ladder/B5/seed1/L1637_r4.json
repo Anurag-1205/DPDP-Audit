@@ -1,0 +1,154 @@
+{
+ "case_id": "L1637_r4",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Illini Media also uses Google Analytics that allows us to analyze data on our users' demographics (age, gender) and interests (affinity categories, other categories).",
+   "rationale": "The policy mentions using the data for refining advertising and content strategies, but does not explicitly state sharing with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.983896476371936,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.983896476371936,
+ "usage": {
+  "prompt": 1308,
+  "output": 439
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 12,
+  "untagged_paragraphs": 0,
+  "claims": 26,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Illini Media also uses Google Analytics that allows us to analyze data on our users' demographics (age, gender) and interests (affinity categories, other categories).",
+      "rationale": "The policy mentions using the data for refining advertising and content strategies, but does not explicitly state sharing with Google AdMob.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "This analysis enables us to track how our users engage over a date range, who our users are generally, and how their behavior varies by attribute (e.g., male vs. female). Illini Media may use this type of analysis to refine our advertising and content strategies.",
+       "generic_quote": "Illini Media also uses Google Analytics that allows us to analyze data on our users' demographics (age, gender) and interests (affinity categories, other categories).",
+       "purpose_quote": "Illini Media may use this type of analysis to refine our advertising and content strategies.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions using the data for refining advertising and content strategies, but does not explicitly state sharing with Google AdMob."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using the data for refining advertising and content strategies, but does not explicitly state sharing with Google AdMob.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "This analysis enables us to track how our users engage over a date range, who our users are generally, and how their behavior varies by attribute (e.g., male vs. female). Illini Media may use this type of analysis to refine our advertising and content strategies.",
+       "generic_quote": "Illini Media also uses Google Analytics that allows us to analyze data on our users' demographics (age, gender) and interests (affinity categories, other categories).",
+       "purpose_quote": "Illini Media may use this type of analysis to refine our advertising and content strategies.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions using the data for refining advertising and content strategies, but does not explicitly state sharing with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.983896476371936
+   }
+  ],
+  "paragraphs_shown": [
+   12
+  ],
+  "paragraphs_total": 12,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 50.79
+ }
+}

@@ -1,0 +1,589 @@
+{
+ "case_id": "919_v1",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that typically no cookies are used for collecting information.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the app does not use cookies for collecting information, which contradicts the finding of a purpose mismatch. The cited DPDP text pertains to notices for consent requests, which is unrelated to the purpose of processing personal data."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "we use log analysis tools to create summary statistics, which are used for purposes such as assessing what information is of most interest, determining technical design specifications, and identifying system performance or problem areas.",
+   "rationale": "The policy mentions using log analysis tools for various purposes, but not specifically for analytics/research.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes the use of log analysis tools for creating summary statistics, which is different from analytics/research. The cited DPDP text pertains to notices for consent requests, which is unrelated to the purpose of processing personal data."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "User profile",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "if you send us an electronic mail message with a question or comment that contains personally identifying information, or fill out a form that sends us this information, we will only use the personally-identifiable information to respond to your request and analyze trends.",
+   "rationale": "The policy mentions using personal information for responding to requests and analyzing trends, but not for personalization/customization.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "merged_flows": [
+    "f3",
+    "f5"
+   ],
+   "verifier_reason": "The policy evidence describes the use of personal information for responding to requests and analyzing trends, which is different from personalization/customization. The cited DPDP text pertains to notices for consent requests, which is unrelated to the purpose of processing personal data."
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "",
+   "rationale": "There is no mention of sharing IP addresses or device IDs with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c9",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "",
+   "rationale": "There is no mention of sharing IP addresses or device IDs with third parties.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c12",
+   "flow_id": "f5",
+   "data_type": "User profile",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions using personal information for responding to requests and analyzing trends, but not for personalization/customization.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9854791412026044,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9854791412026044,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9854791412026044,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9854791412026044,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9854791412026044,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9854791412026044,
+ "usage": {
+  "prompt": 2902,
+  "output": 1574
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 7,
+  "untagged_paragraphs": 0,
+  "claims": 12,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c10",
+    "flow_id": "f5",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c11",
+    "flow_id": "f5",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c12",
+    "flow_id": "f5",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "a cookie file contains unique information a web site can use to track such things as passwords, lists of pages you've visited, and the date when you last looked at a specific page or to identify your session at a particular web site.",
+      "rationale": "The policy explicitly states that typically no cookies are used for collecting information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "typically, we do not use cookies to collect information on the uh central web server (www.uh.edu). however, the following applications do use cookies to store user login information which is intended to make the application more user-friendly:",
+       "generic_quote": "a cookie file contains unique information a web site can use to track such things as passwords, lists of pages you've visited, and the date when you last looked at a specific page or to identify your session at a particular web site.",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy explicitly states that typically no cookies are used for collecting information."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that typically no cookies are used for collecting information.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "typically, we do not use cookies to collect information on the uh central web server (www.uh.edu). however, the following applications do use cookies to store user login information which is intended to make the application more user-friendly:",
+       "generic_quote": "a cookie file contains unique information a web site can use to track such things as passwords, lists of pages you've visited, and the date when you last looked at a specific page or to identify your session at a particular web site.",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy explicitly states that typically no cookies are used for collecting information."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "we use log analysis tools to create summary statistics, which are used for purposes such as assessing what information is of most interest, determining technical design specifications, and identifying system performance or problem areas.",
+      "rationale": "The policy mentions using log analysis tools for various purposes, but not specifically for analytics/research.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "we use log analysis tools to create summary statistics, which are used for purposes such as assessing what information is of most interest, determining technical design specifications, and identifying system performance or problem areas.",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy mentions using log analysis tools for various purposes, but not specifically for analytics/research."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using log analysis tools for various purposes, but not specifically for analytics/research.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "we use log analysis tools to create summary statistics, which are used for purposes such as assessing what information is of most interest, determining technical design specifications, and identifying system performance or problem areas.",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy mentions using log analysis tools for various purposes, but not specifically for analytics/research."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "if you send us an electronic mail message with a question or comment that contains personally identifying information, or fill out a form that sends us this information, we will only use the personally-identifiable information to respond to your request and analyze trends.",
+      "rationale": "The policy mentions using personal information for responding to requests and analyzing trends, but not for personalization/customization.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "if you send us an electronic mail message with a question or comment that contains personally identifying information, or fill out a form that sends us this information, we will only use the personally-identifiable information to respond to your request and analyze trends.",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy mentions using personal information for responding to requests and analyzing trends, but not for personalization/customization."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using personal information for responding to requests and analyzing trends, but not for personalization/customization.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "if you send us an electronic mail message with a question or comment that contains personally identifying information, or fill out a form that sends us this information, we will only use the personally-identifiable information to respond to your request and analyze trends.",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy mentions using personal information for responding to requests and analyzing trends, but not for personalization/customization."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "There is no mention of sharing IP addresses or device IDs with third parties.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "There is no mention of sharing IP addresses or device IDs with third parties."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "There is no mention of sharing IP addresses or device IDs with third parties.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "There is no mention of sharing IP addresses or device IDs with third parties."
+      }
+     },
+     {
+      "candidate_id": "c9",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "There is no mention of sharing IP addresses or device IDs with third parties.",
+      "raw": {
+       "candidate_id": "c9",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "There is no mention of sharing IP addresses or device IDs with third parties."
+      }
+     },
+     {
+      "candidate_id": "c10",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "if you send us an electronic mail message with a question or comment that contains personally identifying information, or fill out a form that sends us this information, we will only use the personally-identifiable information to respond to your request and analyze trends.",
+      "rationale": "The policy mentions using personal information for responding to requests and analyzing trends, but not for personalization/customization.",
+      "raw": {
+       "candidate_id": "c10",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "if you send us an electronic mail message with a question or comment that contains personally identifying information, or fill out a form that sends us this information, we will only use the personally-identifiable information to respond to your request and analyze trends.",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy mentions using personal information for responding to requests and analyzing trends, but not for personalization/customization."
+      }
+     },
+     {
+      "candidate_id": "c11",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using personal information for responding to requests and analyzing trends, but not for personalization/customization.",
+      "raw": {
+       "candidate_id": "c11",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "if you send us an electronic mail message with a question or comment that contains personally identifying information, or fill out a form that sends us this information, we will only use the personally-identifiable information to respond to your request and analyze trends.",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy mentions using personal information for responding to requests and analyzing trends, but not for personalization/customization."
+      }
+     },
+     {
+      "candidate_id": "c12",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using personal information for responding to requests and analyzing trends, but not for personalization/customization.",
+      "raw": {
+       "candidate_id": "c12",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "if you send us an electronic mail message with a question or comment that contains personally identifying information, or fill out a form that sends us this information, we will only use the personally-identifiable information to respond to your request and analyze trends.",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy mentions using personal information for responding to requests and analyzing trends, but not for personalization/customization."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9854791412026044
+   }
+  ],
+  "paragraphs_shown": [
+   7
+  ],
+  "paragraphs_total": 7,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 117.0
+ }
+}

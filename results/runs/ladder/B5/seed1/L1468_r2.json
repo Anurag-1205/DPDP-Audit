@@ -1,0 +1,175 @@
+{
+ "case_id": "L1468_r2",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9498787112738164,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "[P8]",
+    "[P25]",
+    "[P26]",
+    "[P27]",
+    "[P28]",
+    "[P30]"
+   ],
+   "evidence": "We use cookies, track IP Addresses, or use other passive means to collect information",
+   "rationale": "The policy explicitly denies sharing IP addresses and device identifiers with third parties, but mentions their use for various unspecified purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9498787112738164,
+ "usage": {
+  "prompt": 6011,
+  "output": 357
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 125,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P8]",
+       "[P25]",
+       "[P26]",
+       "[P27]",
+       "[P28]",
+       "[P30]"
+      ],
+      "evidence": "We use cookies, track IP Addresses, or use other passive means to collect information",
+      "rationale": "The policy explicitly denies sharing IP addresses and device identifiers with third parties, but mentions their use for various unspecified purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not share your device identifiers and IP address with third parties.",
+       "generic_quote": "We use cookies, track IP Addresses, or use other passive means to collect information",
+       "purpose": "",
+       "unspecified_purpose": "Cookies and IP addresses are used for various reasons, including identifying users and remembering their preferences.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P8]",
+        "[P25]",
+        "[P26]",
+        "[P27]",
+        "[P28]",
+        "[P30]"
+       ],
+       "rationale": "The policy explicitly denies sharing IP addresses and device identifiers with third parties, but mentions their use for various unspecified purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P8]",
+       "[P25]",
+       "[P26]",
+       "[P27]",
+       "[P28]",
+       "[P30]"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly denies sharing IP addresses and device identifiers with third parties, but mentions their use for various unspecified purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We do not share your device identifiers and IP address with third parties.",
+       "generic_quote": "We use cookies, track IP Addresses, or use other passive means to collect information",
+       "purpose": "",
+       "unspecified_purpose": "Cookies and IP addresses are used for various reasons, including identifying users and remembering their preferences.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P8]",
+        "[P25]",
+        "[P26]",
+        "[P27]",
+        "[P28]",
+        "[P30]"
+       ],
+       "rationale": "The policy explicitly denies sharing IP addresses and device identifiers with third parties, but mentions their use for various unspecified purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9498787112738164
+   }
+  ],
+  "paragraphs_shown": [
+   52
+  ],
+  "paragraphs_total": 56,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 46.45
+ }
+}

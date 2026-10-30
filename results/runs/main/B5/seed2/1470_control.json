@@ -1,0 +1,357 @@
+{
+ "case_id": "1470_control",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Personally identifiable information is used internally by Valve to deliver, develop and improve products, content and services, to which users have subscribed, and to answer users requests.",
+   "rationale": "The policy does not explicitly mention collecting contact details, but it does state that personally identifiable information is used for internal purposes, which could include contact details.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not explicitly mention collecting contact details. The rationale provided is speculative and does not provide concrete evidence of undisclosed collection."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly mentions that valve software generates and submits bug reports for service operation and security.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is explicitly stated as (none), indicating no explicit mention of IP addresses and device IDs. The rationale provided contradicts this by stating that the policy mentions generating and submitting bug reports, which does not necessarily imply the collection of IP addresses and de"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy describes the use of cookies for various purposes, including customization, record keeping, and storing user information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is explicitly stated as (none), indicating no explicit mention of computer information. The rationale provided does not provide concrete evidence of undisclosed collection but instead describes the use of cookies for various purposes."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9728144241231181,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9728144241231181,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9728144241231181,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9728144241231181,
+ "usage": {
+  "prompt": 4089,
+  "output": 1386
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 51,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Personally identifiable information is used internally by Valve to deliver, develop and improve products, content and services, to which users have subscribed, and to answer users requests.",
+      "rationale": "The policy does not explicitly mention collecting contact details, but it does state that personally identifiable information is used for internal purposes, which could include contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+       "generic_quote": "Personally identifiable information is used internally by Valve to deliver, develop and improve products, content and services, to which users have subscribed, and to answer users requests.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Information regarding Steam billing, a users Steam account, a users Internet connection and the Valve software installed on a users computer is uploaded to the server in connection with the users use of Steam and Valve software.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting contact details, but it does state that personally identifiable information is used for internal purposes, which could include contact details."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Information regarding Steam billing, a users Steam account, a users Internet connection and the Valve software installed on a users computer is uploaded to the server in connection with the users use of Steam and Valve software.",
+      "rationale": "Similar to c1, the policy does not explicitly mention the purpose of contact details, but it states that personally identifiable information is used for internal purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Valve will not share any personally identifiable information with other parties except as described in this policy.",
+       "generic_quote": "Personally identifiable information is used internally by Valve to deliver, develop and improve products, content and services, to which users have subscribed, and to answer users requests.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Information regarding Steam billing, a users Steam account, a users Internet connection and the Valve software installed on a users computer is uploaded to the server in connection with the users use of Steam and Valve software.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "Similar to c1, the policy does not explicitly mention the purpose of contact details, but it states that personally identifiable information is used for internal purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly mentions that valve software generates and submits bug reports for service operation and security.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Valve software automatically generates and submits to Valve bug reports upon a crash or other fault in the Valve software, services or Steam games.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Valve software automatically generates and submits to Valve bug reports upon a crash or other fault in the Valve software, services or Steam games.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions that valve software generates and submits bug reports for service operation and security."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly mentions that valve software generates and submits bug reports for service operation and security.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Valve software automatically generates and submits to Valve bug reports upon a crash or other fault in the Valve software, services or Steam games.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Valve software automatically generates and submits to Valve bug reports upon a crash or other fault in the Valve software, services or Steam games.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions that valve software generates and submits bug reports for service operation and security."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy describes the use of cookies for various purposes, including customization, record keeping, and storing user information.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "Valves products, services and sites may employ cookies and other technologies such as web beacons and pixel tags. Cookies are bits of electronic information that can be transferred to a user's hard drive to customize a person's use of a product or online site, keep records of a user's access to an online site or product, or store information needed by the user on a regular basis.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Cookies are bits of electronic information that can be transferred to a user's hard drive to customize a person's use of a product or online site, keep records of a user's access to an online site or product, or store information needed by the user on a regular basis.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy describes the use of cookies for various purposes, including customization, record keeping, and storing user information."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Cookies are bits of electronic information that can be transferred to a user's hard drive to customize a person's use of a product or online site, keep records of a user's access to an online site or product, or store information needed by the user on a regular basis.",
+      "rationale": "The policy describes the use of cookies for various purposes, including customization, record keeping, and storing user information.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "Valves products, services and sites may employ cookies and other technologies such as web beacons and pixel tags. Cookies are bits of electronic information that can be transferred to a user's hard drive to customize a person's use of a product or online site, keep records of a user's access to an online site or product, or store information needed by the user on a regular basis.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "Cookies are bits of electronic information that can be transferred to a user's hard drive to customize a person's use of a product or online site, keep records of a user's access to an online site or product, or store information needed by the user on a regular basis.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy describes the use of cookies for various purposes, including customization, record keeping, and storing user information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9728144241231181
+   }
+  ],
+  "paragraphs_shown": [
+   20
+  ],
+  "paragraphs_total": 20,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence does not explicitly mention collecting contact details. The rationale provided is speculative and does not provide concrete evidence of undisclosed collection.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence is explicitly stated as (none), indicating no explicit mention of IP addresses and device IDs. The rationale provided contradicts this by stating that the policy mentions generating and submitting bug reports, which does not necessarily imply the collection of IP addresses and device IDs.\"}]}\n\n{\"checks\": [{\"finding_id\": 2, \"supported\": false, \"reason\": \"The policy evidence is explicitly stated as (none), indicating no explicit mention of computer information. The rationale provided does not provide concrete evidence of undisclosed collection but instead describes the use of cookies for various purposes.\"}]}",
+  "llm_calls": 2,
+  "seconds": 152.01
+ }
+}

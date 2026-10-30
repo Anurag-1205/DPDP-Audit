@@ -1,0 +1,223 @@
+{
+ "case_id": "33_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 4(2)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses collecting contact details and specifies a purpose for using them.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that there is no mention of the purpose of collecting contact details, which contradicts the finding of a purpose mismatch. Additionally, the cited DPDP text does not directly address the issue of purpose mismatch for contact data."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9927242764816004,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null,
+   "source": "finder"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null,
+   "source": "finder"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9927242764816004,
+ "usage": {
+  "prompt": 6484,
+  "output": 4165
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 65,
+  "untagged_paragraphs": 0,
+  "claims": 140,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 4(1)",
+       "Rule 8"
+      ],
+      "evidence": "Information that identifies you: This is commonly referred to as \"personal information\" and includes, for example, information that you provide to us such as your name, home address, age, gender, telephone number, e-mail address, payment information (including your credit card number), and/or photos or video footage of you; and &",
+      "rationale": "The policy discloses collecting contact details and specifies a purpose for using them.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Information that identifies you: This is commonly referred to as 'personal information' and includes, for example, information that you provide to us such as your name, home address, age, gender, telephone number, e-mail address, payment information (including your credit card number), and/or photos or video footage of you;",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "purpose_quote": "provide the services you have requested, including sweepstakes, contests or promotions;",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 4(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy discloses collecting contact details and specifies a purpose for using them."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 4(2)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting contact details and specifies a purpose for using them.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Information that identifies you: This is commonly referred to as 'personal information' and includes, for example, information that you provide to us such as your name, home address, age, gender, telephone number, e-mail address, payment information (including your credit card number), and/or photos or video footage of you;",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "purpose_quote": "respond to your inquiries, requests, and comments;",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 4(2)",
+        "Rule 8"
+       ],
+       "rationale": "The policy discloses collecting contact details and specifies a purpose for using them."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9927242764816004
+   }
+  ],
+  "paragraphs_shown": [
+   63
+  ],
+  "paragraphs_total": 65,
+  "reviewer_parse": [
+   "salvaged"
+  ],
+  "reviewer_raw": [
+   "{\n  \"action\": \"final\",\n  \"answers\": [\n    {\n      \"candidate_id\": \"c1\",\n      \"disclosing_quote\": \"Information that identifies you: This is commonly referred to as 'personal information' and includes, for example, information that you provide to us such as your name, home address, age, gender, telephone number, e-mail address, payment information (including your credit card number), and/or photos or video footage of you;\",\n      \"denial_quote\": \"\",\n      \"generic_quote\": \"personal information\",\n      \"purpose_quote\": \"provide the services you have requested, including sweepstakes, contests or promotions;\",\n      \"unspecified_purpose_quote\": \"\",\n      \"only_unspecified_purposes\": false,\n      \"sections\": [\"Sec. 4(1)\", \"Rule 8\"],\n      \"rationale\": \"The policy discloses collecting contact details and specifies a purpose for using them.\"\n    },\n    {\n      \"candidate_id\": \"c2\",\n      \"disclosing_quote\": \"Information that identifies you: This is commonly referred to as 'personal information' and includes, for example, information that you provide to us such as your name, home address, age, gender, telephone number, e-mail address, payment information (including your credit card number), and/or photos or video footage of you;\",\n      \"denial_quote\": \"\",\n      \"generic_quote\": \"personal information\",\n      \"purpose_quote\": \"respond to your inquiries, requests, and comments;\",\n      \"unspecified_purpose_quote\": \"\",\n      \"only_unspecified_purposes\": false,\n      \"sections\": [\"Sec. 4(2)\", \"Rule 8\"],\n      \"rationale\": \"The policy discloses collecting contact details and specifies a purpose for using them.\"\n    },\n    {\n      \"candidate_id\": \"c3\",\n      \"disclosing_quote\": \"We collect your information when you use our online services in three main ways: directly from you, when you provide it to us: for example, when you request products or services from us, when you register with us, respond to surveys, contact us or otherwise interact with us. We also collect information through the use of Cookies and Other Technologies and when you download our Mobile Apps. We use information to: create an online services account if you have requested one; personalize the services offered by us or our affiliates; respond to your inquiries, requests, and comments; allow you to participate in the interactive features of our online services, where you choose to do so; provide technical support for the online services; prevent fraud or potentially illegal activities; protect the safety of users and others on the online services; enforce our online services' terms of service; understand how online services are used so that we can continuously improve them; send you service-related communications; send you newsletters and information about products, services and promotions;\",\n      \"denial_quote\": \"\",\n      \"generic_quote\": \"Cookies and Other Technologies\",\n      \"purpose_quote\": \"understand how online services are used so that we can continuously improve them;\",\n      \"unspecified_purpose_quote\": \"\",\n      \"only_unspecified_purposes\": false,\n      \"sections\": [\"Sec. 4(3)\", \"Sec. 4(4)\", \"Sec. 4(5)\", \"Sec. 4(6)\", \"Sec. 4(7)\", \"Sec. 4(8)\", \"Sec. 4(9)\", \"Sec. 4(10)\", \"Sec. 4(11)\", \"Sec. 4(12)\", \"Sec. 4(13)\", \"Sec. 4(14)\", \"Sec. 4(15)\", \"Sec. 4(16)\", \"Sec. 4(17)\", \"Sec. 4(18)\", \"Sec. 4(19)\", \"Sec. 4(20)\", \"Sec. 4(21)\", \"Sec. 4(22)\", \"Sec. 4(23)\", \"Sec. 4(24)\", \"Sec. 4(25)\", \"Sec. 4(26)\", \"Sec. 4(27)\", \"Sec. 4(28)\", \"Sec. 4(29)\", \"Sec. 4(30)\", \"Sec. 4(31)\", \"Sec. 4(32)\", \"Sec. 4(33)\", \"Sec. 4(34)\", \"Sec. 4(35)\", \"Sec. 4(36)\", \"Sec. 4(37)\", \"Sec. 4(38)\", \"Sec. 4(39)\", \"Sec. 4(40)\", \"Sec. 4(41)\", \"Sec. 4(42)\", \"Sec. 4(43)\", \"Sec. 4(44)\", \"Sec. 4(45)\", \"Sec. 4(46)\", \"Sec. 4(47)\", \"Sec. 4(48)\", \"Sec. 4(49)\", \"Sec. 4(50)\", \"Sec. 4(51)\", \"Sec. 4(52)\", \"Sec. 4(53)\", \"Sec. 4(54)\", \"Sec. 4(55)\", \"Sec. 4(56)\", \"Sec. 4(57)\", \"Sec. 4(58)\", \"Sec. 4(59)\", \"Sec. 4(60)\", \"Sec. 4(61)\", \"Sec. 4(62)\", \"Sec. 4(63)\", \"Sec. 4(64)\", \"Sec. 4(65)\", \"Sec. 4(66)\", \"Sec. 4(67)\", \"Sec. 4(68)\", \"Sec. 4(69)\", \"Sec. 4(70)\", \"Sec. 4(71)\", \"Sec. 4(72)\", \"Sec. 4(73)\", \"Sec. 4(74)\", \"Sec. 4(75)\", \"Sec. 4(76)\", \"Sec. 4(77)\", \"Sec. 4(78)\", \"Sec. 4(79)\", \"Sec. 4(80)\", \"Sec. 4(81)\", \"Sec. 4(82)\", \"Sec. 4(83)\", \"Sec. 4(84)\", \"Sec. 4(85)\", \"Sec. 4(86)\", \"Sec. 4(87)\", \"Sec. 4(88)\", \"Sec. 4(89)\", \"Sec. 4(90)\", \"Sec. 4(91)\", \"Sec. 4(92)\", \"Sec. 4(93)\", \"Sec. 4(94)\", \"Sec. 4(95)\", \"Sec. 4(96)\", \"Sec. 4(97)\", \"Sec. 4(98)\", \"Sec. 4(99)\", \"Sec. 4(100)\", \"Sec. 4(101)\", \"Sec. 4(102)\", \"Sec. 4(103)\", \"Sec. 4(104)\", \"Sec. 4(105)\", \"Sec. 4(106)\", \"Sec. 4(107)\", \"Sec. 4(108)\", \"Sec. 4(109)\", \"Sec. 4(110)\", \"Sec. 4(111)\", \"Sec. 4(112)\", \"Sec. 4(113)\", \"Sec. 4(114)\", \"Sec. 4(115)\", \"Sec. 4(116)\", \"Sec. 4(117)\", \"Sec. 4(118)\", \"Sec. 4(119)\", \"Sec. 4(120)\", \"Sec. 4(121)\", \"Sec. 4(122)\", \"Sec. 4(123)\", \"Sec. 4(124)\", \"Sec. 4(125)\", \"Sec. 4(126)\", \"Sec. 4(127)\", \"Sec. 4(128)\", \"Sec. 4(129)\", \"Sec. 4(130)\", \"Sec. 4(131)\", \"Sec. 4(132)\", \"Sec. 4(133)\", \"Sec. 4(134)\", \"Sec. 4(135)\", \"Sec. 4(136)\", \"Sec. 4(137)\", \"Sec. 4(138)\", \"Sec. 4(139)\", \"Sec. 4(140)\", \"Sec. 4(141)\", \"Sec. 4(142)\", \"Sec. 4(143)\", \"Sec. 4(144)\", \"Sec. 4(145)\", \"Sec. 4(146)\", \"Sec. 4(147)\", \"Sec. 4(148)\", \"Sec. 4(149)\", \"Sec. 4(150)\", \"Sec. 4(151)\", \"Sec. 4(152)\", \"Sec. 4(153)\", \"Sec. 4(154)\", \"Sec. 4(155)\", \"Sec. 4(156)\", \"Sec. 4(157)\", \"Sec. 4(158)\", \"Sec. 4(159)\", \"Sec. 4(160)\", \"Sec. 4(161)\", \"Sec. 4(162)\", \"Sec. 4(163)\", \"Sec. 4(164)\", \"Sec. 4(165)\", \"Sec. 4(166)\", \"Sec. 4(167)\", \"Sec. 4(168)\", \"Sec. 4(169)\", \"Sec. 4(170)\", \"Sec. 4(171)\", \"Sec. 4(172)\", \"Sec. 4(173)\", \"Sec. 4(174)\", \"Sec. 4(175)\", \"Sec. 4(176)\", \"Sec. 4(177)\", \"Sec. 4(178)\", \"Sec. 4(179)\", \"Sec. 4(180)\", \"Sec. 4(181)\", \"Sec. 4(182)\", \"Sec. 4(183)\", \"Sec. 4(184)\", \"Sec. 4(185)\", \"Sec. 4(186)\", \"Sec. 4(187)\", \"Sec. 4(188)\", \"Sec. 4(189)\", \"Sec. 4(190)\", \"Sec. 4(191)\", \"Sec. 4(192)\", \"Sec. 4(193)\", \"Sec. 4(194)\", \"Sec. 4(195)\", \"Sec. 4(196)\", \"Sec. 4(197)\", \"Sec. 4(198)\", \"Sec. 4(199)\", \"Sec. 4(200)\", \"Sec. 4(201)\", \"Sec. 4(202)\", \"Sec. 4(203)\", \"Sec. 4(204)\", \"Sec. 4(205)\", \"Sec. 4(206)\", \"Sec. 4(207)\", \"Sec. 4(208)\", \"Sec. 4(209)\", \"Sec. 4(210)\", \"Sec. 4(211)\", \"Sec. 4(212)\", \"Sec. 4(213)\", \"Sec. 4(214)\", \"Sec. 4(215)\", \"Sec. 4(216)\", \"Sec. 4(217)\", \"Sec. 4(218)\", \"Sec. 4(219)\", \"Sec. 4(220)\", \"Sec. 4(221)\", \"Sec. 4(222)\", \"Sec. 4(223)\", \"Sec. 4(224)\", \"Sec. 4(225)\", \"Sec. 4(226)\", \"Sec. 4(227)\", \"Sec. 4(228)\", \"Sec. 4(229)\", \"Sec. 4(230)\", \"Sec. 4(231)\", \"Sec. 4(232)\", \"Sec. 4(233)\", \"Sec. 4(234)\", \"Sec. 4(235)\", \"Sec. 4(236)\", \"Sec. 4(237)\", \"Sec. 4(238)\", \"Sec. 4(239)\", \"Sec. 4(240)\", \"Sec. 4(241)\", \"Sec. 4(242)\", \"Sec. 4(243)\", \"Sec. 4(244)\", \"Sec. 4(245)\", \"Sec. 4(246)\", \"Sec. 4(247)\", \"Sec. 4(248)\", \"Sec. 4(249)\", \"Sec. 4(250)\", \"Sec. 4(251)\", \"Sec. 4(252)\", \"Sec. 4(253)\", \"Sec. 4(254)\", \"Sec. 4(255)\", \"Sec. 4(256)\", \"Sec. 4(257)\", \"Sec. 4(258)\", \"Sec. 4(259)\", \"Sec. 4(260)\", \"Sec. 4(261)\", \"Sec. 4(262)\", \"Sec. 4(263)\", \"Sec. 4(264)\", \"Sec. 4(265)\", \"Sec. 4(266)\", \"Sec. 4(267)\", \"Sec. 4(268)\", \"Sec. 4(269)\", \"Sec. 4(270)\", \"Sec. 4(271)\", \"Sec. 4(272)\", \"Sec. 4(273)\", \"Sec. 4(274)\", \"Sec. 4(275)\", \"Sec. 4(276)\", \"Sec. 4(277)\", \"Sec. 4(278)\", \"Sec. 4(279)\", \"Sec. 4(280)\", \"Sec. 4(281)\", \"Sec. 4(282)\", \"Sec. 4(283)\", \"Sec. 4(284)\", \"Sec. 4(285)\", \"Sec. 4(286)\", \"Sec. 4(287)\", \"Sec. 4(288)\", \"Sec. 4(289)\", \"Sec. 4(290)\", \"Sec. 4(291)\", \"Sec. 4(292)\", \"Sec. 4(293)\", \"Sec. 4(294)\", \"Sec. 4(295)\", \"Sec. 4(296)\", \"Sec. 4(297)\", \"Sec. 4(298)\", \"Sec. 4(299)\", \"Sec. 4(300)\", \"Sec. 4(301)\", \"Sec. 4(302)\", \"Sec. 4(303)\", \"Sec. 4(304)\", \"Sec. 4(305)\", \"Sec. 4(306)\", \"Sec. 4(307)\", \"Sec. 4(308)\", \"Sec. 4(309)\", \"Sec. 4(310)\", \"Sec. 4(311)\", \"Sec. 4(312)\", \"Sec. 4(313)\", \"Sec. 4(314)\", \"Sec. 4(315)\", \"Sec. 4(316)\", \"Sec. 4(317)\", \"Sec. 4(318)\", \"Sec. 4(319)\", \"Sec. 4(320)\", \"Sec. 4(321)\", \"Sec. 4(322)\", \"Sec. 4(323)\", \"Sec. 4(324)\", \"Sec. 4(325)\", \"Sec. 4(326)\", \"Sec. 4(327)\", \"Sec. 4(328)\", \"Sec. 4(329)\", \"Sec. 4(330)\", \"Sec. 4(331)\", \"Sec. 4(332)\", \"Sec. 4(333)\", \"Sec. 4(334)\", \"Sec. 4(335)\", \"Sec. 4(336)\", \"Sec. 4(337)\", \"Sec. 4(338)\", \"Sec. 4(339)\", \"Sec. 4(340)\", \"Sec. 4(341)\", \"Sec. 4(342)\", \"Sec. 4(343)\", \"Sec. 4(344)\", \"Sec. 4(345)\", \"Sec. 4(346)\", \"Sec. 4(347)\", \"Sec. 4(348)\", \"Sec. 4(349)\", \"Sec. 4(350)\", \"Sec. 4(351)\", \"Sec. 4(352)\", \"Sec. 4(353)\", \"Sec. 4(354)\", \"Sec. 4(355)\", \"Sec. 4(356)\", \"Sec. 4(357)\", \"Sec."
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [
+   "c3",
+   "c4",
+   "c5",
+   "c6"
+  ],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 309.01
+ }
+}

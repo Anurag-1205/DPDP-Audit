@@ -1,0 +1,355 @@
+{
+ "case_id": "1419_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Personally identifiable information",
+   "rationale": "The policy discloses collecting personal information but does not specify marketing as a purpose.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence 'personally identifiable information' supports the collection of contact data, and the cited DPDP text Sec. 5(1) and Rule 3 require specifying purposes for processing personal data. Since the purpose 'marketing' is not specified, this finding is supported."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Automatic information",
+   "rationale": "The policy mentions various uses but does not specify security or service operation as a purpose.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence 'automatic information' supports the collection of IP addresses and device IDs, and the cited DPDP text Sec. 5(1) and Rule 3 require specifying purposes for processing personal data. Since the purpose 'service operation and security' is not specified, this finding is supported."
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We currently use, or may use, such information in various ways.",
+   "rationale": "The policy mentions various uses but does not specify analytics or research as a purpose.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'We currently use, or may use, such information in various ways' does not specifically mention 'analytics' or 'research' as purposes for location data. While the cited DPDP text Sec. 5(1) and Rule 3 require specifying purposes, the rationale provided does not justify a purpose mi"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9815085943312792,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9815085943312792,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9815085943312792,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9815085943312792,
+ "usage": {
+  "prompt": 4581,
+  "output": 1515
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 35,
+  "untagged_paragraphs": 0,
+  "claims": 89,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Personally identifiable information",
+      "rationale": "The policy discloses collecting personal information but does not specify marketing as a purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We collect and maintain personally identifiable information and automatic information.",
+       "denial_quote": "",
+       "generic_quote": "Personally identifiable information",
+       "purpose_quote": "We may combine personally identifiable information and automatic information we obtain from you or your activities with other data concerning or relating to the behavioral and demographic attributes of our customers, in order to identify our best customers, reach them effectively, understand their interests and best manage our relationships with them.",
+       "unspecified_purpose_quote": "We may use, discuss and report facts that we consider newsworthy relating to submissions even if it might reveal or tend to reveal the poster's identity.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting personal information but does not specify marketing as a purpose."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting personal information but does not specify marketing as a purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We collect and maintain personally identifiable information and automatic information.",
+       "denial_quote": "",
+       "generic_quote": "Personally identifiable information",
+       "purpose_quote": "We may combine personally identifiable information and automatic information we obtain from you or your activities with other data concerning or relating to the behavioral and demographic attributes of our customers, in order to identify our best customers, reach them effectively, understand their interests and best manage our relationships with them.",
+       "unspecified_purpose_quote": "We may use, discuss and report facts that we consider newsworthy relating to submissions even if it might reveal or tend to reveal the poster's identity.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting personal information but does not specify marketing as a purpose."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Automatic information",
+      "rationale": "The policy mentions various uses but does not specify security or service operation as a purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Automatic information includes information collected by our web server (which may be hosted by a third party) that your web browser makes available whenever you visit our Site, such as your browser type and capabilities, network properties, the site that you visited before viewing our Site, content viewed on the Site, and your geographic location.",
+       "denial_quote": "",
+       "generic_quote": "Automatic information",
+       "purpose_quote": "We may use, discuss and report facts that we consider newsworthy relating to submissions even if it might reveal or tend to reveal the poster's identity.",
+       "unspecified_purpose_quote": "We currently use, or may use, such information in various ways.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions various uses but does not specify security or service operation as a purpose."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We currently use, or may use, such information in various ways.",
+      "rationale": "The policy mentions various uses but does not specify security or service operation as a purpose.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Automatic information includes information collected by our web server (which may be hosted by a third party) that your web browser makes available whenever you visit our Site, such as your browser type and capabilities, network properties, the site that you visited before viewing our Site, content viewed on the Site, and your geographic location.",
+       "denial_quote": "",
+       "generic_quote": "Automatic information",
+       "purpose_quote": "We may use, discuss and report facts that we consider newsworthy relating to submissions even if it might reveal or tend to reveal the poster's identity.",
+       "unspecified_purpose_quote": "We currently use, or may use, such information in various ways.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions various uses but does not specify security or service operation as a purpose."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Automatic information includes information collected by our web server (which may be hosted by a third party) that your web browser makes available whenever you visit our Site, such as your browser type and capabilities, network properties, the site that you visited before viewing our Site, content viewed on the Site, and your geographic location.",
+      "rationale": "The policy mentions various uses but does not specify analytics or research as a purpose.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "Automatic information includes information collected by our web server (which may be hosted by a third party) that your web browser makes available whenever you visit our Site, such as your browser type and capabilities, network properties, the site that you visited before viewing our Site, content viewed on the Site, and your geographic location.",
+       "denial_quote": "",
+       "generic_quote": "Automatic information",
+       "purpose_quote": "We may use, discuss and report facts that we consider newsworthy relating to submissions even if it might reveal or tend to reveal the poster's identity.",
+       "unspecified_purpose_quote": "We currently use, or may use, such information in various ways.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions various uses but does not specify analytics or research as a purpose."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We currently use, or may use, such information in various ways.",
+      "rationale": "The policy mentions various uses but does not specify analytics or research as a purpose.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "Automatic information includes information collected by our web server (which may be hosted by a third party) that your web browser makes available whenever you visit our Site, such as your browser type and capabilities, network properties, the site that you visited before viewing our Site, content viewed on the Site, and your geographic location.",
+       "denial_quote": "",
+       "generic_quote": "Automatic information",
+       "purpose_quote": "We may use, discuss and report facts that we consider newsworthy relating to submissions even if it might reveal or tend to reveal the poster's identity.",
+       "unspecified_purpose_quote": "We currently use, or may use, such information in various ways.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions various uses but does not specify analytics or research as a purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9815085943312792
+   }
+  ],
+  "paragraphs_shown": [
+   35
+  ],
+  "paragraphs_total": 35,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 185.26
+ }
+}

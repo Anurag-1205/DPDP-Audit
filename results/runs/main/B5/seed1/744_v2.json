@@ -1,0 +1,550 @@
+{
+ "case_id": "744_v2",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "personal information",
+   "rationale": "The policy does not explicitly state that the app collects contact information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions 'personal information' but does not specify that the app collects contact information. The cited DPDP text (Sec. 5(1)) requires disclosure of the personal data and purpose for processing, but the evidence does not provide this specific detail."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 7"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses that IP addresses and device IDs are collected via server logs.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the app discloses the collection of IP addresses and device IDs via server logs, contradicting the finding of undisclosed collection. The cited DPDP text (Sec. 7) discusses legitimate uses but does not address the issue of undisclosed collection."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "personal information",
+   "rationale": "The policy does not explicitly state that the app collects location information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "Similar to finding 0, the policy evidence mentions 'personal information' but does not specify that the app collects location information. The cited DPDP text (Sec. 5(1)) requires disclosure of the personal data and purpose for processing, but the evidence does not provide this specific detail."
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "personal information",
+   "rationale": "The policy does not explicitly state that the app collects health information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "Similar to finding 0 and 2, the policy evidence mentions 'personal information' but does not specify that the app collects health information. The cited DPDP text (Sec. 5(1)) requires disclosure of the personal data and purpose for processing, but the evidence does not provide this specific detail."
+  },
+  {
+   "candidate_id": "c9",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 6"
+   ],
+   "evidence": "personal information",
+   "rationale": "The policy discloses that IP addresses and device IDs are shared with third parties managing advertisements.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c11",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 6"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses that IP addresses and device IDs are shared with third parties managing advertisements, and the app is child-directed.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9694705538377957,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9694705538377957,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9694705538377957,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9694705538377957,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9694705538377957,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9694705538377957,
+ "usage": {
+  "prompt": 5454,
+  "output": 1434
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 26,
+  "untagged_paragraphs": 0,
+  "claims": 53,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c10",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c11",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "personal information",
+      "rationale": "The policy does not explicitly state that the app collects contact information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "You do not need to submit personal information to access certain areas of the Site(s), but if you do not want to disclose certain personal information to us, you will not be able to access certain aspects of the Curse Features.",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy does not explicitly state that the app collects contact information."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly state that the app uses contact information for additional services/features.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "You do not need to submit personal information to access certain areas of the Site(s), but if you do not want to disclose certain personal information to us, you will not be able to access certain aspects of the Curse Features.",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy does not explicitly state that the app uses contact information for additional services/features."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 7"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses that IP addresses and device IDs are collected via server logs.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Our servers automatically record information that your browser sends whenever you visit the Site(s). Additionally, some of the Curse Features may collect information regarding your computer system.",
+       "denial_quote": "",
+       "generic_quote": "information recorded by servers",
+       "sections": [
+        "Sec. 7"
+       ],
+       "rationale": "The policy discloses that IP addresses and device IDs are collected via server logs."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 7"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses that IP addresses and device IDs are collected via server logs, but does not specify the purpose.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Our servers automatically record information that your browser sends whenever you visit the Site(s). Additionally, some of the Curse Features may collect information regarding your computer system.",
+       "denial_quote": "",
+       "generic_quote": "information recorded by servers",
+       "sections": [
+        "Sec. 7"
+       ],
+       "rationale": "The policy discloses that IP addresses and device IDs are collected via server logs, but does not specify the purpose."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "personal information",
+      "rationale": "The policy does not explicitly state that the app collects location information.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy does not explicitly state that the app collects location information."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly state that the app uses location information for additional services/features.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy does not explicitly state that the app uses location information for additional services/features."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "personal information",
+      "rationale": "The policy does not explicitly state that the app collects health information.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy does not explicitly state that the app collects health information."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly state that the app uses health information for basic services/features.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy does not explicitly state that the app uses health information for basic services/features."
+      }
+     },
+     {
+      "candidate_id": "c9",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 6"
+      ],
+      "evidence": "personal information",
+      "rationale": "The policy discloses that IP addresses and device IDs are shared with third parties managing advertisements.",
+      "raw": {
+       "candidate_id": "c9",
+       "disclosing_quote": "Additionally, advertisements that are managed by third parties which may appear on the Site(s) use cookies.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 6"
+       ],
+       "rationale": "The policy discloses that IP addresses and device IDs are shared with third parties managing advertisements."
+      }
+     },
+     {
+      "candidate_id": "c10",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 6"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses that IP addresses and device IDs are shared with third parties managing advertisements, but does not specify the purpose.",
+      "raw": {
+       "candidate_id": "c10",
+       "disclosing_quote": "Additionally, advertisements that are managed by third parties which may appear on the Site(s) use cookies.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 6"
+       ],
+       "rationale": "The policy discloses that IP addresses and device IDs are shared with third parties managing advertisements, but does not specify the purpose."
+      }
+     },
+     {
+      "candidate_id": "c11",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 6"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses that IP addresses and device IDs are shared with third parties managing advertisements, and the app is child-directed.",
+      "raw": {
+       "candidate_id": "c11",
+       "disclosing_quote": "Additionally, advertisements that are managed by third parties which may appear on the Site(s) use cookies.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 6"
+       ],
+       "rationale": "The policy discloses that IP addresses and device IDs are shared with third parties managing advertisements, and the app is child-directed."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9694705538377957
+   }
+  ],
+  "paragraphs_shown": [
+   26
+  ],
+  "paragraphs_total": 26,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 146.22
+ }
+}

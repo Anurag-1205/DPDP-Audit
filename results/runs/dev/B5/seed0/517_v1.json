@@ -1,0 +1,609 @@
+{
+ "case_id": "517_v1",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify that Kaleida Health collects contact data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "merged_flows": [
+    "f1",
+    "f5"
+   ],
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is explicitly stated as (none: the policy is said not to mention it), which means the policy does not disclose the collection of contact data. However, the finding is based on the absence of disclosure rather than actual evidence of collection. Therefore, the finding is not suppo"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+   "rationale": "The policy states that health information is used for treatment, payment, and business operations, and it may be kept indefinitely.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not directly state that Kaleida Health collects health data. Instead, it only mentions that health information is used for certain purposes. This does not justify the claim of undisclosed collection."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention the collection or use of location data for marketing purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "merged_flows": [
+    "f3",
+    "f4"
+   ],
+   "evidence_removed": false,
+   "verifier_reason": "Similar to finding 0, the policy evidence is explicitly stated as (none: the policy is said not to mention it), which means the policy does not disclose the collection of location data. Therefore, the finding is not supported because the evidence does not justify the claim of undisclosed collection."
+  },
+  {
+   "candidate_id": "c11",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that health information is used for treatment, payment, and business operations, and it may be kept indefinitely.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9877172332539731,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "incorrect",
+   "confidence": 0.9877172332539731,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9877172332539731,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9877172332539731,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "omitted",
+   "confidence": 0.9877172332539731,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9877172332539731,
+ "usage": {
+  "prompt": 7219,
+  "output": 2232
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 66,
+  "untagged_paragraphs": 0,
+  "claims": 138,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c10",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c11",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify that Kaleida Health collects contact data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "personal information, information you provide",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "When Someone May Act On Your Behalf",
+       "only_unspecified_purposes": true,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify that Kaleida Health collects contact data."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "How Someone May Act On Your Behalf.",
+      "rationale": "The policy does not specify that Kaleida Health collects contact data.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "personal information, information you provide",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "When Someone May Act On Your Behalf",
+       "only_unspecified_purposes": true,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify that Kaleida Health collects contact data."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+      "rationale": "The policy states that health information is used for treatment, payment, and business operations, and it may be kept indefinitely.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "personal information, information you provide",
+       "purpose_quote": "Treatment, Payment And Business Operations",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "Kaleida Health may use your health information or share it with others in order to treat your condition, obtain payment for that treatment, and run our business operations. In some cases, Kaleida Health may also disclose your health information for payment activities and certain business operations of another health care provider or payor.",
+       "retention": "indefinitely",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that health information is used for treatment, payment, and business operations, and it may be kept indefinitely."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Treatment, Payment And Business Operations",
+      "rationale": "The policy states that health information is used for treatment, payment, and business operations, and it may be kept indefinitely.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "personal information, information you provide",
+       "purpose_quote": "Treatment, Payment And Business Operations",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "Kaleida Health may use your health information or share it with others in order to treat your condition, obtain payment for that treatment, and run our business operations. In some cases, Kaleida Health may also disclose your health information for payment activities and certain business operations of another health care provider or payor.",
+       "retention": "indefinitely",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that health information is used for treatment, payment, and business operations, and it may be kept indefinitely."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention the collection or use of location data for marketing purposes.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "personal information, information you provide",
+       "purpose_quote": "Marketing",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention the collection or use of location data for marketing purposes."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention the collection or use of location data for marketing purposes.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "personal information, information you provide",
+       "purpose_quote": "Marketing",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention the collection or use of location data for marketing purposes."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention the collection or use of location data for advertising purposes.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "personal information, information you provide",
+       "purpose_quote": "Advertising",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention the collection or use of location data for advertising purposes."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention the collection or use of location data for advertising purposes.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "personal information, information you provide",
+       "purpose_quote": "Advertising",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention the collection or use of location data for advertising purposes."
+      }
+     },
+     {
+      "candidate_id": "c9",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that health information is used for treatment, payment, and business operations, and it may be kept indefinitely.",
+      "raw": {
+       "candidate_id": "c9",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "personal information, information you provide",
+       "purpose_quote": "Treatment, Payment And Business Operations",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "Kaleida Health may use your health information or share it with others in order to treat your condition, obtain payment for that treatment, and run our business operations. In some cases, Kaleida Health may also disclose your health information for payment activities and certain business operations of another health care provider or payor.",
+       "retention": "indefinitely",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that health information is used for treatment, payment, and business operations, and it may be kept indefinitely."
+      }
+     },
+     {
+      "candidate_id": "c10",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that health information is used for treatment, payment, and business operations, and it may be kept indefinitely.",
+      "raw": {
+       "candidate_id": "c10",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "personal information, information you provide",
+       "purpose_quote": "Treatment, Payment And Business Operations",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "Kaleida Health may use your health information or share it with others in order to treat your condition, obtain payment for that treatment, and run our business operations. In some cases, Kaleida Health may also disclose your health information for payment activities and certain business operations of another health care provider or payor.",
+       "retention": "indefinitely",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that health information is used for treatment, payment, and business operations, and it may be kept indefinitely."
+      }
+     },
+     {
+      "candidate_id": "c11",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that health information is used for treatment, payment, and business operations, and it may be kept indefinitely.",
+      "raw": {
+       "candidate_id": "c11",
+       "disclosing_quote": "",
+       "denial_quote": "Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "personal information, information you provide",
+       "purpose_quote": "Treatment, Payment And Business Operations",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "Kaleida Health may use your health information or share it with others in order to treat your condition, obtain payment for that treatment, and run our business operations. In some cases, Kaleida Health may also disclose your health information for payment activities and certain business operations of another health care provider or payor.",
+       "retention": "indefinitely",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that health information is used for treatment, payment, and business operations, and it may be kept indefinitely."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9877172332539731
+   }
+  ],
+  "paragraphs_shown": [
+   47
+  ],
+  "paragraphs_total": 66,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is explicitly stated as (none: the policy is said not to mention it), which means the policy does not disclose the collection of contact data. However, the finding is based on the absence of disclosure rather than actual evidence of collection. Therefore, the finding is not supported because the evidence does not justify the claim of undisclosed collection.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence provided does not directly state that Kaleida Health collects health data. Instead, it only mentions that health information is used for certain purposes. This does not justify the claim of undisclosed collection.\"}]}\n\n{\"checks\": [{\"finding_id\": 2, \"supported\": false, \"reason\": \"Similar to finding 0, the policy evidence is explicitly stated as (none: the policy is said not to mention it), which means the policy does not disclose the collection of location data. Therefore, the finding is not supported because the evidence does not justify the claim of undisclosed collection.\"}]}",
+  "llm_calls": 2,
+  "seconds": 179.97
+ }
+}

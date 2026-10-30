@@ -167,3 +167,36 @@ def find_candidates(paras: list[Paragraph], facts: dict, policy_text: str, purpo
                     f"a child-directed app sends {d} to the {sdk['category']} SDK {sdk['name']}", kids,
                     "children under 13 child")
     return out
+
+
+def all_candidates(facts: dict) -> list[dict]:
+    """B5: every (flow, gap type) check the app facts allow, without reading the policy.
+
+    The same app-side rules as find_candidates: a notice check per flow (collection for the
+    first party, sharing for an SDK), a purpose check per flow (the aggregator drops it when the
+    flow's notice gap stands), retention for first-party data kept indefinitely, and children's
+    data for an ad or tracking SDK in a child-directed app. No level is suggested and no paragraph
+    is linked: the reviewer reads the whole policy.
+    """
+    out = []
+    child = facts["permissions"]["child_directed"]
+
+    def add(flow, gap_type):
+        out.append({
+            "candidate_id": f"c{len(out) + 1}",
+            "flow_id": flow["flow_id"], "data_type": flow["data_type"], "recipient": flow["recipient"],
+            "purpose": flow.get("purpose", "Unspecified"), "retention": flow.get("retention", "Unspecified"),
+            "gap_type": gap_type, "reviewer": GAP_REVIEWER[gap_type], "suggested_level": None,
+            "reason": "checked for every flow (no finder)", "paragraphs": [],
+        })
+
+    for flow in facts["flows"]:
+        first = flow["recipient"] == "first_party"
+        add(flow, "undisclosed_collection" if first else "undisclosed_sharing")
+        add(flow, "purpose_mismatch")
+        if first and flow.get("retention") == "Indefinitely":
+            add(flow, "retention_mismatch")
+        sdk = None if first else lookup_sdk(flow["recipient"])
+        if child and sdk and sdk["ad_or_tracking"]:
+            add(flow, "childrens_data")
+    return out

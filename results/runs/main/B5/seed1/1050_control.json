@@ -1,0 +1,350 @@
+{
+ "case_id": "1050_control",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9742380416020157,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9742380416020157,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9742380416020157,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "[P6]",
+    "[P7]"
+   ],
+   "evidence": "Personally identifiable information or personal information",
+   "rationale": "Policy discloses collection of personal information but does not specify 'additional service/feature'",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "[P8]"
+   ],
+   "evidence": "certain anonymous information about your visit",
+   "rationale": "Policy discloses collection of anonymous information but does not specify 'additional service/feature'",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "[P6]",
+    "[P11]"
+   ],
+   "evidence": "Personally identifiable information or personal information",
+   "rationale": "Policy discloses collection of personal information and specifies 'basic service/feature'",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9742380416020157,
+ "usage": {
+  "prompt": 6111,
+  "output": 941
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 72,
+  "untagged_paragraphs": 0,
+  "claims": 166,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P6]",
+       "[P7]"
+      ],
+      "evidence": "Personally identifiable information or personal information",
+      "rationale": "Policy discloses collection of personal information but does not specify 'additional service/feature'",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may request personally identifiable information in order to enhance your experience on our web sites.",
+       "denial_quote": "",
+       "generic_quote": "Personally identifiable information or personal information",
+       "purpose_quote": "to provide the web site visitor a service or correspondence (such as promotions and mailed brochures).",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P6]",
+        "[P7]"
+       ],
+       "rationale": "Policy discloses collection of personal information but does not specify 'additional service/feature'"
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P6]",
+       "[P7]"
+      ],
+      "evidence": "to provide the web site visitor a service or correspondence (such as promotions and mailed brochures).",
+      "rationale": "Policy discloses collection of personal information but does not specify 'additional service/feature'",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We may request personally identifiable information in order to enhance your experience on our web sites.",
+       "denial_quote": "",
+       "generic_quote": "Personally identifiable information or personal information",
+       "purpose_quote": "to provide the web site visitor a service or correspondence (such as promotions and mailed brochures).",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P6]",
+        "[P7]"
+       ],
+       "rationale": "Policy discloses collection of personal information but does not specify 'additional service/feature'"
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P8]"
+      ],
+      "evidence": "certain anonymous information about your visit",
+      "rationale": "Policy discloses collection of anonymous information but does not specify 'additional service/feature'",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through).",
+       "denial_quote": "",
+       "generic_quote": "certain anonymous information about your visit",
+       "purpose_quote": "to generate statistics, measure site activity, and improve the usefulness of our sites.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P8]"
+       ],
+       "rationale": "Policy discloses collection of anonymous information but does not specify 'additional service/feature'"
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P8]"
+      ],
+      "evidence": "",
+      "rationale": "Policy discloses collection of anonymous information but does not specify 'additional service/feature'",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We may gather and store certain anonymous information about your visit, including the name of your Internet Service Provider (ISP), the type of browser and operating systems used to access our site, the date and time you access our site, the website that referred you to us, and the pages you visit (click-through).",
+       "denial_quote": "",
+       "generic_quote": "certain anonymous information about your visit",
+       "purpose_quote": "to generate statistics, measure site activity, and improve the usefulness of our sites.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P8]"
+       ],
+       "rationale": "Policy discloses collection of anonymous information but does not specify 'additional service/feature'"
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P6]",
+       "[P11]"
+      ],
+      "evidence": "Personally identifiable information or personal information",
+      "rationale": "Policy discloses collection of personal information and specifies 'basic service/feature'",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We may request personally identifiable information in order to enhance your experience on our web sites.",
+       "denial_quote": "",
+       "generic_quote": "Personally identifiable information or personal information",
+       "purpose_quote": "to improve the services we provide you and to help us promote products and services that are of most interest to you.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P6]",
+        "[P11]"
+       ],
+       "rationale": "Policy discloses collection of personal information and specifies 'basic service/feature'"
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P6]",
+       "[P11]"
+      ],
+      "evidence": "",
+      "rationale": "Policy discloses collection of personal information and specifies 'basic service/feature'",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We may request personally identifiable information in order to enhance your experience on our web sites.",
+       "denial_quote": "",
+       "generic_quote": "Personally identifiable information or personal information",
+       "purpose_quote": "to improve the services we provide you and to help us promote products and services that are of most interest to you.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P6]",
+        "[P11]"
+       ],
+       "rationale": "Policy discloses collection of personal information and specifies 'basic service/feature'"
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9742380416020157
+   }
+  ],
+  "paragraphs_shown": [
+   44
+  ],
+  "paragraphs_total": 72,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 117.16
+ }
+}

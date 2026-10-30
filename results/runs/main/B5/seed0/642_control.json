@@ -1,0 +1,411 @@
+{
+ "case_id": "642_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9789070441026819,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "incorrect",
+   "confidence": 0.9789070441026819,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9789070441026819,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "incorrect",
+   "confidence": 0.9789070441026819,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "P3"
+   ],
+   "evidence": "Under no circumstances do we collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+   "rationale": "The policy explicitly states that personal information is not collected.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "P5"
+   ],
+   "evidence": "We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use.",
+   "rationale": "The policy mentions collecting IP addresses for analytics purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "P3"
+   ],
+   "evidence": "Under no circumstances do we collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+   "rationale": "The policy explicitly states that personal information is not collected.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "P3"
+   ],
+   "evidence": "We do not collect any personal information from a visitor to our sites unless that visitor explicitly and intentionally provides it.",
+   "rationale": "The policy explicitly states that personal information is not collected.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9789070441026819,
+ "usage": {
+  "prompt": 2561,
+  "output": 971
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 15,
+  "untagged_paragraphs": 0,
+  "claims": 36,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "P3"
+      ],
+      "evidence": "Under no circumstances do we collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+      "rationale": "The policy explicitly states that personal information is not collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect any personal information from a visitor to our sites unless that visitor explicitly and intentionally provides it.",
+       "generic_quote": "We do not collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+       "sections": [
+        "P3"
+       ],
+       "rationale": "The policy explicitly states that personal information is not collected."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "P3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that personal information is not collected.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect any personal information from a visitor to our sites unless that visitor explicitly and intentionally provides it.",
+       "generic_quote": "We do not collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+       "sections": [
+        "P3"
+       ],
+       "rationale": "The policy explicitly states that personal information is not collected."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "P5"
+      ],
+      "evidence": "We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use.",
+      "rationale": "The policy mentions collecting IP addresses for analytics purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use.",
+       "generic_quote": "We use these statistics about your visit for aggregation purposes only. These statistics are used to help us improve the performance of our Web sites.",
+       "sections": [
+        "P5"
+       ],
+       "rationale": "The policy mentions collecting IP addresses for analytics purposes."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "P5"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions collecting IP addresses for analytics purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use.",
+       "denial_quote": "",
+       "generic_quote": "We use these statistics about your visit for aggregation purposes only. These statistics are used to help us improve the performance of our Web sites.",
+       "sections": [
+        "P5"
+       ],
+       "rationale": "The policy mentions collecting IP addresses for analytics purposes."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "P3"
+      ],
+      "evidence": "Under no circumstances do we collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+      "rationale": "The policy explicitly states that personal information is not collected.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect any personal information from a visitor to our sites unless that visitor explicitly and intentionally provides it.",
+       "generic_quote": "We do not collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+       "sections": [
+        "P3"
+       ],
+       "rationale": "The policy explicitly states that personal information is not collected."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "P5"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions collecting IP addresses for analytics purposes.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use.",
+       "denial_quote": "",
+       "generic_quote": "We use these statistics about your visit for aggregation purposes only. These statistics are used to help us improve the performance of our Web sites.",
+       "sections": [
+        "P5"
+       ],
+       "rationale": "The policy mentions collecting IP addresses for analytics purposes."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "P3"
+      ],
+      "evidence": "We do not collect any personal information from a visitor to our sites unless that visitor explicitly and intentionally provides it.",
+      "rationale": "The policy explicitly states that personal information is not collected.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect any personal information from a visitor to our sites unless that visitor explicitly and intentionally provides it.",
+       "generic_quote": "We do not collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+       "sections": [
+        "P3"
+       ],
+       "rationale": "The policy explicitly states that personal information is not collected."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "P9"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using third-party advertising companies for ads.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "We may use third-party advertising companies, such as Google, Yahoo!, Microsoft) to serve ads when you visit our website. These companies may use information about your interests in order to provide advertisements about goods and services of interest to you.",
+       "denial_quote": "",
+       "generic_quote": "We use these statistics about your visit for aggregation purposes only. These statistics are used to help us improve the performance of our Web sites.",
+       "sections": [
+        "P9"
+       ],
+       "rationale": "The policy mentions using third-party advertising companies for ads."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9789070441026819
+   }
+  ],
+  "paragraphs_shown": [
+   15
+  ],
+  "paragraphs_total": 15,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 96.95
+ }
+}

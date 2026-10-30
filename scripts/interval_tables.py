@@ -14,9 +14,11 @@ from dpdp_audit.paths import RESULTS
 
 MAIN = [("S1 PoliCheck", "S1"), ("S2 PoliGraph", "S2"), ("B1", "B1"), ("B2", "B2"), ("B4 Gemini 3 Flash", "B4"),
         ("v1 `full_rv`", "full_rv"), ("v1 `full_finetuned_rv`", "full_finetuned_rv"),
-        ("v2 `full_v2_rv`", "full_v2_rv"), ("v2 `full_v2_finetuned_rv`", "full_v2_finetuned_rv")]
+        ("v2 `full_v2_rv`", "full_v2_rv"), ("v2 `full_v2_finetuned_rv`", "full_v2_finetuned_rv"),
+        ("R0 rules only", "R0"), ("B5 one call, evidence first", "B5"), ("B4_sc self-consistency", "B4_sc")]
 LADDER = [("S1 PoliCheck", "S1"), ("S2 PoliGraph", "S2"), ("B2", "B2"), ("full", "full"),
-          ("full_finetuned", "full_finetuned"), ("full_v2", "full_v2"), ("full_v2_finetuned", "full_v2_finetuned")]
+          ("full_finetuned", "full_finetuned"), ("full_v2", "full_v2"), ("full_v2_finetuned", "full_v2_finetuned"),
+          ("R0 rules only", "R0"), ("B5 one call, evidence first", "B5")]
 
 
 def ci(c: dict) -> str:
