@@ -8,9 +8,9 @@ who does it, and exactly how.
 
 | # | Task | Why it matters | People | Due | Time per person |
 |---|---|---|---|---|---|
-| 1 | **Ladder check** (WP-2.2, AC-06.6) | The ladder results in the mid-submission report are provisional until every rung is checked | Naveen + one more member (to be confirmed) | **29 Oct** (before the mid-submission) | 3–4 h |
-| 2 | **Answer-key spot-check** (WP-3.7, AC-01.10) | Reports how often our scripted answer keys are wrong | Naveen + one more member (to be confirmed) | 3 Nov | 2–3 h |
-| 3 | **Review the mid-submission report** (gate G-2) | The plan requires two members to read the report before submission | Two members (to be confirmed) | 29 Oct | 30 min |
+| 1 | **Ladder check** (WP-2.2, AC-06.6) | The ladder results in the mid-submission report are provisional until every rung is checked | Naveen + Anurag Kaushal (**done and settled 28 Oct**) | **29 Oct** (before the mid-submission) | 3–4 h |
+| 2 | **Answer-key spot-check** (WP-3.7, AC-01.10) | Reports how often our scripted answer keys are wrong | Naveen + Anurag Kaushal (**done and settled 28 Oct**) | 3 Nov | 2–3 h |
+| 3 | **Review the mid-submission report** (gate G-2) | The plan requires two members to read the report before submission | Anurag Kaushal + one more member (to be confirmed) | 29 Oct | 30 min |
 | 4 | Real-flow labels (SPEC-08), later | Two independent labels per real data flow | to be assigned | 4–8 Nov | — |
 | 5 | Open-source case study checks (SPEC-08), later | Every pipeline finding checked by hand | to be assigned | 7–10 Nov | — |
 
@@ -198,6 +198,47 @@ xxxx_v1,   f4,      Location,  admob,       …, vague,      undisclosed_sharing
    This reports how often the two checkers agreed, re-scores the ladder on the rungs both accepted,
    and computes the error rate for AC-01.10. Disagreements are then settled together and recorded in
    `notes`.
+
+## Settling the disagreements (Naveen and Anurag together; done 28 Oct)
+
+**Done.** All 33 ladder and 20 spot-check disagreements are settled: 110 of 140 rungs accepted, and the
+answer key is wrong on 9 of 87 flows (10.3%). The steps below are kept as the record of how it was done
+and for later checks.
+
+Both checks were in (ladder: 100 of 140 rungs accepted by both, agreement 76%, κ = 0.19; spot-check:
+agreement 77%, κ = 0.04). The disagreements are settled **together, in one sitting** (about 2 hours:
+33 ladder rungs and 22 spot-check flows, 2–3 minutes each).
+
+1. Get the lists (already generated on the `pipeline-v2` branch):
+   ```bash
+   git fetch && git checkout -b settle-checks origin/pipeline-v2
+   ```
+   - `data/benchmark/ladder/disagreements.csv`: one row per rung you answered differently, with
+     `naveen_ok`, `naveen_notes`, `anurag_ok`, `anurag_notes` side by side;
+   - `data/spot_check/disagreements.csv`: one row per flow you answered differently (also flows you
+     both rejected with a different corrected label).
+2. For each row, open the reading pack (`outputs/review/ladder/L<id>.md` or
+   `outputs/review/spot_check/<case>.md`; run `review_pack.py ladder` / `spotcheck` if missing), read
+   both notes, re-read the policy, and agree on one answer:
+   - ladder: write `ok` or `no` in **`agreed`**;
+   - spot-check: write `yes` (the answer key is right) or `no` (it is wrong) in **`agreed`**;
+   - write one short sentence in **`agreed_notes`** (quote the deciding sentence).
+   Apply the rules of Tasks 1 and 2 as written. Most ladder disagreements are on the deleted rung: it
+   is `no` when even a generic statement ("we may share information with third parties") covers the
+   flow.
+3. Do not change any other column or file. Commit only the two files and push:
+   ```bash
+   git add data/benchmark/ladder/disagreements.csv data/spot_check/disagreements.csv
+   git commit -m "Settle check disagreements"
+   git push -u origin settle-checks
+   ```
+4. Ishaan then re-scores (a few minutes, no GPU):
+   ```bash
+   python scripts/score_ladder.py --systems S1 S2 B2 full full_finetuned full_v2 full_v2_finetuned
+   python scripts/spot_check.py score
+   ```
+   A rung counts when both of you marked it `ok`, or when you settled on `ok`; a row left empty
+   stays rejected. The spot-check then reports one final error rate instead of a range.
 
 ## Task 3 — Reviewing the mid-submission report
 

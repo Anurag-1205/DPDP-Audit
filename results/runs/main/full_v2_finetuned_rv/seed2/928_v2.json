@@ -1,0 +1,195 @@
+{
+ "case_id": "928_v2",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "If you participate in a user survey, your answers and personal information will only be analyzed in aggregate.",
+   "rationale": "The policy explicitly states that the analysis does not involve personally identifiable information, indicating no collection of IP addresses or device IDs.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions that personal data will only be analyzed in aggregate, but it does not explicitly state that IP addresses and device IDs are not collected. The cited DPDP text requires a clear notice regarding the personal data and purposes for processing, which is not provided here."
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f6",
+   "data_type": "User online activities",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy indicates that data will be retained for various purposes, but does not specify a time limit for any of them, implying indefinite retention.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9632269648838123,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9544436691898367,
+ "usage": {
+  "prompt": 3408,
+  "output": 501
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 19,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     9,
+     4,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f6",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps User online activities indefinitely; retention statements: none",
+    "paragraphs": [
+     2,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you participate in a user survey, your answers and personal information will only be analyzed in aggregate.",
+      "rationale": "The policy explicitly states that the analysis does not involve personally identifiable information, indicating no collection of IP addresses or device IDs.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "This analysis does not involve personally identifiable information. It is used only for the purpose of helping us understand and better meet our audience's needs.",
+       "generic_quote": "If you participate in a user survey, your answers and personal information will only be analyzed in aggregate.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the analysis does not involve personally identifiable information, indicating no collection of IP addresses or device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9632269648838123
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy indicates that data will be retained for various purposes, but does not specify a time limit for any of them, implying indefinite retention.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "User online activities",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "This information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy indicates that data will be retained for various purposes, but does not specify a time limit for any of them, implying indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9456603734958611
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 24.17,
+  "reverified_from": "full_v2_finetuned",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

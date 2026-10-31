@@ -1,0 +1,314 @@
+{
+ "case_id": "891_v2",
+ "system": "full_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Your Personal Information will be processed by us in the United States.",
+   "rationale": "The policy mentions collecting various types of personal information but does not specifically mention collecting computer information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'Your Personal Information will be processed by us in the United States' does not actually disclose the app's practice of collecting computer information. The cited DPDP text Sec. 5(1) and Rule 3 pertain to providing notice to the data principal regarding the processing of person"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Social media data",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may provide your Personal Information to service providers who work on our behalf or help us to operate our business, the Sites and the Services. Examples of such service providers include vendors and suppliers that provide us with technology, research, and/or marketing assistance; provide services and/or content for sending email and providing customer service; analyze data, serve advertisements on our Sites and Services and on third-party channels; and process payments (including credit card payments).",
+   "rationale": "The policy mentions sharing personal information with service providers but does not specifically mention sharing social media data with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.971688284077315,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.967822890504296,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9579970962279216,
+ "usage": {
+  "prompt": 8129,
+  "output": 1103
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 42,
+  "untagged_paragraphs": 0,
+  "claims": 106,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Health is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     8,
+     13,
+     20,
+     10,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['advertising', 'service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     10,
+     19,
+     14,
+     13,
+     36
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     4,
+     5,
+     6,
+     7,
+     8,
+     12,
+     13,
+     15,
+     18,
+     26,
+     27,
+     19
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Social media data",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Social media data with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     11,
+     21,
+     26,
+     27,
+     28,
+     32,
+     39,
+     13,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Your Personal Information will be processed by us in the United States.",
+      "rationale": "The policy mentions collecting various types of personal information but does not specifically mention collecting computer information.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "disclosing_quote": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services. For example: your profile may list your favorite healthy foods or movie; if you are registering for a customized weight loss program, you may provide us answers to questions we use to provide you the program, like your actual and goal weights, your preferred method of exercise, or your caloric intake; if you sign up to receive a newsletter, enter a contest or participate in social networking activities, you may provide us contact information (e.g., email or physical address); if you purchase a product or service, you may provide us your credit card information; and you may provide us with Personal Information in the course of email, customer support interactions and surveys.",
+       "denial_quote": "",
+       "generic_quote": "Your Personal Information will be processed by us in the United States.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting various types of personal information but does not specifically mention collecting computer information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.971688284077315
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may provide your Personal Information to service providers who work on our behalf or help us to operate our business, the Sites and the Services. Examples of such service providers include vendors and suppliers that provide us with technology, research, and/or marketing assistance; provide services and/or content for sending email and providing customer service; analyze data, serve advertisements on our Sites and Services and on third-party channels; and process payments (including credit card payments).",
+      "rationale": "The policy mentions sharing personal information with service providers but does not specifically mention sharing social media data with Google AdMob.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "We do not monitor, control, or endorse the information collection or privacy practices of any third parties.",
+       "generic_quote": "We may provide your Personal Information to service providers who work on our behalf or help us to operate our business, the Sites and the Services. Examples of such service providers include vendors and suppliers that provide us with technology, research, and/or marketing assistance; provide services and/or content for sending email and providing customer service; analyze data, serve advertisements on our Sites and Services and on third-party channels; and process payments (including credit card payments).",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing personal information with service providers but does not specifically mention sharing social media data with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.967822890504296
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "if you are registering for a customized weight loss program, you may provide us answers to questions we use to provide you the program, like your actual and goal weights, your preferred method of exercise, or your caloric intake; if you sign up to receive a newsletter, enter a contest or participate in social networking activities, you may provide us contact information (e.g., email or physical address); if you purchase a product or service, you may provide us your credit card information; and you may provide us with Personal Information in the course of email, customer support interactions and surveys.",
+      "rationale": "The policy mentions collecting health-related information but does not specify a single purpose for all such data, thus indicating unspecified purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Health",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "if you are registering for a customized weight loss program, you may provide us answers to questions we use to provide you the program, like your actual and goal weights, your preferred method of exercise, or your caloric intake; if you sign up to receive a newsletter, enter a contest or participate in social networking activities, you may provide us contact information (e.g., email or physical address); if you purchase a product or service, you may provide us your credit card information; and you may provide us with Personal Information in the course of email, customer support interactions and surveys.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy mentions collecting health-related information but does not specify a single purpose for all such data, thus indicating unspecified purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9561379140378081
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "Through cookies, pixels, beacons, log files and other technologies, we may collect information about how you use the Site and the Services. For example we may determine through an IP address that a particular computer or device is located in New York City and we may use this information to deliver advertisements promoting New York City-based businesses.",
+      "rationale": "The policy specifies that IP addresses are used for delivering advertisements, which falls under basic service/feature. However, it also mentions unspecified uses for delivering geographically targeted advertisements.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "Through cookies, pixels, beacons, log files and other technologies, we may collect information about how you use the Site and the Services. For example we may determine through an IP address that a particular computer or device is located in New York City and we may use this information to deliver advertisements promoting New York City-based businesses.",
+       "unspecified_purpose_quote": "We, or our service providers, may use your IP Address when you access the Sites or Services or use other means to assist with delivering geographically targeted advertisements.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy specifies that IP addresses are used for delivering advertisements, which falls under basic service/feature. However, it also mentions unspecified uses for delivering geographically targeted advertisements."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9363392962922675
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 5,
+  "seconds": 82.35
+ }
+}

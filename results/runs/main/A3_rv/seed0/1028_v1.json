@@ -1,0 +1,299 @@
+{
+ "case_id": "1028_v1",
+ "system": "A3_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses that IP addresses and device information are used for analytics and research purposes.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is explicitly stated as (none), indicating no disclosure. The rationale states that the policy discloses the use of IP addresses and device information for analytics and research purposes, which contradicts the lack of policy evidence."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses that computer information is used for analytics and research purposes.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "Similar to finding 0, the policy evidence is explicitly stated as (none), indicating no disclosure. The rationale states that the policy discloses the use of computer information for analytics and research purposes, which contradicts the lack of policy evidence."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions that anonymous survey information is used for monitoring and improving the site, but does not specify the purpose of sharing computer information with Google AdMob.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence is explicitly stated as (none), indicating no disclosure. The rationale correctly identifies that the policy does not specify the purpose of sharing computer information with Google AdMob, which is a compliance gap."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9592172206668859,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9592172206668859,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9592172206668859,
+ "usage": {
+  "prompt": 5067,
+  "output": 1092
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 43,
+  "untagged_paragraphs": 0,
+  "claims": 93,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Contact is collected for ['basic service/feature', 'unspecified'], the app uses it for Marketing",
+    "paragraphs": [
+     3,
+     29,
+     41,
+     30
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     4,
+     18,
+     27,
+     14,
+     38
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     12,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     15,
+     21,
+     22,
+     34,
+     38,
+     12
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "to contact the user about services on our site for which he has expressed interest",
+      "rationale": "The policy discloses that contact information is used to contact the user about services, which matches the purpose 'Marketing'.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We use this information to contact the user about services on our site for which he has expressed interest.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "to contact the user about services on our site for which he has expressed interest",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses that contact information is used to contact the user about services, which matches the purpose 'Marketing'."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses that IP addresses and device information are used for analytics and research purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "This includes internet protocol (IP) addresses, browser type, internet service provider (ISP), referring/exit pages, platform type, date/time stamp, and number of clicks to analyze trends, administer the site, track user's movement in the aggregate, and gather broad demographic information for aggregate use.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "to analyze trends, administer the site, track user's movement in the aggregate, and gather broad demographic information for aggregate use",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses that IP addresses and device information are used for analytics and research purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses that computer information is used for analytics and research purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "This includes internet protocol (IP) addresses, browser type, internet service provider (ISP), referring/exit pages, platform type, date/time stamp, and number of clicks to analyze trends, administer the site, track user's movement in the aggregate, and gather broad demographic information for aggregate use.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "to analyze trends, administer the site, track user's movement in the aggregate, and gather broad demographic information for aggregate use",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses that computer information is used for analytics and research purposes."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions that anonymous survey information is used for monitoring and improving the site, but does not specify the purpose of sharing computer information with Google AdMob.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "Anonymous Survey information will be used for purposes of monitoring or improving the use and satisfaction of this site. Users? personally identifiable information is not shared with third parties unless we give prior notice and choice.",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Anonymous Survey information will be used for purposes of monitoring or improving the use and satisfaction of this site",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that anonymous survey information is used for monitoring and improving the site, but does not specify the purpose of sharing computer information with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9592172206668859
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 100.42,
+  "reverified_from": "A3",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is explicitly stated as (none), indicating no disclosure. The rationale states that the policy discloses the use of IP addresses and device information for analytics and research purposes, which contradicts the lack of policy evidence.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"Similar to finding 0, the policy evidence is explicitly stated as (none), indicating no disclosure. The rationale states that the policy discloses the use of computer information for analytics and research purposes, which contradicts the lack of policy evidence.\"}]}\n\n{\"checks\": [{\"finding_id\": 2, \"supported\": true, \"reason\": \"The policy evidence is explicitly stated as (none), indicating no disclosure. The rationale correctly identifies that the policy does not specify the purpose of sharing computer information with Google AdMob, which is a compliance gap.\"}]}"
+ }
+}

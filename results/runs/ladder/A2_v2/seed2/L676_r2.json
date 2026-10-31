@@ -1,0 +1,102 @@
+{
+ "case_id": "L676_r2",
+ "system": "A2_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Privacy We do not share your device and browser information with third parties.",
+   "rationale": "The policy explicitly states that no device and browser information is shared with third parties, contradicting the disclosure of sharing with Google.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9573927752612095,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9573927752612095,
+ "usage": {
+  "prompt": 738,
+  "output": 163
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 10,
+  "untagged_paragraphs": 0,
+  "claims": 7,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not share Computer information",
+    "paragraphs": [
+     0,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Privacy We do not share your device and browser information with third parties.",
+      "rationale": "The policy explicitly states that no device and browser information is shared with third parties, contradicting the disclosure of sharing with Google.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Google, as a third party advertisement vendor, uses cookies to serve ads on this site. The use of DART cookies by Google enables them to serve adverts to visitors that are based on their visits to this website as well as other sites on the internet.",
+       "denial_quote": "Privacy We do not share your device and browser information with third parties.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that no device and browser information is shared with third parties, contradicting the disclosure of sharing with Google."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9573927752612095
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 17.15
+ }
+}

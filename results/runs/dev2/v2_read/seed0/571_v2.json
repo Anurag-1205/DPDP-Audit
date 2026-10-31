@@ -1,0 +1,395 @@
+{
+ "case_id": "571_v2",
+ "system": "v2_read",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly mentions collecting IP addresses and other information about visits.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the app collects IP addresses and other information about visits, which contradicts the finding of an undisclosed collection. Additionally, the cited DPDP text pertains to notices and consents rather than the collection of data."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 37(3)"
+   ],
+   "evidence": "We may use cookies and/or web beacons on this website to ensure the integrity of the registration process and to personalize the site.",
+   "rationale": "The policy does not specify a purpose for collecting computer information, only uses.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions using cookies and web beacons for ensuring the integrity of the registration process and personalizing the site, which does not match the finding of a purpose mismatch for advertising. The cited DPDP text relates to notices and does not address the purpose of data collec"
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a time period for erasing personal data after the purpose is served.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9788310252844299,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9788310252844299,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": 0.9788310252844299,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.972165735367512,
+ "usage": {
+  "prompt": 6256,
+  "output": 943
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 14,
+  "untagged_paragraphs": 0,
+  "claims": 29,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     6,
+     11,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     6,
+     3,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     3,
+     8,
+     6,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     3,
+     8,
+     10,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     6,
+     11,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Contact indefinitely; retention statements: ['Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     6,
+     7,
+     13,
+     11
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+      "rationale": "The policy explicitly mentions collecting personal information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting personal information."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly mentions collecting IP addresses and other information about visits.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We may collect certain information about your visit, such as the name of the Internet service provider and the Internet Protocol (IP) address through which you access the Internet; the date and time you access the site; the pages that you access while at the Site and the Internet address of the Web site from which you linked directly to our site.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting IP addresses and other information about visits."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+      "rationale": "The policy explicitly mentions collecting personal information for additional services.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting personal information for additional services."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9788310252844299
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 37(3)"
+      ],
+      "evidence": "This information is used to help improve the site, analyze trends and administer the site.",
+      "rationale": "The policy explicitly states the purpose for collecting computer information.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "This information is used to help improve the site, analyze trends and administer the site.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 37(3)"
+       ],
+       "rationale": "The policy explicitly states the purpose for collecting computer information."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 37(3)"
+      ],
+      "evidence": "We may use cookies and/or web beacons on this website to ensure the integrity of the registration process and to personalize the site.",
+      "rationale": "The policy does not specify a purpose for collecting computer information, only uses.",
+      "raw": {
+       "candidate_id": "c4",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We may use cookies and/or web beacons on this website to ensure the integrity of the registration process and to personalize the site.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 37(3)"
+       ],
+       "rationale": "The policy does not specify a purpose for collecting computer information, only uses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.961420308848575
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a time period for erasing personal data after the purpose is served.",
+      "raw": {
+       "candidate_id": "c6",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a time period for erasing personal data after the purpose is served."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.976245871969531
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 48.04
+ }
+}

@@ -1,0 +1,377 @@
+{
+ "case_id": "93_v2",
+ "system": "full_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "This information will only be used for the stated purpose.",
+   "rationale": "The policy mentions that the data will only be used for the stated purpose, but does not specify what that purpose is.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that the data will only be used for the stated purpose, but does not specify what that purpose is. This aligns with the DPDP text in Sec. 5(1) and Sec. 6(1), which require the purpose for processing personal data to be clearly communicated to the Data Principal. Since the "
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect your IP address, browser information and reference site domain, as well as related information such as the date on which you visit the Site. This information does not identify you personally and is only used in the aggregate.",
+   "rationale": "The policy does not explicitly state that location data is collected, but mentions collecting non-personally identifiable information which includes IP addresses and browser information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting non-personally identifiable information including IP addresses and browser information, but does not explicitly state that location data is collected. Therefore, the finding is not supported because the evidence is about something else (IP addresses and browse"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "For example, we may collect your IP address, browser information and reference site domain, as well as related information such as the date on which you visit the Site.",
+   "rationale": "The policy does not specify sharing of IP addresses and device IDs with any specific recipient, nor does it state that this data is not shared.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "PBS.org is a general audience Site and does not knowingly collect or store personally identifiable information about children under the age of 13.",
+   "rationale": "The policy indicates that PBS.org does not collect or store information about children under 13, but it still involves advertising through Google AdMob.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9469892197926377,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9373200150489193,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9528828665106912,
+ "usage": {
+  "prompt": 7048,
+  "output": 1006
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 80,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     6,
+     7,
+     9,
+     14,
+     33,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     13,
+     33,
+     21,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     8,
+     12,
+     20,
+     13,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     23,
+     25,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     36,
+     35
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect your IP address, browser information and reference site domain, as well as related information such as the date on which you visit the Site. This information does not identify you personally and is only used in the aggregate.",
+      "rationale": "The policy does not explicitly state that location data is collected, but mentions collecting non-personally identifiable information which includes IP addresses and browser information.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "disclosing_quote": "",
+       "denial_quote": "In addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site. This information helps us improve the experience you and other visitors have with the Site.",
+       "generic_quote": "We may collect your IP address, browser information and reference site domain, as well as related information such as the date on which you visit the Site. This information does not identify you personally and is only used in the aggregate.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that location data is collected, but mentions collecting non-personally identifiable information which includes IP addresses and browser information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9469892197926377
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "For example, we may collect your IP address, browser information and reference site domain, as well as related information such as the date on which you visit the Site.",
+      "rationale": "The policy does not specify sharing of IP addresses and device IDs with any specific recipient, nor does it state that this data is not shared.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "This information does not identify you personally and is only used in the aggregate.",
+       "generic_quote": "For example, we may collect your IP address, browser information and reference site domain, as well as related information such as the date on which you visit the Site.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify sharing of IP addresses and device IDs with any specific recipient, nor does it state that this data is not shared."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9373200150489193
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "This information will only be used for the stated purpose.",
+      "rationale": "The policy mentions that the data will only be used for the stated purpose, but does not specify what that purpose is.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "This information will only be used for the stated purpose.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy mentions that the data will only be used for the stated purpose, but does not specify what that purpose is."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9460651910632712
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+      "rationale": "The policy explicitly states that IP addresses are used for tailoring the site and measuring traffic, which aligns with the 'Analytics/Research' purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "purpose_quote": "We use non-personally identifiable information, such as IP addresses or demographic information (zip codes for example) to tailor our Site to the interests/locations of our users and to measure traffic within our Site.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that IP addresses are used for tailoring the site and measuring traffic, which aligns with the 'Analytics/Research' purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9834550988221051
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "PBS.org is a general audience Site and does not knowingly collect or store personally identifiable information about children under the age of 13.",
+      "rationale": "The policy indicates that PBS.org does not collect or store information about children under 13, but it still involves advertising through Google AdMob.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        36,
+        35
+       ],
+       "children_quote": "PBS.org is a general audience Site and does not knowingly collect or store personally identifiable information about children under the age of 13.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy indicates that PBS.org does not collect or store information about children under 13, but it still involves advertising through Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9505848078265229
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 132.52
+ }
+}

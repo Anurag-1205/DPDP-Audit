@@ -1,0 +1,189 @@
+{
+ "case_id": "1468_v1",
+ "system": "A5_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "In addition, we may collect demographic and non-personal information about you or your systems, such as your age, gender, date of birth, zip code, hardware configuration, console ID, software products played, survey data, purchases, IP address and the systems you have played on.",
+   "rationale": "The policy does not explicitly state that contact details are shared with Google AdMob, but it mentions that personal data can be processed for various purposes, including advertising.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f5",
+   "data_type": "Survey data",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "If information is changed or deleted, we may still retain some of your information in our files to resolve disputes, enforce our user agreement, administer our services, comply with technical and legal requirements, and/or other constraints related to the security, integrity, and operation of our Online Services.",
+   "rationale": "The policy states that the company retains information 'to resolve disputes, enforce our user agreement, administer our services, comply with technical and legal requirements, and/or other constraints related to the security, integrity, and operation of our Online Services.' This indicates indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9548747652259622,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9584407944435603,
+ "usage": {
+  "prompt": 3186,
+  "output": 423
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 62,
+  "untagged_paragraphs": 0,
+  "claims": 160,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Contact",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not share Contact",
+    "paragraphs": [
+     39,
+     15,
+     42
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f5",
+    "data_type": "Survey data",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Survey data indefinitely; retention statements: ['Limited', 'Unspecified']",
+    "paragraphs": [
+     17,
+     22,
+     51,
+     14
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "In addition, we may collect demographic and non-personal information about you or your systems, such as your age, gender, date of birth, zip code, hardware configuration, console ID, software products played, survey data, purchases, IP address and the systems you have played on.",
+      "rationale": "The policy does not explicitly state that contact details are shared with Google AdMob, but it mentions that personal data can be processed for various purposes, including advertising.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "As with other gameplay information services, your gameplay, leaderboards, and multiplayer match information may appear nested in our games or third-party webpages via frames or widgets.",
+       "generic_quote": "In addition, we may collect demographic and non-personal information about you or your systems, such as your age, gender, date of birth, zip code, hardware configuration, console ID, software products played, survey data, purchases, IP address and the systems you have played on.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that contact details are shared with Google AdMob, but it mentions that personal data can be processed for various purposes, including advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9548747652259622
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "If information is changed or deleted, we may still retain some of your information in our files to resolve disputes, enforce our user agreement, administer our services, comply with technical and legal requirements, and/or other constraints related to the security, integrity, and operation of our Online Services.",
+      "rationale": "The policy states that the company retains information 'to resolve disputes, enforce our user agreement, administer our services, comply with technical and legal requirements, and/or other constraints related to the security, integrity, and operation of our Online Services.' This indicates indefinite retention.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Survey data",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "If your account is inactive for a period of time it may be deleted. If information is changed or deleted, we may still retain some of your information in our files to resolve disputes, enforce our user agreement, administer our services, comply with technical and legal requirements, and/or other constraints related to the security, integrity, and operation of our Online Services.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that the company retains information 'to resolve disputes, enforce our user agreement, administer our services, comply with technical and legal requirements, and/or other constraints related to the security, integrity, and operation of our Online Services.' This indicates indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9620068236611585
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 50.53
+ }
+}

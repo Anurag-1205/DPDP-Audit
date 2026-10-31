@@ -1,0 +1,196 @@
+{
+ "case_id": "59_v1",
+ "system": "R0",
+ "seed": 0,
+ "model": "gemini-3-flash-preview",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "Contact is collected for ['additional service/feature', 'basic service/feature'], the app uses it for Personalization/Customization",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "Cookies and tracking elements is collected for ['advertising', 'basic service/feature'], the app uses it for Additional service/feature",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "IP address and device IDs is collected for ['analytics/research', 'service operation and security'], the app uses it for Advertising",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": null,
+ "usage": {
+  "prompt": 0,
+  "output": 0
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 42,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['additional service/feature', 'basic service/feature'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     1,
+     8,
+     6,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['advertising', 'basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     7,
+     1,
+     6,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['analytics/research', 'service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     8,
+     6,
+     2,
+     1
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "rules",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "Contact is collected for ['additional service/feature', 'basic service/feature'], the app uses it for Personalization/Customization"
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "Cookies and tracking elements is collected for ['advertising', 'basic service/feature'], the app uses it for Additional service/feature"
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "IP address and device IDs is collected for ['analytics/research', 'service operation and security'], the app uses it for Advertising"
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 0,
+    "token_prob": null
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 0,
+  "seconds": 0.07
+ }
+}

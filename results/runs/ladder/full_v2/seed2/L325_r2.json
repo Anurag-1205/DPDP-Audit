@@ -1,0 +1,102 @@
+{
+ "case_id": "L325_r2",
+ "system": "full_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We do not share your device identifiers and IP address with third parties.",
+   "rationale": "The policy explicitly states that no sharing occurs, thus meeting the requirement for disclosure.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9730424121964335,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9730424121964335,
+ "usage": {
+  "prompt": 1216,
+  "output": 171
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 29,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not share IP address and device IDs",
+    "paragraphs": [
+     1,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do not share your device identifiers and IP address with third parties.",
+      "rationale": "The policy explicitly states that no sharing occurs, thus meeting the requirement for disclosure.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not share your device identifiers and IP address with third parties.",
+       "generic_quote": "Customer data transferred to Publisher will be held and maintained by Publisher pursuant to Publishers respective privacy policies, which can be found at the following: http://lima.ohcommedia.com, http://sedalia.ohcommedia.com, http://jacksonville.ohcommedia.com and http://alton.ohcommedia.com.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that no sharing occurs, thus meeting the requirement for disclosure."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9730424121964335
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 0.06
+ }
+}

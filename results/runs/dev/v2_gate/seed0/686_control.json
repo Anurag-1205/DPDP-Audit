@@ -1,0 +1,228 @@
+{
+ "case_id": "686_control",
+ "system": "v2_gate",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We use the information we gather on Military for the purposes of providing our services, responding to any queries you may have, operating and improving Military, fostering a positive user experience, and delivering the products and services that we offer.",
+   "rationale": "The policy does not explicitly state that it collects IP addresses or device IDs, and instead uses generic terms.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We use the information we gather on Military for the purposes of providing our services, responding to any queries you may have, operating and improving Military, fostering a positive user experience, and delivering the products and services that we offer.",
+   "rationale": "The policy does not explicitly state that it collects location data, and instead uses generic terms.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9701720144235363,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9701720144235363,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9660829209086315,
+ "usage": {
+  "prompt": 4250,
+  "output": 809
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 44,
+  "untagged_paragraphs": 0,
+  "claims": 98,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['additional service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     11,
+     5,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     9,
+     10,
+     16,
+     18,
+     19,
+     42,
+     7,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     9,
+     10,
+     16,
+     18,
+     19,
+     42,
+     7,
+     5
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We use the information we gather on Military for the purposes of providing our services, responding to any queries you may have, operating and improving Military, fostering a positive user experience, and delivering the products and services that we offer.",
+      "rationale": "The policy does not explicitly state that it collects IP addresses or device IDs, and instead uses generic terms.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "This Privacy Policy sets forth the online data collection and usage policies and practices that apply to this web site and to its network of sites, which are included in the link at the bottom of this page under Military.com Network Sites. It does not apply to information we collect in any other fashion.",
+       "generic_quote": "We use the information we gather on Military for the purposes of providing our services, responding to any queries you may have, operating and improving Military, fostering a positive user experience, and delivering the products and services that we offer.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that it collects IP addresses or device IDs, and instead uses generic terms."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We use the information we gather on Military for the purposes of providing our services, responding to any queries you may have, operating and improving Military, fostering a positive user experience, and delivering the products and services that we offer.",
+      "rationale": "The policy does not explicitly state that it collects location data, and instead uses generic terms.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "This Privacy Policy sets forth the online data collection and usage policies and practices that apply to this web site and to its network of sites, which are included in the link at the bottom of this page under Military.com Network Sites. It does not apply to information we collect in any other fashion.",
+       "generic_quote": "We use the information we gather on Military for the purposes of providing our services, responding to any queries you may have, operating and improving Military, fostering a positive user experience, and delivering the products and services that we offer.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that it collects location data, and instead uses generic terms."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9701720144235363
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "We may use your contact information in order to send you e-mail or other communications regarding updates at Military, to send you free informational newsletters from us relating to topics that may be of special interest to you, to contact you about your opinion of current products and services or potential new products and services that may be offered, to conduct surveys, questionnaires, promotions and contests, and to provide the results thereof such as success stories and contest winners. The nature and frequency of these messages will vary depending upon the information we have about you.",
+      "rationale": "The policy clearly states the specific purposes for which contact information is used.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "We may use your contact information in order to send you e-mail or other communications regarding updates at Military, to send you free informational newsletters from us relating to topics that may be of special interest to you, to contact you about your opinion of current products and services or potential new products and services that may be offered, to conduct surveys, questionnaires, promotions and contests, and to provide the results thereof such as success stories and contest winners. The nature and frequency of these messages will vary depending upon the information we have about you.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy clearly states the specific purposes for which contact information is used."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9619938273937265
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": true, \"reason\": \"The policy evidence does not explicitly mention the collection of IP addresses or device IDs. Instead, it uses generic terms like \\'informati'",
+  "llm_calls": 3,
+  "seconds": 93.14
+ }
+}

@@ -1,0 +1,106 @@
+{
+ "case_id": "L586_r2",
+ "system": "A3_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 6"
+   ],
+   "evidence": "[P5] The Information We Collect and How We Use It",
+   "rationale": "The policy explicitly states that the company does not collect IP addresses and device identifiers.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not actually disclose the app's practice regarding the collection of IP addresses and device IDs. Instead, it states that the company does not collect these data types. However, the finding suggests an undisclosed collection, which contradicts the policy statement. "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9733481421411504,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9733481421411504,
+ "usage": {
+  "prompt": 1784,
+  "output": 253
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 22,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     10,
+     11,
+     13,
+     2,
+     5
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 6"
+      ],
+      "evidence": "[P5] The Information We Collect and How We Use It",
+      "rationale": "The policy explicitly states that the company does not collect IP addresses and device identifiers.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "[P2] Caribou Coffee Company, Inc. ('Caribou Coffee') knows that you care how information about you is used and shared, and we appreciate your trust that we will do so carefully. We do not collect your device identifiers and IP address.",
+       "generic_quote": "[P5] The Information We Collect and How We Use It",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 6"
+       ],
+       "rationale": "The policy explicitly states that the company does not collect IP addresses and device identifiers."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9733481421411504
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 28.14
+ }
+}

@@ -1,0 +1,246 @@
+{
+ "case_id": "1545_control",
+ "system": "full_v2_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 10",
+    "Rule 2"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that IP addresses and device IDs are collected to monitor and analyze user behavior, but does not specify personalization/customization as a purpose.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not mention IP addresses and device IDs being collected for personalization/customization purposes. The rationale incorrectly infers that the policy states these data types are collected for monitoring and analyzing user behavior, but does not specify personalizatio"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We use the information we collect to monitor and analyze how users use the Sites and the Services, to provide customer service and to maintain and improve the Services. We may also collect technical information to help us identify your mobile device.",
+   "rationale": "The policy does not explicitly mention collecting geolocation or IP-based location data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions using collected information to monitor and analyze user behavior, but does not explicitly state that location data is collected. The rationale incorrectly infers that the policy does not mention collecting geolocation or IP-based location data."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9520791436243692,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9659971267165878,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9628276700372341,
+ "usage": {
+  "prompt": 6934,
+  "output": 973
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 29,
+  "untagged_paragraphs": 0,
+  "claims": 51,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     13,
+     10,
+     18,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     10,
+     13
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "your name, address, telephone number, e-mail address, and credit card, debit card or other payment information",
+      "rationale": "The policy explicitly mentions collecting personally identifiable information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "your name, address, telephone number, e-mail address, and credit card, debit card or other payment information",
+       "denial_quote": "",
+       "generic_quote": "personal information, information you provide",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting personally identifiable information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9520791436243692
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We use the information we collect to monitor and analyze how users use the Sites and the Services, to provide customer service and to maintain and improve the Services. We may also collect technical information to help us identify your mobile device.",
+      "rationale": "The policy does not explicitly mention collecting geolocation or IP-based location data.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "This website (http://taylorswift.com) is operated by GROUND CTRL, LLC d/b/a Ground(ctrl), on behalf of Taylor Nation, LLC, with the on-line store (http://store.taylorswift.com) operated by Miva Merchant, Inc. on behalf of Taylor Nation, LLC (each of the foregoing entities, and all entities collectively, 'we', 'us' or 'our'). This Privacy Policy ('Policy') explains how we collect, use and protect information that we learn about you as a result of your interaction with us through the websites on which this Policy is posted, including the websites that you may access using your mobile electronic device (collectively, 'Sites') and the services provided through the Sites ('Services').",
+       "generic_quote": "We use the information we collect to monitor and analyze how users use the Sites and the Services, to provide customer service and to maintain and improve the Services. We may also collect technical information to help us identify your mobile device.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting geolocation or IP-based location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9659971267165878
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 10",
+       "Rule 2"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that IP addresses and device IDs are collected to monitor and analyze user behavior, but does not specify personalization/customization as a purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "purpose_mismatch",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Personalization/Customization",
+       "retention": "Unspecified",
+       "purpose_quote": "We use 'web beacons' and 'web logs' to allow our servers to automatically record information that your browser sends whenever you visit the Sites. This information includes the time and date, your Internet Protocol address, your geographic location (your zip code, your area code and/or your time zone), your browser type and version, the Sites and/or the Services that you use, and when and how long you use them. We use this information to monitor and analyze how users use the Sites and the Services, to provide customer service and to maintain and improve the Services.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 10",
+        "Rule 2"
+       ],
+       "rationale": "The policy states that IP addresses and device IDs are collected to monitor and analyze user behavior, but does not specify personalization/customization as a purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9704067397707453
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 121.4,
+  "reverified_from": "full_v2",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence provided does not mention IP addresses and device IDs being collected for personalization/customization purposes. The rationale incorrectly infers that the policy states these data types are collected for monitoring and analyzing user behavior, but does not specify personalization/customization as a purpose.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence mentions using collected information to monitor and analyze user behavior, but does not explicitly state that location data is collected. The rationale incorrectly infers that the policy does not mention collecting geolocation or IP-based location data.\"}]}"
+ }
+}

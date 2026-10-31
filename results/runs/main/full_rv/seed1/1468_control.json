@@ -1,0 +1,259 @@
+{
+ "case_id": "1468_control",
+ "system": "full_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We also may use \"cookies\" and other passive technologies including clear gifs to collect certain non-personal information from you in connection with your use of the Online Services, such as the pages you visit and the features you use.",
+   "rationale": "The policy mentions using cookies and other passive technologies to collect non-personal information but does not specify collecting contact details.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions using cookies and other passive technologies to collect non-personal information, which includes contact details. However, it does not specify collecting contact details explicitly. The cited DPDP text requires a notice to inform the data principal about the personal dat"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We also may use \"cookies\" and other passive technologies including clear gifs to collect certain non-personal information from you in connection with your use of the Online Services, such as the pages you visit and the features you use.",
+   "rationale": "The policy mentions using cookies and other passive technologies to collect computer information, which includes device and browser information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions using cookies and other passive technologies to collect non-personal information, which includes device and browser information. This directly aligns with the data type 'Computer information' mentioned in the finding. There is no indication that this collection is undisc"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9647142616726697,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9647142616726697,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9587424699754266,
+ "usage": {
+  "prompt": 5528,
+  "output": 909
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 62,
+  "untagged_paragraphs": 0,
+  "claims": 151,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     12,
+     13,
+     14,
+     15,
+     19,
+     23,
+     25,
+     33,
+     36,
+     39,
+     40,
+     49,
+     42
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     31,
+     19
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     12,
+     13,
+     14,
+     15,
+     19,
+     23,
+     25,
+     33,
+     36,
+     39,
+     40,
+     49,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We also may use \"cookies\" and other passive technologies including clear gifs to collect certain non-personal information from you in connection with your use of the Online Services, such as the pages you visit and the features you use.",
+      "rationale": "The policy mentions using cookies and other passive technologies to collect non-personal information but does not specify collecting contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We also may use 'cookies' and other passive technologies including clear gifs to collect certain non-personal information from you in connection with your use of the Online Services, such as the pages you visit and the features you use. Our cookies are linked to personal information.",
+       "generic_quote": "We also may use 'cookies' and other passive technologies including clear gifs to collect certain non-personal information from you in connection with your use of the Online Services, such as the pages you visit and the features you use. Our cookies are linked to personal information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions using cookies and other passive technologies to collect non-personal information but does not specify collecting contact details."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We also may use \"cookies\" and other passive technologies including clear gifs to collect certain non-personal information from you in connection with your use of the Online Services, such as the pages you visit and the features you use.",
+      "rationale": "The policy mentions using cookies and other passive technologies to collect computer information, which includes device and browser information.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We also may use 'cookies' and other passive technologies including clear gifs to collect certain non-personal information from you in connection with your use of the Online Services, such as the pages you visit and the features you use. Our cookies are linked to personal information.",
+       "denial_quote": "",
+       "generic_quote": "We also may use 'cookies' and other passive technologies including clear gifs to collect certain non-personal information from you in connection with your use of the Online Services, such as the pages you visit and the features you use. Our cookies are linked to personal information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions using cookies and other passive technologies to collect computer information, which includes device and browser information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9647142616726697
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "The Company may also keep track of IP addresses used to access its Online Services for various reasons.",
+      "rationale": "The policy states the company tracks IP addresses for various reasons, which can include basic service provision.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "The Company may also keep track of IP addresses used to access its Online Services for various reasons.",
+       "unspecified_purpose_quote": "These log files are tied to your personal information in certain circumstances, such as if you have linked your console user account to Online Service accounts offered by the Company.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy states the company tracks IP addresses for various reasons, which can include basic service provision."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9527706782781835
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 97.84,
+  "reverified_from": "full",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

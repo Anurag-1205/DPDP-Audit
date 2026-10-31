@@ -1,0 +1,164 @@
+{
+ "case_id": "503_v2",
+ "system": "full_v2_finetuned",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may share your information within the BWW organization and with our franchisees, with current and future affiliated companies, and with reputable third parties as needed to provide better services to you. These third party services may include such tasks as maintaining and managing customer information, providing customer services, taking and fulfilling orders, conducting BWW promotions and surveys, and communicating effectively with you. We do not authorize those third parties to make any other use of your information unless indicated herein, and we will hold them accountable if it is discovered they use your information for any unauthorized purpose.",
+   "rationale": "The policy mentions sharing with third parties and within the organization but does not specifically mention sharing health data with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9769691516248432,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9592254689078961,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9680973102663697,
+ "usage": {
+  "prompt": 2822,
+  "output": 514
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 24,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Financial is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     6,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Health with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     1,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you purchase a product from our Sites, we ask you to provide information to fulfill your order, including your name, email address, phone, shipping address, billing address and method of payment to facilitate your purchase.",
+      "rationale": "The policy explicitly mentions collecting financial data like payment and billing information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you purchase a product from our Sites, we ask you to provide information to fulfill your order, including your name, email address, phone, shipping address, billing address and method of payment to facilitate your purchase.",
+       "denial_quote": "",
+       "generic_quote": "We collect the information you affirmatively choose to provide us, such as when you provide your name, contact information, the pages you access and similar information for such purposes as purchasing products, creating an account, joining our loyalty programs, filling out a survey, entering contests, participating in promotions or electronic activities, posting comments on bulletin boards or otherwise interacting with our Sites.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting financial data like payment and billing information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9769691516248432
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may share your information within the BWW organization and with our franchisees, with current and future affiliated companies, and with reputable third parties as needed to provide better services to you. These third party services may include such tasks as maintaining and managing customer information, providing customer services, taking and fulfilling orders, conducting BWW promotions and surveys, and communicating effectively with you. We do not authorize those third parties to make any other use of your information unless indicated herein, and we will hold them accountable if it is discovered they use your information for any unauthorized purpose.",
+      "rationale": "The policy mentions sharing with third parties and within the organization but does not specifically mention sharing health data with Google AdMob.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We may also disclose your personal information to third parties if we believe disclosure is appropriate to comply with law, regulation, legal process or government request; enforce the terms of any of our policies; or protect the rights, property or safety of BWW, our associates, or our customers. This may include assistance in fraud protection and investigation. In addition, we may share or transfer your information in connection with a substantial corporate transaction, such as a merger, consolidation, asset sale, or in the unlikely event of bankruptcy.",
+       "denial_quote": "",
+       "generic_quote": "We may share your information within the BWW organization and with our franchisees, with current and future affiliated companies, and with reputable third parties as needed to provide better services to you. These third party services may include such tasks as maintaining and managing customer information, providing customer services, taking and fulfilling orders, conducting BWW promotions and surveys, and communicating effectively with you. We do not authorize those third parties to make any other use of your information unless indicated herein, and we will hold them accountable if it is discovered they use your information for any unauthorized purpose.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with third parties and within the organization but does not specifically mention sharing health data with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9592254689078961
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 62.91
+ }
+}

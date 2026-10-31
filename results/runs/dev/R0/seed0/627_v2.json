@@ -1,0 +1,229 @@
+{
+ "case_id": "627_v2",
+ "system": "R0",
+ "seed": 0,
+ "model": "gemini-3-flash-preview",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "IP address and device IDs is covered only by generic collection statements",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f2",
+    "f4"
+   ]
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "Location is collected for ['additional service/feature'], the app uses it for Legal requirement",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)"
+   ],
+   "evidence": "",
+   "rationale": "the app keeps IP address and device IDs indefinitely; retention statements: none",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": null,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": null,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": null,
+ "usage": {
+  "prompt": 0,
+  "output": 0
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 22,
+  "untagged_paragraphs": 0,
+  "claims": 21,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     9,
+     4,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Legal requirement",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location is collected for ['additional service/feature'], the app uses it for Legal requirement",
+    "paragraphs": [
+     14,
+     12,
+     3,
+     6,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     9,
+     4,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps IP address and device IDs indefinitely; retention statements: none",
+    "paragraphs": [
+     4,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "rules",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "IP address and device IDs is covered only by generic collection statements"
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "Location is collected for ['additional service/feature'], the app uses it for Legal requirement"
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "IP address and device IDs is covered only by generic collection statements"
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)"
+      ],
+      "evidence": "",
+      "rationale": "the app keeps IP address and device IDs indefinitely; retention statements: none"
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 0,
+    "token_prob": null
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 0,
+  "seconds": 0.08
+ }
+}

@@ -1,0 +1,105 @@
+{
+ "case_id": "L640_r3",
+ "system": "A2_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We use third-party advertising companies to serve ads when you visit our Web site. These companies may use aggregated information (not including your name, address, email address or telephone number) about your visits to this and other Websites in order to provide advertisements about goods and services of interest to you.",
+   "rationale": "The policy mentions collecting aggregated information about visits, but does not explicitly mention collecting computer information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence discusses the use of aggregated information from third-party advertising companies, which does not directly address the collection of computer information. The cited DPDP text pertains to notices and consent requests, which are not relevant to the issue of undisclosed collection "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9589184064118175,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9589184064118175,
+ "usage": {
+  "prompt": 1631,
+  "output": 302
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 39,
+  "untagged_paragraphs": 0,
+  "claims": 46,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     11,
+     27,
+     16,
+     29
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use third-party advertising companies to serve ads when you visit our Web site. These companies may use aggregated information (not including your name, address, email address or telephone number) about your visits to this and other Websites in order to provide advertisements about goods and services of interest to you.",
+      "rationale": "The policy mentions collecting aggregated information about visits, but does not explicitly mention collecting computer information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We use third-party advertising companies to serve ads when you visit our Web site. These companies may use aggregated information (not including your name, address, email address or telephone number) about your visits to this and other Websites in order to provide advertisements about goods and services of interest to you.",
+       "denial_quote": "",
+       "generic_quote": "We use third-party advertising companies to serve ads when you visit our Web site. These companies may use aggregated information (not including your name, address, email address or telephone number) about your visits to this and other Websites in order to provide advertisements about goods and services of interest to you.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting aggregated information about visits, but does not explicitly mention collecting computer information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9589184064118175
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 29.2
+ }
+}

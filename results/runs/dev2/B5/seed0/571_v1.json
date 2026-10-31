@@ -1,0 +1,495 @@
+{
+ "case_id": "571_v1",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "information about your visit",
+   "rationale": "The policy specifies that IP addresses are collected for site improvement and analysis, but does not mention the exact retention period.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions collecting 'information about your visit' for site improvement and analysis, but does not specify the exact data types (such as IP addresses and device IDs) or the retention period. The cited DPDP text requires the notice to inform the Data Principal about the personal d"
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f4",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+   "rationale": "The policy does not disclose collecting financial information for indefinite retention.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not explicitly mention collecting financial information. Instead, it describes collecting personal information for various purposes like providing services or carrying out transactions. The cited DPDP text requires the notice to inform the Data Principal about the p"
+  },
+  {
+   "candidate_id": "c9",
+   "flow_id": "f4",
+   "data_type": "Financial",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not disclose collecting financial information for indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9865209480172593,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9865209480172593,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9865209480172593,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "incorrect",
+   "confidence": 0.9865209480172593,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9865209480172593,
+ "usage": {
+  "prompt": 3050,
+  "output": 2277
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 14,
+  "untagged_paragraphs": 0,
+  "claims": 29,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f4",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+      "rationale": "The policy discloses that personal information is collected but does not specify the exact data types or purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "purpose_quote": "to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses that personal information is collected but does not specify the exact data types or purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+      "rationale": "The policy discloses that personal information is collected but does not specify the exact data types or purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "purpose_quote": "to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses that personal information is collected but does not specify the exact data types or purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "information about your visit",
+      "rationale": "The policy specifies that IP addresses are collected for site improvement and analysis, but does not mention the exact retention period.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We may collect certain information about your visit, such as the name of the Internet service provider and the Internet Protocol (IP) address through which you access the Internet; the date and time you access the site; the pages that you access while at the Site and the Internet address of the Web site from which you linked directly to our site.",
+       "denial_quote": "",
+       "generic_quote": "information about your visit",
+       "purpose_quote": "to help improve the site, analyze trends and administer the site.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies that IP addresses are collected for site improvement and analysis, but does not mention the exact retention period."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies that IP addresses are collected for site improvement and analysis, but does not mention the exact retention period.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We may collect certain information about your visit, such as the name of the Internet service provider and the Internet Protocol (IP) address through which you access the Internet; the date and time you access the site; the pages that you access while at the Site and the Internet address of the Web site from which you linked directly to our site.",
+       "denial_quote": "",
+       "generic_quote": "information about your visit",
+       "purpose_quote": "to help improve the site, analyze trends and administer the site.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies that IP addresses are collected for site improvement and analysis, but does not mention the exact retention period."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect certain information about your visit, such as the name of the Internet service provider and the Internet Protocol (IP) address through which you access the Internet; the date and time you access the site; the pages that you access while at the Site and the Internet address of the Web site from which you linked directly to our site.",
+      "rationale": "The policy specifies that computer information is collected for site improvement and analysis, but does not mention the exact retention period.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We may collect certain information about your visit, such as the name of the Internet service provider and the Internet Protocol (IP) address through which you access the Internet; the date and time you access the site; the pages that you access while at the Site and the Internet address of the Web site from which you linked directly to our site.",
+       "denial_quote": "",
+       "generic_quote": "information about your visit",
+       "purpose_quote": "to help improve the site, analyze trends and administer the site.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies that computer information is collected for site improvement and analysis, but does not mention the exact retention period."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "to help improve the site, analyze trends and administer the site.",
+      "rationale": "The policy specifies that computer information is collected for site improvement and analysis, but does not mention the exact retention period.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We may collect certain information about your visit, such as the name of the Internet service provider and the Internet Protocol (IP) address through which you access the Internet; the date and time you access the site; the pages that you access while at the Site and the Internet address of the Web site from which you linked directly to our site.",
+       "denial_quote": "",
+       "generic_quote": "information about your visit",
+       "purpose_quote": "to help improve the site, analyze trends and administer the site.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies that computer information is collected for site improvement and analysis, but does not mention the exact retention period."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+      "rationale": "The policy does not disclose collecting financial information for indefinite retention.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "",
+       "denial_quote": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+       "generic_quote": "personal information",
+       "purpose_quote": "to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose collecting financial information for indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+      "rationale": "The policy does not disclose collecting financial information for indefinite retention.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "",
+       "denial_quote": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+       "generic_quote": "personal information",
+       "purpose_quote": "to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose collecting financial information for indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c9",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not disclose collecting financial information for indefinite retention.",
+      "raw": {
+       "candidate_id": "c9",
+       "disclosing_quote": "",
+       "denial_quote": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+       "generic_quote": "personal information",
+       "purpose_quote": "to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose collecting financial information for indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9865209480172593
+   }
+  ],
+  "paragraphs_shown": [
+   14
+  ],
+  "paragraphs_total": 14,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 171.98
+ }
+}

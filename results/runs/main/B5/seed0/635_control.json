@@ -1,0 +1,357 @@
+{
+ "case_id": "635_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "This privacy policy does not apply to third-party websites and treatment of any personal information you provide on those sites is subject to the applicable third party's individual privacy policy.",
+   "rationale": "The policy mentions collecting personal information but does not specify a purpose.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not disclose the app's practice regarding contact data collection. The cited DPDP text pertains to the notice requirements for data processing purposes, which is not directly related to the undisclosed collection of contact data."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that IP addresses are used for marketing and demographic studies.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is explicitly stated as non-existent, meaning the app does not mention the collection of IP addresses and device IDs. The cited DPDP text pertains to notice requirements, which is not directly related to the undisclosed collection of IP addresses and device IDs."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that IP addresses are used for marketing and demographic studies.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is explicitly stated as non-existent, meaning the app does not mention the collection of location data. The cited DPDP text pertains to notice requirements, which is not directly related to the undisclosed collection of location data."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9798773099068998,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9798773099068998,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9798773099068998,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9798773099068998,
+ "usage": {
+  "prompt": 5993,
+  "output": 1301
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 44,
+  "untagged_paragraphs": 0,
+  "claims": 95,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "This privacy policy does not apply to third-party websites and treatment of any personal information you provide on those sites is subject to the applicable third party's individual privacy policy.",
+      "rationale": "The policy mentions collecting personal information but does not specify a purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We do not require that website visitors reveal any personally identifying information in order to gain general access to our websites.",
+       "denial_quote": "",
+       "generic_quote": "personal information, information you provide",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We may use personally identifying information and records for defense of a lawsuit, investigation or other action if such personally identifying information, records or profiles are relevant to the lawsuit, investigation or action.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting personal information but does not specify a purpose."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may use personally identifying information and records for defense of a lawsuit, investigation or other action if such personally identifying information, records or profiles are relevant to the lawsuit, investigation or action.",
+      "rationale": "The policy mentions collecting personal information but does not specify a purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We do not require that website visitors reveal any personally identifying information in order to gain general access to our websites.",
+       "denial_quote": "",
+       "generic_quote": "personal information, information you provide",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We may use personally identifying information and records for defense of a lawsuit, investigation or other action if such personally identifying information, records or profiles are relevant to the lawsuit, investigation or action.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting personal information but does not specify a purpose."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that IP addresses are used for marketing and demographic studies.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "SCEA may collect information such as our website visitors' IP address, IP address-related information, system Media Access Control ('MAC') address, network configuration information, network device information, browser plug-in types and versions, operating system, and platform. We also may collect information about your download activity, browser activity, forum postings and session information.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "SCEA may use personally identifying information for marketing and demographic studies. These studies help us improve our websites, products and services to better meet our users' needs.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that IP addresses are used for marketing and demographic studies."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that IP addresses are used for marketing and demographic studies.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "SCEA may collect information such as our website visitors' IP address, IP address-related information, system Media Access Control ('MAC') address, network configuration information, network device information, browser plug-in types and versions, operating system, and platform. We also may collect information about your download activity, browser activity, forum postings and session information.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "SCEA may use personally identifying information for marketing and demographic studies. These studies help us improve our websites, products and services to better meet our users' needs.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that IP addresses are used for marketing and demographic studies."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that IP addresses are used for marketing and demographic studies.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "SCEA may collect information such as our website visitors' IP address, IP address-related information, system Media Access Control ('MAC') address, network configuration information, network device information, browser plug-in types and versions, operating system, and platform. We also may collect information about your download activity, browser activity, forum postings and session information.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "SCEA may use personally identifying information for marketing and demographic studies. These studies help us improve our websites, products and services to better meet our users' needs.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that IP addresses are used for marketing and demographic studies."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that IP addresses are used for marketing and demographic studies.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "SCEA may use personally identifying information for marketing and demographic studies. These studies help us improve our websites, products and services to better meet our users' needs.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "SCEA may use personally identifying information for marketing and demographic studies. These studies help us improve our websites, products and services to better meet our users' needs.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that IP addresses are used for marketing and demographic studies."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9798773099068998
+   }
+  ],
+  "paragraphs_shown": [
+   44
+  ],
+  "paragraphs_total": 44,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence does not disclose the app's practice regarding contact data collection. The cited DPDP text pertains to the notice requirements for data processing purposes, which is not directly related to the undisclosed collection of contact data.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence is explicitly stated as non-existent, meaning the app does not mention the collection of IP addresses and device IDs. The cited DPDP text pertains to notice requirements, which is not directly related to the undisclosed collection of IP addresses and device IDs.\"}]}\n\n{\"checks\": [{\"finding_id\": 2, \"supported\": false, \"reason\": \"The policy evidence is explicitly stated as non-existent, meaning the app does not mention the collection of location data. The cited DPDP text pertains to notice requirements, which is not directly related to the undisclosed collection of location data.\"}]}",
+  "llm_calls": 2,
+  "seconds": 129.18
+ }
+}

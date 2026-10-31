@@ -1,0 +1,335 @@
+{
+ "case_id": "1264_v1",
+ "system": "full_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states the purpose for which cookies and tracking elements are used.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the rationale for using cookies and tracking elements is explicitly stated in the policy, contradicting the finding of purpose mismatch. Additionally, the cited DPDP text pertains to the notice requirement for consent, not the purpose for which data is processed."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We do not sell, rent, trade, or otherwise disclose to any business, organization, individual, or other outside entity information provided by people who visit or interact with the website.",
+   "rationale": "The policy clearly states that the data is not shared with third parties and provides a generic statement covering the sharing of personal information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions that the data is not sold or disclosed to third parties, but does not specifically address IP addresses and device IDs. The cited DPDP text pertains to the notice requirement for consent, not the sharing of personal data."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention any restrictions on processing children's data for advertising.",
+   "reviewer": "children",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that it does not mention anything, implying no restrictions on processing children's data. The cited DPDP text pertains to the processing of personal data of children and obtaining verifiable consent, not the omission in the policy."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9462421178569118,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9462421178569118,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9547913089445116,
+ "usage": {
+  "prompt": 6481,
+  "output": 1054
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 14,
+  "untagged_paragraphs": 0,
+  "claims": 29,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     4,
+     9,
+     11,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     10,
+     0
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not share IP address and device IDs",
+    "paragraphs": [
+     10,
+     11,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "omission",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['additional service/feature', 'basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     1,
+     6,
+     11
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "For systems administration and troubleshooting, we log the IP address (the location on the Internet) of the computer or network from which someone visits the website.",
+      "rationale": "The policy explicitly states that the IP address is logged for system administration and troubleshooting.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "For systems administration and troubleshooting, we log the IP address (the location on the Internet) of the computer or network from which someone visits the website.",
+       "denial_quote": "",
+       "generic_quote": "We do not sell, rent, trade, or otherwise disclose to any business, organization, individual, or other outside entity information provided by people who visit or interact with the website.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the IP address is logged for system administration and troubleshooting."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do not sell, rent, trade, or otherwise disclose to any business, organization, individual, or other outside entity information provided by people who visit or interact with the website.",
+      "rationale": "The policy clearly states that the data is not shared with third parties and provides a generic statement covering the sharing of personal information.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "Our website uses cookies for these reasons: so that you don't have to reenter information on action, donate, or payment pages; for tracking traffic so that we can evaluate and improve the website; and to facilitate outreach based on visitors' interests.",
+       "generic_quote": "We do not sell, rent, trade, or otherwise disclose to any business, organization, individual, or other outside entity information provided by people who visit or interact with the website.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy clearly states that the data is not shared with third parties and provides a generic statement covering the sharing of personal information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9462421178569118
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states the purpose for which cookies and tracking elements are used.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "for tracking traffic so that we can evaluate and improve the website",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states the purpose for which cookies and tracking elements are used."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "we may store that information and contact you about our work",
+      "rationale": "The policy clearly states the purpose for which contact information is stored and used.",
+      "raw": {
+       "candidate_id": "c5",
+       "purpose_quote": "we may store that information and contact you about our work",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy clearly states the purpose for which contact information is stored and used."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9619598671527687
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention any restrictions on processing children's data for advertising.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not mention any restrictions on processing children's data for advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9561719418238545
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 105.83,
+  "reverified_from": "full",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence states that the rationale for using cookies and tracking elements is explicitly stated in the policy, contradicting the finding of purpose mismatch. Additionally, the cited DPDP text pertains to the notice requirement for consent, not the purpose for which data is processed.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence mentions that the data is not sold or disclosed to third parties, but does not specifically address IP addresses and device IDs. The cited DPDP text pertains to the notice requirement for consent, not the sharing of personal data.\"}]}\n\n{\"checks\": [{\"finding_id\": 2, \"supported\": false, \"reason\": \"The policy evidence states that it does not mention anything, implying no restrictions on processing children's data. The cited DPDP text pertains to the processing of personal data of children and obtaining verifiable consent, not the omission in the policy.\"}]}"
+ }
+}

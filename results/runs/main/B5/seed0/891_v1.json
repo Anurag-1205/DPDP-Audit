@@ -1,0 +1,515 @@
+{
+ "case_id": "891_v1",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+   "rationale": "The policy discloses collecting contact information but does not specify the purpose or retention period.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that the app collects and maintains information that users voluntarily submit, but it does not specify the purpose or retention period. The cited DPDP text requires the notice to inform the Data Principal about the personal data and the purpose for which it is proposed to "
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+   "rationale": "The policy mentions collecting health information for advertising but does not specify indefinite retention.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "merged_flows": [
+    "f2",
+    "f4"
+   ],
+   "verifier_reason": "The policy evidence mentions collecting health information for advertising but does not specify indefinite retention. However, the cited DPDP text focuses on the need to inform the Data Principal about the personal data and the purpose for which it is proposed to be processed, as well as the manner "
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Through cookies, pixels, beacons, log files and other technologies, we may collect information about how you use the Site and the Services.",
+   "rationale": "The policy mentions collecting IP addresses for basic service purposes but does not specify indefinite retention.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting IP addresses through various technologies for basic service purposes but does not specify indefinite retention. Similar to finding 1, the cited DPDP text focuses on informing the Data Principal about the personal data and the purpose for which it is proposed t"
+  },
+  {
+   "candidate_id": "c9",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "retention_mismatch",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We do not store Personal Information in any cookies on your computer.",
+   "rationale": "The policy mentions collecting health information for advertising but does not specify indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9844251330250241,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9844251330250241,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9844251330250241,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9844251330250241,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9844251330250241,
+ "usage": {
+  "prompt": 6734,
+  "output": 2029
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 42,
+  "untagged_paragraphs": 0,
+  "claims": 106,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+      "rationale": "The policy discloses collecting contact information but does not specify the purpose or retention period.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+       "denial_quote": "",
+       "generic_quote": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+       "purpose_quote": "to provide the Sites and Services",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "When you participate in a Promotion, you are subject to any official rules for that Promotion, which may contain additional information about the specific privacy practices associated with the Promotion.",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact information but does not specify the purpose or retention period."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "to provide the Sites and Services",
+      "rationale": "The policy discloses collecting contact information but does not specify the purpose or retention period.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+       "denial_quote": "",
+       "generic_quote": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+       "purpose_quote": "to provide the Sites and Services",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "When you participate in a Promotion, you are subject to any official rules for that Promotion, which may contain additional information about the specific privacy practices associated with the Promotion.",
+       "retention": "unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact information but does not specify the purpose or retention period."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+      "rationale": "The policy mentions collecting health information for advertising but does not specify indefinite retention.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+       "denial_quote": "",
+       "generic_quote": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+       "purpose_quote": "We believe that advertising is more interesting to you when it is relevant.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We do not store Personal Information in any cookies on your computer.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting health information for advertising but does not specify indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We believe that advertising is more interesting to you when it is relevant.",
+      "rationale": "The policy mentions collecting health information for advertising but does not specify indefinite retention.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+       "denial_quote": "",
+       "generic_quote": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+       "purpose_quote": "We believe that advertising is more interesting to you when it is relevant.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We do not store Personal Information in any cookies on your computer.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting health information for advertising but does not specify indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Through cookies, pixels, beacons, log files and other technologies, we may collect information about how you use the Site and the Services.",
+      "rationale": "The policy mentions collecting IP addresses for basic service purposes but does not specify indefinite retention.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "Through cookies, pixels, beacons, log files and other technologies, we may collect information about how you use the Site and the Services.",
+       "denial_quote": "",
+       "generic_quote": "Through cookies, pixels, beacons, log files and other technologies, we may collect information about how you use the Site and the Services.",
+       "purpose_quote": "to provide the Sites and Services",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We do not store Personal Information in any cookies on your computer.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting IP addresses for basic service purposes but does not specify indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions collecting IP addresses for basic service purposes but does not specify indefinite retention.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "Through cookies, pixels, beacons, log files and other technologies, we may collect information about how you use the Site and the Services.",
+       "denial_quote": "",
+       "generic_quote": "Through cookies, pixels, beacons, log files and other technologies, we may collect information about how you use the Site and the Services.",
+       "purpose_quote": "to provide the Sites and Services",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We do not store Personal Information in any cookies on your computer.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting IP addresses for basic service purposes but does not specify indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+      "rationale": "The policy mentions collecting health information for advertising but does not specify indefinite retention.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+       "denial_quote": "",
+       "generic_quote": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+       "purpose_quote": "We believe that advertising is more interesting to you when it is relevant.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We do not store Personal Information in any cookies on your computer.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting health information for advertising but does not specify indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We believe that advertising is more interesting to you when it is relevant.",
+      "rationale": "The policy mentions collecting health information for advertising but does not specify indefinite retention.",
+      "raw": {
+       "candidate_id": "c8",
+       "disclosing_quote": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+       "denial_quote": "",
+       "generic_quote": "We collect and maintain information that you voluntarily submit to us during your use of the Sites and Services.",
+       "purpose_quote": "We believe that advertising is more interesting to you when it is relevant.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "retention_quote": "We do not store Personal Information in any cookies on your computer.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting health information for advertising but does not specify indefinite retention."
+      }
+     },
+     {
+      "candidate_id": "c9",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do not store Personal Information in any cookies on your computer.",
+      "rationale": "The policy mentions collecting health information for advertising but does not specify indefinite retention.",
+      "raw": {
+       "candidate_id": "c9",
+       "disclosing_quote": "We may share your Personal Information with third parties as specifically approved by you or under the circumstances described below.",
+       "denial_quote": "",
+       "generic_quote": "We may share your Personal Information with third parties as specifically approved by you or under the circumstances described below.",
+       "purpose_quote": "We may share your Personal Information with third parties as specifically approved by you or under the circumstances described below.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "retention_quote": "We do not store Personal Information in any cookies on your computer.",
+       "retention": "limited",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting health information for advertising but does not specify indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9844251330250241
+   }
+  ],
+  "paragraphs_shown": [
+   42
+  ],
+  "paragraphs_total": 42,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 206.32
+ }
+}

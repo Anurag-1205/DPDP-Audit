@@ -1,0 +1,258 @@
+{
+ "case_id": "640_v2",
+ "system": "full_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We obtain information about you when you search, buy, participate in a contest or questionnaire, communicate with customer service, or otherwise contact us or post information on our Websites.",
+   "rationale": "The policy mentions obtaining various types of personal information, but does not specify whether personal identifiers are collected.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions obtaining various types of personal information but does not specify whether personal identifiers are collected. The cited DPDP text (Sec. 5(2)) requires the Data Fiduciary to inform the Data Principal about the personal data and the purpose for which it has been process"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may share customer information that we collect with third parties.",
+   "rationale": "The policy states that aggregated information is used for advertising purposes, but does not explicitly state that computer information is shared with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that customer information is shared with third parties, but it does not explicitly mention sharing computer information with Google AdMob. The cited DPDP text (Sec. 5(2)) requires the Data Fiduciary to inform the Data Principal about the personal data and the purpose for w"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f5",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "We also may log the length of time of your visit and the number of times you visit and purchase from us.",
+   "rationale": "The policy does not specify any purpose for logging computer information, and does not state that this data is used for advertising.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions logging the length of time of visits and the number of visits, but it does not specify the purpose for logging computer information or state that this data is used for advertising. The cited DPDP text (Sec. 5(1) and Sec. 6(1)) requires the Data Fiduciary to inform the Da"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9354125287141521,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9354125287141521,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9437118922535075,
+ "usage": {
+  "prompt": 6162,
+  "output": 1149
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 42,
+  "untagged_paragraphs": 0,
+  "claims": 69,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Personal identifier is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     6,
+     30,
+     18,
+     0
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     18,
+     19,
+     21,
+     22,
+     23,
+     25,
+     27,
+     30,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f5",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Computer information is collected for ['unspecified'], the app uses it for Advertising",
+    "paragraphs": [
+     11,
+     32
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We obtain information about you when you search, buy, participate in a contest or questionnaire, communicate with customer service, or otherwise contact us or post information on our Websites.",
+      "rationale": "The policy mentions obtaining various types of personal information, but does not specify whether personal identifiers are collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We receive and store any information you enter on our Websites or that you give us in any other way. You can choose not to provide certain information, but this will limit your ability to purchase products offered on the Websites, or to take advantage of some features or promotions.",
+       "generic_quote": "We obtain information about you when you search, buy, participate in a contest or questionnaire, communicate with customer service, or otherwise contact us or post information on our Websites.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions obtaining various types of personal information, but does not specify whether personal identifiers are collected."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may share customer information that we collect with third parties.",
+      "rationale": "The policy states that aggregated information is used for advertising purposes, but does not explicitly state that computer information is shared with Google AdMob.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We use third-party advertising companies to serve ads when you visit our Web site. These companies may use aggregated information (not including your name, address, email address or telephone number) about your visits to this and other Websites in order to provide advertisements about goods and services of interest to you.",
+       "denial_quote": "We do not share your personal information with third parties for their own marketing purposes.",
+       "generic_quote": "We may share customer information that we collect with third parties.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that aggregated information is used for advertising purposes, but does not explicitly state that computer information is shared with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9354125287141521
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We also may log the length of time of your visit and the number of times you visit and purchase from us.",
+      "rationale": "The policy does not specify any purpose for logging computer information, and does not state that this data is used for advertising.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We also may log the length of time of your visit and the number of times you visit and purchase from us.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy does not specify any purpose for logging computer information, and does not state that this data is used for advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9520112557928627
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 97.52,
+  "reverified_from": "full_finetuned",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

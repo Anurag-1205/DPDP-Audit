@@ -1,0 +1,116 @@
+{
+ "case_id": "744_v1",
+ "system": "A5_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that account information may be retained for a reasonable period for internal account management and fraud prevention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9566260815573728,
+ "usage": {
+  "prompt": 1030,
+  "output": 120
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 26,
+  "untagged_paragraphs": 0,
+  "claims": 72,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Demographic indefinitely; retention statements: ['Limited', 'Unspecified']",
+    "paragraphs": [
+     18,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that account information may be retained for a reasonable period for internal account management and fraud prevention.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "retention_mismatch",
+       "data_type": "Demographic",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "retention": "indefinitely",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that account information may be retained for a reasonable period for internal account management and fraud prevention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9566260815573728
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 10.68
+ }
+}

@@ -1,0 +1,260 @@
+{
+ "case_id": "1050_v1",
+ "system": "A3_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 4(2)",
+    "Rule 8",
+    "Sec. 17(3)"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions using personal data for advertising but does not specify a particular purpose for demographic data.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that there is no mention of it, meaning the policy does not address the use of demographic data for advertising. The cited sections (Sec. 4(2), Rule 8, Sec. 17(3)) do not directly relate to the purpose mismatch for demographic data in advertising. Therefore, the finding is"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may share information about you with third party service providers (such as companies who assist us in marketing, conducting surveys and research to help us provide better products and services).",
+   "rationale": "The policy does not explicitly mention sharing IP addresses and device IDs with Google AdMob, but it does state that information can be shared with third-party service providers for marketing purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly state that the processing of personal data of children is prohibited.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9569703505214677,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9450496655619863,
+ "usage": {
+  "prompt": 5454,
+  "output": 618
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 72,
+  "untagged_paragraphs": 0,
+  "claims": 150,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Demographic is collected for ['additional service/feature', 'basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     12,
+     21,
+     27,
+     37,
+     64,
+     70,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     11,
+     13,
+     67,
+     10,
+     55
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "omission",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 4(2)",
+       "Rule 8",
+       "Sec. 17(3)"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using personal data for advertising but does not specify a particular purpose for demographic data.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Demographic",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We also encourage you to review the American Honda Finance Corporation Financial Privacy Policy below to learn more about our protections and use of your nonpublic personal information (namely, personally identifiable financial information).",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 4(2)",
+        "Rule 8",
+        "Sec. 17(3)"
+       ],
+       "rationale": "The policy mentions using personal data for advertising but does not specify a particular purpose for demographic data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9344595591303565
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may share information about you with third party service providers (such as companies who assist us in marketing, conducting surveys and research to help us provide better products and services).",
+      "rationale": "The policy does not explicitly mention sharing IP addresses and device IDs with Google AdMob, but it does state that information can be shared with third-party service providers for marketing purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "However, your information is not shared with or sold to any other third party entity or individual for that entity or individual's independent use with the exception of when you request to be added to the fan mailing list of one of the participating Civic Tour bands and/or Civic Tour promotional partners or in situations where required by law, we may need to share this information with law enforcement officials such as in response to a court order or subpoena.",
+       "generic_quote": "We may share information about you with third party service providers (such as companies who assist us in marketing, conducting surveys and research to help us provide better products and services).",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention sharing IP addresses and device IDs with Google AdMob, but it does state that information can be shared with third-party service providers for marketing purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9569703505214677
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly state that the processing of personal data of children is prohibited.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not explicitly state that the processing of personal data of children is prohibited."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9437190870341348
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 69.87
+ }
+}

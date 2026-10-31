@@ -1,0 +1,344 @@
+{
+ "case_id": "164_v1",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6"
+   ],
+   "evidence": "We also may collect information that can be used to identify you (Personally Identifiable Information).",
+   "rationale": "The policy mentions collecting Personally Identifiable Information, which includes contact details.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions collecting Personally Identifiable Information, which includes contact details. The cited DPDP text requires the disclosure of personal data and purposes for processing. Since the policy mentions collecting contact details, it supports the finding of an undisclosed colle"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that they do not share financial information with third parties.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy explicitly states that they do not share financial information with third parties. Therefore, there is no undisclosed collection of financial data, and the finding is not supported."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions collecting geolocation data, which falls under location data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy mentions collecting geolocation data, but this does not imply that location data is being collected. The finding is not supported because the policy does not mention collecting location data, and the cited DPDP text does not address this specific issue."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention sharing demographic data with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy does not mention sharing demographic data with Google AdMob. Therefore, there is no undisclosed sharing of demographic data, and the finding is not supported."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9680150030338014,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9680150030338014,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9680150030338014,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "omitted",
+   "confidence": 0.9680150030338014,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9666299524775879,
+ "usage": {
+  "prompt": 4925,
+  "output": 864
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 17,
+  "untagged_paragraphs": 0,
+  "claims": 33,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Contact",
+    "paragraphs": [
+     5,
+     15
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     2,
+     4,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Financial",
+    "paragraphs": [
+     5,
+     0
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Location",
+    "paragraphs": [
+     1,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Demographic",
+    "paragraphs": [
+     9,
+     7
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6"
+      ],
+      "evidence": "We also may collect information that can be used to identify you (Personally Identifiable Information).",
+      "rationale": "The policy mentions collecting Personally Identifiable Information, which includes contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you create a user account with a Prometheus Global Media website and sign in to your account on the Websites or post User Uploaded Information, you are not anonymous to us.",
+       "denial_quote": "",
+       "generic_quote": "We also may collect information that can be used to identify you (Personally Identifiable Information).",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6"
+       ],
+       "rationale": "The policy mentions collecting Personally Identifiable Information, which includes contact details."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that they do not share financial information with third parties.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We do not sell Personally Identifiable Information or other information you make available to the Websites, or share such information with third parties, except as described below.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6"
+       ],
+       "rationale": "The policy explicitly states that they do not share financial information with third parties."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions collecting geolocation data, which falls under location data.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "When you create a user account with a Prometheus Global Media website and sign in to your account on the Websites or post User Uploaded Information, you are not anonymous to us.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6"
+       ],
+       "rationale": "The policy mentions collecting geolocation data, which falls under location data."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention sharing demographic data with Google AdMob.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "We do not sell Personally Identifiable Information or other information you make available to the Websites, or share such information with third parties, except as described below.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6"
+       ],
+       "rationale": "The policy does not mention sharing demographic data with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9680150030338014
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We may use cookies to keep track of your choice of language and home page preference; to understand your exposure to certain Internet advertisements as you use the Websites, and to gather usage data that will help us generally improve the quality of the Websites.",
+      "rationale": "The policy explicitly states that cookies are used for analytics/research purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "purpose_quote": "We may use cookies to keep track of your choice of language and home page preference; to understand your exposure to certain Internet advertisements as you use the Websites, and to gather usage data that will help us generally improve the quality of the Websites.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that cookies are used for analytics/research purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9652449019213744
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 100.81
+ }
+}

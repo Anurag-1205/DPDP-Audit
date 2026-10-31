@@ -1,0 +1,232 @@
+{
+ "case_id": "676_control",
+ "system": "A2_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "To better protect your privacy we provide this notice explaining our online information practices and the choices you can make about the way your information is collected and used.",
+   "rationale": "The policy explicitly states that IP addresses are logged, which is a form of computer information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that IP addresses are logged, which is a form of computer information. The cited DPDP text requires the notice to inform the Data Principal about the personal data and the purpose for processing it. Since the policy explicitly states that IP addresses are logged, this supp"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The contents of this statement may be altered at any time, at our discretion.",
+   "rationale": "The policy does not specify collection of user online activities, and instead mentions that third parties manage cookies without control.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence only states that the contents of the statement may be altered at any time, which does not indicate the collection of user online activities. The cited DPDP text requires the notice to inform the Data Principal about the personal data and the purpose for processing it. Since the p"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9688789942347388,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9011358267334504,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": 0.9679212578029897,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9459786929237263,
+ "usage": {
+  "prompt": 3132,
+  "output": 656
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 10,
+  "untagged_paragraphs": 0,
+  "claims": 6,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Computer information",
+    "paragraphs": [
+     1,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions User online activities",
+    "paragraphs": [
+     7,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f5",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions User online activities",
+    "paragraphs": [
+     3,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "To better protect your privacy we provide this notice explaining our online information practices and the choices you can make about the way your information is collected and used.",
+      "rationale": "The policy explicitly states that IP addresses are logged, which is a form of computer information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+       "denial_quote": "",
+       "generic_quote": "To better protect your privacy we provide this notice explaining our online information practices and the choices you can make about the way your information is collected and used.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that IP addresses are logged, which is a form of computer information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9688789942347388
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The contents of this statement may be altered at any time, at our discretion.",
+      "rationale": "The policy does not specify collection of user online activities, and instead mentions that third parties manage cookies without control.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "RestaurantNews.com has no access or control over these cookies that may be used by third party advertisers.",
+       "generic_quote": "The contents of this statement may be altered at any time, at our discretion.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify collection of user online activities, and instead mentions that third parties manage cookies without control."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9011358267334504
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Google, as a third party advertisement vendor, uses cookies to serve ads on this site. The use of DART cookies by Google enables them to serve adverts to visitors that are based on their visits to this website as well as other sites on the internet.",
+      "rationale": "The policy explicitly mentions Google's use of DART cookies for serving ads, indicating data sharing.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Google, as a third party advertisement vendor, uses cookies to serve ads on this site. The use of DART cookies by Google enables them to serve adverts to visitors that are based on their visits to this website as well as other sites on the internet.",
+       "denial_quote": "",
+       "generic_quote": "To opt out of the DART cookies you may visit the Google ad and content network privacy policy at the following url http://www.google.com/privacy_ads.html Tracking of users through the DART cookie mechanisms are subject to Google's own privacy policies.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions Google's use of DART cookies for serving ads, indicating data sharing."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9679212578029897
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 64.86
+ }
+}

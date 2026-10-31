@@ -1,0 +1,348 @@
+{
+ "case_id": "503_v1",
+ "system": "full_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "However, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+   "rationale": "The policy states that residual information may be retained for a period of time, implying indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "Upon your request, we will make reasonable efforts to delete your personal information from our database, however, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+   "rationale": "The policy indicates that data may be retained for a period of time due to backups and records of deletion, implying indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9670711569149246,
+ "usage": {
+  "prompt": 8036,
+  "output": 873
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 43,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Marketing",
+    "paragraphs": [
+     3,
+     4,
+     6,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Financial is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     11,
+     2,
+     12,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "vague",
+    "reason": "the app keeps User profile indefinitely; retention statements: ['Indefinitely', 'Unspecified']",
+    "paragraphs": [
+     0,
+     2,
+     5,
+     6,
+     7,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     2,
+     12,
+     5,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "vague",
+    "reason": "the app keeps Contact indefinitely; retention statements: ['Indefinitely', 'Unspecified']",
+    "paragraphs": [
+     0,
+     2,
+     5,
+     6,
+     7
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Cookies allow us to store products in your online shopping cart, process orders, and recognize whether or not you have visited our Sites before. This provides us with important marketing information and lets us know how we are doing at both attracting new visitors and maintaining relationships with our existing customers.",
+      "rationale": "The policy explicitly states that cookies are used for marketing purposes, which aligns with the application's purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Marketing",
+       "retention": "Unspecified",
+       "purpose_quote": "Cookies allow us to store products in your online shopping cart, process orders, and recognize whether or not you have visited our Sites before. This provides us with important marketing information and lets us know how we are doing at both attracting new visitors and maintaining relationships with our existing customers.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that cookies are used for marketing purposes, which aligns with the application's purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9870909884141195
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "For your security, we only store your credit card information if you choose to set up an authorized account with one of our Sites. In that case, it is stored on a secure computer in an encrypted format.",
+      "rationale": "The policy explicitly states the purpose of storing credit card information for security, aligning with the Service Operation and Security purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Financial",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "purpose_quote": "For your security, we only store your credit card information if you choose to set up an authorized account with one of our Sites. In that case, it is stored on a secure computer in an encrypted format.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states the purpose of storing credit card information for security, aligning with the Service Operation and Security purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9651505564553571
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "We use the personal information we collect for various purposes, including to complete a purchase that you initiate, to respond to your requests for information, to manage our Sites, to allow you to participate in electronic activities, marketing analysis, marketing communications, facilitating loyalty programs, and for other lawful purposes.",
+      "rationale": "The policy clearly states the purposes for which contact information is used, including additional service/feature.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Indefinitely",
+       "purpose_quote": "We use the personal information we collect for various purposes, including to complete a purchase that you initiate, to respond to your requests for information, to manage our Sites, to allow you to participate in electronic activities, marketing analysis, marketing communications, facilitating loyalty programs, and for other lawful purposes.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy clearly states the purposes for which contact information is used, including additional service/feature."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.963048371227217
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "However, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+      "rationale": "The policy states that residual information may be retained for a period of time, implying indefinite retention.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "User profile",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "However, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that residual information may be retained for a period of time, implying indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9535823126540106
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "Upon your request, we will make reasonable efforts to delete your personal information from our database, however, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+      "rationale": "The policy indicates that data may be retained for a period of time due to backups and records of deletion, implying indefinite retention.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "Upon your request, we will make reasonable efforts to delete your personal information from our database, however, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy indicates that data may be retained for a period of time due to backups and records of deletion, implying indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9664835558239189
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 5,
+  "seconds": 89.38
+ }
+}

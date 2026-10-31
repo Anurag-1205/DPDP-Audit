@@ -1,0 +1,201 @@
+{
+ "case_id": "517_control",
+ "system": "v2_batch_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions special privacy protections for certain types of information, which includes location data for Behavioral Health Information, thus indicating no collection of location data for marketing purposes.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the app does not mention the collection of location data for marketing purposes, but it does not provide any explicit evidence that the app does not collect location data. The cited DPDP text focuses on the notice requirements for data principals and does not address "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9694469490929658,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.927632605708442,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9485397774007038,
+ "usage": {
+  "prompt": 6768,
+  "output": 687
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 66,
+  "untagged_paragraphs": 0,
+  "claims": 138,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     12,
+     18,
+     19,
+     20,
+     21,
+     26,
+     29,
+     31,
+     33,
+     34,
+     35,
+     37,
+     39,
+     50,
+     49,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     12,
+     18,
+     19,
+     20,
+     21,
+     26,
+     29,
+     31,
+     33,
+     34,
+     35,
+     37,
+     39,
+     50,
+     49,
+     65
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "P16: Some examples of protected health information are: information indicating that you are a patient at the hospital or receiving treatment or other health-related services from Kaleida Health; information about your health condition (such as a disease you may have); information about health care products or services you have received or may receive in the future (such as an operation); or information about your health care benefits under an insurance plan (such as whether a prescription is covered); when combined with: demographic information (such as your name, address, or insurance status); unique numbers that may identify you (such as your social security number, your phone number, or your driver's license number); and other types of information that may identify who you are.",
+      "rationale": "The policy does not explicitly mention collecting contact details, but it broadly covers personal information that may include contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "disclosing_quote": "",
+       "denial_quote": "P16: Kaleida Health is committed to protecting the privacy of information we gather about you while providing health-related services.",
+       "generic_quote": "P16: Some examples of protected health information are: information indicating that you are a patient at the hospital or receiving treatment or other health-related services from Kaleida Health; information about your health condition (such as a disease you may have); information about health care products or services you have received or may receive in the future (such as an operation); or information about your health care benefits under an insurance plan (such as whether a prescription is covered); when combined with: demographic information (such as your name, address, or insurance status); unique numbers that may identify you (such as your social security number, your phone number, or your driver's license number); and other types of information that may identify who you are.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting contact details, but it broadly covers personal information that may include contact details."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9694469490929658
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions special privacy protections for certain types of information, which includes location data for Behavioral Health Information, thus indicating no collection of location data for marketing purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Marketing",
+       "disclosing_quote": "",
+       "denial_quote": "P12 Protections For HIV, Alcohol and Substance Abuse, and Mental Health. Special privacy protections apply to HIV-related information and Behavioral Health Information (including alcohol and substance abuse treatment information, and mental health information). Some parts of this general Notice of Privacy Practices may not apply to these types of information.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions special privacy protections for certain types of information, which includes location data for Behavioral Health Information, thus indicating no collection of location data for marketing purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.927632605708442
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 106.51,
+  "reverified_from": "v2_batch",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

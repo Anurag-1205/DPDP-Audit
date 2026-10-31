@@ -1,0 +1,163 @@
+{
+ "case_id": "L1468_r2",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9206939082577784,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "[P8]",
+    "[P11]",
+    "[P18]",
+    "[P37]"
+   ],
+   "evidence": "We do not share your device identifiers and IP address with third parties.",
+   "rationale": "The policy explicitly states that the company does not share device identifiers and IP addresses with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9206939082577784,
+ "usage": {
+  "prompt": 6011,
+  "output": 330
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 125,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "[P8]",
+       "[P11]",
+       "[P18]",
+       "[P37]"
+      ],
+      "evidence": "We do not share your device identifiers and IP address with third parties.",
+      "rationale": "The policy explicitly states that the company does not share device identifiers and IP addresses with third parties.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "We do not share your device identifiers and IP address with third parties.",
+       "generic_quote": "The Company may receive information regarding your gameplay without any additional notice to you or actions taken by you.",
+       "sections": [
+        "[P8]",
+        "[P11]",
+        "[P18]",
+        "[P37]"
+       ],
+       "rationale": "The policy explicitly states that the company does not share device identifiers and IP addresses with third parties."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P18]",
+       "[P37]"
+      ],
+      "evidence": "The Company may use such information as set forth in this Privacy Policy whether or not you register for or use the Online Services.",
+      "rationale": "The policy does not specify a particular purpose for IP addresses and device IDs, only that they are used as set forth in the Privacy Policy.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "The Company may use such information as set forth in this Privacy Policy whether or not you register for or use the Online Services.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P18]",
+        "[P37]"
+       ],
+       "rationale": "The policy does not specify a particular purpose for IP addresses and device IDs, only that they are used as set forth in the Privacy Policy."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9206939082577784
+   }
+  ],
+  "paragraphs_shown": [
+   52
+  ],
+  "paragraphs_total": 56,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 50.89
+ }
+}

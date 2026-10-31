@@ -1,0 +1,119 @@
+{
+ "case_id": "325_v2",
+ "system": "A3_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Survey data",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 8(3)",
+    "Sec. 10"
+   ],
+   "evidence": "We collect information that may personally identify you (such as your name, address, telephone number, email address, billing information, or other data which can be reasonably linked to such information) only if you choose to share such information with us.",
+   "rationale": "The policy mentions collecting personal information but does not specifically disclose collecting survey data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the app collects personal information only if the user chooses to share it, but it does not mention survey data. The cited sections of the DPDP Act do not directly address the issue of undisclosed collection of survey data. Therefore, the finding is not supported."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9700080599784293,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9700080599784293,
+ "usage": {
+  "prompt": 1737,
+  "output": 262
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 32,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Survey data",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Survey data is covered only by generic collection statements",
+    "paragraphs": [
+     9,
+     5,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 8(3)",
+       "Sec. 10"
+      ],
+      "evidence": "We collect information that may personally identify you (such as your name, address, telephone number, email address, billing information, or other data which can be reasonably linked to such information) only if you choose to share such information with us.",
+      "rationale": "The policy mentions collecting personal information but does not specifically disclose collecting survey data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The decision to provide this information is optional; however, if you decide not to register or provide such information, you may not be able to use certain features of the Site or other services.",
+       "generic_quote": "We collect information that may personally identify you (such as your name, address, telephone number, email address, billing information, or other data which can be reasonably linked to such information) only if you choose to share such information with us.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 8(3)",
+        "Sec. 10"
+       ],
+       "rationale": "The policy mentions collecting personal information but does not specifically disclose collecting survey data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9700080599784293
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 28.22
+ }
+}

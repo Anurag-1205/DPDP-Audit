@@ -1,0 +1,275 @@
+{
+ "case_id": "303_control",
+ "system": "full_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9063354826637522,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.936196098933906,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9441591444231041,
+ "usage": {
+  "prompt": 6573,
+  "output": 766
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 54,
+  "untagged_paragraphs": 0,
+  "claims": 117,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2,
+     4,
+     5,
+     7,
+     9,
+     12,
+     13,
+     16,
+     17,
+     25,
+     41,
+     42,
+     43,
+     33
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['analytics/research', 'service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     24,
+     43,
+     44,
+     10,
+     46
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     10,
+     43,
+     44,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     5,
+     23,
+     28,
+     30,
+     33,
+     46,
+     50,
+     44
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "registration information\nWhen you create an account, you are required to provide a username and password, and may opt to provide an email address. We also log, and retain indefinitely, the IP address from which the account is initially created.",
+      "rationale": "The policy mentions collecting an email address but does not specify its use for basic service/feature purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "disclosing_quote": "",
+       "denial_quote": "Although we collect an email address during account creation, the policy does not explicitly state that it uses this data type for basic service/feature purposes.",
+       "generic_quote": "registration information\nWhen you create an account, you are required to provide a username and password, and may opt to provide an email address. We also log, and retain indefinitely, the IP address from which the account is initially created.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting an email address but does not specify its use for basic service/feature purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9063354826637522
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use a tool called Google Analytics to help us understand how users interact with our website. It tells us aggregate usage and traffic information, such as how the site was accessed, how long visitors stayed, and the number of first-time visitors to the site.",
+      "rationale": "The policy explicitly mentions sharing data with Google Analytics, indicating that it is shared with a specific third-party company.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We use a tool called Google Analytics to help us understand how users interact with our website. It tells us aggregate usage and traffic information, such as how the site was accessed, how long visitors stayed, and the number of first-time visitors to the site.",
+       "denial_quote": "",
+       "generic_quote": "To make our ads relevant to you, Adzerk receives information about the page the ad will appear on. This information includes the subreddits used to generate that page (which may include your subscriptions), as well as your IP address from which your general location (your country or city area) can be inferred.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions sharing data with Google Analytics, indicating that it is shared with a specific third-party company."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.936196098933906
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 2"
+      ],
+      "evidence": "This information is used for analytics and to improve the reddit service; for example, we use device and OS information to track and fix bugs. It is also used to provide advertising as described below.",
+      "rationale": "The policy explicitly states that device information is used for advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "purpose_quote": "This information is used for analytics and to improve the reddit service; for example, we use device and OS information to track and fix bugs. It is also used to provide advertising as described below.",
+       "unspecified_purpose_quote": "All stored IP addresses, except the account creation IP address, are deleted after 90 days.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 2"
+       ],
+       "rationale": "The policy explicitly states that device information is used for advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9697595516342942
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "This information is used for analytics and to improve the reddit service; for example, we use device and OS information to track and fix bugs. It is also used to provide advertising as described below.",
+      "rationale": "The policy explicitly states that device and OS information is used for advertising, but no specific retention period is mentioned.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "This information is used for analytics and to improve the reddit service; for example, we use device and OS information to track and fix bugs. It is also used to provide advertising as described below.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that device and OS information is used for advertising, but no specific retention period is mentioned."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9643454444604641
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 109.04
+ }
+}

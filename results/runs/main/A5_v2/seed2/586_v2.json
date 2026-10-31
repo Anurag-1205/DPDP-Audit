@@ -1,0 +1,184 @@
+{
+ "case_id": "586_v2",
+ "system": "A5_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Caribou Coffee uses pixels, or transparent GIF files, to help manage online advertising. These GIF files are provided by our ad management partner, DoubleClick. These files enable DoubleClick to recognize a unique cookie on your Web browser, which in turn enables us to learn which advertisements bring users to our website. The cookie was placed by us, or by another advertiser who works with DoubleClick.",
+   "rationale": "The policy mentions automatic collection of IP addresses but does not explicitly state sharing with Google AdMob or any other named entity.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not comply with the prohibition against tracking and targeted advertising for children.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9648664630924129,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9527382963441207,
+ "usage": {
+  "prompt": 2491,
+  "output": 374
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 34,
+  "untagged_paragraphs": 0,
+  "claims": 43,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     7,
+     13,
+     14,
+     19,
+     20,
+     15
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     25,
+     33
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Caribou Coffee uses pixels, or transparent GIF files, to help manage online advertising. These GIF files are provided by our ad management partner, DoubleClick. These files enable DoubleClick to recognize a unique cookie on your Web browser, which in turn enables us to learn which advertisements bring users to our website. The cookie was placed by us, or by another advertiser who works with DoubleClick.",
+      "rationale": "The policy mentions automatic collection of IP addresses but does not explicitly state sharing with Google AdMob or any other named entity.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Some information is automatically collected when you visit the Site. We collect the name of the domain and host from which you access the internet, the internet protocol (IP) address of the computer you are using, the browser software you use and your operating system, the date and time you access the Site, and the internet address of the web site from which you linked directly to the Site.",
+       "generic_quote": "Caribou Coffee uses pixels, or transparent GIF files, to help manage online advertising. These GIF files are provided by our ad management partner, DoubleClick. These files enable DoubleClick to recognize a unique cookie on your Web browser, which in turn enables us to learn which advertisements bring users to our website. The cookie was placed by us, or by another advertiser who works with DoubleClick.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions automatic collection of IP addresses but does not explicitly state sharing with Google AdMob or any other named entity."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9648664630924129
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not comply with the prohibition against tracking and targeted advertising for children.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not comply with the prohibition against tracking and targeted advertising for children."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9406101295958285
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 44.59
+ }
+}

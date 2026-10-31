@@ -1,0 +1,392 @@
+{
+ "case_id": "1637_v1",
+ "system": "A5_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Sec. 9(5)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly state that tracking or behavioral monitoring is not directed at children, nor does it mention obtaining verifiable parental consent.",
+   "reviewer": "children",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f5",
+   "data_type": "Demographic",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Sec. 9(5)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly state that it does not track or monitor children, nor does it mention obtaining verifiable parental consent.",
+   "reviewer": "children",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We do not disclose anything that could be used to identify individuals.",
+   "rationale": "The policy does not explicitly state that IP addresses or device IDs are shared with Google, but it mentions that information is shared with advertisers, which includes Google.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention any restrictions on processing IP addresses and device IDs for advertising purposes.",
+   "reviewer": "children",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f7",
+   "data_type": "User online activities",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a time limit for retaining the data, and the purpose of 'Analytics/Research' is not explicitly stated to be temporary.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "vague",
+   "confidence": 0.9268714174999824,
+   "source": "notice"
+  },
+  "f7": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9564864336253741,
+ "usage": {
+  "prompt": 4892,
+  "output": 667
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 15,
+  "untagged_paragraphs": 0,
+  "claims": 35,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "omission",
+    "reason": "a child-directed app sends Cookies and tracking elements to the analytics SDK Google Analytics",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "omission",
+    "reason": "a child-directed app sends Demographic to the analytics SDK Google Analytics",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     3,
+     4,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "omission",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f7",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps User online activities indefinitely; retention statements: none",
+    "paragraphs": [
+     2,
+     11
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do not disclose anything that could be used to identify individuals.",
+      "rationale": "The policy does not explicitly state that IP addresses or device IDs are shared with Google, but it mentions that information is shared with advertisers, which includes Google.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "Illini Media never shares personally identifiable information provided to us online in ways unrelated to the ones described above without also providing you an opportunity to opt-out or otherwise prohibit such unrelated uses.",
+       "generic_quote": "We do not disclose anything that could be used to identify individuals.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that IP addresses or device IDs are shared with Google, but it mentions that information is shared with advertisers, which includes Google."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9268714174999824
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a time limit for retaining the data, and the purpose of 'Analytics/Research' is not explicitly stated to be temporary.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "User online activities",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a time limit for retaining the data, and the purpose of 'Analytics/Research' is not explicitly stated to be temporary."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9313789890614544
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Sec. 9(5)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly state that tracking or behavioral monitoring is not directed at children, nor does it mention obtaining verifiable parental consent.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "Google Analytics (Google, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "children_quote": "",
+       "sections": [
+        "Sec. 9(3)",
+        "Sec. 9(5)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not explicitly state that tracking or behavioral monitoring is not directed at children, nor does it mention obtaining verifiable parental consent."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9789305298467454
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Sec. 9(5)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly state that it does not track or monitor children, nor does it mention obtaining verifiable parental consent.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Demographic",
+       "recipient": "Google Analytics (Google, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "children_quote": "",
+       "sections": [
+        "Sec. 9(3)",
+        "Sec. 9(5)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not explicitly state that it does not track or monitor children, nor does it mention obtaining verifiable parental consent."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9828346986790387
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention any restrictions on processing IP addresses and device IDs for advertising purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "children_quote": "",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not mention any restrictions on processing IP addresses and device IDs for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9624165330396496
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 5,
+  "seconds": 56.22,
+  "reverified_from": "A5_v2",
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

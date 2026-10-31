@@ -1,0 +1,156 @@
+{
+ "case_id": "L640_r3",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses the collection of computer information for logging visits and purchases.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the policy does not mention the collection of computer information, which contradicts the rationale provided that the policy discloses the collection of computer information for logging visits and purchases."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9527025969972439,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9527025969972439,
+ "usage": {
+  "prompt": 5010,
+  "output": 516
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 39,
+  "untagged_paragraphs": 0,
+  "claims": 80,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the collection of computer information for logging visits and purchases.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you place an order with us online, in a store or in any other way, your contact information is used to communicate related information, such as order and shipment confirmation, release date changes and requests for more information to facilitate processing your order.",
+       "denial_quote": "",
+       "generic_quote": "We may log the length of time of your visit and the number of times you visit and purchase from us. We assign you one or more unique identifiers to help keep track of your future visits",
+       "purpose_quote": "To log the length of time of your visit and the number of times you visit and purchase from us",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of computer information for logging visits and purchases."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We also may log the length of time of your visit and the number of times you visit and purchase from us. We assign you one or more unique identifiers to help keep track of your future visits",
+      "rationale": "The policy mentions logging visits and purchases without specifying a particular purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We also may log the length of time of your visit and the number of times you visit and purchase from us. We assign you one or more unique identifiers to help keep track of your future visits",
+       "denial_quote": "",
+       "generic_quote": "We use customer contact information to customize future shopping for you, to improve our Websites and stores, to send you information about our company, and to inform you of sales and special offers",
+       "purpose_quote": "To log the length of time of your visit and the number of times you visit and purchase from us",
+       "unspecified_purpose_quote": "We also may log the length of time of your visit and the number of times you visit and purchase from us. We assign you one or more unique identifiers to help keep track of your future visits",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions logging visits and purchases without specifying a particular purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9527025969972439
+   }
+  ],
+  "paragraphs_shown": [
+   39
+  ],
+  "paragraphs_total": 39,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 44.4
+ }
+}

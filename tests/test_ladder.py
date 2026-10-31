@@ -78,3 +78,27 @@ def test_score_ladder_and_mcnemar():
     assert s["paired"]["explicit_vs_vague"]["only_first_correct"] == 1
     assert s["confusion"]["vague"]["clear"] == 1
     assert mcnemar([True] * 10, [False] * 10)["p_value"] < 0.01
+
+
+def test_accepted_rungs_use_the_joint_settlement(tmp_path, monkeypatch):
+    import csv
+    from dpdp_audit import ladder
+    d = tmp_path / "ladder"; d.mkdir()
+    rows = [("L1_r1", "ok", "ok"), ("L1_r2", "ok", "no"), ("L1_r3", "no", "ok"), ("L1_r4", "no", "no")]
+    with (d / "check_sheet.csv").open("w", newline="") as f:
+        w = csv.writer(f); w.writerow(["case_id", "checker_1_ok", "checker_2_ok"]); w.writerows(rows)
+    monkeypatch.setattr(ladder, "BENCH", tmp_path)
+    assert ladder.accepted_cases() == {"L1_r1"}                       # disagreements count as rejected
+    with (d / "disagreements.csv").open("w", newline="") as f:
+        w = csv.writer(f); w.writerow(["case_id", "agreed"]); w.writerows([("L1_r2", "ok"), ("L1_r3", "")])
+    assert ladder.accepted_cases() == {"L1_r1", "L1_r2"}              # settled ok; L1_r3 still open
+    assert ladder.check_status() == {"rungs": 4, "checkers_agree": 2, "disagreements": 2, "settled": 1, "unsettled": 1}
+
+
+def test_rung_accuracy_interval_resamples_ladders():
+    from dpdp_audit.ladder import accuracy_ci
+    by_ladder = {f"L{i}": {"clear": True, "explicit": i % 2 == 0} for i in range(20)}
+    ci = accuracy_ci(by_ladder, n=200)
+    assert ci["clear"] == [1.0, 1.0]
+    assert ci["explicit"][0] < 0.5 < ci["explicit"][1]
+    assert ci["vague"] is None

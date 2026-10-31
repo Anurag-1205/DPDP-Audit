@@ -1,0 +1,341 @@
+{
+ "case_id": "676_v2",
+ "system": "full_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states the purpose for which the IP address is used, matching the 'Analytics/Research' purpose.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is explicitly stated to be (none), meaning the policy does not mention the use of IP addresses for Analytics/Research. The rationale provided contradicts this by stating that the policy explicitly states the purpose for which the IP address is used."
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The IP address used to access the site will be logged along with the dates and times of access.",
+   "rationale": "The policy discloses that IP addresses are logged, which falls under computer information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that the IP address used to access the site will be logged along with the dates and times of access, which falls under computer information. This aligns with the finding that the collection of computer information is undisclosed."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f6",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that Google uses DART cookies to serve ads, indicating sharing of computer information.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is explicitly stated to be (none), meaning the policy does not mention the sharing of computer information with AdMob. The rationale provided contradicts this by inferring sharing from the use of DART cookies, which is not directly related to the sharing of computer information w"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.970874399565686,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.970874399565686,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": 0.970874399565686,
+   "source": "notice"
+  },
+  "f6": {
+   "label": "omitted",
+   "confidence": 0.970874399565686,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9686157145730117,
+ "usage": {
+  "prompt": 5925,
+  "output": 1125
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 10,
+  "untagged_paragraphs": 0,
+  "claims": 24,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     5,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     9,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "User online activities is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     9,
+     7,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     4,
+     3,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f6",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     4,
+     2,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The IP address used to access the site will be logged along with the dates and times of access.",
+      "rationale": "The policy discloses that IP addresses are logged, which falls under computer information.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+       "denial_quote": "",
+       "generic_quote": "The IP address used to access the site will be logged along with the dates and times of access.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses that IP addresses are logged, which falls under computer information."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+      "rationale": "The policy discloses that IP addresses are logged, which falls under service operation and security.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "When visiting RestaurantNews.com, the IP address used to access the site will be logged along with the dates and times of access.",
+       "denial_quote": "",
+       "generic_quote": "The IP address used to access the site will be logged along with the dates and times of access.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses that IP addresses are logged, which falls under service operation and security."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Google, as a third party advertisement vendor, uses cookies to serve ads on this site. The use of DART cookies by Google enables them to serve adverts to visitors that are based on their visits to this website as well as other sites on the internet.",
+      "rationale": "The policy explicitly states that Google uses DART cookies to serve ads, indicating sharing of user online activities.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Google, as a third party advertisement vendor, uses cookies to serve ads on this site. The use of DART cookies by Google enables them to serve adverts to visitors that are based on their visits to this website as well as other sites on the internet.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that Google uses DART cookies to serve ads, indicating sharing of user online activities."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that Google uses DART cookies to serve ads, indicating sharing of computer information.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "Google, as a third party advertisement vendor, uses cookies to serve ads on this site. The use of DART cookies by Google enables them to serve adverts to visitors that are based on their visits to this website as well as other sites on the internet.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that Google uses DART cookies to serve ads, indicating sharing of computer information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.970874399565686
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states the purpose for which the IP address is used, matching the 'Analytics/Research' purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "purpose_quote": "This information is purely used to analyze trends, administer the site, track users movement and gather broad demographic information for internal use.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states the purpose for which the IP address is used, matching the 'Analytics/Research' purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9663570295803373
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 87.79,
+  "reverified_from": "full",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is explicitly stated to be (none), meaning the policy does not mention the use of IP addresses for Analytics/Research. The rationale provided contradicts this by stating that the policy explicitly states the purpose for which the IP address is used.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": true, \"reason\": \"The policy evidence states that the IP address used to access the site will be logged along with the dates and times of access, which falls under computer information. This aligns with the finding that the collection of computer information is undisclosed.\"}]}\n\n{\"checks\": [{\"finding_id\": 2, \"supported\": false, \"reason\": \"The policy evidence is explicitly stated to be (none), meaning the policy does not mention the sharing of computer information with AdMob. The rationale provided contradicts this by inferring sharing from the use of DART cookies, which is not directly related to the sharing of computer information with AdMob as per the finding.\"}]}"
+ }
+}

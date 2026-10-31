@@ -1,0 +1,168 @@
+{
+ "case_id": "1261_control",
+ "system": "full_v2_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)"
+   ],
+   "evidence": "These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+   "rationale": "The policy does not specify any particular purpose for using cookies and tracking elements beyond recognizing preferences and facilitating website administration.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence describes the general purposes of using cookies and tracking elements but does not specify a particular purpose. The cited DPDP text requires specifying the purpose for processing personal data. Since the policy does not provide a specific purpose, it supports a purpose mismatch "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9511632138755135,
+ "usage": {
+  "prompt": 3650,
+  "output": 466
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 13,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['additional service/feature', 'personalization/customization'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     8,
+     3,
+     1,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Financial is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     5,
+     7,
+     3,
+     11
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+      "rationale": "The policy does not specify any particular purpose for using cookies and tracking elements beyond recognizing preferences and facilitating website administration.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy does not specify any particular purpose for using cookies and tracking elements beyond recognizing preferences and facilitating website administration."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9545238071694917
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "We collect your credit card information solely for payment of your subscription. It is shared only with our credit card processor in order to complete the transaction.",
+      "rationale": "The policy explicitly states that credit card information is collected for payment and shared with the processor, aligning with the 'Service Operation and Security' purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Financial",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "purpose_quote": "We collect your credit card information solely for payment of your subscription. It is shared only with our credit card processor in order to complete the transaction.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that credit card information is collected for payment and shared with the processor, aligning with the 'Service Operation and Security' purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9478026205815353
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 47.25,
+  "reverified_from": "full_v2_finetuned",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

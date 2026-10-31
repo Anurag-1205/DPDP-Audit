@@ -1,0 +1,205 @@
+{
+ "case_id": "1264_v2",
+ "system": "A2_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9490604748723498,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9551896980488926,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9578838242156963,
+ "usage": {
+  "prompt": 2375,
+  "output": 469
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 14,
+  "untagged_paragraphs": 0,
+  "claims": 16,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Contact",
+    "paragraphs": [
+     1,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['additional service/feature', 'advertising', 'analytics/research'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     10,
+     11,
+     7,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Financial",
+    "paragraphs": [
+     5,
+     0
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you provide your name, postal address, email address, phone number, or other information via a form on the website, we may store that information and contact you about our work.",
+      "rationale": "The policy explicitly mentions collecting contact details but does not specify retention periods or purposes beyond basic service provision.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "If you provide your name, postal address, email address, phone number, or other information via a form on the website, we may store that information and contact you about our work.",
+       "denial_quote": "",
+       "generic_quote": "We do not sell, rent, trade, or otherwise disclose to any business, organization, individual, or other outside entity information provided by people who visit or interact with the website.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting contact details but does not specify retention periods or purposes beyond basic service provision."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9490604748723498
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The information you enter on a donation or payment page may be shared with third-party service providers (such as services that verify credit card data).",
+      "rationale": "The policy explicitly mentions collecting financial data on donation/payment pages.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "The information you enter on a donation or payment page may be shared with third-party service providers (such as services that verify credit card data).",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting financial data on donation/payment pages."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9551896980488926
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "so that you don't have to reenter information on action, donate, or payment pages",
+      "rationale": "The policy mentions using cookies for personalization but does not explicitly state this as the sole purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Personalization/Customization",
+       "retention": "Unspecified",
+       "paragraphs": [
+        10,
+        11,
+        7,
+        4
+       ],
+       "purpose_quote": "so that you don't have to reenter information on action, donate, or payment pages",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy mentions using cookies for personalization but does not explicitly state this as the sole purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9694012997258462
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 29.93
+ }
+}

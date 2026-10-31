@@ -1,0 +1,109 @@
+{
+ "case_id": "L1582_r4",
+ "system": "full",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "We have technological safeguards in place designed to prevent the unauthorized correlation of this data and we remove the entirety of the IP address after 6 months, cookies and other cross session identifiers, after 18 months.",
+   "rationale": "The policy does not explicitly mention collecting location data, but it does describe handling IP addresses, which could be related to location.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes the handling of IP addresses and their removal after specific periods, but it does not explicitly disclose the collection of location data. The cited sections of the DPDP Act pertain to notices and consents, not to the disclosure of data collection practices. Therefore,"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9547122773954073,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9547122773954073,
+ "usage": {
+  "prompt": 2137,
+  "output": 274
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 26,
+  "untagged_paragraphs": 0,
+  "claims": 55,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     8,
+     10,
+     11,
+     12,
+     14,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "We have technological safeguards in place designed to prevent the unauthorized correlation of this data and we remove the entirety of the IP address after 6 months, cookies and other cross session identifiers, after 18 months.",
+      "rationale": "The policy does not explicitly mention collecting location data, but it does describe handling IP addresses, which could be related to location.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "This privacy statement applies to Bing and MSN websites, services, products and applications that collect data and display these terms. It does not apply to other Microsoft products and services that do not link to the Bing and MSN Privacy Statement.",
+       "generic_quote": "We have technological safeguards in place designed to prevent the unauthorized correlation of this data and we remove the entirety of the IP address after 6 months, cookies and other cross session identifiers, after 18 months.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy does not explicitly mention collecting location data, but it does describe handling IP addresses, which could be related to location."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9547122773954073
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 38.79
+ }
+}

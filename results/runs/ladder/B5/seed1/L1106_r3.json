@@ -1,0 +1,155 @@
+{
+ "case_id": "L1106_r3",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect information about you when you use our services. Some examples of the information we collect from you may include your name, phone number, home and e-mail addresses, driver's license number, social security number, marital status, family member information and healthcare information. Also, we maintain records that include, but are not limited to, policy coverages, premiums, and payment history.",
+   "rationale": "The policy does not explicitly state that Allstate collects IP addresses or device IDs. It only mentions that business partners assist with monitoring information including IP addresses.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not mention the collection of IP addresses or device IDs. Instead, it focuses on collecting personal information such as names, phone numbers, addresses, and healthcare information. Additionally, the cited DPDP text pertains to the notice requirements for data princ"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9615295344977453,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9615295344977453,
+ "usage": {
+  "prompt": 4964,
+  "output": 661
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 44,
+  "untagged_paragraphs": 0,
+  "claims": 71,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect information about you when you use our services. Some examples of the information we collect from you may include your name, phone number, home and e-mail addresses, driver's license number, social security number, marital status, family member information and healthcare information. Also, we maintain records that include, but are not limited to, policy coverages, premiums, and payment history.",
+      "rationale": "The policy does not explicitly state that Allstate collects IP addresses or device IDs. It only mentions that business partners assist with monitoring information including IP addresses.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Our Privacy Assurance\nWe do not sell your personal or medical information to anyone. We do not share your information with non-affiliate companies that would use it to contact you about their own products and services, unless permitted pursuant to a joint marketing agreement.",
+       "generic_quote": "We may collect information about you when you use our services. Some examples of the information we collect from you may include your name, phone number, home and e-mail addresses, driver's license number, social security number, marital status, family member information and healthcare information. Also, we maintain records that include, but are not limited to, policy coverages, premiums, and payment history.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Also, our business partners assist us with monitoring information including, but not limited to, IP addresses, domain names and browser data, which can help us to better understand how visitors use allstate.com.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that Allstate collects IP addresses or device IDs. It only mentions that business partners assist with monitoring information including IP addresses."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Also, our business partners assist us with monitoring information including, but not limited to, IP addresses, domain names and browser data, which can help us to better understand how visitors use allstate.com.",
+      "rationale": "Similar to c1, the policy does not specify a purpose for IP addresses or device IDs, only that business partners assist with monitoring information.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Our Privacy Assurance\nWe do not sell your personal or medical information to anyone. We do not share your information with non-affiliate companies that would use it to contact you about their own products and services, unless permitted pursuant to a joint marketing agreement.",
+       "generic_quote": "We may collect information about you when you use our services. Some examples of the information we collect from you may include your name, phone number, home and e-mail addresses, driver's license number, social security number, marital status, family member information and healthcare information. Also, we maintain records that include, but are not limited to, policy coverages, premiums, and payment history.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Also, our business partners assist us with monitoring information including, but not limited to, IP addresses, domain names and browser data, which can help us to better understand how visitors use allstate.com.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "Similar to c1, the policy does not specify a purpose for IP addresses or device IDs, only that business partners assist with monitoring information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9615295344977453
+   }
+  ],
+  "paragraphs_shown": [
+   44
+  ],
+  "paragraphs_total": 44,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 60.84
+ }
+}

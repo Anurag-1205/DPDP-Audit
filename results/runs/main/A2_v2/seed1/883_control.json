@@ -1,0 +1,124 @@
+{
+ "case_id": "883_control",
+ "system": "A2_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy only mentions using the information to fulfill service requests and registrations, which does not align with the stated purpose of Analytics/Research.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the policy does not mention the use of IP addresses and device IDs for Analytics/Research, but it does not provide evidence that the app's practice is inconsistent with this stated purpose. The cited DPDP text focuses on the need for a notice to be given to the Data P"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9550754216939964,
+ "usage": {
+  "prompt": 1382,
+  "output": 328
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 25,
+  "untagged_paragraphs": 0,
+  "claims": 45,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     11,
+     19,
+     9,
+     13
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy only mentions using the information to fulfill service requests and registrations, which does not align with the stated purpose of Analytics/Research.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "purpose_mismatch",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "paragraphs": [
+        11,
+        19,
+        9,
+        13
+       ],
+       "purpose_quote": "We may use the information that we collect to fulfill your requests for services and information. For example, we may use your contact information to respond to your customer service requests, or to enable registration for one of our conferences.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy only mentions using the information to fulfill service requests and registrations, which does not align with the stated purpose of Analytics/Research."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9550754216939964
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 33.69
+ }
+}

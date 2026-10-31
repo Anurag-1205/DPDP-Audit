@@ -1,0 +1,102 @@
+{
+ "case_id": "L988_r4",
+ "system": "A2_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "To learn more about this behavioral advertising practice or to opt-out of this type of advertising, you can visit networkadvertising.org.",
+   "rationale": "The policy mentions third-party companies collecting anonymous information but does not specify the exact types of computer information collected.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not disclose the exact types of computer information collected. Instead, it refers to third-party companies collecting anonymous information for behavioral advertising purposes. The cited DPDP text focuses on the notice requirements for consent requests, which is no"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9640200187244838,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9640200187244838,
+ "usage": {
+  "prompt": 1278,
+  "output": 223
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 1,
+  "untagged_paragraphs": 0,
+  "claims": 2,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Computer information",
+    "paragraphs": [
+     0
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "To learn more about this behavioral advertising practice or to opt-out of this type of advertising, you can visit networkadvertising.org.",
+      "rationale": "The policy mentions third-party companies collecting anonymous information but does not specify the exact types of computer information collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We allow third-party companies to serve ads and/or collect certain anonymous information when you visit our web site.",
+       "generic_quote": "To learn more about this behavioral advertising practice or to opt-out of this type of advertising, you can visit networkadvertising.org.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions third-party companies collecting anonymous information but does not specify the exact types of computer information collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9640200187244838
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 23.42
+ }
+}

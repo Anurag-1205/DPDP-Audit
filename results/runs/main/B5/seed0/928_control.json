@@ -1,0 +1,343 @@
+{
+ "case_id": "928_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "personal information",
+   "rationale": "No specific collection of contact details is disclosed.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions 'personal information' and the cited sections (Sec. 5(1) and Rule 3) require disclosure of 'personal data and the purpose for which the same is proposed to be processed'. Since the finding states that no specific collection of contact details is disclosed, it aligns with"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "personal information",
+   "rationale": "Cookies are used to collect statistical information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence refers to 'personal information', but the rationale mentions 'cookies are used to collect statistical information'. This does not directly relate to the need to disclose 'personal data and the purpose for which the same is proposed to be processed'. The evidence provided does not"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.98564271916991,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.98564271916991,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null,
+   "source": "finder"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null,
+   "source": "finder"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null,
+   "source": "finder"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.98564271916991,
+ "usage": {
+  "prompt": 3835,
+  "output": 2570
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 54,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c9",
+    "flow_id": "f5",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c10",
+    "flow_id": "f5",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "personal information",
+      "rationale": "No specific collection of contact details is disclosed.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The personal information you choose to provide us is voluntary. We do not require you to provide any information about yourself that you do not wish to share.",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "No specific collection of contact details is disclosed."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "No specific collection of contact details is disclosed.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "The personal information you choose to provide us is voluntary. We do not require you to provide any information about yourself that you do not wish to share.",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "No specific collection of contact details is disclosed."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "personal information",
+      "rationale": "Cookies are used to collect statistical information.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We may use cookies on this site in the following ways: To collect statistical information about our users in aggregate. We perform analyses on our web server's log files to identify, among other things: Our site's most popular pages; The browsers and operating systems most often used by our visitors; The sites and search engines that have referred visitors to our site; and The domains from which our users visit us.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "Cookies are used to collect statistical information."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "Log files are used for analytics.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We perform analyses on our web server's log files to identify, among other things: Our site's most popular pages; The browsers and operating systems most often used by our visitors; The sites and search engines that have referred visitors to our site; and The domains from which our users visit us.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "Log files are used for analytics."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.98564271916991
+   }
+  ],
+  "paragraphs_shown": [
+   32
+  ],
+  "paragraphs_total": 32,
+  "reviewer_parse": [
+   "salvaged"
+  ],
+  "reviewer_raw": [
+   "{\n  \"action\": \"final\",\n  \"answers\": [\n    {\n      \"candidate_id\": \"c1\",\n      \"disclosing_quote\": \"\",\n      \"denial_quote\": \"The personal information you choose to provide us is voluntary. We do not require you to provide any information about yourself that you do not wish to share.\",\n      \"generic_quote\": \"personal information\",\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"No specific collection of contact details is disclosed.\"\n    },\n    {\n      \"candidate_id\": \"c2\",\n      \"disclosing_quote\": \"\",\n      \"denial_quote\": \"The personal information you choose to provide us is voluntary. We do not require you to provide any information about yourself that you do not wish to share.\",\n      \"generic_quote\": \"personal information\",\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"No specific collection of contact details is disclosed.\"\n    },\n    {\n      \"candidate_id\": \"c3\",\n      \"disclosing_quote\": \"We may use cookies on this site in the following ways: To collect statistical information about our users in aggregate. We perform analyses on our web server's log files to identify, among other things: Our site's most popular pages; The browsers and operating systems most often used by our visitors; The sites and search engines that have referred visitors to our site; and The domains from which our users visit us.\",\n      \"denial_quote\": \"\",\n      \"generic_quote\": \"personal information\",\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"Cookies are used to collect statistical information.\"\n    },\n    {\n      \"candidate_id\": \"c4\",\n      \"disclosing_quote\": \"We perform analyses on our web server's log files to identify, among other things: Our site's most popular pages; The browsers and operating systems most often used by our visitors; The sites and search engines that have referred visitors to our site; and The domains from which our users visit us.\",\n      \"denial_quote\": \"\",\n      \"generic_quote\": \"personal information\",\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"Log files are used for analytics.\"\n    },\n    {\n      \"candidate_id\": \"c5\",\n      \"disclosing_quote\": \"A transient, memory-resident \"cookie\" may be invoked in certain cases. For example, on the CASSIDI site a cookie is required to remember your selections as you move from page to page and enable CASSIDI's functionality. If you register for a Research user account, a cookie will be invoked when you login to your user account. These cookies will disappear when your browser is closed. If you check the 'Stay logged in' option, the cookie will persist for a maximum of 2 weeks before another login is required. You are not required to register for a user account to use this site.\",\n      \"denial_quote\": \"\",\n      \"generic_quote\": \"personal information\",\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"Computer information is used for cookies.\"\n    },\n    {\n      \"candidate_id\": \"c6\",\n      \"disclosing_quote\": \"A transient, memory-resident \"cookie\" may be invoked in certain cases. For example, on the CASSIDI site a cookie is required to remember your selections as you move from page to page and enable CASSIDI's functionality. If you register for a Research user account, a cookie will be invoked when you login to your user account. These cookies will disappear when your browser is closed. If you check the 'Stay logged in' option, the cookie will persist for a maximum of 2 weeks before another login is required. You are not required to register for a user account to use this site.\",\n      \"denial_quote\": \"\",\n      \"generic_quote\": \"personal information\",\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"Computer information is used for cookies.\"\n    },\n    {\n      \"candidate_id\": \"c7\",\n      \"disclosing_quote\": \"We perform analyses on our web server's log files to identify, among other things: Our site's most popular pages; The browsers and operating systems most often used by our visitors; The sites and search engines that have referred visitors to our site; and The domains from which our users visit us. This analysis does not involve personally identifiable information. It is used only for the purpose of helping us understand and better meet our audience's needs.\",\n      \"denial_quote\": \"We do not rent, sell or share personal information about you with other people or nonaffiliated companies except under any of the following circumstances: When we have your permission; The Federal Reserve Bank of St. Louis monitors this site for unauthorized attempts to upload or change information, to defeat or circumvent security measures, or to utilize this site for other than its intended purposes. By using this site you expressly consent to such monitoring and you are advised that if such monitoring reveals possible evidence of criminal activity, we will provide the evidence of such monitoring to law enforcement officials; We retain the services of outside contractors to provide services, including mailing list administration and our Job Opportunities pages. We require that these contractors keep information obtained through our web site secure and confidential. We also require that these contractors use personal information obtained through our web site only on behalf of the Federal Reserve; We may be required to disclose your personal information to government officials or otherwise as required by subpoenas, court orders, legal process or other legal obligations and to establish or exercise our legal rights or defend against legal claims. We will share information in order to investigate, prevent or take action regarding illegal activities, suspected fraud or as otherwise required by law.\",\n      \"generic_quote\": \"personal information\",\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"Data is shared with Google Analytics for analytics.\"\n    },\n    {\n      \"candidate_id\": \"c8\",\n      \"disclosing_quote\": \"We perform analyses on our web server's log files to identify, among other things: Our site's most popular pages; The browsers and operating systems most often used by our visitors; The sites and search engines that have referred visitors to our site; and The domains from which our users visit us. This analysis does not involve personally identifiable information. It is used only for the purpose of helping us understand and better meet our audience's needs.\",\n      \"denial_quote\": \"We do not rent, sell or share personal information about you with other people or nonaffiliated companies except under any of the following circumstances: When we have your permission; The Federal Reserve Bank of St. Louis monitors this site for unauthorized attempts to upload or change information, to defeat or circumvent security measures, or to utilize this site for other than its intended purposes. By using this site you expressly consent to such monitoring and you are advised that if such monitoring reveals possible evidence of criminal activity, we will provide the evidence of such monitoring to law enforcement officials; We retain the services of outside contractors to provide services, including mailing list administration and our Job Opportunities pages. We require that these contractors keep information obtained through our web site secure and confidential. We also require that these contractors use personal information obtained through our web site only on behalf of the Federal Reserve; We may be required to disclose your personal information to government officials or otherwise as required by subpoenas, court orders, legal process or other legal obligations and to establish or exercise our legal rights or defend against legal claims. We will share information in order to investigate, prevent or take action regarding illegal activities, suspected fraud or as otherwise required by law.\",\n      \"generic_quote\": \"personal information\",\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"Data is shared with Google Analytics for analytics.\"\n    },\n    {\n      \"candidate_id\": \"c9\",\n      \"disclosing_quote\": \"When you fill out our online forms, they are returned to us via electronic mail. Your responses are not encrypted. We cannot guarantee the security of information sent via electronic mail.\",\n      \"denial_quote\": \"We do not rent, sell or share personal information about you with other people or nonaffiliated companies except under any of the following circumstances: When we have your permission; The Federal Reserve Bank of St. Louis monitors this site for unauthorized attempts to upload or change information, to defeat or circumvent security measures, or to utilize this site for other than its intended purposes. By using this site you expressly consent to such monitoring and you are advised that if such monitoring reveals possible evidence of criminal activity, we will provide the evidence of such monitoring to law enforcement officials; We retain the services of outside contractors to provide services, including mailing list administration and our Job Opportunities pages. We require that these contractors keep information obtained through our web site secure and confidential. We also require that these contractors use personal information obtained through our web site only on behalf of the Federal Reserve; We may be required to disclose your personal information to government officials or otherwise as required by subpoenas, court orders, legal process or other legal obligations and to establish or exercise our legal rights or defend against legal claims. We will share information in order to investigate, prevent or take action regarding illegal activities, suspected fraud or as otherwise required by law.\",\n      \"generic_quote\": \"personal information\",\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"Data is shared with Google Analytics for analytics.\"\n    },\n    {\n      \"candidate_id\": \"c10\",\n      \"disclosing_quote\": \"We perform analyses on our web server's log files to identify, among other things: Our site's most popular pages; The browsers and operating systems most often used by our visitors; The sites and search engines that have referred visitors to our site; and The domains from which our users visit us. This analysis does not involve personally identifiable information. It is used only for the purpose of helping us understand and better meet our audience's needs.\",\n      \"denial_quote\": \"We do not rent, sell or share personal information about you with other people or nonaffiliated companies except under any of the following circumstances: When we have your permission; The Federal Reserve Bank of St. Louis monitors this site for unauthorized attempts to upload or change information, to defeat or circumvent security measures, or to utilize this site for other than its intended purposes. By using this site you expressly consent to such monitoring and you are advised that if such monitoring reveals possible evidence of criminal activity, we will provide the evidence of such monitoring to law enforcement officials; We retain the services of outside contractors to provide services, including mailing list administration and our Job Opportunities pages. We require that these contractors keep information obtained through our web site secure and confidential. We also require that these contractors use personal information obtained through our web site only on behalf of the Federal Reserve; We may be required to disclose your personal information to government officials or otherwise as required by subpoenas, court orders, legal process or other legal obligations and to establish or exercise our legal rights or defend against legal claims. We will share information in order to investigate, prevent or take action regarding illegal activities, suspected fraud or as otherwise required by law.\",\n      \"generic_quote\": \"personal information\",\n      \"sections\": [\"Sec. 5(1)\", \"Rule 3\"],\n      \"rationale\": \"Data is shared with Google Analytics for analytics.\"\n    }\n  ]\n}"
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [
+   "c5",
+   "c6",
+   "c7",
+   "c8",
+   "c9",
+   "c10"
+  ],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 266.43
+ }
+}

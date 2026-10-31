@@ -8,6 +8,10 @@
   python scripts/review_pack.py merge NAME_A NAME_B
         -> writes both checkers' answers into check_sheet.csv (checker_1/2 columns) and
            main_spot_check.csv (one row per flow and checker), then prints agreement
+  python scripts/review_pack.py disagreements NAME_A NAME_B
+        -> data/benchmark/ladder/disagreements.csv and data/spot_check/disagreements.csv: every row
+           the two checkers answered differently, side by side, with an empty `agreed` column to
+           fill in together
 
 Packs go to outputs/ (git-ignored); only the filled sheets are versioned.
 """
@@ -165,6 +169,30 @@ def merge(a, b):
           "run `python scripts/spot_check.py score`")
 
 
+def disagreements(a, b):
+    ok = lambda v: v.strip().lower() in ("ok", "yes", "y", "1", "true")
+    for src, key, col in ((LADDER / "check_sheet.csv", ("case_id",), "ok"), (SPOT, ("case_id", "flow_id"), "agrees")):
+        mine = {n: {tuple(r[k] for k in key): r for r in csv.DictReader(src.with_name(f"{src.stem}_{n}.csv").open())}
+                for n in (a, b)}
+        base = [r for r in csv.DictReader(src.with_name(f"{src.stem}_{a}.csv").open())]
+        rows = []
+        for r in base:
+            k = tuple(r[x] for x in key)
+            ra, rb = mine[a][k], mine[b][k]
+            if ok(ra[col]) != ok(rb[col]) or (col == "agrees" and not ok(ra[col]) and
+                                               (ra["checker_label"], ra["checker_gap"]) != (rb["checker_label"], rb["checker_gap"])):
+                extra = ["checker_label", "checker_gap"] if col == "agrees" else []
+                rows.append({**{x: r[x] for x in r if x not in (col, "notes", *extra)},
+                             **{f"{n}_{c}": m[c] for n, m in ((a, ra), (b, rb)) for c in (col, *extra, "notes")},
+                             "agreed": "", "agreed_notes": ""})
+        out = src.with_name("disagreements.csv")
+        with out.open("w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=list(rows[0]) if rows else ["case_id"])
+            w.writeheader()
+            w.writerows(rows)
+        print(f"{out}: {len(rows)} rows to settle")
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1]
     if cmd == "ladder":
@@ -175,3 +203,5 @@ if __name__ == "__main__":
         copies(sys.argv[2:])
     elif cmd == "merge":
         merge(sys.argv[2], sys.argv[3])
+    elif cmd == "disagreements":
+        disagreements(sys.argv[2], sys.argv[3])

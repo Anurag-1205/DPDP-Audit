@@ -1,0 +1,455 @@
+{
+ "case_id": "1106_v2",
+ "system": "A3_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 2"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that IP addresses are used for advertising purposes, but also mentions gathering information without specifying purposes.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the app does not mention the use of IP addresses and device IDs, which means there is no explicit statement supporting their use for advertising purposes. The cited DPDP text in Sec. 5(1) and Rule 2 does not directly address the issue of purpose mismatch for IP addres"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy indicates no marketing to children under 13 but does not address tracking or behavioral monitoring.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Location",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Sec. 12(2)"
+   ],
+   "evidence": "Your location information is stored on Allstate's servers and retained by Allstate until you delete the application from your device.",
+   "rationale": "The policy states that location information is retained until the application is deleted, which implies indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10",
+    "Sec. 2"
+   ],
+   "evidence": "",
+   "rationale": "The application collects IP addresses and device IDs for advertising purposes, which violates the Act's prohibition on targeted advertising directed at children.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9302247254996762,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "vague",
+   "confidence": 0.9380957324391194,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c5",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "[P30]",
+    "[Sec. 5(1)]",
+    "[Rule 3]"
+   ],
+   "evidence": "These Features may collect your IP address, which page you are visiting on our site, and may set a cookie to enable the Feature to function properly.",
+   "rationale": "The policy mentions that social media features and widgets collect IP addresses but does not specify sharing with Google AdMob. It also states that interactions are governed by the provider\u2019s privacy policy.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9411977960659953,
+ "usage": {
+  "prompt": 8031,
+  "output": 1070
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 47,
+  "untagged_paragraphs": 0,
+  "claims": 62,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['analytics/research', 'unspecified'], the app uses it for Advertising",
+    "paragraphs": [
+     7,
+     15,
+     19,
+     20,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with firebase_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     12,
+     13,
+     19,
+     32,
+     16,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends Cookies and tracking elements to the analytics SDK Firebase Analytics",
+    "paragraphs": [
+     24
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Location indefinitely; retention statements: ['Limited']",
+    "paragraphs": [
+     10,
+     9,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     12,
+     13,
+     32,
+     30,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     24
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 2"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that IP addresses are used for advertising purposes, but also mentions gathering information without specifying purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "We use your location information to search for information you request - including agent searches identify the location of an accident you are reporting",
+       "unspecified_purpose_quote": "We gather certain information automatically and store it in log files. This information may include internet protocol (IP) addresses, browser type, internet service provider (ISP), referring/exit pages, operating system, date/time stamp, and/or clickstream data.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 2"
+       ],
+       "rationale": "The policy explicitly states that IP addresses are used for advertising purposes, but also mentions gathering information without specifying purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9265136554538972
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 11(2)",
+       "Sec. 12(3)",
+       "Rule 10"
+      ],
+      "evidence": "We or our third party marketing partners (such as Google Analytics and Adobe Analytics) use cookies, analytics, remarketing and other technology to help us provide users with a better service and a more customized web experience.",
+      "rationale": "The policy mentions sharing cookies and other technologies with third parties for personalization purposes, but does not specify the exact recipient.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We or our third party marketing partners (such as Google Analytics and Adobe Analytics) use cookies, analytics, remarketing and other technology to help us provide users with a better service and a more customized web experience.",
+       "denial_quote": "",
+       "generic_quote": "We use and share your personal information as required or permitted by law. For example, we may do this to: Market our products, Handle your claim, Prevent fraud, Comply with requests from regulatory and law enforcement authorities, Participate in insurance support organizations, Send you push notifications.",
+       "sections": [
+        "Sec. 11(2)",
+        "Sec. 12(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy mentions sharing cookies and other technologies with third parties for personalization purposes, but does not specify the exact recipient."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9302247254996762
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy indicates no marketing to children under 13 but does not address tracking or behavioral monitoring.",
+      "raw": {
+       "candidate_id": "c3",
+       "gap_type": "childrens_data",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "Firebase Analytics (Google, analytics)",
+       "purpose": "Personalization/Customization",
+       "retention": "Unspecified",
+       "paragraphs": [
+        24
+       ],
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy indicates no marketing to children under 13 but does not address tracking or behavioral monitoring."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9437247679430246
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Sec. 12(2)"
+      ],
+      "evidence": "Your location information is stored on Allstate's servers and retained by Allstate until you delete the application from your device.",
+      "rationale": "The policy states that location information is retained until the application is deleted, which implies indefinite retention.",
+      "raw": {
+       "candidate_id": "c4",
+       "gap_type": "retention_mismatch",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "Your location information is stored on Allstate's servers and retained by Allstate until you delete the application from your device.",
+       "sections": [
+        "Sec. 8(7)",
+        "Sec. 12(2)"
+       ],
+       "rationale": "The policy states that location information is retained until the application is deleted, which implies indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9810210898135352
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P30]",
+       "[Sec. 5(1)]",
+       "[Rule 3]"
+      ],
+      "evidence": "These Features may collect your IP address, which page you are visiting on our site, and may set a cookie to enable the Feature to function properly.",
+      "rationale": "The policy mentions that social media features and widgets collect IP addresses but does not specify sharing with Google AdMob. It also states that interactions are governed by the provider\u2019s privacy policy.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "The interactions with these Features are governed by the privacy policy of the company providing it.",
+       "generic_quote": "These Features may collect your IP address, which page you are visiting on our site, and may set a cookie to enable the Feature to function properly.",
+       "sections": [
+        "[P30]",
+        "[Sec. 5(1)]",
+        "[Rule 3]"
+       ],
+       "rationale": "The policy mentions that social media features and widgets collect IP addresses but does not specify sharing with Google AdMob. It also states that interactions are governed by the provider\u2019s privacy policy."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9380957324391194
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10",
+       "Sec. 2"
+      ],
+      "evidence": "",
+      "rationale": "The application collects IP addresses and device IDs for advertising purposes, which violates the Act's prohibition on targeted advertising directed at children.",
+      "raw": {
+       "candidate_id": "c6",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10",
+        "Sec. 2"
+       ],
+       "rationale": "The application collects IP addresses and device IDs for advertising purposes, which violates the Act's prohibition on targeted advertising directed at children."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9276068052467192
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 7,
+  "seconds": 130.43
+ }
+}

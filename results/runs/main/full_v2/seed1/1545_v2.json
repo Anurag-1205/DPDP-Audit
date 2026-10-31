@@ -1,0 +1,364 @@
+{
+ "case_id": "1545_v2",
+ "system": "full_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify any particular purpose for collecting IP addresses and device IDs, but mentions their use for monitoring and analyzing user behavior.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing, and the rationale provided does not align with the cited DPDP text. The rationale suggests that the policy does not specify purposes for collecting IP addresses and device IDs, but the cited DPDP text pertains to notices and consents, not the purposes for data collect"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that Location information is not collected, thus meeting the requirement for an undisclosed collection.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing, and the rationale provided does not align with the cited DPDP text. The rationale states that the policy explicitly states Location information is not collected, but the cited DPDP text pertains to notices and consents, not the actual collection of data."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "Contact",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "We may retain your account information for a reasonable period of time for the purpose of internal account management and fraud prevention.",
+   "rationale": "The policy states that account information may be retained indefinitely for internal account management and fraud prevention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.953636112174294,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9125364481097833,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9202707083073313,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9440784852516912,
+ "usage": {
+  "prompt": 9400,
+  "output": 956
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 29,
+  "untagged_paragraphs": 0,
+  "claims": 51,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     13,
+     10,
+     18,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     10,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     10,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "vague",
+    "reason": "the app keeps Contact indefinitely; retention statements: ['Indefinitely', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     11,
+     12,
+     13,
+     24,
+     23,
+     10
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "your name, address, telephone number, e-mail address, and credit card, debit card or other payment information",
+      "rationale": "The policy explicitly mentions collecting personally-identifiable information, which includes contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "your name, address, telephone number, e-mail address, and credit card, debit card or other payment information",
+       "denial_quote": "",
+       "generic_quote": "personal information, information you provide",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting personally-identifiable information, which includes contact details."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.953636112174294
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that Location information is not collected, thus meeting the requirement for an undisclosed collection.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect Location information such as geolocation, GPS, precise or approximate location, or location derived from the IP address.",
+       "generic_quote": "We use 'web beacons' and 'web logs' to allow our servers to automatically record information that your browser sends whenever you visit the Sites.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that Location information is not collected, thus meeting the requirement for an undisclosed collection."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9125364481097833
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "you voluntarily choose to disclose to us, such as your name, address, telephone number, e-mail address, and credit card, debit card or other payment information",
+      "rationale": "The policy explicitly states that contact details are collected, but does not specify that this data is used for additional service/features.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "you voluntarily choose to disclose to us, such as your name, address, telephone number, e-mail address, and credit card, debit card or other payment information",
+       "denial_quote": "",
+       "generic_quote": "personal information, information you provide",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that contact details are collected, but does not specify that this data is used for additional service/features."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9202707083073313
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify any particular purpose for collecting IP addresses and device IDs, but mentions their use for monitoring and analyzing user behavior.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Personalization/Customization",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We use 'web beacons' and 'web logs' to allow our servers to automatically record information that your browser sends whenever you visit the Sites. This information includes the time and date, your Internet Protocol address, your geographic location (your zip code, your area code and/or your time zone), your browser type and version, the Sites and/or the Services that you use, and when and how long you use them. We use this information to monitor and analyze how users use the Sites and the Services, to provide customer service and to maintain and improve the Services.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not specify any particular purpose for collecting IP addresses and device IDs, but mentions their use for monitoring and analyzing user behavior."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9670786812650569
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "We may retain your account information for a reasonable period of time for the purpose of internal account management and fraud prevention.",
+      "rationale": "The policy states that account information may be retained indefinitely for internal account management and fraud prevention.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "We may retain your account information for a reasonable period of time for the purpose of internal account management and fraud prevention.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that account information may be retained indefinitely for internal account management and fraud prevention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9668704764019912
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 120.0
+ }
+}

@@ -55,7 +55,6 @@ very few cases.
   ("Not like a privacy policy"), kept as the tool's native behaviour. 258 of 282 flows matched; their
   flows count as omitted, the same rule as for PoliCheck. PoliGraph found purposes for 74 flows
   (kept in `results/runs/main/S2/`, usable for a purpose baseline).
-- PurPliance: not run; its public release has only the statement extractor, so it is related work only.
 
 ## Tagger (1,140 held-out segments from 35 policies)
 

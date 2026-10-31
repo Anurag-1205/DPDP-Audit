@@ -1,0 +1,105 @@
+{
+ "case_id": "L1050_r2",
+ "system": "full_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that web beacons do not contain personally identifiable information and are used for ad recognition, thus no sharing is disclosed.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence provided does not mention the sharing of location data with Mixpanel for analytics/research purposes. The rationale given contradicts the need to disclose such sharing according to Section 5(2) and Rule 3 of the DPDP Act, 2023, which require notification to the data principal reg"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9607245733662949,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9607245733662949,
+ "usage": {
+  "prompt": 1846,
+  "output": 268
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 70,
+  "untagged_paragraphs": 0,
+  "claims": 108,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     65,
+     10,
+     54
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that web beacons do not contain personally identifiable information and are used for ad recognition, thus no sharing is disclosed.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "These files enable DoubleClick to recognize a unique cookie on your Web browser, which in turn enables us to learn which advertisements bring users to our website. It does not contain your name, address, telephone number, or email address. In short, web beacons collect only a limited amount of information including cookies and time and date of viewing and do not contain personally identifiable information.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that web beacons do not contain personally identifiable information and are used for ad recognition, thus no sharing is disclosed."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9607245733662949
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 35.18
+ }
+}

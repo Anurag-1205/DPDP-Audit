@@ -137,12 +137,16 @@ def write_case(split_dir, case_id: str, policy: Policy, flows: list[dict], child
     (keys_dir / f"{case_id}.json").write_text(json.dumps(key, indent=1))
 
 
-def generate(seed: int = 0, split: str = "main", policy_set: str = "heldout", n_policies: int | None = None) -> dict:
+def generate(seed: int = 0, split: str = "main", policy_set: str = "heldout", n_policies: int | None = None,
+             exclude_splits: tuple[str, ...] = ()) -> dict:
     """policy_set "heldout" builds an evaluation split; "train" builds a development split from
-    training policies (for prompt checks and pilots that must not touch evaluation cases)."""
+    training policies (for prompt checks and pilots that must not touch evaluation cases).
+    exclude_splits: leave out the policies already used by these splits."""
     rng = random.Random(seed)
     held = set(load_split()[policy_set])
-    policies = [p for p in load_all() if f"{p.policy_id}_{p.name}" in held]
+    used = {json.loads(f.read_text())["policy_id"] for s in exclude_splits
+            for f in (BENCH / s / "answer_keys").glob("*.json")}
+    policies = [p for p in load_all() if f"{p.policy_id}_{p.name}" in held and str(p.policy_id) not in used]
     if n_policies is not None:
         policies = sorted(random.Random(seed).sample(policies, n_policies), key=lambda p: p.policy_id)
     split_dir = BENCH / split

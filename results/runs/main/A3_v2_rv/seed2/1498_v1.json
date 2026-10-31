@@ -1,0 +1,120 @@
+{
+ "case_id": "1498_v1",
+ "system": "A3_v2_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 6(1)",
+    "Rule 11"
+   ],
+   "evidence": "We collect information from and about you.",
+   "rationale": "The policy mentions collecting information but does not specify health data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'We collect information from and about you' is too vague and does not specify the type of data collected, including health data. The cited DPDP text in Sec. 6(1) and Rule 11 pertains to consent requirements and guardianship, which are not directly related to the issue of undisclo"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9612009310653167,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9612009310653167,
+ "usage": {
+  "prompt": 1985,
+  "output": 308
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 47,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Health is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     11,
+     5
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 6(1)",
+       "Rule 11"
+      ],
+      "evidence": "We collect information from and about you.",
+      "rationale": "The policy mentions collecting information but does not specify health data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "We collect information from and about you.",
+       "sections": [
+        "Sec. 6(1)",
+        "Rule 11"
+       ],
+       "rationale": "The policy mentions collecting information but does not specify health data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9612009310653167
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 23.06,
+  "reverified_from": "A3_v2",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

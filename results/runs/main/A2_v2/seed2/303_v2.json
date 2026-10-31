@@ -1,0 +1,392 @@
+{
+ "case_id": "303_v2",
+ "system": "A2_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9",
+    "Rule 10"
+   ],
+   "evidence": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us.",
+   "rationale": "The policy states that individuals under the age of 13 may not create an account with Reddit, but it does not explicitly state that user online activities data will not be tracked or monitored for children.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify any purposes for collecting contact information, and it does not mention using contact information for advertising.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the policy does not mention it, which means there is no explicit statement regarding the purposes for collecting contact information or using it for advertising. However, the finding assumes a lack of specification without direct evidence from the policy. Additionally"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "All stored IP addresses, except the account creation IP address, are deleted after 90 days. We only associate this information with your account when you are signed in.",
+   "rationale": "The policy explicitly states that the app shares the user's IP address and advertising identifier with ad partners, who use this data for advertising purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9",
+    "Rule 10"
+   ],
+   "evidence": "individuals under the age of 13 may not create an account with us.",
+   "rationale": "The policy explicitly states that individuals under the age of 13 may not create an account, indicating no tracking or targeted advertising for children.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9672765079405398,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "vague",
+   "confidence": 0.9296833912868927,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9511768169764885,
+ "usage": {
+  "prompt": 5327,
+  "output": 1012
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 54,
+  "untagged_paragraphs": 0,
+  "claims": 70,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     15,
+     16,
+     17,
+     28,
+     30,
+     44,
+     23
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends User online activities to the analytics SDK Google Analytics",
+    "paragraphs": [
+     39
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature', 'personalization/customization'], the app uses it for Advertising",
+    "paragraphs": [
+     5,
+     12,
+     44,
+     33,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     15,
+     16,
+     17,
+     30,
+     44,
+     43
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     39
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use a tool called Google Analytics to help us understand how users interact with our website. It tells us aggregate usage and traffic information, such as how the site was accessed, how long visitors stayed, and the number of first-time visitors to the site.",
+      "rationale": "The policy mentions Google Analytics but does not explicitly state that user online activities are shared with it.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Anonymous, aggregated information that cannot be linked back to an individual user may be made available to third parties.",
+       "generic_quote": "We use a tool called Google Analytics to help us understand how users interact with our website. It tells us aggregate usage and traffic information, such as how the site was accessed, how long visitors stayed, and the number of first-time visitors to the site.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions Google Analytics but does not explicitly state that user online activities are shared with it."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9672765079405398
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "All stored IP addresses, except the account creation IP address, are deleted after 90 days. We only associate this information with your account when you are signed in.",
+      "rationale": "The policy explicitly states that the app shares the user's IP address and advertising identifier with ad partners, who use this data for advertising purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We share your device's unique advertising identifier, its IP address, and a list of subreddits used to generate a particular page for you (which may include your subscriptions) with our ad partners, who decide which ads to display for you.",
+       "denial_quote": "",
+       "generic_quote": "All stored IP addresses, except the account creation IP address, are deleted after 90 days. We only associate this information with your account when you are signed in.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the app shares the user's IP address and advertising identifier with ad partners, who use this data for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9296833912868927
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify any purposes for collecting contact information, and it does not mention using contact information for advertising.",
+      "raw": {
+       "candidate_id": "c3",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        5,
+        12,
+        44,
+        33,
+        10
+       ],
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy does not specify any purposes for collecting contact information, and it does not mention using contact information for advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9549539691426486
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9",
+       "Rule 10"
+      ],
+      "evidence": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us.",
+      "rationale": "The policy states that individuals under the age of 13 may not create an account with Reddit, but it does not explicitly state that user online activities data will not be tracked or monitored for children.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "childrens_data",
+       "data_type": "User online activities",
+       "recipient": "Google Analytics (Google, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "paragraphs": [
+        39
+       ],
+       "children_quote": "Although we welcome users from all walks of life, reddit is not aimed at children, and the United States government has put limits on our ability to accept users under a certain age through the Children's Online Privacy Protection Act of 1998. Individuals under the age of 13 may not create an account with us.",
+       "sections": [
+        "Sec. 9",
+        "Rule 10"
+       ],
+       "rationale": "The policy states that individuals under the age of 13 may not create an account with Reddit, but it does not explicitly state that user online activities data will not be tracked or monitored for children."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9598558511770091
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9",
+       "Rule 10"
+      ],
+      "evidence": "individuals under the age of 13 may not create an account with us.",
+      "rationale": "The policy explicitly states that individuals under the age of 13 may not create an account, indicating no tracking or targeted advertising for children.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "sections": [
+        "Sec. 9",
+        "Rule 10"
+       ],
+       "rationale": "The policy explicitly states that individuals under the age of 13 may not create an account, indicating no tracking or targeted advertising for children.",
+       "children_quote": "individuals under the age of 13 may not create an account with us."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9441143653353524
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 99.04
+ }
+}

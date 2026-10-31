@@ -1,0 +1,107 @@
+{
+ "case_id": "L995_r3",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect information about you when you use our services.",
+   "rationale": "The policy does not explicitly mention collecting location data, but it does mention collecting general information. It denies sharing personal information, which includes location.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions 'information' without specifying what type of information, and the cited DPDP text discusses notices and consents but does not directly address the collection of location data. Therefore, the evidence does not justify an undisclosed collection finding."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9046646771283295,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9046646771283295,
+ "usage": {
+  "prompt": 1813,
+  "output": 206
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 6,
+  "untagged_paragraphs": 0,
+  "claims": 10,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect information about you when you use our services.",
+      "rationale": "The policy does not explicitly mention collecting location data, but it does mention collecting general information. It denies sharing personal information, which includes location.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Mohegan Sun does not share or sell your personal information to anyone.",
+       "generic_quote": "We may collect information about you when you use our services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting location data, but it does mention collecting general information. It denies sharing personal information, which includes location."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9046646771283295
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 28.68
+ }
+}

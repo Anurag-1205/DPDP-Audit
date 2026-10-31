@@ -1,0 +1,246 @@
+{
+ "case_id": "635_v2",
+ "system": "A1_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that the data can be used for advertising purposes.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "SCEA may use personally identifying information for marketing and demographic studies. These studies help us improve our websites, products and services to better meet our users' needs.",
+   "rationale": "The policy does not explicitly mention collecting location data but does state that personally identifying information can be used for marketing purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9427615267889954,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9366971755652318,
+ "usage": {
+  "prompt": 4636,
+  "output": 511
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 44,
+  "untagged_paragraphs": 0,
+  "claims": 64,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     8,
+     9,
+     24,
+     35,
+     22,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Advertising",
+    "paragraphs": [
+     12,
+     13,
+     5,
+     21
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     8,
+     9,
+     18,
+     20,
+     23,
+     12,
+     13
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "SCEA may use personally identifying information for marketing and demographic studies. These studies help us improve our websites, products and services to better meet our users' needs.",
+      "rationale": "The policy does not explicitly mention collecting location data but does state that personally identifying information can be used for marketing purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We do not require that website visitors reveal any personally identifying information in order to gain general access to our websites.",
+       "generic_quote": "SCEA may use personally identifying information for marketing and demographic studies. These studies help us improve our websites, products and services to better meet our users' needs.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting location data but does state that personally identifying information can be used for marketing purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9427615267889954
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Collection of personal information required to access certain website services may include the collection of date of birth, name, mailing address, email address or credit card information.",
+      "rationale": "The policy mentions various personal data but does not explicitly state that it is for an 'Additional service/feature'. It provides the data types but not their specific purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "Collection of personal information required to access certain website services may include the collection of date of birth, name, mailing address, email address or credit card information.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy mentions various personal data but does not explicitly state that it is for an 'Additional service/feature'. It provides the data types but not their specific purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.892537992642208
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that the data can be used for advertising purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "Data that we have collected about a Sony Entertainment Network account holder via dynamic in-game advertising may be used to provide him or her with future advertisements that we believe will be of particular interest.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that the data can be used for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9747920072644921
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 58.16
+ }
+}

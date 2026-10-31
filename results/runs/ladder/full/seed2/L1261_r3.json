@@ -1,0 +1,106 @@
+{
+ "case_id": "L1261_r3",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may share information with our partners.",
+   "rationale": "The policy mentions sharing information with partners but does not specify Mixpanel or any analytics service.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence 'We may share information with our partners' is vague and does not specify Mixpanel or any analytics service. The cited DPDP text from Section 5(1) and Rule 3 emphasizes the need for a clear and detailed notice to the Data Principal, which is not provided. This supports the findi"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9480045671627544,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9480045671627544,
+ "usage": {
+  "prompt": 1903,
+  "output": 216
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 39,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Contact with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     1,
+     4,
+     5,
+     9,
+     10
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may share information with our partners.",
+      "rationale": "The policy mentions sharing information with partners but does not specify Mixpanel or any analytics service.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "With your approval, we use the information you provide us in the following ways: [P1]",
+       "generic_quote": "We may share information with our partners. [P1]",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing information with partners but does not specify Mixpanel or any analytics service."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9480045671627544
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 29.72
+ }
+}

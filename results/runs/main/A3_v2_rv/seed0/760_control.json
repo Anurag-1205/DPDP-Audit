@@ -1,0 +1,161 @@
+{
+ "case_id": "760_control",
+ "system": "A3_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9752136421873255,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": 0.9583592457809271,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9667864439841263,
+ "usage": {
+  "prompt": 2907,
+  "output": 375
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 23,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     10,
+     4,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Demographic with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     10,
+     5,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 11(2)",
+       "Rule 6",
+       "Sec. 6(5)"
+      ],
+      "evidence": "Some Smithsonian Websites use third-party vendors, such as Google Analytics, to place cookies and analyze the information collected by cookies in order to make the Smithsonian Websites more interesting and useful to you.",
+      "rationale": "The policy explicitly mentions sharing cookies with Google Analytics, which is a third-party vendor.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "Google Analytics (Google, analytics)",
+       "disclosing_quote": "Some Smithsonian Websites use third-party vendors, such as Google Analytics, to place cookies and analyze the information collected by cookies in order to make the Smithsonian Websites more interesting and useful to you.",
+       "denial_quote": "",
+       "generic_quote": "No personally identifiable information is collected. Information that we collect from cookies will not be used to create profiles of individual users and only will be used in aggregate form.",
+       "sections": [
+        "Sec. 11(2)",
+        "Rule 6",
+        "Sec. 6(5)"
+       ],
+       "rationale": "The policy explicitly mentions sharing cookies with Google Analytics, which is a third-party vendor."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9752136421873255
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10",
+       "Sec. 12(2)"
+      ],
+      "evidence": "Additionally, some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+      "rationale": "The policy explicitly mentions sharing demographic data through Google Analytics for Display Advertising, which is a form of targeted advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Additionally, some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+       "denial_quote": "",
+       "generic_quote": "Additionally, some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10",
+        "Sec. 12(2)"
+       ],
+       "rationale": "The policy explicitly mentions sharing demographic data through Google Analytics for Display Advertising, which is a form of targeted advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9583592457809271
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 37.8,
+  "reverified_from": "A3_v2",
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

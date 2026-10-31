@@ -1,0 +1,103 @@
+{
+ "case_id": "L635_r2",
+ "system": "full_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We do not control our affiliates' or third parties' use of your information after we share it, but we use reasonable efforts to obtain our affiliates' and third parties' agreement to protect the confidentiality, security, and integrity of any personal information we share with them or that we permit them to collect directly.",
+   "rationale": "The policy explicitly states that personal identifiers are not shared with third parties, but does not specify who the technical methods (like web beacons) are shared with.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions that the app does not control affiliates' or third parties' use of shared information, but it does not explicitly state that personal identifiers are not shared with third parties. Additionally, the cited DPDP text pertains to the notice requirements for obtaining consen"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.93887749932029,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.93887749932029,
+ "usage": {
+  "prompt": 1724,
+  "output": 290
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 37,
+  "untagged_paragraphs": 0,
+  "claims": 47,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Personal identifier",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not share Personal identifier",
+    "paragraphs": [
+     16,
+     25
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do not control our affiliates' or third parties' use of your information after we share it, but we use reasonable efforts to obtain our affiliates' and third parties' agreement to protect the confidentiality, security, and integrity of any personal information we share with them or that we permit them to collect directly.",
+      "rationale": "The policy explicitly states that personal identifiers are not shared with third parties, but does not specify who the technical methods (like web beacons) are shared with.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We do not share your name and other personal identifiers with third parties.",
+       "denial_quote": "",
+       "generic_quote": "We use these technical methods for tracking purposes, including 'Web beacons'. We do not control our affiliates' or third parties' use of your information after we share it, but we use reasonable efforts to obtain our affiliates' and third parties' agreement to protect the confidentiality, security, and integrity of any personal information we share with them or that we permit them to collect directly.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal identifiers are not shared with third parties, but does not specify who the technical methods (like web beacons) are shared with."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.93887749932029
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 37.54
+ }
+}

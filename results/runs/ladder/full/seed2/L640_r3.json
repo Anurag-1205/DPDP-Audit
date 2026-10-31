@@ -1,0 +1,108 @@
+{
+ "case_id": "L640_r3",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect information about you when you use our services.",
+   "rationale": "The policy does not explicitly disclose or deny collecting computer information, but mentions collecting information in general.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'We may collect information about you when you use our services' does not explicitly mention collecting 'computer information'. While the cited DPDP text (Sec. 5(1) and Rule 3) emphasizes the need for a clear notice regarding the personal data and purposes of processing, the evid"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9518737502358602,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9518737502358602,
+ "usage": {
+  "prompt": 2195,
+  "output": 250
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 39,
+  "untagged_paragraphs": 0,
+  "claims": 80,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     5,
+     11,
+     15,
+     29,
+     16
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect information about you when you use our services.",
+      "rationale": "The policy does not explicitly disclose or deny collecting computer information, but mentions collecting information in general.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "This Privacy Policy does not apply to other GameStop brands such as BuyMyTronics, Game Informer, Kongregate, or PC Downloads, each of which has its own privacy policy.",
+       "generic_quote": "We may collect information about you when you use our services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly disclose or deny collecting computer information, but mentions collecting information in general."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9518737502358602
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 32.77
+ }
+}

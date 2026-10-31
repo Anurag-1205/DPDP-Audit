@@ -1,0 +1,351 @@
+{
+ "case_id": "1264_v1",
+ "system": "A3_v2_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "For systems administration and troubleshooting, we log the IP address (the location on the Internet) of the computer or network from which someone visits the website. We also use IP addresses in the aggregate to track traffic so that we can evaluate and improve the website.",
+   "rationale": "The policy explicitly states that no personal data is sold, rented, traded, or disclosed to third parties, except for logging IP addresses for internal purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention any restrictions on processing children's data, and there is no indication that the processing complies with the requirements for processing children's data.",
+   "reviewer": "children",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 11(2)"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly state that the company collects or uses contact information for advertising purposes.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is explicitly stated as (none: the policy is said not to mention it), which means there is no evidence in the policy that supports the collection of contact data for advertising purposes. The cited sections (Sec. 5(1) and Sec. 11(2)) are unrelated to the issue of undisclosed coll"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9572633369863509,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9676187550181197,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "omitted",
+   "confidence": 0.9417164885319188,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9429467243014337,
+ "usage": {
+  "prompt": 6283,
+  "output": 1032
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 14,
+  "untagged_paragraphs": 0,
+  "claims": 16,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Contact",
+    "paragraphs": [
+     1,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['additional service/feature', 'advertising', 'analytics/research'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     10,
+     11,
+     7,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions IP address and device IDs",
+    "paragraphs": [
+     11,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "omission",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Contact",
+    "paragraphs": [
+     1,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 28(10)"
+      ],
+      "evidence": "If you provide your name, postal address, email address, phone number, or other information via a form on the website, we may store that information and contact you about our work.",
+      "rationale": "The policy explicitly states that the company collects and stores contact information, which aligns with the data type 'Contact'.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "If you provide your name, postal address, email address, phone number, or other information via a form on the website, we may store that information and contact you about our work.",
+       "denial_quote": "",
+       "generic_quote": "Except as outlined below, we do not sell, rent, trade, or otherwise disclose to any business, organization, individual, or other outside entity information provided by people who visit or interact with the website.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 28(10)"
+       ],
+       "rationale": "The policy explicitly states that the company collects and stores contact information, which aligns with the data type 'Contact'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9572633369863509
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "so that you don't have to reenter information on action, donate, or payment pages; for tracking traffic so that we can evaluate and improve the website; and to facilitate outreach based on visitors' interests.",
+      "rationale": "The policy explicitly states the purpose of using cookies for personalization and tracking, but does not specify if it includes 'Personalization/Customization'.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Personalization/Customization",
+       "retention": "Unspecified",
+       "purpose_quote": "so that you don't have to reenter information on action, donate, or payment pages; for tracking traffic so that we can evaluate and improve the website; and to facilitate outreach based on visitors' interests.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states the purpose of using cookies for personalization and tracking, but does not specify if it includes 'Personalization/Customization'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9392100445731815
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "For systems administration and troubleshooting, we log the IP address (the location on the Internet) of the computer or network from which someone visits the website. We also use IP addresses in the aggregate to track traffic so that we can evaluate and improve the website.",
+      "rationale": "The policy explicitly states that no personal data is sold, rented, traded, or disclosed to third parties, except for logging IP addresses for internal purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We do not sell, rent, trade, or otherwise disclose to any business, organization, individual, or other outside entity information provided by people who visit or interact with the website.",
+       "generic_quote": "For systems administration and troubleshooting, we log the IP address (the location on the Internet) of the computer or network from which someone visits the website. We also use IP addresses in the aggregate to track traffic so that we can evaluate and improve the website.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that no personal data is sold, rented, traded, or disclosed to third parties, except for logging IP addresses for internal purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9676187550181197
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention any restrictions on processing children's data, and there is no indication that the processing complies with the requirements for processing children's data.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not mention any restrictions on processing children's data, and there is no indication that the processing complies with the requirements for processing children's data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9089249963975972
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 11(2)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly state that the company collects or uses contact information for advertising purposes.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "Except as outlined below, we do not sell, rent, trade, or otherwise disclose to any business, organization, individual, or other outside entity information provided by people who visit or interact with the website.",
+       "generic_quote": "personal data and the purpose for which the same is proposed to be processed",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 11(2)"
+       ],
+       "rationale": "The policy does not explicitly state that the company collects or uses contact information for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9417164885319188
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 104.06,
+  "reverified_from": "A3_v2",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

@@ -1,0 +1,255 @@
+{
+ "case_id": "200_control",
+ "system": "v2_gate_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect information that you provide to us, information that we collect through your use of the Services, and information that we collect from publicly available sources or third parties.",
+   "rationale": "The policy mentions collecting information that users provide, which can be considered as contact details.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not explicitly mention collecting contact details. It only states that the app collects information provided by users, which is too vague to justify calling it an undisclosed collection of contact details."
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We also collect information that you provide us when you comment on articles, participate in message boards, and submit images, photos, videos, or other content to the Services. We may ask you for additional information at other times, such as when you enter a contest or participate in a promotion, when you post an online ad, or when you order products from us or otherwise engage with the Services.",
+   "rationale": "The policy describes collecting information that can include IP addresses and device IDs.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not explicitly mention collecting IP addresses and device IDs. It only states that the app collects information provided by users, which is too vague to justify calling it an undisclosed collection of these types of data."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We also may collect other information about you, your device, or your use of the services in ways that we describe to you at the point of collection or otherwise with your consent.",
+   "rationale": "The policy mentions collecting other information, which could potentially include location data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not explicitly mention collecting location data. It only states that the app collects other information, which is too vague to justify calling it an undisclosed collection of location data."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.955530607159328,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.955530607159328,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.955530607159328,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.955530607159328,
+ "usage": {
+  "prompt": 4706,
+  "output": 838
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 43,
+  "untagged_paragraphs": 0,
+  "claims": 80,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     9,
+     10,
+     14,
+     5,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     9,
+     10,
+     14,
+     7,
+     39
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     9,
+     10,
+     14,
+     7
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect information that you provide to us, information that we collect through your use of the Services, and information that we collect from publicly available sources or third parties.",
+      "rationale": "The policy mentions collecting information that users provide, which can be considered as contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may collect information that you provide to us, information that we collect through your use of the Services, and information that we collect from publicly available sources or third parties.",
+       "denial_quote": "",
+       "generic_quote": "We may collect information that you provide to us, information that we collect through your use of the Services, and information that we collect from publicly available sources or third parties.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting information that users provide, which can be considered as contact details."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We also collect information that you provide us when you comment on articles, participate in message boards, and submit images, photos, videos, or other content to the Services. We may ask you for additional information at other times, such as when you enter a contest or participate in a promotion, when you post an online ad, or when you order products from us or otherwise engage with the Services.",
+      "rationale": "The policy describes collecting information that can include IP addresses and device IDs.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We also collect information that you provide us when you comment on articles, participate in message boards, and submit images, photos, videos, or other content to the Services. We may ask you for additional information at other times, such as when you enter a contest or participate in a promotion, when you post an online ad, or when you order products from us or otherwise engage with the Services.",
+       "denial_quote": "",
+       "generic_quote": "We also collect information that you provide us when you comment on articles, participate in message boards, and submit images, photos, videos, or other content to the Services. We may ask you for additional information at other times, such as when you enter a contest or participate in a promotion, when you post an online ad, or when you order products from us or otherwise engage with the Services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy describes collecting information that can include IP addresses and device IDs."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We also may collect other information about you, your device, or your use of the services in ways that we describe to you at the point of collection or otherwise with your consent.",
+      "rationale": "The policy mentions collecting other information, which could potentially include location data.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "We also may collect other information about you, your device, or your use of the services in ways that we describe to you at the point of collection or otherwise with your consent.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting other information, which could potentially include location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.955530607159328
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 83.75,
+  "reverified_from": "v2_gate",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

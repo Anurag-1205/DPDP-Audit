@@ -1,0 +1,238 @@
+{
+ "case_id": "1264_v2",
+ "system": "full_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "If you provide your name, postal address, email address, phone number, or other information via a form on the website, we may store that information and contact you about our work.",
+   "rationale": "The policy mentions collecting contact information but does not explicitly mention IP addresses.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting contact information but does not explicitly mention IP addresses or device IDs. However, the evidence provided does not actually disclose the app's practice regarding these data types. Additionally, the cited DPDP text pertains to the notice requirements for p"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Public Citizen does not automatically collect personal information from people who visit or interact with our website.",
+   "rationale": "The policy explicitly states that Public Citizen does not automatically collect personal information, which covers financial data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence explicitly states that Public Citizen does not automatically collect personal information, which includes financial data. This directly contradicts the finding of undisclosed collection of financial data. Furthermore, the cited DPDP text pertains to the notice requirements for pe"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9732311903982808,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9555910815409109,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9691685140885492,
+ "usage": {
+  "prompt": 4934,
+  "output": 616
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 14,
+  "untagged_paragraphs": 0,
+  "claims": 29,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     4,
+     9,
+     11,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     10,
+     11,
+     7,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Financial is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     4,
+     9,
+     5,
+     0
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you provide your name, postal address, email address, phone number, or other information via a form on the website, we may store that information and contact you about our work.",
+      "rationale": "The policy mentions collecting contact information but does not explicitly mention IP addresses.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "If you contact us by phone or email, we may keep a record so that we can follow up with you if necessary. We do not disclose the information in that record to any outside entity unless you give us permission to do so or unless disclosure is compelled by law.",
+       "denial_quote": "",
+       "generic_quote": "If you provide your name, postal address, email address, phone number, or other information via a form on the website, we may store that information and contact you about our work.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting contact information but does not explicitly mention IP addresses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9732311903982808
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Public Citizen does not automatically collect personal information from people who visit or interact with our website.",
+      "rationale": "The policy explicitly states that Public Citizen does not automatically collect personal information, which covers financial data.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "Public Citizen does not automatically collect personal information from people who visit or interact with our website.",
+       "generic_quote": "Public Citizen does not automatically collect personal information from people who visit or interact with our website.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that Public Citizen does not automatically collect personal information, which covers financial data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9555910815409109
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "so that you don't have to reenter information on action, donate, or payment pages",
+      "rationale": "The policy explicitly states a purpose for cookies related to personalization/customization.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Personalization/Customization",
+       "purpose_quote": "so that you don't have to reenter information on action, donate, or payment pages",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states a purpose for cookies related to personalization/customization."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9786832703264559
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 62.92
+ }
+}

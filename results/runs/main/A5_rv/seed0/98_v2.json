@@ -1,0 +1,136 @@
+{
+ "case_id": "98_v2",
+ "system": "A5_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Survey data",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Whether you access our Online Services from your computer, smart phone, tablet or other mobile device, NOTMC and its agents may collect some information that identifies you or relates to you as an individual (\"Personal Information\"), such as your name, mailing address, telephone number, e-mail address, user name and password (for account administration), device ID, including IP address, geolocation (if using a mobile application and you consent to providing it), and additional personal information necessary for the administration of certain promotional events.",
+   "rationale": "The policy does not explicitly mention survey data, but it covers personal information broadly.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting various types of personal information, but it does not explicitly disclose the collection of survey data. The cited DPDP text pertains to the notice requirements for personal data and does not address the issue of undisclosed collection of survey data. Therefo"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9377600465099295,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9377600465099295,
+ "usage": {
+  "prompt": 2787,
+  "output": 353
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 41,
+  "untagged_paragraphs": 0,
+  "claims": 126,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Survey data",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Survey data is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     25,
+     26,
+     31,
+     33,
+     34,
+     20
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Whether you access our Online Services from your computer, smart phone, tablet or other mobile device, NOTMC and its agents may collect some information that identifies you or relates to you as an individual (\"Personal Information\"), such as your name, mailing address, telephone number, e-mail address, user name and password (for account administration), device ID, including IP address, geolocation (if using a mobile application and you consent to providing it), and additional personal information necessary for the administration of certain promotional events.",
+      "rationale": "The policy does not explicitly mention survey data, but it covers personal information broadly.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The Privacy Policy does not mention the collection of survey data.",
+       "generic_quote": "In [P6], it states, 'NOTMC and its agents may collect some information that identifies you or relates to you as an individual ('Personal Information'), such as your name, mailing address, telephone number, e-mail address, user name and password (for account administration), device ID, including IP address, geolocation (if using a mobile application and you consent to providing it), and additional personal information necessary for the administration of certain promotional events.'",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention survey data, but it covers personal information broadly."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9377600465099295
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 27.5,
+  "reverified_from": "A5",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

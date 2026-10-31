@@ -1,0 +1,270 @@
+{
+ "case_id": "642_control",
+ "system": "A2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you visit our sites, our computers may automatically collect statistics about your visit.",
+   "rationale": "The policy states that visits are monitored for statistical purposes, which can include IP addresses and device IDs.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions automatic collection of statistics, which can include IP addresses and device IDs, and the cited DPDP text requires notification of personal data and purposes for processing. This supports an undisclosed collection finding."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "If we are required by law to disclose certain information to local, state, federal, national or international law enforcement authorities, we will do so. We will also disclose information to third parties as necessary in order to comply with applicable laws and regulations.",
+   "rationale": "The policy does not mention sharing user online activities with Google AdMob specifically, but does mention disclosing information to third parties under legal requirements.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence refers to disclosures under legal requirements, but does not specify sharing user online activities with Google AdMob. The cited DPDP text pertains to notices and does not address sharing practices. This does not support an undisclosed sharing finding."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9509916804383031,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9509916804383031,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9509916804383031,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9509916804383031,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9509916804383031,
+ "usage": {
+  "prompt": 3480,
+  "output": 830
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 15,
+  "untagged_paragraphs": 0,
+  "claims": 36,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     10,
+     12,
+     4,
+     14
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     10,
+     12,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     10,
+     12,
+     8,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     10
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+      "rationale": "The policy mentions using submitted information for contacting customers, which can include contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+       "denial_quote": "",
+       "generic_quote": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions using submitted information for contacting customers, which can include contact details."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you visit our sites, our computers may automatically collect statistics about your visit.",
+      "rationale": "The policy states that visits are monitored for statistical purposes, which can include IP addresses and device IDs.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "When you visit our sites, our computers may automatically collect statistics about your visit.",
+       "denial_quote": "",
+       "generic_quote": "When you visit our sites, our computers may automatically collect statistics about your visit.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy states that visits are monitored for statistical purposes, which can include IP addresses and device IDs."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use.",
+      "rationale": "The policy mentions collecting statistics about visits, which can include computer information.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "When you visit our sites, our computers may automatically collect statistics about your visit. We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use.",
+       "denial_quote": "",
+       "generic_quote": "When you visit our sites, our computers may automatically collect statistics about your visit.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting statistics about visits, which can include computer information."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If we are required by law to disclose certain information to local, state, federal, national or international law enforcement authorities, we will do so. We will also disclose information to third parties as necessary in order to comply with applicable laws and regulations.",
+      "rationale": "The policy does not mention sharing user online activities with Google AdMob specifically, but does mention disclosing information to third parties under legal requirements.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "If we are required by law to disclose certain information to local, state, federal, national or international law enforcement authorities, we will do so. We will also disclose information to third parties as necessary in order to comply with applicable laws and regulations.",
+       "generic_quote": "If we are required by law to disclose certain information to local, state, federal, national or international law enforcement authorities, we will do so. We will also disclose information to third parties as necessary in order to comply with applicable laws and regulations.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention sharing user online activities with Google AdMob specifically, but does mention disclosing information to third parties under legal requirements."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9509916804383031
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 69.98,
+  "reverified_from": "A2",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

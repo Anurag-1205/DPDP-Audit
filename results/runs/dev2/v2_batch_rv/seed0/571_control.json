@@ -1,0 +1,224 @@
+{
+ "case_id": "571_control",
+ "system": "v2_batch_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect certain information about your visit, such as the name of the Internet service provider and the Internet Protocol (IP) address through which you access the Internet; the date and time you access the site; the pages that you access while at the Site and the Internet address of the Web site from which you linked directly to our site.",
+   "rationale": "The policy mentions collecting IP addresses but does not explicitly state that it collects 'IP address and device IDs'.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence clearly states that the app collects 'the name of the Internet service provider and the Internet Protocol (IP) address through which you access the Internet' and 'the Internet address of the Web site from which you linked directly to our site'. This evidence does not disclose the"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9750917037119728,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9818750057681286,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9785942525481318,
+ "usage": {
+  "prompt": 4911,
+  "output": 934
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 14,
+  "untagged_paragraphs": 0,
+  "claims": 29,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     6,
+     11,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     6,
+     3,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     3,
+     8,
+     6,
+     13
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+      "rationale": "The policy explicitly mentions collecting personal information, which includes contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you to provide a service or carry out a transaction that you have requested such as receiving information about Abita products and services, entering a contest, ordering e-mail newsletters, joining a limited-access premium site or service, or when purchasing, downloading and/or registering Abita products.",
+       "denial_quote": "",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting personal information, which includes contact details."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9750917037119728
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect certain information about your visit, such as the name of the Internet service provider and the Internet Protocol (IP) address through which you access the Internet; the date and time you access the site; the pages that you access while at the Site and the Internet address of the Web site from which you linked directly to our site.",
+      "rationale": "The policy mentions collecting IP addresses but does not explicitly state that it collects 'IP address and device IDs'.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We may collect certain information about your visit, such as the name of the Internet service provider and the Internet Protocol (IP address) through which you access the Internet; the date and time you access the site; the pages that you access while at the Site and the Internet address of the Web site from which you linked directly to our site. This information is used to help improve the site, analyze trends and administer the site.",
+       "generic_quote": "We may collect certain information about your visit, such as the name of the Internet service provider and the Internet Protocol (IP address) through which you access the Internet; the date and time you access the site; the pages that you access while at the Site and the Internet address of the Web site from which you linked directly to our site. This information is used to help improve the site, analyze trends and administer the site.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting IP addresses but does not explicitly state that it collects 'IP address and device IDs'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9818750057681286
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 37(3)"
+      ],
+      "evidence": "We may collect certain information about your visit, such as the name of the Internet service provider and the Internet Protocol (IP) address through which you access the Internet; the date and time you access the site; the pages that you access while at the Site and the Internet address of the Web site from which you linked directly to our site. This information is used to help improve the site, analyze trends and administer the site.",
+      "rationale": "The policy explicitly states that the collected information is used to help improve the site, analyze trends, and administer the site, which aligns with the 'Service Operation and Security' purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "purpose_quote": "We may collect certain information about your visit, such as the name of the Internet service provider and the Internet Protocol (IP) address through which you access the Internet; the date and time you access the site; the pages that you access while at the Site and the Internet address of the Web site from which you linked directly to our site. This information is used to help improve the site, analyze trends and administer the site.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 37(3)"
+       ],
+       "rationale": "The policy explicitly states that the collected information is used to help improve the site, analyze trends, and administer the site, which aligns with the 'Service Operation and Security' purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9788160481642938
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 70.54,
+  "reverified_from": "v2_batch",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

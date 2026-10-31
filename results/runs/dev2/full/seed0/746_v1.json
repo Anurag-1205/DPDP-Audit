@@ -1,0 +1,305 @@
+{
+ "case_id": "746_v1",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may use cookies, web beacons/pixel tags, log files, and other technologies to collect certain information about visitors to our website, use of our online services, and interactions with our emails and online advertisements.",
+   "rationale": "The policy does not specifically mention collecting location data, but does describe collecting various types of data through automated means.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Social media data",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may obtain information about you from other sources, including commercially available sources, such as data aggregators and public databases.",
+   "rationale": "The policy does not specifically mention collecting social media data, but does describe obtaining information from various sources.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may use the information we collect from and about you to contact you from time to time.",
+   "rationale": "The policy does not specifically mention collecting health data, but does describe using the information collected for various purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9637762405619633,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9637762405619633,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9637762405619633,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9637762405619633,
+ "usage": {
+  "prompt": 5879,
+  "output": 1025
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 64,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     2,
+     8,
+     26,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     7,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     4,
+     5,
+     6,
+     9,
+     13,
+     16,
+     17,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Social media data",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Social media data is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     4,
+     5,
+     6,
+     9,
+     13,
+     16,
+     17,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Health is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     4,
+     5,
+     6,
+     9,
+     13,
+     16,
+     17,
+     28,
+     27
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may use cookies, web beacons/pixel tags, log files, and other technologies to collect certain information about visitors to our website, use of our online services, and interactions with our emails and online advertisements.",
+      "rationale": "The policy does not specifically mention collecting location data, but does describe collecting various types of data through automated means.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "The policy does not mention collecting location data.",
+       "generic_quote": "We may use cookies, web beacons/pixel tags, log files, and other technologies to collect certain information about visitors to our website, use of our online services, and interactions with our emails and online advertisements.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specifically mention collecting location data, but does describe collecting various types of data through automated means."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may obtain information about you from other sources, including commercially available sources, such as data aggregators and public databases.",
+      "rationale": "The policy does not specifically mention collecting social media data, but does describe obtaining information from various sources.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "The policy does not mention collecting social media data.",
+       "generic_quote": "We may obtain information about you from other sources, including commercially available sources, such as data aggregators and public databases.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specifically mention collecting social media data, but does describe obtaining information from various sources."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may use the information we collect from and about you to contact you from time to time.",
+      "rationale": "The policy does not specifically mention collecting health data, but does describe using the information collected for various purposes.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "The policy does not mention collecting health data.",
+       "generic_quote": "We may use the information we collect from and about you to contact you from time to time.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specifically mention collecting health data, but does describe using the information collected for various purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9637762405619633
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [],
+    "parse_error": "no JSON found in reply: '{\\n  \"action\": \"final\",\\n  \"answers\": [\\n    {\\n      \"candidate_id\": \"c1\",\\n      \"purpose_quote\": \"To take full advantage of our offers, you may choose to register on our site. In the registration proces'",
+    "llm_calls": 1,
+    "token_prob": null
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [
+   "c1",
+   "c2"
+  ],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence describes collecting various types of data through automated means, but does not specifically mention collecting locati'",
+  "llm_calls": 3,
+  "seconds": 97.57
+ }
+}

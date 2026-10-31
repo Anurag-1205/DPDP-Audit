@@ -1,0 +1,102 @@
+{
+ "case_id": "L642_r4",
+ "system": "full_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use. We use these statistics about your visit for aggregation purposes only.",
+   "rationale": "The policy mentions monitoring visits but does not explicitly state sharing with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9424687155527816,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9424687155527816,
+ "usage": {
+  "prompt": 1196,
+  "output": 196
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 14,
+  "untagged_paragraphs": 0,
+  "claims": 37,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions IP address and device IDs",
+    "paragraphs": [
+     4,
+     5
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use. We use these statistics about your visit for aggregation purposes only.",
+      "rationale": "The policy mentions monitoring visits but does not explicitly state sharing with third parties.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use. We use these statistics about your visit for aggregation purposes only.",
+       "generic_quote": "We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use. We use these statistics about your visit for aggregation purposes only.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions monitoring visits but does not explicitly state sharing with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9424687155527816
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 0.06
+ }
+}

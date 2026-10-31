@@ -1,0 +1,135 @@
+{
+ "case_id": "503_control",
+ "system": "full_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9698261504604624,
+ "usage": {
+  "prompt": 1606,
+  "output": 432
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 43,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Marketing",
+    "paragraphs": [
+     3,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Financial is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     11,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Cookies are pieces of data your web browser stores on your hard drive to allow our Sites to provide you with enhanced services. Cookies allow us to store products in your online shopping cart, process orders, and recognize whether or not you have visited our Sites before. This provides us with important marketing information and lets us know how we are doing at both attracting new visitors and maintaining relationships with our existing customers.",
+      "rationale": "The policy explicitly states that cookies are used for marketing purposes, which aligns with the purpose limitation requirement.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "Cookies are pieces of data your web browser stores on your hard drive to allow our Sites to provide you with enhanced services. Cookies allow us to store products in your online shopping cart, process orders, and recognize whether or not you have visited our Sites before. This provides us with important marketing information and lets us know how we are doing at both attracting new visitors and maintaining relationships with our existing customers.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that cookies are used for marketing purposes, which aligns with the purpose limitation requirement."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "For your security, we only store your credit card information if you choose to set up an authorized account with one of our Sites. In that case, it is stored on a secure computer in an encrypted format. If you do not set up an account, you will have to enter your credit card information each time you order. We understand that this may be a little inconvenient for you, but some customers appreciate the added security.",
+      "rationale": "The policy clearly states that credit card information is stored for security purposes, which aligns with the purpose limitation requirement.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "For your security, we only store your credit card information if you choose to set up an authorized account with one of our Sites. In that case, it is stored on a secure computer in an encrypted format. If you do not set up an account, you will have to enter your credit card information each time you order. We understand that this may be a little inconvenient for you, but some customers appreciate the added security.",
+       "unspecified_purpose_quote": "If you wish, you can set your browser to refuse cookies. However, keep in mind that cookies are required to place an online order and for other user-friendly Site functions, so blocking cookies will negatively impact your Site experience. Should you wish to block cookies through your web browser, you may still purchase products through our Customer Service Department at 1-877-299-8366.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy clearly states that credit card information is stored for security purposes, which aligns with the purpose limitation requirement."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9698261504604624
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 51.69,
+  "reverified_from": "full",
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

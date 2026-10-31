@@ -1,0 +1,103 @@
+{
+ "case_id": "L1264_r4",
+ "system": "full_finetuned",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "We log the IP address (the location on the Internet) of the computer or network from which someone visits the website. We also use IP addresses in the aggregate to track traffic so that we can evaluate and improve the website.",
+   "rationale": "The policy mentions logging IP addresses but does not specify sharing them with third parties, particularly Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions logging IP addresses but does not explicitly state that these are shared with third parties, particularly Google AdMob. The cited sections of the DPDP Act emphasize the need to inform the Data Principal about the personal data and purposes for processing, which aligns wi"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9624781014900131,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9624781014900131,
+ "usage": {
+  "prompt": 1638,
+  "output": 277
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 12,
+  "untagged_paragraphs": 0,
+  "claims": 10,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Location",
+    "paragraphs": [
+     9,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "We log the IP address (the location on the Internet) of the computer or network from which someone visits the website. We also use IP addresses in the aggregate to track traffic so that we can evaluate and improve the website.",
+      "rationale": "The policy mentions logging IP addresses but does not specify sharing them with third parties, particularly Google AdMob.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Our website uses cookies for these reasons: so that you don't have to reenter information on action, donate, or payment pages; for tracking traffic so that we can evaluate and improve the website; and to facilitate outreach based on visitors' interests.",
+       "generic_quote": "We log the IP address (the location on the Internet) of the computer or network from which someone visits the website. We also use IP addresses in the aggregate to track traffic so that we can evaluate and improve the website.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy mentions logging IP addresses but does not specify sharing them with third parties, particularly Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9624781014900131
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 34.37
+ }
+}

@@ -1,0 +1,103 @@
+{
+ "case_id": "L745_r3",
+ "system": "A2_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect information about you when you use our services.",
+   "rationale": "The policy does not specify any data types being collected, and explicitly states there are no warranties regarding the information provided.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'We may collect information about you when you use our services' does not disclose the specific data types being collected, but rather a general statement. Additionally, the cited DPDP text from Section 5(1) and Rule 3 pertains to the notice requirements for requesting consent, n"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9169715016303628,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9169715016303628,
+ "usage": {
+  "prompt": 1207,
+  "output": 237
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 4,
+  "untagged_paragraphs": 0,
+  "claims": 1,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect information about you when you use our services.",
+      "rationale": "The policy does not specify any data types being collected, and explicitly states there are no warranties regarding the information provided.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The information provided is 'as is' with all faults and without warranty of any kind, expressed or implied.",
+       "generic_quote": "We may collect information about you when you use our services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify any data types being collected, and explicitly states there are no warranties regarding the information provided."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9169715016303628
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 22.59
+ }
+}

@@ -1,0 +1,168 @@
+{
+ "case_id": "98_v1",
+ "system": "A5_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f5",
+   "data_type": "User profile",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for cookies used for basic service/feature purposes.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states '(none: the policy is said not to mention it)', which means there is no explicit policy mentioning a retention period for user profile data used for basic service/feature purposes. The cited DPDP text discusses general obligations regarding data retention but does not spec"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.98652257600422,
+ "usage": {
+  "prompt": 2397,
+  "output": 582
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 41,
+  "untagged_paragraphs": 0,
+  "claims": 126,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps Location indefinitely; retention statements: none",
+    "paragraphs": [
+     6,
+     30
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f5",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps User profile indefinitely; retention statements: none",
+    "paragraphs": [
+     30,
+     32
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "Whether you access our Online Services from your computer, smart phone, tablet or other mobile device, NOTMC and its agents may collect some information that identifies you or relates to you as an individual (\"Personal Information\"), such as your name, mailing address, telephone number, e-mail address, user name and password (for account administration), device ID, including IP address, geolocation (if using a mobile application and you consent to providing it), and additional personal information necessary for the administration of certain promotional events.",
+      "rationale": "The policy does not specify a retention period for geolocation data used for advertising.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "retention_mismatch",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "indefinitely",
+       "retention_quote": "Whether you access our Online Services from your computer, smart phone, tablet or other mobile device, NOTMC and its agents may collect some information that identifies you or relates to you as an individual ('Personal Information'), such as your name, mailing address, telephone number, e-mail address, user name and password (for account administration), device ID, including IP address, geolocation (if using a mobile application and you consent to providing it), and additional personal information necessary for the administration of certain promotional events.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a retention period for geolocation data used for advertising."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for cookies used for basic service/feature purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "retention_mismatch",
+       "data_type": "User profile",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "Cookies are small text files containing pieces of data that are placed in your computer's Web browser to store your preferences. Cookies are not themselves personally identifiable, but may be linked to Personal Information that you provide to us through your interaction with our Online Services.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a retention period for cookies used for basic service/feature purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.98652257600422
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 44.88,
+  "reverified_from": "A5",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

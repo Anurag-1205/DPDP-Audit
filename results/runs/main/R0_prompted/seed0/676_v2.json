@@ -1,0 +1,299 @@
+{
+ "case_id": "676_v2",
+ "system": "R0_prompted",
+ "seed": 0,
+ "model": "gemini-3-flash-preview",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "Computer information is covered only by generic collection statements",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "User online activities is covered only by generic collection statements",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f6",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": null,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": null,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": null,
+   "source": "notice"
+  },
+  "f6": {
+   "label": "vague",
+   "confidence": null,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": null,
+ "usage": {
+  "prompt": 0,
+  "output": 0
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 10,
+  "untagged_paragraphs": 0,
+  "claims": 24,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     5,
+     1,
+     6,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     9,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "User online activities is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     9,
+     7,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     4,
+     3,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f6",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     4,
+     2,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "rules",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Analytics/Research"
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "Computer information is covered only by generic collection statements"
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "User online activities is covered only by generic collection statements"
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data"
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data"
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 0,
+    "token_prob": null
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 0,
+  "seconds": 0.04
+ }
+}

@@ -1,0 +1,334 @@
+{
+ "case_id": "164_v2",
+ "system": "v2_read_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We also may collect information that can be used to identify you (Personally Identifiable Information).",
+   "rationale": "The policy mentions collecting personally identifiable information, which includes contact details.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions collecting personally identifiable information, which includes contact details. The cited DPDP text requires the notice to inform the Data Principal about the personal data and the purpose for which it is proposed to be processed. Since the policy evidence supports the c"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that they do not collect Personally Identifiable Information from children under 13.",
+   "reviewer": "notice",
+   "merged_flows": [
+    "f3",
+    "f5"
+   ],
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is explicitly stated as (none: the policy is said not to mention it), indicating no mention of financial data collection. The cited DPDP text pertains to notices and consent for processing personal data, but there is no evidence of financial data being collected. Therefore, the f"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 10"
+   ],
+   "evidence": "This site is not directed at children under the age of 13 and we endeavor not to knowingly collect any Personally Identifiable Information from children under the age of 13.",
+   "rationale": "The policy explicitly states that they do not collect Personally Identifiable Information from children under 13.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence explicitly states that they do not collect Personally Identifiable Information from children under 13. This contradicts the finding of undisclosed collection of demographic data. The cited DPDP text pertains to notices and consent for processing personal data, but there is no evi"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9796796657292165,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9796796657292165,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "incorrect",
+   "confidence": 0.9796796657292165,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "omitted",
+   "confidence": 0.9796796657292165,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9761196641098813,
+ "usage": {
+  "prompt": 6010,
+  "output": 1143
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 17,
+  "untagged_paragraphs": 0,
+  "claims": 33,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Contact",
+    "paragraphs": [
+     5,
+     15
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     2,
+     4,
+     3,
+     8
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Financial",
+    "paragraphs": [
+     5,
+     0
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Demographic",
+    "paragraphs": [
+     13,
+     0
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Financial",
+    "paragraphs": [
+     5,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We also may collect information that can be used to identify you (Personally Identifiable Information).",
+      "rationale": "The policy mentions collecting personally identifiable information, which includes contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you create a user account with a Prometheus Global Media website and sign in to your account on the Websites or post User Uploaded Information, you are not anonymous to us.",
+       "denial_quote": "",
+       "generic_quote": "We also may collect information that can be used to identify you (Personally Identifiable Information).",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting personally identifiable information, which includes contact details."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that they do not collect Personally Identifiable Information from children under 13.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "This site is not directed at children under the age of 13 and we endeavor not to knowingly collect any Personally Identifiable Information from children under the age of 13.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy explicitly states that they do not collect Personally Identifiable Information from children under 13."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "This site is not directed at children under the age of 13 and we endeavor not to knowingly collect any Personally Identifiable Information from children under the age of 13.",
+      "rationale": "The policy explicitly states that they do not collect Personally Identifiable Information from children under 13.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "This site is not directed at children under the age of 13 and we endeavor not to knowingly collect any Personally Identifiable Information from children under the age of 13.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy explicitly states that they do not collect Personally Identifiable Information from children under 13."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that they do not collect Personally Identifiable Information through cookies or web beacons.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "No Personally Identifiable Information (see below) is collected through our cookies or Web beacons nor do we allow third-party companies to collect such information from cookies or web beacons on our Website.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that they do not collect Personally Identifiable Information through cookies or web beacons."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9796796657292165
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We may use cookies to keep track of your choice of language and home page preference; to understand your exposure to certain Internet advertisements as you use the Websites, and to gather usage data that will help us generally improve the quality of the Websites.",
+      "rationale": "The policy explicitly states that cookies are used for analytics/research purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "purpose_quote": "We may use cookies to keep track of your choice of language and home page preference; to understand your exposure to certain Internet advertisements as you use the Websites, and to gather usage data that will help us generally improve the quality of the Websites.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that cookies are used for analytics/research purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9725596624905459
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 0.38,
+  "reverified_from": "v2_read",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

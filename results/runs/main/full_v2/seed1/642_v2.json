@@ -1,0 +1,405 @@
+{
+ "case_id": "642_v2",
+ "system": "full_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that the company collects statistics about visits, which includes computer information like IP addresses and browser types.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence provided does not exist as stated in the rationale. The rationale mentions that the company collects statistics about visits, including computer information like IP addresses and browser types, but this is not reflected in the policy evidence. Additionally, the cited sections of "
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "Financial",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for financial data, only stating it is used for additional service/feature purposes.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9551366830839026,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9546500001369955,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9578307756060541,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9826274619404298,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": 0.9497886511943805,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9597684823123042,
+ "usage": {
+  "prompt": 9926,
+  "output": 972
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 15,
+  "untagged_paragraphs": 0,
+  "claims": 36,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     10,
+     12,
+     4,
+     14
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     10,
+     12,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     10,
+     12,
+     8,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Financial is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     5,
+     10,
+     12,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Financial indefinitely; retention statements: ['Indefinitely', 'Limited', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     11,
+     12
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+      "rationale": "The policy explicitly states that personal data such as contact details may be collected and used for marketing purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+       "denial_quote": "",
+       "generic_quote": "We may request certain information from you such as your name, address, telephone number, e-mail address, and credit card information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal data such as contact details may be collected and used for marketing purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9551366830839026
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use.",
+      "rationale": "The policy explicitly states that the company collects IP addresses and monitors visitor statistics.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the company collects IP addresses and monitors visitor statistics."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9546500001369955
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that the company collects statistics about visits, which includes computer information like IP addresses and browser types.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "When you visit our sites, our computers may automatically collect statistics about your visit. We may monitor statistics such as how many people visit our sites, the user's IP address, which pages people visit on our sites, from which domains our visitors reach our sites, and which browsers people use. We use these statistics about your visit for aggregation purposes only.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the company collects statistics about visits, which includes computer information like IP addresses and browser types."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9578307756060541
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may use third-party advertising companies, such as Google, Yahoo!, Microsoft) to serve ads when you visit our website. These companies may use information about your interests in order to provide advertisements about goods and services of interest to you.",
+      "rationale": "The policy explicitly mentions sharing user online activities with third-party advertising companies, including Google.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We may use third-party advertising companies, such as Google, Yahoo!, Microsoft) to serve ads when you visit our website. These companies may use information about your interests in order to provide advertisements about goods and services of interest to you.",
+       "denial_quote": "",
+       "generic_quote": "These companies may use information about your interests in order to provide advertisements about goods and services of interest to you.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions sharing user online activities with third-party advertising companies, including Google."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9826274619404298
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+      "rationale": "The policy does not explicitly mention collecting financial data, but it does state that it uses submitted information for product support and renewal.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect personal information from you unless you provide it to us.",
+       "generic_quote": "We use the information you submit to contact you to discuss the support, renewal, and purchase of our premium products and services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting financial data, but it does state that it uses submitted information for product support and renewal."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9497886511943805
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for financial data, only stating it is used for additional service/feature purposes.",
+      "raw": {
+       "candidate_id": "c6",
+       "data_type": "Financial",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a retention period for financial data, only stating it is used for additional service/feature purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.958577321912062
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 7,
+  "seconds": 74.59
+ }
+}

@@ -1,0 +1,155 @@
+{
+ "case_id": "L586_r4",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Information about our customers is an important part of our business, and we are not in the business of selling it to others.",
+   "rationale": "The policy does not mention collecting IP addresses or device IDs, and only refers to customer information in a generic manner.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions 'information about our customers' but does not specifically disclose the collection of IP addresses or device IDs. Additionally, the cited DPDP text pertains to the notice requirements for requests for consent, which is unrelated to the issue of undisclosed collection of"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9507873496932668,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9507873496932668,
+ "usage": {
+  "prompt": 2847,
+  "output": 426
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 73,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Information about our customers is an important part of our business, and we are not in the business of selling it to others.",
+      "rationale": "The policy does not mention collecting IP addresses or device IDs, and only refers to customer information in a generic manner.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Currently, Caribou Coffee sends personally identifiable information to third-party service providers that work on our behalf to provide services relating to the ongoing maintenance and operation of the Site.",
+       "generic_quote": "Information about our customers is an important part of our business, and we are not in the business of selling it to others.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention collecting IP addresses or device IDs, and only refers to customer information in a generic manner."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "Similar to collection, the policy does not specify the purpose of collecting IP addresses or device IDs, only mentioning customer information in a generic sense.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Currently, Caribou Coffee sends personally identifiable information to third-party service providers that work on our behalf to provide services relating to the ongoing maintenance and operation of the Site.",
+       "generic_quote": "Information about our customers is an important part of our business, and we are not in the business of selling it to others.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "Similar to collection, the policy does not specify the purpose of collecting IP addresses or device IDs, only mentioning customer information in a generic sense."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9507873496932668
+   }
+  ],
+  "paragraphs_shown": [
+   32
+  ],
+  "paragraphs_total": 32,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 59.54
+ }
+}

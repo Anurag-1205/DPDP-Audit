@@ -1,0 +1,290 @@
+{
+ "case_id": "760_v1",
+ "system": "full_v2_finetuned",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f5",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Additionally, some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+   "rationale": "The policy explicitly states that demographic data is used for understanding visitors and customizing websites, but does not mention sharing it with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f6",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "The data is retained for as long as necessary to support the mission of the Smithsonian Websites.",
+   "rationale": "The policy states that data is retained 'for as long as necessary' to support the mission, indicating indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9711568296363358,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "incorrect",
+   "confidence": 0.9832029729245295,
+   "source": "notice"
+  },
+  "f6": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f7": {
+   "label": "clear",
+   "confidence": 0.9785687055755551,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9776072694965383,
+ "usage": {
+  "prompt": 5831,
+  "output": 862
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 23,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     10,
+     4,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Demographic with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     10,
+     5,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f6",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps Cookies and tracking elements indefinitely; retention statements: none",
+    "paragraphs": [
+     4,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f7",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     10,
+     5,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "In addition to information collected automatically, we use cookies to support the internal functionality of the Websites. Cookies, which are small pieces of information sent to your browser by a website that you visit, are used to track usage patterns, traffic trends and customer behavior, as well as to record other information from the Website. When you register on the Websites, cookies also allow us to save information so that you will not have to re-enter it the next time you visit. Many content adjustments and customer service improvements are made based on the data derived from cookies. Some Smithsonian Websites use third-party vendors, such as Google Analytics, to place cookies and analyze the information collected by cookies in order to make the Smithsonian Websites more interesting and useful to you.",
+      "rationale": "The policy mentions that cookies are used for various purposes, including third-party analysis through Google Analytics.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "In addition to information collected automatically, we use cookies to support the internal functionality of the Websites. Cookies, which are small pieces of information sent to your browser by a website that you visit, are used to track usage patterns, traffic trends and customer behavior, as well as to record other information from the Website. When you register on the Websites, cookies also allow us to save information so that you will not have to re-enter it the next time you visit. Many content adjustments and customer service improvements are made based on the data derived from cookies. Some Smithsonian Websites use third-party vendors, such as Google Analytics, to place cookies and analyze the information collected by cookies in order to make the Smithsonian Websites more interesting and useful to you.",
+       "denial_quote": "",
+       "generic_quote": "Additionally, some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest. You may opt-out of Google Analytics for Display Advertising by visiting Ad Settings.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that cookies are used for various purposes, including third-party analysis through Google Analytics."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9711568296363358
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Additionally, some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+      "rationale": "The policy explicitly states that demographic data is used for understanding visitors and customizing websites, but does not mention sharing it with third parties.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Additionally, some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+       "generic_quote": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements. This information is stored and used in the aggregate only, and is not used to contact you personally.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that demographic data is used for understanding visitors and customizing websites, but does not mention sharing it with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9832029729245295
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Additionally, some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+      "rationale": "The policy explicitly mentions sharing demographic and interest data with Google Analytics, but does not specify sharing with Google AdMob.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Additionally, some Smithsonian Websites may use the Demographics and Interest reporting feature for Google Analytics for Display Advertising. The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+       "denial_quote": "",
+       "generic_quote": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements. This information is stored and used in the aggregate only, and is not used to contact you personally.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions sharing demographic and interest data with Google Analytics, but does not specify sharing with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9785687055755551
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "The data is retained for as long as necessary to support the mission of the Smithsonian Websites.",
+      "rationale": "The policy states that data is retained 'for as long as necessary' to support the mission, indicating indefinite retention.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "The data is retained for as long as necessary to support the mission of the Smithsonian Websites.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that data is retained 'for as long as necessary' to support the mission, indicating indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9775005698497329
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 107.86
+ }
+}

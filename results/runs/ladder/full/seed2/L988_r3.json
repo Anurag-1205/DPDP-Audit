@@ -1,0 +1,102 @@
+{
+ "case_id": "L988_r3",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect information about you when you use our services.",
+   "rationale": "The policy mentions collecting information but does not specify the exact types of computer information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'We may collect information about you when you use our services' does not specify the exact types of computer information, which is required by Sec. 5(1) and Rule 3 to inform the Data Principal. The evidence is vague and does not justify the finding of an undisclosed collection."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9724654111843938,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9724654111843938,
+ "usage": {
+  "prompt": 1639,
+  "output": 197
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 1,
+  "untagged_paragraphs": 0,
+  "claims": 1,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Computer information",
+    "paragraphs": [
+     0
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect information about you when you use our services.",
+      "rationale": "The policy mentions collecting information but does not specify the exact types of computer information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We may collect information about you when you use our services.",
+       "generic_quote": "We may collect information about you when you use our services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting information but does not specify the exact types of computer information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9724654111843938
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 25.22
+ }
+}

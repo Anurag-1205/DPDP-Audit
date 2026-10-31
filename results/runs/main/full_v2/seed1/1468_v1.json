@@ -1,0 +1,493 @@
+{
+ "case_id": "1468_v1",
+ "system": "full_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The Company collects personal information from you on a voluntary basis.",
+   "rationale": "The policy mentions the collection of computer information and its use for personalization/customization.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the company collects personal information voluntarily, but does not specify the type of data collected or the purpose of collection. The cited DPDP text requires a detailed notice including the personal data and the purpose for processing it. Since the policy evidence"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The information such Advertising Service Providers may collect, or we may share with them, includes your devices type, IP address, MAC address or other device ID, browser type, language, operating system and generalized geographic location; the types of pages, content and ads you, or others who are using your device, visited or viewed and the frequency of your visit/viewing; and information regarding your use of or activities in connection with a website or Online Service (e.g., time spent using a mobile application or your purchases).",
+   "rationale": "The policy mentions sharing personal data with various third-party advertising agents but does not specifically mention sharing contact details with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "Survey data",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "Please note that this Privacy Policy applies only to information submitted and collected online through the Online Services, and does not apply to information that may be collected by the Company offline. In addition, this Privacy Policy does not apply to websites or services maintained by other companies or organizations (such as those who promote the Company's products and services or sell related items) and the Company cannot and does not guarantee the security of any personal information disclosed to those third parties.",
+   "rationale": "The policy does not specify a retention period for survey data and indicates that the privacy policy only applies to online submissions.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9818138741946469,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9520276520413433,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9664493992099303,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": 0.9790226419477802,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9669027587007092,
+ "usage": {
+  "prompt": 17770,
+  "output": 1698
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 62,
+  "untagged_paragraphs": 0,
+  "claims": 151,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     12,
+     13,
+     14,
+     15,
+     19,
+     23,
+     25,
+     33,
+     36,
+     39,
+     40,
+     49,
+     42
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     31,
+     19,
+     33,
+     42
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     12,
+     13,
+     14,
+     15,
+     19,
+     23,
+     25,
+     33,
+     36,
+     39,
+     40,
+     49,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Contact",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Contact with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     9,
+     33,
+     35,
+     39,
+     40,
+     41,
+     43,
+     45,
+     47,
+     49,
+     58,
+     60,
+     15,
+     42
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Survey data",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Survey data is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     12,
+     13,
+     14,
+     15,
+     19,
+     23,
+     25,
+     33,
+     36,
+     39,
+     40,
+     49
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "Survey data",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Survey data indefinitely; retention statements: ['Indefinitely', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     4,
+     5,
+     6,
+     8,
+     14,
+     23,
+     25,
+     26,
+     27,
+     28,
+     36,
+     37,
+     40,
+     43,
+     46,
+     47,
+     48,
+     49,
+     51,
+     55,
+     56,
+     58
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you submit personal information to the Company, it will usually take the form of: Registration for Online Services, websites, jobs, products, contests, and special events; Subscribing to newsletters or alerts; Posting in or commenting on our message boards, forums, news blogs, chat rooms, or other Online Services; Purchasing a product or services through our online stores; Purchasing DLC, virtual items, or virtual currency for use with our software and/or Online Services; Using \"tell a friend,\" \"email this page,\" or other E-Card features; Requesting technical support; Downloading demos, programs, or other software; Participating in polls, surveys, and questionnaires; or Otherwise through use of our software, including console products, mobile products, and personal computer products, and through the use of our online products or Online Services where personal information is required for use and/or participation.",
+      "rationale": "The policy explicitly states that personal information is collected through various interactions with the Company.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you submit personal information to the Company, it will usually take the form of: Registration for Online Services, websites, jobs, products, contests, and special events; Subscribing to newsletters or alerts; Posting in or commenting on our message boards, forums, news blogs, chat rooms, or other Online Services; Purchasing a product or services through our online stores; Purchasing DLC, virtual items, or virtual currency for use with our software and/or Online Services; Using 'tell a friend,' 'email this page,' or other E-Card features; Requesting technical support; Downloading demos, programs, or other software; Participating in polls, surveys, and questionnaires; or Otherwise through use of our software, including console products, mobile products, and personal computer products, and through the use of our online products or Online Services where personal information is required for use and/or participation.",
+       "denial_quote": "",
+       "generic_quote": "The Company collects personal information from you on a voluntary basis. When you submit personal information to the Company, it will usually take the form of: Registration for Online Services, websites, jobs, products, contests, and special events; Subscribing to newsletters or alerts; Posting in or commenting on our message boards, forums, news blogs, chat rooms, or other Online Services; Purchasing a product or services through our online stores; Purchasing DLC, virtual items, or virtual currency for use with our software and/or Online Services; Using 'tell a friend,' 'email this page,' or other E-Card features; Requesting technical support; Downloading demos, programs, or other software; Participating in polls, surveys, and questionnaires; or Otherwise through use of our software, including console products, mobile products, and personal computer products, and through the use of our online products or Online Services where personal information is required for use and/or participation.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal information is collected through various interactions with the Company."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9818138741946469
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The Company collects personal information from you on a voluntary basis.",
+      "rationale": "The policy mentions the collection of computer information and its use for personalization/customization.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "The Company may use 'cookies' and other passive technologies including clear gifs to collect certain non-personal information from you in connection with your use of the Online Services, such as the pages you visit and the features you use. Our cookies are linked to personal information.",
+       "denial_quote": "",
+       "generic_quote": "The Company collects personal information from you on a voluntary basis.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions the collection of computer information and its use for personalization/customization."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9520276520413433
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The information such Advertising Service Providers may collect, or we may share with them, includes your devices type, IP address, MAC address or other device ID, browser type, language, operating system and generalized geographic location; the types of pages, content and ads you, or others who are using your device, visited or viewed and the frequency of your visit/viewing; and information regarding your use of or activities in connection with a website or Online Service (e.g., time spent using a mobile application or your purchases).",
+      "rationale": "The policy mentions sharing personal data with various third-party advertising agents but does not specifically mention sharing contact details with Google AdMob.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Contact",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "disclosing_quote": "",
+       "denial_quote": "Some of our Online Services are supported by advertising provided by the Company or various third-party advertising agents, such as ad networks, data exchanges, traffic management service providers and marketing analytics service providers (Advertising Service Providers).",
+       "generic_quote": "The information such Advertising Service Providers may collect, or we may share with them, includes your devices type, IP address, MAC address or other device ID, browser type, language, operating system and generalized geographic location; the types of pages, content and ads you, or others who are using your device, visited or viewed and the frequency of your visit/viewing; and information regarding your use of or activities in connection with a website or Online Service (e.g., time spent using a mobile application or your purchases).",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing personal data with various third-party advertising agents but does not specifically mention sharing contact details with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9664493992099303
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you submit personal information to the Company, it will usually take the form of: Registration for Online Services, websites, jobs, products, contests, and special events; Subscribing to newsletters or alerts; Posting in or commenting on our message boards, forums, news blogs, chat rooms, or other Online Services; Purchasing a product or services through our online stores; Purchasing DLC, virtual items, or virtual currency for use with our software and/or Online Services; Using \"tell a friend,\" \"email this page,\" or other E-Card features; Requesting technical support; Downloading demos, programs, or other software; Participating in polls, surveys, and questionnaires; or Otherwise through use of our software, including console products, mobile products, and personal computer products, and through the use of our online products or Online Services where personal information is required for use and/or participation.",
+      "rationale": "The policy explicitly mentions collecting survey data as part of the voluntary personal information submission process.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "Survey data",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Indefinitely",
+       "disclosing_quote": "The Company collects personal information from you on a voluntary basis. When you submit personal information to the Company, it will usually take the form of: Registration for Online Services, websites, jobs, products, contests, and special events; Subscribing to newsletters or alerts; Posting in or commenting on our message boards, forums, news blogs, chat rooms, or other Online Services; Purchasing a product or services through our online stores; Purchasing DLC, virtual items, or virtual currency for use with our software and/or Online Services; Using 'tell a friend,' 'email this page,' or other E-Card features; Requesting technical support; Downloading demos, programs, or other software; Participating in polls, surveys, and questionnaires; or Otherwise through use of our software, including console products, mobile products, and personal computer products, and through the use of our online products or Online Services where personal information is required for use and/or participation.",
+       "denial_quote": "",
+       "generic_quote": "The Company collects personal information from you on a voluntary basis.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting survey data as part of the voluntary personal information submission process."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9790226419477802
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "The Company may also keep track of IP addresses used to access its Online Services for various reasons.",
+      "rationale": "The policy states that IP addresses are tracked for various reasons, indicating multiple unspecified purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "The Company may also keep track of IP addresses used to access its Online Services for various reasons.",
+       "unspecified_purpose_quote": "Depending on your network configuration, it may also identify your computer, or other device.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy states that IP addresses are tracked for various reasons, indicating multiple unspecified purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9558574350827868
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "Please note that this Privacy Policy applies only to information submitted and collected online through the Online Services, and does not apply to information that may be collected by the Company offline. In addition, this Privacy Policy does not apply to websites or services maintained by other companies or organizations (such as those who promote the Company's products and services or sell related items) and the Company cannot and does not guarantee the security of any personal information disclosed to those third parties.",
+      "rationale": "The policy does not specify a retention period for survey data and indicates that the privacy policy only applies to online submissions.",
+      "raw": {
+       "candidate_id": "c6",
+       "data_type": "Survey data",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "Please note that this Privacy Policy applies only to information submitted and collected online through the Online Services, and does not apply to information that may be collected by the Company offline. In addition, this Privacy Policy does not apply to websites or services maintained by other companies or organizations (such as those who promote the Company's products and services or sell related items) and the Company cannot and does not guarantee the security of any personal information disclosed to those third parties.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a retention period for survey data and indicates that the privacy policy only applies to online submissions."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9662455497277681
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 7,
+  "seconds": 207.93
+ }
+}

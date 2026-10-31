@@ -1,0 +1,267 @@
+{
+ "case_id": "1205_control",
+ "system": "v2_purpose",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "OpenSecrets.org uses Google Analytics to learn how people use the site and to improve our services.",
+   "rationale": "The policy mentions using computer information for analytics but does not specify a particular purpose.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that OpenSecrets.org uses Google Analytics to learn how people use the site and to improve their services. This does not specify a particular purpose, which aligns with the cited Sec. 5(1) requirement to inform the Data Principal about the purpose for processing personal d"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly mentions collecting computer information, specifically IP addresses and URLs.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the policy does not mention it, yet the rationale claims the policy explicitly mentions collecting computer information. This contradiction means the finding is not supported."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9701257364521675,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9701257364521675,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9624065135681601,
+ "usage": {
+  "prompt": 4157,
+  "output": 649
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 8,
+  "untagged_paragraphs": 0,
+  "claims": 24,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     7,
+     5,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact may be collected; the app uses it for Additional service/feature",
+    "paragraphs": [
+     0,
+     1,
+     7,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     7,
+     4,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information may be collected; the app uses it for Service Operation and Security",
+    "paragraphs": [
+     0,
+     1,
+     7,
+     4,
+     5,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "Information you submit to our web site will be used to contact you if you have subscribed to our newsletter, if you have made a donation or if you respond to an action request made by the Center.",
+      "rationale": "The policy does not explicitly mention collecting contact information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The Center for Responsive Politics (CRP) is the sole owner of the information collected from users on OpenSecrets.org.",
+       "generic_quote": "Information you submit to our web site will be used to contact you if you have subscribed to our newsletter, if you have made a donation or if you respond to an action request made by the Center.",
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy does not explicitly mention collecting contact information."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly mentions collecting computer information, specifically IP addresses and URLs.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "OpenSecrets.org uses Google Analytics to learn how people use the site and to improve our services. We also collect standard log files from our systems to ensure the integrity of our services and for troubleshooting purposes. Included in these log files are the date, the IP address and the URL of the request.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting computer information, specifically IP addresses and URLs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9701257364521675
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "OpenSecrets.org uses Google Analytics to learn how people use the site and to improve our services.",
+      "rationale": "The policy mentions using computer information for analytics but does not specify a particular purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "OpenSecrets.org uses Google Analytics to learn how people use the site and to improve our services.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy mentions using computer information for analytics but does not specify a particular purpose."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "org uses temporary session \"cookies\" (data that is generated on our web server and stored on your computer) for authentication and other purposes.",
+      "rationale": "The policy specifies using computer information for authentication and other purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "purpose_quote": "OpenSecrets.org uses temporary session 'cookies' (data that is generated on our web server and stored on your computer) for authentication and other purposes.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy specifies using computer information for authentication and other purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9546872906841527
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 107.82
+ }
+}

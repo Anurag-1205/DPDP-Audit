@@ -1,0 +1,533 @@
+{
+ "case_id": "200_v1",
+ "system": "v2_purpose_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify any purpose for collecting contact details.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy does not specify any purpose for collecting contact details, which aligns with the requirement in Sec. 5(1) to inform the Data Principal about the personal data and the purpose for which it is proposed to be processed."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions using IP addresses and device IDs for protection and enforcement purposes.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy mentions using IP addresses and device IDs for protection and enforcement purposes, which contradicts the finding of a purpose mismatch for Analytics/Research. The cited DPDP text does not address this specific issue."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy provides specific examples of location information collected.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy provides specific examples of location information collected, which contradicts the finding of undisclosed collection. The cited DPDP text requires disclosure of the personal data and purpose for processing, which is not addressed here."
+  },
+  {
+   "candidate_id": "c7",
+   "flow_id": "f4",
+   "data_type": "Survey data",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We also may provide aggregated data about how users are using our Services to third parties.",
+   "rationale": "The policy mentions providing aggregated data but does not specify survey data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy mentions providing aggregated data but does not specify survey data, which contradicts the finding of undisclosed collection. The cited DPDP text requires disclosure of the personal data and purpose for processing, which is not addressed here."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9715835406097848,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9715835406097848,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9715835406097848,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9715835406097848,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9630205885945269,
+ "usage": {
+  "prompt": 9231,
+  "output": 1417
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 43,
+  "untagged_paragraphs": 0,
+  "claims": 80,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     9,
+     10,
+     14,
+     5,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact may be collected; the app uses it for Personalization/Customization",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     9,
+     10,
+     14,
+     32,
+     5,
+     39
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     9,
+     10,
+     14,
+     7,
+     39
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs may be collected; the app uses it for Analytics/Research",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     9,
+     10,
+     14,
+     7,
+     39,
+     19,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     9,
+     10,
+     14,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location may be collected; the app uses it for Personalization/Customization",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     9,
+     10,
+     14,
+     7,
+     39,
+     22
+    ]
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f4",
+    "data_type": "Survey data",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Survey data is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     9,
+     10,
+     14,
+     25
+    ]
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f4",
+    "data_type": "Survey data",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Survey data may be collected; the app uses it for Basic service/feature",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     9,
+     10,
+     14,
+     21,
+     19,
+     27,
+     33
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "During account registration, we may ask for information such as your name, e-mail address, year of birth, gender, street address, job title and industry and related information.",
+      "rationale": "The policy explicitly states that the company collects personal information during account registration.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "During account registration, we may ask for information such as your name, e-mail address, year of birth, gender, street address, job title and industry and related information.",
+       "denial_quote": "",
+       "generic_quote": "We may collect personal information about our users in various ways.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the company collects personal information during account registration."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Device informationsuch as your hardware model, IP address, other unique device identifiers, operating system version, and settings of the device you use to access the Services. Usage informationsuch as information about the Services you use, the time and duration of your use of the Services and other information about your interaction with content offered through a Service, and any information stored in cookies and similar technologies that we have set on your device.",
+      "rationale": "The policy provides specific examples of IP addresses and device IDs collected.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Device informationsuch as your hardware model, IP address, other unique device identifiers, operating system version, and settings of the device you use to access the Services. Usage informationsuch as information about the Services you use, the time and duration of your use of the Services and other information about your interaction with content offered through a Service, and any information stored in cookies and similar technologies that we have set on your device.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy provides specific examples of IP addresses and device IDs collected."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy provides specific examples of location information collected.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "Information About Your Use of the Services. Device informationsuch as your hardware model, IP address, other unique device identifiers, operating system version, and settings of the device you use to access the Services. Usage informationsuch as information about the Services you use, the time and duration of your use of the Services and other information about your interaction with content offered through a Service, and any information stored in cookies and similar technologies that we have set on your device.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy provides specific examples of location information collected."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We also may provide aggregated data about how users are using our Services to third parties.",
+      "rationale": "The policy mentions providing aggregated data but does not specify survey data.",
+      "raw": {
+       "candidate_id": "c7",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "We also may provide aggregated data about how users are using our Services to third parties.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions providing aggregated data but does not specify survey data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9715835406097848
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify any purpose for collecting contact details.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not specify any purpose for collecting contact details."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions using IP addresses and device IDs for protection and enforcement purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "purpose_quote": "We may use your personal information as we believe is necessary or appropriate to protect, enforce, or defend the legal rights, privacy, safety, or property of the Services, its employees or agents, or other users and to comply with applicable law.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy mentions using IP addresses and device IDs for protection and enforcement purposes."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that location data is used for research purposes.",
+      "raw": {
+       "candidate_id": "c6",
+       "purpose_quote": "To better understand our readers and users. The Services conduct research on our users demographics, interests and behavior based on the information we collect.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy states that location data is used for research purposes."
+      }
+     },
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify any purpose for collecting survey data.",
+      "raw": {
+       "candidate_id": "c8",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not specify any purpose for collecting survey data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.954457636579269
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 178.89,
+  "reverified_from": "v2_purpose",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

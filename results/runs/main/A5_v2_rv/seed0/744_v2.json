@@ -1,0 +1,263 @@
+{
+ "case_id": "744_v2",
+ "system": "A5_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Types of Information We Collect\nPersonal information means information that can be used to identify and contact you.",
+   "rationale": "The policy mentions collecting personal information but does not specify health-related data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not indicate an undisclosed collection of health data. It only defines what personal information is. The cited DPDP text pertains to the notice requirements for consent requests, which is not directly related to the issue of undisclosed collection of health data."
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may also share your personal information with third party partners when you have opted into receiving third party offers and/or newsletters on our Site(s).",
+   "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with third parties, but it mentions sharing personal information with third parties in aggregate form.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "We do not knowingly collect personal information from children under 13.",
+   "rationale": "The policy explicitly states that they do not collect personal information from children under 13, but still involves advertising through an SDK that tracks and monitors children.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9694016467200675,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9318517877159711,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9428003226258265,
+ "usage": {
+  "prompt": 5289,
+  "output": 638
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 26,
+  "untagged_paragraphs": 0,
+  "claims": 72,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Health is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2,
+     4,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     3,
+     9,
+     10,
+     11,
+     12,
+     13,
+     16,
+     17
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Types of Information We Collect\nPersonal information means information that can be used to identify and contact you.",
+      "rationale": "The policy mentions collecting personal information but does not specify health-related data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "You do not need to submit personal information to access certain areas of the Site(s), but if you do not want to disclose certain personal information to us, you will not be able to access certain aspects of the Curse Features.",
+       "generic_quote": "Types of Information We Collect\nPersonal information means information that can be used to identify and contact you.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting personal information but does not specify health-related data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9694016467200675
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may also share your personal information with third party partners when you have opted into receiving third party offers and/or newsletters on our Site(s).",
+      "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with third parties, but it mentions sharing personal information with third parties in aggregate form.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Will we share your personal information with third parties? Sharing of Information We may use your personal information to provide analyses of our users in the aggregate to prospective partners, advertisers and other third parties.",
+       "generic_quote": "Third Party Offers We may also share your personal information with third party partners when you have opted into receiving third party offers and/or newsletters on our Site(s).",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with third parties, but it mentions sharing personal information with third parties in aggregate form."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9318517877159711
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "We do not knowingly collect personal information from children under 13.",
+      "rationale": "The policy explicitly states that they do not collect personal information from children under 13, but still involves advertising through an SDK that tracks and monitors children.",
+      "raw": {
+       "candidate_id": "c3",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        8
+       ],
+       "children_quote": "We do not knowingly collect personal information from children under 13.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy explicitly states that they do not collect personal information from children under 13, but still involves advertising through an SDK that tracks and monitors children."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9271475334414407
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 49.34,
+  "reverified_from": "A5_v2",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

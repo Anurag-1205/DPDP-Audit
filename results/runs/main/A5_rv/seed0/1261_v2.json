@@ -1,0 +1,120 @@
+{
+ "case_id": "1261_v2",
+ "system": "A5_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "From time-to-time, we will also send or contact you regarding special offers for products and services from Zacks Investment Research and our affiliates. You can unsubscribe from these e-mails at any time by going to http://register.zacks.com/unisub.php.",
+   "rationale": "The policy does not explicitly mention sharing user online activities or any specific recipient like Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions sending special offers and unsubscribing from emails, which is unrelated to sharing user online activities with Google AdMob. The cited DPDP text pertains to notices for consent requests, which does not address the issue of undisclosed sharing."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9639677706377978,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9639677706377978,
+ "usage": {
+  "prompt": 2488,
+  "output": 359
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 30,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     1,
+     10,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "From time-to-time, we will also send or contact you regarding special offers for products and services from Zacks Investment Research and our affiliates. You can unsubscribe from these e-mails at any time by going to http://register.zacks.com/unisub.php.",
+      "rationale": "The policy does not explicitly mention sharing user online activities or any specific recipient like Google AdMob.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The information you may choose to provide includes any or all of the following: email address, name, postal address, and phone number. In fact, we only disclose the information you provide us or send you information if you authorize us to do so by choosing to receive e-mail services on our Zacks.com Web site or opting into third party mailings.",
+       "generic_quote": "From time-to-time, we will also send or contact you regarding special offers for products and services from Zacks Investment Research and our affiliates. You can unsubscribe from these e-mails at any time by going to http://register.zacks.com/unisub.php.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention sharing user online activities or any specific recipient like Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9639677706377978
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 35.22,
+  "reverified_from": "A5",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

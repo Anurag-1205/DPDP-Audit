@@ -1,0 +1,104 @@
+{
+ "case_id": "L1468_r4",
+ "system": "full_finetuned",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The Company will not receive personal information such as your name and address, but may receive other information such as a console ID, gaming service ID, game achievements, game scores and performance, IP address, MAC address, or other device ID, other console/device use information, or other information and statistics regarding your usage of the games.",
+   "rationale": "The policy does not explicitly state that the IP address and device IDs are shared with Google AdMob. However, it mentions that personal information can be transferred to the Company during registration processes and that the Company may collect information about users' use of online services.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes the collection of various types of data, including IP addresses and device IDs, but does not explicitly state that this data is shared with Google AdMob. While the cited DPDP text emphasizes the need for a clear notice, it does not directly address the sharing of data w"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9555053624463649,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9555053624463649,
+ "usage": {
+  "prompt": 2063,
+  "output": 375
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 55,
+  "untagged_paragraphs": 0,
+  "claims": 53,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     14,
+     28,
+     17
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The Company will not receive personal information such as your name and address, but may receive other information such as a console ID, gaming service ID, game achievements, game scores and performance, IP address, MAC address, or other device ID, other console/device use information, or other information and statistics regarding your usage of the games.",
+      "rationale": "The policy does not explicitly state that the IP address and device IDs are shared with Google AdMob. However, it mentions that personal information can be transferred to the Company during registration processes and that the Company may collect information about users' use of online services.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The Company will not receive personal information such as your name and address, but may receive other information such as a console ID, gaming service ID, game achievements, game scores and performance, IP address, MAC address, or other device ID, other console/device use information, or other information and statistics regarding your usage of the games.",
+       "generic_quote": "If you use, purchase, or register for an Online Service through a third-party service such as a gaming console's network service, an internet based gaming service, or a social network website, or request that we associate a Company account with a third-party service account, then limited user account personal information may be transferred to the Company as part of the registration process and we may be able to collect information about your use of the Online Services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that the IP address and device IDs are shared with Google AdMob. However, it mentions that personal information can be transferred to the Company during registration processes and that the Company may collect information about users' use of online services."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9555053624463649
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 45.59
+ }
+}

@@ -1,0 +1,114 @@
+{
+ "case_id": "L1259_r4",
+ "system": "A2_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly state that location data is shared with Google AdMob, but it mentions collecting IP addresses and cookies, which could include location-derived data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9609106427261157,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9609106427261157,
+ "usage": {
+  "prompt": 1012,
+  "output": 239
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 48,
+  "untagged_paragraphs": 0,
+  "claims": 52,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     15,
+     20,
+     25,
+     9,
+     10
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly state that location data is shared with Google AdMob, but it mentions collecting IP addresses and cookies, which could include location-derived data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Will The Motley Fool Disclose Any of Your Personal Information - The Motley Fool will not disclose any personally identifiable information about individual users, except as described in this Privacy Statement.",
+       "generic_quote": "These features may collect your IP address, which page you are visiting on our site, and may set a cookie to enable the feature to function properly. Your interactions with these Social Media Features are governed by the privacy policy of the company providing it.",
+       "data_type": "Location",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        9,
+        10
+       ],
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that location data is shared with Google AdMob, but it mentions collecting IP addresses and cookies, which could include location-derived data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9609106427261157
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 22.62
+ }
+}

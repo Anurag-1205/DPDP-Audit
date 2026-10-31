@@ -1,0 +1,319 @@
+{
+ "case_id": "1028_v2",
+ "system": "A3_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 7",
+    "Sec. 11(2)",
+    "Rule 6"
+   ],
+   "evidence": "We use this information to contact the user about services on our site for which he has expressed interest. It is optional for the user to provide demographic information (such as income level and gender), and unique identifiers (such as, username and password), but encouraged so we can provide a more personalized experience on our site.",
+   "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but it does disclose using contact information for communication.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Rule 8",
+    "Sec. 8(7)",
+    "Sec. 6(5)"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that clear gifs are used to track user movements without tying them to personally identifiable information, implying indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Social media data",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 8(3)",
+    "Sec. 11(2)",
+    "Sec. 12(3)"
+   ],
+   "evidence": "We use this information to contact the user about services on our site for which he has expressed interest. It is optional for the user to provide demographic information (such as income level and gender), and unique identifiers (such as, username and password), but encouraged so we can provide a more personalized experience on our site.",
+   "rationale": "The policy mentions collecting contact information and optionally demographic and unique identifiers, but does not explicitly state collecting social media data. It also states that no sharing occurs with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "incorrect",
+   "confidence": 0.9383098154060138,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.941901836451709,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9520919374470764,
+ "usage": {
+  "prompt": 6683,
+  "output": 905
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 43,
+  "untagged_paragraphs": 0,
+  "claims": 43,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['additional service/feature', 'basic service/feature'], the app uses it for Marketing",
+    "paragraphs": [
+     3,
+     4,
+     29,
+     30,
+     25,
+     5,
+     35,
+     38
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     14,
+     38
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps Cookies and tracking elements indefinitely; retention statements: none",
+    "paragraphs": [
+     13,
+     39
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Social media data",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Social media data is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     5,
+     32
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "We use this information to contact the user about services on our site for which he has expressed interest.",
+      "rationale": "The policy mentions using contact information for contacting the user about services, which could include marketing.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Marketing",
+       "retention": "Unspecified",
+       "purpose_quote": "We use this information to contact the user about services on our site for which he has expressed interest.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy mentions using contact information for contacting the user about services, which could include marketing."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9572218251709296
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 7",
+       "Sec. 11(2)",
+       "Rule 6"
+      ],
+      "evidence": "We use this information to contact the user about services on our site for which he has expressed interest. It is optional for the user to provide demographic information (such as income level and gender), and unique identifiers (such as, username and password), but encouraged so we can provide a more personalized experience on our site.",
+      "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but it does disclose using contact information for communication.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We use this information to contact the user about services on our site for which he has expressed interest. It is optional for the user to provide demographic information (such as income level and gender), and unique identifiers (such as, username and password), but encouraged so we can provide a more personalized experience on our site.",
+       "generic_quote": "We use contact information (such as name and email address) to contact the user about services on our site for which he has expressed interest.",
+       "sections": [
+        "Sec. 7",
+        "Sec. 11(2)",
+        "Rule 6"
+       ],
+       "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but it does disclose using contact information for communication."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9383098154060138
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Rule 8",
+       "Sec. 8(7)",
+       "Sec. 6(5)"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that clear gifs are used to track user movements without tying them to personally identifiable information, implying indefinite retention.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "Clear gifs are tiny graphics with a unique identifier, similar in function to cookies, and are used to track the online movements of Web users. The main difference between the two is that clear gifs are invisible on the page and are much smaller, about the size of the period at the end of this sentence. Clear gifs are not tied to users' personally identifiable information.",
+       "sections": [
+        "Rule 8",
+        "Sec. 8(7)",
+        "Sec. 6(5)"
+       ],
+       "rationale": "The policy states that clear gifs are used to track user movements without tying them to personally identifiable information, implying indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9709342727596533
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 8(3)",
+       "Sec. 11(2)",
+       "Sec. 12(3)"
+      ],
+      "evidence": "We use this information to contact the user about services on our site for which he has expressed interest. It is optional for the user to provide demographic information (such as income level and gender), and unique identifiers (such as, username and password), but encouraged so we can provide a more personalized experience on our site.",
+      "rationale": "The policy mentions collecting contact information and optionally demographic and unique identifiers, but does not explicitly state collecting social media data. It also states that no sharing occurs with third parties.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "We do not share your profile with other third parties.",
+       "generic_quote": "We use this information to contact the user about services on our site for which he has expressed interest. It is optional for the user to provide demographic information (such as income level and gender), and unique identifiers (such as, username and password), but encouraged so we can provide a more personalized experience on our site.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 8(3)",
+        "Sec. 11(2)",
+        "Sec. 12(3)"
+       ],
+       "rationale": "The policy mentions collecting contact information and optionally demographic and unique identifiers, but does not explicitly state collecting social media data. It also states that no sharing occurs with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.941901836451709
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence discusses using contact information for communication and encourages users to provide demographic and unique identifier'",
+  "llm_calls": 5,
+  "seconds": 100.92
+ }
+}

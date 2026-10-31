@@ -1,0 +1,105 @@
+{
+ "case_id": "L1360_r4",
+ "system": "full_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Our Commitment to Data Security\nThe Hill takes every effort to protect against unauthorized access to your personal information, and has put in place commercially reasonable physical, electronic, and managerial procedures to safeguard and secure the information we collect on the Site.",
+   "rationale": "The policy explicitly states that access to personally identifiable information is limited to what is necessary for contractors to perform their functions, and they are required to protect and not misuse the data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not mention sharing personal identifiers with Mixpanel for analytics/research purposes. The cited DPDP text pertains to notice requirements for consent requests, not to sharing practices. Therefore, the finding is not supported."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9502671571294117,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9502671571294117,
+ "usage": {
+  "prompt": 1822,
+  "output": 304
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 17,
+  "untagged_paragraphs": 0,
+  "claims": 22,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Personal identifier",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Personal identifier with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     6,
+     7,
+     9,
+     10
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Our Commitment to Data Security\nThe Hill takes every effort to protect against unauthorized access to your personal information, and has put in place commercially reasonable physical, electronic, and managerial procedures to safeguard and secure the information we collect on the Site.",
+      "rationale": "The policy explicitly states that access to personally identifiable information is limited to what is necessary for contractors to perform their functions, and they are required to protect and not misuse the data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Access to your personally identifiable information by these contractors is limited to the information reasonably necessary in order for these Outside Contractors to perform their limited function for us. We also require that these contractors (i) protect the privacy of your personally identifiable information consistent with this Privacy Policy, and (ii) not use or disclose your personally identifiable information for any purpose other than providing us with products or services for which we contracted.",
+       "generic_quote": "Our Commitment to Data Security\nThe Hill takes every effort to protect against unauthorized access to your personal information, and has put in place commercially reasonable physical, electronic, and managerial procedures to safeguard and secure the information we collect on the Site.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that access to personally identifiable information is limited to what is necessary for contractors to perform their functions, and they are required to protect and not misuse the data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9502671571294117
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 36.5
+ }
+}

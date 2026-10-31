@@ -1,0 +1,431 @@
+{
+ "case_id": "359_v1",
+ "system": "v2_read_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy indicates that contact information can be used for additional features, but does not specify a single purpose.",
+   "reviewer": "purpose",
+   "merged_flows": [
+    "f1",
+    "f4"
+   ],
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the policy does not mention it, indicating no specific purpose for contact data. The cited sections (Sec. 5(1) and Sec. 6(1)) discuss consent and notices, but do not address the purpose for which contact data is processed. Therefore, there is no evidence of a purpose "
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may share aggregate information, such as demographics and Website usage statistics, with advertisers, sponsors or other organizations. When this type of information is shared, the other parties do not have access to your personally identifiable information.",
+   "rationale": "The policy mentions sharing personal information with other organizations, but does not specify sharing with Google AdMob. It also mentions sharing aggregate information, which does not include personal identifiers.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9607261022228021,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9607261022228021,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9720067926140753,
+ "usage": {
+  "prompt": 8850,
+  "output": 1502
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 41,
+  "untagged_paragraphs": 0,
+  "claims": 104,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     8,
+     12,
+     5,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['basic service/feature', 'service operation and security', 'unspecified'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     8,
+     9,
+     21,
+     19,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2,
+     3,
+     4,
+     6,
+     7,
+     8,
+     10,
+     11,
+     23,
+     21,
+     27
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     8,
+     12,
+     5,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Contact indefinitely; retention statements: ['Indefinitely', 'Limited', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     1,
+     2,
+     3,
+     5,
+     6,
+     7,
+     10,
+     13,
+     18,
+     20,
+     25,
+     28,
+     29,
+     33,
+     37,
+     8
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "Personal identifier",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Personal identifier with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     16,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you open emails from us, we may receive a confirmation noting you opened the email, if your computer supports such capabilities. We also may keep track of what emails we send you and what emails you may be receiving from our subsidiaries and affiliates. Additionally, we keep a record of what communications you have opted to receive or not to receive.",
+      "rationale": "The policy mentions collecting IP addresses and click-stream data, which falls under computer information.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "When you open emails from us, we may receive a confirmation noting you opened the email, if your computer supports such capabilities. We also may keep track of what emails we send you and what emails you may be receiving from our subsidiaries and affiliates. Additionally, we keep a record of what communications you have opted to receive or not to receive.",
+       "denial_quote": "",
+       "generic_quote": "IP addresses and click-stream data is information collected by our computers when you request Web pages from the Website. Click-stream data is information collected by our computers when you request Web pages from the Website. When analyzed, this data helps us analyze how visitors arrive at the Website, what type of content is most popular, what type of visitors in the aggregate are interested in particular kinds of content and advertising, and the like.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting IP addresses and click-stream data, which falls under computer information."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may share aggregate information, such as demographics and Website usage statistics, with advertisers, sponsors or other organizations. When this type of information is shared, the other parties do not have access to your personally identifiable information.",
+      "rationale": "The policy mentions sharing personal information with other organizations, but does not specify sharing with Google AdMob. It also mentions sharing aggregate information, which does not include personal identifiers.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "",
+       "denial_quote": "At times, we may share your personal information with others for various purposes. The following outlines the ways in which your information may be shared with others and the ways in which you may opt-out of having your information shared: We employ other businesses, certain services and individuals to perform functions on our behalf. Examples include fulfilling orders, sending e-mail, removing repetitive information from customer lists, Website analysis, analyzing data, providing marketing assistance, processing credit card payments, and providing customer service. They may have access to personally identifiable information needed to perform their functions, but may not use it for their own purposes, like sending you marketing offers about their products.",
+       "generic_quote": "We may share aggregate information, such as demographics and Website usage statistics, with advertisers, sponsors or other organizations. When this type of information is shared, the other parties do not have access to your personally identifiable information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing personal information with other organizations, but does not specify sharing with Google AdMob. It also mentions sharing aggregate information, which does not include personal identifiers."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9607261022228021
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy indicates that contact information can be used for additional features, but does not specify a single purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "paragraphs": [
+        8,
+        12,
+        5,
+        13
+       ],
+       "purpose_quote": "you may also be asked to choose a user ID and password in order to take advantage of certain features the Website may choose to offer, such as newsletters or contests.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy indicates that contact information can be used for additional features, but does not specify a single purpose."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We may combine this information with personally identifiable information. Click-stream data is information collected by our computers when you request Web pages from the Website. Click-stream data may include such information as the page served, the time, the source of the request, the type of browser making the request, the preceding page view and other such non-personal information. When analyzed, this data helps us analyze how visitors arrive at the Website, what type of content is most popular, what type of visitors in the aggregate are interested in particular kinds of content and advertising, and the like.",
+      "rationale": "The policy describes the use of IP addresses and click-stream data for analytics and research, but does not explicitly state that these are the only purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "purpose_mismatch",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "paragraphs": [
+        8,
+        9,
+        21,
+        19,
+        5
+       ],
+       "purpose_quote": "We may combine this information with personally identifiable information. Click-stream data is information collected by our computers when you request Web pages from the Website. Click-stream data may include such information as the page served, the time, the source of the request, the type of browser making the request, the preceding page view and other such non-personal information. When analyzed, this data helps us analyze how visitors arrive at the Website, what type of content is most popular, what type of visitors in the aggregate are interested in particular kinds of content and advertising, and the like.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy describes the use of IP addresses and click-stream data for analytics and research, but does not explicitly state that these are the only purposes."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy indicates that contact information can be used for additional features, but does not specify a single purpose.",
+      "raw": {
+       "candidate_id": "c4",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Indefinitely",
+       "paragraphs": [
+        8,
+        12,
+        5,
+        13
+       ],
+       "purpose_quote": "you may also be asked to choose a user ID and password in order to take advantage of certain features the Website may choose to offer, such as newsletters or contests.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy indicates that contact information can be used for additional features, but does not specify a single purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9814450669449533
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "We will retain your information for as long as your account is active or as needed to provide you services.",
+      "rationale": "The policy states that data will be retained for as long as the account is active or as needed to provide services, indicating indefinite retention.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "retention_mismatch",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "We will retain your information for as long as your account is active or as needed to provide you services.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that data will be retained for as long as the account is active or as needed to provide services, indicating indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9738492086744707
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 137.92,
+  "reverified_from": "v2_read",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

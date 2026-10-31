@@ -1,0 +1,111 @@
+{
+ "case_id": "L995_r4",
+ "system": "A2_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "If you have a question regarding any of the above information, please contact us at the following email address and we will be happy to get back to you.",
+   "rationale": "The policy does not disclose collecting location data, but mentions updating address and email, which are not location data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions updating address and email, which are not location data, and does not explicitly state that location data is being collected. However, the app flow indicates that location data is being collected and used for a basic service/feature. The cited DPDP text requires the noti"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9605496843106613,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9605496843106613,
+ "usage": {
+  "prompt": 1244,
+  "output": 332
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 6,
+  "untagged_paragraphs": 0,
+  "claims": 1,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Location",
+    "paragraphs": [
+     2,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you have a question regarding any of the above information, please contact us at the following email address and we will be happy to get back to you.",
+      "rationale": "The policy does not disclose collecting location data, but mentions updating address and email, which are not location data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Certain information, such as address or email address, can be updated or corrected simply by calling Customer Service at 1.888.777.7920.",
+       "generic_quote": "If you have a question regarding any of the above information, please contact us at the following email address and we will be happy to get back to you.",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "paragraphs": [
+        2,
+        4
+       ],
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose collecting location data, but mentions updating address and email, which are not location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9605496843106613
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 36.05
+ }
+}

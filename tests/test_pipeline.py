@@ -334,3 +334,135 @@ def test_reviewer_prompt_explains_data_types():
     prompt = rv.build_prompt("notice", [_cand(d="Contact")], {1: "x"}, facts([]), [], rv.Tools(POLICY, True, 3),
                              get_config("full"))
     assert "email address" in prompt and "purpose \"Advertising\"" in prompt
+
+
+# ------------------------------------------------------------------- v2
+def test_v2_verifier_checks_only_chosen_gap_types():
+    findings = [_finding(gap_type="childrens_data", level="omission", evidence=""),
+                _finding(gap_type="undisclosed_collection", data_type="Contact")]
+    llm = FakeLLM([{"checks": [{"finding_id": 0, "supported": False}]}])
+    out = verify(findings, POLICY, [], llm, 0, llm_gaps=("undisclosed_collection", "purpose_mismatch"))
+    kids, coll = out["findings"]
+    assert not kids["uncertain"] and kids["supported"] is None        # not sent to the model
+    assert coll["uncertain"] and coll["supported"] is False           # finding_id 0 is the collection one
+    assert "childrens_data" not in llm.prompts[0]
+    # nothing of the chosen types: no LLM call at all
+    llm2 = FakeLLM([])
+    assert verify(findings[:1], POLICY, [], llm2, 0, llm_gaps=("purpose_mismatch",))["llm_calls"] == 0
+    assert llm2.prompts == []
+
+
+def test_v2_purpose_quote_counts_by_paragraph():
+    from dpdp_audit.pipeline.decide import derive
+    policy = "We ask for your email address when you register. This information is used to measure use of the site."
+    cand = dict(_cand(gap="purpose_mismatch", d="Contact"), recipient="first_party", purpose="Analytics/Research")
+    raw = {"purpose_quote": "This information is used to measure use of the site."}
+    assert derive(cand, raw, policy)["is_gap"]                                   # frozen rule: sentence only
+    assert not derive(cand, raw, policy, purpose_paragraph=True)["is_gap"]       # v2: its paragraph names email
+    other = "We ask for your email address when you register.\n\nThis information is used to measure use."
+    assert derive(cand, {"purpose_quote": "This information is used to measure use."}, other,
+                  purpose_paragraph=True)["is_gap"]                              # another paragraph: still a gap
+
+
+def test_v2_finder_purpose_switches():
+    paras = [Paragraph(0, "a", [claim(category="First Party Collection/Use", data_type="Generic personal information",
+                                      does="Does", purpose="Basic service/feature")])]
+    fl = [flow("f1", "Contact", purpose="Advertising")]
+    base = find_candidates(paras, facts(fl), POLICY)
+    assert [c["gap_type"] for c in base] == ["undisclosed_collection"]
+    both = find_candidates(paras, facts(fl), POLICY, purpose_always=True)
+    assert [c["gap_type"] for c in both] == ["undisclosed_collection", "purpose_mismatch"]
+    assert both[1]["reviewer"] == "purpose"
+
+
+def test_v2_configs_leave_frozen_configs_unchanged():
+    full = CONFIGS["full"]
+    assert full.llm_check_gaps is None and not full.purpose_paragraph and not full.purpose_search
+    assert not full.purpose_always and full.review_batch == 0 and full.max_paragraphs == 8
+    assert CONFIGS["v2_read"].max_paragraphs == 16 and CONFIGS["v2_batch"].review_batch == 1
+
+
+def test_v2_retention_quote_must_be_about_keeping_data():
+    from dpdp_audit.pipeline.decide import derive
+    policy = ("We collect this information in the following ways: forms and cookies. "
+              "Usage logs are kept indefinitely. We keep your account data while your account is open.")
+    ret = dict(_cand(gap="retention_mismatch", d="Contact"), recipient="first_party", retention="Indefinitely")
+    echo = {"retention_quote": "We collect this information in the following ways: forms and cookies.",
+            "retention": "indefinitely"}
+    assert not derive(ret, echo, policy)["is_gap"]                              # frozen rule is fooled
+    assert derive(ret, echo, policy, retention_check=True)["level"] == "omission"  # not about retention
+    limited = {"retention_quote": "We keep your account data while your account is open.", "retention": "indefinitely"}
+    assert derive(ret, limited, policy, retention_check=True)["is_gap"]         # says no "indefinitely"
+    real = {"retention_quote": "Usage logs are kept indefinitely.", "retention": "indefinitely"}
+    assert not derive(ret, real, policy, retention_check=True)["is_gap"]
+
+
+def test_full_v2_is_the_chosen_combination():
+    v2 = CONFIGS["full_v2"]
+    assert v2.llm_check_gaps == ("undisclosed_collection", "purpose_mismatch") and v2.purpose_paragraph
+    assert v2.max_paragraphs == 16 and v2.purpose_search and v2.review_batch == 1 and v2.retention_check
+    assert not v2.purpose_always and v2.tagger == "prompted"
+    assert replace(CONFIGS["full_v2_finetuned"], name="full_v2", tagger="prompted") == v2
+
+
+def test_v2_ablations_change_one_switch_of_full_v2_finetuned():
+    base = CONFIGS["full_v2_finetuned"]
+    for name, field_, value in [("A1_v2", "verifier", False), ("A2_v2", "retrieval", False),
+                                ("A3_v2", "specialists", False), ("A5_v2", "tagger", "oracle")]:
+        cfg = CONFIGS[name]
+        assert getattr(cfg, field_) == value
+        assert replace(cfg, name=base.name, **{field_: getattr(base, field_)}) == base
+
+
+# ------------------------------------------------------- robust verifier
+def test_parse_checks_reads_broken_replies():
+    from dpdp_audit.pipeline.verifier import parse_checks
+    ok = '{"checks": [{"finding_id": 0, "supported": false, "reason": "covered"}]}'
+    assert parse_checks(ok)[1] == "json"
+    escaped = '{"checks": [{"finding_id": 0, "supported": true, "reason": "the app\\\'s data"}]}'
+    assert parse_checks(escaped)[1] == "repaired" and parse_checks(escaped)[0][0]["supported"] is True
+    quotes = ('{"checks": [{"finding_id": 0, "supported": false, "reason": "it says "we collect" it"}, '
+              '{"finding_id": 1, "supported": true, "reason": "x"}]}')
+    checks, mode = parse_checks(quotes)
+    assert mode == "salvaged" and checks[0]["supported"] == "false" and checks[1]["supported"] == "true"
+    cut = '{"checks": [{"finding_id": 0, "supported": false, "reason": "a"}, {"finding_id": 1, "supported": tr'
+    checks, mode = parse_checks(cut)
+    assert mode == "salvaged" and list(checks) == [0]            # the cut-off item is not guessed
+    with pytest.raises(ValueError):
+        parse_checks("I cannot decide.")
+
+
+def test_robust_verifier_uses_salvaged_checks_and_counts_unchecked():
+    findings = [_finding(), _finding(data_type="Health")]
+    reply = '{"checks": [{"finding_id": 0, "supported": false, "reason": "it says "partners" only"}, {"finding_id": 1, "sup'
+    frozen = verify([dict(f) for f in findings], POLICY, [], FakeLLM([reply]), 0)
+    assert frozen["error"] and not any(f["uncertain"] for f in frozen["findings"])      # the old silent failure
+    robust = verify([dict(f) for f in findings], POLICY, [], FakeLLM([reply]), 0, robust=True)
+    assert robust["error"] is None and robust["parse"] == "salvaged" and robust["raw"] == reply
+    assert robust["findings"][0]["uncertain"] and not robust["findings"][1]["uncertain"]
+    assert robust["unchecked"] == 1
+
+
+def test_rv_configs_change_only_the_verifier_reader():
+    for name in ("full", "full_finetuned", "full_v2", "full_v2_finetuned", "A2_v2", "A5"):
+        rv = CONFIGS[f"{name}_rv"]
+        assert rv.robust_verifier and rv.verifier_max_tokens == 4096
+        assert replace(rv, name=name, robust_verifier=False, verifier_max_tokens=2048) == CONFIGS[name]
+
+
+def test_reverify_reuses_the_reviewers_and_reruns_only_the_verifier(tmp_path):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("reverify", "scripts/reverify.py")
+    mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+    app = tmp_path / "app"; app.mkdir()
+    (app / "dataflows.json").write_text(json.dumps([flow("f1", "Location", "admob", "Advertising")]))
+    case = {"case_id": "x", "policy": POLICY, "app_dir": app}
+    run = {"case_id": "x", "system": "full", "seed": 0, "findings": [dict(_finding(), candidate_id="c1",
+           sections=["Sec. 5(1)"], uncertain=False, supported=None)], "dropped": [], "usage": {"prompt": 1, "output": 1},
+           "trace": {"llm_calls": 3, "verifier_error": "no JSON found in reply", "candidates": []}}
+    llm = FakeLLM([{"checks": [{"finding_id": 0, "supported": False, "reason": "generic"}]}])
+    out = mod.reverify(run, case, CONFIGS["full_rv"], llm)
+    assert out["system"] == "full_rv" and out["findings"][0]["uncertain"]
+    assert out["trace"]["reverified_from"] == "full" and out["trace"]["verifier_error"] is None
+    assert out["trace"]["verifier_parse"] == "json" and out["trace"]["llm_calls"] == 3
+    assert len(llm.prompts) == 1 and "Location" in llm.prompts[0]

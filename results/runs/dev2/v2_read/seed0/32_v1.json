@@ -1,0 +1,182 @@
+{
+ "case_id": "32_v1",
+ "system": "v2_read",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": null,
+   "source": "finder"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": null,
+   "source": "finder"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": null,
+   "source": "finder"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9782822888943516,
+ "usage": {
+  "prompt": 4679,
+  "output": 864
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 29,
+  "untagged_paragraphs": 0,
+  "claims": 60,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     3,
+     4,
+     5,
+     6,
+     14,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location is collected for ['service operation and security'], the app uses it for Advertising",
+    "paragraphs": [
+     21,
+     20,
+     19,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Contact",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Contact with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     9,
+     10,
+     19,
+     21,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     9,
+     10,
+     16,
+     18,
+     19,
+     20,
+     21
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [],
+    "parse_error": "no JSON found in reply: '{\\n  \"action\": \"final\",\\n  \"answers\": [\\n    {\\n      \"candidate_id\": \"c1\",\\n      \"disclosing_quote\": \"\",\\n      \"denial_quote\": \"By using the Services, you explicitly consent to such use of your informati'",
+    "llm_calls": 1,
+    "token_prob": null
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 4(2)"
+      ],
+      "evidence": "In order to serve offers and advertisements that may be interest to our users, we may display targeted advertisements on the Services based on Personal Information provided by our users, including zip code and profile.",
+      "rationale": "The policy explicitly states that location data is used for advertising purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "purpose_quote": "In order to serve offers and advertisements that may be interest to our users, we may display targeted advertisements on the Services based on Personal Information provided by our users, including zip code and profile.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 4(2)"
+       ],
+       "rationale": "The policy explicitly states that location data is used for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9782822888943516
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [
+   "c1",
+   "c3",
+   "c4"
+  ],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 83.39
+ }
+}

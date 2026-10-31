@@ -1,0 +1,103 @@
+{
+ "case_id": "L760_r2",
+ "system": "full_finetuned",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We do not share your email address and contact details with third parties.",
+   "rationale": "The policy mentions saving information via cookies but explicitly states no sharing of contact details with third parties.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states 'We do not share your email address and contact details with third parties.' This directly contradicts the finding of undisclosed sharing of contact data. Additionally, the cited DPDP text pertains to the notice requirements for obtaining consent, which does not address th"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9617995036603276,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9617995036603276,
+ "usage": {
+  "prompt": 1815,
+  "output": 210
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 16,
+  "untagged_paragraphs": 0,
+  "claims": 15,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Contact",
+    "paragraphs": [
+     4,
+     7
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do not share your email address and contact details with third parties.",
+      "rationale": "The policy mentions saving information via cookies but explicitly states no sharing of contact details with third parties.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Cookies also allow us to save information so that you will not have to re-enter it the next time you visit.",
+       "denial_quote": "We do not share your email address and contact details with third parties.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions saving information via cookies but explicitly states no sharing of contact details with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9617995036603276
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 27.45
+ }
+}

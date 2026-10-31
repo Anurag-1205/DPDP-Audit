@@ -1,0 +1,105 @@
+{
+ "case_id": "L635_r2",
+ "system": "A3_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 7",
+    "Sec. 11(2)",
+    "Sec. 12(2)"
+   ],
+   "evidence": "We also use these technical methods in HTML emails that we send our guests to determine whether our consumers have opened those emails or clicked on links in those emails.",
+   "rationale": "The policy explicitly states that personal identifiers are not shared with third parties, but mentions the use of web beacons and HTML emails for tracking purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9662606467469499,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9662606467469499,
+ "usage": {
+  "prompt": 1147,
+  "output": 159
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 37,
+  "untagged_paragraphs": 0,
+  "claims": 47,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Personal identifier",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not share Personal identifier",
+    "paragraphs": [
+     16,
+     25
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 7",
+       "Sec. 11(2)",
+       "Sec. 12(2)"
+      ],
+      "evidence": "We also use these technical methods in HTML emails that we send our guests to determine whether our consumers have opened those emails or clicked on links in those emails.",
+      "rationale": "The policy explicitly states that personal identifiers are not shared with third parties, but mentions the use of web beacons and HTML emails for tracking purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We do not share your name and other personal identifiers with third parties.",
+       "denial_quote": "",
+       "generic_quote": "We also use these technical methods in HTML emails that we send our guests to determine whether our consumers have opened those emails or clicked on links in those emails.",
+       "sections": [
+        "Sec. 7",
+        "Sec. 11(2)",
+        "Sec. 12(2)"
+       ],
+       "rationale": "The policy explicitly states that personal identifiers are not shared with third parties, but mentions the use of web beacons and HTML emails for tracking purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9662606467469499
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 18.25
+ }
+}

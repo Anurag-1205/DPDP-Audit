@@ -1,0 +1,330 @@
+{
+ "case_id": "586_v1",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "For more information about DoubleClick, including information about how to opt out of these technologies, go to http://www.doubleclick.net/us/corporate/privacy.",
+   "rationale": "The policy does not specify a purpose for the contact data types, which contradicts the requirement that the purpose must be clearly stated.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence does not specify a purpose for the contact data types, which contradicts the requirement that the purpose must be clearly stated according to Sec. 5(1) and Sec. 6(1) of the DPDP Act."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy states that refusing cookies prevents users from opening a shopping cart and completing orders, implying indefinite retention.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "Some information is automatically collected when you visit the Site. We collect the name of the domain and host from which you access the internet, the internet protocol (IP) address of the computer you are using, the browser software you use and your operating system, the date and time you access the Site, and the internet address of the web site from which you linked directly to the Site.",
+   "rationale": "The policy does not specify any purpose for collecting computer information, which includes device and browser information.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes what kind of information is collected but does not explicitly state the purpose for which this information is being collected. However, the rationale incorrectly states that the policy does not specify any purpose for collecting computer information. In fact, the purpos"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9725842694511708,
+ "usage": {
+  "prompt": 6743,
+  "output": 1124
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 34,
+  "untagged_paragraphs": 0,
+  "claims": 31,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     10,
+     11,
+     12,
+     20,
+     32
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Cookies and tracking elements is collected for ['analytics/research', 'personalization/customization', 'unspecified'], the app uses it for Advertising",
+    "paragraphs": [
+     15,
+     17,
+     20,
+     18,
+     19
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps Cookies and tracking elements indefinitely; retention statements: none",
+    "paragraphs": [
+     18,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Computer information is collected for ['unspecified'], the app uses it for Advertising",
+    "paragraphs": [
+     15,
+     19,
+     21,
+     7
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "For more information about DoubleClick, including information about how to opt out of these technologies, go to http://www.doubleclick.net/us/corporate/privacy.",
+      "rationale": "The policy does not specify a purpose for the contact data types, which contradicts the requirement that the purpose must be clearly stated.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "paragraphs": [
+        10,
+        11,
+        12,
+        20,
+        32
+       ],
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "For more information about DoubleClick, including information about how to opt out of these technologies, go to http://www.doubleclick.net/us/corporate/privacy.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy does not specify a purpose for the contact data types, which contradicts the requirement that the purpose must be clearly stated."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9556665933680111
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "We use cookies to enhance the browsing and shopping experience on the Site. \"Cookies\" are small files or records that we place on your computer's hard drive to collect information about your activities on the Site. The information captured makes it possible for us to speed navigation, keep track of items in your shopping cart and provide you with custom tailored content.",
+      "rationale": "The policy explicitly states that cookies are used for enhancing the browsing and shopping experience, which includes providing custom tailored content, aligning with the 'Advertising' purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Indefinitely",
+       "purpose_quote": "We use cookies to enhance the browsing and shopping experience on the Site. \"Cookies\" are small files or records that we place on your computer's hard drive to collect information about your activities on the Site. The information captured makes it possible for us to speed navigation, keep track of items in your shopping cart and provide you with custom tailored content.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that cookies are used for enhancing the browsing and shopping experience, which includes providing custom tailored content, aligning with the 'Advertising' purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9776430448599198
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Some information is automatically collected when you visit the Site. We collect the name of the domain and host from which you access the internet, the internet protocol (IP) address of the computer you are using, the browser software you use and your operating system, the date and time you access the Site, and the internet address of the web site from which you linked directly to the Site.",
+      "rationale": "The policy does not specify any purpose for collecting computer information, which includes device and browser information.",
+      "raw": {
+       "candidate_id": "c4",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Some information is automatically collected when you visit the Site. We collect the name of the domain and host from which you access the internet, the internet protocol (IP) address of the computer you are using, the browser software you use and your operating system, the date and time you access the Site, and the internet address of the web site from which you linked directly to the Site.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy does not specify any purpose for collecting computer information, which includes device and browser information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9738701489010608
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy states that refusing cookies prevents users from opening a shopping cart and completing orders, implying indefinite retention.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "indefinitely",
+       "retention_quote": "If you refuse cookies, you will not be able to open a shopping cart on the Site, and therefore will not be able to complete an order with us online.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that refusing cookies prevents users from opening a shopping cart and completing orders, implying indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9831572906756917
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 5,
+  "seconds": 115.55,
+  "reverified_from": "full_v2_finetuned",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": true, \"reason\": \"The policy evidence does not specify a purpose for the contact data types, which contradicts the requirement that the purpose must be clearly stated according to Sec. 5(1) and Sec. 6(1) of the DPDP Act.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence describes what kind of information is collected but does not explicitly state the purpose for which this information is being collected. However, the rationale incorrectly states that the policy does not specify any purpose for collecting computer information. In fact, the purpose 'Advertising' is mentioned in the app flow, so this finding is not supported.\"}]}"
+ }
+}

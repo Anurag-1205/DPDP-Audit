@@ -1,0 +1,239 @@
+{
+ "case_id": "1028_v1",
+ "system": "full_v2_finetuned",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "It is optional for the user to provide demographic information (such as income level and gender), and unique identifiers (such as, username and password), but encouraged so we can provide a more personalized experience on our site.",
+   "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, only demographic and unique identifiers are mentioned.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting demographic information and unique identifiers, which includes IP addresses and device IDs. Therefore, the policy does disclose the collection of these data types, and the finding cannot be supported."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "These are the instances in which we will share users personal information:",
+   "rationale": "The policy mentions potential disclosures due to legal requirements but does not specifically state that personal data is shared with Google AdMob or any other specific recipient.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "incorrect",
+   "confidence": 0.9581687304141913,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.938725319554434,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9493942755572885,
+ "usage": {
+  "prompt": 5129,
+  "output": 531
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 43,
+  "untagged_paragraphs": 0,
+  "claims": 43,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['additional service/feature', 'basic service/feature'], the app uses it for Marketing",
+    "paragraphs": [
+     3,
+     4,
+     29,
+     30,
+     25,
+     5,
+     35,
+     38
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     14,
+     38
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     20,
+     24,
+     38,
+     12,
+     22
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "It is optional for the user to provide demographic information (such as income level and gender), and unique identifiers (such as, username and password), but encouraged so we can provide a more personalized experience on our site.",
+      "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, only demographic and unique identifiers are mentioned.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "It is optional for the user to provide demographic information (such as income level and gender), and unique identifiers (such as, username and password), but encouraged so we can provide a more personalized experience on our site.",
+       "generic_quote": "We use this information to contact the user about services on our site for which he has expressed interest.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, only demographic and unique identifiers are mentioned."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9581687304141913
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "These are the instances in which we will share users personal information:",
+      "rationale": "The policy mentions potential disclosures due to legal requirements but does not specifically state that personal data is shared with Google AdMob or any other specific recipient.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "Though we make every effort to preserve user privacy, we may need to disclose personal information when required by law wherein we have a good-faith belief that such action is necessary to comply with a current judicial proceeding, a court order or legal process served on our Web site.",
+       "generic_quote": "These are the instances in which we will share users personal information:",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions potential disclosures due to legal requirements but does not specifically state that personal data is shared with Google AdMob or any other specific recipient."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.938725319554434
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "We use this information to contact the user about services on our site for which he has expressed interest.",
+      "rationale": "The policy mentions using contact information for contacting the user about services, which aligns with the marketing purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Marketing",
+       "purpose_quote": "We use this information to contact the user about services on our site for which he has expressed interest.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy mentions using contact information for contacting the user about services, which aligns with the marketing purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9512887767032406
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 25.43
+ }
+}

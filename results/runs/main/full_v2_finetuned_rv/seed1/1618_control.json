@@ -1,0 +1,178 @@
+{
+ "case_id": "1618_control",
+ "system": "full_v2_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that users can opt-in to e-mail newsletters and alerts, which falls under the 'Additional service/feature' purpose.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not actually disclose the app's practice regarding location data. The rationale given refers to email newsletters and alerts, which is unrelated to the location data being processed for an additional service/feature. Additionally, the cited DPDP text pertains to not"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9487626559647213,
+ "usage": {
+  "prompt": 4111,
+  "output": 551
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 45,
+  "untagged_paragraphs": 0,
+  "claims": 61,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature', 'marketing'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     2,
+     3,
+     4,
+     15,
+     19,
+     38,
+     43,
+     36,
+     30
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Location is collected for ['unspecified'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     11,
+     13,
+     5,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 4(2)"
+      ],
+      "evidence": "MediaNews uses PIN and CIN that is collected to fulfill subscriptions, change addresses, suspend delivery, confirm and process transactions and to contact the user regarding his or her account, new or existing products and services and special offers.",
+      "rationale": "The policy clearly states that the data is used for fulfilling subscriptions, changing addresses, suspending deliveries, confirming and processing transactions, and contacting users regarding their accounts and services.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "purpose_quote": "MediaNews uses PIN and CIN that is collected to fulfill subscriptions, change addresses, suspend delivery, confirm and process transactions and to contact the user regarding his or her account, new or existing products and services and special offers.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 4(2)"
+       ],
+       "rationale": "The policy clearly states that the data is used for fulfilling subscriptions, changing addresses, suspending deliveries, confirming and processing transactions, and contacting users regarding their accounts and services."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.931315497333698
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that users can opt-in to e-mail newsletters and alerts, which falls under the 'Additional service/feature' purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "purpose_quote": "At that time you have the opportunity to opt-in to e-mail newsletters and alerts and have e-mail offers sent to you on behalf of MediaNews advertisers, however, you can update your preferences at a later time.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that users can opt-in to e-mail newsletters and alerts, which falls under the 'Additional service/feature' purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9662098145957445
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 59.26,
+  "reverified_from": "full_v2_finetuned",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

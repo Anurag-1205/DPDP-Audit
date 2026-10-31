@@ -1,0 +1,159 @@
+{
+ "case_id": "1164_v1",
+ "system": "full_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9714538684052837,
+ "usage": {
+  "prompt": 1339,
+  "output": 599
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 38,
+  "untagged_paragraphs": 0,
+  "claims": 56,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Location is collected for ['advertising', 'analytics/research', 'unspecified'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     5,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Computer information is collected for ['advertising', 'analytics/research', 'unspecified'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     5,
+     12,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "In addition, we reserve the right to use the information we collect about your computer, mobile or other device (including its geographic location), which may at times be able to identify you, for any lawful business purpose, including without limitation to help diagnose problems with our servers, to gather broad demographic information, analyze trends, track users movements around the Service, and to otherwise administer the Service.",
+      "rationale": "The policy states that location information can be used for various business purposes but does not specify 'Service Operation and Security' as one of those purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "paragraphs": [
+        5,
+        12
+       ],
+       "purpose_quote": "In addition, we reserve the right to use the information we collect about your computer, mobile or other device (including its geographic location), which may at times be able to identify you, for any lawful business purpose, including without limitation to help diagnose problems with our servers, to gather broad demographic information, analyze trends, track users movements around the Service, and to otherwise administer the Service.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy states that location information can be used for various business purposes but does not specify 'Service Operation and Security' as one of those purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Our servers may also automatically collect information about you, your online behavior and your computer, mobile or other device. The information collected may include, without limitation, the make, model, settings, specifications (e.g., CPU speed, connection speed, browser type, operating system, device identifier) and geographic location of you and/or your computer, mobile or other device, as well as date/time stamp, IP address, pages visited, time of visits, content viewed, ads viewed, the site(s), application(s), destination(s), and/or service(s) you arrived from, and other clickstream data.",
+      "rationale": "The policy mentions collecting computer information but does not specify 'Service Operation and Security' as one of the purposes for which this information is used.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "paragraphs": [
+        5,
+        12,
+        2
+       ],
+       "purpose_quote": "Our servers may also automatically collect information about you, your online behavior and your computer, mobile or other device. The information collected may include, without limitation, the make, model, settings, specifications (e.g., CPU speed, connection speed, browser type, operating system, device identifier) and geographic location of you and/or your computer, mobile or other device, as well as date/time stamp, IP address, pages visited, time of visits, content viewed, ads viewed, the site(s), application(s), destination(s), and/or service(s) you arrived from, and other clickstream data.",
+       "unspecified_purpose_quote": "In addition, we reserve the right to use the information we collect about your computer, mobile or other device (including its geographic location), which may at times be able to identify you, for any lawful business purpose, including without limitation to help diagnose problems with our servers, to gather broad demographic information, analyze trends, track users movements around the Service, and to otherwise administer the Service.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy mentions collecting computer information but does not specify 'Service Operation and Security' as one of the purposes for which this information is used."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9714538684052837
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 66.64,
+  "reverified_from": "full_finetuned",
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

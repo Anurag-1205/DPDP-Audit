@@ -1,0 +1,104 @@
+{
+ "case_id": "L1618_r3",
+ "system": "A2_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "An IP address is your computer's location on the Internet.",
+   "rationale": "The policy mentions IP addresses but does not explicitly state that they are collected.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions that an IP address is your computer's location on the Internet, which implies that IP addresses are collected. However, the evidence does not explicitly state that they are collected. The cited DPDP text in Sec. 5(1) and Rule 3 requires the Data Fiduciary to inform the D"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9897627042985336,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9897627042985336,
+ "usage": {
+  "prompt": 1306,
+  "output": 242
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 37,
+  "untagged_paragraphs": 0,
+  "claims": 30,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     8,
+     34
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "An IP address is your computer's location on the Internet.",
+      "rationale": "The policy mentions IP addresses but does not explicitly state that they are collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "An IP address is your computer's location on the Internet.",
+       "generic_quote": "User registration is required to access the majority of content, services and features on MediaNews Web sites.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions IP addresses but does not explicitly state that they are collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9897627042985336
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 25.12
+ }
+}

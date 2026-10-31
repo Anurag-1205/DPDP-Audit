@@ -1,0 +1,106 @@
+{
+ "case_id": "L586_r2",
+ "system": "A3_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 37(1)",
+    "Sec. 5(1)"
+   ],
+   "evidence": "We do not collect your device identifiers and IP address.",
+   "rationale": "The policy explicitly states that no device identifiers or IP addresses are collected.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence clearly states 'We do not collect your device identifiers and IP address.' This directly supports the finding of an undisclosed collection of IP addresses and device IDs. The cited sections (Sec. 37(1) and Sec. 5(1)) are not relevant to the specific finding of undisclosed collect"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9409247565201833,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9409247565201833,
+ "usage": {
+  "prompt": 1788,
+  "output": 208
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 22,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     10,
+     11,
+     13,
+     2,
+     5
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 37(1)",
+       "Sec. 5(1)"
+      ],
+      "evidence": "We do not collect your device identifiers and IP address.",
+      "rationale": "The policy explicitly states that no device identifiers or IP addresses are collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect your device identifiers and IP address.",
+       "generic_quote": "The Information We Collect and How We Use It",
+       "sections": [
+        "Sec. 37(1)",
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy explicitly states that no device identifiers or IP addresses are collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9409247565201833
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 22.66
+ }
+}

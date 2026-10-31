@@ -1,0 +1,107 @@
+{
+ "case_id": "L1261_r4",
+ "system": "A2_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Additionally, Zacks Investment Research is selective about which companies we permit to send you an offer. Zacks will use names for Market Research Our goal is for the e-mails to be of value to you.",
+   "rationale": "The policy does not explicitly state that contact details are shared with Mixpanel, but it does mention sharing email addresses for analytics purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9670453461954635,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9670453461954635,
+ "usage": {
+  "prompt": 936,
+  "output": 311
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 12,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Contact with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     3,
+     10,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Additionally, Zacks Investment Research is selective about which companies we permit to send you an offer. Zacks will use names for Market Research Our goal is for the e-mails to be of value to you.",
+      "rationale": "The policy does not explicitly state that contact details are shared with Mixpanel, but it does mention sharing email addresses for analytics purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "If you opt out from a Zacks.com Opt-In Marketing List, Zacks Investment Research Internal List, or unsubscribe from a Zacks offer sent by another list vendor, you will be added to our Do Not Email list, and we will suppress your email address from future mailings to the Zacks Investment Research Internal List and Opt-In Marketing List, as well as any other Zacks mailings done through a third party. This process usually completes within 72 hours but can take up to 10 days in rare situations. However, if you later register for a Zacks product again, your name will be removed from the Do Not Email list.",
+       "generic_quote": "Additionally, Zacks Investment Research is selective about which companies we permit to send you an offer. Zacks will use names for Market Research Our goal is for the e-mails to be of value to you.",
+       "data_type": "Contact",
+       "recipient": "Mixpanel (Mixpanel, analytics)",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that contact details are shared with Mixpanel, but it does mention sharing email addresses for analytics purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9670453461954635
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 27.35
+ }
+}

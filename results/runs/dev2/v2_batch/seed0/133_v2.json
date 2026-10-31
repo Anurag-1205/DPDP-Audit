@@ -1,0 +1,378 @@
+{
+ "case_id": "133_v2",
+ "system": "v2_batch",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy indicates that IP addresses and device IDs are collected to enhance user experience, which aligns with the purpose 'Additional service/feature'. However, the policy also mentions collecting non-personally identifiable information without specifying a purpose.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence does not mention IP addresses and device IDs, nor does it specify their collection for any particular purpose. The rationale provided does not align with the evidence, as the evidence discusses enhancing user experience rather than explicitly mentioning these data types. Addition"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "Time Inc. sites may use reputable third parties to present or serve advertisements, including online behavioral advertisements, that you may see on the web pages and to conduct research about the advertisements.",
+   "rationale": "The policy mentions sharing combined information with third parties for marketing purposes, but does not specifically name Google AdMob or describe the exact data types shared.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may use the information you provide about yourself or others to fulfill requests for our publications, products or services, to respond to inquiries about offerings and to offer other products, programs or services.",
+   "rationale": "The policy explicitly mentions collecting information about personal or professional interests, which aligns with the purpose 'Additional service/feature'.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not clearly indicate the collection of contact information for the purpose of 'Additional service/feature.' The rationale provided is vague and does not directly support the finding. Furthermore, the cited sections of the DPDP Act do not specifically address the col"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9624025637943863,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9371097590711612,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9678535960765116,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9627541558876567,
+ "usage": {
+  "prompt": 8825,
+  "output": 1164
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 43,
+  "untagged_paragraphs": 0,
+  "claims": 76,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     6,
+     9,
+     10,
+     12,
+     13,
+     31,
+     34,
+     20,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     5,
+     24,
+     27,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     7,
+     25,
+     5,
+     32
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     6,
+     9,
+     10,
+     12,
+     13,
+     31,
+     34,
+     20,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Contact indefinitely; retention statements: ['Indefinitely', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     2,
+     3,
+     12,
+     13,
+     25,
+     30,
+     31,
+     33,
+     38,
+     20,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The types of personally identifiable information that may be collected about other people at these pages include: recipient's name, address, e-mail address and telephone number.",
+      "rationale": "The policy explicitly mentions collecting personal or professional information, which includes contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may also collect information about your personal or professional interests and use of or opinions about various products, programs and services. For instance, we may ask you to identify your job or industry to qualify you for free business magazines.",
+       "denial_quote": "",
+       "generic_quote": "The types of personally identifiable information that may be collected about other people at these pages include: recipient's name, address, e-mail address and telephone number.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting personal or professional information, which includes contact details."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9624025637943863
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "Time Inc. sites may use reputable third parties to present or serve advertisements, including online behavioral advertisements, that you may see on the web pages and to conduct research about the advertisements.",
+      "rationale": "The policy mentions sharing combined information with third parties for marketing purposes, but does not specifically name Google AdMob or describe the exact data types shared.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We may combine information we receive with outside records and share such information with third parties for use on our behalf to enhance our ability to market to you those products or services that may be of interest to you.",
+       "denial_quote": "",
+       "generic_quote": "Time Inc. sites may use reputable third parties to present or serve advertisements, including online behavioral advertisements, that you may see on the web pages and to conduct research about the advertisements.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing combined information with third parties for marketing purposes, but does not specifically name Google AdMob or describe the exact data types shared."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9371097590711612
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may use the information you provide about yourself or others to fulfill requests for our publications, products or services, to respond to inquiries about offerings and to offer other products, programs or services.",
+      "rationale": "The policy explicitly mentions collecting information about personal or professional interests, which aligns with the purpose 'Additional service/feature'.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We may also collect information about your personal or professional interests and use of or opinions about various products, programs and services. For instance, we may ask you to identify your job or industry to qualify you for free business magazines.",
+       "denial_quote": "",
+       "generic_quote": "We may use the information you provide about yourself or others to fulfill requests for our publications, products or services, to respond to inquiries about offerings and to offer other products, programs or services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting information about personal or professional interests, which aligns with the purpose 'Additional service/feature'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9678535960765116
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy indicates that IP addresses and device IDs are collected to enhance user experience, which aligns with the purpose 'Additional service/feature'. However, the policy also mentions collecting non-personally identifiable information without specifying a purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "To enhance your experience on our Services, we may place 'cookies' on your computer or device. Cookies are small text files that we place in your computer or device to store your preferences. Cookies, by themselves, do not tell us your e-mail address or other personal information unless you choose to provide this information to us by, for example, registering with one of our Services. Once you choose to provide us with personal information, this information may be linked to the data stored in the cookie.",
+       "unspecified_purpose_quote": "We may also collect certain non-personally identifiable information when you visit our web pages or use our applications, such as the type of browser and operating system you are using, your IP address, your device identifiers, your Internet or wireless service provider, and location-based information.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy indicates that IP addresses and device IDs are collected to enhance user experience, which aligns with the purpose 'Additional service/feature'. However, the policy also mentions collecting non-personally identifiable information without specifying a purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9646069420595583
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "We will retain your personal information while you have an account with us and thereafter for as long as we need it for purposes not prohibited by applicable laws.",
+      "rationale": "The policy states that personal data will be retained indefinitely, which contradicts the requirement to erase data once the purpose is served.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "We will retain your personal information while you have an account with us and thereafter for as long as we need it for purposes not prohibited by applicable laws.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that personal data will be retained indefinitely, which contradicts the requirement to erase data once the purpose is served."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9817979184366659
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 85.97
+ }
+}

@@ -1,0 +1,456 @@
+{
+ "case_id": "1106_v2",
+ "system": "A1_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 2"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states the use of IP addresses for gathering information and storing it in log files, but does not specify the exact purpose of processing IP addresses.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6",
+    "Rule 3"
+   ],
+   "evidence": "Third-party advertising technology uses information derived from your visits to this Web site and the sites on which we advertise to present ads to you and uses cookies to track activity.",
+   "rationale": "The policy explicitly mentions that third-party advertising technology uses cookies to track activity, which aligns with the sharing of personal data via Firebase Analytics (Google, analytics).",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "Our Web site is for insurance and financial products and services and is not intended for children; we do not market any products or services to children under the age of thirteen or knowingly collect any information from children under the age of thirteen.",
+   "rationale": "The policy does not prohibit tracking or behavioral monitoring of children.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Location",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "Your location information is stored on Allstate's servers and retained by Allstate until you delete the application from your device.",
+   "rationale": "The policy states that location information is retained until the user deletes the application, which implies indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "These Features may collect your IP address, which page you are visiting on our site, and may set a cookie to enable the Feature to function properly.",
+   "rationale": "The policy does not explicitly state that IP addresses are shared with Google AdMob, but it mentions that social media features may collect IP addresses.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f6",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "Our Web site is for insurance and financial products and services and is not intended for children; we do not market any products or services to children under the age of thirteen or knowingly collect any information from children under the age of thirteen.",
+   "rationale": "The policy explicitly states that the website is not intended for children and does not collect information from them.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9278258955932451,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "vague",
+   "confidence": 0.9447098711441679,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9580589138056359,
+ "usage": {
+  "prompt": 7592,
+  "output": 996
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 47,
+  "untagged_paragraphs": 0,
+  "claims": 62,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['analytics/research', 'unspecified'], the app uses it for Advertising",
+    "paragraphs": [
+     7,
+     15,
+     19,
+     20,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with firebase_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     12,
+     13,
+     19,
+     32,
+     16,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends Cookies and tracking elements to the analytics SDK Firebase Analytics",
+    "paragraphs": [
+     24
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Location indefinitely; retention statements: ['Limited']",
+    "paragraphs": [
+     10,
+     9,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     12,
+     13,
+     32,
+     30,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f6",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     24
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6",
+       "Rule 3"
+      ],
+      "evidence": "Third-party advertising technology uses information derived from your visits to this Web site and the sites on which we advertise to present ads to you and uses cookies to track activity.",
+      "rationale": "The policy explicitly mentions that third-party advertising technology uses cookies to track activity, which aligns with the sharing of personal data via Firebase Analytics (Google, analytics).",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Third-party advertising technology uses information derived from your visits to this Web site and the sites on which we advertise to present ads to you and uses cookies to track activity.",
+       "denial_quote": "",
+       "generic_quote": "Additionally, our business partners use tracking services, analytics and other technologies to monitor visits to allstate.com. The website may also use web beacons (also called 'clear GIFs' or 'pixel tags') in conjunction with cookies.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions that third-party advertising technology uses cookies to track activity, which aligns with the sharing of personal data via Firebase Analytics (Google, analytics)."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9278258955932451
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "These Features may collect your IP address, which page you are visiting on our site, and may set a cookie to enable the Feature to function properly.",
+      "rationale": "The policy does not explicitly state that IP addresses are shared with Google AdMob, but it mentions that social media features may collect IP addresses.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "This feature is governed by the privacy policy of the company providing it.",
+       "generic_quote": "These Features may collect your IP address, which page you are visiting on our site, and may set a cookie to enable the Feature to function properly.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that IP addresses are shared with Google AdMob, but it mentions that social media features may collect IP addresses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9447098711441679
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 2"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states the use of IP addresses for gathering information and storing it in log files, but does not specify the exact purpose of processing IP addresses.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "As true of most sites, we gather certain information automatically and store it in log files. This information may include internet protocol (IP) addresses, browser type, internet service provider (ISP), referring/exit pages, operating system, date/time stamp, and/or clickstream data.",
+       "unspecified_purpose_quote": "We use your location information to search for information you request - including agent searches identify the location of an accident you are reporting",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 2"
+       ],
+       "rationale": "The policy explicitly states the use of IP addresses for gathering information and storing it in log files, but does not specify the exact purpose of processing IP addresses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9373100363563255
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "Your location information is stored on Allstate's servers and retained by Allstate until you delete the application from your device.",
+      "rationale": "The policy states that location information is retained until the user deletes the application, which implies indefinite retention.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "Your location information is stored on Allstate's servers and retained by Allstate until you delete the application from your device.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that location information is retained until the user deletes the application, which implies indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9953265674821297
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "Our Web site is for insurance and financial products and services and is not intended for children; we do not market any products or services to children under the age of thirteen or knowingly collect any information from children under the age of thirteen.",
+      "rationale": "The policy does not prohibit tracking or behavioral monitoring of children.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "Firebase Analytics (Google, analytics)",
+       "purpose": "Personalization/Customization",
+       "retention": "Unspecified",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not prohibit tracking or behavioral monitoring of children.",
+       "children_quote": "Our Web site is for insurance and financial products and services and is not intended for children; we do not market any products or services to children under the age of thirteen or knowingly collect any information from children under the age of thirteen."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9666409271815334
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "Our Web site is for insurance and financial products and services and is not intended for children; we do not market any products or services to children under the age of thirteen or knowingly collect any information from children under the age of thirteen.",
+      "rationale": "The policy explicitly states that the website is not intended for children and does not collect information from them.",
+      "raw": {
+       "candidate_id": "c6",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "children_quote": "Our Web site is for insurance and financial products and services and is not intended for children; we do not market any products or services to children under the age of thirteen or knowingly collect any information from children under the age of thirteen.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy explicitly states that the website is not intended for children and does not collect information from them."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9765401850764143
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 132.84
+ }
+}

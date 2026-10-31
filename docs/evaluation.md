@@ -22,11 +22,30 @@ flowchart LR
 | B1 | Single pass, raw inputs | Qwen2.5-7B-Instruct-AWQ | all | 3 |
 | B2 | Single pass, parsed facts + DPDP text | Qwen2.5-7B-Instruct-AWQ | all | 3 |
 | B4 | B2's prompt, stronger model | `gemini-3-flash-preview` | all | 3 |
-| full | DPDP-Audit | Qwen2.5-7B + tagger | all | 3 |
-| A1–A5 | Ablations | as full, one change each | all | 1 |
+| full | DPDP-Audit, frozen 26 Oct (prompted tagger; `full_finetuned` with the QLoRA tagger) | Qwen2.5-7B + tagger | all | 3 |
+| full_v2 | DPDP-Audit v2, chosen on the dev splits ([pipeline.md](pipeline.md#v2)); `full_v2_finetuned` with the QLoRA tagger | Qwen2.5-7B + tagger | all | 3 |
+| A1–A5 | Ablations | as full, one change each; `A*_v2` as full_v2_finetuned | all | 1 (v1), 3 (v2) |
+| R0 | Rules only: the QLoRA tagger and the finder, every candidate reported (`R0_prompted`: prompted tagger) | no LLM | all | 1 (deterministic) |
+| B5 | One call, evidence first: one generalist call over the whole policy, then v2's rules and verifier | Qwen2.5-7B-Instruct-AWQ | all | 3 |
+| `B1_sc`, `B2_sc`, `B4_sc` | Self-consistency: the majority over the three seeds of B1, B2, B4 | as the system | all | derived from 3 |
+| `*_rv` | The same runs with only the verifier re-run by the robust reply reader ([pipeline.md](pipeline.md#evidence-verifier)); the reported numbers | as the system | all | as the system |
 | S3 | PrivBERT | `mukund/privbert`, fine-tuned on our split | tagging only | 1 |
 | S4 | PolicyLint and PoliGraph extraction | Authors' code | statement extraction | 1 |
 | B3 | Prompted 3B tagger | Qwen2.5-3B-Instruct, zero-shot | tagging only | 1 |
+
+**Baselines from the pipeline's parts** (added 30 Oct, configurations in `pipeline/config.py`): each
+removes one layer of the design, so the comparison with `full_v2_finetuned` shows what that layer adds.
+- **R0** keeps only the deterministic part (tagger and finder) and reports every candidate at the
+  finder's level, with the gap's DPDP sections from the fixed table (as for the tools).
+- **B5** keeps only the evidence-first decision: no tagger, no finder filtering (every flow is
+  checked against every gap type the app facts allow, by the finder's app-side rules), no
+  specialists, no tools and no DPDP retrieval (A2 showed it does not help); one generalist call
+  reads the whole policy in order within the reviewers' prompt budget (30,000 characters; the
+  paragraphs that do not fit are counted in the trace) and quotes the evidence; v2's decision rules,
+  aggregator and verifier (robust reader) decide. Its prompt is the reviewers' prompt with the whole
+  policy in place of the linked paragraphs; it was run on the dev splits before main and the ladder.
+- **`*_sc`** (`scripts/build_self_consistency.py`): per flow the majority label over the three seeds,
+  and every finding at least two seeds report (same data type and gap type), at the majority level.
 
 Purpose, retention and children's-data gaps have no existing-tool baseline. For those types, the
 comparison is with the LLM systems only, and coverage is reported next to F1.
@@ -39,9 +58,11 @@ comparison is with the LLM systems only, and coverage is reported next to F1.
 | S2 PoliGraph | ✓ | ✓ | ✓ | Main and ladder done |
 | B1 | ✓ | — | ✓ | Done (306 runs) |
 | B2 | ✓ | ✓ | ✓ | Main and ladder done (3 seeds each) |
-| B4 | ✓ | — | — | Seed 0 done; seeds 1–2 running (free-tier quota) |
-| full | ✓ | ✓ | ✓ | Main 3 seeds, ladder seed 0 |
-| A1–A5 | ✓ | — | — | A1, A2, A3, A5 done; A4 waits for the fine-tuned tagger |
+| S4 PolicyLint, PoliGraph (extraction) | — | — | — | 1,140 held-out OPP-115 segments, tuple F1 (done) |
+| B4 | ✓ | — | — | Done (3 seeds) |
+| full, full_finetuned | ✓ | ✓ | ✓ | Main and ladder, 3 seeds |
+| full_v2, full_v2_finetuned | ✓ | ✓ | ✓ | Main and ladder, 3 seeds |
+| A1–A5 | ✓ | A2_v2, A3_v2 | — | A1, A2, A3, A5 on the frozen pipeline (seed 0); A1_v2, A2_v2, A3_v2, A5_v2 on v2, 3 seeds (A4 on v2 = full_v2); A2_v2, A3_v2 on the ladder, 3 seeds |
 
 ## Run and scoring flow
 
@@ -95,9 +116,34 @@ marked `uncertain` count as not reported and are listed separately.
 4. Mappings and rules are frozen before test runs, and no system is tuned on evaluation cases.
 5. Coverage (the share of gap types a system can detect) is reported next to F1.
 
+### Statement extraction (S4)
+
+S4 asks how well PolicyLint and PoliGraph read a policy, compared with our taggers, on the same
+1,140 held-out OPP-115 segments and with the same tuple F1 (`tagger_eval.evaluate_tuples`):
+(category, data type, does/does not) for collection and sharing, and (category, data type, third
+party) for sharing.
+
+- **Inputs.** PolicyLint gets one plaintext file per segment and runs only its extraction step;
+  its statements are exported after its own normalisation (`loadPrivacyPolicyResults`: entity
+  and data resolved to its ontologies, its user and negation filters). PoliGraph opens a browser
+  per document, so it gets one document per policy, its segments in order; each graph edge is
+  assigned to every segment whose text contains the edge's sentence. Jobs: `kaggle/policheck` and
+  `kaggle/poligraph` with `SPLIT = "s4"`.
+- **Mapping.** A statement becomes a claim: entity "we" → First Party Collection/Use, any other
+  entity → Third Party Sharing/Collection; collect → Does, not collect → Does Not. Data and entity
+  terms map to OPP-115 values by the ordered rules in `data/tools/s4_mapping.csv` (first match
+  wins), written from the OPP-115 annotation guidelines and committed before any S4 output came
+  back. Following the guidelines, a characterised entity ("advertiser", "analytics provider") is a
+  *Named third party*; "third party" or "partner" alone is *Unnamed*.
+- **Known limits.** PoliGraph keeps only positive statements, so it cannot produce a Does Not
+  tuple; its passive-voice edges (`UNSPECIFIED_ACTOR`) name no entity and are left out (counted).
+  Neither tool labels the other OPP-115 categories, so S4 reports tuple F1 only.
+- **Scoring.** `python scripts/eval_tagger.py … --s4` (in `scripts/score_all.sh`) writes
+  `S4_policylint` and `S4_poligraph` to `results/scores/tagger.json`, with extraction counts.
+
 ### Statistics
 
-- **Seeds:** 3 for the headline LLM systems (B1, B2, B4, full), 1 for the ablations; the deterministic
+- **Seeds:** 3 for the headline LLM systems (B1, B2, B4, full, full_v2), 1 for the ablations; the deterministic
   tools run once.
 - **Point estimates:** the mean over seeds.
 - **Intervals:** 95% cluster-bootstrap intervals on seed 0, re-sampling whole policies, 1,000 times. Cases built from the same policy share its text, so
@@ -106,7 +152,8 @@ marked `uncertain` count as not reported and are listed separately.
 
 ## Selective accuracy
 
-**Status:** planned (SPEC-07). This measures how much human review each system needs before the rest
+**Status:** planned (SPEC-07). B4 has no token probabilities (Gemini returns none), so its ties need a fixed
+rule; every other LLM system stores one per run. This measures how much human review each system needs before the rest
 of its output can be trusted.
 
 ```mermaid

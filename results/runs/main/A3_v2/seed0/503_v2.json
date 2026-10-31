@@ -1,0 +1,164 @@
+{
+ "case_id": "503_v2",
+ "system": "A3_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may share your information within the BWW organization and with our franchisees, with current and future affiliated companies, and with reputable third parties as needed to provide better services to you.",
+   "rationale": "The policy explicitly states that the data will not be sold or rented to third parties, but it does mention generic sharing with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9263635264035389,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9527232215094044,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9395433739564716,
+ "usage": {
+  "prompt": 2768,
+  "output": 341
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 24,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Financial is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     6,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Health with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     1,
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 6"
+      ],
+      "evidence": "When you purchase a product from our Sites, we ask you to provide information to fulfill your order, including your name, email address, phone, shipping address, billing address and method of payment to facilitate your purchase.",
+      "rationale": "The policy explicitly mentions collecting financial information during purchases, but also states that guest purchases do not store personal information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you purchase a product from our Sites, we ask you to provide information to fulfill your order, including your name, email address, phone, shipping address, billing address and method of payment to facilitate your purchase.",
+       "denial_quote": "",
+       "generic_quote": "If you create an account through one of our Sites, this personal information will be stored by us. If you purchase products as a Site Guest, we will not store the personally identifiable information you provide.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 6"
+       ],
+       "rationale": "The policy explicitly mentions collecting financial information during purchases, but also states that guest purchases do not store personal information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9263635264035389
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may share your information within the BWW organization and with our franchisees, with current and future affiliated companies, and with reputable third parties as needed to provide better services to you.",
+      "rationale": "The policy explicitly states that the data will not be sold or rented to third parties, but it does mention generic sharing with third parties.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We will not sell or rent the personally identifiable information you provide to us to any third party, except as stated herein.",
+       "generic_quote": "We may share or transfer your information within the BWW organization and with our franchisees, with current and future affiliated companies, and with reputable third parties as needed to provide better services to you.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the data will not be sold or rented to third parties, but it does mention generic sharing with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9527232215094044
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 34.06
+ }
+}

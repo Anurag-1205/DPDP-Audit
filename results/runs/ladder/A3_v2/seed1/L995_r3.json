@@ -1,0 +1,103 @@
+{
+ "case_id": "L995_r3",
+ "system": "A3_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "We may collect information about you when you use our services.",
+   "rationale": "The policy mentions collecting information but does not specify the type of data collected.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'We may collect information about you when you use our services' does not specify the type of data collected. However, the evidence provided does not explicitly state that location data is being collected. The cited sections of the DPDP Act focus on providing notices to data prin"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9557139452927625,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9557139452927625,
+ "usage": {
+  "prompt": 1590,
+  "output": 257
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 6,
+  "untagged_paragraphs": 0,
+  "claims": 2,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "We may collect information about you when you use our services.",
+      "rationale": "The policy mentions collecting information but does not specify the type of data collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We may collect information about you when you use our services.",
+       "generic_quote": "We may collect information about you when you use our services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy mentions collecting information but does not specify the type of data collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9557139452927625
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 27.72
+ }
+}

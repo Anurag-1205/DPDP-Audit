@@ -1,0 +1,357 @@
+{
+ "case_id": "359_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Your personally identifiable information is transferred to our computers utilizing encryption software. Only those employees who need access to your information in order to do their jobs are allowed access. Our security policies are reviewed periodically and revised as required.",
+   "rationale": "The policy does not specify the collection of contact details for additional service/features.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence does not mention the collection of contact details for additional service/features, which aligns with the finding of an undisclosed collection. The cited DPDP text requires the notice to inform the Data Principal about the personal data and the purpose for processing it, which is"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses the collection of IP addresses and device IDs for analytics/research purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that there is no mention of it, but the rationale indicates that the policy actually discloses the collection of IP addresses and device IDs for analytics/research purposes. This contradicts the finding of an undisclosed collection."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy discloses the collection of computer information for transaction purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "Similar to finding 1, the policy evidence states that there is no mention of it, but the rationale indicates that the policy discloses the collection of computer information for advertising purposes. This contradicts the finding of an undisclosed collection."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9864290791316118,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9864290791316118,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9864290791316118,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9864290791316118,
+ "usage": {
+  "prompt": 6291,
+  "output": 2545
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 41,
+  "untagged_paragraphs": 0,
+  "claims": 104,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Your personally identifiable information is transferred to our computers utilizing encryption software. Only those employees who need access to your information in order to do their jobs are allowed access. Our security policies are reviewed periodically and revised as required.",
+      "rationale": "The policy does not specify the collection of contact details for additional service/features.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you are on the Website you could be directed to other Websites beyond our control. For example, if you 'click' on a banner advertisement, the 'click' may take you off the Website onto a different Website. This includes links from advertisers, sponsors and marketing partners that may use the Website's logo as part of a co-branding agreement. These other Websites may send their own cookies to you, independently collect data or solicit personal information and may or may not have their own published privacy policies.",
+       "denial_quote": "",
+       "generic_quote": "Your personally identifiable information is transferred to our computers utilizing encryption software. Only those employees who need access to your information in order to do their jobs are allowed access. Our security policies are reviewed periodically and revised as required.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify the collection of contact details for additional service/features."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify the collection of contact details for additional service/features.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "When you are on the Website you could be directed to other Websites beyond our control. For example, if you 'click' on a banner advertisement, the 'click' may take you off the Website onto a different Website. This includes links from advertisers, sponsors and marketing partners that may use the Website's logo as part of a co-branding agreement. These other Websites may send their own cookies to you, independently collect data or solicit personal information and may or may not have their own published privacy policies.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify the collection of contact details for additional service/features."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the collection of IP addresses and device IDs for analytics/research purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "Cookies: As with many Websites, our Website uses a technology called 'cookies'. A cookie is a unique, random number that is stored in the browser on your computer. The cookie doesn't actually identify you, just the computer that is used to visit the site. Cookies automatically identify your browser to the Website whenever your computer is used to visit the Website. Cookies also let us know how many people visit our website and where visitors go on the site. In addition, cookies can let us know non-personally identifiable information, like what web browser is being used to access the website.",
+       "denial_quote": "",
+       "generic_quote": "Cookies: As with many Websites, our Website uses a technology called 'cookies'. A cookie is a unique, random number that is stored in the browser on your computer. The cookie doesn't actually identify you, just the computer that is used to visit the site. Cookies automatically identify your browser to the Website whenever your computer is used to visit the Website. Cookies also let us know how many people visit our website and where visitors go on the site. In addition, cookies can let us know non-personally identifiable information, like what web browser is being used to access the website.",
+       "purpose_quote": "Click-stream data is information collected by our computers when you request Web pages from the Website. Click-stream data may include such information as the page served, the time, the source of the request, the type of browser making the request, the preceding page view and other such non-personal information. When analyzed, this data helps us analyze how visitors arrive at the Website, what type of content is most popular, what type of visitors in the aggregate are interested in particular kinds of content and advertising, and the like.",
+       "unspecified_purpose_quote": "Cookies: As with many Websites, our Website uses a technology called 'cookies'. A cookie is a unique, random number that is stored in the browser on your computer. The cookie doesn't actually identify you, just the computer that is used to visit the site. Cookies automatically identify your browser to the Website whenever your computer is used to visit the Website. Cookies also let us know how many people visit our website and where visitors go on the site. In addition, cookies can let us know non-personally identifiable information, like what web browser is being used to access the website.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of IP addresses and device IDs for analytics/research purposes."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Click-stream data is information collected by our computers when you request Web pages from the Website. Click-stream data may include such information as the page served, the time, the source of the request, the type of browser making the request, the preceding page view and other such non-personal information. When analyzed, this data helps us analyze how visitors arrive at the Website, what type of content is most popular, what type of visitors in the aggregate are interested in particular kinds of content and advertising, and the like.",
+      "rationale": "The policy discloses the collection of IP addresses and device IDs for analytics/research purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Cookies: As with many Websites, our Website uses a technology called 'cookies'. A cookie is a unique, random number that is stored in the browser on your computer. The cookie doesn't actually identify you, just the computer that is used to visit the site. Cookies automatically identify your browser to the Website whenever your computer is used to visit the Website. Cookies also let us know how many people visit our website and where visitors go on the site. In addition, cookies can let us know non-personally identifiable information, like what web browser is being used to access the website.",
+       "denial_quote": "",
+       "generic_quote": "Cookies: As with many Websites, our Website uses a technology called 'cookies'. A cookie is a unique, random number that is stored in the browser on your computer. The cookie doesn't actually identify you, just the computer that is used to visit the site. Cookies automatically identify your browser to the Website whenever your computer is used to visit the Website. Cookies also let us know how many people visit our website and where visitors go on the site. In addition, cookies can let us know non-personally identifiable information, like what web browser is being used to access the website.",
+       "purpose_quote": "Click-stream data is information collected by our computers when you request Web pages from the Website. Click-stream data may include such information as the page served, the time, the source of the request, the type of browser making the request, the preceding page view and other such non-personal information. When analyzed, this data helps us analyze how visitors arrive at the Website, what type of content is most popular, what type of visitors in the aggregate are interested in particular kinds of content and advertising, and the like.",
+       "unspecified_purpose_quote": "Cookies: As with many Websites, our Website uses a technology called 'cookies'. A cookie is a unique, random number that is stored in the browser on your computer. The cookie doesn't actually identify you, just the computer that is used to visit the site. Cookies automatically identify your browser to the Website whenever your computer is used to visit the Website. Cookies also let us know how many people visit our website and where visitors go on the site. In addition, cookies can let us know non-personally identifiable information, like what web browser is being used to access the website.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of IP addresses and device IDs for analytics/research purposes."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses the collection of computer information for transaction purposes.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "Cookies: As with many Websites, our Website uses a technology called 'cookies'. A cookie is a unique, random number that is stored in the browser on your computer. The cookie doesn't actually identify you, just the computer that is used to visit the site. Cookies automatically identify your browser to the Website whenever your computer is used to visit the Website. Cookies also let us know how many people visit our website and where visitors go on the site. In addition, cookies can let us know non-personally identifiable information, like what web browser is being used to access the website.",
+       "denial_quote": "",
+       "generic_quote": "Cookies: As with many Websites, our Website uses a technology called 'cookies'. A cookie is a unique, random number that is stored in the browser on your computer. The cookie doesn't actually identify you, just the computer that is used to visit the site. Cookies automatically identify your browser to the Website whenever your computer is used to visit the Website. Cookies also let us know how many people visit our website and where visitors go on the site. In addition, cookies can let us know non-personally identifiable information, like what web browser is being used to access the website.",
+       "purpose_quote": "We may use this information to complete the transaction that you have requested, i.e., to deliver the information, products or other services that you order, and to invoice you. For your protection, such information is collected and stored through encrypted means.",
+       "unspecified_purpose_quote": "Cookies: As with many Websites, our Website uses a technology called 'cookies'. A cookie is a unique, random number that is stored in the browser on your computer. The cookie doesn't actually identify you, just the computer that is used to visit the site. Cookies automatically identify your browser to the Website whenever your computer is used to visit the Website. Cookies also let us know how many people visit our website and where visitors go on the site. In addition, cookies can let us know non-personally identifiable information, like what web browser is being used to access the website.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses the collection of computer information for transaction purposes."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy only specifies transaction purposes for computer information.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We may use this information to complete the transaction that you have requested, i.e., to deliver the information, products or other services that you order, and to invoice you. For your protection, such information is collected and stored through encrypted means.",
+       "denial_quote": "",
+       "generic_quote": "We may use this information to complete the transaction that you have requested, i.e., to deliver the information, products or other services that you order, and to invoice you. For your protection, such information is collected and stored through encrypted means.",
+       "purpose_quote": "We may use this information to complete the transaction that you have requested, i.e., to deliver the information, products or other services that you order, and to invoice you. For your protection, such information is collected and stored through encrypted means.",
+       "unspecified_purpose_quote": "We may use this information to complete the transaction that you have requested, i.e., to deliver the information, products or other services that you order, and to invoice you. For your protection, such information is collected and stored through encrypted means.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy only specifies transaction purposes for computer information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9864290791316118
+   }
+  ],
+  "paragraphs_shown": [
+   41
+  ],
+  "paragraphs_total": 41,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 214.28
+ }
+}

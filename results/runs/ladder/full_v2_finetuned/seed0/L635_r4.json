@@ -1,0 +1,106 @@
+{
+ "case_id": "L635_r4",
+ "system": "full_v2_finetuned",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "We take reasonable measures to protect the confidentiality, security, and integrity of the personal information collected from our website visitors.",
+   "rationale": "The policy mentions sharing personal information with affiliates and third parties but does not specify sharing with Mixpanel. It also mentions taking reasonable measures to protect personal information but does not disclose specific sharing with Mixpanel.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9452246722814152,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9452246722814152,
+ "usage": {
+  "prompt": 1266,
+  "output": 205
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 37,
+  "untagged_paragraphs": 0,
+  "claims": 45,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Personal identifier",
+    "recipient": "mixpanel",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Personal identifier with mixpanel is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     28,
+     25,
+     31
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "We take reasonable measures to protect the confidentiality, security, and integrity of the personal information collected from our website visitors.",
+      "rationale": "The policy mentions sharing personal information with affiliates and third parties but does not specify sharing with Mixpanel. It also mentions taking reasonable measures to protect personal information but does not disclose specific sharing with Mixpanel.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not control our affiliates' or third parties' use of your information after we share it, but we use reasonable efforts to obtain our affiliates' and third parties' agreement to protect the confidentiality, security, and integrity of any personal information we share with them or that we permit them to collect directly.",
+       "generic_quote": "We take reasonable measures to protect the confidentiality, security, and integrity of the personal information collected from our website visitors.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing personal information with affiliates and third parties but does not specify sharing with Mixpanel. It also mentions taking reasonable measures to protect personal information but does not disclose specific sharing with Mixpanel."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9452246722814152
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 0.06
+ }
+}

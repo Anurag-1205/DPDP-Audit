@@ -1,0 +1,404 @@
+{
+ "case_id": "581_v1",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "We use the information to improve our website and improve your experience while at our website.",
+   "rationale": "The policy does not specify a purpose for contact data but mentions improving the website and user experience.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We collect Aggregate Information about you and your use of our Site whenever you visit us online.",
+   "rationale": "The policy explicitly mentions collecting IP addresses and provides general information about collecting aggregate data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "User online activities",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for user online activities, hence it is indefinite.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9432298860679992,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9432298860679992,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": 0.9432298860679992,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9525039533597054,
+ "usage": {
+  "prompt": 6668,
+  "output": 967
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 16,
+  "untagged_paragraphs": 0,
+  "claims": 48,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     5,
+     6,
+     3,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     1,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     7,
+     8,
+     9,
+     11,
+     12,
+     14,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     7,
+     8,
+     9,
+     11,
+     12,
+     14,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "User online activities is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     7,
+     8,
+     9,
+     11,
+     12,
+     14,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps User online activities indefinitely; retention statements: ['Indefinitely', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     4,
+     8,
+     11,
+     14,
+     15,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We collect Aggregate Information about you and your use of our Site whenever you visit us online.",
+      "rationale": "The policy explicitly mentions collecting IP addresses and provides general information about collecting aggregate data.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "An IP address is a number that is automatically assigned to your computer whenever you are surfing the Web.",
+       "denial_quote": "",
+       "generic_quote": "We collect Aggregate Information about you and your use of our Site whenever you visit us online.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting IP addresses and provides general information about collecting aggregate data."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies using IP addresses for diagnostic purposes, but does not mention advertising.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We use your IP address to help diagnose problems with our server, and to administer our Web site.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies using IP addresses for diagnostic purposes, but does not mention advertising."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We collect Aggregate Information about you and your use of our Site whenever you visit us online.",
+      "rationale": "The policy mentions collecting aggregate information and logging IP addresses, but does not specify a purpose.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We collect Aggregate Information about you and your use of our Site whenever you visit us online.",
+       "denial_quote": "",
+       "generic_quote": "In addition, when users request pages on our Site, our servers automatically log their IP addresses.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting aggregate information and logging IP addresses, but does not specify a purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9432298860679992
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "We use the information to improve our website and improve your experience while at our website.",
+      "rationale": "The policy does not specify a purpose for contact data but mentions improving the website and user experience.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We use the information to improve our website and improve your experience while at our website.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a purpose for contact data but mentions improving the website and user experience."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "We use your IP address to help diagnose problems with our server, and to administer our Web site.",
+      "rationale": "The policy specifies a purpose for IP addresses, which is diagnosing server issues and administering the website.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "We use your IP address to help diagnose problems with our server, and to administer our Web site.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy specifies a purpose for IP addresses, which is diagnosing server issues and administering the website."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9578089174936025
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for user online activities, hence it is indefinite.",
+      "raw": {
+       "candidate_id": "c6",
+       "data_type": "User online activities",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a retention period for user online activities, hence it is indefinite."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9564730565175142
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": true, \"reason\": \"The policy evidence states that the app uses contact data to improve the website and user experience, which does not specify a purpose for t'",
+  "llm_calls": 4,
+  "seconds": 115.04
+ }
+}

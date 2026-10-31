@@ -1,0 +1,230 @@
+{
+ "case_id": "98_v2",
+ "system": "full_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify any purpose for collecting location data.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy does not specify any purpose for collecting location data, which aligns with the finding of purpose mismatch at the omission level. The cited sections of the DPDP Act emphasize the need for a notice that includes the purpose for processing personal data, which is missing in this case."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Survey data",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Whether you access our Online Services from your computer, smart phone, tablet or other mobile device, NOTMC and its agents may collect some information that identifies you or relates to you as an individual (\"Personal Information\"), such as your name, mailing address, telephone number, e-mail address, user name and password (for account administration), device ID, including IP address, geolocation (if using a mobile application and you consent to providing it), and additional personal information necessary for the administration of certain promotional events.",
+   "rationale": "The policy mentions collecting various types of personal information but does not specifically mention survey data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting various types of personal information, including survey data, but does not explicitly state that it collects survey data. This finding is about undisclosed collection, which requires explicit mention in the policy. Since the policy does not explicitly mention "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9966862773025916,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9838582868438672,
+ "usage": {
+  "prompt": 4732,
+  "output": 807
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 41,
+  "untagged_paragraphs": 0,
+  "claims": 53,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     7,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location is collected for ['basic service/feature'], the app uses it for Marketing",
+    "paragraphs": [
+     6,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Survey data",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Survey data is covered only by generic collection statements",
+    "paragraphs": [
+     6,
+     9,
+     10,
+     11,
+     15,
+     16,
+     24,
+     20,
+     12
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Whether you access our Online Services from your computer, smart phone, tablet or other mobile device, NOTMC and its agents may collect some information that identifies you or relates to you as an individual (\"Personal Information\"), such as your name, mailing address, telephone number, e-mail address, user name and password (for account administration), device ID, including IP address, geolocation (if using a mobile application and you consent to providing it), and additional personal information necessary for the administration of certain promotional events.",
+      "rationale": "The policy mentions collecting various types of personal information but does not specifically mention survey data.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "Whether you access our Online Services from your computer, smart phone, tablet or other mobile device, NOTMC and its agents may collect some information that identifies you or relates to you as an individual ('Personal Information'), such as your name, mailing address, telephone number, e-mail address, user name and password (for account administration), device ID, including IP address, geolocation (if using a mobile application and you consent to providing it), and additional personal information necessary for the administration of certain promotional events.",
+       "generic_quote": "Whether you access our Online Services from your computer, smart phone, tablet or other mobile device, NOTMC and its agents may collect some information that identifies you or relates to you as an individual ('Personal Information'), such as your name, mailing address, telephone number, e-mail address, user name and password (for account administration), device ID, including IP address, geolocation (if using a mobile application and you consent to providing it), and additional personal information necessary for the administration of certain promotional events.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting various types of personal information but does not specifically mention survey data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9966862773025916
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "In addition, when users request pages on our Online Services, our servers automatically log the IP address of the particular user. The IP address is a unique number assigned to your computer in order to identify it whenever you are surfing the web.",
+      "rationale": "The policy explicitly states the purpose for collecting IP addresses.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "In addition, when users request pages on our Online Services, our servers automatically log the IP address of the particular user. The IP address is a unique number assigned to your computer in order to identify it whenever you are surfing the web.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states the purpose for collecting IP addresses."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify any purpose for collecting location data.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify any purpose for collecting location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9710302963851429
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 52.93,
+  "reverified_from": "full_finetuned",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

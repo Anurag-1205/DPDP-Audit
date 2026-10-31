@@ -1,0 +1,103 @@
+{
+ "case_id": "L676_r2",
+ "system": "full_finetuned",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "Privacy We do not share your device and browser information with third parties.",
+   "rationale": "The policy both discloses sharing with Google for advertising purposes and explicitly states it does not share with third parties, creating a compliance gap.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states 'Privacy We do not share your device and browser information with third parties.' This directly contradicts the finding of undisclosed sharing. Additionally, the cited DPDP text pertains to providing notice to the data principal regarding their personal data and the purpos"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9552509221424513,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9552509221424513,
+ "usage": {
+  "prompt": 1636,
+  "output": 259
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 10,
+  "untagged_paragraphs": 0,
+  "claims": 7,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not share Computer information",
+    "paragraphs": [
+     0,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "Privacy We do not share your device and browser information with third parties.",
+      "rationale": "The policy both discloses sharing with Google for advertising purposes and explicitly states it does not share with third parties, creating a compliance gap.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Google, as a third party advertisement vendor, uses cookies to serve ads on this site. The use of DART cookies by Google enables them to serve adverts to visitors that are based on their visits to this website as well as other sites on the internet.",
+       "denial_quote": "Privacy We do not share your device and browser information with third parties.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy both discloses sharing with Google for advertising purposes and explicitly states it does not share with third parties, creating a compliance gap."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9552509221424513
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 36.15
+ }
+}

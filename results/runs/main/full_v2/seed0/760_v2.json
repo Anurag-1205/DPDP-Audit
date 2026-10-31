@@ -1,0 +1,343 @@
+{
+ "case_id": "760_v2",
+ "system": "full_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+   "rationale": "The policy explicitly states that IP addresses are collected and stored, but does not specify the exact purpose beyond general tracking and improvement.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions that IP addresses are collected and stored for tracking purposes, which aligns with the purpose stated in the app flow. However, the policy does not specify the exact purpose beyond general tracking and improvement, which supports the finding of an undisclosed collection"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9272815095486343,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9712239406648002,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9567518630501585,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9600941842228083,
+ "usage": {
+  "prompt": 8400,
+  "output": 1036
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 43,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     13,
+     17,
+     3,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     13,
+     17,
+     3,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     4,
+     5,
+     1,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     9,
+     10,
+     11,
+     4,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Demographic is shared with admob for ['marketing'], the app uses it for Advertising",
+    "paragraphs": [
+     5,
+     15,
+     12,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+      "rationale": "The policy explicitly states that IP addresses are collected and stored, but does not specify the exact purpose beyond general tracking and improvement.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+       "denial_quote": "",
+       "generic_quote": "When you visit our Websites, we automatically gather and store the following information about your visit so that we can track the use of our Websites in order to make improvements.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that IP addresses are collected and stored, but does not specify the exact purpose beyond general tracking and improvement."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9272815095486343
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The IP address from which you access our Websites; The name of the domain from which you access the Internet (for example, gmail.com, if you are connecting from a Google account); The type of browser and operating system used to access our Websites; The date and time you access our sites; The pages, files, documents and links that you visit; and The domain of the website which referred you to this Website (the last website you visited before visiting this one).",
+      "rationale": "The policy explicitly discloses the collection of computer information.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "disclosing_quote": "The IP address from which you access our Websites; The name of the domain from which you access the Internet (for example, gmail.com, if you are connecting from a Google account); The type of browser and operating system used to access our Websites; The date and time you access our sites; The pages, files, documents and links that you visit; and The domain of the website which referred you to this Website (the last website you visited before visiting this one).",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly discloses the collection of computer information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9712239406648002
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Some Smithsonian Websites use third-party vendors, such as Google Analytics, to place cookies and analyze the information collected by cookies in order to make the Smithsonian Websites more interesting and useful to you.",
+      "rationale": "The policy explicitly mentions that Google Analytics uses cookies, confirming the sharing.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "Google Analytics (Google, analytics)",
+       "disclosing_quote": "Some Smithsonian Websites use third-party vendors, such as Google Analytics, to place cookies and analyze the information collected by cookies in order to make the Smithsonian Websites more interesting and useful to you.",
+       "denial_quote": "",
+       "generic_quote": "Cookies, which are small pieces of information sent to your browser by a website that you visit, are used to track usage patterns, traffic trends and customer behavior, as well as to record other information from the Website.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions that Google Analytics uses cookies, confirming the sharing."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9567518630501585
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Cookies, which are small pieces of information sent to your browser by a website that you visit, are used to track usage patterns, traffic trends and customer behavior, as well as to record other information from the Website.",
+      "rationale": "The policy explicitly states that cookies are used for tracking usage patterns, traffic trends, and customer behavior, which aligns with the 'Analytics/Research' purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "purpose_quote": "Cookies, which are small pieces of information sent to your browser by a website that you visit, are used to track usage patterns, traffic trends and customer behavior, as well as to record other information from the Website.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that cookies are used for tracking usage patterns, traffic trends, and customer behavior, which aligns with the 'Analytics/Research' purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9826819950531479
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+      "rationale": "The policy explicitly states the purpose for using demographic data, which matches the application's purpose.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "Demographic",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "purpose_quote": "The data provided by this service (such as age, gender, and interests) is used to better understand visitors to these Websites and customize our Websites to our users' interest.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states the purpose for using demographic data, which matches the application's purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9625316127973009
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 134.01
+ }
+}

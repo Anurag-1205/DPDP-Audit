@@ -1,0 +1,319 @@
+{
+ "case_id": "33_v1",
+ "system": "v2_batch_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "There are six main categories of information we collect about users of our online services users that include (but are not limited to) the following:",
+   "rationale": "The policy mentions collecting information through various means, including cookies and tracking technologies, but does not specify that it does not collect these.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting information through various means, including cookies and tracking technologies, but it does not explicitly state that the app does not collect these. The cited DPDP text requires a clear notice to the user about the personal data and purposes of processing, bu"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Our goal is to collect and use information to deliver effective and personalized services which take your interests and preferences into account, as well as for our legitimate business needs and interests.",
+   "rationale": "The policy does not explicitly state that health data is collected, but it mentions collecting various types of information, which could include health data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not explicitly state that health data is collected, but it mentions collecting various types of information, which could include health data. This is vague and does not meet the requirement of specifying the exact data types and purposes as required by Sec. 5(1) and Rule 3."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Our goal is to collect and use information to deliver effective and personalized services which take your interests and preferences into account, as well as for our legitimate business needs and interests.",
+   "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs but mentions collecting information through various means, including Cookies and Tracking Technologies.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "Similar to finding 1, the policy evidence does not explicitly mention collecting IP addresses or device IDs but mentions collecting information through various means, including Cookies and Tracking Technologies. This is vague and does not meet the requirement of specifying the exact data types and p"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.938334621242585,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9253752131931611,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9517223155103655,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9384773833153705,
+ "usage": {
+  "prompt": 8476,
+  "output": 1150
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 65,
+  "untagged_paragraphs": 0,
+  "claims": 140,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Cookies and tracking elements is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     7,
+     8,
+     12,
+     15,
+     16,
+     17,
+     18,
+     22,
+     26,
+     27,
+     29,
+     31,
+     32,
+     40,
+     62,
+     48,
+     55
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Health is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     7,
+     8,
+     12,
+     15,
+     16,
+     17,
+     18,
+     22,
+     26,
+     27,
+     29,
+     31,
+     32,
+     40,
+     62
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     7,
+     8,
+     12,
+     15,
+     16,
+     17,
+     18,
+     22,
+     26,
+     27,
+     29,
+     31,
+     32,
+     40,
+     62,
+     11
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "There are six main categories of information we collect about users of our online services users that include (but are not limited to) the following:",
+      "rationale": "The policy mentions collecting information through various means, including cookies and tracking technologies, but does not specify that it does not collect these.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "disclosing_quote": "We collect your information when you use our online services in three main ways: directly from you, when you provide it to us: for example, when you request products or services from us, when you register with us, respond to surveys, contact us or otherwise interact with us.",
+       "denial_quote": "",
+       "generic_quote": "There are six main categories of information we collect about users of our online services users that include (but are not limited to) the following:",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting information through various means, including cookies and tracking technologies, but does not specify that it does not collect these."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.938334621242585
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Our goal is to collect and use information to deliver effective and personalized services which take your interests and preferences into account, as well as for our legitimate business needs and interests.",
+      "rationale": "The policy does not explicitly state that health data is collected, but it mentions collecting various types of information, which could include health data.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Health",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "disclosing_quote": "",
+       "denial_quote": "There is no explicit mention of collecting health data in the policy.",
+       "generic_quote": "Our goal is to collect and use information to deliver effective and personalized services which take your interests and preferences into account, as well as for our legitimate business needs and interests.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that health data is collected, but it mentions collecting various types of information, which could include health data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9253752131931611
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Our goal is to collect and use information to deliver effective and personalized services which take your interests and preferences into account, as well as for our legitimate business needs and interests.",
+      "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs but mentions collecting information through various means, including Cookies and Tracking Technologies.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "disclosing_quote": "",
+       "denial_quote": "We collect your information when you use our online services in three main ways: Directly from you, when you provide it to us: for example, when you request products or services from us, when you register with us, respond to surveys, contact us or otherwise interact with us. & Automatically, when you use our online services: we collect information through the use of Cookies and Other Technologies and when you download our Mobile Apps. Please see our Cookies and Tracking Technologies, and Mobile Apps pages for further information, including your choices in relation to the use of these technologies.",
+       "generic_quote": "Our goal is to collect and use information to deliver effective and personalized services which take your interests and preferences into account, as well as for our legitimate business needs and interests.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs but mentions collecting information through various means, including Cookies and Tracking Technologies."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9517223155103655
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 85.68,
+  "reverified_from": "v2_batch",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

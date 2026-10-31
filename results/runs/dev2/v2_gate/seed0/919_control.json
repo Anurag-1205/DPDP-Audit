@@ -1,0 +1,218 @@
+{
+ "case_id": "919_control",
+ "system": "v2_gate",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions cookies are used for identifying items in a shopping cart.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "User profile",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 10"
+   ],
+   "evidence": "We use log analysis tools to create summary statistics, which are used for purposes such as assessing what information is of most interest, determining technical design specifications, and identifying system performance or problem areas.",
+   "rationale": "The policy does not specify any purpose for using cookies for personalization/customization, only for creating summary statistics.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9595593790557186,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9595593790557186,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9548655288931014,
+ "usage": {
+  "prompt": 3477,
+  "output": 501
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 7,
+  "untagged_paragraphs": 0,
+  "claims": 12,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Cookies and tracking elements",
+    "paragraphs": [
+     1,
+     0
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions User online activities",
+    "paragraphs": [
+     1,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "User profile is collected for ['service operation and security'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     5,
+     1
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "However, the following applications do use cookies to store user login information which is intended to make the application more user-friendly:",
+      "rationale": "The policy explicitly states that certain applications use cookies.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "However, the following applications do use cookies to store user login information which is intended to make the application more user-friendly:",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that certain applications use cookies."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions cookies are used for identifying items in a shopping cart.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "A cookie is often used in commercial sites to identify the items selected for a specific shopping cart application.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions cookies are used for identifying items in a shopping cart."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9595593790557186
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "We use log analysis tools to create summary statistics, which are used for purposes such as assessing what information is of most interest, determining technical design specifications, and identifying system performance or problem areas.",
+      "rationale": "The policy does not specify any purpose for using cookies for personalization/customization, only for creating summary statistics.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "User profile",
+       "recipient": "first_party",
+       "purpose": "Personalization/Customization",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We use log analysis tools to create summary statistics, which are used for purposes such as assessing what information is of most interest, determining technical design specifications, and identifying system performance or problem areas.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not specify any purpose for using cookies for personalization/customization, only for creating summary statistics."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.950171678730484
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence provided does not actually disclose the app\\'s practice of collecting user online activities for analytics/research. The'",
+  "llm_calls": 3,
+  "seconds": 0.39
+ }
+}

@@ -1,0 +1,357 @@
+{
+ "case_id": "1582_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We collect this information in a variety of ways, including from web forms, technologies like cookies, web logging and software on your computer or other device.",
+   "rationale": "The policy does not specify the collection of IP addresses and device IDs for additional service/feature purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence describes general methods of collecting data but does not specify the collection of IP addresses and device IDs for additional service/feature purposes. The cited DPDP text requires specifying the personal data and purposes for processing it, which is not done here."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify the collection of location data for additional service/feature purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing, and the rationale states that the policy does not mention the collection of location data for additional service/feature purposes. This finding cannot be supported because there is no evidence provided to justify the claim."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy specifies the use of cookies for various purposes, including operating, improving, personalizing, and maintaining services, as well as detecting security threats.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing, and the rationale states that the policy does not mention the use of cookies and tracking elements for service operation and security purposes. This finding cannot be supported because there is no evidence provided to justify the claim."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9820562189746193,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9820562189746193,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9820562189746193,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9820562189746193,
+ "usage": {
+  "prompt": 4382,
+  "output": 1865
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 89,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect this information in a variety of ways, including from web forms, technologies like cookies, web logging and software on your computer or other device.",
+      "rationale": "The policy does not specify the collection of IP addresses and device IDs for additional service/feature purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "When you use Bing and MSN services, Microsoft may collect many kinds of information in order to operate effectively and provide you the best products, services and experiences we can. We collect information when you register, sign in and use our sites and services. We also may get information from other companies. We collect this information in a variety of ways, including from web forms, technologies like cookies, web logging and software on your computer or other device.",
+       "generic_quote": "We collect this information in a variety of ways, including from web forms, technologies like cookies, web logging and software on your computer or other device.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We collect this information in a variety of ways, including from web forms, technologies like cookies, web logging and software on your computer or other device.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify the collection of IP addresses and device IDs for additional service/feature purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect this information in a variety of ways, including from web forms, technologies like cookies, web logging and software on your computer or other device.",
+      "rationale": "The policy does not specify the purpose for which IP addresses and device IDs are used for additional service/feature purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "We collect this information in a variety of ways, including from web forms, technologies like cookies, web logging and software on your computer or other device.",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We collect this information in a variety of ways, including from web forms, technologies like cookies, web logging and software on your computer or other device.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify the purpose for which IP addresses and device IDs are used for additional service/feature purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify the collection of location data for additional service/feature purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We collect this information in a variety of ways, including from web forms, technologies like cookies, web logging and software on your computer or other device.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify the collection of location data for additional service/feature purposes."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect this information in a variety of ways, including from web forms, technologies like cookies, web logging and software on your computer or other device.",
+      "rationale": "The policy does not specify the purpose for which location data is used for additional service/feature purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We collect this information in a variety of ways, including from web forms, technologies like cookies, web logging and software on your computer or other device.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify the purpose for which location data is used for additional service/feature purposes."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies the use of cookies for various purposes, including operating, improving, personalizing, and maintaining services, as well as detecting security threats.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "When you use Bing and MSN services, we will place one or more 'cookies' on your machine. For example, Bing uses a cookie with a unique identifier known as the Search ID to operate the service and enable certain search features. If you sign into Bing or other Microsoft services using a Microsoft account, we will set or read one or more additional cookies.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use the information we collect to operate, improve and personalize the products and services we offer. We also may use the information to communicate with you, for example, informing you about your account and security updates. For Bing services, we use this information to provide you with relevant search results. We also use the information we collect to maintain and improve the quality, security and integrity of our services. For example we may use this information for research purposes and to improve the relevancy of Bing search results. This information is also necessary in order to detect and protect against security threats such as botnet attacks, click fraud, worms, and other threats. For Microsoft Services that are powered by Bing, we may also use this information to personalize your experience. Please see the Microsoft Services Powered by Bing section for more information. Finally, as described in the Display of Advertising section of this document, we may use search query data for the purpose of personalizing the ads we display to you as you use our services or those of our advertising partners.",
+       "unspecified_purpose_quote": "We collect this information in a variety of ways, including from web forms, technologies like cookies, web logging and software on your computer or other device.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies the use of cookies for various purposes, including operating, improving, personalizing, and maintaining services, as well as detecting security threats."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies the use of cookies for various purposes, including operating, improving, personalizing, and maintaining services, as well as detecting security threats.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We use the information we collect to operate, improve and personalize the products and services we offer. We also may use the information to communicate with you, for example, informing you about your account and security updates. For Bing services, we use this information to provide you with relevant search results. We also use the information we collect to maintain and improve the quality, security and integrity of our services. For example we may use this information for research purposes and to improve the relevancy of Bing search results. This information is also necessary in order to detect and protect against security threats such as botnet attacks, click fraud, worms, and other threats. For Microsoft Services that are powered by Bing, we may also use this information to personalize your experience. Please see the Microsoft Services Powered by Bing section for more information. Finally, as described in the Display of Advertising section of this document, we may use search query data for the purpose of personalizing the ads we display to you as you use our services or those of our advertising partners.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We use the information we collect to operate, improve and personalize the products and services we offer. We also may use the information to communicate with you, for example, informing you about your account and security updates. For Bing services, we use this information to provide you with relevant search results. We also use the information we collect to maintain and improve the quality, security and integrity of our services. For example we may use this information for research purposes and to improve the relevancy of Bing search results. This information is also necessary in order to detect and protect against security threats such as botnet attacks, click fraud, worms, and other threats. For Microsoft Services that are powered by Bing, we may also use this information to personalize your experience. Please see the Microsoft Services Powered by Bing section for more information. Finally, as described in the Display of Advertising section of this document, we may use search query data for the purpose of personalizing the ads we display to you as you use our services or those of our advertising partners.",
+       "unspecified_purpose_quote": "We collect this information in a variety of ways, including from web forms, technologies like cookies, web logging and software on your computer or other device.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy specifies the use of cookies for various purposes, including operating, improving, personalizing, and maintaining services, as well as detecting security threats."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9820562189746193
+   }
+  ],
+  "paragraphs_shown": [
+   32
+  ],
+  "paragraphs_total": 32,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 138.5
+ }
+}

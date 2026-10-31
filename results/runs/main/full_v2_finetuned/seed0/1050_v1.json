@@ -1,0 +1,257 @@
+{
+ "case_id": "1050_v1",
+ "system": "full_v2_finetuned",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "With both cookies and Spotlight technology, the information that we collect and share is anonymous and not personally identifiable. It does not contain your name, address, telephone number, or email address.",
+   "rationale": "The policy does not specify any purpose for demographic data, only that it is collected anonymously.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence indicates that the app collects and shares demographic data anonymously without specifying any particular purpose. The cited DPDP text from Section 5(1) requires the Data Fiduciary to inform the Data Principal about the personal data and the purpose for which it is proposed to be"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Information about you to nonaffiliated third parties as permitted or required by law (for example, information provided to credit reporting agencies or in response to a subpoena).",
+   "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with Google AdMob, but it mentions sharing information with third parties for lawful purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention any restrictions on processing IP addresses and device IDs for advertising purposes.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9486847476378939,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9610010461899073,
+ "usage": {
+  "prompt": 5464,
+  "output": 580
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 72,
+  "untagged_paragraphs": 0,
+  "claims": 150,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Demographic is collected for ['additional service/feature', 'basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     12,
+     21,
+     27,
+     37,
+     64,
+     70,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     11,
+     13,
+     67,
+     10,
+     55
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "omission",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Information about you to nonaffiliated third parties as permitted or required by law (for example, information provided to credit reporting agencies or in response to a subpoena).",
+      "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with Google AdMob, but it mentions sharing information with third parties for lawful purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "AHFC customers are also encouraged to see the American Honda Finance Corporation Financial Privacy Policy below to learn more about protections and use of your nonpublic personal information (such as personally identifiable financial information).",
+       "generic_quote": "Information about you to nonaffiliated third parties as permitted or required by law (for example, information provided to credit reporting agencies or in response to a subpoena).",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with Google AdMob, but it mentions sharing information with third parties for lawful purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9486847476378939
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "With both cookies and Spotlight technology, the information that we collect and share is anonymous and not personally identifiable. It does not contain your name, address, telephone number, or email address.",
+      "rationale": "The policy does not specify any purpose for demographic data, only that it is collected anonymously.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Demographic",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "With both cookies and Spotlight technology, the information that we collect and share is anonymous and not personally identifiable. It does not contain your name, address, telephone number, or email address.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify any purpose for demographic data, only that it is collected anonymously."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9726542453579133
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention any restrictions on processing IP addresses and device IDs for advertising purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "children_quote": "",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not mention any restrictions on processing IP addresses and device IDs for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9616641455739147
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 74.59
+ }
+}

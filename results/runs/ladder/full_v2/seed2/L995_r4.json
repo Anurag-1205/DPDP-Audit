@@ -1,0 +1,104 @@
+{
+ "case_id": "L995_r4",
+ "system": "full_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "Certain information, such as address or email address, can be updated or corrected simply by calling Customer Service at 1.888.777.7920.",
+   "rationale": "The policy mentions that certain information can be updated or corrected, but it does not specify the collection of location data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided discusses the update and correction of certain information, such as address or email address, and does not mention the collection of location data. The cited sections of the DPDP Act focus on providing notices regarding data processing and consent, which do not directly "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9549644432246318,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9549644432246318,
+ "usage": {
+  "prompt": 1750,
+  "output": 236
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 6,
+  "untagged_paragraphs": 0,
+  "claims": 11,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "Certain information, such as address or email address, can be updated or corrected simply by calling Customer Service at 1.888.777.7920.",
+      "rationale": "The policy mentions that certain information can be updated or corrected, but it does not specify the collection of location data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Mohegan Sun does not share or sell your personal information to anyone.",
+       "generic_quote": "Certain information, such as address or email address, can be updated or corrected simply by calling Customer Service at 1.888.777.7920.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy mentions that certain information can be updated or corrected, but it does not specify the collection of location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9549644432246318
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 0.06
+ }
+}

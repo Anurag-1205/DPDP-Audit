@@ -1,0 +1,338 @@
+{
+ "case_id": "21_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We receive and store certain types of information whenever you interact with us.",
+   "rationale": "The policy discloses collecting contact information and specifies purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'We receive and store certain types of information whenever you interact with us.' does not specify what types of information are collected. While the cited DPDP text requires specifying the personal data and purposes for processing, the policy evidence is too vague to justify an"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We receive and store certain types of information whenever you interact with us.",
+   "rationale": "The policy discloses collecting IP addresses and device IDs and specifies purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "Similar to finding 0, the policy evidence 'We receive and store certain types of information whenever you interact with us.' does not specify what types of information are collected. The cited DPDP text requires specifying the personal data and purposes for processing, but the policy evidence is too"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.987909346386302,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.987909346386302,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.987909346386302,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.987909346386302,
+ "usage": {
+  "prompt": 4269,
+  "output": 1389
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 36,
+  "untagged_paragraphs": 0,
+  "claims": 69,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We receive and store certain types of information whenever you interact with us.",
+      "rationale": "The policy discloses collecting contact information and specifies purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We receive and store any information you enter on our Web site or give us in any other way.",
+       "denial_quote": "",
+       "generic_quote": "We receive and store certain types of information whenever you interact with us.",
+       "purpose_quote": "We use the information that you provide for such purposes as responding to your requests, customizing future browsing for you, improving our site, and communicating with you.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact information and specifies purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting contact information and specifies purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We receive and store any information you enter on our Web site or give us in any other way.",
+       "denial_quote": "",
+       "generic_quote": "We receive and store certain types of information whenever you interact with us.",
+       "purpose_quote": "We use the information that you provide for such purposes as responding to your requests, customizing future browsing for you, improving our site, and communicating with you.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting contact information and specifies purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We receive and store certain types of information whenever you interact with us.",
+      "rationale": "The policy discloses collecting IP addresses and device IDs and specifies purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We receive and store certain types of information whenever you interact with us. For example, like many Web sites, we use 'cookies', and we obtain certain types of information when your Web browser accesses IMDb or advertisements and other content served by or on behalf of IMDb on other Web sites.",
+       "denial_quote": "",
+       "generic_quote": "We receive and store certain types of information whenever you interact with us.",
+       "purpose_quote": "We use web beacons (also known as 'action tags' or 'single-pixel gifs') and other technologies to measure the effectiveness of certain site features and to conduct research and analysis. We also allow third parties to place web beacons and other technologies on our site to conduct research and analysis, but we do not provide personal information to such third parties.",
+       "unspecified_purpose_quote": "We receive and store certain types of information whenever you interact with us.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting IP addresses and device IDs and specifies purposes."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy discloses collecting IP addresses and device IDs and specifies purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We use web beacons (also known as 'action tags' or 'single-pixel gifs') and other technologies to measure the effectiveness of certain site features and to conduct research and analysis. We also allow third parties to place web beacons and other technologies on our site to conduct research and analysis, but we do not provide personal information to such third parties.",
+       "denial_quote": "",
+       "generic_quote": "We receive and store certain types of information whenever you interact with us.",
+       "purpose_quote": "We use web beacons (also known as 'action tags' or 'single-pixel gifs') and other technologies to measure the effectiveness of certain site features and to conduct research and analysis. We also allow third parties to place web beacons and other technologies on our site to conduct research and analysis, but we do not provide personal information to such third parties.",
+       "unspecified_purpose_quote": "We receive and store certain types of information whenever you interact with us.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting IP addresses and device IDs and specifies purposes."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you download or use apps created by IMDb, we may receive information about your location and your mobile device, including a unique identifier for your device.",
+      "rationale": "The policy discloses collecting location data and specifies purposes.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "When you download or use apps created by IMDb, we may receive information about your location and your mobile device, including a unique identifier for your device.",
+       "denial_quote": "",
+       "generic_quote": "We receive and store certain types of information whenever you interact with us.",
+       "purpose_quote": "We may use this information to provide you with location-based services, such as advertising, local showtimes, and search results, and other personalized content.",
+       "unspecified_purpose_quote": "We may receive information about your location and your mobile device, including a unique identifier for your device.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting location data and specifies purposes."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may use this information to provide you with location-based services, such as advertising, local showtimes, search results, and other personalized content.",
+      "rationale": "The policy discloses collecting location data and specifies purposes.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "When you download or use apps created by IMDb, we may receive information about your location and your mobile device, including a unique identifier for your device.",
+       "denial_quote": "",
+       "generic_quote": "We receive and store certain types of information whenever you interact with us.",
+       "purpose_quote": "We may use this information to provide you with location-based services, such as advertising, local showtimes, and search results, and other personalized content.",
+       "unspecified_purpose_quote": "We may receive information about your location and your mobile device, including a unique identifier for your device.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses collecting location data and specifies purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.987909346386302
+   }
+  ],
+  "paragraphs_shown": [
+   36
+  ],
+  "paragraphs_total": 36,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 113.9
+ }
+}

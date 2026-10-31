@@ -1,0 +1,134 @@
+{
+ "case_id": "962_v1",
+ "system": "A5_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8",
+    "Third Schedule"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for IP addresses and device IDs, indicating indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9696722894940745,
+ "usage": {
+  "prompt": 1622,
+  "output": 186
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 74,
+  "untagged_paragraphs": 0,
+  "claims": 202,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps IP address and device IDs indefinitely; retention statements: ['Limited', 'Other', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     10,
+     17,
+     27,
+     41,
+     48,
+     13,
+     61
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8",
+       "Third Schedule"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for IP addresses and device IDs, indicating indefinite retention.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "retention_mismatch",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "paragraphs": [
+        10,
+        17,
+        27,
+        41,
+        48,
+        13,
+        61
+       ],
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8",
+        "Third Schedule"
+       ],
+       "rationale": "The policy does not specify a retention period for IP addresses and device IDs, indicating indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9696722894940745
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 17.0
+ }
+}

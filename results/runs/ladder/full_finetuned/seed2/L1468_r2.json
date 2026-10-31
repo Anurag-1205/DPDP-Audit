@@ -1,0 +1,103 @@
+{
+ "case_id": "L1468_r2",
+ "system": "full_finetuned",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "[P29] Internet Log Files: The Company may also keep track of IP addresses used to access its Online Services for various reasons. An IP address is a number that is used by a networked device and will identify your point of connection to the internet. Depending on your network configuration, it may also identify your computer, or other device. A MAC address or other device ID identifies one specific piece of hardware. These log files are tied to your personal information in certain circumstances, such as if you have linked your console user account to Online Service accounts offered by the Company.",
+   "rationale": "The policy explicitly states that no sharing occurs, but also mentions logging for various reasons, which could imply tracking.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not explicitly state that no sharing occurs. Instead, it mentions logging for various reasons, which could include tracking. However, the evidence provided does not clearly indicate that the sharing of IP addresses and device IDs with AdMob for advertising purposes is undisc"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9636272718465395,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9636272718465395,
+ "usage": {
+  "prompt": 1772,
+  "output": 325
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 54,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not share IP address and device IDs",
+    "paragraphs": [
+     8,
+     29
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "[P29] Internet Log Files: The Company may also keep track of IP addresses used to access its Online Services for various reasons. An IP address is a number that is used by a networked device and will identify your point of connection to the internet. Depending on your network configuration, it may also identify your computer, or other device. A MAC address or other device ID identifies one specific piece of hardware. These log files are tied to your personal information in certain circumstances, such as if you have linked your console user account to Online Service accounts offered by the Company.",
+      "rationale": "The policy explicitly states that no sharing occurs, but also mentions logging for various reasons, which could imply tracking.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "[P8] We do not share your device identifiers and IP address with third parties.",
+       "generic_quote": "[P29] Internet Log Files: The Company may also keep track of IP addresses used to access its Online Services for various reasons. An IP address is a number that is used by a networked device and will identify your point of connection to the internet. Depending on your network configuration, it may also identify your computer, or other device. A MAC address or other device ID identifies one specific piece of hardware. These log files are tied to your personal information in certain circumstances, such as if you have linked your console user account to Online Service accounts offered by the Company.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that no sharing occurs, but also mentions logging for various reasons, which could imply tracking."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9636272718465395
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 42.51
+ }
+}

@@ -1,0 +1,458 @@
+{
+ "case_id": "1582_v2",
+ "system": "A3_v2_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 4(2)",
+    "Sec. 27(1)"
+   ],
+   "evidence": "Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+   "rationale": "The policy does not specify a purpose for IP addresses and device IDs, only mentioning them as collected data.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions IP addresses and device IDs as collected data but does not explicitly state their purpose. However, the cited sections (Sec. 5(1), Sec. 4(2), Sec. 27(1)) do not directly address the purpose of collecting IP addresses and device IDs. Therefore, while there is a lack of sp"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10",
+    "Sec. 12(2)"
+   ],
+   "evidence": "We use demographic information - gender, country, age and postal code but not your name or contact information - from your Microsoft account to provide personalized ads to you.",
+   "rationale": "The policy does not explicitly state that demographic data is shared with Google AdMob, nor does it deny such sharing. The sharing is covered generically under 'personal information' and 'providing personalized ads', which may include demographic data. However, the policy violates Sec. 9(3) and Rule 10 as it does not obtain verifiable consent from parents before processing personal data of children.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10",
+    "Sec. 9(5)"
+   ],
+   "evidence": "When a Microsoft site or service collects age information, it will block users under 13 or obtain consent from a parent or guardian before their child can use it.",
+   "rationale": "The policy mentions blocking users under 13 and obtaining parental consent, but it does not explicitly state that it does not direct advertising to children under 13.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We will share your personal information with your consent. We may also share or disclose information with Microsoft affiliates and vendors;",
+   "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with Google AdMob. However, it mentions sharing personal information with affiliates and vendors, which could potentially include Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10",
+    "Sec. 2"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not comply with the prohibition on targeted advertising for children.",
+   "reviewer": "children",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9218486118438195,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9585820547329521,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9513669857300006,
+ "usage": {
+  "prompt": 8177,
+  "output": 1284
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 61,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     5,
+     20,
+     19,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Cookies and tracking elements is collected for ['additional service/feature', 'advertising', 'analytics/research', 'basic service/feature', 'personalization/customization', 'unspecified'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     2,
+     3,
+     4,
+     5,
+     13,
+     24,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Demographic with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     11,
+     12,
+     29
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends Demographic to the advertising SDK Google AdMob",
+    "paragraphs": [
+     21,
+     22
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     7,
+     11,
+     12,
+     5,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     21,
+     22
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 4(2)",
+       "Sec. 27(1)"
+      ],
+      "evidence": "Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+      "rationale": "The policy does not specify a purpose for IP addresses and device IDs, only mentioning them as collected data.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Search term and time and date of your search IP address, browser configuration and your location Any unique identifiers contained in the cookies",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 4(2)",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy does not specify a purpose for IP addresses and device IDs, only mentioning them as collected data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.95387268270179
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 27(1)"
+      ],
+      "evidence": "We use these cookies to operate Bing and MSN services and provide you a more relevant search experience.",
+      "rationale": "The policy explicitly states the purpose of cookies for operating services and providing a relevant search experience.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "purpose_quote": "We use these cookies to operate Bing and MSN services and provide you a more relevant search experience.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 27(1)"
+       ],
+       "rationale": "The policy explicitly states the purpose of cookies for operating services and providing a relevant search experience."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9617377752658952
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10",
+       "Sec. 12(2)"
+      ],
+      "evidence": "We use demographic information - gender, country, age and postal code but not your name or contact information - from your Microsoft account to provide personalized ads to you.",
+      "rationale": "The policy does not explicitly state that demographic data is shared with Google AdMob, nor does it deny such sharing. The sharing is covered generically under 'personal information' and 'providing personalized ads', which may include demographic data. However, the policy violates Sec. 9(3) and Rule 10 as it does not obtain verifiable consent from parents before processing personal data of children.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We will share your personal information with your consent. We may also share or disclose information with Microsoft affiliates and vendors; when required by law or to respond to legal process; to protect our customers; to protect lives; to maintain the security of our services; and to protect the rights or property of Microsoft.",
+       "generic_quote": "We use demographic information - gender, country, age and postal code but not your name or contact information - from your Microsoft account to provide personalized ads to you.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10",
+        "Sec. 12(2)"
+       ],
+       "rationale": "The policy does not explicitly state that demographic data is shared with Google AdMob, nor does it deny such sharing. The sharing is covered generically under 'personal information' and 'providing personalized ads', which may include demographic data. However, the policy violates Sec. 9(3) and Rule 10 as it does not obtain verifiable consent from parents before processing personal data of children."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9218486118438195
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10",
+       "Sec. 9(5)"
+      ],
+      "evidence": "When a Microsoft site or service collects age information, it will block users under 13 or obtain consent from a parent or guardian before their child can use it.",
+      "rationale": "The policy mentions blocking users under 13 and obtaining parental consent, but it does not explicitly state that it does not direct advertising to children under 13.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Demographic",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "children_quote": "When a Microsoft site or service collects age information, it will block users under 13 or obtain consent from a parent or guardian before their child can use it.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10",
+        "Sec. 9(5)"
+       ],
+       "rationale": "The policy mentions blocking users under 13 and obtaining parental consent, but it does not explicitly state that it does not direct advertising to children under 13."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9444770577037158
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We will share your personal information with your consent. We may also share or disclose information with Microsoft affiliates and vendors;",
+      "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with Google AdMob. However, it mentions sharing personal information with affiliates and vendors, which could potentially include Google AdMob.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "We store search terms (and the cookie IDs associated with search terms) separately from any account information that directly identifies the user, such as name, e-mail address, or phone numbers.",
+       "generic_quote": "We will share your personal information with your consent. We may also share or disclose information with Microsoft affiliates and vendors;",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with Google AdMob. However, it mentions sharing personal information with affiliates and vendors, which could potentially include Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9585820547329521
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10",
+       "Sec. 2"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not comply with the prohibition on targeted advertising for children.",
+      "raw": {
+       "candidate_id": "c6",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10",
+        "Sec. 2"
+       ],
+       "rationale": "The policy does not comply with the prohibition on targeted advertising for children."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9676837321318309
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 7,
+  "seconds": 119.28,
+  "reverified_from": "A3_v2",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

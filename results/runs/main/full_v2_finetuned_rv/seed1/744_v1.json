@@ -1,0 +1,177 @@
+{
+ "case_id": "744_v1",
+ "system": "full_v2_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "Demographic",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8",
+    "Third Schedule"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for demographic information, implying indefinite retention.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9811488094467288,
+ "usage": {
+  "prompt": 2553,
+  "output": 335
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 26,
+  "untagged_paragraphs": 0,
+  "claims": 50,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature', 'service operation and security'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     3,
+     5,
+     7,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps Demographic indefinitely; retention statements: none",
+    "paragraphs": [
+     4,
+     18
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "When you enter a contest or sweepstakes with Curse, in addition to your screen name, name and email address, we will ask for your mailing address in case we have to mail you a prize, and may ask you to opt into receiving a third party's offers and/or newsletter.",
+      "rationale": "The policy explicitly states that personal information can be used for additional service/feature purposes, such as contests and newsletters.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "When you enter a contest or sweepstakes with Curse, in addition to your screen name, name and email address, we will ask for your mailing address in case we have to mail you a prize, and may ask you to opt into receiving a third party's offers and/or newsletter.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that personal information can be used for additional service/feature purposes, such as contests and newsletters."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9881001733271211
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8",
+       "Third Schedule"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for demographic information, implying indefinite retention.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "retention_mismatch",
+       "data_type": "Demographic",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "retention": "indefinitely",
+       "retention_quote": "This demographic information may be associated with your personal information.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8",
+        "Third Schedule"
+       ],
+       "rationale": "The policy does not specify a retention period for demographic information, implying indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9741974455663365
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 42.25,
+  "reverified_from": "full_v2_finetuned",
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

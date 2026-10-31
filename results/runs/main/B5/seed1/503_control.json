@@ -1,0 +1,356 @@
+{
+ "case_id": "503_control",
+ "system": "B5",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We collect the information you affirmatively choose to provide us",
+   "rationale": "The policy discloses that personal information is collected and stored, but does not specify the exact purpose for collecting contact details.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that personal information is collected, but does not specify the exact purpose for collecting contact details. This aligns with the cited DPDP text which requires specifying the purpose for processing personal data. The rationale correctly identifies that the policy is vag"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f2",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We also collect your information through the use of cookies.",
+   "rationale": "The policy mentions collecting cookies but does not specify a purpose for them.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting cookies but does not specify a purpose for them. However, the cited DPDP text requires specifying the purpose for processing personal data. The policy evidence does not actually disclose the practice of using cookies for marketing, but rather just mentions col"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f3",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not mention collecting financial data, and the financial data mentioned is not used for any specified purpose.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is (none: the policy is said not to mention it), indicating that there is no disclosure of collecting financial data. The cited DPDP text requires specifying the purpose for processing personal data. Since the policy does not mention collecting financial data at all, it cannot be"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9690442850802972,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9690442850802972,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9690442850802972,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9690442850802972,
+ "usage": {
+  "prompt": 4165,
+  "output": 1457
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 43,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect the information you affirmatively choose to provide us",
+      "rationale": "The policy discloses that personal information is collected and stored, but does not specify the exact purpose for collecting contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "If you create an account through one of our Sites, this personal information will be stored by us.",
+       "denial_quote": "",
+       "generic_quote": "We collect the information you affirmatively choose to provide us",
+       "purpose_quote": "We use the personal information we collect for various purposes, including to complete a purchase that you initiate, to respond to your requests for information, to manage our Sites, to allow you to participate in electronic activities, marketing analysis, marketing communications, facilitating loyalty programs, and for other lawful purposes.",
+       "unspecified_purpose_quote": "Upon your request, we will make reasonable efforts to delete your personal information from our database, however, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses that personal information is collected and stored, but does not specify the exact purpose for collecting contact details."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We use the personal information we collect for various purposes, including to complete a purchase that you initiate, to respond to your requests for information, to manage our Sites, to allow you to participate in electronic activities, marketing analysis, marketing communications, facilitating loyalty programs, and for other lawful purposes.",
+      "rationale": "The policy discloses that personal information is collected and stored, but does not specify the exact purpose for collecting contact details.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "If you create an account through one of our Sites, this personal information will be stored by us.",
+       "denial_quote": "",
+       "generic_quote": "We collect the information you affirmatively choose to provide us",
+       "purpose_quote": "We use the personal information we collect for various purposes, including to complete a purchase that you initiate, to respond to your requests for information, to manage our Sites, to allow you to participate in electronic activities, marketing analysis, marketing communications, facilitating loyalty programs, and for other lawful purposes.",
+       "unspecified_purpose_quote": "Upon your request, we will make reasonable efforts to delete your personal information from our database, however, it may be impossible to delete your entry without retaining some residual information for a period of time due to backups and records of deletion.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses that personal information is collected and stored, but does not specify the exact purpose for collecting contact details."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We also collect your information through the use of cookies.",
+      "rationale": "The policy mentions collecting cookies but does not specify a purpose for them.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We also collect your information through the use of cookies.",
+       "denial_quote": "",
+       "generic_quote": "Cookies are pieces of data your web browser stores on your hard drive to allow our Sites to provide you with enhanced services.",
+       "purpose_quote": "We use the personal information we collect for various purposes, including to complete a purchase that you initiate, to respond to your requests for information, to manage our Sites, to allow you to participate in electronic activities, marketing analysis, marketing communications, facilitating loyalty programs, and for other lawful purposes.",
+       "unspecified_purpose_quote": "We also collect your information through the use of cookies.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting cookies but does not specify a purpose for them."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We also collect your information through the use of cookies.",
+      "rationale": "The policy mentions collecting cookies but does not specify a purpose for them.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We also collect your information through the use of cookies.",
+       "denial_quote": "",
+       "generic_quote": "Cookies are pieces of data your web browser stores on your hard drive to allow our Sites to provide you with enhanced services.",
+       "purpose_quote": "We use the personal information we collect for various purposes, including to complete a purchase that you initiate, to respond to your requests for information, to manage our Sites, to allow you to participate in electronic activities, marketing analysis, marketing communications, facilitating loyalty programs, and for other lawful purposes.",
+       "unspecified_purpose_quote": "We also collect your information through the use of cookies.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting cookies but does not specify a purpose for them."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not mention collecting financial data, and the financial data mentioned is not used for any specified purpose.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We will not sell or rent the personally identifiable information you provide to us to any third party, except as stated herein.",
+       "unspecified_purpose_quote": "We will not sell or rent the personally identifiable information you provide to us to any third party, except as stated herein.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention collecting financial data, and the financial data mentioned is not used for any specified purpose."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We will not sell or rent the personally identifiable information you provide to us to any third party, except as stated herein.",
+      "rationale": "The policy does not mention collecting financial data, and the financial data mentioned is not used for any specified purpose.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "purpose_quote": "We will not sell or rent the personally identifiable information you provide to us to any third party, except as stated herein.",
+       "unspecified_purpose_quote": "We will not sell or rent the personally identifiable information you provide to us to any third party, except as stated herein.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention collecting financial data, and the financial data mentioned is not used for any specified purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9690442850802972
+   }
+  ],
+  "paragraphs_shown": [
+   20
+  ],
+  "paragraphs_total": 20,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": true, \"reason\": \"The policy evidence states that personal information is collected, but does not specify the exact purpose for collecting contact details. This aligns with the cited DPDP text which requires specifying the purpose for processing personal data. The rationale correctly identifies that the policy is vague regarding the purpose of collecting contact information.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence mentions collecting cookies but does not specify a purpose for them. However, the cited DPDP text requires specifying the purpose for processing personal data. The policy evidence does not actually disclose the practice of using cookies for marketing, but rather just mentions collecting cookies. Therefore, this finding is not supported.\"}]}\n\n{\"checks\": [{\"finding_id\": 2, \"supported\": false, \"reason\": \"The policy evidence is (none: the policy is said not to mention it), indicating that there is no disclosure of collecting financial data. The cited DPDP text requires specifying the purpose for processing personal data. Since the policy does not mention collecting financial data at all, it cannot be considered compliant. Therefore, this finding is supported as an omission.\"}]}",
+  "llm_calls": 2,
+  "seconds": 149.6
+ }
+}

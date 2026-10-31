@@ -1,0 +1,170 @@
+{
+ "case_id": "1360_v2",
+ "system": "A3_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f3",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 9(3)",
+    "Sec. 17(3)"
+   ],
+   "evidence": "We collect personally identifiable information about you when you specifically and knowingly provide such information voluntarily on the Site, including, but not limited to, during the following interactions: (1) when you register on the Site and when you later log-on with your user name and password; (2) when you sign-up to subscribe to a service, a newsletter, or ask to be added to our mailing lists for other products or services; (3) when you place an order for products or services; (4) when you participate in a promotional offer; (5) when you provide feedback in an online survey; (6) when you submit other content and suggestions.",
+   "rationale": "The policy does not explicitly mention collecting demographic data, and it only generally refers to the types of information collected without specifying demographic details.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes various ways in which the app collects personal data, including demographic information, but does not explicitly state that it collects demographic data. However, the finding is not supported because the evidence actually discloses the app's practice of collecting demog"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9583512715325406,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9660064178678106,
+ "usage": {
+  "prompt": 3285,
+  "output": 566
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 19,
+  "untagged_paragraphs": 0,
+  "claims": 27,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f3",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Demographic is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     4,
+     5,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "User profile is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     4,
+     2,
+     3,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 9(3)",
+       "Sec. 17(3)"
+      ],
+      "evidence": "We collect personally identifiable information about you when you specifically and knowingly provide such information voluntarily on the Site, including, but not limited to, during the following interactions: (1) when you register on the Site and when you later log-on with your user name and password; (2) when you sign-up to subscribe to a service, a newsletter, or ask to be added to our mailing lists for other products or services; (3) when you place an order for products or services; (4) when you participate in a promotional offer; (5) when you provide feedback in an online survey; (6) when you submit other content and suggestions.",
+      "rationale": "The policy does not explicitly mention collecting demographic data, and it only generally refers to the types of information collected without specifying demographic details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We collect personally identifiable information about you when you specifically and knowingly provide such information voluntarily on the Site, including, but not to Demographic data.",
+       "generic_quote": "We collect personally identifiable information about you when you specifically and knowingly provide such information voluntarily on the Site, including, but not limited to, during the following interactions: (1) when you register on the Site and when you later log-on with your user name and password; (2) when you sign-up to subscribe to a service, a newsletter, or ask to be added to our mailing lists for other products or services; (3) when you place an order for products or services; (4) when you participate in a promotional offer; (5) when you provide feedback in an online survey; (6) when you submit other content and suggestions.",
+       "sections": [
+        "Sec. 9(3)",
+        "Sec. 17(3)"
+       ],
+       "rationale": "The policy does not explicitly mention collecting demographic data, and it only generally refers to the types of information collected without specifying demographic details."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9583512715325406
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 4(2)",
+       "Rule 8"
+      ],
+      "evidence": "We collect personally identifiable information about you when you specifically and knowingly provide such information voluntarily on the Site, including, but not limited to, during the following interactions: (1) when you register on the Site and when you later log-on with your user name and password; (2) when you sign-up to subscribe to a service, a newsletter, or ask to be added to our mailing lists for other products or services; (3) when you place an order for products or services; (4) when you participate in a promotional offer; (5) when you provide feedback in an online survey; (6) when you submit other content and suggestions.",
+      "rationale": "The policy mentions collecting user profile information but does not specify advertising as a purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "User profile",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "When you register on the Site and when you later log-on with your user name and password; when you sign-up to subscribe to a service, a newsletter, or ask to be added to our mailing lists for other products or services; when you place an order for products or services; when you participate in a promotional offer; when you provide feedback in an online survey; when you submit other content and suggestions.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 4(2)",
+        "Rule 8"
+       ],
+       "rationale": "The policy mentions collecting user profile information but does not specify advertising as a purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9736615642030806
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 48.29
+ }
+}

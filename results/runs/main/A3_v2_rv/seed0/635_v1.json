@@ -1,0 +1,430 @@
+{
+ "case_id": "635_v1",
+ "system": "A3_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 2"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions collecting various data types but does not explicitly state that IP addresses and device IDs are used for advertising.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not actually disclose the app's practice regarding the use of IP addresses and device IDs for advertising. The rationale states that the policy mentions collecting various data types but does not explicitly state that IP addresses and device IDs are used for adverti"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "We may give Sony Entertainment Network account holders the opportunity to provide information about themselves and will from time to time conduct surveys or questionnaires for members to provide feedback and additional information.",
+   "rationale": "The policy does not explicitly disclose the collection of location data but mentions collecting IP addresses and MAC addresses, which could imply location tracking.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided discusses giving users the opportunity to provide information and conducting surveys, which does not directly address the collection of location data. While it mentions collecting IP addresses and MAC addresses, this does not necessarily imply location tracking. Therefor"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 12(3)",
+    "Sec. 12(2)"
+   ],
+   "evidence": "We will retain personally identifying information about you for the period necessary to fulfill the purposes outlined in this policy unless a longer retention period is required by law or regulations.",
+   "rationale": "The policy states that data will be retained indefinitely for unspecified purposes, which does not align with the requirement for a stated period or limited retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "Location",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Sec. 12(3)"
+   ],
+   "evidence": "We will retain personally identifying information about you for the period necessary to fulfill the purposes outlined in this policy unless a longer retention period is required by law or regulations.",
+   "rationale": "The policy states that data will be retained for as long as necessary, which aligns with indefinite retention.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9522975507543903,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": null,
+   "source": "finder"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9609514862213068,
+ "usage": {
+  "prompt": 10159,
+  "output": 1513
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 44,
+  "untagged_paragraphs": 0,
+  "claims": 64,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     8,
+     9,
+     24,
+     35,
+     22,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is collected for ['unspecified'], the app uses it for Advertising",
+    "paragraphs": [
+     12,
+     13,
+     5,
+     21
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     8,
+     9,
+     18,
+     20,
+     23,
+     12,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Computer information indefinitely; retention statements: ['Indefinitely', 'Limited']",
+    "paragraphs": [
+     40,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     8,
+     9,
+     18,
+     20,
+     23,
+     12,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Location indefinitely; retention statements: ['Indefinitely', 'Limited']",
+    "paragraphs": [
+     40,
+     12
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 27(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We collect personally identifying information in connection with the following: Questions or comments sent through our websites to Consumer Services",
+      "rationale": "The policy mentions collecting contact information but does not specify that it is for additional service/features.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "paragraphs": [
+        8,
+        9,
+        24,
+        35,
+        22,
+        12
+       ],
+       "purpose_quote": "We collect personally identifying information in connection with the following: Questions or comments sent through our websites to Consumer Services",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 27(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy mentions collecting contact information but does not specify that it is for additional service/features."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9450974175415466
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 2"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions collecting various data types but does not explicitly state that IP addresses and device IDs are used for advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "SCEA may collect information such as our website visitors' IP address, IP address-related information, system Media Access Control ('MAC') address, network configuration information, network device information, browser plug-in types and versions, operating system, and platform. We also may collect information about your download activity, browser activity, forum postings and session information.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 2"
+       ],
+       "rationale": "The policy mentions collecting various data types but does not explicitly state that IP addresses and device IDs are used for advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9754586226099063
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "We may give Sony Entertainment Network account holders the opportunity to provide information about themselves and will from time to time conduct surveys or questionnaires for members to provide feedback and additional information.",
+      "rationale": "The policy does not explicitly disclose the collection of location data but mentions collecting IP addresses and MAC addresses, which could imply location tracking.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "disclosing_quote": "",
+       "denial_quote": "SCEA may collect information such as our website visitors' IP address, IP address-related information, system Media Access Control ('MAC') address, network configuration information, network device information, browser plug-in types and versions, operating system, and platform. We also may collect information about your download activity, browser activity, forum postings and session information.",
+       "generic_quote": "We may give Sony Entertainment Network account holders the opportunity to provide information about themselves and will from time to time conduct surveys or questionnaires for members to provide feedback and additional information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy does not explicitly disclose the collection of location data but mentions collecting IP addresses and MAC addresses, which could imply location tracking."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9522975507543903
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 12(3)",
+       "Sec. 12(2)"
+      ],
+      "evidence": "We will retain personally identifying information about you for the period necessary to fulfill the purposes outlined in this policy unless a longer retention period is required by law or regulations.",
+      "rationale": "The policy states that data will be retained indefinitely for unspecified purposes, which does not align with the requirement for a stated period or limited retention.",
+      "raw": {
+       "candidate_id": "c4",
+       "gap_type": "retention_mismatch",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "retention": "indefinitely",
+       "retention_quote": "We will retain personally identifying information about you for the period necessary to fulfill the purposes outlined in this policy unless a longer retention period is required by law or regulations.",
+       "sections": [
+        "Sec. 12(3)",
+        "Sec. 12(2)"
+       ],
+       "rationale": "The policy states that data will be retained indefinitely for unspecified purposes, which does not align with the requirement for a stated period or limited retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9413080568428774
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [],
+    "parse_error": "no JSON found in reply: '{\\n  \"action\": \"final\",\\n  \"answers\": [\\n    {\\n      \"candidate_id\": \"c5\",\\n      \"data_type\": \"Location\",\\n      \"recipient\": \"first_party\",\\n      \"purpose\": \"Advertising\",\\n      \"retention\": \"Indefinitel'",
+    "llm_calls": 1,
+    "token_prob": null
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Sec. 12(3)"
+      ],
+      "evidence": "We will retain personally identifying information about you for the period necessary to fulfill the purposes outlined in this policy unless a longer retention period is required by law or regulations.",
+      "rationale": "The policy states that data will be retained for as long as necessary, which aligns with indefinite retention.",
+      "raw": {
+       "candidate_id": "c6",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "indefinitely",
+       "retention_quote": "We will retain personally identifying information about you for the period necessary to fulfill the purposes outlined in this policy unless a longer retention period is required by law or regulations.",
+       "sections": [
+        "Sec. 8(7)",
+        "Sec. 12(3)"
+       ],
+       "rationale": "The policy states that data will be retained for as long as necessary, which aligns with indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9905957833578137
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [
+   "c5"
+  ],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 7,
+  "seconds": 125.81,
+  "reverified_from": "A3_v2",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence provided does not actually disclose the app's practice regarding the use of IP addresses and device IDs for advertising. The rationale states that the policy mentions collecting various data types but does not explicitly state that IP addresses and device IDs are used for advertising. However, since there is no explicit mention of the data types being used for advertising, the evidence does not justify the finding.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence provided discusses giving users the opportunity to provide information and conducting surveys, which does not directly address the collection of location data. While it mentions collecting IP addresses and MAC addresses, this does not necessarily imply location tracking. Therefore, the evidence does not justify the finding.\"}]}"
+ }
+}

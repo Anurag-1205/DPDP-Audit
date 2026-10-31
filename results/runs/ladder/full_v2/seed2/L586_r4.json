@@ -1,0 +1,113 @@
+{
+ "case_id": "L586_r4",
+ "system": "full_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "com and change the date at the top of this Privacy Statement, so that you are always aware of the information that we collect and how we use it.",
+   "rationale": "The policy mentions collecting customer information but does not specifically mention IP addresses or device IDs.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not explicitly disclose the collection of IP addresses or device IDs. Instead, it refers to general customer information. The cited DPDP text focuses on providing notice regarding personal data and purposes of processing, but does not address the specific issue of u"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9565086947793987,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9565086947793987,
+ "usage": {
+  "prompt": 2087,
+  "output": 214
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 73,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     9,
+     12,
+     13,
+     14,
+     15,
+     22,
+     19
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "com and change the date at the top of this Privacy Statement, so that you are always aware of the information that we collect and how we use it.",
+      "rationale": "The policy mentions collecting customer information but does not specifically mention IP addresses or device IDs.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Some of our employees have access to customer information only in order to serve customers or maintain our information systems. These employees are subject to our corporate privacy policy.",
+       "generic_quote": "The Information We Collect and the Purpose We Use It",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting customer information but does not specifically mention IP addresses or device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9565086947793987
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 30.32
+ }
+}

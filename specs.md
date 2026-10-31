@@ -23,12 +23,12 @@
 
 | ID | Title | Owner | Status | Milestone | Depends on |
 |---|---|---|---|---|---|
-| [SPEC-01](#spec-01--main-benchmark) | Main benchmark | Anurag | Done (spot-check pending) | MS-1 | — |
+| [SPEC-01](#spec-01--main-benchmark) | Main benchmark | Anurag | Done (spot-check by two members done and settled: key wrong on 10.3% of flows) | MS-1 | — |
 | [SPEC-02](#spec-02--single-pass-llm-baselines-b1-b2-b4) | Single-pass LLM baselines B1, B2, B4 | Naveen | In progress | MS-1 → MS-3 | SPEC-01 |
 | [SPEC-03](#spec-03--existing-tool-baselines-policheck-s1-and-poligraph-s2) | Existing-tool baselines: PoliCheck and PoliGraph | Ishaan | Main and ladder done; real flows pending | MS-2 → MS-4 | SPEC-01, SPEC-06 |
-| [SPEC-04](#spec-04--dpdp-audit-pipeline-and-ablations) | DPDP-Audit pipeline and ablations | Naveen | In progress (v1, main × 3 seeds, A1/A2/A3/A5 done) | MS-2 → MS-3 | SPEC-01, SPEC-02, SPEC-05 |
-| [SPEC-05](#spec-05--clause-tagger-fine-tuning-and-component-baselines) | Clause tagger: fine-tuning and component baselines | Nikhil | In progress (QLoRA 0.713 macro-F1, in the pipeline; S4 extraction pending) | MS-2 → MS-3 | SPEC-01 |
-| [SPEC-06](#spec-06--vagueness-ladder) | Vagueness ladder | Anurag | Built and scored; human check pending | MS-2 | SPEC-01 |
+| [SPEC-04](#spec-04--dpdp-audit-pipeline-and-ablations) | DPDP-Audit pipeline and ablations | Naveen | Done (v1 and v2, main and ladder × 3 seeds; ablations on v1 (seed 0) and v2 (3 seeds); per-flow confidence exported) | MS-2 → MS-3 | SPEC-01, SPEC-02, SPEC-05 |
+| [SPEC-05](#spec-05--clause-tagger-fine-tuning-and-component-baselines) | Clause tagger: fine-tuning and component baselines | Nikhil | Done (QLoRA 0.713 macro-F1, in the pipeline; S4 tuple F1 0.106 / 0.234 vs QLoRA 0.479) | MS-2 → MS-3 | SPEC-01 |
+| [SPEC-06](#spec-06--vagueness-ladder) | Vagueness ladder | Anurag | Built, checked by two members, scored on 110 accepted rungs | MS-2 | SPEC-01 |
 | [SPEC-07](#spec-07--selective-accuracy) | Selective accuracy | Nikhil | Planned | MS-4 | SPEC-02, SPEC-03, SPEC-04, SPEC-06 |
 | [SPEC-08](#spec-08--real-world-validation) | Real-world validation: real flows and case study | Anurag | Planned | MS-4 | SPEC-02, SPEC-03, SPEC-04 |
 | [SPEC-09](#spec-09--evaluation-reporting-and-submissions) | Evaluation, reporting and submissions | Anurag | In progress | MS-2, MS-5 | all |
@@ -102,7 +102,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Anurag Kaushal (M1) |
-| **Status** | Done (AC-01.10 pending, WP-3.7) |
+| **Status** | Done (spot-check done and settled 28 Oct) |
 | **Milestone** | MS-1 (24 Oct) |
 | **Depends on** | — |
 | **Traces** | RQ1 · H1, H2 |
@@ -147,8 +147,8 @@ flowchart LR
 - [x] **AC-01.8** Every case MUST be exported in PoliCheck's input format, with mapping coverage
   reported (65% of flows exportable, 12% exact).
 - [x] **AC-01.9** Regeneration with the same seeds MUST reproduce the committed files byte for byte.
-- [ ] **AC-01.10** A 20-case spot-check against the policy text MUST report the answer-key error rate
-  (WP-3.7).
+- [x] **AC-01.10** A 20-case spot-check against the policy text MUST report the answer-key error rate
+  (WP-3.7). *Evidence: `data/spot_check/main_spot_check.csv` (two checkers, 87 flows each), `python scripts/spot_check.py score`; independent checkers agreed on 77% of flows (κ = 0.04); after settling the 20 disagreements together (`data/spot_check/disagreements.csv`) the key is wrong on 9 of 87 flows (10.3%), in 6 of 20 cases; report §5.*
 
 ### 6. Evidence & Validation
 - `tests/test_benchmark.py`, `test_gold_rules.py`, `test_opp115.py`, `test_export.py` pass.
@@ -166,7 +166,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Naveen Mishra (M3); B4 runs: Anurag Kaushal |
-| **Status** | In progress (B1/B2 main done) |
+| **Status** | In progress (B1, B2, B4 on main × 3 seeds and B2 on the ladder × 3 done; real flows pending) |
 | **Milestone** | MS-1, MS-2 (B4 seed 0), MS-3 (B4 seeds 1–2, B2 ladder) |
 | **Depends on** | SPEC-01; SPEC-06 for ladder runs |
 | **Traces** | RQ1 · H2 |
@@ -176,7 +176,7 @@ flowchart LR
   and whether a stronger model beats both.
 - **Current Behavior:**
   - B1 and B2 ran on all 102 cases with three seeds on Qwen2.5-7B-Instruct-AWQ (612 runs);
-  - B4 has not run.
+  - B4 (gemini-3-flash-preview) ran on all 102 cases with three seeds (306 runs, 0 failed).
 - **Affected Systems:**
   - `src/dpdp_audit/baselines.py`, `llm.py`, `runs.py`;
   - `scripts/run_baselines.py`, `kaggle/b1b2/`, `notebooks/`;
@@ -210,9 +210,10 @@ flowchart LR
   10 hours and always pack their results.
 - [x] **AC-02.5** The Stage 0 model check MUST show the model answering with token log-probabilities.
 - [x] **AC-02.6** B4 MUST run on the main benchmark with seed 0 (WP-2.10, MS-2). *Evidence: `results/runs/main/B4/seed0/` (102 runs, 0 failed).*
-- [ ] **AC-02.7** B4 seeds 1–2 SHOULD run on the main benchmark (WP-3.4, MS-3).
+- [x] **AC-02.7** B4 seeds 1–2 SHOULD run on the main benchmark (WP-3.4, MS-3). *Evidence: `results/runs/main/B4/seed1/`, `seed2/` (204 runs, 0 failed, 27 Oct).*
 - [x] **AC-02.8** B2 MUST run on the 140 ladder cases with seeds 0–2 (WP-3.4, MS-3). *Evidence: `results/runs/ladder/B2/`.*
 - [ ] **AC-02.9** B1 and B2 MUST run on the real-flow sample (WP-4.3, SPEC-08).
+- [x] **AC-02.10** (added 30 Oct, Ishaan; for team confirmation) Self-consistency versions `B1_sc`, `B2_sc`, `B4_sc` SHOULD be reported: per flow the majority label over the three seeds, and the findings at least two seeds report. *Evidence: `scripts/build_self_consistency.py` → `results/runs/{main,ladder}/*_sc/`; `results/scores/main.json`.*
 
 ### 6. Evidence & Validation
 - `results/runs/main/B1/`, `results/runs/main/B2/` (306 runs each).
@@ -232,7 +233,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Ishaan Giri (M2); PoliGraph runs: Nikhil Patidar (workstation) |
-| **Status** | In progress (PoliCheck smoke test done) |
+| **Status** | Main and ladder done (PoliCheck and PoliGraph); real flows pending |
 | **Milestone** | MS-2 (main), MS-3 (ladder), MS-4 (real flows) |
 | **Depends on** | SPEC-01; SPEC-06 for ladder runs |
 | **Traces** | RQ1, RQ2 · H1, H4 |
@@ -242,8 +243,8 @@ flowchart LR
   closest prior work: it labels each (data type, recipient) flow against the policy. PoliGraph is a
   newer knowledge-graph approach that runs the same check.
 - **Current Behavior:**
-  - The PoliCheck Docker image builds, and a 2-case smoke test ran and was converted to our format.
-  - The PoliGraph run script exists but has not run.
+  - PoliCheck and PoliGraph ran on all 102 main and 140 ladder cases (Kaggle) and were converted to our
+    format; PoliCheck passed the known-answer check (7 of 7).
 - **Affected Systems:**
   - `scripts/tools/`, `src/dpdp_audit/tool_runs.py`;
   - the PoliCheck Docker image;
@@ -273,10 +274,14 @@ flowchart LR
 - [x] **AC-03.2** A PoliCheck smoke test on 2 cases MUST run and convert to our run format.
 - [x] **AC-03.3** The converter MUST map PoliCheck's ontology terms and entities back to our flows,
   with a unit test.
-- [ ] **AC-03.4** PoliCheck SHOULD reproduce its result on the authors' example flows, to validate the
+- [x] **AC-03.4** PoliCheck SHOULD reproduce its result on the authors' example flows, to validate the
   set-up (WP-2.3). *Changed 26 Oct: the authors ship flows but neither policies nor labels, so nothing
-  can be reproduced; a six-policy known-answer check replaces it (`data/tools/policheck_sanity/`,
-  `scripts/check_policheck_sanity.py`).*
+  can be reproduced; a known-answer check replaces it (`data/tools/policheck_sanity/`,
+  `scripts/check_policheck_sanity.py`). Evidence: `results/tools/policheck/sanity/check.json`, 7 of 7
+  agree, covering all five labels (27 Oct). A first six-case version
+  (`results/tools/policheck/sanity_6case/`) agreed on 5 of 6: PoliCheck reads "We share your location
+  with Google" as vague for a flow to Google Ads, because its entity ontology puts "google ads" under
+  "Google"; the clear case now uses Facebook, which PoliCheck matches exactly.*
 - [x] **AC-03.5** PoliCheck MUST label all 102 main cases (WP-2.3, MS-2). *Evidence: `results/runs/main/S1/` (282/282 exported flows matched), Kaggle run 26 Oct.*
 - [x] **AC-03.6** PoliCheck MUST label all 140 ladder cases (WP-2.4). *Evidence: `results/tools/policheck/ladder/`, `results/runs/ladder/S1/` (140/140 matched).*
 - [x] **AC-03.7** The PoliGraph environment MUST pass a 2-case smoke test on the workstation by 26 Oct
@@ -309,7 +314,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Naveen Mishra (M3) |
-| **Status** | Planned |
+| **Status** | Done (v1 and v2 on main and the ladder × 3 seeds; ablations on v1 and v2; confidence export) |
 | **Milestone** | MS-2 (v1, seed 0 on main), MS-3 (three seeds, ladder, ablations) |
 | **Depends on** | SPEC-01, SPEC-02 (LLM client, runner), SPEC-05 (fine-tuned tagger) |
 | **Traces** | RQ1, RQ4 · H1, H2, H3, H6 |
@@ -363,11 +368,12 @@ flowchart LR
 - [x] **AC-04.9** A 5-case pilot MUST record seconds and LLM calls per run, and extrapolate to the full
   run budget (WP-2.8).
 - [x] **AC-04.10** `full` MUST run on the main benchmark with seed 0 by MS-2 (WP-2.8).
-- [ ] **AC-04.11** `full` MUST run with seeds 0–2 on the main and ladder benchmarks (WP-3.2).
-- [ ] **AC-04.12** A1–A5 MUST run with seed 0 on the main benchmark (WP-3.3). A5 (oracle tagger) is not
-  applied to the ladder.
-- [ ] **AC-04.13** A per-flow confidence (seed agreement, token-probability tie-break) MUST be
-  exported for SPEC-07.
+- [x] **AC-04.11** `full` MUST run with seeds 0–2 on the main and ladder benchmarks (WP-3.2). *Evidence: `results/runs/{main,ladder}/{full,full_finetuned,full_v2,full_v2_finetuned}/seed{0,1,2}/`; ladder seeds 1–2 ran on 29 Oct (1,120 runs, 0 failed calls); `results/scores/ladder.json`.*
+- [x] **AC-04.12** A1–A5 MUST run with seed 0 on the main benchmark (WP-3.3). A5 (oracle tagger) is not
+  applied to the ladder. *Evidence: `results/runs/main/A1`, `A2`, `A3`, `A5` (v1) and `A1_v2`, `A2_v2`, `A3_v2`, `A5_v2` (v2), each re-verified as `*_rv`; v2 ablations also on seeds 1–2 and A2_v2 / A3_v2 on the ladder × 3 (29 Oct, `scripts/score_ablations.py` → `results/scores/ablations.json`); A4 (prompted tagger) is `full` / `full_v2`.*
+- [x] **AC-04.13** A per-flow confidence (seed agreement, token-probability tie-break) MUST be
+  exported for SPEC-07. *Evidence: `src/dpdp_audit/confidence.py`, `scripts/export_confidence.py` → `results/confidence/{main,ladder}.json` (ladder rows marked `accepted`); `tests/test_confidence.py`.*
+- [x] **AC-04.14** (added 30 Oct, Ishaan; for team confirmation) Two baselines built from the pipeline's parts SHOULD be compared with `full_v2_finetuned`: **R0** (QLoRA tagger and finder only, every candidate reported, no LLM) and **B5** (one generalist call over the whole policy, evidence first, then v2's rules, aggregator and verifier; no tagger or finder filtering). B5 is fixed on the dev splits and runs on main and the ladder only after a reply-quality gate (≤ 3% unreadable). *Evidence: `pipeline/config.py` (`R0`, `R0_prompted`, `B5`), `tests/test_baselines_from_parts.py`, `scripts/check_replies.py`; R0 on all splits, B5 on dev (gate 2.9% unreadable), main and the ladder × 3 seeds (0 failed calls); report §4.3.*
 
 ### 6. Evidence & Validation
 - `tests/test_pipeline.py` passes, together with the existing suite.
@@ -379,6 +385,8 @@ flowchart LR
   tagger replaces it in WP-3.1, and both are reported.
 - **Long policies:** the context limit is 12,288 tokens, so reviewers see only the paragraphs linked to
   their candidates.
+- **v2 (27 Oct):** the frozen pipeline's problems were fixed as new configurations (`full_v2`, `full_v2_finetuned`, switches in `pipeline/config.py`), chosen on the dev splits `dev` + `dev2` (training policies) and frozen before their single run on main and the ladder (constraint 3). The frozen v1 runs stay in every table. Details: `docs/pipeline.md#v2`.
+- **Verifier reply bug (28 Oct):** the frozen reader could not read 15–40% of the verifier's replies and kept those findings unchecked. Fixed by a robust reader; every verifier-using run was re-verified (`scripts/reverify.py`, configurations `*_rv`), and the reported numbers use these. The frozen runs are unchanged.
 
 ---
 
@@ -387,7 +395,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Nikhil Patidar (M4); S4 extraction: Ishaan Giri |
-| **Status** | Planned |
+| **Status** | Done (QLoRA tagger trained, 0.713 macro-F1, used in the pipeline; S4 scored 29 Oct) |
 | **Milestone** | MS-2 (should: tagger metrics), MS-3 (in the pipeline, S4) |
 | **Depends on** | SPEC-01 (split) |
 | **Traces** | RQ4 · H6 |
@@ -428,8 +436,8 @@ flowchart LR
   - category macro-F1 over the 10 OPP-115 categories;
   - tuple F1 for (category, data type, does/does not);
   - tuple F1 for (category, data type, third party).
-- [ ] **AC-05.6** S4 PolicyLint and PoliGraph statements MUST be mapped to the same tuples and scored
-  (WP-3.6).
+- [x] **AC-05.6** S4 PolicyLint and PoliGraph statements MUST be mapped to the same tuples and scored
+  (WP-3.6). *Evidence: Kaggle 29 Oct (`kaggle/policheck`, `kaggle/poligraph`, `SPLIT = "s4"`) → `results/tools/{policylint,poligraph}/s4/`; mapping `data/tools/s4_mapping.csv` (fixed before any output); `src/dpdp_audit/s4.py`, `tests/test_s4.py`; `results/scores/tagger.json` (`S4_*`, tuple F1 0.106 PolicyLint, 0.234 PoliGraph; `*_own_name` sensitivity); docs/evaluation.md#statement-extraction-s4.*
 - [x] **AC-05.7** The fine-tuned tagger MUST be usable by the pipeline (a vLLM LoRA adapter or cached
   tags), enabling `full` vs A4 (WP-3.1).
 
@@ -448,7 +456,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Anurag Kaushal (M1); second checker: Ishaan Giri |
-| **Status** | Planned |
+| **Status** | Built and scored; human check in progress (first checker done) |
 | **Milestone** | MS-2 |
 | **Depends on** | SPEC-01 |
 | **Traces** | RQ2, RQ3 · H4, H5 |
@@ -486,8 +494,8 @@ flowchart LR
   vague and omitted.
 - [x] **AC-06.5** Base-policy sentences that still mention the target data type next to a practice
   verb MUST be auto-flagged in the check sheet.
-- [ ] **AC-06.6** (WP-2.2, pending: needs two people; `check_sheet.csv` is ready) Two members MUST check every rung independently. Only rungs both mark "ok" are used,
-  and the number dropped is reported.
+- [x] **AC-06.6** (WP-2.2) Two members MUST check every rung independently. Only rungs both mark "ok" are used,
+  and the number dropped is reported. *Evidence: `data/benchmark/ladder/check_sheet.csv` (Naveen, Anurag; 28 Oct): agreement 76% (κ = 0.19); the 33 disagreements settled together in `data/benchmark/ladder/disagreements.csv` (10 ok, 23 no); 110 of 140 rungs accepted, 30 dropped; `results/scores/ladder.json`.*
 - [x] **AC-06.7** The ladder MUST be exported in PoliCheck format for S1 and S2.
 - [x] **AC-06.8** Ladder scoring MUST report:
   - label accuracy per rung;
@@ -657,9 +665,9 @@ flowchart LR
 - [x] **AC-09.2** A Stage 1 report MUST record status and baseline results (`docs/stage-1-report.md`).
 - [ ] **AC-09.3** The mid-submission package (plan §7) MUST be complete and submitted by 30 Oct
   (WP-2.11).
-- [ ] **AC-09.4** The 20-case answer-key spot-check MUST report an error rate (WP-3.7).
-- [ ] **AC-09.5** Results tables for every system MUST include 95% intervals, with paired comparisons
-  for the falsifiable claim (WP-3.8).
+- [x] **AC-09.4** The 20-case answer-key spot-check MUST report an error rate (WP-3.7). *Evidence: report §5.*
+- [x] **AC-09.5** Results tables for every system MUST include 95% intervals, with paired comparisons
+  for the falsifiable claim (WP-3.8). *Evidence: report §4 (paired) and Appendix A (every system, main and ladder), generated by `scripts/interval_tables.py`; `results/scores/{main,ladder,ablations}.json`.*
 - [ ] **AC-09.6** Verdicts on H1–H6 and the falsifiable claim MUST be stated, including those that fail
   (WP-5.1).
 - [ ] **AC-09.7** A failure analysis with worked hard cases, and a cost table (tokens, GPU or CPU time

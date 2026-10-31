@@ -1,0 +1,150 @@
+{
+ "case_id": "584_v2",
+ "system": "full",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Cookies are alphanumeric identifiers which collect anonymous browsing data that enables us to recognize your browser and provide convenience features such as the storing of items in your Shopping Cart and the personalization of content based on your preferences.",
+   "rationale": "The policy discloses that cookies are used to collect anonymous browsing data, which aligns with the purpose of advertising.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes the use of cookies for anonymous browsing data and personalization, but does not disclose sharing of this data with AdMob for advertising purposes. The cited DPDP text pertains to the notice requirements for consent requests, which is not relevant to the issue of undisc"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9357532178105687,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9357532178105687,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9357532178105687,
+ "usage": {
+  "prompt": 1983,
+  "output": 355
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 3,
+  "untagged_paragraphs": 0,
+  "claims": 9,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Cookies and tracking elements",
+    "paragraphs": [
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "In our site, we give you opportunities to provide your name, address, email and other relevant information that we use to give you a more personalized shopping experience and to make ordering and reordering easier for you.",
+      "rationale": "The policy discloses that personal data such as contact details are collected for additional services.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Our privacy statement mentions that we collect your name, address, email and other relevant information that we use to give you a more personalized shopping experience and to make ordering and reordering easier for you.",
+       "denial_quote": "",
+       "generic_quote": "We do not sell or trade customer information with others for use on their mailing lists.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses that personal data such as contact details are collected for additional services."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Cookies are alphanumeric identifiers which collect anonymous browsing data that enables us to recognize your browser and provide convenience features such as the storing of items in your Shopping Cart and the personalization of content based on your preferences.",
+      "rationale": "The policy discloses that cookies are used to collect anonymous browsing data, which aligns with the purpose of advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Cookies are alphanumeric identifiers which collect anonymous browsing data that enables us to recognize your browser and provide convenience features such as the storing of items in your Shopping Cart and the personalization of content based on your preferences.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy discloses that cookies are used to collect anonymous browsing data, which aligns with the purpose of advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9357532178105687
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 41.43
+ }
+}

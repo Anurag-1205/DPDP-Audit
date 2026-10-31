@@ -1,0 +1,113 @@
+{
+ "case_id": "L586_r4",
+ "system": "full",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Please be aware that we may disclose any information you provide to us (including personally identifiable information) in the good faith belief that we are required to do so by law, or that doing so is reasonably necessary to comply with legal process, to respond to any claims or to protect our rights, property or personal safety, or that of our customers or the public.",
+   "rationale": "The policy explicitly states that Caribou Coffee does not collect IP addresses or device identifiers.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided does not actually disclose the app's practice regarding the collection of IP addresses and device IDs. Instead, it mentions that Caribou Coffee does not collect these types of data. However, the finding states that the app does collect these data types, which contradicts"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.926790417480397,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.926790417480397,
+ "usage": {
+  "prompt": 1900,
+  "output": 245
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 73,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     9,
+     12,
+     13,
+     14,
+     15,
+     22,
+     19
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Please be aware that we may disclose any information you provide to us (including personally identifiable information) in the good faith belief that we are required to do so by law, or that doing so is reasonably necessary to comply with legal process, to respond to any claims or to protect our rights, property or personal safety, or that of our customers or the public.",
+      "rationale": "The policy explicitly states that Caribou Coffee does not collect IP addresses or device identifiers.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The Information We Collect and the Purpose We Use It specifies that Caribou Coffee does not collect IP addresses or device identifiers.",
+       "generic_quote": "personal information, information you provide",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that Caribou Coffee does not collect IP addresses or device identifiers."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.926790417480397
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 33.76
+ }
+}

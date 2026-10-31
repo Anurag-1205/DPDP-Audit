@@ -31,10 +31,20 @@ DEADLINE_MIN = 600
 T_START = time.time()
 
 # Prompts and decision rules frozen on 26 Oct after four dev-split iterations (docs/pipeline.md).
-JOBS = [   # WP-3.1: the fine-tuned tagger in the frozen pipeline (only the tagger changes)
-    {"phase": "runs", "split": "main", "configs": ["full_finetuned"], "seeds": [0, 1, 2]},
-    {"phase": "runs", "split": "ladder", "configs": ["full_finetuned"], "seeds": [0]},
-    {"phase": "score", "split": "main", "systems": ["full", "full_finetuned"]},
+# Robust verifier (28 Oct): the frozen reader could not read 15-40% of the verifier's replies and
+# kept those findings unchecked. "reverify" re-runs only the verifier on saved runs (-> <system>_rv).
+DEV_SYSTEMS = ["full", "v2_gate", "v2_read", "v2_purpose", "v2_batch"]
+# Baseline B5 (30 Oct, docs/evaluation.md): one call, evidence first. The dev splits first; the
+# configuration was changed once on dev (4,096 output tokens and the robust reader, after 12 of 102
+# replies were unreadable) and is frozen now. Main and the ladder run only if the dev replies pass
+# the gate (at most 3% unreadable, no failed call; reply quality only, no scores).
+# Earlier: v2 ablations on seeds 1-2 and on the ladder; ladder seeds 1-2 (29 Oct).
+JOBS = [
+    {"phase": "runs", "split": "dev", "configs": ["B5"], "seeds": [0]},
+    {"phase": "runs", "split": "dev2", "configs": ["B5"], "seeds": [0]},
+    {"phase": "gate", "system": "B5", "splits": ["dev", "dev2"], "max_unreadable": 0.03},
+    {"phase": "runs", "split": "main", "configs": ["B5"], "seeds": [0, 1, 2]},
+    {"phase": "runs", "split": "ladder", "configs": ["B5"], "seeds": [0, 1, 2]},
 ]
 
 
@@ -147,7 +157,7 @@ def run():
        f"google-genai transformers==4.56.2")
     os.makedirs(f"{REPO}/outputs/logs", exist_ok=True)
     # the oracle tagger (A5) and tagging the held-out segments read the OPP-115 release
-    if any("A5" in j.get("configs", []) or j.get("heldout") for j in JOBS):
+    if any(c.startswith("A5") for j in JOBS for c in j.get("configs", [])) or any(j.get("heldout") for j in JOBS):
         sh(f"bash {REPO}/scripts/download_opp115.sh")
     sh(f"cd {REPO} && {sys.executable} scripts/build_dpdp_index.py", env=env_for(0, MODEL))
     servers = Servers()
@@ -180,6 +190,15 @@ def run():
                                   f"--split {job['split']} --workers 8 --shard {g}/2 --redo-failed "
                                   f"--deadline-min {remaining_min():.0f} "
                                   f"| tee outputs/logs/runs_{job['split']}_shard{g}.log", MODEL)
+            elif phase == "gate":   # stops the remaining jobs if the check fails
+                sh(f"cd {REPO} && {py} scripts/check_replies.py --system {job['system']} "
+                   f"--splits {' '.join(job['splits'])} --max-unreadable {job['max_unreadable']}")
+            elif phase == "reverify":
+                servers.start(MODEL)
+                systems, seeds = " ".join(job["systems"]), " ".join(map(str, job["seeds"]))
+                sharded(lambda g: f"{py} scripts/reverify.py --split {job['split']} --systems {systems} "
+                                  f"--seeds {seeds} --workers 8 --shard {g}/2 "
+                                  f"| tee outputs/logs/reverify_{job['split']}_shard{g}.log", MODEL)
             elif phase == "baselines":
                 servers.start(MODEL)
                 systems, seeds = " ".join(job["systems"]), " ".join(map(str, job["seeds"]))

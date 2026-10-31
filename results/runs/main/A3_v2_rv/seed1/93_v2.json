@@ -1,0 +1,335 @@
+{
+ "case_id": "93_v2",
+ "system": "A3_v2_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "This information will only be used for the stated purpose.",
+   "rationale": "The policy only mentions 'stated purpose' without specifying any particular purpose for the data types.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that the data will only be used for the stated purpose, but it does not specify any particular purpose for the data types. The cited DPDP text in Sec. 5(1) requires the notice to inform the Data Principal about the personal data and the purpose for which it is proposed to "
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(2)",
+    "Sec. 12(3)",
+    "Sec. 12(2)"
+   ],
+   "evidence": "",
+   "rationale": "The policy denies collecting personally identifiable information and provides generic information about collecting non-personally identifiable information, which does not include location data.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is explicitly stated as (none: the policy is said not to mention it), indicating that the collection of location data is not disclosed. However, the cited DPDP texts (Sec. 5(2), Sec. 12(3), Sec. 12(2)) are related to notices, corrections, and erasures of personal data, not to the"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Similarly, personally identifiable information provided in connection with a donation intended for a program, series or Member Station, or for purposes of ordering products, subscriptions or other services offered by the PBS Member Stations, will be shared by PBS or by such PBS Member Stations with third parties who perform services to process the donation or the applicable order. Also, in transmitting your donation or order to the local Member Station PBS may share your personally identifiable information with the Member Station for order or donation processing.",
+   "rationale": "The policy mentions sharing with third parties but does not specify Google AdMob or any other named recipient, nor does it explicitly deny sharing with such entities.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10",
+    "Sec. 2"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly mention children or their data protection.",
+   "reviewer": "children",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9618948245984107,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9339807339633052,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9404277291874651,
+ "usage": {
+  "prompt": 6880,
+  "output": 1190
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 51,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['additional service/feature', 'basic service/feature'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     6,
+     7,
+     8,
+     9,
+     20,
+     14,
+     33,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     10,
+     11,
+     12,
+     13,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     21,
+     22,
+     23,
+     24,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     35,
+     36
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "This information will only be used for the stated purpose.",
+      "rationale": "The policy only mentions 'stated purpose' without specifying any particular purpose for the data types.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "This information will only be used for the stated purpose.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy only mentions 'stated purpose' without specifying any particular purpose for the data types."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9384632694516123
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(2)",
+       "Sec. 12(3)",
+       "Sec. 12(2)"
+      ],
+      "evidence": "",
+      "rationale": "The policy denies collecting personally identifiable information and provides generic information about collecting non-personally identifiable information, which does not include location data.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "B. Non-personally Identifiable Information\nIn addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site. This information helps us improve the experience you and other visitors have with the Site.",
+       "generic_quote": "B. Non-personally Identifiable Information\nIn addition to information that you provide to us, we may also collect and store certain non-personally identifiable information automatically when using the Site. This information helps us improve the experience you and other visitors have with the Site.\n[P13] For example, we may collect your IP address, browser information and reference site domain, as well as related information such as the date on which you visit the Site. This information does not identify you personally and is only used in the aggregate.",
+       "sections": [
+        "Sec. 5(2)",
+        "Sec. 12(3)",
+        "Sec. 12(2)"
+       ],
+       "rationale": "The policy denies collecting personally identifiable information and provides generic information about collecting non-personally identifiable information, which does not include location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9618948245984107
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Similarly, personally identifiable information provided in connection with a donation intended for a program, series or Member Station, or for purposes of ordering products, subscriptions or other services offered by the PBS Member Stations, will be shared by PBS or by such PBS Member Stations with third parties who perform services to process the donation or the applicable order. Also, in transmitting your donation or order to the local Member Station PBS may share your personally identifiable information with the Member Station for order or donation processing.",
+      "rationale": "The policy mentions sharing with third parties but does not specify Google AdMob or any other named recipient, nor does it explicitly deny sharing with such entities.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "This information does not identify you personally and is only used in the aggregate.",
+       "generic_quote": "Similarly, personally identifiable information provided in connection with a donation intended for a program, series or Member Station, or for purposes of ordering products, subscriptions or other services offered by the PBS Member Stations, will be shared by PBS or by such PBS Member Stations with third parties who perform services to process the donation or the applicable order. Also, in transmitting your donation or order to the local Member Station PBS may share your personally identifiable information with the Member Station for order or donation processing.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with third parties but does not specify Google AdMob or any other named recipient, nor does it explicitly deny sharing with such entities."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9339807339633052
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10",
+       "Sec. 2"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly mention children or their data protection.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        35,
+        36
+       ],
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10",
+        "Sec. 2"
+       ],
+       "rationale": "The policy does not explicitly mention children or their data protection."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9273720887365323
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 5,
+  "seconds": 114.26,
+  "reverified_from": "A3_v2",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

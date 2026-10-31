@@ -1,0 +1,103 @@
+{
+ "case_id": "L93_r3",
+ "system": "full_v2_finetuned",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "While the majority of our Site is free, we may charge fees for select products and services. To enable the purchase of these and other products, we collect your telephone number, e-mail address, billing address and credit card information.",
+   "rationale": "The policy mentions collecting various types of information but does not specify location data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence provided discusses collecting telephone numbers, email addresses, billing addresses, and credit card information for purchasing products and services. It does not mention location data. The cited sections of the DPDP Act focus on providing notices regarding consent and personal d"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.969266607523755,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.969266607523755,
+ "usage": {
+  "prompt": 1643,
+  "output": 251
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 37,
+  "untagged_paragraphs": 0,
+  "claims": 28,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "While the majority of our Site is free, we may charge fees for select products and services. To enable the purchase of these and other products, we collect your telephone number, e-mail address, billing address and credit card information.",
+      "rationale": "The policy mentions collecting various types of information but does not specify location data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "II. We may collect information about you when you use our services.",
+       "generic_quote": "While the majority of our Site is free, we may charge fees for select products and services. To enable the purchase of these and other products, we collect your telephone number, e-mail address, billing address and credit card information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy mentions collecting various types of information but does not specify location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.969266607523755
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 25.03
+ }
+}

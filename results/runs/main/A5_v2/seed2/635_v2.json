@@ -1,0 +1,101 @@
+{
+ "case_id": "635_v2",
+ "system": "A5_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9768770874392602,
+ "usage": {
+  "prompt": 1463,
+  "output": 188
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 44,
+  "untagged_paragraphs": 0,
+  "claims": 97,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['analytics/research', 'personalization/customization'], the app uses it for Advertising",
+    "paragraphs": [
+     14,
+     15,
+     16,
+     5,
+     21
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "We also use these technical methods in HTML emails that we send our guests to determine whether our consumers have opened those emails or clicked on links in those emails. The information from use of these technical methods may be collected in a form that is personally identifiable.",
+      "rationale": "The policy explicitly states that cookies and tracking elements are used for determining email open rates and clicks, which aligns with the purpose of advertising.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "We also use these technical methods in HTML emails that we send our guests to determine whether our consumers have opened those emails or clicked on links in those emails. The information from use of these technical methods may be collected in a form that is personally identifiable.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy explicitly states that cookies and tracking elements are used for determining email open rates and clicks, which aligns with the purpose of advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9768770874392602
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 17.28
+ }
+}

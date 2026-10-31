@@ -1,0 +1,162 @@
+{
+ "case_id": "584_v1",
+ "system": "v2_batch",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Sec. 6(4)"
+   ],
+   "evidence": "This server encrypts all information you input before it is sent. Once your personal information is received, we protect it against unauthorized use.",
+   "rationale": "The policy does not explicitly state sharing financial data with Google AdMob, nor does it deny sharing it with unnamed third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9651977401323795,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9187308546527018,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9419642973925406,
+ "usage": {
+  "prompt": 2263,
+  "output": 340
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 3,
+  "untagged_paragraphs": 0,
+  "claims": 9,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions Financial",
+    "paragraphs": [
+     1,
+     0
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "In our site, we give you opportunities to provide your name, address, email and other relevant information that we use to give you a more personalized shopping experience and to make ordering and reordering easier for you.",
+      "rationale": "The policy mentions collecting contact details for a personalized shopping experience, which aligns with the purpose of additional services.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "disclosing_quote": "In our site, we give you opportunities to provide your name, address, email and other relevant information that we use to give you a more personalized shopping experience and to make ordering and reordering easier for you.",
+       "denial_quote": "",
+       "generic_quote": "We do not sell or trade customer information with others for use on their mailing lists.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting contact details for a personalized shopping experience, which aligns with the purpose of additional services."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9651977401323795
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Sec. 6(4)"
+      ],
+      "evidence": "This server encrypts all information you input before it is sent. Once your personal information is received, we protect it against unauthorized use.",
+      "rationale": "The policy does not explicitly state sharing financial data with Google AdMob, nor does it deny sharing it with unnamed third parties.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Our commitment to protecting your privacy and not selling or trading customer information with others for use on their mailing lists.",
+       "generic_quote": "This server encrypts all information you input before it is sent. Once your personal information is received, we protect it against unauthorized use.",
+       "sections": [
+        "Sec. 5(2)",
+        "Sec. 6(4)"
+       ],
+       "rationale": "The policy does not explicitly state sharing financial data with Google AdMob, nor does it deny sharing it with unnamed third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9187308546527018
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 13.96
+ }
+}

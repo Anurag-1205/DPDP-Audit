@@ -1,0 +1,105 @@
+{
+ "case_id": "L988_r3",
+ "system": "full_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect information about you when you use our services.",
+   "rationale": "The policy does not explicitly state that the company collects computer information, but it does mention collecting information about users.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'We may collect information about you when you use our services' does not specify the type of information collected. While it mentions collecting information, it does not explicitly state that the company collects computer information. Additionally, the cited DPDP text focuses on"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9484331380690865,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9484331380690865,
+ "usage": {
+  "prompt": 1733,
+  "output": 240
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 1,
+  "untagged_paragraphs": 0,
+  "claims": 1,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no collection statement mentions Computer information",
+    "paragraphs": [
+     0
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect information about you when you use our services.",
+      "rationale": "The policy does not explicitly state that the company collects computer information, but it does mention collecting information about users.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We allow third-party companies to serve ads and/or collect certain anonymous information when you visit our web site.",
+       "generic_quote": "We may collect information about you when you use our services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that the company collects computer information, but it does mention collecting information about users."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9484331380690865
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 28.63
+ }
+}

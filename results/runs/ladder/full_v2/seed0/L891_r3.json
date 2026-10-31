@@ -1,0 +1,106 @@
+{
+ "case_id": "L891_r3",
+ "system": "full_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may use your Personal Information to deliver customized advertizing to you on this Site, on other websites and on other digital and offline media channels.",
+   "rationale": "The policy mentions sharing information with partners but does not specify Google AdMob. It also mentions using personal information for advertising but does not explicitly state sharing IP addresses or device IDs with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9242268336806928,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9242268336806928,
+ "usage": {
+  "prompt": 1675,
+  "output": 167
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 41,
+  "untagged_paragraphs": 0,
+  "claims": 95,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     11,
+     13,
+     19,
+     21,
+     31,
+     38
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may use your Personal Information to deliver customized advertizing to you on this Site, on other websites and on other digital and offline media channels.",
+      "rationale": "The policy mentions sharing information with partners but does not specify Google AdMob. It also mentions using personal information for advertising but does not explicitly state sharing IP addresses or device IDs with Google AdMob.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not control and are not responsible for how these third parties use your information.",
+       "generic_quote": "We may share information with our partners.\nWe may use your Personal Information to deliver customized advertizing to you on this Site, on other websites and on other digital and offline media channels.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing information with partners but does not specify Google AdMob. It also mentions using personal information for advertising but does not explicitly state sharing IP addresses or device IDs with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9242268336806928
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 20.39
+ }
+}

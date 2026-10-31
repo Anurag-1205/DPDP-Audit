@@ -1,0 +1,485 @@
+{
+ "case_id": "1545_v1",
+ "system": "full_v2_finetuned",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "We use the information we collect to monitor and analyze how users use the Sites and the Services, to provide customer service and to maintain and improve the Services.",
+   "rationale": "The policy does not specify any particular purpose for collecting contact information, only general purposes like monitoring usage and improving services.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence describes general purposes for collecting contact information, such as monitoring usage and improving services, without specifying a particular purpose. This aligns with the cited DPDP text requiring a specific purpose for processing personal data. However, the lack of specificit"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 10",
+    "Rule 2"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify any particular purpose for collecting IP addresses and device IDs, and instead broadly states they are collected for monitoring, analysis, customer service, and maintaining/improving services.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing, and the rationale states that the policy does not mention the collection of IP addresses and device IDs for personalization/customization. This contradicts the finding of a purpose mismatch, as there is no evidence of the app's actual practices regarding these data ty"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "We use this information to monitor and analyze how users use the Sites and the Services, to provide customer service and to maintain and improve the Services.",
+   "rationale": "The policy does not specify a purpose for location data but mentions monitoring and analyzing usage patterns, which is not specifically tied to 'Service Operation and Security'.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions using location data to monitor and analyze usage patterns, which is not specifically tied to 'Service Operation and Security'. However, the rationale incorrectly states that the policy does not specify a purpose for location data, which is not accurate based on the provi"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly state that computer information is used for advertising purposes.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is missing, and the rationale states that the policy does not explicitly state that computer information is used for advertising purposes. This contradicts the finding of a purpose mismatch, as there is no evidence of the app's actual practices regarding these data types."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may disclose your personally-identifiable information with our employees, agents, contractors and sub-contractors, and our related and affiliated entities, including, but not limited to, 13 Management, LLC, Firefly Entertainment, Inc., Swift Merchandising, Inc., and Taylor Swift Productions, Inc., and their respective employees, agents, contractors and sub-contractors, for the limited purpose of enabling them to communicate with you directly about upcoming events and promotions.",
+   "rationale": "The policy mentions generic sharing with affiliates and employees but does not specifically mention sharing with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "The Sites are not for children under 13 years of age.",
+   "rationale": "The policy states that the sites are not for children under 13, but it does not explicitly prohibit tracking or targeted advertising.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.97470443972415,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9583703388187136,
+ "usage": {
+  "prompt": 10957,
+  "output": 1450
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 29,
+  "untagged_paragraphs": 0,
+  "claims": 34,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     10,
+     11,
+     20,
+     23,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['analytics/research'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     13,
+     10,
+     18,
+     1
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location is collected for ['analytics/research'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     13,
+     20,
+     23,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['analytics/research'], the app uses it for Advertising",
+    "paragraphs": [
+     13,
+     10,
+     14,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     15,
+     16,
+     18,
+     19,
+     20,
+     21,
+     22,
+     17,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     6,
+     7,
+     8,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may disclose your personally-identifiable information with our employees, agents, contractors and sub-contractors, and our related and affiliated entities, including, but not limited to, 13 Management, LLC, Firefly Entertainment, Inc., Swift Merchandising, Inc., and Taylor Swift Productions, Inc., and their respective employees, agents, contractors and sub-contractors, for the limited purpose of enabling them to communicate with you directly about upcoming events and promotions.",
+      "rationale": "The policy mentions generic sharing with affiliates and employees but does not specifically mention sharing with Google AdMob.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "We will not share your information with third parties for the purposes of their direct marketing unless you affirmatively agree to such disclosure.",
+       "generic_quote": "We may disclose your personally-identifiable information with our employees, agents, contractors and sub-contractors, and our related and affiliated entities, including, but not limited to, 13 Management, LLC, Firefly Entertainment, Inc., Swift Merchandising, Inc., and Taylor Swift Productions, Inc., and their respective employees, agents, contractors and sub-contractors, for the limited purpose of enabling them to communicate with you directly about upcoming events and promotions.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions generic sharing with affiliates and employees but does not specifically mention sharing with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.97470443972415
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We use the information we collect to monitor and analyze how users use the Sites and the Services, to provide customer service and to maintain and improve the Services.",
+      "rationale": "The policy does not specify any particular purpose for collecting contact information, only general purposes like monitoring usage and improving services.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We use the information we collect to monitor and analyze how users use the Sites and the Services, to provide customer service and to maintain and improve the Services.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy does not specify any particular purpose for collecting contact information, only general purposes like monitoring usage and improving services."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9556272448301453
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 10",
+       "Rule 2"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify any particular purpose for collecting IP addresses and device IDs, and instead broadly states they are collected for monitoring, analysis, customer service, and maintaining/improving services.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "purpose_mismatch",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Personalization/Customization",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We use 'web beacons' and 'web logs' to allow our servers to automatically record information that your browser sends whenever you visit the Sites. This information includes the time and date, your Internet Protocol address, your geographic location (your zip code, your area code and/or your time zone), your browser type and version, the Sites and/or the Services that you use, and when and how long you use them. We use this information to monitor and analyze how users use the Sites and the Services, to provide customer service and to maintain and improve the Services.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 10",
+        "Rule 2"
+       ],
+       "rationale": "The policy does not specify any particular purpose for collecting IP addresses and device IDs, and instead broadly states they are collected for monitoring, analysis, customer service, and maintaining/improving services."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9488340830554066
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "We use this information to monitor and analyze how users use the Sites and the Services, to provide customer service and to maintain and improve the Services.",
+      "rationale": "The policy does not specify a purpose for location data but mentions monitoring and analyzing usage patterns, which is not specifically tied to 'Service Operation and Security'.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We use this information to monitor and analyze how users use the Sites and the Services, to provide customer service and to maintain and improve the Services.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a purpose for location data but mentions monitoring and analyzing usage patterns, which is not specifically tied to 'Service Operation and Security'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9341039738695535
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly state that computer information is used for advertising purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We use 'web beacons' and 'web logs' to allow our servers to automatically record information that your browser sends whenever you visit the Sites.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy does not explicitly state that computer information is used for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9750076637103363
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "The Sites are not for children under 13 years of age.",
+      "rationale": "The policy states that the sites are not for children under 13, but it does not explicitly prohibit tracking or targeted advertising.",
+      "raw": {
+       "candidate_id": "c6",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        6,
+        7,
+        8,
+        9
+       ],
+       "children_quote": "The Sites are not for children under 13 years of age.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy states that the sites are not for children under 13, but it does not explicitly prohibit tracking or targeted advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9619446277226896
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 7,
+  "seconds": 147.3
+ }
+}

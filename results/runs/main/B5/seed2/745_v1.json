@@ -1,0 +1,224 @@
+{
+ "case_id": "745_v1",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9476628098445771,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9476628098445771,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "[P1]"
+   ],
+   "evidence": "We do not use cookies to collect personal information, and we do not use cookies to retrieve information from your computer for purposes that are unrelated to the Web site or your interaction with the Web site.",
+   "rationale": "The policy explicitly states that cookies are not used to collect personal information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [],
+   "evidence": "",
+   "rationale": "There is no mention of sharing location data with Google AdMob or any third party in the policy.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9476628098445771,
+ "usage": {
+  "prompt": 1136,
+  "output": 342
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 4,
+  "untagged_paragraphs": 0,
+  "claims": 12,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "[P1]"
+      ],
+      "evidence": "We do not use cookies to collect personal information, and we do not use cookies to retrieve information from your computer for purposes that are unrelated to the Web site or your interaction with the Web site.",
+      "rationale": "The policy explicitly states that cookies are not used to collect personal information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not use cookies to collect personal information, and we do not use cookies to retrieve information from your computer for purposes that are unrelated to the Web site or your interaction with the Web site.",
+       "generic_quote": "",
+       "sections": [
+        "[P1]"
+       ],
+       "rationale": "The policy explicitly states that cookies are not used to collect personal information."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P1]"
+      ],
+      "evidence": "Cookies are generated and placed on your computer when you visit a Web site.",
+      "rationale": "The policy only describes how cookies are generated and placed, without specifying any purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Cookies are generated and placed on your computer when you visit a Web site.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P1]"
+       ],
+       "rationale": "The policy only describes how cookies are generated and placed, without specifying any purpose."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [],
+      "evidence": "",
+      "rationale": "There is no mention of sharing location data with Google AdMob or any third party in the policy.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [],
+       "rationale": "There is no mention of sharing location data with Google AdMob or any third party in the policy."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [],
+      "evidence": "",
+      "rationale": "The policy does not specify any purpose for location data and only describes how it might be derived from the IP address.",
+      "raw": {
+       "candidate_id": "c4",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [],
+       "rationale": "The policy does not specify any purpose for location data and only describes how it might be derived from the IP address."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9476628098445771
+   }
+  ],
+  "paragraphs_shown": [
+   4
+  ],
+  "paragraphs_total": 4,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 34.06
+ }
+}

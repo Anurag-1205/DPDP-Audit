@@ -1,0 +1,171 @@
+{
+ "case_id": "642_v1",
+ "system": "A5_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f5",
+   "data_type": "Demographic",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We do not collect any personal information from a visitor to our sites unless that visitor explicitly and intentionally provides it. Under no circumstances do we collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+   "rationale": "The policy explicitly states that no personal information is collected unless provided by the user, thus no personal data types are disclosed.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not address the collection of demographic data, which is the focus of the finding. The cited DPDP text pertains to the notice requirement for consent requests, which is unrelated to the issue of undisclosed collection of data."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9609025566826119,
+   "source": "notice"
+  },
+  "f6": {
+   "label": "clear",
+   "confidence": 0.9748659986327238,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9678842776576679,
+ "usage": {
+  "prompt": 2792,
+  "output": 478
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 15,
+  "untagged_paragraphs": 0,
+  "claims": 39,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f5",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not collect Demographic",
+    "paragraphs": [
+     3,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f6",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not collect Health",
+    "paragraphs": [
+     3,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We do not collect any personal information from a visitor to our sites unless that visitor explicitly and intentionally provides it. Under no circumstances do we collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+      "rationale": "The policy explicitly states that no personal information is collected unless provided by the user, thus no personal data types are disclosed.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect any personal information from a visitor to our sites unless that visitor explicitly and intentionally provides it. Under no circumstances do we collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+       "generic_quote": "We do not collect any personal information from a visitor to our sites unless that visitor explicitly and intentionally provides it. Under no circumstances do we collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that no personal information is collected unless provided by the user, thus no personal data types are disclosed."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9609025566826119
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Personal Information\nWe do not collect any personal information from a visitor to our sites unless that visitor explicitly and intentionally provides it. Under no circumstances do we collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+      "rationale": "The policy explicitly states that no personal information is collected, which includes health data.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We do not collect any personal information from a visitor to our sites unless that visitor explicitly and intentionally provides it. Under no circumstances do we collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+       "generic_quote": "Personal Information\nWe do not collect any personal information from a visitor to our sites unless that visitor explicitly and intentionally provides it. Under no circumstances do we collect any personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, or sex life.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that no personal information is collected, which includes health data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9748659986327238
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 58.96
+ }
+}

@@ -1,0 +1,269 @@
+{
+ "case_id": "1470_v2",
+ "system": "full_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Valve also processes anonymous data, aggregated or not, in order to analyze and produce statistics related to the habits, usage patterns, and demographics of users as a group or as individuals. Such anonymous data does not allow the identification of the users to which it relates. Valve may share anonymous data, aggregated or not, with third parties.",
+   "rationale": "The policy mentions processing and sharing of anonymous data, which can include IP addresses and device IDs.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions processing and sharing of anonymous data, which can include IP addresses and device IDs. Although the retention period is unspecified, the purpose and recipient are clearly stated, supporting the finding of an undisclosed collection."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "User profile",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Valve's privacy policy does not extend to external websites and companies or third party publishers with links to or from Valves products and online websites or who collect personally identifiable information through their game available on Steam. Please refer directly to these companies and websites regarding their privacy policies.",
+   "rationale": "The policy explicitly states that it does not cover external websites and companies collecting personally identifiable information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that Valve's privacy policy does not cover external websites and companies collecting personally identifiable information. This does not indicate an undisclosed sharing of user profiles with AdMob for advertising purposes. Therefore, the finding is not supported."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9674795159300039,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9674795159300039,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9638388077335343,
+ "usage": {
+  "prompt": 6024,
+  "output": 922
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 49,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['additional service/feature', 'service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     6,
+     13,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     3,
+     4,
+     13,
+     10,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     13,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User profile with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     2,
+     4,
+     8,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Valve also processes anonymous data, aggregated or not, in order to analyze and produce statistics related to the habits, usage patterns, and demographics of users as a group or as individuals. Such anonymous data does not allow the identification of the users to which it relates. Valve may share anonymous data, aggregated or not, with third parties.",
+      "rationale": "The policy mentions processing and sharing of anonymous data, which can include IP addresses and device IDs.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Valve also processes anonymous data, aggregated or not, in order to analyze and produce statistics related to the habits, usage patterns, and demographics of users as a group or as individuals. Such anonymous data does not allow the identification of the users to which it relates. Valve may share anonymous data, aggregated or not, with third parties.",
+       "denial_quote": "",
+       "generic_quote": "Valve also processes anonymous data, aggregated or not, in order to analyze and produce statistics related to the habits, usage patterns, and demographics of users as a group or as individuals. Such anonymous data does not allow the identification of the users to which it relates. Valve may share anonymous data, aggregated or not, with third parties.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions processing and sharing of anonymous data, which can include IP addresses and device IDs."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Valve's privacy policy does not extend to external websites and companies or third party publishers with links to or from Valves products and online websites or who collect personally identifiable information through their game available on Steam. Please refer directly to these companies and websites regarding their privacy policies.",
+      "rationale": "The policy explicitly states that it does not cover external websites and companies collecting personally identifiable information.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "Valve's privacy policy does not extend to external websites and companies or third party publishers with links to or from Valves products and online websites or who collect personally identifiable information through their game available on Steam. Please refer directly to these companies and websites regarding their privacy policies.",
+       "generic_quote": "Valve's privacy policy does not extend to external websites and companies or third party publishers with links to or from Valves products and online websites or who collect personally identifiable information through their game available on Steam. Please refer directly to these companies and websites regarding their privacy policies.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that it does not cover external websites and companies collecting personally identifiable information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9674795159300039
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "When you create a Steam account, Valve collects a user's email address and username, and at the user's option, first and last name.",
+      "rationale": "The policy explicitly states that personal data (including contact details) is collected for creating a Steam account.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "When you create a Steam account, Valve collects a user's email address and username, and at the user's option, first and last name.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that personal data (including contact details) is collected for creating a Steam account."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Information regarding Steam billing, a users Steam account, a users Internet connection and the Valve software installed on a users computer is uploaded to the server in connection with the users use of Steam and Valve software.",
+      "rationale": "The policy clearly states that computer information is collected for the users' use of Steam and Valve software.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "Information regarding Steam billing, a users Steam account, a users Internet connection and the Valve software installed on a users computer is uploaded to the server in connection with the users use of Steam and Valve software.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy clearly states that computer information is collected for the users' use of Steam and Valve software."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9601980995370647
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 59.9,
+  "reverified_from": "full_finetuned",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

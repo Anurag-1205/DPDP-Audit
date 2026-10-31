@@ -1,0 +1,181 @@
+{
+ "case_id": "1637_v2",
+ "system": "A5_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f7",
+   "data_type": "Survey data",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The information we collect",
+   "rationale": "The policy mentions collecting personal data but does not specify survey data explicitly.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence 'The information we collect' is too vague and does not specifically mention survey data. The cited DPDP text from Section 5(1) and Rule 3 focuses on the notice requirements for consent requests, which is not directly related to the undisclosed collection of survey data. Therefore"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f7": {
+   "label": "vague",
+   "confidence": 0.9638049730910556,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9416405873128693,
+ "usage": {
+  "prompt": 2983,
+  "output": 324
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 15,
+  "untagged_paragraphs": 0,
+  "claims": 35,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f6",
+    "data_type": "Demographic",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Demographic is collected for ['analytics/research'], the app uses it for Advertising",
+    "paragraphs": [
+     5,
+     6,
+     8,
+     4,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f7",
+    "data_type": "Survey data",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Survey data is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     3,
+     5,
+     8,
+     1,
+     13
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The information we collect",
+      "rationale": "The policy mentions collecting personal data but does not specify survey data explicitly.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We do not share this information with outside parties unless otherwise noted at the time of data entry.",
+       "denial_quote": "",
+       "generic_quote": "The information we collect",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting personal data but does not specify survey data explicitly."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9638049730910556
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Specifically, we are able analyze the this type of data: Demographics",
+      "rationale": "The policy explicitly states that demographic data is used for analysis, which aligns with the purpose stated.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "Specifically, we are able analyze the this type of data: Demographics",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that demographic data is used for analysis, which aligns with the purpose stated."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9194762015346829
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 36.99
+ }
+}

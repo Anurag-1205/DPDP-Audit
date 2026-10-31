@@ -1,0 +1,195 @@
+{
+ "case_id": "928_v2",
+ "system": "A2_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "This analysis does not involve personally identifiable information. It is used only for the purpose of helping us understand and better meet our audience's needs.",
+   "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but it does discuss analyzing personal information in aggregate for the purpose of understanding the audience.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions analyzing personal information in aggregate for understanding the audience, but it does not explicitly state that IP addresses or device IDs are collected. Additionally, the cited DPDP text pertains to the notice requirements for consent requests, which is not directly r"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f6",
+   "data_type": "User online activities",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8",
+    "Third Schedule"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for user online activities data used for Analytics/Research.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9385527141119431,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.951865352661128,
+ "usage": {
+  "prompt": 2170,
+  "output": 394
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 19,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     9,
+     4,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f6",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps User online activities indefinitely; retention statements: none",
+    "paragraphs": [
+     2,
+     4
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "This analysis does not involve personally identifiable information. It is used only for the purpose of helping us understand and better meet our audience's needs.",
+      "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but it does discuss analyzing personal information in aggregate for the purpose of understanding the audience.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "If you participate in a user survey, your answers and personal information will only be analyzed in aggregate. The information will be used to help us tailor our web site, publications, and services to our users' needs and to help us understand our audience.",
+       "generic_quote": "This analysis does not involve personally identifiable information. It is used only for the purpose of helping us understand and better meet our audience's needs.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but it does discuss analyzing personal information in aggregate for the purpose of understanding the audience."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9385527141119431
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8",
+       "Third Schedule"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for user online activities data used for Analytics/Research.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "retention_mismatch",
+       "data_type": "User online activities",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8",
+        "Third Schedule"
+       ],
+       "rationale": "The policy does not specify a retention period for user online activities data used for Analytics/Research."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9651779912103129
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 29.58
+ }
+}

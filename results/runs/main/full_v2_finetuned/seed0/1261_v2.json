@@ -1,0 +1,242 @@
+{
+ "case_id": "1261_v2",
+ "system": "full_v2_finetuned",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+   "rationale": "The policy does not specify a purpose for cookies and tracking elements beyond general website administration.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence describes the use of cookies and tracking elements for recognizing preferences, tracking choices, and facilitating web site administration. However, the cited DPDP text in Sec. 5(1) and Sec. 6(1) requires specifying the personal data and the purpose for which it is proposed to be"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Please note that while Zacks will not freely distribute the information you submit, if you click to unsubscribe from mailings sent to the Zacks.com Opt-In Marketing List from a particular marketer, we are obligated to share your email address with that marketer for the purpose of being added to their Do Not Mail list. How that mailer manages your email address after that time is beyond Zacks.com control.",
+   "rationale": "The policy mentions that personal information is shared with third parties for marketing purposes, but does not specify sharing with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9566468946020581,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9555253494625303,
+ "usage": {
+  "prompt": 4606,
+  "output": 802
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 13,
+  "untagged_paragraphs": 0,
+  "claims": 13,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['additional service/feature', 'personalization/customization'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     8,
+     3,
+     1,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Financial is collected for ['basic service/feature'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     5,
+     7,
+     3,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions User online activities",
+    "paragraphs": [
+     10,
+     2
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Please note that while Zacks will not freely distribute the information you submit, if you click to unsubscribe from mailings sent to the Zacks.com Opt-In Marketing List from a particular marketer, we are obligated to share your email address with that marketer for the purpose of being added to their Do Not Mail list. How that mailer manages your email address after that time is beyond Zacks.com control.",
+      "rationale": "The policy mentions that personal information is shared with third parties for marketing purposes, but does not specify sharing with Google AdMob.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "User online activities",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "disclosing_quote": "",
+       "denial_quote": "Everyone who submits personal information to Zacks Investment Research online will receive, via e-mail, our free weekly newsletters: Profit from the Pros. Through Profit from the Pros, we provide original and exclusive content from Zacks Investment Research and Zacks.com. We also distribute commentary and investment ideas from independent third parties, who produce financial news publications and who compensate Zacks Investment Research for distributing their newsletters. From time-to-time, we will also send or contact you regarding special offers for products and services from Zacks Investment Research and our affiliates. You can unsubscribe from these e-mails at any time by going to http://register.zacks.com/unisub.php.",
+       "generic_quote": "Please note that while Zacks will not freely distribute the information you submit, if you click to unsubscribe from mailings sent to the Zacks.com Opt-In Marketing List from a particular marketer, we are obligated to share your email address with that marketer for the purpose of being added to their Do Not Mail list. How that mailer manages your email address after that time is beyond Zacks.com control.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that personal information is shared with third parties for marketing purposes, but does not specify sharing with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9566468946020581
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+      "rationale": "The policy does not specify a purpose for cookies and tracking elements beyond general website administration.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "These technologies allow us to recognize your preference information, keep track of the choices you make concerning the e-mails you wish to receive, and to facilitate effective Web site administration.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy does not specify a purpose for cookies and tracking elements beyond general website administration."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9504196554737199
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 8"
+      ],
+      "evidence": "We collect your credit card information solely for payment of your subscription. It is shared only with our credit card processor in order to complete the transaction.",
+      "rationale": "The policy explicitly states that credit card information is collected for payment and transaction completion, aligning with 'Service Operation and Security'.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Financial",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "purpose_quote": "We collect your credit card information solely for payment of your subscription. It is shared only with our credit card processor in order to complete the transaction.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that credit card information is collected for payment and transaction completion, aligning with 'Service Operation and Security'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9595094983118129
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 38.09
+ }
+}

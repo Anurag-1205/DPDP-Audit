@@ -1,0 +1,199 @@
+{
+ "case_id": "1164_v2",
+ "system": "A5_v2_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may also provide your information to our advertisers, so that they can serve ads to you that meet your needs or match your interests. While we may seek to require such third parties to follow appropriate privacy policies and will not authorize them to use this information except for the express purpose for which it is provided, we do not bear any responsibility for any actions or policies of third parties.",
+   "rationale": "The policy does not specify sharing location data with Google AdMob or any other specific company, but it does mention sharing personal information with third parties for advertising purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f5",
+   "data_type": "Cookies and tracking elements",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for cookies and tracking elements used for advertising.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9434828379815391,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.96850453207219,
+ "usage": {
+  "prompt": 3856,
+  "output": 362
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 38,
+  "untagged_paragraphs": 0,
+  "claims": 115,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     6,
+     8,
+     9,
+     10,
+     11,
+     13,
+     14,
+     16,
+     20,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f5",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "vague",
+    "reason": "the app keeps Cookies and tracking elements indefinitely; retention statements: ['Unspecified']",
+    "paragraphs": [
+     16,
+     18
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may also provide your information to our advertisers, so that they can serve ads to you that meet your needs or match your interests. While we may seek to require such third parties to follow appropriate privacy policies and will not authorize them to use this information except for the express purpose for which it is provided, we do not bear any responsibility for any actions or policies of third parties.",
+      "rationale": "The policy does not specify sharing location data with Google AdMob or any other specific company, but it does mention sharing personal information with third parties for advertising purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We reserve the right to use, transfer, assign, sell, share, and provide access to all personally identifiable information and other information about you and your computer, mobile or other device that we receive through third-party social networking services in the same ways described in this Agreement as all of your other information.",
+       "generic_quote": "We may also provide your information to our advertisers, so that they can serve ads to you that meet your needs or match your interests. While we may seek to require such third parties to follow appropriate privacy policies and will not authorize them to use this information except for the express purpose for which it is provided, we do not bear any responsibility for any actions or policies of third parties.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify sharing location data with Google AdMob or any other specific company, but it does mention sharing personal information with third parties for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9434828379815391
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for cookies and tracking elements used for advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a retention period for cookies and tracking elements used for advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9935262261628409
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 42.72,
+  "reverified_from": "A5_v2",
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

@@ -1,0 +1,305 @@
+{
+ "case_id": "744_v2",
+ "system": "A1_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Types of Information We Collect\nPersonal information means information that can be used to identify and contact you.",
+   "rationale": "The policy mentions 'personal information' but does not specify health data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may use third-party advertising companies, such as Yahoo!, Google, OpenX, Lijit to serve ads when you visit our website. These companies may use information about your interests in order to provide advertisements about goods and services of interest to you.",
+   "rationale": "The policy mentions sharing personal data with third parties for advertising purposes, but does not specifically mention sharing IP addresses and device IDs with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "omission",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly state that they do not track or monitor children's data or engage in targeted advertising towards them.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9682434977133993,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9494923793779799,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9448680884401579,
+ "usage": {
+  "prompt": 5709,
+  "output": 640
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 26,
+  "untagged_paragraphs": 0,
+  "claims": 50,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature', 'service operation and security'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     3,
+     5,
+     7,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Health is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     10,
+     11,
+     12,
+     13,
+     17,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     8
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Types of Information We Collect\nPersonal information means information that can be used to identify and contact you.",
+      "rationale": "The policy mentions 'personal information' but does not specify health data.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "Types of Information We Collect\nPersonal information means information that can be used to identify and contact you.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions 'personal information' but does not specify health data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9682434977133993
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may use third-party advertising companies, such as Yahoo!, Google, OpenX, Lijit to serve ads when you visit our website. These companies may use information about your interests in order to provide advertisements about goods and services of interest to you.",
+      "rationale": "The policy mentions sharing personal data with third parties for advertising purposes, but does not specifically mention sharing IP addresses and device IDs with Google AdMob.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We may use third-party advertising companies, such as Yahoo!, Google, OpenX, Lijit to serve ads when you visit our website. These companies may use information about your interests in order to provide advertisements about goods and services of interest to you.",
+       "generic_quote": "We may use third-party advertising companies, such as Yahoo!, Google, OpenX, Lijit to serve ads when you visit our website. These companies may use information about your interests in order to provide advertisements about goods and services of interest to you.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing personal data with third parties for advertising purposes, but does not specifically mention sharing IP addresses and device IDs with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9494923793779799
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "When you enter a contest or sweepstakes with Curse, in addition to your screen name, name and email address, we will ask for your mailing address in case we have to mail you a prize, and may ask you to opt into receiving a third party's offers and/or newsletter.",
+      "rationale": "The policy explicitly states that contact information can be used for additional services like contests and newsletters, aligning with the purpose limitation.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "When you enter a contest or sweepstakes with Curse, in addition to your screen name, name and email address, we will ask for your mailing address in case we have to mail you a prize, and may ask you to opt into receiving a third party's offers and/or newsletter.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that contact information can be used for additional services like contests and newsletters, aligning with the purpose limitation."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9545472793589215
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly state that they do not track or monitor children's data or engage in targeted advertising towards them.",
+      "raw": {
+       "candidate_id": "c4",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not explicitly state that they do not track or monitor children's data or engage in targeted advertising towards them."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9071891973103308
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 68.5
+ }
+}

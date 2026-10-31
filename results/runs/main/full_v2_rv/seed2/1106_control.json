@@ -1,0 +1,281 @@
+{
+ "case_id": "1106_control",
+ "system": "full_v2_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "As true of most sites, we gather certain information automatically and store it in log files. This information may include internet protocol (IP) addresses, browser type, internet service provider (ISP), referring/exit pages, operating system, date/time stamp, and/or clickstream data.",
+   "rationale": "The policy mentions collecting IP addresses and other related data, but does not explicitly state that it collects them for advertising.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence describes the collection of IP addresses and related data, but does not explicitly state the purpose for which this data is collected. The cited DPDP text requires a clear and plain language notice to the Data Principal, including the purpose of processing personal data. Since th"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9715057692951198,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9510955851273122,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.957503768744187,
+ "usage": {
+  "prompt": 7560,
+  "output": 1006
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 47,
+  "untagged_paragraphs": 0,
+  "claims": 82,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     12,
+     15,
+     21,
+     38,
+     40,
+     5,
+     44
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     12,
+     15,
+     21,
+     38,
+     40,
+     30,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location is collected for ['service operation and security'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     10,
+     30,
+     9,
+     11,
+     21
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "firebase_analytics",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is shared with firebase_analytics for ['advertising'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     16,
+     19,
+     6,
+     18
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We gather personal information from you and from outside sources for business purposes. Some examples of the information we collect from you may include your name, phone number, home and e-mail addresses, driver's license number, social security number, marital status, family member information and healthcare information. Also, we maintain records that include, but are not limited to, policy coverages, premiums, and payment history. We also collect information from outside sources that may include, but is not limited to, your driving record, claims history, medical information and credit information.",
+      "rationale": "The policy explicitly mentions collecting various types of personal information, including contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We gather personal information from you and from outside sources for business purposes. Some examples of the information we collect from you may include your name, phone number, home and e-mail addresses, driver's license number, social security number, marital status, family member information and healthcare information. Also, we maintain records that include, but are not limited to, policy coverages, premiums, and payment history. We also collect information from outside sources that may include, but is not limited to, your driving record, claims history, medical information and credit information.",
+       "denial_quote": "",
+       "generic_quote": "We gather personal information from you and from outside sources for business purposes. Some examples of the information we collect from you may include your name, phone number, home and e-mail addresses, driver's license number, social security number, marital status, family member information and healthcare information. Also, we maintain records that include, but are not limited to, policy coverages, premiums, and payment history. We also collect information from outside sources that may include, but is not limited to, your driving record, claims history, medical information and credit information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting various types of personal information, including contact details."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9715057692951198
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "As true of most sites, we gather certain information automatically and store it in log files. This information may include internet protocol (IP) addresses, browser type, internet service provider (ISP), referring/exit pages, operating system, date/time stamp, and/or clickstream data.",
+      "rationale": "The policy mentions collecting IP addresses and other related data, but does not explicitly state that it collects them for advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "This statement is provided on behalf of Allstate Insurance Company and the affiliates ('Allstate') listed at the end of this notice. We would like to explain how we collect, use and share the information we obtain about you in the course of doing business.",
+       "denial_quote": "",
+       "generic_quote": "As true of most sites, we gather certain information automatically and store it in log files. This information may include internet protocol (IP) addresses, browser type, internet service provider (ISP), referring/exit pages, operating system, date/time stamp, and/or clickstream data.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting IP addresses and other related data, but does not explicitly state that it collects them for advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9510955851273122
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)"
+      ],
+      "evidence": "We use your location information to search for information you request - including agent searches identify the location of an accident you are reporting",
+      "rationale": "The policy explicitly states the purpose of using location information.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "We use your location information to search for information you request - including agent searches identify the location of an accident you are reporting",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)"
+       ],
+       "rationale": "The policy explicitly states the purpose of using location information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9389719283565839
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "We use cookies, analytics and other technologies to help: Evaluate our marketing campaigns Analyze how customers use our website and applications Develop new services Know how many visitors have seen or clicked on our ads",
+      "rationale": "The policy explicitly states that cookies and tracking elements are used for personalization/customization purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "Firebase Analytics (Google, analytics)",
+       "purpose": "Personalization/Customization",
+       "purpose_quote": "We use cookies, analytics and other technologies to help: Evaluate our marketing campaigns Analyze how customers use our website and applications Develop new services Know how many visitors have seen or clicked on our ads",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that cookies and tracking elements are used for personalization/customization purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9684417921977321
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 5,
+  "seconds": 118.39,
+  "reverified_from": "full_v2",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

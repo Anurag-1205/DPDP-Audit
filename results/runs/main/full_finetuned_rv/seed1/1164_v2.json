@@ -1,0 +1,307 @@
+{
+ "case_id": "1164_v2",
+ "system": "full_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a purpose for location data, and it is used for more than just 'Service Operation and Security'.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that the purpose for location data is unspecified, and the app flow indicates it is used for more than just 'Service Operation and Security'. However, the policy evidence provided does not explicitly disclose the purpose for location data. Additionally, the cited DPDP text"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may also allow access to our database by third parties that provide us with services, such as technical maintenance, market research, community and forums management, auction services, and shopping, personal/job search and other classified ads functionality, but only for the purpose of and to the extent necessary to provide those services.",
+   "rationale": "The policy mentions sharing personal data broadly but does not specify sharing location data with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions sharing personal data broadly but does not specify sharing location data with Google AdMob. The cited DPDP text pertains to notices and consents rather than the specific recipients of shared data."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.972791565832121,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9702039462226429,
+ "usage": {
+  "prompt": 6605,
+  "output": 1336
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 38,
+  "untagged_paragraphs": 0,
+  "claims": 56,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Location is collected for ['advertising', 'analytics/research', 'unspecified'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     5,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Computer information is collected for ['advertising', 'analytics/research', 'unspecified'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     5,
+     12,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     6,
+     8,
+     9,
+     10,
+     11,
+     13,
+     14,
+     15,
+     20,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps Cookies and tracking elements indefinitely; retention statements: none",
+    "paragraphs": [
+     18,
+     16
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may also allow access to our database by third parties that provide us with services, such as technical maintenance, market research, community and forums management, auction services, and shopping, personal/job search and other classified ads functionality, but only for the purpose of and to the extent necessary to provide those services.",
+      "rationale": "The policy mentions sharing personal data broadly but does not specify sharing location data with Google AdMob.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We reserve the right to use, transfer, assign, sell, share, and provide access to all personally identifiable information and other information about you and your computer, mobile or other device that we receive through third-party social networking services in the same ways described in this Agreement as all of your other information.",
+       "generic_quote": "We may also allow access to our database by third parties that provide us with services, such as technical maintenance, market research, community and forums management, auction services, and shopping, personal/job search and other classified ads functionality, but only for the purpose of and to the extent necessary to provide those services.",
+       "sections": [
+        "Sec. 5(2)",
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing personal data broadly but does not specify sharing location data with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.972791565832121
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a purpose for location data, and it is used for more than just 'Service Operation and Security'.",
+      "raw": {
+       "candidate_id": "c1",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "paragraphs": [
+        5,
+        12
+       ],
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "The information collected may include, without limitation, the make, model, settings, specifications (e.g., CPU speed, connection speed, browser type, operating system, device identifier) and geographic location of you and/or your computer, mobile or other device, as well as date/time stamp, IP address, pages visited, time of visits, content viewed, ads viewed, the site(s), application(s), destination(s), and/or service(s) you arrived from, and other clickstream data.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a purpose for location data, and it is used for more than just 'Service Operation and Security'."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "In addition, we reserve the right to use the information we collect about your computer, mobile or other device (including its geographic location), which may at times be able to identify you, for any lawful business purpose, including without limitation to help diagnose problems with our servers, to gather broad demographic information, analyze trends, track users movements around the Service, and to otherwise administer the Service.",
+      "rationale": "While the policy mentions using computer information for diagnosing server issues and administering the service, it does not explicitly state that this is the sole purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "purpose_mismatch",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "paragraphs": [
+        5,
+        12,
+        2
+       ],
+       "purpose_quote": "In addition, we reserve the right to use the information we collect about your computer, mobile or other device (including its geographic location), which may at times be able to identify you, for any lawful business purpose, including without limitation to help diagnose problems with our servers, to gather broad demographic information, analyze trends, track users movements around the Service, and to otherwise administer the Service.",
+       "unspecified_purpose_quote": "The information collected may include, without limitation, the make, model, settings, specifications (e.g., CPU speed, connection speed, browser type, operating system, device identifier) and geographic location of you and/or your computer, mobile or other device, as well as date/time stamp, IP address, pages visited, time of visits, content viewed, ads viewed, the site(s), application(s), destination(s), and/or service(s) you arrived from, and other clickstream data.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "While the policy mentions using computer information for diagnosing server issues and administering the service, it does not explicitly state that this is the sole purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.970795544126044
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "We may use Local Device Storage for any lawful business purpose, including without limitation to determine which of our messages have been opened by recipients so we can gauge the effectiveness of marketing campaigns, to control the display of ads, to track usage patterns, the movements of individual users, and your geographic location, to help diagnose problems with our servers, to gather broad demographic information, to analyze trends, to conduct research, to deliver editorial content, to record registration and personalization information, and to otherwise administer the Service.",
+      "rationale": "The policy indicates that cookies and tracking elements are used for various business purposes, including advertising, without specifying a time limit for their retention.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "indefinitely",
+       "retention_quote": "We may use Local Device Storage for any lawful business purpose, including without limitation to determine which of our messages have been opened by recipients so we can gauge the effectiveness of marketing campaigns, to control the display of ads, to track usage patterns, the movements of individual users, and your geographic location, to help diagnose problems with our servers, to gather broad demographic information, to analyze trends, to conduct research, to deliver editorial content, to record registration and personalization information, and to otherwise administer the Service.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy indicates that cookies and tracking elements are used for various business purposes, including advertising, without specifying a time limit for their retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9670247287097639
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 125.81,
+  "reverified_from": "full_finetuned",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

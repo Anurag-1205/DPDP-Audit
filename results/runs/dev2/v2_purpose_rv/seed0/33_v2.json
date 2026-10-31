@@ -1,0 +1,619 @@
+{
+ "case_id": "33_v2",
+ "system": "v2_purpose_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Information that may be passed to analytics providers and advertising partners may be via cookies and tracking technologies. Please see our Cookies and Tracking Technologies page for information, including your choices in relation to these technologies.",
+   "rationale": "The policy mentions sharing information with analytics providers and advertising partners, but does not specify Google AdMob specifically.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "We do not knowingly collect or store any personal information from children under the age of 13.",
+   "rationale": "The policy does not allow for the collection or storage of personal data from children under 13, which conflicts with the purpose of Advertising.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f5",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Information that may be passed to analytics providers and advertising partners may be via cookies and tracking technologies. Please see our Cookies and Tracking Technologies page for information, including your choices in relation to these technologies.",
+   "rationale": "The policy mentions collecting various types of information, but does not specify a generic purpose.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions that information may be passed to analytics providers and advertising partners via cookies and tracking technologies, but it does not specify a generic purpose. However, the finding is not supported because the evidence does not disclose the app's actual practice of undi"
+  },
+  {
+   "candidate_id": "c8",
+   "flow_id": "f5",
+   "data_type": "Computer information",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8",
+    "Third Schedule"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for computer information.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9646143488377311,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9646143488377311,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9646143488377311,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9671754807157675,
+ "usage": {
+  "prompt": 10269,
+  "output": 1588
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 65,
+  "untagged_paragraphs": 0,
+  "claims": 140,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Cookies and tracking elements is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     7,
+     8,
+     12,
+     15,
+     16,
+     17,
+     18,
+     22,
+     26,
+     27,
+     29,
+     31,
+     32,
+     40,
+     62,
+     48,
+     55
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements may be collected; the app uses it for Analytics/Research",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     7,
+     8,
+     12,
+     15,
+     16,
+     17,
+     18,
+     22,
+     26,
+     27,
+     29,
+     31,
+     32,
+     40,
+     62,
+     55,
+     48,
+     14
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     14,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39,
+     59,
+     12,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs may be shared with admob; the app uses it for Advertising",
+    "paragraphs": [
+     14,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39,
+     59,
+     12,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     41,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f5",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     7,
+     8,
+     12,
+     15,
+     16,
+     17,
+     18,
+     22,
+     26,
+     27,
+     29,
+     31,
+     32,
+     40,
+     62,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c7",
+    "flow_id": "f5",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information may be collected; the app uses it for Unspecified",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     7,
+     8,
+     12,
+     15,
+     16,
+     17,
+     18,
+     22,
+     26,
+     27,
+     29,
+     31,
+     32,
+     40,
+     62,
+     11,
+     38
+    ]
+   },
+   {
+    "candidate_id": "c8",
+    "flow_id": "f5",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Computer information indefinitely; retention statements: ['Indefinitely', 'Limited', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     14,
+     16,
+     17,
+     18,
+     19,
+     22,
+     26,
+     28,
+     33,
+     34,
+     41,
+     43,
+     51,
+     53,
+     55,
+     62
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect your information when you use our online services in three main ways: ... Automatically, when you use our online services: we collect information through the use of Cookies and Other Technologies and when you download our Mobile Apps. Please see our Cookies and Tracking Technologies, and Mobile Apps pages for further information, including your choices in relation to the use of these technologies.",
+      "rationale": "The policy explicitly mentions collecting and using cookies and tracking technologies.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We collect your information when you use our online services in three main ways: ... Automatically, when you use our online services: we collect information through the use of Cookies and Other Technologies and when you download our Mobile Apps. Please see our Cookies and Tracking Technologies, and Mobile Apps pages for further information, including your choices in relation to the use of these technologies.",
+       "denial_quote": "",
+       "generic_quote": "Information that may be passed to analytics providers and advertising partners may be via cookies and tracking technologies. Please see our Cookies and Tracking Technologies page for information, including your choices in relation to these technologies.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting and using cookies and tracking technologies."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Information that may be passed to analytics providers and advertising partners may be via cookies and tracking technologies. Please see our Cookies and Tracking Technologies page for information, including your choices in relation to these technologies.",
+      "rationale": "The policy mentions sharing information with analytics providers and advertising partners, but does not specify Google AdMob specifically.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We collect your information when you use our online services in three main ways: ... Automatically, when you use our online services: we collect information through the use of Cookies and Other Technologies and when you download our Mobile Apps. Please see our Cookies and Tracking Technologies, and Mobile Apps pages for further information, including your choices in relation to the use of these technologies.",
+       "denial_quote": "",
+       "generic_quote": "Information that may be passed to analytics providers and advertising partners may be via cookies and tracking technologies. Please see our Cookies and Tracking Technologies page for information, including your choices in relation to these technologies.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing information with analytics providers and advertising partners, but does not specify Google AdMob specifically."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Information that may be passed to analytics providers and advertising partners may be via cookies and tracking technologies. Please see our Cookies and Tracking Technologies page for information, including your choices in relation to these technologies.",
+      "rationale": "The policy mentions collecting various types of information, but does not specify a generic purpose.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We collect your information when you use our online services in three main ways: ... Automatically, when you use our online services: we collect information through the use of Cookies and Other Technologies and when you download our Mobile Apps. Please see our Cookies and Tracking Technologies, and Mobile Apps pages for further information, including your choices in relation to the use of these technologies.",
+       "denial_quote": "",
+       "generic_quote": "Information that may be passed to analytics providers and advertising partners may be via cookies and tracking technologies. Please see our Cookies and Tracking Technologies page for information, including your choices in relation to these technologies.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting various types of information, but does not specify a generic purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9646143488377311
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Information about your interactions with the online services: for example, your Internet protocol or (IP) address, pages that you visit within the online services, gameplay data or other information collected through Cookies and Tracking Technologies.",
+      "rationale": "The policy explicitly states that cookies and tracking technologies are used for understanding how online services are used.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Cookies and tracking elements",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "Unspecified",
+       "purpose_quote": "Information about your interactions with the online services: for example, your Internet protocol or (IP) address, pages that you visit within the online services, gameplay data or other information collected through Cookies and Tracking Technologies.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that cookies and tracking technologies are used for understanding how online services are used."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy clearly states that IP addresses and device IDs are used for advertising purposes.",
+      "raw": {
+       "candidate_id": "c4",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "purpose_quote": "We may also receive other information (e.g., content viewed and information about the advertisements within the content you have been shown or may have clicked on, etc.) from your interaction with the online services. You agree that we may share your video viewing with, or obtain information about your video viewing from, analytics providers and advertising partners and third-party social media sites for two years or until you withdraw your consent.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy clearly states that IP addresses and device IDs are used for advertising purposes."
+      }
+     },
+     {
+      "candidate_id": "c7",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "There are six main categories of information we collect about users of our online services users that include (but are not limited to) the following:",
+      "rationale": "The policy does not specify any particular purpose for collecting computer information.",
+      "raw": {
+       "candidate_id": "c7",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "retention": "Indefinitely",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "There are six main categories of information we collect about users of our online services users that include (but are not limited to) the following:",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify any particular purpose for collecting computer information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.972924185518085
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c8",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8",
+       "Third Schedule"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for computer information.",
+      "raw": {
+       "candidate_id": "c8",
+       "gap_type": "retention_mismatch",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8",
+        "Third Schedule"
+       ],
+       "rationale": "The policy does not specify a retention period for computer information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9814120416352387
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "We do not knowingly collect or store any personal information from children under the age of 13.",
+      "rationale": "The policy does not allow for the collection or storage of personal data from children under 13, which conflicts with the purpose of Advertising.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        41,
+        3
+       ],
+       "children_quote": "We do not knowingly collect or store any personal information from children under the age of 13.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not allow for the collection or storage of personal data from children under 13, which conflicts with the purpose of Advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9497513468720153
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 5,
+  "seconds": 170.07,
+  "reverified_from": "v2_purpose",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

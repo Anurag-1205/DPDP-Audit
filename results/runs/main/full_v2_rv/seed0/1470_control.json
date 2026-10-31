@@ -1,0 +1,206 @@
+{
+ "case_id": "1470_control",
+ "system": "full_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9639298724613062,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9682350163403666,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.95944248691679,
+ "usage": {
+  "prompt": 4115,
+  "output": 593
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 51,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     19,
+     6,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     19,
+     10,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     13,
+     3,
+     6,
+     11
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you create a Steam account, Valve collects a user's email address and username, and at the user's option, first and last name.",
+      "rationale": "The policy explicitly states that Valve collects email addresses, usernames, and optionally first and last names.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "When you create a Steam account, Valve collects a user's email address and username, and at the user's option, first and last name.",
+       "denial_quote": "",
+       "generic_quote": "Personally Identifiable Information\n'Personally identifiable information' is information that can be used to uniquely identify a user such as name, address or credit card number.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that Valve collects email addresses, usernames, and optionally first and last names."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9639298724613062
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Valves products, services and sites may employ cookies and other technologies such as web beacons and pixel tags. Cookies are bits of electronic information that can be transferred to a user's hard drive to customize a person's use of a product or online site, keep records of a user's access to an online site or product, or store information needed by the user on a regular basis. Use of cookies is typically associated with websites. For example, when you sign in to Steam, Valve stores your user id and a combination of your IP address and time of login as a cookie on your hard drive. This cookie allows you to move from page to page without having to sign in again on each page.",
+      "rationale": "The policy explicitly mentions storing IP addresses and device identifiers, which aligns with the purpose of Service Operation and Security.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Service Operation and Security",
+       "retention": "Unspecified",
+       "disclosing_quote": "Valves products, services and sites may employ cookies and other technologies such as web beacons and pixel tags. Cookies are bits of electronic information that can be transferred to a user's hard drive to customize a person's use of a product or online site, keep records of a user's access to an online site or product, or store information needed by the user on a regular basis. Use of cookies is typically associated with websites. For example, when you sign in to Steam, Valve stores your user id and a combination of your IP address and time of login as a cookie on your hard drive. This cookie allows you to move from page to page without having to sign in again on each page.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions storing IP addresses and device identifiers, which aligns with the purpose of Service Operation and Security."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9682350163403666
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Valve software automatically generates and submits to Valve bug reports upon a crash or other fault in the Valve software, services or Steam games.",
+      "rationale": "The policy explicitly states the purpose of collecting computer information, which is to generate and submit bug reports.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "Valve software automatically generates and submits to Valve bug reports upon a crash or other fault in the Valve software, services or Steam games.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states the purpose of collecting computer information, which is to generate and submit bug reports."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.946162571948697
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 76.15,
+  "reverified_from": "full_v2",
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

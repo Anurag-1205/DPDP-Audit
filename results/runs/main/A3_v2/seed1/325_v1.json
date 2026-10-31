@@ -1,0 +1,194 @@
+{
+ "case_id": "325_v1",
+ "system": "A3_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "Financial",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Rule 8",
+    "Sec. 8(7)",
+    "Sec. 17(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify any purpose for financial data types and does not mention them outside of unspecified contexts.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence states that the policy does not mention financial data types, which means there is no specific purpose mentioned for financial data. However, the cited DPDP text discusses general obligations regarding the retention and erasure of personal data, which are not directly related to "
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "Financial",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for financial data, only stating that it is collected when users choose to share such information.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9397226399943803,
+ "usage": {
+  "prompt": 3176,
+  "output": 376
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 20,
+  "untagged_paragraphs": 0,
+  "claims": 32,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Financial is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     5,
+     12,
+     9,
+     11
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "omission",
+    "reason": "the app keeps Financial indefinitely; retention statements: none",
+    "paragraphs": [
+     5,
+     11
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Rule 8",
+       "Sec. 8(7)",
+       "Sec. 17(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify any purpose for financial data types and does not mention them outside of unspecified contexts.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Financial",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Indefinitely",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Rule 8",
+        "Sec. 8(7)",
+        "Sec. 17(1)"
+       ],
+       "rationale": "The policy does not specify any purpose for financial data types and does not mention them outside of unspecified contexts."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9297407006372882
+   },
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for financial data, only stating that it is collected when users choose to share such information.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Financial",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a retention period for financial data, only stating that it is collected when users choose to share such information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9497045793514725
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 37.67
+ }
+}

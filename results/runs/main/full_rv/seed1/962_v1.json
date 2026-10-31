@@ -1,0 +1,383 @@
+{
+ "case_id": "962_v1",
+ "system": "full_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Information we collect about you Where we store data How we use your information Disclosure of your information Updating or correcting your personally identifiable information Canceling your account or deleting your personally identifiable information Choices regarding control of your personally identifiable information Information related to data collected through the lynda.com platform service",
+   "rationale": "The policy mentions collecting personal data and identifying it broadly, but does not specify exact data types like contact details.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting 'personal data' but does not specify exact data types like contact details. However, the cited DPDP text (Sec. 5(1)) requires specifying the personal data and the purpose for which it is processed. Since the policy does not specify contact details, it does not"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+   "rationale": "The policy does not specify a purpose for collecting IP addresses, only stating general uses.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states general uses of IP addresses but does not specify a purpose for collecting them. The cited DPDP text (Sec. 5(1) and Sec. 6(1)) require specifying the purpose for processing personal data. Since the policy does not specify a purpose for collecting IP addresses, it does not "
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Information we collect about you Where we store data How we use your information Disclosure of your information Updating or correcting your personally identifiable information Canceling your account or deleting your personally identifiable information Choices regarding control of your personally identifiable information Information related to data collected through the lynda.com platform service",
+   "rationale": "The policy does not mention collecting location data, nor does it explicitly state it does not collect it.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not mention collecting location data, nor does it explicitly state it does not collect it. This creates ambiguity and does not provide clear information to the user. The cited DPDP text (Sec. 5(1) and Rule 3) require specifying the personal data and the purpose for which it "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9462265484320869,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9462265484320869,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9476180862534164,
+ "usage": {
+  "prompt": 7593,
+  "output": 1289
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 74,
+  "untagged_paragraphs": 0,
+  "claims": 156,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     8,
+     9,
+     10,
+     11,
+     15,
+     17,
+     19,
+     20,
+     24,
+     41,
+     44,
+     73,
+     65
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     13,
+     61
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     8,
+     9,
+     10,
+     11,
+     15,
+     17,
+     19,
+     20,
+     24,
+     41,
+     44,
+     13,
+     16
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     13,
+     61
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps IP address and device IDs indefinitely; retention statements: ['Indefinitely', 'Limited', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     8,
+     9,
+     10,
+     12,
+     13,
+     14,
+     17,
+     18,
+     24,
+     27,
+     32,
+     37,
+     41,
+     44,
+     45,
+     50,
+     54,
+     55,
+     63,
+     61
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Information we collect about you Where we store data How we use your information Disclosure of your information Updating or correcting your personally identifiable information Canceling your account or deleting your personally identifiable information Choices regarding control of your personally identifiable information Information related to data collected through the lynda.com platform service",
+      "rationale": "The policy mentions collecting personal data and identifying it broadly, but does not specify exact data types like contact details.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Information we collect about you Where we store data How we use your information Disclosure of your information Updating or correcting your personally identifiable information Canceling your account or deleting your personally identifiable information Choices regarding control of your personally identifiable information Information related to data collected through the lynda.com platform service",
+       "denial_quote": "",
+       "generic_quote": "Information we collect about you Where we store data How we use your information Disclosure of your information Updating or correcting your personally identifiable information Canceling your account or deleting your personally identifiable information Choices regarding control of your personally identifiable information Information related to data collected through the lynda.com platform service",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting personal data and identifying it broadly, but does not specify exact data types like contact details."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Information we collect about you Where we store data How we use your information Disclosure of your information Updating or correcting your personally identifiable information Canceling your account or deleting your personally identifiable information Choices regarding control of your personally identifiable information Information related to data collected through the lynda.com platform service",
+      "rationale": "The policy does not mention collecting location data, nor does it explicitly state it does not collect it.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "Information we collect about you Where we store data How we use your information Disclosure of your information Updating or correcting your personally identifiable information Canceling your account or deleting your personally identifiable information Choices regarding control of your personally identifiable information Information related to data collected through the lynda.com platform service",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not mention collecting location data, nor does it explicitly state it does not collect it."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9462265484320869
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+      "rationale": "The policy does not specify a purpose for collecting IP addresses, only stating general uses.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy does not specify a purpose for collecting IP addresses, only stating general uses."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+      "rationale": "The policy lists specific purposes for using IP addresses, but does not explicitly state 'Analytics/Research' among them.",
+      "raw": {
+       "candidate_id": "c4",
+       "purpose_quote": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy lists specific purposes for using IP addresses, but does not explicitly state 'Analytics/Research' among them."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9432184431493879
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8",
+       "Third Schedule"
+      ],
+      "evidence": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+      "rationale": "The policy states that IP addresses are used indefinitely for various administrative purposes.",
+      "raw": {
+       "candidate_id": "c5",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Analytics/Research",
+       "retention": "indefinitely",
+       "retention_quote": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8",
+        "Third Schedule"
+       ],
+       "rationale": "The policy states that IP addresses are used indefinitely for various administrative purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9534092671787745
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 123.43,
+  "reverified_from": "full",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence mentions collecting 'personal data' but does not specify exact data types like contact details. However, the cited DPDP text (Sec. 5(1)) requires specifying the personal data and the purpose for which it is processed. Since the policy does not specify contact details, it does not fully comply with this requirement.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence states general uses of IP addresses but does not specify a purpose for collecting them. The cited DPDP text (Sec. 5(1) and Sec. 6(1)) require specifying the purpose for processing personal data. Since the policy does not specify a purpose for collecting IP addresses, it does not fully comply with this requirement.\"}]}\n\n{\"checks\": [{\"finding_id\": 2, \"supported\": false, \"reason\": \"The policy evidence does not mention collecting location data, nor does it explicitly state it does not collect it. This creates ambiguity and does not provide clear information to the user. The cited DPDP text (Sec. 5(1) and Rule 3) require specifying the personal data and the purpose for which it is processed. Since the policy does not specify location data, it does not fully comply with this requirement.\"}]}"
+ }
+}

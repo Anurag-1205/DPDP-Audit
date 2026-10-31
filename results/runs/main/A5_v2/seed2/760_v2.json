@@ -1,0 +1,126 @@
+{
+ "case_id": "760_v2",
+ "system": "A5_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f6",
+   "data_type": "Personal identifier",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The Smithsonian will use that information to respond to your message and to help us get you the information you have requested.",
+   "rationale": "The policy explicitly states that personal information is not collected unless provided, thus denying the collection of personal identifiers.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes how the Smithsonian will use the information, not that it collects personal identifiers. The cited DPDP text requires notice to be given regarding the personal data and purposes for processing, but the evidence does not address this requirement."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f6": {
+   "label": "vague",
+   "confidence": 0.9523941896559104,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9523941896559104,
+ "usage": {
+  "prompt": 2216,
+  "output": 209
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 39,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f6",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Personal identifier is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     3,
+     4,
+     6,
+     13
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The Smithsonian will use that information to respond to your message and to help us get you the information you have requested.",
+      "rationale": "The policy explicitly states that personal information is not collected unless provided, thus denying the collection of personal identifiers.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The Smithsonian Institution does not collect personal information about visitors to our Websites unless you choose to provide that information to us.",
+       "generic_quote": "The Smithsonian will use that information to respond to your message and to help us get you the information you have requested.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal information is not collected unless provided, thus denying the collection of personal identifiers."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9523941896559104
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 22.9
+ }
+}

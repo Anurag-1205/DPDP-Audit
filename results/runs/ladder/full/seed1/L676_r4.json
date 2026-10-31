@@ -1,0 +1,104 @@
+{
+ "case_id": "L676_r4",
+ "system": "full",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "Other Third Party ad servers or ad networks may also use cookies to track users activities on this website to measure advertisement effectiveness and other reasons that will be provided in their own privacy policies, RestaurantNews.com has no access or control over these cookies that may be used by third party advertisers.",
+   "rationale": "The policy explicitly mentions that Google uses cookies to serve ads and tracks user activities, indicating the sharing of computer information with Google.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not explicitly disclose the sharing of computer information with AdMob. Instead, it mentions that other third-party ad servers or networks may use cookies to track user activities and measure advertisement effectiveness. This does not justify calling it an undisclosed sharin"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.97739988197207,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.97739988197207,
+ "usage": {
+  "prompt": 1776,
+  "output": 283
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 10,
+  "untagged_paragraphs": 0,
+  "claims": 24,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     4,
+     2,
+     3
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "Other Third Party ad servers or ad networks may also use cookies to track users activities on this website to measure advertisement effectiveness and other reasons that will be provided in their own privacy policies, RestaurantNews.com has no access or control over these cookies that may be used by third party advertisers.",
+      "rationale": "The policy explicitly mentions that Google uses cookies to serve ads and tracks user activities, indicating the sharing of computer information with Google.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Google, as a third party advertisement vendor, uses cookies to serve ads on this site. The use of DART cookies by Google enables them to serve adverts to visitors that are based on their visits to this website as well as other sites on the internet.",
+       "denial_quote": "",
+       "generic_quote": "Other Third Party ad servers or ad networks may also use cookies to track users activities on this website to measure advertisement effectiveness and other reasons that will be provided in their own privacy policies, RestaurantNews.com has no access or control over these cookies that may be used by third party advertisers.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions that Google uses cookies to serve ads and tracks user activities, indicating the sharing of computer information with Google."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.97739988197207
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 37.5
+ }
+}

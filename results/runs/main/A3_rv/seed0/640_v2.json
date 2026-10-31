@@ -1,0 +1,165 @@
+{
+ "case_id": "640_v2",
+ "system": "A3_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": null,
+   "source": "finder"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": null,
+ "usage": {
+  "prompt": 2853,
+  "output": 2048
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 42,
+  "untagged_paragraphs": 0,
+  "claims": 99,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     4,
+     5,
+     7,
+     8,
+     6
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Personal identifier is collected for ['basic service/feature', 'service operation and security'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     3,
+     22,
+     31,
+     38
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Cookies and tracking elements is collected for ['basic service/feature', 'personalization/customization'], the app uses it for Analytics/Research",
+    "paragraphs": [
+     14,
+     16,
+     29,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     17,
+     18,
+     19,
+     21,
+     25,
+     30,
+     11,
+     23
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     10,
+     11,
+     32
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [],
+    "parse_error": "no JSON found in reply: '{\\n  \"action\": \"final\",\\n  \"answers\": [\\n    {\\n      \"candidate_id\": \"c1\",\\n      \"disclosing_quote\": \"\",\\n      \"denial_quote\": \"You can choose not to provide certain information, but this will limit your'",
+    "llm_calls": 1,
+    "token_prob": null
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [
+   "c1",
+   "c2",
+   "c3",
+   "c4",
+   "c5"
+  ],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 245.38,
+  "reverified_from": "A3",
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

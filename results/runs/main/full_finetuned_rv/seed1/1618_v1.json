@@ -1,0 +1,248 @@
+{
+ "case_id": "1618_v1",
+ "system": "full_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "The PIN collected depends on the page you are visiting and the services that you participate in.",
+   "rationale": "The policy does not specify a purpose for contact data, only stating how it is collected.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence indicates that the contact data is collected based on the page visited and services participated in, but does not specify a purpose for this data. The cited DPDP text requires specifying the purpose for processing personal data. Therefore, there is a purpose mismatch at the vague"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that location data is used for additional service/feature purposes.",
+   "reviewer": "purpose",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is explicitly stated to be omitted, meaning the policy does not mention the use of location data for additional service/feature purposes. This contradicts the finding that the policy explicitly states such usage. Additionally, the cited DPDP text pertains to the time period for r"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "MediaNews may also collect information such as household income, job title, personal interests and hobbies. The PIN collected depends on the page you are visiting and the services that you participate in.",
+   "rationale": "The policy does not disclose specific data types and explicitly states it does not collect information from children under 13, indicating no collection of sensitive data types.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting various types of information, including health-related data, but does not explicitly state that it collects health data. Moreover, the policy does not disclose specific data types and indicates no collection of sensitive data types from children under 13. The "
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9034061058535977,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9379666582213021,
+ "usage": {
+  "prompt": 5767,
+  "output": 930
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 45,
+  "untagged_paragraphs": 0,
+  "claims": 61,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature', 'marketing'], the app uses it for Service Operation and Security",
+    "paragraphs": [
+     2,
+     3,
+     4,
+     15,
+     19,
+     38,
+     43
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "vague",
+    "reason": "Location is collected for ['unspecified'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     11,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Health is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     3,
+     16,
+     42,
+     34
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "MediaNews may also collect information such as household income, job title, personal interests and hobbies. The PIN collected depends on the page you are visiting and the services that you participate in.",
+      "rationale": "The policy does not disclose specific data types and explicitly states it does not collect information from children under 13, indicating no collection of sensitive data types.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "MediaNews does not knowingly collect information from children under 13 years of age.",
+       "generic_quote": "MediaNews may also collect information such as household income, job title, personal interests and hobbies. The PIN collected depends on the page you are visiting and the services that you participate in.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose specific data types and explicitly states it does not collect information from children under 13, indicating no collection of sensitive data types."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9034061058535977
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "The PIN collected depends on the page you are visiting and the services that you participate in.",
+      "rationale": "The policy does not specify a purpose for contact data, only stating how it is collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "The PIN collected depends on the page you are visiting and the services that you participate in.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a purpose for contact data, only stating how it is collected."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that location data is used for additional service/feature purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "MediaNews uses or may use the PIN and CIN collected to do the following: Web Site Use Registration: MediaNews uses PIN and CIN that is collected to fulfill subscriptions, change addresses, suspend delivery, confirm and process transactions and to contact the user regarding his or her account, new or existing products and services and special offers.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy explicitly states that location data is used for additional service/feature purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9725272105890065
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 45.62,
+  "reverified_from": "full_finetuned",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

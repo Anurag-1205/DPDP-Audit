@@ -1,0 +1,105 @@
+{
+ "case_id": "L325_r3",
+ "system": "full",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may share information with our partners.",
+   "rationale": "The policy does not specify sharing with Google AdMob, but mentions sharing with unspecified partners.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence 'We may share information with our partners' and the cited DPDP text Sec. 5(1) and Rule 3 indicate that the app should disclose the specific recipients and purposes of data sharing. While the policy does not explicitly mention Google AdMob, it does not rule out sharing with unspe"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9589815105726133,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9589815105726133,
+ "usage": {
+  "prompt": 1987,
+  "output": 267
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 18,
+  "untagged_paragraphs": 0,
+  "claims": 28,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     1,
+     12,
+     6,
+     5
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may share information with our partners.",
+      "rationale": "The policy does not specify sharing with Google AdMob, but mentions sharing with unspecified partners.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We collect information that may personally identify you (such as your name, address, telephone number, email address, billing information, or other data which can be reasonably linked to such information) only if you choose to share such information with us.",
+       "generic_quote": "We may share information with our partners.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify sharing with Google AdMob, but mentions sharing with unspecified partners."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9589815105726133
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 35.47
+ }
+}

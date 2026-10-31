@@ -1,0 +1,299 @@
+{
+ "case_id": "928_control",
+ "system": "full_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Any information collected on this web site, whether individual or aggregate, is for Federal Reserve use only. We do not rent, sell or share personal information about you with other people or nonaffiliated companies except under any of the following circumstances:",
+   "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but mentions collecting various types of information, which could include these.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Any information collected on this web site, whether individual or aggregate, is for Federal Reserve use only. We do not rent, sell or share personal information about you with other people or nonaffiliated companies except under any of the following circumstances:",
+   "rationale": "The policy does not explicitly mention collecting computer information, but it does mention collecting information, which is vague.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9612046231075879,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.947664622271875,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9696284098605087,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": 0.9774070528827072,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9639761770306697,
+ "usage": {
+  "prompt": 6657,
+  "output": 912
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 54,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     6,
+     15,
+     18,
+     19,
+     21,
+     25,
+     30
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     6,
+     15,
+     18,
+     19,
+     21,
+     25,
+     12
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     6,
+     15,
+     18,
+     19,
+     21,
+     25,
+     7,
+     8
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Cookies and tracking elements",
+    "recipient": "google_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Cookies and tracking elements with google_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     11,
+     13,
+     19,
+     12
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you provide us with your postal or e-mail address or telephone number, this information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+      "rationale": "The policy explicitly states that personal data like contact information will be used for specific purposes, fulfilling the requirement to disclose the data type and purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "If you provide us with your postal or e-mail address or telephone number, this information will only be used for the purpose for which you provided it, such as to: Provide you with the publications or information requested; Clarify your order or request; Register you for a user account, conference or other event; Respond to you regarding your job application; Provide you with related information; or Send you a token of appreciation through postal mail if you participate in selected online activities.",
+       "denial_quote": "",
+       "generic_quote": "We do not rent, sell or share personal information about you with other people or nonaffiliated companies except under any of the following circumstances: We retain the services of outside contractors to provide services, including mailing list administration and our Job Opportunities pages. We require that these contractors keep information obtained through our web site secure and confidential. We also require that these contractors use personal information obtained through our web site only on behalf of the Federal Reserve.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal data like contact information will be used for specific purposes, fulfilling the requirement to disclose the data type and purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9612046231075879
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Any information collected on this web site, whether individual or aggregate, is for Federal Reserve use only. We do not rent, sell or share personal information about you with other people or nonaffiliated companies except under any of the following circumstances:",
+      "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but mentions collecting various types of information, which could include these.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "When you fill out our online forms, they are returned to us via electronic mail. Your responses are not encrypted. We cannot guarantee the security of information sent via electronic mail.",
+       "generic_quote": "Any information collected on this web site, whether individual or aggregate, is for Federal Reserve use only. We do not rent, sell or share personal information about you with other people or nonaffiliated companies except under any of the following circumstances:",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but mentions collecting various types of information, which could include these."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.947664622271875
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Any information collected on this web site, whether individual or aggregate, is for Federal Reserve use only. We do not rent, sell or share personal information about you with other people or nonaffiliated companies except under any of the following circumstances:",
+      "rationale": "The policy does not explicitly mention collecting computer information, but it does mention collecting information, which is vague.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "When you fill out our online forms, they are returned to us via electronic mail. Your responses are not encrypted. We cannot guarantee the security of information sent via electronic mail.",
+       "generic_quote": "Any information collected on this web site, whether individual or aggregate, is for Federal Reserve use only. We do not rent, sell or share personal information about you with other people or nonaffiliated companies except under any of the following circumstances:",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting computer information, but it does mention collecting information, which is vague."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9696284098605087
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Some aggregate web site analysis is performed for us by Google Analytics (http://www.google.com/analytics/), and may involve the use of cookies set by Google.",
+      "rationale": "The policy explicitly mentions sharing cookies with Google Analytics.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "Some aggregate web site analysis is performed for us by Google Analytics (http://www.google.com/analytics/), and may involve the use of cookies set by Google.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions sharing cookies with Google Analytics."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9774070528827072
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": "no JSON found in reply: '{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence mentions collecting \\'any information\\' for Federal Reserve use, but does not explicitly state that IP addresses or devic'",
+  "llm_calls": 5,
+  "seconds": 98.54
+ }
+}

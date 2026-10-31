@@ -1,0 +1,188 @@
+{
+ "case_id": "586_v2",
+ "system": "A5_v2",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "With both cookies and Spotlight technology, the information that we collect and share is anonymous and not personally identifiable. It does not contain your name, address, telephone number, or email address.",
+   "rationale": "The policy mentions collecting IP addresses but does not specify sharing them with any particular recipient, and instead states that the collected information is anonymous.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "Children under the age of 13 should not provide any personally identifiable information on the Site, and we ask that children are supervised by a parent while visiting the Site.",
+   "rationale": "The policy does not explicitly prohibit the collection of IP addresses and device IDs for advertising purposes, which is a form of tracking and targeted advertising.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9553976396308137,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9505298885847668,
+ "usage": {
+  "prompt": 2491,
+  "output": 400
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 34,
+  "untagged_paragraphs": 0,
+  "claims": 43,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     7,
+     13,
+     14,
+     19,
+     20,
+     15
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     25,
+     33
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "With both cookies and Spotlight technology, the information that we collect and share is anonymous and not personally identifiable. It does not contain your name, address, telephone number, or email address.",
+      "rationale": "The policy mentions collecting IP addresses but does not specify sharing them with any particular recipient, and instead states that the collected information is anonymous.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Some information is automatically collected when you visit the Site. We collect the name of the domain and host from which you access the internet, the internet protocol (IP) address of the computer you are using, the browser software you use and your operating system, the date and time you access the Site, and the internet address of the web site from which you linked directly to the Site.",
+       "generic_quote": "With both cookies and Spotlight technology, the information that we collect and share is anonymous and not personally identifiable. It does not contain your name, address, telephone number, or email address.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting IP addresses but does not specify sharing them with any particular recipient, and instead states that the collected information is anonymous."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9553976396308137
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "Children under the age of 13 should not provide any personally identifiable information on the Site, and we ask that children are supervised by a parent while visiting the Site.",
+      "rationale": "The policy does not explicitly prohibit the collection of IP addresses and device IDs for advertising purposes, which is a form of tracking and targeted advertising.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        25,
+        33
+       ],
+       "children_quote": "Children under the age of 13 should not provide any personally identifiable information on the Site, and we ask that children are supervised by a parent while visiting the Site.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy does not explicitly prohibit the collection of IP addresses and device IDs for advertising purposes, which is a form of tracking and targeted advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9456621375387201
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 48.08
+ }
+}

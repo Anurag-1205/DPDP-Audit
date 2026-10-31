@@ -1,0 +1,293 @@
+{
+ "case_id": "1419_v2",
+ "system": "v2_batch",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We collect and maintain personally identifiable information and automatic information.",
+   "rationale": "The policy denies the collection of IP addresses and does not mention web beacons or location data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions 'personally identifiable information and automatic information' but does not specifically deny the collection of IP addresses or location data. The cited DPDP text pertains to the notice requirements for Data Principals and does not address the collection of location dat"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9609027953322903,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.953283174951106,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9606264995630298,
+ "usage": {
+  "prompt": 6790,
+  "output": 701
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 35,
+  "untagged_paragraphs": 0,
+  "claims": 89,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Marketing",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     7,
+     17,
+     5,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     7,
+     17,
+     4,
+     13
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "User online activities is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     26,
+     14,
+     15,
+     3
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps User online activities indefinitely; retention statements: ['Indefinitely', 'Limited', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     6,
+     9,
+     10,
+     11,
+     12,
+     18,
+     20,
+     21,
+     26,
+     28,
+     31,
+     14,
+     16
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "\"Personally identifiable information\" is information that tells us who you are, such as your name, screen name, email address, postal address, phone number, credit card information, birth date/year and gender.",
+      "rationale": "The policy explicitly states that email addresses are collected, which matches the 'Contact' data type.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Personally identifiable information is information that tells us who you are, such as your name, screen name, email address, postal address, phone number, credit card information, birth date/year and gender.",
+       "denial_quote": "",
+       "generic_quote": "We collect and maintain personally identifiable information and automatic information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that email addresses are collected, which matches the 'Contact' data type."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9609027953322903
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We collect and maintain personally identifiable information and automatic information.",
+      "rationale": "The policy denies the collection of IP addresses and does not mention web beacons or location data.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We do not and cannot use cookies or IP address tracking to retrieve personally identifiable information from your computer.",
+       "generic_quote": "We collect and maintain personally identifiable information and automatic information.",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy denies the collection of IP addresses and does not mention web beacons or location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.953283174951106
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Miami New Times may tailor advertisements on the Site to a user's apparent interests, based on user browsing activity.",
+      "rationale": "The policy explicitly states that user online activities are used for advertising, indicating a specific purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "User online activities",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "Indefinitely",
+       "purpose_quote": "Miami New Times may tailor advertisements on the Site to a user's apparent interests, based on user browsing activity.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that user online activities are used for advertising, indicating a specific purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9653570882974145
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "All computers and servers on the Internet use IP addresses to recognize and communicate with each other. We collect and maintain IP addresses to administer and analyze our Site and report aggregate information (such as how many visitors we have and how many visitors see and click on particular advertisements).",
+      "rationale": "The policy states that IP addresses are collected and maintained for administrative and analytical purposes, indicating indefinite retention.",
+      "raw": {
+       "candidate_id": "c4",
+       "gap_type": "retention_mismatch",
+       "data_type": "User online activities",
+       "recipient": "first_party",
+       "purpose": "Advertising",
+       "retention": "indefinitely",
+       "retention_quote": "All computers and servers on the Internet use IP addresses to recognize and communicate with each other. We collect and maintain IP addresses to administer and analyze our Site and report aggregate information (such as how many visitors we have and how many visitors see and click on particular advertisements).",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that IP addresses are collected and maintained for administrative and analytical purposes, indicating indefinite retention."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9629629396713082
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 5,
+  "seconds": 74.11
+ }
+}

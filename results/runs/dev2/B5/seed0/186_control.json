@@ -1,0 +1,355 @@
+{
+ "case_id": "186_control",
+ "system": "B5",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 6",
+    "Sec. 15"
+   ],
+   "evidence": "We collect the following categories of information",
+   "rationale": "Policy does not disclose collecting contact information from children, but does mention collecting information for offers and promotions.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting information for offers and promotions, which does not specifically indicate the collection of contact information from children. The cited section does not address the specific issue of undisclosed collection of contact information from children."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 6",
+    "Sec. 15"
+   ],
+   "evidence": "Usage, viewing and technical data, including your device identifier or IP address, when you visit our sites, use our applications on third-party sites or platforms or open emails we send",
+   "rationale": "Policy discloses collecting IP addresses and device identifiers for various purposes, but does not specify a clear 'Analytics/Research' purpose.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting IP addresses and device identifiers for usage, viewing, and technical data, which does not clearly specify an 'Analytics/Research' purpose. The cited section does not address the specific issue of purpose mismatch for IP addresses and device identifiers."
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 6",
+    "Sec. 15"
+   ],
+   "evidence": "Usage, viewing and technical data, including your device identifier or IP address, when you visit our sites, use our applications on third-party sites or platforms or open emails we send",
+   "rationale": "Policy discloses collecting location information for various purposes, but does not specify a clear 'Basic service/feature' purpose.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting location information for usage, viewing, and technical data, which does not clearly specify a 'Basic service/feature' purpose. The cited section does not address the specific issue of purpose mismatch for location information."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9799656146845622,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9799656146845622,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9799656146845622,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9799656146845622,
+ "usage": {
+  "prompt": 5431,
+  "output": 1462
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 47,
+  "untagged_paragraphs": 0,
+  "claims": 102,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 6",
+       "Sec. 15"
+      ],
+      "evidence": "We collect the following categories of information",
+      "rationale": "Policy does not disclose collecting contact information from children, but does mention collecting information for offers and promotions.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not knowingly collect personal information from children in connection with those features.",
+       "generic_quote": "We collect the following categories of information",
+       "purpose_quote": "Send you offers and promotions for our products and services, or products and services that we think may be of interest to you",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 6",
+        "Sec. 15"
+       ],
+       "rationale": "Policy does not disclose collecting contact information from children, but does mention collecting information for offers and promotions."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 6",
+       "Sec. 15"
+      ],
+      "evidence": "",
+      "rationale": "Policy does not disclose collecting contact information from children, but does mention collecting information for offers and promotions.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We do not knowingly collect personal information from children in connection with those features.",
+       "generic_quote": "We collect the following categories of information",
+       "purpose_quote": "Send you offers and promotions for our products and services, or products and services that we think may be of interest to you",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 6",
+        "Sec. 15"
+       ],
+       "rationale": "Policy does not disclose collecting contact information from children, but does mention collecting information for offers and promotions."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 6",
+       "Sec. 15"
+      ],
+      "evidence": "Location information when you visit our sites or use our applications, including location information either provided by a mobile device interacting with one of our sites or applications (including through beacon technologies), or associated with your IP address, where we are permitted by law to process this information",
+      "rationale": "Policy discloses collecting IP addresses and device identifiers for various purposes, but does not specify a clear 'Analytics/Research' purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "We collect location information when you visit our sites or use our applications, including location information either provided by a mobile device interacting with one of our sites or applications (including through beacon technologies), or associated with your IP address, where we are permitted by law to process this information",
+       "denial_quote": "",
+       "generic_quote": "We collect the following categories of information",
+       "purpose_quote": "Optimize or improve our products, services and operations Detect, investigate and prevent activities that may violate our policies or be illegal",
+       "unspecified_purpose_quote": "Usage, viewing and technical data, including your device identifier or IP address, when you visit our sites, use our applications on third-party sites or platforms or open emails we send",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 6",
+        "Sec. 15"
+       ],
+       "rationale": "Policy discloses collecting IP addresses and device identifiers for various purposes, but does not specify a clear 'Analytics/Research' purpose."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 6",
+       "Sec. 15"
+      ],
+      "evidence": "Usage, viewing and technical data, including your device identifier or IP address, when you visit our sites, use our applications on third-party sites or platforms or open emails we send",
+      "rationale": "Policy discloses collecting IP addresses and device identifiers for various purposes, but does not specify a clear 'Analytics/Research' purpose.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We collect location information when you visit our sites or use our applications, including location information either provided by a mobile device interacting with one of our sites or applications (including through beacon technologies), or associated with your IP address, where we are permitted by law to process this information",
+       "denial_quote": "",
+       "generic_quote": "We collect the following categories of information",
+       "purpose_quote": "Optimize or improve our products, services and operations Detect, investigate and prevent activities that may violate our policies or be illegal",
+       "unspecified_purpose_quote": "Usage, viewing and technical data, including your device identifier or IP address, when you visit our sites, use our applications on third-party sites or platforms or open emails we send",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 6",
+        "Sec. 15"
+       ],
+       "rationale": "Policy discloses collecting IP addresses and device identifiers for various purposes, but does not specify a clear 'Analytics/Research' purpose."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 6",
+       "Sec. 15"
+      ],
+      "evidence": "Location information when you visit our sites or use our applications, including location information either provided by a mobile device interacting with one of our sites or applications (including through beacon technologies), or associated with your IP address, where we are permitted by law to process this information",
+      "rationale": "Policy discloses collecting location information for various purposes, but does not specify a clear 'Basic service/feature' purpose.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We collect location information when you visit our sites or use our applications, including location information either provided by a mobile device interacting with one of our sites or applications (including through beacon technologies), or associated with your IP address, where we are permitted by law to process this information",
+       "denial_quote": "",
+       "generic_quote": "We collect the following categories of information",
+       "purpose_quote": "Provide you with the products and services you request Communicate with you about your account or transactions with us and send you information about features on our sites and applications or changes to our policies",
+       "unspecified_purpose_quote": "Usage, viewing and technical data, including your device identifier or IP address, when you visit our sites, use our applications on third-party sites or platforms or open emails we send",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 6",
+        "Sec. 15"
+       ],
+       "rationale": "Policy discloses collecting location information for various purposes, but does not specify a clear 'Basic service/feature' purpose."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 6",
+       "Sec. 15"
+      ],
+      "evidence": "Usage, viewing and technical data, including your device identifier or IP address, when you visit our sites, use our applications on third-party sites or platforms or open emails we send",
+      "rationale": "Policy discloses collecting location information for various purposes, but does not specify a clear 'Basic service/feature' purpose.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "We collect location information when you visit our sites or use our applications, including location information either provided by a mobile device interacting with one of our sites or applications (including through beacon technologies), or associated with your IP address, where we are permitted by law to process this information",
+       "denial_quote": "",
+       "generic_quote": "We collect the following categories of information",
+       "purpose_quote": "Provide you with the products and services you request Communicate with you about your account or transactions with us and send you information about features on our sites and applications or changes to our policies",
+       "unspecified_purpose_quote": "Usage, viewing and technical data, including your device identifier or IP address, when you visit our sites, use our applications on third-party sites or platforms or open emails we send",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 6",
+        "Sec. 15"
+       ],
+       "rationale": "Policy discloses collecting location information for various purposes, but does not specify a clear 'Basic service/feature' purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9799656146845622
+   }
+  ],
+  "paragraphs_shown": [
+   47
+  ],
+  "paragraphs_total": 47,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 172.08
+ }
+}

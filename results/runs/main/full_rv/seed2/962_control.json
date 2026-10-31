@@ -1,0 +1,263 @@
+{
+ "case_id": "962_control",
+ "system": "full_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions specific contact details but does not explicitly state that they are collected.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is stated as (none), indicating that the policy does not mention the collection of contact details. The cited sections and rules from the DPDP Act focus on providing notices and do not address the collection of specific types of data. Therefore, the finding cannot be supported as"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "There is no mention of collecting location data, and the policy only generally refers to information provided, without specifying location.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "Similar to finding 0, the policy evidence is stated as (none), indicating that the policy does not mention the collection of location data. The cited sections and rules from the DPDP Act focus on providing notices and do not address the collection of specific types of data. Therefore, the finding ca"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9572767501445332,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9572767501445332,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9715211278153557,
+ "usage": {
+  "prompt": 5131,
+  "output": 905
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 74,
+  "untagged_paragraphs": 0,
+  "claims": 156,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     8,
+     9,
+     10,
+     11,
+     15,
+     17,
+     19,
+     20,
+     24,
+     41,
+     44,
+     73,
+     65
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['service operation and security'], the app uses it for Basic service/feature",
+    "paragraphs": [
+     13,
+     61
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     8,
+     9,
+     10,
+     11,
+     15,
+     17,
+     19,
+     20,
+     24,
+     41,
+     44,
+     13,
+     16
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions specific contact details but does not explicitly state that they are collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We are lynda.com, Inc., located at 6410 Via Real, Carpinteria, CA 93013, USA.",
+       "denial_quote": "",
+       "generic_quote": "This Privacy Policy describes the types of information we may collect from you or that you may provide to us when you visit the lynda.com websites located at www.lynda.com, m.lynda.com and www.video2brain.com (the Websites) or the lynda.com mobile application (App) (collectively, the Services) and our practices for collecting, using, maintaining, protecting and disclosing such information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions specific contact details but does not explicitly state that they are collected."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "There is no mention of collecting location data, and the policy only generally refers to information provided, without specifying location.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "This Privacy Policy describes the types of information we may collect from you or that you may provide to us when you visit the lynda.com websites located at www.lynda.com, m.lynda.com and www.video2brain.com (the Websites) or the lynda.com mobile application (App) (collectively, the Services) and our practices for collecting, using, maintaining, protecting and disclosing such information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "There is no mention of collecting location data, and the policy only generally refers to information provided, without specifying location."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9572767501445332
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+      "rationale": "The policy explicitly states the purposes for which IP addresses are used.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "We use your IP address to diagnose problems with our servers, software, to administer our Services and to gather demographic information.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states the purposes for which IP addresses are used."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9857655054861784
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 78.23,
+  "reverified_from": "full",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence is stated as (none), indicating that the policy does not mention the collection of contact details. The cited sections and rules from the DPDP Act focus on providing notices and do not address the collection of specific types of data. Therefore, the finding cannot be supported as there is no evidence of undisclosed collection of contact data.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"Similar to finding 0, the policy evidence is stated as (none), indicating that the policy does not mention the collection of location data. The cited sections and rules from the DPDP Act focus on providing notices and do not address the collection of specific types of data. Therefore, the finding cannot be supported as there is no evidence of undisclosed collection of location data.\"}]}"
+ }
+}

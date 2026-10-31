@@ -5,7 +5,7 @@ The benchmark supplies test cases whose correct answers are known in advance. It
 | Part | Cases | Answer source | Status |
 |---|---|---|---|
 | Main benchmark | 102 (34 controls, 68 variants) | Scripted rules over OPP-115 annotations | Implemented |
-| Vagueness ladder | 140 (35 ladders × 4 rungs) | Construction (templated rung sentences) | Built; human check pending (SPEC-06) |
+| Vagueness ladder | 140 (35 ladders × 4 rungs) | Construction (templated rung sentences) | Built; checked by two members, disagreements settled together, 110 of 140 rungs accepted (SPEC-06) |
 | Real flows | ~25 apps, 60–80 flows | Two independent human labels (Cohen's κ) | Planned (SPEC-08) |
 | Open-source case study | 3–5 repositories | Every finding checked by hand | Planned (SPEC-08) |
 
@@ -250,6 +250,13 @@ do not collect your {data}." and "We may collect information about you when you 
 | Recipients (sharing) | AdMob (Advertising) and Mixpanel (Analytics/Research), alternating |
 | Sentences removed for the base policies | 735 (2 ladders needed none) |
 | Ladders with residual-mention flags | 23 (see `removed_sentences.json`) |
+
+**Known inconsistency: "Personal identifier".** On its 3 ladders the inserted sentences say "your
+name and other personal identifiers" and the removal list includes "name" and "username"
+(`ladder.py`), while the pipeline's glossary and keywords (`pipeline/vocab.py`) and the OPP-115 type
+mean government identifiers (social security number, passport, driver's licence); PoliCheck's mapping
+uses `real_name`. The ladder is kept as built (rebuilding it would require re-running every system);
+results on these 3 ladders should be read with this in mind.
 | PoliCheck export | 140 of 140 flows (23% exact mapping) |
 
 - **Target choice:** the data type is drawn from the types the policy addresses for the practice

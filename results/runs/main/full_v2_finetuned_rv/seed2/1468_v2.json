@@ -1,0 +1,392 @@
+{
+ "case_id": "1468_v2",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "We also use these log file entries for our internal marketing, service design, technical support, and demographic studies, so we can constantly improve the Online Services we provide you.",
+   "rationale": "The policy mentions using log file entries for various internal purposes but does not specify personalization/customization.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that the app uses log file entries for internal marketing, service design, technical support, and demographic studies, which includes personalization/customization. However, the evidence does not specify this explicitly, leading to a vague understanding of the purpose. The"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "P42: These third-party SNS features may set a cookie to enable the Feature to function properly and may collect information about you when you use them, such as your IP address and which page you are visiting on our site.",
+   "rationale": "The policy mentions that third-party SNS features may collect information including IP addresses, but does not explicitly state that IP addresses are shared with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "The Company does not knowingly collect personal information from children under 13 years old. If we become aware that a child under 13 has submitted information to the Company, we delete this information immediately.",
+   "rationale": "The policy explicitly states that the company does not collect personal information from children under 13 and deletes such information immediately upon awareness. However, the purpose includes advertising, which violates the prohibition on targeted advertising.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "If information is changed or deleted, we may still retain some of your information in our files to resolve disputes, enforce our user agreement, administer our services, comply with technical and legal requirements, and/or other constraints related to the security, integrity, and operation of our Online Services.",
+   "rationale": "The policy states that data may be retained indefinitely for various purposes, which contradicts the requirement to erase data once the purpose is served.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9498799691999763,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9509651918543895,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9574748831439749,
+ "usage": {
+  "prompt": 9853,
+  "output": 1194
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 62,
+  "untagged_paragraphs": 0,
+  "claims": 97,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     14,
+     15,
+     19,
+     22,
+     36,
+     31
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['advertising', 'analytics/research', 'basic service/feature', 'service operation and security'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     19,
+     32,
+     33,
+     9,
+     31,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     10,
+     16,
+     24,
+     42,
+     43,
+     44,
+     45,
+     31,
+     19
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     22,
+     54,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Contact indefinitely; retention statements: ['Indefinitely', 'Limited']",
+    "paragraphs": [
+     51,
+     15
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The Company will not receive personal information such as your name and address, but may receive other information such as a console ID, gaming service ID, game achievements, game scores and performance, IP address, MAC address, or other device ID, other console/device use information, or other information and statistics regarding your usage of the games.",
+      "rationale": "The policy explicitly mentions collecting IP addresses and device IDs, which confirms the data type is disclosed.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "The Company will not receive personal information such as your name and address, but may receive other information such as a console ID, gaming service ID, game achievements, game scores and performance, IP address and the systems you have played on.",
+       "denial_quote": "",
+       "generic_quote": "The Company collects personal information from you on a voluntary basis.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting IP addresses and device IDs, which confirms the data type is disclosed."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9498799691999763
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "P42: These third-party SNS features may set a cookie to enable the Feature to function properly and may collect information about you when you use them, such as your IP address and which page you are visiting on our site.",
+      "rationale": "The policy mentions that third-party SNS features may collect information including IP addresses, but does not explicitly state that IP addresses are shared with third parties.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "P42: These third-party SNS features may set a cookie to enable the Feature to function properly and may collect information about you when you use them, such as your IP address and which page you are visiting on our site.",
+       "generic_quote": "P42: These third-party SNS features may set a cookie to enable the Feature to function properly and may collect information about you when you use them, such as your IP address and which page you are visiting on our site.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that third-party SNS features may collect information including IP addresses, but does not explicitly state that IP addresses are shared with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9509651918543895
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We also use these log file entries for our internal marketing, service design, technical support, and demographic studies, so we can constantly improve the Online Services we provide you.",
+      "rationale": "The policy mentions using log file entries for various internal purposes but does not specify personalization/customization.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Personalization/Customization",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We also use these log file entries for our internal marketing, service design, technical support, and demographic studies, so we can constantly improve the Online Services we provide you.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy mentions using log file entries for various internal purposes but does not specify personalization/customization."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9711025489473525
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "If information is changed or deleted, we may still retain some of your information in our files to resolve disputes, enforce our user agreement, administer our services, comply with technical and legal requirements, and/or other constraints related to the security, integrity, and operation of our Online Services.",
+      "rationale": "The policy states that data may be retained indefinitely for various purposes, which contradicts the requirement to erase data once the purpose is served.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "retention_mismatch",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "If your account is inactive for a period of time it may be deleted. If information is changed or deleted, we may still retain some of your information in our files to resolve disputes, enforce our user agreement, administer our services, comply with technical and legal requirements, and/or other constraints related to the security, integrity, and operation of our Online Services.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that data may be retained indefinitely for various purposes, which contradicts the requirement to erase data once the purpose is served."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9848016056028142
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "The Company does not knowingly collect personal information from children under 13 years old. If we become aware that a child under 13 has submitted information to the Company, we delete this information immediately.",
+      "rationale": "The policy explicitly states that the company does not collect personal information from children under 13 and deletes such information immediately upon awareness. However, the purpose includes advertising, which violates the prohibition on targeted advertising.",
+      "raw": {
+       "candidate_id": "c4",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        22,
+        54,
+        4
+       ],
+       "children_quote": "The Company does not knowingly collect personal information from children under 13 years old. If we become aware that a child under 13 has submitted information to the Company, we delete this information immediately.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy explicitly states that the company does not collect personal information from children under 13 and deletes such information immediately upon awareness. However, the purpose includes advertising, which violates the prohibition on targeted advertising."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9306251001153415
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 122.24,
+  "reverified_from": "full_v2_finetuned",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

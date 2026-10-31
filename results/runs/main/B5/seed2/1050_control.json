@@ -1,0 +1,351 @@
+{
+ "case_id": "1050_control",
+ "system": "B5",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9770853659877812,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9770853659877812,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9770853659877812,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "[P11]"
+   ],
+   "evidence": "",
+   "rationale": "The policy specifies purposes for the information but does not explicitly mention additional service purposes.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "[P13]"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not disclose collecting location data and does not specify purposes for it.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  },
+  {
+   "candidate_id": "c6",
+   "flow_id": "f3",
+   "data_type": "Personal identifier",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "[P11]"
+   ],
+   "evidence": "",
+   "rationale": "The policy specifies purposes for the information but does not explicitly mention basic service purposes.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.9770853659877812,
+ "usage": {
+  "prompt": 6111,
+  "output": 1006
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 72,
+  "untagged_paragraphs": 0,
+  "claims": 166,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f3",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   },
+   {
+    "candidate_id": "c6",
+    "flow_id": "f3",
+    "data_type": "Personal identifier",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": null,
+    "reason": "checked for every flow (no finder)",
+    "paragraphs": []
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "generalist",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P5]",
+       "[P6]",
+       "[P11]"
+      ],
+      "evidence": "\"Personally identifiable information or personal information\" refers to any information that identifies or can be used to contact or locate you such as name, mailing address, phone number, email address, social security number, and account number.",
+      "rationale": "The policy discloses collecting personally identifiable information but does not specify additional service purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We may request personally identifiable information in order to enhance your experience on our web sites.",
+       "denial_quote": "",
+       "generic_quote": "Personally identifiable information or personal information refers to any information that identifies or can be used to contact or locate you such as name, mailing address, phone number, email address, social security number, and account number.",
+       "purpose_quote": "The information you share with American Honda is used to improve the services we provide you and to provide services to you that you request.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P5]",
+        "[P6]",
+        "[P11]"
+       ],
+       "rationale": "The policy discloses collecting personally identifiable information but does not specify additional service purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P11]"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies purposes for the information but does not explicitly mention additional service purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "The information you share with American Honda is used to improve the services we provide you and to provide services to you that you request.",
+       "denial_quote": "",
+       "generic_quote": "Information you provide",
+       "purpose_quote": "The information you share with American Honda is used to improve the services we provide you and to provide services to you that you request.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P11]"
+       ],
+       "rationale": "The policy specifies purposes for the information but does not explicitly mention additional service purposes."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P13]"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not disclose collecting location data and does not specify purposes for it.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We do not control Co-Branded Parties use or treatment of information you provide to them and you should consult each of their privacy policies or any separate Co-Branded privacy policy posted on or linked from the Co-Branded site to determine your rights with respect to their use and treatment of your information.",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P13]"
+       ],
+       "rationale": "The policy does not disclose collecting location data and does not specify purposes for it."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P13]"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not disclose collecting location data and does not specify purposes for it.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "We do not control Co-Branded Parties use or treatment of information you provide to them and you should consult each of their privacy policies or any separate Co-Branded privacy policy posted on or linked from the Co-Branded site to determine your rights with respect to their use and treatment of your information.",
+       "generic_quote": "",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P13]"
+       ],
+       "rationale": "The policy does not disclose collecting location data and does not specify purposes for it."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "[P5]",
+       "[P6]",
+       "[P11]"
+      ],
+      "evidence": "\"Personally identifiable information or personal information\" refers to any information that identifies or can be used to contact or locate you such as name, mailing address, phone number, email address, social security number, and account number.",
+      "rationale": "The policy discloses collecting personal identifiers and specifies basic service purposes.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "We may request personally identifiable information in order to enhance your experience on our web sites.",
+       "denial_quote": "",
+       "generic_quote": "Personally identifiable information or personal information refers to any information that identifies or can be used to contact or locate you such as name, mailing address, phone number, email address, social security number, and account number.",
+       "purpose_quote": "The information you share with American Honda is used to improve the services we provide you and to help us promote products and services that are of most interest to you.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P5]",
+        "[P6]",
+        "[P11]"
+       ],
+       "rationale": "The policy discloses collecting personal identifiers and specifies basic service purposes."
+      }
+     },
+     {
+      "candidate_id": "c6",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P11]"
+      ],
+      "evidence": "",
+      "rationale": "The policy specifies purposes for the information but does not explicitly mention basic service purposes.",
+      "raw": {
+       "candidate_id": "c6",
+       "disclosing_quote": "The information you share with American Honda is used to improve the services we provide you and to help us promote products and services that are of most interest to you.",
+       "denial_quote": "",
+       "generic_quote": "Information you provide",
+       "purpose_quote": "The information you share with American Honda is used to improve the services we provide you and to help us promote products and services that are of most interest to you.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P11]"
+       ],
+       "rationale": "The policy specifies purposes for the information but does not explicitly mention basic service purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9770853659877812
+   }
+  ],
+  "paragraphs_shown": [
+   44
+  ],
+  "paragraphs_total": 72,
+  "reviewer_parse": [
+   "json"
+  ],
+  "reviewer_raw": [
+   null
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 125.32
+ }
+}

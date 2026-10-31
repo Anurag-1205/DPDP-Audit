@@ -1,0 +1,336 @@
+{
+ "case_id": "1618_v1",
+ "system": "full_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "In addition, MediaNews may share PIN, CIN and/or aggregate information with third parties such as advertisers and business partners.",
+   "rationale": "The policy mentions collecting PIN and CIN for various purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions collecting PIN and CIN for various purposes, but the finding specifies 'Contact' as the data type. However, the cited DPDP text supports the need for disclosing the collection of personal data and the purposes for which it is processed. Since the policy evidence does not"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions sharing PIN and CIN with third parties for services, which includes handling IP addresses and device IDs.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence is empty, indicating no mention of IP addresses and device IDs. The cited DPDP text requires disclosure of personal data and purposes for processing. Without any policy evidence, the finding cannot be supported."
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions sharing PIN and CIN with third parties for services, which can include location data.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "Similar to finding 1, the policy evidence is empty, and there is no mention of location data. The cited DPDP text requires disclosure of personal data and purposes for processing. Without any policy evidence, the finding cannot be supported."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that MediaNews does not collect health information from children under 13 years of age.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence explicitly states that MediaNews does not collect health information from children under 13 years of age. This contradicts the finding of an undisclosed collection of health data. Therefore, the finding is not supported."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9581562622324146,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9581562622324146,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "omitted",
+   "confidence": 0.9581562622324146,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9581562622324146,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9581562622324146,
+ "usage": {
+  "prompt": 7276,
+  "output": 1115
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 45,
+  "untagged_paragraphs": 0,
+  "claims": 84,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     6,
+     10,
+     14,
+     16,
+     17,
+     19,
+     34,
+     38,
+     42
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     6,
+     10,
+     14,
+     16,
+     17,
+     19,
+     34,
+     13,
+     42
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     6,
+     10,
+     14,
+     16,
+     17,
+     19,
+     34,
+     13,
+     42
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Health is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     6,
+     10,
+     14,
+     16,
+     17,
+     19,
+     34,
+     42
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "In addition, MediaNews may share PIN, CIN and/or aggregate information with third parties such as advertisers and business partners.",
+      "rationale": "The policy mentions collecting PIN and CIN for various purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "In general, MediaNews uses your PIN and CIN that is collected to administer the MediaNews Web sites and to provide services you request.",
+       "denial_quote": "",
+       "generic_quote": "MediaNews may also share PIN, CIN and/or aggregate information with third parties such as advertisers and business partners.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting PIN and CIN for various purposes."
+      }
+     },
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions sharing PIN and CIN with third parties for services, which includes handling IP addresses and device IDs.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "MediaNews may share PIN and CIN that is collected with third parties hired to perform services on our behalf, including, but not limited to, fulfilling subscription requests, sending e-mails and assisting in the provision of the MediaNews Web sites and services.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing PIN and CIN with third parties for services, which includes handling IP addresses and device IDs."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions sharing PIN and CIN with third parties for services, which can include location data.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "MediaNews may share PIN and CIN that is collected with third parties hired to perform services on our behalf, including, but not limited to, fulfilling subscription requests, sending e-mails and assisting in the provision of the MediaNews Web sites and services.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing PIN and CIN with third parties for services, which can include location data."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that MediaNews does not collect health information from children under 13 years of age.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "For most MediaNews Web sites, MediaNews does not knowingly collect information from children under 13 years of age. In the event that MediaNews collects information from children under 13 years of age, this Children's Privacy Policy shall apply.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that MediaNews does not collect health information from children under 13 years of age."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9581562622324146
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 103.06,
+  "reverified_from": "full",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

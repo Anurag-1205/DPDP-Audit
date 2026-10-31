@@ -1,0 +1,195 @@
+{
+ "case_id": "586_v2",
+ "system": "A5_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "oracle",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not explicitly state that IP addresses are shared with any specific third party, but it does indicate that personal data can be disclosed to third parties.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not explicitly state that IP addresses are shared with any specific third party. The rationale provided is based on an inference rather than direct evidence from the policy. Additionally, the cited sections do not directly address the sharing of IP addresses and device IDs w"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "Children under the age of 13 should not provide any personally identifiable information on the Site, and we ask that children are supervised by a parent while visiting the Site.",
+   "rationale": "The policy explicitly states that children under 13 should not provide any personally identifiable information and should be supervised by a parent, which conflicts with the proposed processing of IP addresses and device IDs for advertising purposes.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence clearly states that children under 13 should not provide any personally identifiable information and should be supervised by a parent. This directly conflicts with the proposed processing of IP addresses and device IDs for advertising purposes, which is not compliant with the DPD"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "omitted",
+   "confidence": 0.9609395332482191,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.957094231761885,
+ "usage": {
+  "prompt": 4067,
+  "output": 794
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 34,
+  "untagged_paragraphs": 0,
+  "claims": 43,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     7,
+     13,
+     14,
+     19,
+     20,
+     15
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     25,
+     33
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not explicitly state that IP addresses are shared with any specific third party, but it does indicate that personal data can be disclosed to third parties.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Information We Automatically Collect\nSome information is automatically collected when you visit the Site. We collect the name of the domain and host from which you access the internet, the internet protocol (IP) address of the computer you are using, the browser software you use and your operating system, the date and time you access the Site, and the internet address of the web site from which you linked directly to the Site.",
+       "generic_quote": "Currently, Caribou Coffee sends personally identifiable information to third-party service providers that work on our behalf to provide services relating to the ongoing maintenance and operation of the Site.\nPlease be aware that we may disclose any information you provide to us (including personally identifiable information) in the good faith belief that we are required to do so by law, or that doing so is reasonably necessary to comply with legal process, to respond to any claims or to protect our rights, property or personal safety, or that of our customers or the public.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that IP addresses are shared with any specific third party, but it does indicate that personal data can be disclosed to third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9609395332482191
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "Children under the age of 13 should not provide any personally identifiable information on the Site, and we ask that children are supervised by a parent while visiting the Site.",
+      "rationale": "The policy explicitly states that children under 13 should not provide any personally identifiable information and should be supervised by a parent, which conflicts with the proposed processing of IP addresses and device IDs for advertising purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        25,
+        33
+       ],
+       "children_quote": "Children under the age of 13 should not provide any personally identifiable information on the Site, and we ask that children are supervised by a parent while visiting the Site.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy explicitly states that children under 13 should not provide any personally identifiable information and should be supervised by a parent, which conflicts with the proposed processing of IP addresses and device IDs for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9532489302755509
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 80.29,
+  "reverified_from": "A5",
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence does not explicitly state that IP addresses are shared with any specific third party. The rationale provided is based on an inference rather than direct evidence from the policy. Additionally, the cited sections do not directly address the sharing of IP addresses and device IDs with third parties.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": true, \"reason\": \"The policy evidence clearly states that children under 13 should not provide any personally identifiable information and should be supervised by a parent. This directly conflicts with the proposed processing of IP addresses and device IDs for advertising purposes, which is not compliant with the DPDP Act.\"}]}"
+ }
+}

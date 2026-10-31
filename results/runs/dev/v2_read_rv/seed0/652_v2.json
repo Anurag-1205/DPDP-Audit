@@ -1,0 +1,364 @@
+{
+ "case_id": "652_v2",
+ "system": "v2_read_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "We may log certain information about your use of the Sites (e.g., log files, clickstream data, a reading history of the pages you view, your search terms and search results).",
+   "rationale": "The policy does not specify a purpose for contact data.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions logging certain information but does not specify a purpose for contact data. The cited DPDP text requires specifying the purpose for processing personal data. Since the purpose for contact data is unspecified, this constitutes a purpose mismatch."
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f5",
+   "data_type": "Financial",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that financial information is not collected, and provides a specific example of how it handles financial data.",
+   "reviewer": "notice",
+   "evidence_removed": false,
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence states that financial information is not collected, which contradicts the finding of undisclosed collection. Additionally, the cited DPDP text pertains to providing notice and does not address the issue of undisclosed collection."
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Financial",
+   "gap_type": "retention_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify a retention period for financial data.",
+   "reviewer": "retention",
+   "evidence_removed": false,
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": 0.9410885547295107,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f5": {
+   "label": "omitted",
+   "confidence": 0.9410885547295107,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9615285540111248,
+ "usage": {
+  "prompt": 8607,
+  "output": 1023
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 45,
+  "untagged_paragraphs": 0,
+  "claims": 92,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     4,
+     3,
+     29,
+     32,
+     30
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Computer information is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     3,
+     4,
+     5,
+     15,
+     17,
+     6,
+     26
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "User profile",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "User profile is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     7,
+     33,
+     12,
+     16,
+     8,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Financial is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     3,
+     4,
+     5,
+     15,
+     17,
+     30
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Financial",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Financial indefinitely; retention statements: ['Indefinitely', 'Stated Period', 'Unspecified']",
+    "paragraphs": [
+     0,
+     2,
+     3,
+     5,
+     7,
+     11,
+     15,
+     17,
+     18,
+     19,
+     26,
+     38,
+     39,
+     30
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect certain information about your computer or other device that you use to access the Sites, including IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information.",
+      "rationale": "The policy explicitly mentions collecting device information.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "We may collect certain information about your computer or other device that you use to access the Sites, including IP address, geolocation information, unique device identifiers, browser type, browser language, and other transactional information.",
+       "denial_quote": "",
+       "generic_quote": "We collect this information in the following ways:",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting device information."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that financial information is not collected, and provides a specific example of how it handles financial data.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "We do not store the friend's email address for any longer than reasonably necessary to send the email or card to the friend.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that financial information is not collected, and provides a specific example of how it handles financial data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9410885547295107
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "We may log certain information about your use of the Sites (e.g., log files, clickstream data, a reading history of the pages you view, your search terms and search results).",
+      "rationale": "The policy does not specify a purpose for contact data.",
+      "raw": {
+       "candidate_id": "c1",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We may log certain information about your use of the Sites (e.g., log files, clickstream data, a reading history of the pages you view, your search terms and search results).",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy does not specify a purpose for contact data."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Provide you with the products and services you request Post your user generated content to our Sites as you request Communicate with you about your account or transactions with us and send you information about features on our Sites Communicate with you about changes to our policies Send you newsletters, offers and promotions for our products and services, third party products and services, or special events by email or another medium Personalize content and experiences on our Sites and within emails sent to you, including providing you recommendations based on your preferences Serve you targeted advertising, both on our Sites and elsewhere online, based on information we previously collected from you, including your activity on the Sites or activity on third party sites and applications Administer our loyalty programs Administer contests, sweepstakes, promotions, and surveys Optimize or improve our products, services and operations Detect, investigate, and prevent activities that may violate our policies or be illegal Perform statistical, demographic, and marketing analyses of users of the Sites and recipients of our emails, including browsing and purchasing patterns",
+      "rationale": "The policy lists various purposes for user profile data.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "Provide you with the products and services you request\nPost your user generated content to our Sites as you request\nCommunicate with you about your account or transactions with us and send you information about features on our Sites\nCommunicate with you about changes to our policies\nSend you newsletters, offers and promotions for our products and services, third party products and services, or special events by email or another medium\nPersonalize content and experiences on our Sites and within emails sent to you, including providing you recommendations based on your preferences\nServe you targeted advertising, both on our Sites and elsewhere online, based on information we previously collected from you, including your activity on the Sites or activity on third party sites and applications\nAdminister contests, sweepstakes, promotions, and surveys\nOptimize or improve our products, services and operations\nDetect, investigate, and prevent activities that may violate our policies or be illegal\nPerform statistical, demographic, and marketing analyses of users of the Sites and recipients of our emails, including browsing and purchasing patterns.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy lists various purposes for user profile data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9550291155451459
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify a retention period for financial data.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "retention_mismatch",
+       "data_type": "Financial",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "retention": "indefinitely",
+       "retention_quote": "",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy does not specify a retention period for financial data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9884679917587177
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 4,
+  "seconds": 79.32,
+  "reverified_from": "v2_read",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

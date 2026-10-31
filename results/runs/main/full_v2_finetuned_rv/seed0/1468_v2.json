@@ -1,0 +1,398 @@
+{
+ "case_id": "1468_v2",
+ "system": "full_v2_finetuned_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "Computer information",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "The Company may use such information as set forth in this Privacy Policy whether or not you register for or use the Online Services.",
+   "rationale": "The policy does not specify a purpose for collecting computer information, only that it may be used for the privacy policy.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that the company may use computer information as set forth in the privacy policy without specifying a particular purpose. This aligns with the cited DPDP text in Sec. 5(1) and Sec. 6(1), which require the purpose for processing personal data to be clearly communicated to t"
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "P31: Internet Log Files: The Company may also keep track of IP addresses used to access its Online Services for various reasons.",
+   "rationale": "The policy does not explicitly state that the IP address and device IDs are shared with Google AdMob for advertising purposes, and mentions collecting such data for various reasons.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "IP address and device IDs",
+   "gap_type": "childrens_data",
+   "level": "explicit",
+   "sections": [
+    "Sec. 9(3)",
+    "Rule 10"
+   ],
+   "evidence": "The Company does not knowingly collect personal information from children under 13 years old. If we become aware that a child under 13 has submitted information to the Company, we delete this information immediately.",
+   "rationale": "The policy explicitly states that the company does not collect personal information from children under 13 and deletes such information immediately. However, there is no mention of preventing tracking or advertising directed at children.",
+   "reviewer": "children",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Contact",
+   "gap_type": "retention_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 8(7)",
+    "Rule 8"
+   ],
+   "evidence": "If information is changed or deleted, we may still retain some of your information in our files to resolve disputes, enforce our user agreement, administer our services, comply with technical and legal requirements, and/or other constraints related to the security, integrity, and operation of our Online Services.",
+   "rationale": "The policy states that information may be retained indefinitely for various reasons, which contradicts the requirement to erase data once the purpose is served.",
+   "reviewer": "retention",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": 0.9685502585565898,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9145547311602426,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9575357884490291,
+ "usage": {
+  "prompt": 9841,
+  "output": 1368
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 62,
+  "untagged_paragraphs": 0,
+  "claims": 97,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     14,
+     15,
+     19,
+     22,
+     36,
+     31
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "Computer information",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information is collected for ['advertising', 'analytics/research', 'basic service/feature', 'service operation and security'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     19,
+     32,
+     33,
+     9,
+     31,
+     28
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     10,
+     16,
+     24,
+     42,
+     43,
+     44,
+     45,
+     31,
+     19
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "childrens_data",
+    "reviewer": "children",
+    "suggested_level": "explicit",
+    "reason": "a child-directed app sends IP address and device IDs to the advertising SDK Google AdMob",
+    "paragraphs": [
+     22,
+     54,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Indefinitely",
+    "gap_type": "retention_mismatch",
+    "reviewer": "retention",
+    "suggested_level": "explicit",
+    "reason": "the app keeps Contact indefinitely; retention statements: ['Indefinitely', 'Limited']",
+    "paragraphs": [
+     51,
+     15
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The Company will not receive personal information such as your name and address, but may receive other information such as a console ID, gaming service ID, game achievements, game scores and performance, IP address, MAC address, or other device ID, other console/device use information, or other information and statistics regarding your usage of the games.",
+      "rationale": "The policy mentions collecting IP addresses and device IDs, even though it specifies that personal information like name and address is not collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "disclosing_quote": "The Company will not receive personal information such as your name and address, but may receive other information such as a console ID, gaming service ID, game achievements, game scores and performance, IP address and the systems you have played on.",
+       "denial_quote": "",
+       "generic_quote": "The Company collects personal information from you on a voluntary basis. When you submit personal information to the Company, it will usually take the form of: Registration for Online Services, websites, jobs, products, contests, and special events; Subscribing to newsletters or alerts; Posting in or commenting on our message boards, forums, news blogs, chat rooms, or other Online Services; Purchasing a product or services through our online stores; Purchasing DLC, virtual items, or virtual currency for use with our software and/or Online Services; Using 'tell a friend,' 'email this page,' or other E-Card features; Requesting technical support; Downloading demos, programs, or other software; Participating in polls, surveys, and questionnaires; or Otherwise through use of our software, including console products, mobile products, and personal computer products, and through the use of our online products or Online Services where personal information is required for use and/or participation.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting IP addresses and device IDs, even though it specifies that personal information like name and address is not collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9685502585565898
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "P31: Internet Log Files: The Company may also keep track of IP addresses used to access its Online Services for various reasons.",
+      "rationale": "The policy does not explicitly state that the IP address and device IDs are shared with Google AdMob for advertising purposes, and mentions collecting such data for various reasons.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "disclosing_quote": "",
+       "denial_quote": "P19: When you use products or services on internet-capable hardware, the Company may receive information regarding your gameplay without any additional notice to you or actions taken by you.",
+       "generic_quote": "P31: Internet Log Files: The Company may also keep track of IP addresses used to access its Online Services for various reasons.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that the IP address and device IDs are shared with Google AdMob for advertising purposes, and mentions collecting such data for various reasons."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9145547311602426
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "The Company may use such information as set forth in this Privacy Policy whether or not you register for or use the Online Services.",
+      "rationale": "The policy does not specify a purpose for collecting computer information, only that it may be used for the privacy policy.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Computer information",
+       "recipient": "first_party",
+       "purpose": "Personalization/Customization",
+       "retention": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "The Company may use such information as set forth in this Privacy Policy whether or not you register for or use the Online Services.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy does not specify a purpose for collecting computer information, only that it may be used for the privacy policy."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9657548119206671
+   },
+   {
+    "reviewer": "retention",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 8(7)",
+       "Rule 8"
+      ],
+      "evidence": "If information is changed or deleted, we may still retain some of your information in our files to resolve disputes, enforce our user agreement, administer our services, comply with technical and legal requirements, and/or other constraints related to the security, integrity, and operation of our Online Services.",
+      "rationale": "The policy states that information may be retained indefinitely for various reasons, which contradicts the requirement to erase data once the purpose is served.",
+      "raw": {
+       "candidate_id": "c5",
+       "gap_type": "retention_mismatch",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Basic service/feature",
+       "retention": "indefinitely",
+       "retention_quote": "If your account is inactive for a period of time it may be deleted. If information is changed or deleted, we may still retain some of your information in our files to resolve disputes, enforce our user agreement, administer our services, comply with technical and legal requirements, and/or other constraints related to the security, integrity, and operation of our Online Services.",
+       "sections": [
+        "Sec. 8(7)",
+        "Rule 8"
+       ],
+       "rationale": "The policy states that information may be retained indefinitely for various reasons, which contradicts the requirement to erase data once the purpose is served."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9792378113111235
+   },
+   {
+    "reviewer": "children",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 9(3)",
+       "Rule 10"
+      ],
+      "evidence": "The Company does not knowingly collect personal information from children under 13 years old. If we become aware that a child under 13 has submitted information to the Company, we delete this information immediately.",
+      "rationale": "The policy explicitly states that the company does not collect personal information from children under 13 and deletes such information immediately. However, there is no mention of preventing tracking or advertising directed at children.",
+      "raw": {
+       "candidate_id": "c4",
+       "gap_type": "childrens_data",
+       "data_type": "IP address and device IDs",
+       "recipient": "Google AdMob (Google, advertising)",
+       "purpose": "Advertising",
+       "retention": "Unspecified",
+       "paragraphs": [
+        22,
+        54,
+        4
+       ],
+       "children_quote": "The Company does not knowingly collect personal information from children under 13 years old. If we become aware that a child under 13 has submitted information to the Company, we delete this information immediately.",
+       "sections": [
+        "Sec. 9(3)",
+        "Rule 10"
+       ],
+       "rationale": "The policy explicitly states that the company does not collect personal information from children under 13 and deletes such information immediately. However, there is no mention of preventing tracking or advertising directed at children."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9595813292965224
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 138.49,
+  "reverified_from": "full_v2_finetuned",
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null
+ }
+}

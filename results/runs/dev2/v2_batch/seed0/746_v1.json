@@ -1,0 +1,363 @@
+{
+ "case_id": "746_v1",
+ "system": "v2_batch",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We use the information you provide to conduct the promotion (for example, to contact you if you're a winner) and to provide you with offers and information as described in this privacy notice.",
+   "rationale": "The policy mentions collecting information through various means but does not explicitly state collecting geolocation data. The purpose mentioned is broad and does not specify 'Additional service/feature'.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence does not explicitly mention collecting geolocation data, and the purpose mentioned is broad and does not specify 'Additional service/feature'. The cited DPDP text supports the need for a clear notice regarding the collection of personal data and its purpose, which is not provided"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Social media data",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may use cookies, web beacons/pixel tags, log files, and other technologies to collect certain information about visitors to our website, use of our online services, and interactions with our emails and online advertisements.",
+   "rationale": "The policy does not explicitly mention collecting social media data, but it does describe collecting information through various means, which could include social media data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes collecting information through various means, which could include social media data, but does not explicitly mention collecting social media data. The cited DPDP text supports the need for a clear notice regarding the collection of personal data and its purpose, which i"
+  },
+  {
+   "candidate_id": "c5",
+   "flow_id": "f5",
+   "data_type": "Health",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may use the information we collect from and about you to contact you from time to time. For example, we may send you promotional offers, materials, and other communications and information about Kraft, its portfolio of brands and its partners.",
+   "rationale": "The policy does not explicitly mention collecting health information, but it does describe collecting various types of personal information for marketing purposes.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence describes using collected information for marketing purposes but does not explicitly mention collecting health information. The cited DPDP text supports the need for a clear notice regarding the collection of personal data and its purpose, which is not provided for health informa"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9466762647444956,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9515638614068539,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9474086394094325,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9575546332387721,
+ "usage": {
+  "prompt": 10173,
+  "output": 1414
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 64,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['basic service/feature'], the app uses it for Additional service/feature",
+    "paragraphs": [
+     2,
+     8,
+     26,
+     20,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Advertising",
+    "paragraphs": [
+     7,
+     13,
+     20,
+     14,
+     26
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Additional service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     4,
+     5,
+     6,
+     9,
+     13,
+     16,
+     17,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Social media data",
+    "recipient": "first_party",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Social media data is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     4,
+     5,
+     6,
+     9,
+     13,
+     16,
+     17,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f5",
+    "data_type": "Health",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Health is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     4,
+     5,
+     6,
+     9,
+     13,
+     16,
+     17,
+     28,
+     27
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We use the information you provide to conduct the promotion (for example, to contact you if you're a winner) and to provide you with offers and information as described in this privacy notice.",
+      "rationale": "The policy mentions collecting information through various means but does not explicitly state collecting geolocation data. The purpose mentioned is broad and does not specify 'Additional service/feature'.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "We may use cookies, web beacons/pixel tags, log files, and other technologies to collect certain information about visitors to our website, use of our online services, and interactions with our emails and online advertisements. For example, through these means, we may automatically collect information such as your browser type, operating system, mobile device type and carrier, Internet service provider ('ISP'), and IP address. We may also collect information about your use of and interaction with the website (such as the webpages viewed, whether you open, forward, or click-through links, emails, and ads) and other site usage data.",
+       "generic_quote": "We use the information you provide to conduct the promotion (for example, to contact you if you're a winner) and to provide you with offers and information as described in this privacy notice.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting information through various means but does not explicitly state collecting geolocation data. The purpose mentioned is broad and does not specify 'Additional service/feature'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9466762647444956
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may use cookies, web beacons/pixel tags, log files, and other technologies to collect certain information about visitors to our website, use of our online services, and interactions with our emails and online advertisements.",
+      "rationale": "The policy does not explicitly mention collecting social media data, but it does describe collecting information through various means, which could include social media data.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "Remember that what you post or upload to the site will be publicly available, so please exercise caution when deciding whether to disclose anything personal about yourself.",
+       "generic_quote": "We may use cookies, web beacons/pixel tags, log files, and other technologies to collect certain information about visitors to our website, use of our online services, and interactions with our emails and online advertisements.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting social media data, but it does describe collecting information through various means, which could include social media data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9515638614068539
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may use the information we collect from and about you to contact you from time to time. For example, we may send you promotional offers, materials, and other communications and information about Kraft, its portfolio of brands and its partners.",
+      "rationale": "The policy does not explicitly mention collecting health information, but it does describe collecting various types of personal information for marketing purposes.",
+      "raw": {
+       "candidate_id": "c5",
+       "disclosing_quote": "",
+       "denial_quote": "This site is intended for general audiences, and Kraft does not direct the site to collect, or knowingly collect, any personal information from children under the age of 13.",
+       "generic_quote": "We may use the information we collect from and about you to contact you from time to time. For example, we may send you promotional offers, materials, and other communications and information about Kraft, its portfolio of brands and its partners.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting health information, but it does describe collecting various types of personal information for marketing purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9474086394094325
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "In the registration process, we request certain information (such as your contact information and age) so we can provide you with the communications you request, tailor our website to better meet your needs and customize our contacts with you.",
+      "rationale": "The policy explicitly states that contact information is used for providing communications, tailoring the website, and customizing contacts, which aligns with the purpose 'Additional service/feature'.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Additional service/feature",
+       "retention": "Unspecified",
+       "purpose_quote": "In the registration process, we request certain information (such as your contact information and age) so we can provide you with the communications you request, tailor our website to better meet your needs and customize our contacts with you.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy explicitly states that contact information is used for providing communications, tailoring the website, and customizing contacts, which aligns with the purpose 'Additional service/feature'."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9845697673943063
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [],
+    "parse_error": "no JSON found in reply: '{\\n  \"action\": \"final\",\\n  \"answers\": [\\n    {\\n      \"candidate_id\": \"c2\",\\n      \"gap_type\": \"purpose_mismatch\",\\n      \"data_type\": \"IP address and device IDs\",\\n      \"recipient\": \"first_party\",\\n      \"p'",
+    "llm_calls": 1,
+    "token_prob": null
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [
+   "c2"
+  ],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 6,
+  "seconds": 92.01
+ }
+}

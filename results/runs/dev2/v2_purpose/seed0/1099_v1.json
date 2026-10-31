@@ -1,0 +1,349 @@
+{
+ "case_id": "1099_v1",
+ "system": "v2_purpose",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We do not retain any e-mail addresses of either the sender or recipient of such articles or links after they are sent, and do not share send a friend e-mail addresses with third parties.",
+   "rationale": "The policy does not specify collection of contact information, but mentions general 'personal information' without specifying type.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not disclose the undisclosed collection of contact information. Instead, it discusses the retention and sharing practices related to email addresses, which is different from contact information. Additionally, the cited DPDP text pertains to providing notices to data principa"
+  },
+  {
+   "candidate_id": "c4",
+   "flow_id": "f4",
+   "data_type": "Computer information",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "personal information",
+   "rationale": "The policy mentions usage of personal information but does not explicitly state sharing with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9246713813429167,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9246713813429167,
+   "source": "notice"
+  }
+ },
+ "dropped": [
+  {
+   "candidate_id": "c3",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "[P18]",
+    "[P38]"
+   ],
+   "evidence": "",
+   "rationale": "The policy describes collecting IP addresses and device IDs without specifying a purpose.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false,
+   "drop_reason": "no valid DPDP section"
+  }
+ ],
+ "token_prob": 0.943359922538108,
+ "usage": {
+  "prompt": 6802,
+  "output": 849
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 39,
+  "untagged_paragraphs": 0,
+  "claims": 71,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     4,
+     5,
+     14,
+     33,
+     38,
+     17,
+     32
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f1",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact may be collected; the app uses it for Analytics/Research",
+    "paragraphs": [
+     4,
+     5,
+     14,
+     33,
+     38,
+     17,
+     32,
+     18,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Personalization/Customization",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Personalization/Customization",
+    "paragraphs": [
+     3,
+     20,
+     18,
+     17
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Computer information with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     6,
+     7,
+     8,
+     9,
+     12,
+     14,
+     18,
+     25,
+     33,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c5",
+    "flow_id": "f4",
+    "data_type": "Computer information",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Computer information may be shared with admob; the app uses it for Advertising",
+    "paragraphs": [
+     6,
+     7,
+     8,
+     9,
+     12,
+     14,
+     18,
+     25,
+     33,
+     3,
+     17,
+     20
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We do not retain any e-mail addresses of either the sender or recipient of such articles or links after they are sent, and do not share send a friend e-mail addresses with third parties.",
+      "rationale": "The policy does not specify collection of contact information, but mentions general 'personal information' without specifying type.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not retain any e-mail addresses of either the sender or recipient of such articles or links after they are sent, and do not share send a friend e-mail addresses with third parties.",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify collection of contact information, but mentions general 'personal information' without specifying type."
+      }
+     },
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "personal information",
+      "rationale": "The policy mentions usage of personal information but does not explicitly state sharing with Google AdMob.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "We use the personal information you provide to allow you to make product purchases, to fulfill your requests, improve our publications, products and services, to send you promotional offers related to TEN or our business partners, and to operate our business.",
+       "denial_quote": "We do not retain any e-mail addresses of either the sender or recipient of such articles or links after they are sent, and do not share send a friend e-mail addresses with third parties.",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions usage of personal information but does not explicitly state sharing with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9246713813429167
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "[P3]",
+       "[P38]"
+      ],
+      "evidence": "Our websites automatically collect certain information, such as your IP address, browser type, domain name, access times and referring website address. This helps facilitate your online experience at our websites.",
+      "rationale": "The policy mentions collecting IP addresses and browser types without specifying a purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Our websites automatically collect certain information, such as your IP address, browser type, domain name, access times and referring website address. This helps facilitate your online experience at our websites.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P3]",
+        "[P38]"
+       ],
+       "rationale": "The policy mentions collecting IP addresses and browser types without specifying a purpose."
+      }
+     },
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P18]",
+       "[P38]"
+      ],
+      "evidence": "",
+      "rationale": "The policy describes collecting IP addresses and device IDs without specifying a purpose.",
+      "raw": {
+       "candidate_id": "c3",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "In the course of using these behavioral marketing technologies, we automatically collect non-personal information from you, including but not limited to the pages you visit, and which links you click, which ads you see and click on, and the categories of search terms you enter.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "[P18]",
+        "[P38]"
+       ],
+       "rationale": "The policy describes collecting IP addresses and device IDs without specifying a purpose."
+      }
+     },
+     {
+      "candidate_id": "c5",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "[P18]",
+       "[P38]",
+       "[Sec. 5(1)]"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that the collected data is used for advertising purposes.",
+      "raw": {
+       "candidate_id": "c5",
+       "purpose_quote": "Additionally, we use third-party companies to collect non-personally identifiable information (e.g., the pages you visit, and which links you click, which ads you see and click on, and the categories of search terms you enter) when you visit one of our websites. Some of these third-party companies collect information when serving ads on our sites, while others collect information without showing ads on our sites. These companies may use the information outlined above (which does not include your name, address, email address or telephone number) about your visits to our sites in order to provide advertisements about goods and services of interest to you.",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "[P18]",
+        "[P38]",
+        "[Sec. 5(1)]"
+       ],
+       "rationale": "The policy explicitly states that the collected data is used for advertising purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9620484637332991
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 3,
+  "seconds": 140.97
+ }
+}

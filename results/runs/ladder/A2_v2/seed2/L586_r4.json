@@ -1,0 +1,106 @@
+{
+ "case_id": "L586_r4",
+ "system": "A2_v2",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The Information We Collect and How We Use It",
+   "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but it does refer to collecting 'information' which could include these.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions 'information' which could include IP addresses and device IDs, but it does not explicitly state that the app collects these data types. The cited DPDP text focuses on the notice requirements for collecting personal data and does not address the collection of IP addresses"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.921386439180293,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.921386439180293,
+ "usage": {
+  "prompt": 1476,
+  "output": 208
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 32,
+  "untagged_paragraphs": 0,
+  "claims": 22,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     10,
+     11,
+     13,
+     5,
+     19
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The Information We Collect and How We Use It",
+      "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but it does refer to collecting 'information' which could include these.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The Information We Collect and How We Use It",
+       "generic_quote": "The Information We Collect and How We Use It",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs, but it does refer to collecting 'information' which could include these."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.921386439180293
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 2,
+  "seconds": 22.57
+ }
+}

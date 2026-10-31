@@ -1,0 +1,111 @@
+{
+ "case_id": "L1259_r4",
+ "system": "full_v2",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "Ads appearing on this Web site are delivered to you by our Web advertising partners. Information about your visits to Fool.com and our partner sites, such as the number of times you have viewed an ad (but not your name, address, or other personal information), is used to serve ads to you.",
+   "rationale": "The policy mentions sharing with 'Web advertising partners' without naming them, hence it is generic.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.93965861485282,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.93965861485282,
+ "usage": {
+  "prompt": 1524,
+  "output": 212
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 48,
+  "untagged_paragraphs": 0,
+  "claims": 114,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Advertising",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     14,
+     15,
+     21,
+     25,
+     27,
+     42,
+     9,
+     10
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "Ads appearing on this Web site are delivered to you by our Web advertising partners. Information about your visits to Fool.com and our partner sites, such as the number of times you have viewed an ad (but not your name, address, or other personal information), is used to serve ads to you.",
+      "rationale": "The policy mentions sharing with 'Web advertising partners' without naming them, hence it is generic.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "These companies will combine our anonymized data about how you visit our websites with information that they have collected from outside our sites and provide it to us (and only us) so that we can optimize your experience on fool.com across devices and based on your interests.",
+       "denial_quote": "",
+       "generic_quote": "Ads appearing on this Web site are delivered to you by our Web advertising partners. Information about your visits to Fool.com and our partner sites, such as the number of times you have viewed an ad (but not your name, address, or other personal information), is used to serve ads to you.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with 'Web advertising partners' without naming them, hence it is generic."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.93965861485282
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "llm_calls": 1,
+  "seconds": 31.94
+ }
+}
