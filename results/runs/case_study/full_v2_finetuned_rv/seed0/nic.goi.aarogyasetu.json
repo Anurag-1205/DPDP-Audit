@@ -1,0 +1,254 @@
+{
+ "case_id": "nic.goi.aarogyasetu",
+ "system": "full_v2_finetuned_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The personal information collected from you at the time of registration under Clause 1(a) above, will be stored on the Server and only be used by the Government of India in anonymized, aggregated datasets for the purpose of generating reports, heat maps and other statistical visualisations for the purpose of the management of COVID-19 in the country or to provide you general notifications pertaining to COVID-19 as may be required.",
+   "rationale": "The policy does not explicitly mention the collection of IP addresses or device IDs, but it does describe the collection and use of personal information, which includes location data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions the collection of 'personal information' and describes its use, but it does not explicitly disclose the collection of IP addresses or device IDs. The cited DPDP text pertains to the notice requirements and does not address the issue of undisclosed collection. Therefore, "
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f4",
+   "data_type": "User online activities",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Your DiD will only be co-related with your personal information in order to communicate to you the probability that you have been infected with COVID-19 and/or to provide persons carrying out medical and administrative interventions necessary in relation to COVID-19, the information they might need about you in order to carry out such interventions.",
+   "rationale": "The policy does not disclose sharing with any specific recipient, but mentions generic uses of the data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f5",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Your DiD will only be co-related with your personal information in order to communicate to you the probability that you have been infected with COVID-19 and/or to provide persons carrying out medical and administrative interventions necessary in relation to COVID-19, the information they might need about you in order to carry out such interventions.",
+   "rationale": "The policy explicitly states that the data will only be used by the Government of India and does not mention any third-party disclosure.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9652880237018128,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9660546692429482,
+   "source": "notice"
+  },
+  "f5": {
+   "label": "vague",
+   "confidence": 0.9668870320340353,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9660765749929321,
+ "usage": {
+  "prompt": 4549,
+  "output": 819
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 28,
+  "untagged_paragraphs": 0,
+  "claims": 31,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Basic service/feature",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     9,
+     13,
+     27,
+     5
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "User online activities",
+    "recipient": "firebase_analytics",
+    "purpose": "Analytics/Research",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing User online activities with firebase_analytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     23,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f5",
+    "data_type": "IP address and device IDs",
+    "recipient": "firebase_crashlytics",
+    "purpose": "Service Operation and Security",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with firebase_crashlytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     27,
+     22
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The personal information collected from you at the time of registration under Clause 1(a) above, will be stored on the Server and only be used by the Government of India in anonymized, aggregated datasets for the purpose of generating reports, heat maps and other statistical visualisations for the purpose of the management of COVID-19 in the country or to provide you general notifications pertaining to COVID-19 as may be required.",
+      "rationale": "The policy does not explicitly mention the collection of IP addresses or device IDs, but it does describe the collection and use of personal information, which includes location data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The personal information collected from you at the time of registration under Clause 1(a) above, will be stored on the Server and only be used by the Government of India in anonymized, aggregated datasets for the purpose of generating reports, heat maps and other statistical visualisations for the purpose of the management of COVID-19 in the country or to provide you general notifications pertaining to COVID-19 as may be required.",
+       "generic_quote": "The personal information collected from you at the time of registration under Clause 1(a) above, will be stored on the Server and only be used by the Government of India in anonymized, aggregated datasets for the purpose of generating reports, heat maps and other statistical visualisations for the purpose of the management of COVID-19 in the country or to provide you general notifications pertaining to COVID-19 as may be required.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention the collection of IP addresses or device IDs, but it does describe the collection and use of personal information, which includes location data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9652880237018128
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Your DiD will only be co-related with your personal information in order to communicate to you the probability that you have been infected with COVID-19 and/or to provide persons carrying out medical and administrative interventions necessary in relation to COVID-19, the information they might need about you in order to carry out such interventions.",
+      "rationale": "The policy does not disclose sharing with any specific recipient, but mentions generic uses of the data.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Personal information provided at the time of registration is encrypted before being uploaded to the cloud where it is stored in a secure encrypted server. Personal information that is stored in the Apps of other registered users that you come in contact with is securely encrypted and are incapable of being accessed by such user.",
+       "generic_quote": "Your DiD will only be co-related with your personal information in order to communicate to you the probability that you have been infected with COVID-19 and/or to provide persons carrying out medical and administrative interventions necessary in relation to COVID-19, the information they might need about you in order to carry out such interventions.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not disclose sharing with any specific recipient, but mentions generic uses of the data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9660546692429482
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Your DiD will only be co-related with your personal information in order to communicate to you the probability that you have been infected with COVID-19 and/or to provide persons carrying out medical and administrative interventions necessary in relation to COVID-19, the information they might need about you in order to carry out such interventions.",
+      "rationale": "The policy explicitly states that the data will only be used by the Government of India and does not mention any third-party disclosure.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "The personal information collected from you at the time of registration under Clause 1(a) above, will be stored on the Server and only be used by the Government of India in anonymized, aggregated datasets for the purpose of generating reports, heat maps and other statistical visualisations for the purpose of the management of COVID-19 in the country or to provide you general notifications pertaining to COVID-19 as may be required.",
+       "generic_quote": "Your DiD will only be co-related with your personal information in order to communicate to you the probability that you have been infected with COVID-19 and/or to provide persons carrying out medical and administrative interventions necessary in relation to COVID-19, the information they might need about you in order to carry out such interventions.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the data will only be used by the Government of India and does not mention any third-party disclosure."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9668870320340353
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 4,
+  "seconds": 65.27
+ }
+}
