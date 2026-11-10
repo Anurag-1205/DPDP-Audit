@@ -47,6 +47,12 @@ as our single-prompt baseline, reaches F1 0.421 but raises an alarm on 97\% of c
 published tools reach F1 0.149 (PoliCheck) and 0.166 (PoliGraph). All of v2's gains over the
 baselines are statistically significant on every seed.
 
+\textbf{Where the gain comes from.} Baselines built from the pipeline's own parts show what each
+layer adds. Rules alone (our tagger and the finder, no LLM) already reach F1 0.524 but raise an
+alarm on 91\% of compliant apps. One LLM call that quotes the evidence first and then uses our
+decision rules reaches F1 0.557 with 26\% false alarms. The full pipeline adds a further +0.13 to
++0.16 F1 on every seed.
+
 \textbf{What did not work.} The first version (v1) does not beat the single-prompt baseline on F1.
 The evidence verifier costs more recall than we allowed, the reviewer agents never used their tools,
 and purpose and collection gaps are still mostly missed. Section~\ref{sec:hyp} lists every
@@ -94,9 +100,13 @@ B4 & B2's prompt given to a much stronger model & Gemini 3 Flash \\
 v1 & DPDP-Audit as frozen before evaluation & Qwen2.5-3B tagger, 7B reviewers \\
 v2 & DPDP-Audit with fixes chosen on the dev splits only (Section~\ref{sec:v2}) & same \\
 A1 to A5 & Ablations: verifier off, no retrieval, one generalist reviewer, oracle tagger & same \\
+R0 & Rules only: our tagger and the finder, every candidate reported & no LLM \\
+B5 & One call over the whole policy, evidence first, then v2's rules and verifier & Qwen2.5-7B \\
+B1, B2, B4 sc & Self-consistency: the majority label over the three seeds & as the system \\
 \bottomrule
 \end{tabular}
-\caption{Systems compared. LLM systems run with 3 seeds; the tools run once.}
+\caption{Systems compared. LLM systems run with 3 seeds; the tools and R0 run once. R0, B5 and the
+self-consistency baselines were added on 30 October (Section~\ref{sec:parts}).}
 \end{table}
 
 \begin{figure}[H]
@@ -164,8 +174,8 @@ v2 (prompted tagger) & 0.692 & 0.673 & \textbf{0.370} & 0.407 & 0.294 & 1.000 \\
 \centering
 \includegraphics[width=\textwidth]{figures/main_results.pdf}
 \caption{F1 and false-alarm rate on the main benchmark (mean over seeds). Only v2 is both accurate
-and safe; the stronger model B4 finds more gaps than the other baselines but alarms on almost every
-compliant app.}
+and safe. The stronger model B4 and the rules-only R0 find many gaps but alarm on almost every
+compliant app; B5 is safe but finds fewer gaps.}
 \end{figure}
 
 Table~\ref{tab:paired} compares systems on the same cases. The 95\% intervals come from a
@@ -234,6 +244,56 @@ In the 2,958 re-verified runs every reply is read (14 findings in total got no v
 reply was cut off). All pipeline numbers in this report use the fixed verifier. With the bug, v1
 seemed to beat B2 (F1 0.343); that gain came from findings that were never checked.
 
+\section{Baselines from the pipeline's parts}
+\label{sec:parts}
+
+To see what each layer of the design adds, we added three baselines on 30 October, each removing
+one layer:
+\begin{itemize}
+  \item \textbf{R0, rules only.} Our QLoRA tagger and the finder; every candidate the finder
+        proposes is reported. No LLM call.
+  \item \textbf{B5, one call, evidence first.} No tagger, no finder, no specialist reviewers, no
+        tools and no retrieval. One call reads the whole policy and quotes the evidence for every
+        flow; v2's decision rules, aggregator and verifier then decide. Its prompt was fixed on the
+        dev splits before it ran on the main benchmark.
+  \item \textbf{Self-consistency.} The majority label over the three seeds of B1, B2 and B4, a fair
+        counterpart to our pipeline, which also uses three seeds.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lccccc}
+\toprule
+System & F1 & F1 common & Label macro-F1 & False alarms & Citation correct \\
+\midrule
+R0 rules only (no LLM) & 0.524 & 0.551 & 0.430 & 0.912 & 1.000 \\
+R0 with the prompted tagger & 0.374 & 0.308 & 0.367 & 1.000 & 1.000 \\
+B5 one call (3 seeds) & 0.557 & 0.423 & 0.206 & 0.255 & 0.350 \\
+B1 sc / B2 sc & 0.179 / 0.182 & 0.183 / 0.177 & 0.169 / 0.111 & 0.971 / 0.676 & 0.304 / 0.949 \\
+B4 sc & 0.473 & 0.328 & 0.292 & 0.971 & 1.000 \\
+\textbf{v2 (QLoRA tagger)} & \textbf{0.705} & \textbf{0.686} & \textbf{0.495} & 0.265 & 1.000 \\
+\bottomrule
+\end{tabular}
+\caption{Baselines from the pipeline's parts on the main benchmark.}
+\end{table}
+
+\begin{itemize}
+  \item \textbf{Rules alone beat every single-prompt baseline on F1} (R0 minus B2 +0.336
+        [0.268, 0.403]; R0 minus B4 +0.110 [0.052, 0.178]) but alarm on 91\% of compliant apps. The
+        LLM review and the verifier add +0.199 F1 [0.132, 0.263] and cut false alarms by 0.706
+        [0.559, 0.853].
+  \item \textbf{Evidence-first review with rule-based decisions gives most of the gain even in one
+        call}: B5 minus B2 is +0.384 F1 [0.292, 0.466] with 0.382 fewer false alarms.
+  \item \textbf{The full pipeline still adds +0.13 to +0.16 F1 over B5, significantly on every seed}
+        (+0.151, +0.133, +0.161), at the same false-alarm rate. Without the finder, B5 sends every
+        flow to the model, which marks 234 of the 385 clearly disclosed flows (seed 0) as vague or
+        omitted; without the specialists' instructions it often cites the wrong DPDP section
+        (citation correct 0.350).
+  \item \textbf{Self-consistency does not close the gap}: it changes nothing for B1 and B2 and gives
+        B4 +0.058 F1; v2 minus B4 sc is still +0.251 [0.179, 0.320].
+\end{itemize}
+
 \section{Ablations}
 
 \begin{table}[H]
@@ -285,6 +345,8 @@ System & Clear & Explicit & Vague & Deleted & Explicit minus vague \\
 S1 PoliCheck & 0.18 & 0.73 & 0.38 & 0.79 & +0.32 (p = 0.064) \\
 S2 PoliGraph & 0.38 & 0.00 & 0.03 & 0.93 & $-$0.04 (p = 1.00) \\
 B2 & 0.00 & 0.00 & 1.00 & 0.00 & $-$1.00 \\
+R0 rules only & 0.85 & 0.57 & 0.78 & 0.64 & \\
+B5 one call & 0.88 & 0.53 & 0.81 & 0.07 & \\
 v1 (prompted tagger) & 1.00 & 0.53 & 0.84 & 0.14 & $-$0.29 (p = 0.057) \\
 v2 (QLoRA tagger) & 1.00 & 0.77 & 0.88 & 0.14 & $-$0.07 (p = 0.63) \\
 \bottomrule
@@ -298,7 +360,8 @@ same picture.}
         significantly. Our pipeline reads the vague rung as well as or better than the explicit one.
   \item B2 calls every flow ``vague'' on every rung.
   \item The deleted rung is a real pipeline error: v2 often reads leftover generic wording as a
-        vague disclosure, where PoliCheck correctly says ``omitted''.
+        vague disclosure, where PoliCheck correctly says ``omitted''. R0 reads 64\% of deleted rungs
+        correctly, so this over-reading comes from the LLM review step, not from the tagger.
 \end{itemize}
 
 \section{Clause tagger}
@@ -339,7 +402,8 @@ gain is smaller: +0.043 F1 overall (not significant) and +0.100 on collection an
 Hypothesis & Verdict \\
 \midrule
 H1: beats PoliCheck and PoliGraph on collection and sharing &
-Fails for v1. \textbf{Holds for v2} (+0.561 and +0.535 F1, both significant). \\
+Fails for v1. \textbf{Holds for v2}: +0.561 and +0.535 F1, and +0.222 and +0.334 in the tools'
+own reading, all significant. \\
 H2: beats B1 and B2, most on vague and omission gaps &
 First half holds for v2 (+0.535 F1 over B2). Second half fails: the largest gain is on explicit
 gaps (+0.54, against +0.45 on vague and omission). \\
@@ -375,7 +439,12 @@ Falsifiable claim & Fails for v1, \textbf{holds for v2}. \\
   \item \textbf{The agents did not use their tools.} Reviewers could search the policy, retrieve DPDP
         text and look up SDKs, but in all 5,985 pipeline runs they answered from the paragraphs
         given, with zero tool calls. In practice they act as evidence extractors; the gain comes
-        from the pipeline around them.
+        from the pipeline around them. Retrieval of DPDP text does not help on any seed either.
+  \item \textbf{Each layer of the design is measurable.} Rules alone reach F1 0.524 but alarm on
+        91\% of compliant apps; one evidence-first call reaches 0.557 at 26\% false alarms; the
+        full structure adds +0.13 to +0.16 F1 on every seed. The parts that matter are
+        evidence-first review with rule-based decisions, the finder's filtering and the verifier;
+        tools and retrieval are not.
   \item \textbf{Collection and purpose gaps are not solved.} v2 finds children's data and retention
         gaps without error and sharing gaps with recall 0.97, but its verifier sends almost all
         collection and purpose findings to human review.
@@ -395,8 +464,8 @@ Milestone & Date & Status \\
 MS-0 Setup & 15 Oct & Done \\
 MS-1 Benchmark and B1/B2 & 24 Oct & Done \\
 MS-2 Mid-submission package & 30 Oct & Done (this report) \\
-MS-3 Experiments complete & 7 Nov & Done early (29 Oct): all main and ladder runs, ablations,
-tagger results and both human checks \\
+MS-3 Experiments complete & 7 Nov & Done early (29 to 30 Oct): all main and ladder runs, ablations,
+tagger results, both human checks, and the baselines from the pipeline's parts \\
 MS-4 Evaluation complete & 11 Nov & In progress: selective accuracy, real-flow sample, case study \\
 MS-5 Final submission & 15 Nov & Planned \\
 \bottomrule
@@ -413,6 +482,10 @@ MS-5 Final submission & 15 Nov & Planned \\
         is reported next to the frozen v1, not in place of it.
   \item PurPliance was not run, and PoliGraph uses its released NLP version, because the LLM
         variant is not public.
+  \item R0, B5 and the self-consistency baselines were added on 30 October, after the main
+        results, to measure what each layer of the design adds. B5 was fixed on the dev splits (one
+        change: more output tokens, after 12 of 102 dev replies were cut off) and ran on the main
+        benchmark only after passing a reply-quality check set in advance.
 \end{itemize}
 
 \textbf{Stage 4 (to 11 November).} Selective accuracy and the H5 verdict; a real-flow sample of
