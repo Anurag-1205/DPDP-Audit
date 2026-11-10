@@ -1,0 +1,246 @@
+{
+ "case_id": "com.wanderful.findnsave",
+ "system": "full_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We collect certain information that your mobile device sends when you use our Services, like a device identifier, user settings, and the operating system, as well as information about your use of our Services.",
+   "rationale": "The policy mentions collecting device identifiers but does not specify sharing them with third parties or naming any specific SDK.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f2",
+    "f3"
+   ]
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9406853289892717,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "incorrect",
+   "confidence": 0.9502811421720669,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "incorrect",
+   "confidence": 0.9567922389225257,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9492529033612881,
+ "usage": {
+  "prompt": 4626,
+  "output": 470
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 58,
+  "untagged_paragraphs": 0,
+  "claims": 132,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     6,
+     11,
+     12,
+     15,
+     17,
+     18,
+     20,
+     23,
+     32,
+     34,
+     40,
+     48,
+     50,
+     55,
+     56,
+     57,
+     10
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "branch",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with branch is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     12,
+     21,
+     24,
+     28,
+     29,
+     30,
+     31,
+     37,
+     18
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "firebase_crashlytics",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with firebase_crashlytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     12,
+     21,
+     24,
+     28,
+     29,
+     30,
+     31,
+     37,
+     18
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect certain information that your mobile device sends when you use our Services, like a device identifier, user settings, and the operating system, as well as information about your use of our Services.",
+      "rationale": "The policy does not explicitly mention IP addresses or device identifiers but indicates that it applies only to their own services.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "This Privacy Policy applies only to those services and Apps included within 'Services' and doesn't apply to any third-party websites, services or applications, even if they are accessible through our Services.",
+       "generic_quote": "We collect certain information that your mobile device sends when you use our Services, like a device identifier, user settings, and the operating system, as well as information about your use of our Services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention IP addresses or device identifiers but indicates that it applies only to their own services."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9406853289892717
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect certain information that your mobile device sends when you use our Services, like a device identifier, user settings, and the operating system, as well as information about your use of our Services.",
+      "rationale": "The policy mentions collecting device identifiers but does not specify sharing them with third parties or naming any specific SDK.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We collect certain information that your mobile device sends when you use our Services, like a device identifier, user settings, and the operating system, as well as information about your use of our Services.",
+       "generic_quote": "We may share information with third parties for industry analysis, demographic profiling and other similar purposes.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting device identifiers but does not specify sharing them with third parties or naming any specific SDK."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9502811421720669
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect certain information that your mobile device sends when you use our Services, like a device identifier, user settings, and the operating system, as well as information about your use of our Services.",
+      "rationale": "The policy mentions collecting device identifiers but does not specify sharing them with any third parties.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We collect certain information that your mobile device sends when you use our Services, like a device identifier, user settings, and the operating system, as well as information about your use of our Services.",
+       "generic_quote": "We may share information with third parties for industry analysis, demographic profiling and other similar purposes.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting device identifiers but does not specify sharing them with any third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9567922389225257
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 3,
+  "seconds": 53.05
+ }
+}

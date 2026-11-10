@@ -1,0 +1,114 @@
+{
+ "case_id": "com.cibgHippo.Babyshop",
+ "system": "full_v2_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "Third Parties: You may register for other services from our Platforms which are offered by third parties. If you opt in to any of these third party services, we may collect additional information requested by this third party and pass this information, together with all other registration information (including personal information), to that third party. Use of your information by a third party will be governed by that third party\u2019s terms of service and privacy policy.",
+   "rationale": "The policy explicitly states that no personal information is shared with partners, but mentions sharing information with third parties, which is generic and does not specify the sharing of IP addresses and device IDs.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9442756212326109,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9442756212326109,
+ "usage": {
+  "prompt": 1732,
+  "output": 222
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 58,
+  "untagged_paragraphs": 0,
+  "claims": 122,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "unity_ads",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with unity_ads is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     20,
+     30,
+     31,
+     32,
+     46,
+     48,
+     9,
+     26
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "Third Parties: You may register for other services from our Platforms which are offered by third parties. If you opt in to any of these third party services, we may collect additional information requested by this third party and pass this information, together with all other registration information (including personal information), to that third party. Use of your information by a third party will be governed by that third party\u2019s terms of service and privacy policy.",
+      "rationale": "The policy explicitly states that no personal information is shared with partners, but mentions sharing information with third parties, which is generic and does not specify the sharing of IP addresses and device IDs.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Hippo Baby Games for Girls and for Boys does not share any personal information with these partners.",
+       "generic_quote": "Third Parties: You may register for other services from our Platforms which are offered by third parties. If you opt in to any of these third party services, we may collect additional information requested by this third party and pass this information, together with all other registration information (including personal information), to that third party. Use of your information by a third party will be governed by that third party\u2019s terms of service and privacy policy.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that no personal information is shared with partners, but mentions sharing information with third parties, which is generic and does not specify the sharing of IP addresses and device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9442756212326109
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 23.58
+ }
+}

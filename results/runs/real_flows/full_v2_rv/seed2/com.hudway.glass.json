@@ -1,0 +1,93 @@
+{
+ "case_id": "com.hudway.glass",
+ "system": "full_v2_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.936389995159077,
+ "usage": {
+  "prompt": 1185,
+  "output": 206
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 46,
+  "untagged_paragraphs": 0,
+  "claims": 137,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location is collected for ['basic service/feature', 'marketing', 'service operation and security'], the app uses it for Unspecified",
+    "paragraphs": [
+     12,
+     23,
+     24,
+     3,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 8"
+      ],
+      "evidence": "Hudway may collect location data from your device as well as the history of your completed trips while using the Apps.",
+      "rationale": "The policy mentions collecting location data but does not specify a particular purpose for this data, except for improving the apps and navigation data.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "purpose_quote": "Hudway may collect location data from your device as well as the history of your completed trips while using the Apps.",
+       "unspecified_purpose_quote": "We use this history to improve the quality of the Apps we offers to you and to all of our users and to improve the accuracy of our mapping and navigation data. This history is retained by us for a limited period of time and in accordance with the Privacy Policy.",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 8"
+       ],
+       "rationale": "The policy mentions collecting location data but does not specify a particular purpose for this data, except for improving the apps and navigation data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.936389995159077
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 21.22
+ }
+}

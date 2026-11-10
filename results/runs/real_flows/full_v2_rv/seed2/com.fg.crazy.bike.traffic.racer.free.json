@@ -1,0 +1,173 @@
+{
+ "case_id": "com.fg.crazy.bike.traffic.racer.free",
+ "system": "full_v2_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may disclose or publish aggregated information (information about you and other players collectively that is not intended to specifically identify you), other non-personal information about our players for industry analysis, demographic profiling, marketing, analytics, and advertising and other business purposes.",
+   "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with third parties, but it does mention that aggregated information is disclosed.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f1",
+    "f2"
+   ]
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.942782014696485,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9440963915407757,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9434392031186304,
+ "usage": {
+  "prompt": 6490,
+  "output": 359
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 35,
+  "untagged_paragraphs": 0,
+  "claims": 112,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "applovin",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with applovin is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     10,
+     13,
+     21,
+     27,
+     30,
+     31,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "unity_ads",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with unity_ads is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     10,
+     13,
+     21,
+     27,
+     30,
+     31,
+     7
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may disclose or publish aggregated information (information about you and other players collectively that is not intended to specifically identify you), other non-personal information about our players for industry analysis, demographic profiling, marketing, analytics, and advertising and other business purposes.",
+      "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with third parties, but it does mention that aggregated information is disclosed.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "By playing the Games or visiting the Website of HATCOM Inc you are agreeing to be bound by this Policy in respect of the information collected about you.",
+       "generic_quote": "We may disclose or publish aggregated information (information about you and other players collectively that is not intended to specifically identify you), other non-personal information about our players for industry analysis, demographic profiling, marketing, analytics, and advertising and other business purposes.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with third parties, but it does mention that aggregated information is disclosed."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.942782014696485
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may disclose or publish aggregated information (information about you and other players collectively that is not intended to specifically identify you), other non-personal information about our players for industry analysis, demographic profiling, marketing, analytics, and advertising and other business purposes.",
+      "rationale": "The policy mentions disclosing aggregated and non-personal information, but does not specify IP addresses and device IDs being shared.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "By playing the Games or visiting the Website of HATCOM Inc you are agreeing to be bound by this Policy in respect of the information collected about you.",
+       "generic_quote": "We may disclose or publish aggregated information (information about you and other players collectively that is not intended to specifically identify you), other non-personal information about our players for industry analysis, demographic profiling, marketing, analytics, and advertising and other business purposes.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions disclosing aggregated and non-personal information, but does not specify IP addresses and device IDs being shared."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9440963915407757
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 37.86
+ }
+}

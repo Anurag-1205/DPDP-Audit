@@ -1,0 +1,277 @@
+{
+ "case_id": "com.ajnsnewmedia.kitchenstories",
+ "system": "full_v2_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We need these and potentially other data also to be able to respond to your wishes, questions, and complaints as well as to send you, after registration via email basic user account functions, our offers, and new content.",
+   "rationale": "The policy mentions collecting data but does not specify IP addresses or device IDs.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence mentions collecting unspecified data, which includes IP addresses and device IDs. The cited DPDP text requires specifying the personal data and the purpose for which it is proposed to be processed. Since the policy does not specify these details, it supports the finding of an und"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "The service providers may only use the data for the purposes we specify. The service providers are contractually obliged to handle your data exclusively in accordance with this Data Privacy Declaration and the German Data Privacy Laws.",
+   "rationale": "The policy mentions passing data to service providers but does not specify Amplitude, nor does it deny sharing.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify any purpose for the IP address and device IDs, nor does it mention Firebase Crashlytics.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is empty, indicating no mention of the purpose for IP addresses and device IDs or Firebase Crashlytics. While the cited DPDP text requires specifying the purpose for processing personal data, the absence of any policy evidence means the finding cannot be justified."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9779300730111578,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9519964420856573,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9643866243380049,
+ "usage": {
+  "prompt": 6748,
+  "output": 585
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 60,
+  "untagged_paragraphs": 0,
+  "claims": 166,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     1,
+     2,
+     4,
+     6,
+     7,
+     9,
+     10,
+     17,
+     19,
+     20,
+     23,
+     28,
+     29,
+     32,
+     34,
+     40,
+     44,
+     46,
+     47,
+     49,
+     52,
+     53,
+     55,
+     57,
+     25,
+     26
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "amplitude",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with amplitude is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     7,
+     17,
+     19,
+     24,
+     25,
+     29,
+     31,
+     23
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "firebase_crashlytics",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is shared with firebase_crashlytics for ['service operation and security'], the app uses it for Unspecified",
+    "paragraphs": [
+     25,
+     26,
+     54,
+     19
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We need these and potentially other data also to be able to respond to your wishes, questions, and complaints as well as to send you, after registration via email basic user account functions, our offers, and new content.",
+      "rationale": "The policy mentions collecting data but does not specify IP addresses or device IDs.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "These data are saved for technical reasons only and will never be allocated to a specific person.",
+       "generic_quote": "We need these and potentially other data also to be able to respond to your wishes, questions, and complaints as well as to send you, after registration via email basic user account functions, our offers, and new content.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting data but does not specify IP addresses or device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9779300730111578
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "The service providers may only use the data for the purposes we specify. The service providers are contractually obliged to handle your data exclusively in accordance with this Data Privacy Declaration and the German Data Privacy Laws.",
+      "rationale": "The policy mentions passing data to service providers but does not specify Amplitude, nor does it deny sharing.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "In these cases, information is passed on to these companies or people to enable further processing by them.",
+       "generic_quote": "The service providers may only use the data for the purposes we specify. The service providers are contractually obliged to handle your data exclusively in accordance with this Data Privacy Declaration and the German Data Privacy Laws.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions passing data to service providers but does not specify Amplitude, nor does it deny sharing."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9519964420856573
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify any purpose for the IP address and device IDs, nor does it mention Firebase Crashlytics.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "IP address and device IDs",
+       "recipient": "Firebase Crashlytics (Google, crash_reporting)",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy does not specify any purpose for the IP address and device IDs, nor does it mention Firebase Crashlytics."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9632333579171996
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 4,
+  "seconds": 68.45
+ }
+}

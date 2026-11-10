@@ -1,0 +1,173 @@
+{
+ "case_id": "com.cardgame.solitaire.full",
+ "system": "full_v2_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "\u00b7 Your IP address, however, which only determine the coarse location and cannot identify your physical location.",
+   "rationale": "The policy mentions IP addresses but explicitly states that they cannot identify physical locations, implying no sharing.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f1",
+    "f2"
+   ]
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9632942402964034,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9763561741086996,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9698252072025515,
+ "usage": {
+  "prompt": 3098,
+  "output": 658
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 68,
+  "untagged_paragraphs": 0,
+  "claims": 156,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "applovin",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with applovin is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     11,
+     32,
+     44,
+     45,
+     48,
+     64,
+     27,
+     29
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "appsflyer",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with appsflyer is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     11,
+     32,
+     44,
+     45,
+     48,
+     64,
+     27,
+     29
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "\u00b7 Your IP address, however, which only determine the coarse location and cannot identify your physical location.",
+      "rationale": "The policy mentions IP addresses but explicitly states that they cannot identify physical locations, implying no sharing.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "\u00b7 Your IP address, however, which only determine the coarse location and cannot identify your physical location.",
+       "generic_quote": "In general, we collect, store and use your information to provide you with a safe, smooth, efficient, and customized gaming and entertainment experience. The personal information you provide QueensSolitaire will allow us to provide and deliver products and services you request, such as create in-game accounts; alert you of new products or services, features, or enhancements; improve our Services and keep them secure, such as handle/route your customer service or technical support questions or issues; and/or notify you of upgrade opportunities, contests, promotions, or special events and offers. QueensSolitaire may enhance or merge the personal information collected with data from third parties in order to update your contact information, perform market analysis, or improve our products or services. We may use your personal information for internal marketing, profiling, or demographic purposes, so we can adapt our products and services to better suit your needs. We do this to better understand and serve our customers.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions IP addresses but explicitly states that they cannot identify physical locations, implying no sharing."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9632942402964034
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "QueensSolitaire may enhance or merge the personal information collected with data from third parties in order to update your contact information, perform market analysis, or improve our products or services. We may use your personal information for internal marketing, profiling, or demographic purposes, so we can adapt our products and services to better suit your needs. We do this to better understand and serve our customers.",
+      "rationale": "The policy mentions sharing personal information broadly but does not specify sharing of IP addresses and device IDs with third parties.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "In general, we collect, store and use your information to provide you with a safe, smooth, efficient, and customized gaming and entertainment experience. The personal information you provide QueensSolitaire will allow us to provide and deliver products and services you request, such as create in-game accounts; alert you of new products or services, features, or enhancements; improve our Services and keep them secure, such as handle/route your customer service or technical support questions or issues; and/or notify you of upgrade opportunities, contests, promotions, or special events and offers. QueensSolitaire may enhance or merge the personal information collected with data from third parties in order to update your contact information, perform market analysis, or improve our products or services. We may use your personal information for internal marketing, profiling, or demographic purposes, so we can adapt our products and services to better suit your needs. We do this to better understand and serve our customers.",
+       "generic_quote": "QueensSolitaire may enhance or merge the personal information collected with data from third parties in order to update your contact information, perform market analysis, or improve our products or services. We may use your personal information for internal marketing, profiling, or demographic purposes, so we can adapt our products and services to better suit your needs. We do this to better understand and serve our customers.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing personal information broadly but does not specify sharing of IP addresses and device IDs with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9763561741086996
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 71.73
+ }
+}

@@ -52,3 +52,9 @@ $PY scripts/export_confidence.py --split ladder --systems B2 full full_finetuned
 # selective accuracy and H5 (SPEC-07): curves, R@95 with intervals, ladder rung confidence
 $PY scripts/selective_accuracy.py --split main
 $PY scripts/selective_accuracy.py --split ladder
+
+# real flows (SPEC-08, AC-08.3): tool output to runs, then every system against the settled labels
+$PY scripts/convert_tool_runs.py --split real_flows --tools S1 S2
+$PY scripts/score_real_flows.py
+# open-source case study (AC-08.4): cases from data/case_study/ (no keys; findings checked by hand)
+$PY scripts/build_case_study.py

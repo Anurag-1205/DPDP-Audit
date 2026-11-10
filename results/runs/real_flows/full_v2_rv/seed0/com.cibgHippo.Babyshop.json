@@ -1,0 +1,111 @@
+{
+ "case_id": "com.cibgHippo.Babyshop",
+ "system": "full_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "If you consent to personalized advertising, your device advertising identifier also is stored in case we need to be able to access it to assist you with data portability or erasure requests. Your device advertising identifier is not stored in our consent logging database if you do not consent to personalized advertising.",
+   "rationale": "The policy does not explicitly mention sharing device IDs or IP addresses with Unity Ads, but it does mention sharing non-personal information with brand partners.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9389093179111578,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9389093179111578,
+ "usage": {
+  "prompt": 1732,
+  "output": 218
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 58,
+  "untagged_paragraphs": 0,
+  "claims": 122,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "unity_ads",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with unity_ads is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     20,
+     30,
+     31,
+     32,
+     46,
+     48,
+     9,
+     26
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "If you consent to personalized advertising, your device advertising identifier also is stored in case we need to be able to access it to assist you with data portability or erasure requests. Your device advertising identifier is not stored in our consent logging database if you do not consent to personalized advertising.",
+      "rationale": "The policy does not explicitly mention sharing device IDs or IP addresses with Unity Ads, but it does mention sharing non-personal information with brand partners.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "If you consent to personalized advertising, your device advertising identifier also is stored in case we need to be able to access it to assist you with data portability or erasure requests. Your device advertising identifier is not stored in our consent logging database if you do not consent to personalized advertising.",
+       "generic_quote": "Hippo Baby Games for Girls and for Boys may also share non-personal information with our brand partners, which may include without limitation game session information, retention, purchases, gameplay events and user behavior. Hippo Baby Games for Girls and for Boys does not share any personal information with these partners.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention sharing device IDs or IP addresses with Unity Ads, but it does mention sharing non-personal information with brand partners."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9389093179111578
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 48.59
+ }
+}

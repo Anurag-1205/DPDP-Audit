@@ -1,0 +1,117 @@
+{
+ "case_id": "com.gamma.blocks",
+ "system": "full_v2_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "6 We will share your personal information with the following third parties or categories of third parties: (a) Webair, who store all our data and may access personal data stored within that storage solution when providing support and maintenance purposes; (b) the OS providers of your device, or the providers of the platform from which you downloaded our app(s), in order to verify purchases you make and provide in-app purchase opportunities.",
+   "rationale": "The policy explicitly states that data types are shared with specific third parties like Admob, and also mentions generic sharing with unspecified third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9204373639318687,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9204373639318687,
+ "usage": {
+  "prompt": 2312,
+  "output": 160
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 122,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "unity_ads",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with unity_ads is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     43
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "6 We will share your personal information with the following third parties or categories of third parties: (a) Webair, who store all our data and may access personal data stored within that storage solution when providing support and maintenance purposes; (b) the OS providers of your device, or the providers of the platform from which you downloaded our app(s), in order to verify purchases you make and provide in-app purchase opportunities.",
+      "rationale": "The policy explicitly states that data types are shared with specific third parties like Admob, and also mentions generic sharing with unspecified third parties.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "Admob (Google, Inc.)",
+       "denial_quote": "",
+       "generic_quote": "We share your personal information with the following third parties or categories of third parties: (a) Webair, who store all our data and may access personal data stored within that storage solution when providing support and maintenance purposes;",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that data types are shared with specific third parties like Admob, and also mentions generic sharing with unspecified third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9204373639318687
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 20.96
+ }
+}

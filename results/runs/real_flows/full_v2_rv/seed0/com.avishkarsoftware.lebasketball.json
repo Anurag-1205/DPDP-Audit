@@ -1,0 +1,271 @@
+{
+ "case_id": "com.avishkarsoftware.lebasketball",
+ "system": "full_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may enhance the information collected by using third party services. We may also share some information with partners and affiliates.",
+   "rationale": "The policy mentions sharing information with partners and affiliates but does not specify the sharing of location data with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "Furthermore, if the apps have permissions on the platform on which they have been installed, data may be collected using those special permissions (including but not limited to Phone State, location, camera, microphone, contacts, device id etc) as well, which is generally linked to the functionality provided by the app, but may sometimes not be associated with it.",
+   "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with Meta Audience Network, nor does it deny sharing these data types. It only mentions that such data may be collected and used for various purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9583707556685336,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9547812234589472,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "incorrect",
+   "confidence": 0.9542988720420333,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.955816950389838,
+ "usage": {
+  "prompt": 5202,
+  "output": 664
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 65,
+  "untagged_paragraphs": 0,
+  "claims": 180,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     7,
+     8,
+     10,
+     13,
+     23,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     38,
+     40,
+     41,
+     48,
+     50,
+     51,
+     59,
+     18,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     5,
+     6,
+     9,
+     24,
+     25,
+     27,
+     28,
+     33,
+     35,
+     42,
+     47,
+     51,
+     18,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "facebook_audience",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not share IP address and device IDs",
+    "paragraphs": [
+     7,
+     18,
+     37
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect information about you and how you use Avishkar's apps, software and services. We may also collect other information on your device including but not limited to apps installed, location, advertising id and any other information.",
+      "rationale": "The policy explicitly mentions collecting location information.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "disclosing_quote": "We collect information about you and how you use Avishkar's apps, software and services. We may also collect other information on your device including but not limited to apps installed, location, advertising id and any other information.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly mentions collecting location information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9583707556685336
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may enhance the information collected by using third party services. We may also share some information with partners and affiliates.",
+      "rationale": "The policy mentions sharing information with partners and affiliates but does not specify the sharing of location data with Google AdMob.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "You do not need to provide any personally identifying information in order to use some of the functionality in the software, apps and other services provided by Avishkar. However, your personal information is needed in order to participate in some other services (for example, the V-Points \u03b2 program).",
+       "generic_quote": "We may enhance the information collected by using third party services. We may also share some information with partners and affiliates.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing information with partners and affiliates but does not specify the sharing of location data with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9547812234589472
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "Furthermore, if the apps have permissions on the platform on which they have been installed, data may be collected using those special permissions (including but not limited to Phone State, location, camera, microphone, contacts, device id etc) as well, which is generally linked to the functionality provided by the app, but may sometimes not be associated with it.",
+      "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with Meta Audience Network, nor does it deny sharing these data types. It only mentions that such data may be collected and used for various purposes.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "Furthermore, if the apps have permissions on the platform on which they have been installed, data may be collected using those special permissions (including but not limited to Phone State, location, camera, microphone, contacts, device id etc) as well, which is generally linked to the functionality provided by the app, but may sometimes not be associated with it.",
+       "generic_quote": "Your Personal Information can also include, but is not limited to, your name, phone number, IP address, social profile, email address or home address. (We might not ask you for all or any of these things, but you might provide them to us without our asking \u2013 for instance, in an email to us.) We use your Personal Information mainly to provide the Services and to respond to your requests for support and improve the Services. We also use it to mitigate fraud and other undesirable behaviors. This information may also be used for targeted advertising targeted for you. We may enhance this information or share it with third parties for the purposes mentioned above or any other purpose.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with Meta Audience Network, nor does it deny sharing these data types. It only mentions that such data may be collected and used for various purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9542988720420333
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 3,
+  "seconds": 94.14
+ }
+}

@@ -1,0 +1,128 @@
+{
+ "case_id": "com.live.live4d",
+ "system": "full_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "personal information",
+   "rationale": "The policy mentions collecting information but does not specify the exact data types.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence 'personal information' and the cited DPDP text Sec. 5(1) and Rule 3 indicate that the app should disclose the specific data types (e.g., IP address and device IDs) and their purposes for processing. Since the policy only mentions 'personal information' without specifying the exac"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9430905224025311,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9430905224025311,
+ "usage": {
+  "prompt": 1715,
+  "output": 204
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 102,
+  "untagged_paragraphs": 0,
+  "claims": 233,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     8,
+     9,
+     11,
+     12,
+     15,
+     17,
+     18,
+     19,
+     20,
+     22,
+     44,
+     48,
+     56,
+     60,
+     62,
+     68,
+     82,
+     92,
+     98,
+     94
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "personal information",
+      "rationale": "The policy mentions collecting information but does not specify the exact data types.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We collect information from you when you open our app or enter information on our site.",
+       "generic_quote": "personal information",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting information but does not specify the exact data types."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9430905224025311
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 22.37
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "case_id": "com.g6677.android.princesshs",
+ "system": "full_v2_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 10"
+   ],
+   "evidence": "When you visit our products, our servers automatically save your computer's IP address.",
+   "rationale": "The policy only states that IP addresses are saved but does not specify any particular purpose.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence states that IP addresses are saved without specifying any particular purpose, which aligns with the DPDP text requiring the notice to include the purpose for which the data is proposed to be processed. The unspecified purpose in the policy evidence supports the finding of a purpo"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.933326751081795,
+ "usage": {
+  "prompt": 1637,
+  "output": 222
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 31,
+  "untagged_paragraphs": 0,
+  "claims": 89,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Unspecified",
+    "paragraphs": [
+     3,
+     13,
+     9,
+     14
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 10"
+      ],
+      "evidence": "When you visit our products, our servers automatically save your computer's IP address.",
+      "rationale": "The policy only states that IP addresses are saved but does not specify any particular purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "When you visit our products, our servers automatically save your computer's IP address.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 10"
+       ],
+       "rationale": "The policy only states that IP addresses are saved but does not specify any particular purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.933326751081795
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 23.4
+ }
+}

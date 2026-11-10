@@ -1,0 +1,196 @@
+{
+ "case_id": "com.jb.lab.gokeyboard",
+ "system": "full_v2_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you use the Software and Services, for analytical, business and operational purposes,we automatically collect and store the following types of information:",
+   "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs but indicates automatic collection of various types of information.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions 'automatically collect and store the following types of information' without specifying what these types are. However, the finding cites the app's flow as involving 'IP address and device IDs', which is not directly supported by the policy evidence. Additionally, the cit"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that the Android ID is not shared with any third party, thus no sharing is disclosed.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9274971307181907,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9714200970721988,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9494586138951948,
+ "usage": {
+  "prompt": 3590,
+  "output": 343
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 66,
+  "untagged_paragraphs": 0,
+  "claims": 149,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     4,
+     6,
+     8,
+     9,
+     11,
+     16,
+     18,
+     19,
+     20,
+     21,
+     22,
+     25,
+     41,
+     50,
+     54,
+     59,
+     60,
+     62,
+     7,
+     40
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "appsflyer",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not share IP address and device IDs",
+    "paragraphs": [
+     7,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you use the Software and Services, for analytical, business and operational purposes,we automatically collect and store the following types of information:",
+      "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs but indicates automatic collection of various types of information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "When you use the Software and Services, for analytical, business and operational purposes, we automatically collect and store the following types of information:",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly mention collecting IP addresses or device IDs but indicates automatic collection of various types of information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9274971307181907
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that the Android ID is not shared with any third party, thus no sharing is disclosed.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We access Android ID only to analysis and provide you personalized content. And we will not share Android ID with any other third party.",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that the Android ID is not shared with any third party, thus no sharing is disclosed."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9714200970721988
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 3,
+  "seconds": 33.52
+ }
+}

@@ -1,0 +1,182 @@
+{
+ "case_id": "com.mobincube.android.sc_3A7W1A",
+ "system": "full_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Personalize and improve you experience, and enable us to supply you with the type of contents and offers that best suit your interests.",
+   "rationale": "The policy does not explicitly state that the app collects location data, nor does it deny it. It mentions personalizing and improving the user experience, which could include location data, but this is not specific.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence suggests that the app collects location data for personalizing and improving the user experience, which is not explicitly stated but implied. The cited DPDP text requires the notice to inform the Data Principal about the personal data and its purpose, which is not provided. There"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Contact",
+   "gap_type": "undisclosed_collection",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy does not specify the exact types of data collected, thus it does not meet the requirement of itemizing the personal data.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "evidence_removed": false,
+   "verifier_reason": "The policy evidence is completely absent, and the cited DPDP text requires the notice to inform the Data Principal about the personal data and its purpose. Without any policy evidence, the finding cannot be justified."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.8667956223105855,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.8967248170732612,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.8817602196919234,
+ "usage": {
+  "prompt": 2887,
+  "output": 447
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 53,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     13,
+     14,
+     15,
+     9
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Contact is covered only by generic collection statements",
+    "paragraphs": [
+     2,
+     13,
+     14,
+     15,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Personalize and improve you experience, and enable us to supply you with the type of contents and offers that best suit your interests.",
+      "rationale": "The policy does not explicitly state that the app collects location data, nor does it deny it. It mentions personalizing and improving the user experience, which could include location data, but this is not specific.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "The app collects personal information as described in [P9], but it does not specifically mention collecting location data.",
+       "generic_quote": "Personalize and improve your experience, and enable us to supply you with the type of contents and offers that best suit your interests. [P14]",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that the app collects location data, nor does it deny it. It mentions personalizing and improving the user experience, which could include location data, but this is not specific."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.8667956223105855
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy does not specify the exact types of data collected, thus it does not meet the requirement of itemizing the personal data.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "The app collects personal information through various means, but it does not specify the exact types of data collected.",
+       "generic_quote": "The app collects personal information through various means, but it does not specify the exact types of data collected.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify the exact types of data collected, thus it does not meet the requirement of itemizing the personal data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.8967248170732612
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 3,
+  "seconds": 46.73
+ }
+}

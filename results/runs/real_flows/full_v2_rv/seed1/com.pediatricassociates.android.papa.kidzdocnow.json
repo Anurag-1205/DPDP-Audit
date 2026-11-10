@@ -1,0 +1,117 @@
+{
+ "case_id": "com.pediatricassociates.android.papa.kidzdocnow",
+ "system": "full_v2_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may share your information with third-party vendors and service-providers that help us with specialized services, including billing, payment processing, customer service, email deployment, business analytics, marketing (including but not limited to advertising, attribution, deep-linking, direct-mail, mobile marketing, optimization and retargeting), performance monitoring, hosting, and data processing. These third-party vendors and service providers may not use your information for purposes other than those related to the services they are providing to us.",
+   "rationale": "The policy mentions sharing information with third-party vendors and service-providers but does not specify Firebase Crashlytics or any other SDK by name.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9750815271755555,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9750815271755555,
+ "usage": {
+  "prompt": 2231,
+  "output": 297
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 61,
+  "untagged_paragraphs": 0,
+  "claims": 141,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "firebase_crashlytics",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with firebase_crashlytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     17,
+     29,
+     32,
+     33,
+     34,
+     36,
+     38,
+     39,
+     41,
+     46,
+     48,
+     49,
+     13,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may share your information with third-party vendors and service-providers that help us with specialized services, including billing, payment processing, customer service, email deployment, business analytics, marketing (including but not limited to advertising, attribution, deep-linking, direct-mail, mobile marketing, optimization and retargeting), performance monitoring, hosting, and data processing. These third-party vendors and service providers may not use your information for purposes other than those related to the services they are providing to us.",
+      "rationale": "The policy mentions sharing information with third-party vendors and service-providers but does not specify Firebase Crashlytics or any other SDK by name.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We may share your information with third-party vendors and service-providers that help us with specialized services, including billing, payment processing, customer service, email deployment, business analytics, marketing (including but not limited to advertising, attribution, deep-linking, direct-mail, mobile marketing, optimization and retargeting), performance monitoring, hosting, and data processing. These third-party vendors and service providers may not use your information for purposes other than those related to the services they are providing to us.",
+       "generic_quote": "We may share your information with third-party vendors and service-providers that help us with specialized services, including billing, payment processing, customer service, email deployment, business analytics, marketing (including but not limited to advertising, attribution, deep-linking, direct-mail, mobile marketing, optimization and retargeting), performance monitoring, hosting, and data processing. These third-party vendors and service providers may not use your information for purposes other than those related to the services they are providing to us.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing information with third-party vendors and service-providers but does not specify Firebase Crashlytics or any other SDK by name."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9750815271755555
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 29.6
+ }
+}
