@@ -1,0 +1,161 @@
+{
+ "case_id": "theme.natural.earth.wallpaper.night.starry.sky.shine.water.island.rock.galaxy.other.backgrounds.natural.landscape.space",
+ "system": "full_v2_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may collect information about your personal and non-personal information as follows: 1.",
+   "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with third parties, but it does mention collecting non-personal information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9546532456576019,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9263315478652947,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9404923967614482,
+ "usage": {
+  "prompt": 2904,
+  "output": 298
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 11,
+  "untagged_paragraphs": 0,
+  "claims": 9,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     3,
+     6,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "appsflyer",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "omission",
+    "reason": "no sharing statement mentions IP address and device IDs",
+    "paragraphs": [
+     3,
+     1
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "\u00e2\u0080\u00a2 Your phone status and device identifier when you need to call. It doesn\u00e2\u0080\u0099t concern user identity and other personal information;",
+      "rationale": "The policy mentions collecting device identifiers but explicitly states it doesn't concern user identity and other personal information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "\u00e2\u0080\u00a2 Your phone status and device identifier when you need to call. It doesn\u00e2\u0080\u0099t concern user identity and other personal information;",
+       "generic_quote": "\u00e2\u0080\u00a2 Your phone status and device identifier when you need to call. It doesn\u00e2\u0080\u0099t concern user identity and other personal information;",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting device identifiers but explicitly states it doesn't concern user identity and other personal information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9546532456576019
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may collect information about your personal and non-personal information as follows: 1.",
+      "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with third parties, but it does mention collecting non-personal information.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We collect non-personal information about your use of our Apps and aggregated information regarding the usages of the Apps.",
+       "generic_quote": "We may collect information about your personal and non-personal information as follows: [...]",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that IP addresses and device IDs are shared with third parties, but it does mention collecting non-personal information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9263315478652947
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 39.99
+ }
+}

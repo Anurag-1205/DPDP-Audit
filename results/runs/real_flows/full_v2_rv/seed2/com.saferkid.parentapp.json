@@ -1,0 +1,181 @@
+{
+ "case_id": "com.saferkid.parentapp",
+ "system": "full_v2_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "When you use our Services, we may collect and store information about your location by converting your IP address into a rough geo-location or by accessing your mobile device\u2019s GPS coordinates or coarse location if you enable location services on your device.",
+   "rationale": "The policy does not explicitly state a purpose for collecting IP addresses and device IDs, only that they may be collected for location purposes.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence describes the collection of IP addresses and device IDs for location purposes but does not specify a particular purpose. The cited DPDP text in Sec. 5(1) requires the purpose for processing personal data to be communicated to the Data Principal. Since the purpose is unspecified i"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "P22: These third-party services providers have access to your PII, Child Information and App Information only for the purpose of performing services on our behalf and are expressly obligated not to disclose or use your PII for any other purpose.",
+   "rationale": "The policy explicitly states that third-party service providers are not allowed to disclose or use the personal data for any other purpose than performing services on behalf of the company.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9539657986283258,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9560733687470546,
+ "usage": {
+  "prompt": 3286,
+  "output": 488
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 57,
+  "untagged_paragraphs": 0,
+  "claims": 149,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature'], the app uses it for Unspecified",
+    "paragraphs": [
+     15,
+     14,
+     13,
+     4
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "firebase_crashlytics",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with firebase_crashlytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     20,
+     22,
+     26,
+     29,
+     41,
+     15
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "P22: These third-party services providers have access to your PII, Child Information and App Information only for the purpose of performing services on our behalf and are expressly obligated not to disclose or use your PII for any other purpose.",
+      "rationale": "The policy explicitly states that third-party service providers are not allowed to disclose or use the personal data for any other purpose than performing services on behalf of the company.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "P22: We may engage third-party services providers to work with us to administer and provide the Services. These third-party services providers have access to your PII, Child Information and App Information only for the purpose of performing services on our behalf and are expressly obligated not to disclose or use your PII for any other purpose.",
+       "generic_quote": "P22: These third-party services providers have access to your PII, Child Information and App Information only for the purpose of performing services on our behalf and are expressly obligated not to disclose or use your PII for any other purpose.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that third-party service providers are not allowed to disclose or use the personal data for any other purpose than performing services on behalf of the company."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9539657986283258
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "When you use our Services, we may collect and store information about your location by converting your IP address into a rough geo-location or by accessing your mobile device\u2019s GPS coordinates or coarse location if you enable location services on your device.",
+      "rationale": "The policy does not explicitly state a purpose for collecting IP addresses and device IDs, only that they may be collected for location purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "When you use our Services, we may collect and store information about your location by converting your IP address into a rough geo-location or by accessing your mobile device\u2019s GPS coordinates or coarse location if you enable location services on your device.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy does not explicitly state a purpose for collecting IP addresses and device IDs, only that they may be collected for location purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9581809388657836
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 3,
+  "seconds": 41.0
+ }
+}

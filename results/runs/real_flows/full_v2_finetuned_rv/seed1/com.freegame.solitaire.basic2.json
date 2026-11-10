@@ -1,0 +1,114 @@
+{
+ "case_id": "com.freegame.solitaire.basic2",
+ "system": "full_v2_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "\u00e2\u0080\u00a2 demographic and location information as well as information from your device including but not limited to IP address, device UDID, IDFA, IDFV, Android ID, software, applications, hardware, browser information, internet usage information and in-game information;",
+   "rationale": "The policy does not explicitly state sharing with Adjust, but it does mention sharing demographic and location information as well as device information, which could include IP addresses.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9274343202369509,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9274343202369509,
+ "usage": {
+  "prompt": 1474,
+  "output": 178
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 226,
+  "untagged_paragraphs": 0,
+  "claims": 99,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "adjust",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with adjust is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     50,
+     121,
+     126,
+     129,
+     130,
+     132,
+     133,
+     134,
+     185,
+     20,
+     73
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "\u00e2\u0080\u00a2 demographic and location information as well as information from your device including but not limited to IP address, device UDID, IDFA, IDFV, Android ID, software, applications, hardware, browser information, internet usage information and in-game information;",
+      "rationale": "The policy does not explicitly state sharing with Adjust, but it does mention sharing demographic and location information as well as device information, which could include IP addresses.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "\u00e2\u0080\u00a2 demographic and location information as well as information from your device including but not limited to IP address, device UDID, IDFA, IDFV, Android ID, software, applications, hardware, browser information, internet usage information and in-game information;",
+       "generic_quote": "\u00e2\u0080\u00a2 to regulators and law enforcement agencies (including those responsible for enforcing anti-money laundering legislations);",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state sharing with Adjust, but it does mention sharing demographic and location information as well as device information, which could include IP addresses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9274343202369509
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 24.27
+ }
+}

@@ -1,0 +1,108 @@
+{
+ "case_id": "com.hbg.crazy.fun.kids.dentist",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5",
+    "Sec. 6",
+    "Rule 3"
+   ],
+   "evidence": "This may include disclosures to organizations that provide us with professional advice, such as solicitors, accountants and business advisors. It may be necessary for the information to be disclosed to other organizations in the course of our provision of services, or for the conduct of our business. These other organizations may include other parties involved in the provision of services to you, our business partners involved in the software, applications and/or services we provide to you, and other organizations providing services to us, such as payment processors or hosting services. We direct all such organizations to maintain the confidentiality of the information disclosed to them and to not use your information for any purpose other than to provide services on our behalf or to us. We may provide aggregated or anonymous information to third parties for the purposes of developing and delivering targeted advertising. We will not share your personal information with such third parties without your consent.",
+   "rationale": "The policy explicitly states that personal information will not be sold, distributed, or leased to third parties except in certain specified cases, thus denying the sharing of personal data with third parties like Unity Ads.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.952229197727121,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.952229197727121,
+ "usage": {
+  "prompt": 1423,
+  "output": 326
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 17,
+  "untagged_paragraphs": 0,
+  "claims": 9,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "unity_ads",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with unity_ads is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     16,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5",
+       "Sec. 6",
+       "Rule 3"
+      ],
+      "evidence": "This may include disclosures to organizations that provide us with professional advice, such as solicitors, accountants and business advisors. It may be necessary for the information to be disclosed to other organizations in the course of our provision of services, or for the conduct of our business. These other organizations may include other parties involved in the provision of services to you, our business partners involved in the software, applications and/or services we provide to you, and other organizations providing services to us, such as payment processors or hosting services. We direct all such organizations to maintain the confidentiality of the information disclosed to them and to not use your information for any purpose other than to provide services on our behalf or to us. We may provide aggregated or anonymous information to third parties for the purposes of developing and delivering targeted advertising. We will not share your personal information with such third parties without your consent.",
+      "rationale": "The policy explicitly states that personal information will not be sold, distributed, or leased to third parties except in certain specified cases, thus denying the sharing of personal data with third parties like Unity Ads.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We will not sell, distribute or lease your personal information to third parties, except in delivery of this game, unless we have your permission or are required by law to do so.",
+       "generic_quote": "This may include disclosures to organizations that provide us with professional advice, such as solicitors, accountants and business advisors. It may be necessary for the information to be disclosed to other organizations in the course of our provision of services, or for the conduct of our business. These other organizations may include other parties involved in the provision of services to you, our business partners involved in the software, applications and/or services we provide to you, and other organizations providing services to us, such as payment processors or hosting services. We direct all such organizations to maintain the confidentiality of the information disclosed to them and to not use your information for any purpose other than to provide services on our behalf or to us. We may provide aggregated or anonymous information to third parties for the purposes of developing and delivering targeted advertising. We will not share your personal information with such third parties without your consent.",
+       "sections": [
+        "Sec. 5",
+        "Sec. 6",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal information will not be sold, distributed, or leased to third parties except in certain specified cases, thus denying the sharing of personal data with third parties like Unity Ads."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.952229197727121
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 41.16
+ }
+}

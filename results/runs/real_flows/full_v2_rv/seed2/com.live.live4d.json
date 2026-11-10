@@ -1,0 +1,128 @@
+{
+ "case_id": "com.live.live4d",
+ "system": "full_v2_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We collect information from you when you When you open our app or enter information on our site.",
+   "rationale": "The policy mentions collecting information but does not specify IP addresses or device IDs.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions collecting 'information' without specifying what type of information, including IP addresses or device IDs. However, the evidence also indicates that the app collects data when users open the app or enter information, which implies the collection of IP addresses and devi"
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.978879412848262,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.978879412848262,
+ "usage": {
+  "prompt": 1732,
+  "output": 238
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 102,
+  "untagged_paragraphs": 0,
+  "claims": 233,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     3,
+     8,
+     9,
+     11,
+     12,
+     15,
+     17,
+     18,
+     19,
+     20,
+     22,
+     44,
+     48,
+     56,
+     60,
+     62,
+     68,
+     82,
+     92,
+     98,
+     94
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect information from you when you When you open our app or enter information on our site.",
+      "rationale": "The policy mentions collecting information but does not specify IP addresses or device IDs.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "We collect information from you when you open our app or enter information on our site.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting information but does not specify IP addresses or device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.978879412848262
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 26.28
+ }
+}

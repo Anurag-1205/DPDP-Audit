@@ -1,0 +1,113 @@
+{
+ "case_id": "com.saferkid.parentapp",
+ "system": "full_v2_finetuned_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Rule 3",
+    "Sec. 5"
+   ],
+   "evidence": "When you use our Services, we may collect and store information about your location by converting your IP address into a rough geo-location or by accessing your mobile device\u2019s GPS coordinates or coarse location if you enable location services on your device. We may use location information to improve our Services for you.",
+   "rationale": "The policy does not explicitly state that IP addresses or device IDs are shared with Firebase Crashlytics. However, it mentions that aggregated and non-identifying information may be shared with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "incorrect",
+   "confidence": 0.9354760980507761,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9354760980507761,
+ "usage": {
+  "prompt": 1509,
+  "output": 195
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 57,
+  "untagged_paragraphs": 0,
+  "claims": 57,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "firebase_crashlytics",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with firebase_crashlytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     22,
+     24,
+     28,
+     29,
+     20,
+     15
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Rule 3",
+       "Sec. 5"
+      ],
+      "evidence": "When you use our Services, we may collect and store information about your location by converting your IP address into a rough geo-location or by accessing your mobile device\u2019s GPS coordinates or coarse location if you enable location services on your device. We may use location information to improve our Services for you.",
+      "rationale": "The policy does not explicitly state that IP addresses or device IDs are shared with Firebase Crashlytics. However, it mentions that aggregated and non-identifying information may be shared with third parties.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "When you use our Services, we may collect and store information about your location by converting your IP address into a rough geo-location or by accessing your mobile device\u2019s GPS coordinates or coarse location if you enable location services on your device. We may use location information to improve our Services for you.",
+       "generic_quote": "We may share aggregated information and non-identifying information with third parties for industry research and analysis, demographic profiling and other similar purposes.",
+       "sections": [
+        "Rule 3",
+        "Sec. 5"
+       ],
+       "rationale": "The policy does not explicitly state that IP addresses or device IDs are shared with Firebase Crashlytics. However, it mentions that aggregated and non-identifying information may be shared with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9354760980507761
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 24.72
+ }
+}

@@ -1,0 +1,119 @@
+{
+ "case_id": "com.zrgiu.antivirus",
+ "system": "full_v2_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that copartners may only use the information provided by customers when working on behalf of NQ Mobile, indicating that the sharing is limited to specific third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9343734044401337,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9343734044401337,
+ "usage": {
+  "prompt": 2118,
+  "output": 221
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 90,
+  "untagged_paragraphs": 0,
+  "claims": 204,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "appsflyer",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with appsflyer is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     25,
+     27,
+     37,
+     41,
+     60,
+     61,
+     62,
+     63,
+     73,
+     65,
+     51
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that copartners may only use the information provided by customers when working on behalf of NQ Mobile, indicating that the sharing is limited to specific third parties.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We will request these copartners to guarantee the security of customers' personal information and keep this information confidential. Copartners may only use information provided by our customers when they are working on behalf of NQ Mobile.",
+       "generic_quote": "To allow copartners of NQ Mobile to use the information you provide. We will request these copartners to guarantee the security of customers' personal information and keep this information confidential. Copartners may only use information provided by our customers when they are working on behalf of NQ Mobile.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that copartners may only use the information provided by customers when working on behalf of NQ Mobile, indicating that the sharing is limited to specific third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9343734044401337
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 23.93
+ }
+}

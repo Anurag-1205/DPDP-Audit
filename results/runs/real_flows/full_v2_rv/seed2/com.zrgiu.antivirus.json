@@ -1,0 +1,118 @@
+{
+ "case_id": "com.zrgiu.antivirus",
+ "system": "full_v2_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you use the Caller ID and Call Block function, we will collect, process and retain personal information from You and any devices You may use in Your interaction with our Services. This information may include the following: geo-location, Your IP address, device ID or unique identifier, device manufacturer and type, device and hardware settings, ID for advertising, ads data, operating system, operator, IMSI, connection information, usage statistics, device log and event information, the number of incoming & outgoing calls and other information based on your interaction with our Services.",
+   "rationale": "The policy mentions sharing personal information with copartners but does not specify the sharing of IP addresses and device IDs with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9715928808251543,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9715928808251543,
+ "usage": {
+  "prompt": 2118,
+  "output": 277
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 90,
+  "untagged_paragraphs": 0,
+  "claims": 204,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "appsflyer",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with appsflyer is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     25,
+     27,
+     37,
+     41,
+     60,
+     61,
+     62,
+     63,
+     73,
+     65,
+     51
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you use the Caller ID and Call Block function, we will collect, process and retain personal information from You and any devices You may use in Your interaction with our Services. This information may include the following: geo-location, Your IP address, device ID or unique identifier, device manufacturer and type, device and hardware settings, ID for advertising, ads data, operating system, operator, IMSI, connection information, usage statistics, device log and event information, the number of incoming & outgoing calls and other information based on your interaction with our Services.",
+      "rationale": "The policy mentions sharing personal information with copartners but does not specify the sharing of IP addresses and device IDs with third parties.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "To allow copartners of NQ Mobile to use the information you provide. We will request these copartners to guarantee the security of customers' personal information and keep this information confidential. Copartners may only use information provided by our customers when they are working on behalf of NQ Mobile.",
+       "generic_quote": "When you use the Caller ID and Call Block function, we will collect, process and retain personal information from You and any devices You may use in Your interaction with our Services. This information may include the following: geo-location, Your IP address, device ID or unique identifier, device manufacturer and type, device and hardware settings, ID for advertising, ads data, operating system, operator, IMSI, connection information, usage statistics, device log and event information, the number of incoming & outgoing calls and other information based on your interaction with our Services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing personal information with copartners but does not specify the sharing of IP addresses and device IDs with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9715928808251543
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 18.09
+ }
+}

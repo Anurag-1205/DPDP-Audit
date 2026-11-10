@@ -10,7 +10,8 @@ KAGGLE_USER="${KAGGLE_USER:-$(python3 -c "import json,os;print(json.load(open(os
 DATASET="$KAGGLE_USER/dpdp-audit"
 STAGE="$ROOT/outputs/kaggle_dataset"
 rm -rf "$STAGE" && mkdir -p "$STAGE"
-tar czf "$STAGE/repo.tar.gz" -C "$ROOT" pyproject.toml requirements.txt src scripts data/dpdp data/tools data/splits.json data/benchmark/main
+EXTRA=""; [ -d "$ROOT/data/real_flows" ] && EXTRA="data/real_flows"   # real-flow sample (SPEC-08)
+tar czf "$STAGE/repo.tar.gz" -C "$ROOT" pyproject.toml requirements.txt src scripts data/dpdp data/tools data/splits.json data/benchmark/main $EXTRA
 cat > "$STAGE/dataset-metadata.json" <<JSON
 {"title": "dpdp-audit", "id": "$DATASET", "licenses": [{"name": "other"}]}
 JSON

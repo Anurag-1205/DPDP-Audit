@@ -21,7 +21,7 @@ PC = f"{REPO}/data/external/PrivacyPolicyAnalysis"
 MAMBA = f"{WORK}/bin/micromamba"
 ENV = f"{WORK}/py27"
 NLP_MODEL_ID = "1yMB3TJt8oZX3-GHm9oB_eKU7oeJXfLbA"
-SPLIT = "s4"               # "main", "ladder", "sanity" (data/tools/policheck_sanity, AC-03.4) or "s4"
+SPLIT = "real_flows"       # "main", "ladder", "real_flows", "sanity" (data/tools/policheck_sanity, AC-03.4) or "s4"
 #   s4: PolicyLint statement extraction on the 1,140 held-out OPP-115 segments (WP-3.6, AC-05.6)
 STEP_LIMIT_S = 3600 if SPLIT == "sanity" else 3 * 3600   # main.sh as a whole
 T_START = time.time()
@@ -57,14 +57,37 @@ def setup():
         os.symlink(target, link)
 
 
+ASCII_MAP = {"\u2018": "'", "\u2019": "'", "\u201c": '"', "\u201d": '"', "\u2013": "-", "\u2014": "-",
+             "\u2026": "...", "\u00a0": " ", "\u2022": "-"}
+
+
+def ascii_policies(folder):
+    """PoliCheck is Python 2 and writes CSVs with the ascii codec: a real policy with a curly quote
+    crashed it (10 Nov, real flows). Quotes and dashes become ASCII, accents are dropped (NFKD), and
+    the rest is removed; the wording is unchanged. Synthetic policies are ASCII already."""
+    import unicodedata
+    changed = 0
+    for f in sorted(folder.glob("*.txt")):
+        text = f.read_text(encoding="utf-8", errors="replace")
+        out = "".join(ASCII_MAP.get(c, c) for c in text)
+        out = unicodedata.normalize("NFKD", out).encode("ascii", "ignore").decode("ascii")
+        if out != text:
+            f.write_text(out)
+            changed += 1
+    print(f"ASCII policies: {changed} of {len(list(folder.glob('*.txt')))} changed", flush=True)
+
+
 def run_policheck():
     sys.path.insert(0, f"{REPO}/src")
     from pathlib import Path
     from dpdp_audit import tool_runs
     export = (f"{REPO}/data/tools/policheck_sanity" if SPLIT == "sanity"
               else f"{REPO}/data/benchmark/{SPLIT}/export/policheck")
-    tool_runs.prepare_ext(Path(export), None, "policheck")
-    env = dict(os.environ, PATH=f"{ENV}/bin:{os.environ['PATH']}")
+    ext = tool_runs.prepare_ext(Path(export), None, "policheck")
+    ascii_policies(ext / "plaintext_policies")
+    # real policies contain curly quotes; Python 2's print to an ASCII stdout crashed on the first
+    # one (10 Nov, real flows), so stdout is UTF-8. Logging only: the analysis is unchanged.
+    env = dict(os.environ, PATH=f"{ENV}/bin:{os.environ['PATH']}", PYTHONIOENCODING="utf-8")
     log = open(f"{WORK}/policheck.log", "w")
     # the image's ENTRYPOINT, /src/main.sh: ontologies, then extraction, consistency, cleanup, labels.
     # bash -x logs each step, and the time limit turns a hang into a saved log (a sanity run once

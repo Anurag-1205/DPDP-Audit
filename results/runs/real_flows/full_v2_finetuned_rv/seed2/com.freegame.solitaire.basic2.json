@@ -1,0 +1,115 @@
+{
+ "case_id": "com.freegame.solitaire.basic2",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 6",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions AWS but not specifically Adjust, and it uses generic language for third-party disclosures.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9317729272432468,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9317729272432468,
+ "usage": {
+  "prompt": 1474,
+  "output": 189
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 226,
+  "untagged_paragraphs": 0,
+  "claims": 99,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "adjust",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with adjust is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     50,
+     121,
+     126,
+     129,
+     130,
+     132,
+     133,
+     134,
+     185,
+     20,
+     73
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 6",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions AWS but not specifically Adjust, and it uses generic language for third-party disclosures.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "\u00e2\u0080\u00a2 Your personal data and your in-game behaviours will be recorded in US by AWS from Amazon.",
+       "generic_quote": "\u00e2\u0080\u00a2 We may disclose your personal data to third party service providers (including our professional advisors, data analysis processors and data storage service providers) who require access to such information for the purpose of providing specific services to us. These third parties will generally only be able to access your data in order to provide us with their services and will not be able to use it for their own purposes.",
+       "sections": [
+        "Sec. 6",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions AWS but not specifically Adjust, and it uses generic language for third-party disclosures."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9317729272432468
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 26.33
+ }
+}

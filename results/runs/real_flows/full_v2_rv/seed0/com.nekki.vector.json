@@ -1,0 +1,116 @@
+{
+ "case_id": "com.nekki.vector",
+ "system": "full_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We will share some of the information we collect from You with vendors and other service providers who work with us to support the internal operations of our website and/or mobile application in accordance with this Privacy Policy.",
+   "rationale": "The policy mentions sharing information with vendors and service providers, but does not specify sharing IP addresses or device IDs with a particular company.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9391181215348262,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9391181215348262,
+ "usage": {
+  "prompt": 1689,
+  "output": 154
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 133,
+  "untagged_paragraphs": 0,
+  "claims": 255,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "applovin",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with applovin is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     27,
+     54,
+     59,
+     72,
+     105,
+     108,
+     115,
+     117,
+     118,
+     126,
+     130,
+     42,
+     41
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We will share some of the information we collect from You with vendors and other service providers who work with us to support the internal operations of our website and/or mobile application in accordance with this Privacy Policy.",
+      "rationale": "The policy mentions sharing information with vendors and service providers, but does not specify sharing IP addresses or device IDs with a particular company.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We will only use the information we receive in accordance with this Privacy Policy.",
+       "generic_quote": "We will share some of the information we collect from You with vendors and other service providers who work with us to support the internal operations of our website and/or mobile application in accordance with this Privacy Policy.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing information with vendors and service providers, but does not specify sharing IP addresses or device IDs with a particular company."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9391181215348262
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 17.88
+ }
+}

@@ -7,7 +7,7 @@
 | New to the project | [getting-started.md](getting-started.md) → [architecture.md](architecture.md) → [stage-1-report.md](stage-1-report.md) |
 | Contributing code | [developer-guide.md](developer-guide.md) → the page for your area below → your spec in [`specs.md`](../specs.md) |
 | Re-running results | [reproduction.md](reproduction.md) → [troubleshooting.md](troubleshooting.md) |
-| Reviewing the project | [proposal.md](proposal.md) → [`plan.md`](../plan.md) → [`specs.md`](../specs.md) → [stage-1-report.md](stage-1-report.md) → [mid-submission-report.md](mid-submission-report.md) |
+| Reviewing the project | [proposal.md](proposal.md) → [`plan.md`](../plan.md) → [`specs.md`](../specs.md) → [stage-1-report.md](stage-1-report.md) → [mid-submission-report.md](mid-submission-report.md) → [stage-4-report.md](stage-4-report.md) |
 | Doing a manual check | [manual-checks.md](manual-checks.md) |
 
 ## Contents
@@ -27,6 +27,8 @@
 | | [reproduction.md](reproduction.md) | Commands to regenerate every result |
 | | [troubleshooting.md](troubleshooting.md) | Known problems and fixes |
 | Reports | [stage-1-report.md](stage-1-report.md) | Stage 0–1 status and baseline results |
+| | [stage-4-report.md](stage-4-report.md) | Stage 4 (MS-4): selective accuracy and H5, real flows, open-source case study |
+| | [stage-4-plan.md](stage-4-plan.md) | Stage 4 implementation plan and definition of done |
 | | [baseline-report.md](baseline-report.md) | PoliCheck, PoliGraph, PrivBERT and B3 on the full benchmark |
 | Plan and specs | [`plan.md`](../plan.md) | Milestones, schedule, work breakdown, RACI, compute, risks |
 | | [`specs.md`](../specs.md) | Specifications SPEC-01 … SPEC-09 with acceptance criteria |

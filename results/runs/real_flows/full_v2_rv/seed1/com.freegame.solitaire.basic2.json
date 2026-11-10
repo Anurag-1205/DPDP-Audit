@@ -1,0 +1,130 @@
+{
+ "case_id": "com.freegame.solitaire.basic2",
+ "system": "full_v2_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "These technologies may be embedded within our software and the Service and may collect, amongst other things, the information below.",
+   "rationale": "The policy mentions that third-party technologies may collect information but does not specify that the IP address and device IDs are shared with specific recipients.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9429503972388813,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9429503972388813,
+ "usage": {
+  "prompt": 1509,
+  "output": 183
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 226,
+  "untagged_paragraphs": 0,
+  "claims": 472,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "adjust",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with adjust is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     17,
+     27,
+     28,
+     29,
+     34,
+     38,
+     49,
+     50,
+     51,
+     58,
+     64,
+     66,
+     68,
+     84,
+     102,
+     106,
+     118,
+     119,
+     121,
+     122,
+     123,
+     128,
+     129,
+     182,
+     185,
+     20,
+     73
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "These technologies may be embedded within our software and the Service and may collect, amongst other things, the information below.",
+      "rationale": "The policy mentions that third-party technologies may collect information but does not specify that the IP address and device IDs are shared with specific recipients.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We may also employ third party ad-serving (including but not limited to Google, Facebook, Mopub and its affiliates) and/or analytics technologies (including but not limited to Tableau, Kibana and its affiliates) that may use various methods to collect information through our software and the Service.",
+       "generic_quote": "These technologies may be embedded within our software and the Service and may collect, amongst other things, the information below.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that third-party technologies may collect information but does not specify that the IP address and device IDs are shared with specific recipients."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9429503972388813
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 22.3
+ }
+}

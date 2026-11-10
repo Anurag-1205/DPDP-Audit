@@ -1,0 +1,110 @@
+{
+ "case_id": "com.gamma.blocks",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We will share your personal information with the following third parties or categories of third parties: (a) Webair, who store all our data and may access personal data stored within that storage solution when providing support and maintenance purposes;",
+   "rationale": "The policy mentions sharing with third parties but does not specify Unity Ads by name.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9707377543557301,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9707377543557301,
+ "usage": {
+  "prompt": 1729,
+  "output": 178
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 56,
+  "untagged_paragraphs": 0,
+  "claims": 71,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "unity_ads",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with unity_ads is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     19,
+     21,
+     24,
+     25,
+     26,
+     27,
+     23
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We will share your personal information with the following third parties or categories of third parties: (a) Webair, who store all our data and may access personal data stored within that storage solution when providing support and maintenance purposes;",
+      "rationale": "The policy mentions sharing with third parties but does not specify Unity Ads by name.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "In some cases these third parties will also use the data that they collect for their own purposes, for example they may aggregate your data with other data they hold and use this to inform advertising related services provided to other clients.",
+       "denial_quote": "",
+       "generic_quote": "We will share your personal information with the following third parties or categories of third parties: (a) Webair, who store all our data and may access personal data stored within that storage solution when providing support and maintenance purposes;",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with third parties but does not specify Unity Ads by name."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9707377543557301
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 22.21
+ }
+}

@@ -1,0 +1,240 @@
+{
+ "case_id": "com.medisafe.android.client",
+ "system": "full_v2_finetuned_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Technical information \u2013 we collect certain technical information that is automatically recorded when you use our Service, such as your IP address, device approximate location.",
+   "rationale": "The policy mentions collecting IP addresses but does not specify sharing them with third parties or AppsFlyer.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9757703933416524,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9434589819534573,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "incorrect",
+   "confidence": 0.9732469146438996,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.964158763313003,
+ "usage": {
+  "prompt": 4876,
+  "output": 617
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 106,
+  "untagged_paragraphs": 0,
+  "claims": 107,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "appsflyer",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with appsflyer is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     53,
+     54,
+     57,
+     58,
+     59,
+     62,
+     69,
+     25,
+     52
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "branch",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with branch is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     53,
+     54,
+     57,
+     58,
+     59,
+     62,
+     69,
+     25,
+     52
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "facebook_audience",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with facebook_audience is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     53,
+     54,
+     57,
+     58,
+     59,
+     62,
+     69,
+     25,
+     52
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Technical information \u2013 we collect certain technical information that is automatically recorded when you use our Service, such as your IP address, device approximate location.",
+      "rationale": "The policy mentions collecting IP addresses but does not specify sharing them with third parties or AppsFlyer.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We collect certain technical information that is automatically recorded when you use our Service, such as your IP address, device identifier.",
+       "generic_quote": "We might share your Personal Information, as is reasonably necessary, with our contractors or consultants, including vendors and suppliers that provide us with development services, technology (such as Google Analytics), services, or content for the operation, development and maintenance of our Service or data and analysis on Service use, who are bound by an obligation of confidentiality.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting IP addresses but does not specify sharing them with third parties or AppsFlyer."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9757703933416524
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Research partners \u2013 We may share your Personal Information with third parties, such as research institutes, healthcare systems and healthcare providers, that they may associate with other information that they have about you, for research purposes and for improvement of our services.",
+      "rationale": "The policy mentions sharing with third parties and contractors but does not specify IP addresses and device IDs being shared with a named SDK.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We might share your Personal Information, as is reasonably necessary, with our contractors or consultants, including vendors and suppliers that provide us with development services, technology (such as Google Analytics), services, or content for the operation, development and maintenance of our Service or data and analysis on Service use, who are bound by an obligation of confidentiality, provided that we will only share Personal Information to the extent necessary with such contractors or consultants.",
+       "generic_quote": "Research partners \u2013 We may share your Personal Information with third parties, such as research institutes, healthcare systems and healthcare providers, that they may associate with other information that they have about you, for research purposes and for improvement of our services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with third parties and contractors but does not specify IP addresses and device IDs being shared with a named SDK."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9434589819534573
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect certain technical information that is automatically recorded when you use our Service, such as your IP address, device approximate location.",
+      "rationale": "The policy mentions collecting IP addresses and device locations but does not specify sharing them with Meta Audience Network.",
+      "raw": {
+       "candidate_id": "c3",
+       "data_type": "IP address and device IDs",
+       "recipient": "Meta Audience Network (Meta, advertising)",
+       "purpose": "Unspecified",
+       "disclosing_quote": "",
+       "denial_quote": "We collect certain technical information that is automatically recorded when you use our Service, such as your IP address, device approximate location.",
+       "generic_quote": "We may share your Personal Information with third parties, such as research institutes, healthcare systems and healthcare providers, that they may associate with other information that they have about you, for research purposes and for improvement of our services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting IP addresses and device locations but does not specify sharing them with Meta Audience Network."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9732469146438996
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 3,
+  "seconds": 79.74
+ }
+}

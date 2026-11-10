@@ -1,0 +1,119 @@
+{
+ "case_id": "com.nekki.vector",
+ "system": "full_v2_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 6(5)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions receiving information from third party websites but does not specify sharing with AppLovin MAX.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.9743140100010113,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9743140100010113,
+ "usage": {
+  "prompt": 1689,
+  "output": 213
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 133,
+  "untagged_paragraphs": 0,
+  "claims": 255,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "applovin",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with applovin is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     27,
+     54,
+     59,
+     72,
+     105,
+     108,
+     115,
+     117,
+     118,
+     126,
+     130,
+     42,
+     41
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(6)",
+       "Sec. 6(5)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions receiving information from third party websites but does not specify sharing with AppLovin MAX.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We will only use the information we receive in accordance with this Privacy Policy.",
+       "generic_quote": "We may receive information that You submit to any third party website You access from links contained within the Games, including without limitation any third party payment processor or e-commerce portal provided by an e-commerce operator that may from time to time be made available to You via the Games. We and the owner/operator of that third party website will be the data controller in respect to any such information. You should check the privacy policy of such third party website to find out how they will use Your data.",
+       "sections": [
+        "Sec. 5(6)",
+        "Sec. 6(5)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions receiving information from third party websites but does not specify sharing with AppLovin MAX."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9743140100010113
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 22.95
+ }
+}

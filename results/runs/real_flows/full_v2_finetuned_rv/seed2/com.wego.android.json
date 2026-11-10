@@ -1,0 +1,197 @@
+{
+ "case_id": "com.wego.android",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f3",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We share information relating to our users with selected third parties who provide us with a variety of different services that support the delivery of our services (let\u2019s call them \u201cThird Party Processors\u201d).",
+   "rationale": "The policy mentions sharing with Google and Double Click for collecting non-personal information, but does not specify sharing of IP addresses and device IDs with these companies.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f3",
+    "f4"
+   ]
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.946483855275207,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9538327454991444,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9501583003871756,
+ "usage": {
+  "prompt": 4559,
+  "output": 347
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 192,
+  "untagged_paragraphs": 0,
+  "claims": 120,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     48,
+     68,
+     69,
+     70,
+     72,
+     76,
+     77,
+     79,
+     80,
+     81,
+     82,
+     84,
+     95,
+     122,
+     9,
+     57
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "appsflyer",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with appsflyer is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     48,
+     68,
+     69,
+     70,
+     72,
+     76,
+     77,
+     79,
+     80,
+     81,
+     82,
+     84,
+     95,
+     122,
+     9,
+     57
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We share information relating to our users with selected third parties who provide us with a variety of different services that support the delivery of our services (let\u2019s call them \u201cThird Party Processors\u201d).",
+      "rationale": "The policy mentions sharing with Google and Double Click for collecting non-personal information, but does not specify sharing of IP addresses and device IDs with these companies.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "We utilise third party vendors, including Google and Double Click, to collect non-personal information in the form of user and usage metrics when you use a Wego Site.",
+       "denial_quote": "",
+       "generic_quote": "We share information relating to our users with selected third parties who provide us with a variety of different services that support the delivery of our services (let\u2019s call them \u201cThird Party Processors\u201d).",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with Google and Double Click for collecting non-personal information, but does not specify sharing of IP addresses and device IDs with these companies."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.946483855275207
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We share information relating to our users with selected third parties who provide us with a variety of different services that support the delivery of our services (let\u2019s call them \u201cThird Party Processors\u201d).",
+      "rationale": "The policy mentions sharing with third parties but does not specify AppsFlyer by name and does not mention sharing IP addresses and device IDs.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "The information that is collected in this way will never include your name, contact details or other information that would enable you to be identified in the offline world.",
+       "generic_quote": "We share information relating to our users with selected third parties who provide us with a variety of different services that support the delivery of our services (let\u2019s call them \u201cThird Party Processors\u201d).",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with third parties but does not specify AppsFlyer by name and does not mention sharing IP addresses and device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9538327454991444
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 28.53
+ }
+}

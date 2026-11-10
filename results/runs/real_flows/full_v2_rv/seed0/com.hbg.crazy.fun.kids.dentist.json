@@ -1,0 +1,106 @@
+{
+ "case_id": "com.hbg.crazy.fun.kids.dentist",
+ "system": "full_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may provide aggregated or anonymous information to third parties for the purposes of developing and delivering targeted advertising. We will not share your personal information with such third parties without your consent.",
+   "rationale": "The policy mentions sharing personal information with third parties but does not specifically mention IP addresses and device IDs.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9561015965705447,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9561015965705447,
+ "usage": {
+  "prompt": 1436,
+  "output": 164
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 17,
+  "untagged_paragraphs": 0,
+  "claims": 42,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "unity_ads",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with unity_ads is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     6,
+     7,
+     16
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may provide aggregated or anonymous information to third parties for the purposes of developing and delivering targeted advertising. We will not share your personal information with such third parties without your consent.",
+      "rationale": "The policy mentions sharing personal information with third parties but does not specifically mention IP addresses and device IDs.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We direct all such organizations to maintain the confidentiality of the information disclosed to them and to not use your information for any purpose other than to provide services on our behalf or to us.",
+       "generic_quote": "We may provide aggregated or anonymous information to third parties for the purposes of developing and delivering targeted advertising. We will not share your personal information with such third parties without your consent.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing personal information with third parties but does not specifically mention IP addresses and device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9561015965705447
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 20.2
+ }
+}

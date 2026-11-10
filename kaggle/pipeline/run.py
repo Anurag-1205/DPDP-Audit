@@ -34,17 +34,15 @@ T_START = time.time()
 # Robust verifier (28 Oct): the frozen reader could not read 15-40% of the verifier's replies and
 # kept those findings unchecked. "reverify" re-runs only the verifier on saved runs (-> <system>_rv).
 DEV_SYSTEMS = ["full", "v2_gate", "v2_read", "v2_purpose", "v2_batch"]
-# Baseline B5 (30 Oct, docs/evaluation.md): one call, evidence first. The dev splits first; the
-# configuration was changed once on dev (4,096 output tokens and the robust reader, after 12 of 102
-# replies were unreadable) and is frozen now. Main and the ladder run only if the dev replies pass
-# the gate (at most 3% unreadable, no failed call; reply quality only, no scores).
-# Earlier: v2 ablations on seeds 1-2 and on the ladder; ladder seeds 1-2 (29 Oct).
+# Real flows (SPEC-08, AC-08.3, 10 Nov): every configuration as frozen, no change on these cases.
+# The prompted tagger tags the new policies first; the pipeline runs with the robust verifier
+# reader (*_rv, as reported on main). full_v2_finetuned_rv needs the QLoRA adapter (qlora job).
+# Earlier: B5 on dev, main and the ladder (30 Oct); v2 ablations; ladder seeds 1-2 (29 Oct).
 JOBS = [
-    {"phase": "runs", "split": "dev", "configs": ["B5"], "seeds": [0]},
-    {"phase": "runs", "split": "dev2", "configs": ["B5"], "seeds": [0]},
-    {"phase": "gate", "system": "B5", "splits": ["dev", "dev2"], "max_unreadable": 0.03},
-    {"phase": "runs", "split": "main", "configs": ["B5"], "seeds": [0, 1, 2]},
-    {"phase": "runs", "split": "ladder", "configs": ["B5"], "seeds": [0, 1, 2]},
+    {"phase": "tag", "splits": ["real_flows"]},
+    {"phase": "baselines", "split": "real_flows", "systems": ["B1", "B2"], "seeds": [0, 1, 2]},
+    {"phase": "runs", "split": "real_flows", "configs": ["full_v2_rv"], "seeds": [0, 1, 2]},
+    {"phase": "score", "split": "real_flows", "systems": ["B1", "B2", "full_v2_rv"]},
 ]
 
 
@@ -61,6 +59,25 @@ def find_repo():
         return
     roots = [os.path.dirname(p) for p in glob.glob("/kaggle/input/**/pyproject.toml", recursive=True)]
     shutil.copytree(roots[0], REPO)
+
+
+LORA_NAME = "dpdp-tagger-qlora"
+
+
+def find_adapter() -> str:
+    """The QLoRA adapter from an attached input (the qlora kernel's output or a dataset): its folder,
+    or qlora_adapter.tar.gz unpacked. The same adapter as on main, never a retrained one."""
+    found = glob.glob("/kaggle/input/**/adapter_config.json", recursive=True)
+    if not found:
+        tars = glob.glob("/kaggle/input/**/qlora_adapter.tar.gz", recursive=True)
+        if not tars:
+            raise FileNotFoundError("no QLoRA adapter attached (kernel_sources or dataset_sources)")
+        with tarfile.open(tars[0]) as t:
+            t.extractall(f"{WORK}/adapter")
+        found = glob.glob(f"{WORK}/adapter/**/adapter_config.json", recursive=True)
+    path = os.path.dirname(found[0])
+    print("QLoRA adapter:", path, sorted(os.listdir(path)), flush=True)
+    return path
 
 
 def ready(port):
@@ -170,14 +187,18 @@ def run():
                 print("deadline reached, skipping", flush=True)
                 continue
             if phase == "tag":
-                servers.start(TAGGER_MODEL)
+                # tagger "finetuned": the base model served with the QLoRA adapter (find_adapter)
+                tagger = job.get("tagger", "prompted")
+                lora = {LORA_NAME: find_adapter()} if tagger == "finetuned" else None
+                servers.start(TAGGER_MODEL, lora=lora)
+                served = LORA_NAME if lora else TAGGER_MODEL
                 held = "--heldout" if job.get("heldout") else ""
                 splits = " ".join(job["splits"])
-                sharded(lambda g: f"{py} scripts/tag_policies.py --tagger prompted --splits {splits} {held} "
-                                  f"--shard {g}/2 --workers 32 --out outputs/claims_shard{g}.jsonl "
-                                  f"| tee outputs/logs/tag_shard{g}.log", TAGGER_MODEL)
-                sh(f"cd {REPO} && {py} scripts/tag_policies.py --tagger prompted --merge "
-                   f"outputs/claims_shard0.jsonl outputs/claims_shard1.jsonl")
+                sharded(lambda g: f"{py} scripts/tag_policies.py --tagger {tagger} --splits {splits} {held} "
+                                  f"--shard {g}/2 --workers 32 --out outputs/{tagger}_shard{g}.jsonl "
+                                  f"| tee outputs/logs/tag_{tagger}_shard{g}.log", served)
+                sh(f"cd {REPO} && {py} scripts/tag_policies.py --tagger {tagger} --merge "
+                   f"outputs/{tagger}_shard0.jsonl outputs/{tagger}_shard1.jsonl")
             elif phase == "pilot":
                 servers.start(MODEL)
                 sh(f"cd {REPO} && {py} scripts/run_pipeline.py --configs full --seeds 0 --split {job['split']} "

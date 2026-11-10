@@ -1,0 +1,342 @@
+{
+ "case_id": "com.wego.android",
+ "system": "full_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 2",
+    "Rule 10"
+   ],
+   "evidence": "We generate or collect some information from your computer or device automatically as you use our services. This includes stuff like your IP address, information about the device and browser you are using to access our services, the website URL you visited us from and the third party sites you visit when you click on links to exit the Wego site. It also includes details of the bookings you have made via Wego. We may also know your location from your mobile or your IP address. This helps us to improve your experience and make sure you receive the content that\u2019s most relevant to you.",
+   "rationale": "The policy mentions collecting IP addresses and device IDs but does not specify a particular purpose for them. They are only described as part of the general data collection process.",
+   "reviewer": "purpose",
+   "uncertain": false,
+   "supported": true,
+   "verifier_reason": "The policy evidence describes collecting IP addresses and device IDs but does not specify a particular purpose for them. The cited DPDP text, particularly Sec. 5(1) and Sec. 6(1), emphasizes the need to inform the Data Principal about the personal data and the purpose for which it is proposed to be "
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We share information relating to our users with selected third parties who provide us with a variety of different services that support the delivery of our services (let\u2019s call them \u201cThird Party Processors\u201d). These Third Party Processors range from providers of technical infrastructure to customer service and authentication tools. We require any Third Party Processor which handles information on our behalf to do so pursuant to contractual terms which require that the information is kept secure, is processed in accordance with applicable data protection laws, and used only as we have instructed and not for that Third Party Processor\u2019s own purposes (unless you have explicitly consented to them doing so).",
+   "rationale": "The policy mentions sharing with third parties but does not specifically mention Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f3",
+    "f4"
+   ]
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.984550795601294,
+   "source": "notice"
+  },
+  "f4": {
+   "label": "vague",
+   "confidence": 0.9678488271261847,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9590730380093019,
+ "usage": {
+  "prompt": 7400,
+  "output": 1153
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 192,
+  "untagged_paragraphs": 0,
+  "claims": 395,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Location is collected for ['service operation and security'], the app uses it for Unspecified",
+    "paragraphs": [
+     57,
+     46,
+     27,
+     18
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "IP address and device IDs is collected for ['basic service/feature', 'service operation and security'], the app uses it for Unspecified",
+    "paragraphs": [
+     46,
+     57,
+     9,
+     27
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "admob",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     2,
+     9,
+     28,
+     47,
+     48,
+     62,
+     67,
+     68,
+     69,
+     70,
+     72,
+     73,
+     74,
+     75,
+     76,
+     77,
+     79,
+     82,
+     89,
+     92,
+     93,
+     94,
+     95,
+     124,
+     57
+    ]
+   },
+   {
+    "candidate_id": "c4",
+    "flow_id": "f4",
+    "data_type": "IP address and device IDs",
+    "recipient": "appsflyer",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with appsflyer is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     2,
+     9,
+     28,
+     47,
+     48,
+     62,
+     67,
+     68,
+     69,
+     70,
+     72,
+     73,
+     74,
+     75,
+     76,
+     77,
+     79,
+     82,
+     89,
+     92,
+     93,
+     94,
+     95,
+     124,
+     57
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We share information relating to our users with selected third parties who provide us with a variety of different services that support the delivery of our services (let\u2019s call them \u201cThird Party Processors\u201d). These Third Party Processors range from providers of technical infrastructure to customer service and authentication tools. We require any Third Party Processor which handles information on our behalf to do so pursuant to contractual terms which require that the information is kept secure, is processed in accordance with applicable data protection laws, and used only as we have instructed and not for that Third Party Processor\u2019s own purposes (unless you have explicitly consented to them doing so).",
+      "rationale": "The policy mentions sharing with third parties but does not specifically mention Google AdMob.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "Sometimes we\u2019re given information about you from third parties, depending on how you choose to interact with us. For example, when you come to our website via a promotional partner, or when you log into your Wego account using our social network login feature. And, if you\u2019ve redirected to a Travel Supplier\u2019s website or app to complete your booking, we might collect information from them about whether you went ahead with your trip and what you booked.",
+       "generic_quote": "We share information relating to our users with selected third parties who provide us with a variety of different services that support the delivery of our services (let\u2019s call them \u201cThird Party Processors\u201d). These Third Party Processors range from providers of technical infrastructure to customer service and authentication tools. We require any Third Party Processor which handles information on our behalf to do so pursuant to contractual terms which require that the information is kept secure, is processed in accordance with applicable data protection laws, and used only as we have instructed and not for that Third Party Processor\u2019s own purposes (unless you have explicitly consented to them doing so).",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with third parties but does not specifically mention Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.984550795601294
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c4",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We share information relating to our users with selected third parties who provide us with a variety of different services that support the delivery of our services (let\u2019s call them \u201cThird Party Processors\u201d). These Third Party Processors range from providers of technical infrastructure to customer service and authentication tools. We require any Third Party Processor which handles information on our behalf to do so pursuant to contractual terms which require that the information is kept secure, is processed in accordance with applicable data protection laws, and used only as we have instructed and not for that Third Party Processor\u2019s own purposes (unless you have explicitly consented to them doing so).",
+      "rationale": "The policy mentions sharing with third parties but does not specify AppsFlyer by name and does not deny sharing IP addresses and device IDs.",
+      "raw": {
+       "candidate_id": "c4",
+       "disclosing_quote": "",
+       "denial_quote": "Sometimes we\u2019re given information about you from third parties, depending on how you choose to interact with us. For example, when you come to our website via a promotional partner, or when you log into your Wego account using our social network login feature. And, if you\u2019ve redirected to a Travel Supplier\u2019s website or app to complete your booking, we might collect information from them about whether you went ahead with your trip and what you booked.",
+       "generic_quote": "We share information relating to our users with selected third parties who provide us with a variety of different services that support the delivery of our services (let\u2019s call them \u201cThird Party Processors\u201d). These Third Party Processors range from providers of technical infrastructure to customer service and authentication tools. We require any Third Party Processor which handles information on our behalf to do so pursuant to contractual terms which require that the information is kept secure, is processed in accordance with applicable data protection laws, and used only as we have instructed and not for that Third Party Processor\u2019s own purposes (unless you have explicitly consented to them doing so).",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with third parties but does not specify AppsFlyer by name and does not deny sharing IP addresses and device IDs."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9678488271261847
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "we may use your ip address or provided location to predict departing airports, arriving airports, or the city for a hotel search;",
+      "rationale": "The policy provides a purpose for using location data, but it is not the same as the application's purpose.",
+      "raw": {
+       "candidate_id": "c1",
+       "data_type": "Location",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "retention": "Unspecified",
+       "purpose_quote": "we may use your ip address or provided location to predict departing airports, arriving airports, or the city for a hotel search;",
+       "unspecified_purpose_quote": "",
+       "only_unspecified_purposes": false,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy provides a purpose for using location data, but it is not the same as the application's purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9323242946106413
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 2",
+       "Rule 10"
+      ],
+      "evidence": "We generate or collect some information from your computer or device automatically as you use our services. This includes stuff like your IP address, information about the device and browser you are using to access our services, the website URL you visited us from and the third party sites you visit when you click on links to exit the Wego site. It also includes details of the bookings you have made via Wego. We may also know your location from your mobile or your IP address. This helps us to improve your experience and make sure you receive the content that\u2019s most relevant to you.",
+      "rationale": "The policy mentions collecting IP addresses and device IDs but does not specify a particular purpose for them. They are only described as part of the general data collection process.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "IP address and device IDs",
+       "recipient": "first_party",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "We generate or collect some information from your computer or device automatically as you use our services. This includes stuff like your IP address, information about the device and browser you are using to access our services, the website URL you visited us from and the third party sites you visit when you click on links to exit the Wego site. It also includes details of the bookings you have made via Wego. We may also know your location from your mobile or your IP address. This helps us to improve your experience and make sure you receive the content that\u2019s most relevant to you.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 2",
+        "Rule 10"
+       ],
+       "rationale": "The policy mentions collecting IP addresses and device IDs but does not specify a particular purpose for them. They are only described as part of the general data collection process."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9515682346990876
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 5,
+  "seconds": 133.09
+ }
+}

@@ -1,0 +1,173 @@
+{
+ "case_id": "com.cardgame.solitaire.full",
+ "system": "full_v2_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "\u00b7 Your IP address, however, which only determine the coarse location and cannot identify your physical location.",
+   "rationale": "The policy mentions collecting and using personal information but does not specify the sharing of IP addresses and device IDs with specific third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f1",
+    "f2"
+   ]
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.982128460175718,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "incorrect",
+   "confidence": 0.9727651357151889,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9774467979454534,
+ "usage": {
+  "prompt": 3098,
+  "output": 775
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 68,
+  "untagged_paragraphs": 0,
+  "claims": 156,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "applovin",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with applovin is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     11,
+     32,
+     44,
+     45,
+     48,
+     64,
+     27,
+     29
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "appsflyer",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with appsflyer is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     11,
+     32,
+     44,
+     45,
+     48,
+     64,
+     27,
+     29
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "\u00b7 Your IP address, however, which only determine the coarse location and cannot identify your physical location.",
+      "rationale": "The policy mentions collecting and using personal information but does not specify the sharing of IP addresses and device IDs with specific third parties.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "\u00b7 Your IP address, however, which only determine the coarse location and cannot identify your physical location.",
+       "generic_quote": "In general, we collect, store and use your information to provide you with a safe, smooth, efficient, and customized gaming and entertainment experience. The personal information you provide QueensSolitaire will allow us to provide and deliver products and services you request, such as create in-game accounts; alert you of new products or services, features, or enhancements; improve our Services and keep them secure, such as handle/r oute your customer service or technical support questions or issues; and/or notify you of upgrade opportunities, contests, promotions, or special events and offers. QueensSolitaire may enhance or merge the personal information collected with data from third parties in order to update your contact information, perform market analysis, or improve our products or services. We may use your personal information for internal marketing, profiling, or demographic purposes, so we can adapt our products and services to better suit your needs. We do this to better understand and serve our customers.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting and using personal information but does not specify the sharing of IP addresses and device IDs with specific third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.982128460175718
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Your information, and the contents of all of your online communications (including without limitation chat text, voice communications, IP addresses and your personal information) may be accessed and monitored as necessary to provide the Service and may be disclosed: (i) when we have a good faith belief that we are required to disclose the information in response to legal process (for example, a court order, search warrant or subpoena); (ii) to satisfy any applicable laws or regulations (iii) where we believe that the Service is being used in the commission of a crime, including to report such criminal activity or to exchange information with other companies and organizations for the purposes of fraud protection and credit risk reduction; (iv) when we have a good faith belief that there is an emergency that poses a threat to the health and/or safety of you, another person or the public generally; and (v) in order to protect the rights or property of QueensSolitaire.",
+      "rationale": "The policy mentions monitoring and disclosure but does not specify sharing with third parties, especially not by name.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "Your information, and the contents of all of your online communications (including without limitation chat text, voice communications, IP addresses and your personal information) may be accessed and monitored as necessary to provide the Service and may be disclosed: (i) when we have a good faith belief that we are required to disclose the information in response to legal process (for example, a court order, search warrant or subpoena); (ii) to satisfy any applicable laws or regulations (iii) where we believe that the Service is being used in the commission of a crime, including to report such criminal activity or to exchange information with other companies and organizations for the purposes of fraud protection and credit risk reduction; (iv) when we have a good faith belief that there is an emergency that poses a threat to the health and/or safety of you, another person or the public generally; and (v) in order to protect the rights or property of QueensSolitaire.",
+       "generic_quote": "In general, we collect, store and use your information to provide you with a safe, smooth, efficient, and customized gaming and entertainment experience. The personal information you provide QueensSolitaire will allow us to provide and deliver products and services you request, such as create in-game accounts; alert you of new products or services, features, or enhancements; improve our Services and keep them secure, such as handle/r oute your customer service or technical support questions or issues; and/or notify you of upgrade opportunities, contests, promotions, or special events and offers. QueensSolitaire may enhance or merge the personal information collected with data from third parties in order to update your contact information, perform market analysis, or improve our products or services. We may use your personal information for internal marketing, profiling, or demographic purposes, so we can adapt our products and services to better suit your needs. We do this to better understand and serve our customers.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions monitoring and disclosure but does not specify sharing with third parties, especially not by name."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9727651357151889
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 106.74
+ }
+}

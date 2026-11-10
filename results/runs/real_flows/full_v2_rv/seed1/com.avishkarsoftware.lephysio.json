@@ -1,0 +1,262 @@
+{
+ "case_id": "com.avishkarsoftware.lephysio",
+ "system": "full_v2_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "prompted",
+ "findings": [
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)"
+   ],
+   "evidence": "We may also share some information with partners and affiliates.",
+   "rationale": "The policy mentions sharing with partners and affiliates but does not specify Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c3",
+   "flow_id": "f3",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Furthermore, if the apps have permissions on the platform on which they have been installed, data may be collected using those special permissions (including but not limited to Phone State, location, camera, microphone, contacts, device id etc) as well, which is generally linked to the functionality provided by the app, but may sometimes not be associated with it.",
+   "rationale": "The policy mentions that data may be collected using permissions but does not specify sharing with third parties.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": 0.9396041190490564,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9568462440032242,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9453714595022286,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9472739408515031,
+ "usage": {
+  "prompt": 5202,
+  "output": 599
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 65,
+  "untagged_paragraphs": 0,
+  "claims": 180,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     0,
+     1,
+     2,
+     5,
+     7,
+     8,
+     10,
+     13,
+     23,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     38,
+     40,
+     41,
+     48,
+     50,
+     51,
+     59,
+     18,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     5,
+     6,
+     9,
+     24,
+     25,
+     27,
+     28,
+     33,
+     35,
+     42,
+     47,
+     51,
+     18,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "facebook_audience",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "explicit",
+    "reason": "the policy says it does not share IP address and device IDs",
+    "paragraphs": [
+     7,
+     18,
+     37
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": false,
+      "level": null,
+      "label": "clear",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect information about you and how you use Avishkar's apps, software and services. We may also collect other information on your device including but not limited to apps installed, location, advertising id and any other information.",
+      "rationale": "The policy mentions collecting location data, but does not explicitly state that it collects location data. It is covered generically under other types of information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We collect information about you and how you use Avishkar's apps, software and services. We may also collect other information on your device including but not limited to apps installed, location, advertising id and any other information. Furthermore, if the apps have permissions on the platform on which they have been installed, data may be collected using those special permissions (including but not limited to Phone State, location, camera, microphone, contacts, device id etc) as well, which is generally linked to the functionality provided by the app, but may sometimes not be associated with it.",
+       "generic_quote": "We collect information about you and how you use Avishkar's apps, software and services. We may also collect other information on your device including but not limited to apps installed, location, advertising id and any other information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting location data, but does not explicitly state that it collects location data. It is covered generically under other types of information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9396041190490564
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)"
+      ],
+      "evidence": "We may also share some information with partners and affiliates.",
+      "rationale": "The policy mentions sharing with partners and affiliates but does not specify Google AdMob.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We may enhance the information collected by using third party services. We may also share some information with partners and affiliates.",
+       "generic_quote": "We may also share some information with partners and affiliates.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)"
+       ],
+       "rationale": "The policy mentions sharing with partners and affiliates but does not specify Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9568462440032242
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Furthermore, if the apps have permissions on the platform on which they have been installed, data may be collected using those special permissions (including but not limited to Phone State, location, camera, microphone, contacts, device id etc) as well, which is generally linked to the functionality provided by the app, but may sometimes not be associated with it.",
+      "rationale": "The policy mentions that data may be collected using permissions but does not specify sharing with third parties.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We use your Personal Information mainly to provide the Services and to respond to your requests for support and improve the Services. We also use it to mitigate fraud and other undesirable behaviors. This information may also be used for targeted advertising targeted for you.",
+       "generic_quote": "Furthermore, if the apps have permissions on the platform on which they have been installed, data may be collected using those special permissions (including but not limited to Phone State, location, camera, microphone, contacts, device id etc) as well, which is generally linked to the functionality provided by the app, but may sometimes not be associated with it.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that data may be collected using permissions but does not specify sharing with third parties."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9453714595022286
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 3,
+  "seconds": 65.93
+ }
+}

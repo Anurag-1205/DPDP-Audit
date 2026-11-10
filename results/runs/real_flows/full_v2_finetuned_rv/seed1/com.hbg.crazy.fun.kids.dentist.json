@@ -1,0 +1,108 @@
+{
+ "case_id": "com.hbg.crazy.fun.kids.dentist",
+ "system": "full_v2_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6",
+    "Rule 3"
+   ],
+   "evidence": "We may use information held about you to verify your compliance with any terms and conditions that may apply to use of our software, applications and/or services. The precise information required to be provided will vary depending on the circumstances requiring disclosure of that information. Any personal information submitted to us online, including via the software and/or services, may need to be processed by a third party. By submitting personal information online or via the software and/or services, you consent to the disclosure of that information to a third party, who may be located overseas, for the sole purpose of processing the submitted information.",
+   "rationale": "The policy explicitly states that personal information is not sold, distributed or leased to third parties, but mentions generic disclosures to third parties for verification and processing purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9505437458536397,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9505437458536397,
+ "usage": {
+  "prompt": 1423,
+  "output": 263
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 17,
+  "untagged_paragraphs": 0,
+  "claims": 9,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "unity_ads",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with unity_ads is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     16,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6",
+       "Rule 3"
+      ],
+      "evidence": "We may use information held about you to verify your compliance with any terms and conditions that may apply to use of our software, applications and/or services. The precise information required to be provided will vary depending on the circumstances requiring disclosure of that information. Any personal information submitted to us online, including via the software and/or services, may need to be processed by a third party. By submitting personal information online or via the software and/or services, you consent to the disclosure of that information to a third party, who may be located overseas, for the sole purpose of processing the submitted information.",
+      "rationale": "The policy explicitly states that personal information is not sold, distributed or leased to third parties, but mentions generic disclosures to third parties for verification and processing purposes.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We will not sell, distribute or lease your personal information to third parties, except in delivery of this game, unless we have your permission or are required by law to do so.",
+       "generic_quote": "We may use information held about you to verify your compliance with any terms and conditions that may apply to use of our software, applications and/or services. The precise information required to be provided will vary depending on the circumstances requiring disclosure of that information. Any personal information submitted to us online, including via the software and/or services, may need to be processed by a third party. By submitting personal information online or via the software and/or services, you consent to the disclosure of that information to a third party, who may be located overseas, for the sole purpose of processing the submitted information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal information is not sold, distributed or leased to third parties, but mentions generic disclosures to third parties for verification and processing purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9505437458536397
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 28.56
+ }
+}

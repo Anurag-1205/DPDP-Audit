@@ -41,7 +41,7 @@ Detailed scope per work package: [specs.md](specs.md).
 | MS-1 | Benchmark and simplest baselines | 24 Oct | 102 cases with keys; B1/B2 scored on every case (SPEC-01, SPEC-02) | **Done** |
 | MS-2 | **Mid-submission** | **30 Oct** | Must-have package of §7 complete and submitted | Package ready; ladder check done |
 | MS-3 | Experiments complete | 7 Nov | All main and ladder runs, ablations, tagger results, spot-check (SPEC-02…06) | **Done** (29 Oct) |
-| MS-4 | Evaluation complete | 11 Nov | Selective accuracy, real flows, case study (SPEC-07, SPEC-08) | Planned |
+| MS-4 | Evaluation complete | 11 Nov | Selective accuracy, real flows, case study (SPEC-07, SPEC-08) | **Done** (10 Nov) |
 | MS-5 | **Final submission** | **15 Nov** | Final report, slides, release, reproduction check (SPEC-09) | Planned |
 
 ## 4. Schedule
@@ -307,6 +307,7 @@ L = likelihood, I = impact (H/M/L).
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-10-23 | Five-week stage plan derived from the proposal |
+| 2.8 | 2026-11-10 | Stage 4 complete (MS-4): selective accuracy, H5 partly supported (R@95 0.21 vs 1.0 for B2 on main; 1.0 on the ladder from three confident rule errors); real flows, 33 apps and 61 flows, labeller κ 0.728; on these the headline flags 14% of clear flows against 100% for every tool and baseline, with label accuracy 0.705; case study (Aarogya Setu, Wikipedia, DuckDuckGo), 7 of 13 flows correct. Report `docs/stage-4-report.md` |
 | 2.7 | 2026-10-30 | Baselines from the pipeline's parts: R0 rules only (F1 0.524, false alarms 0.91), B5 one call evidence first (F1 0.557, 3 seeds; v2 ahead by +0.13–0.16 on every seed), self-consistency B1/B2/B4 (B4 +0.058). Report §4.3 |
 | 2.6 | 2026-10-29 | Stage 3 complete: S4 scored (WP-3.6; tuple F1 PolicyLint 0.106, PoliGraph 0.234, QLoRA 0.479); v2 ablations on 3 seeds and A2/A3 on the ladder (WP-3.3); 95% intervals for every system (WP-3.8). Without DPDP retrieval v2 is as good or better on every seed |
 | 2.5 | 2026-10-29 | Stage 3 started: pipeline seeds 1–2 on the ladder (AC-04.11, 1,120 runs); per-flow confidence export for SPEC-07 (AC-04.13); S4 extraction jobs and term mapping (WP-3.6) |

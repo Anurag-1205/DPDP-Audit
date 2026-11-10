@@ -1,0 +1,113 @@
+{
+ "case_id": "com.saferkid.parentapp",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "When you use our Services, we may collect and store information about your location by converting your IP address into a rough geo-location or by accessing your mobile device\u2019s GPS coordinates or coarse location if you enable location services on your device. We may use location information to improve our Services for you. If you do not want us to collect mobile device location information, you may disable that feature on your mobile device.",
+   "rationale": "The policy does not explicitly state that IP addresses or device IDs are shared with specific third parties, but it does mention that third-party services providers can access this information.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "incorrect",
+   "confidence": 0.9480465789197433,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9480465789197433,
+ "usage": {
+  "prompt": 1509,
+  "output": 249
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 57,
+  "untagged_paragraphs": 0,
+  "claims": 57,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "firebase_crashlytics",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with firebase_crashlytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     22,
+     24,
+     28,
+     29,
+     20,
+     15
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "When you use our Services, we may collect and store information about your location by converting your IP address into a rough geo-location or by accessing your mobile device\u2019s GPS coordinates or coarse location if you enable location services on your device. We may use location information to improve our Services for you. If you do not want us to collect mobile device location information, you may disable that feature on your mobile device.",
+      "rationale": "The policy does not explicitly state that IP addresses or device IDs are shared with specific third parties, but it does mention that third-party services providers can access this information.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "When you use our Services, we may collect and store information about your location by converting your IP address into a rough geo-location or by accessing your mobile device\u2019s GPS coordinates or coarse location if you enable location services on your device. We may use location information to improve our Services for you. If you do not want us to collect mobile device location information, you may disable that feature on your mobile device.",
+       "generic_quote": "We may engage third-party services providers to work with us to administer and provide the Services. These third-party services providers have access to your PII, Child Information and App Information only for the purpose of performing services on our behalf and are expressly obligated not to disclose or use your PII for any other purpose.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that IP addresses or device IDs are shared with specific third parties, but it does mention that third-party services providers can access this information."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9480465789197433
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 24.35
+ }
+}

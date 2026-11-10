@@ -1,0 +1,171 @@
+{
+ "case_id": "com.fg.crazy.bike.traffic.racer.free",
+ "system": "full_v2_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 6(5)",
+    "Rule 3"
+   ],
+   "evidence": "How we Share your information: In addition, we will share your information (which may include personal information) with third parties (in other words, parties other than HATCOM Inc) or allow third parties to collect this information from our Services in the following circumstances:",
+   "rationale": "The policy does not specify the sharing of IP addresses and device IDs with any specific third party, and it does not explicitly state that these data types are retained beyond necessity.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f1",
+    "f2"
+   ]
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.8845863645304358,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9491170980108782,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.916851731270657,
+ "usage": {
+  "prompt": 3520,
+  "output": 358
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 35,
+  "untagged_paragraphs": 0,
+  "claims": 57,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "applovin",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with applovin is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     10,
+     14,
+     29,
+     31,
+     7
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "unity_ads",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with unity_ads is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     8,
+     10,
+     14,
+     29,
+     31,
+     7
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 6(5)",
+       "Rule 3"
+      ],
+      "evidence": "How we Share your information: In addition, we will share your information (which may include personal information) with third parties (in other words, parties other than HATCOM Inc) or allow third parties to collect this information from our Services in the following circumstances:",
+      "rationale": "The policy does not specify the sharing of IP addresses and device IDs with any specific third party, and it does not explicitly state that these data types are retained beyond necessity.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We do not retain any personal data for longer than necessary.",
+       "generic_quote": "In addition, we will share your information (which may include personal information) with third parties (in other words, parties other than HATCOM Inc) or allow third parties to collect this information from our Services in the following circumstances: [P10]",
+       "sections": [
+        "Sec. 6(5)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not specify the sharing of IP addresses and device IDs with any specific third party, and it does not explicitly state that these data types are retained beyond necessity."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.8845863645304358
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "We will share your information (which may include personal information) with third parties (in other words, parties other than HATCOM Inc) or allow third parties to collect this information from our Services in the following circumstances:",
+      "rationale": "The policy mentions generic sharing without specifying the recipient or purpose.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We may disclose or publish aggregated information (information about you and other players collectively that is not intended to specifically identify you), other non-personal information about our players for industry analysis, demographic profiling, marketing, analytics, and advertising and other business purposes.",
+       "generic_quote": "We will share your information (which may include personal information) with third parties (in other words, parties other than HATCOM Inc) or allow third parties to collect this information from our Services in the following circumstances:",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions generic sharing without specifying the recipient or purpose."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9491170980108782
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 40.34
+ }
+}
