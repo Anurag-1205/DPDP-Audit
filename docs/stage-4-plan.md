@@ -197,9 +197,20 @@ gantt
 
 ## 10. Definition of done (MS-4)
 
-- [ ] `data/real_flows/sample.csv`: 25+ apps, 60–80 flows, two labels, settled label, κ (AC-08.1, 08.2)
-- [ ] `results/runs/real_flows/` for S1, S2, B1, B2 and `full_v2_finetuned`; `results/scores/real_flows.json` (AC-08.3, AC-02.9)
-- [ ] `data/case_study/` with 3–5 apps and a hand-checked findings table (AC-08.4)
-- [ ] `results/scores/selective_{main,ladder}.json`, curves, R@95 intervals, H5 verdict (AC-07.1–07.7)
-- [ ] `scripts/score_all.sh` regenerates all of the above; tests pass
-- [ ] SPEC-07 and SPEC-08 statuses and the plan's MS-4 row updated
+Done on 10 Nov 2026 (report `docs/stage-4-report.md`).
+
+- [x] `data/real_flows/sample.csv`: 33 apps, 61 flows, two labels, settled label, κ 0.728 (AC-08.1, 08.2)
+- [x] `results/runs/real_flows/` for S1, S2, B1, B2, `full_v2_rv` and `full_v2_finetuned_rv`; `results/scores/real_flows.json` (AC-08.3, AC-02.9)
+- [x] `data/case_study/` with 3 apps and a hand-checked findings table (AC-08.4)
+- [x] `results/scores/selective_{main,ladder}.json`, curves, R@95 intervals, H5 verdict (AC-07.1–07.7)
+- [x] `scripts/score_all.sh` regenerates all of the above. Tests pass (139); the one failing test,
+  `test_gemini_key_rotation`, needs `google-genai`, which is not installed on the local machine.
+- [x] SPEC-07 and SPEC-08 statuses and the plan's MS-4 row updated
+
+**Deviations from this plan**
+- The headline system on the real flows is `full_v2_finetuned_rv`, as on main, with the robust
+  verifier reader. Ishaan ran it on his account, because the QLoRA adapter lived in his kernel's
+  output.
+- The case study has 3 apps (the minimum) and runs B2 next to the pipeline. B2 cannot run on
+  Wikipedia: the policy exceeds its context.
+- PoliCheck's input is converted to ASCII for the real flows (Python 2 CSV writer); see the report §2.

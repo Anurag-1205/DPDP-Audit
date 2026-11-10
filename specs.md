@@ -24,13 +24,13 @@
 | ID | Title | Owner | Status | Milestone | Depends on |
 |---|---|---|---|---|---|
 | [SPEC-01](#spec-01--main-benchmark) | Main benchmark | Anurag | Done (spot-check by two members done and settled: key wrong on 10.3% of flows) | MS-1 | — |
-| [SPEC-02](#spec-02--single-pass-llm-baselines-b1-b2-b4) | Single-pass LLM baselines B1, B2, B4 | Naveen | In progress | MS-1 → MS-3 | SPEC-01 |
-| [SPEC-03](#spec-03--existing-tool-baselines-policheck-s1-and-poligraph-s2) | Existing-tool baselines: PoliCheck and PoliGraph | Ishaan | Main and ladder done; real flows pending | MS-2 → MS-4 | SPEC-01, SPEC-06 |
+| [SPEC-02](#spec-02--single-pass-llm-baselines-b1-b2-b4) | Single-pass LLM baselines B1, B2, B4 | Naveen | Done (real flows 10 Nov) | MS-1 → MS-3 | SPEC-01 |
+| [SPEC-03](#spec-03--existing-tool-baselines-policheck-s1-and-poligraph-s2) | Existing-tool baselines: PoliCheck and PoliGraph | Ishaan | Done (main, ladder, real flows) | MS-2 → MS-4 | SPEC-01, SPEC-06 |
 | [SPEC-04](#spec-04--dpdp-audit-pipeline-and-ablations) | DPDP-Audit pipeline and ablations | Naveen | Done (v1 and v2, main and ladder × 3 seeds; ablations on v1 (seed 0) and v2 (3 seeds); per-flow confidence exported) | MS-2 → MS-3 | SPEC-01, SPEC-02, SPEC-05 |
 | [SPEC-05](#spec-05--clause-tagger-fine-tuning-and-component-baselines) | Clause tagger: fine-tuning and component baselines | Nikhil | Done (QLoRA 0.713 macro-F1, in the pipeline; S4 tuple F1 0.106 / 0.234 vs QLoRA 0.479) | MS-2 → MS-3 | SPEC-01 |
 | [SPEC-06](#spec-06--vagueness-ladder) | Vagueness ladder | Anurag | Built, checked by two members, scored on 110 accepted rungs | MS-2 | SPEC-01 |
-| [SPEC-07](#spec-07--selective-accuracy) | Selective accuracy | Nikhil | Planned | MS-4 | SPEC-02, SPEC-03, SPEC-04, SPEC-06 |
-| [SPEC-08](#spec-08--real-world-validation) | Real-world validation: real flows and case study | Anurag | Planned | MS-4 | SPEC-02, SPEC-03, SPEC-04 |
+| [SPEC-07](#spec-07--selective-accuracy) | Selective accuracy | Nikhil | Done (main and ladder; H5 holds on main, not on the ladder for the fine-tuned system) | MS-4 | SPEC-02, SPEC-03, SPEC-04, SPEC-06 |
+| [SPEC-08](#spec-08--real-world-validation) | Real-world validation: real flows and case study | Anurag | Done (61 real flows, κ 0.728; 3-app case study; report `docs/stage-4-report.md` §2–3) | MS-4 | SPEC-02, SPEC-03, SPEC-04 |
 | [SPEC-09](#spec-09--evaluation-reporting-and-submissions) | Evaluation, reporting and submissions | Anurag | In progress | MS-2, MS-5 | all |
 
 ## Traceability
@@ -166,7 +166,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Naveen Mishra (M3); B4 runs: Anurag Kaushal |
-| **Status** | In progress (B1, B2, B4 on main × 3 seeds and B2 on the ladder × 3 done; real flows pending) |
+| **Status** | Done (B1, B2, B4 on main × 3 seeds; B2 on the ladder × 3; B1 and B2 on the real flows × 3, 10 Nov) |
 | **Milestone** | MS-1, MS-2 (B4 seed 0), MS-3 (B4 seeds 1–2, B2 ladder) |
 | **Depends on** | SPEC-01; SPEC-06 for ladder runs |
 | **Traces** | RQ1 · H2 |
@@ -212,7 +212,7 @@ flowchart LR
 - [x] **AC-02.6** B4 MUST run on the main benchmark with seed 0 (WP-2.10, MS-2). *Evidence: `results/runs/main/B4/seed0/` (102 runs, 0 failed).*
 - [x] **AC-02.7** B4 seeds 1–2 SHOULD run on the main benchmark (WP-3.4, MS-3). *Evidence: `results/runs/main/B4/seed1/`, `seed2/` (204 runs, 0 failed, 27 Oct).*
 - [x] **AC-02.8** B2 MUST run on the 140 ladder cases with seeds 0–2 (WP-3.4, MS-3). *Evidence: `results/runs/ladder/B2/`.*
-- [ ] **AC-02.9** B1 and B2 MUST run on the real-flow sample (WP-4.3, SPEC-08).
+- [x] **AC-02.9** B1 and B2 MUST run on the real-flow sample (WP-4.3, SPEC-08). *Evidence: `results/runs/real_flows/{B1,B2}/seed{0,1,2}/` (99 runs each, 0 failed); `results/scores/real_flows.json`.*
 - [x] **AC-02.10** (added 30 Oct, Ishaan; for team confirmation) Self-consistency versions `B1_sc`, `B2_sc`, `B4_sc` SHOULD be reported: per flow the majority label over the three seeds, and the findings at least two seeds report. *Evidence: `scripts/build_self_consistency.py` → `results/runs/{main,ladder}/*_sc/`; `results/scores/main.json`.*
 
 ### 6. Evidence & Validation
@@ -233,7 +233,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Ishaan Giri (M2); PoliGraph runs: Nikhil Patidar (workstation) |
-| **Status** | Main and ladder done (PoliCheck and PoliGraph); real flows pending |
+| **Status** | Done (PoliCheck and PoliGraph on main, the ladder and the real flows) |
 | **Milestone** | MS-2 (main), MS-3 (ladder), MS-4 (real flows) |
 | **Depends on** | SPEC-01; SPEC-06 for ladder runs |
 | **Traces** | RQ1, RQ2 · H1, H4 |
@@ -290,7 +290,7 @@ flowchart LR
 - [x] **AC-03.9** PoliGraph MUST label the main cases (WP-2.6) and the ladder cases (WP-3.5). *Evidence: `results/runs/{main,ladder}/S2/`; 31/34 and 31/35 policies parsed (PoliGraph rejects 1582, 642, 760 and, on the ladder, 988 as "not like a privacy policy").*
 - [x] **AC-03.10** S1 and S2 MUST be scored under the full, common and native readings, with coverage
   reported. *Evidence: `results/scores/main.json`, `results/scores/ladder.json`, `docs/baseline-report.md`.*
-- [ ] **AC-03.11** S1 and S2 MUST run on the real-flow sample (WP-4.3).
+- [x] **AC-03.11** S1 and S2 MUST run on the real-flow sample (WP-4.3). *Evidence: `results/tools/{policheck,poligraph}/real_flows/`, `results/runs/real_flows/{S1,S2}/`; 51/61 and 47/61 flows matched a tool row (PoliGraph could not crawl 2 of 33 policies). PoliCheck's Python 2 crashed on non-ASCII policy text, so its input is converted to ASCII (`kaggle/policheck/run.py`, `ascii_policies`).*
 - [ ] **AC-03.12** Failure state: a tool that cannot run after one full day of effort MUST be
   documented with its reason and reported as not runnable.
 
@@ -519,7 +519,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Nikhil Patidar (M4) |
-| **Status** | Planned |
+| **Status** | Done (10 Nov: main and ladder, R@95 intervals, rung comparison; report `docs/stage-4-report.md` §1) |
 | **Milestone** | MS-4 |
 | **Depends on** | SPEC-02, SPEC-03, SPEC-04, SPEC-06 |
 | **Traces** | RQ3 · H5 |
@@ -546,17 +546,17 @@ flowchart LR
   this assumption.
 
 ### 5. Acceptance Criteria
-- [ ] **AC-07.1** The unit MUST be the flow. Each flow gets the majority label over three seeds, a
-  confidence equal to the share of seeds agreeing, and the token probability as a tie-break.
-- [ ] **AC-07.2** Flows reviewed in order of increasing confidence MUST take their gold label. The curve
-  MUST plot the accuracy of unreviewed flows against the share reviewed (0–100%).
-- [ ] **AC-07.3** Metrics MUST include the area under the curve, R@95 and the review needed to match the
-  best tool.
-- [ ] **AC-07.4** Tools MUST appear as single points at 0% review.
-- [ ] **AC-07.5** Confidence on explicit and vague ladder rungs MUST be compared (paired).
-- [ ] **AC-07.6** R@95 MUST have a 95% policy-level bootstrap interval.
-- [ ] **AC-07.7** Edge cases MUST be handled: ties, flows missing in a seed, and one-seed systems
-  (excluded).
+- [x] **AC-07.1** The unit MUST be the flow. Each flow gets the majority label over three seeds, a
+  confidence equal to the share of seeds agreeing, and the token probability as a tie-break. *Evidence: `src/dpdp_audit/confidence.py` (majority over seeds, agreement, token-probability tie-break) → `results/confidence/{main,ladder}.json`.*
+- [x] **AC-07.2** Flows reviewed in order of increasing confidence MUST take their gold label. The curve
+  MUST plot the accuracy of unreviewed flows against the share reviewed (0–100%). *Evidence: `selective.curve` (least confident first; reviewed flows take the gold label; expected accuracy within tied groups).*
+- [x] **AC-07.3** Metrics MUST include the area under the curve, R@95 and the review needed to match the
+  best tool. *Evidence: `selective.summary` → `auc`, `r95`, `review_to_match` (best tool: S2 0.492 on main, S1 0.464 on the ladder) in `results/scores/selective_{main,ladder}.json`.*
+- [x] **AC-07.4** Tools MUST appear as single points at 0% review. *Evidence: `points` in `selective_{split}.json`; S1 and S2 drawn as points at 0% in `results/figures/selective_{main,ladder}.png`.*
+- [x] **AC-07.5** Confidence on explicit and vague ladder rungs MUST be compared (paired). *Evidence: `selective.rung_confidence` → `vague_vs_explicit` (28 ladders; agreement and token probability, paired 95% intervals).*
+- [x] **AC-07.6** R@95 MUST have a 95% policy-level bootstrap interval. *Evidence: `selective.bootstrap_r95` → `r95_ci` and the paired `r95_minus_B2`.*
+- [x] **AC-07.7** Edge cases MUST be handled: ties, flows missing in a seed, and one-seed systems
+  (excluded). *Evidence: ties as expected values in `selective.curve`; flows missing in a seed and one-seed systems handled in `confidence.py` / `selective_accuracy.py` (B4 has no token probability; tools are points only); `tests/test_selective.py` (7 tests, including a synthetic case with a known R@95).*
 
 ### 6. Evidence & Validation
 - `results/scores/selective_{main,ladder}.json` and curve figures in `results/figures/`.
@@ -572,7 +572,7 @@ flowchart LR
 | | |
 |---|---|
 | **Owner** | Anurag Kaushal (real flows); Ishaan Giri (labels, tool runs); Naveen Mishra (case study) |
-| **Status** | Planned |
+| **Status** | Done (10 Nov; `docs/stage-4-report.md` §2–3) |
 | **Milestone** | MS-4 |
 | **Depends on** | SPEC-02, SPEC-03, SPEC-04 |
 | **Traces** | RQ1 (external validity) |
@@ -604,18 +604,19 @@ flowchart LR
 - Statistical claims from the case study, which is qualitative.
 
 ### 5. Acceptance Criteria
-- [ ] **AC-08.1** About 25 apps and 60–80 flows MUST be sampled from flows whose policies can be
-  retrieved (archived copies allowed).
-- [ ] **AC-08.2** Two members MUST label each flow independently (disclosure label and gap type).
-  Cohen's κ MUST be reported and disagreements adjudicated.
-- [ ] **AC-08.3** S1, S2, B1, B2 and the full system MUST run on the sample, and agreement with the
-  adjudicated labels MUST be reported.
-- [ ] **AC-08.4** 3–5 open-source apps with their own policy MUST be analysed:
+- [x] **AC-08.1** About 25 apps and 60–80 flows MUST be sampled from flows whose policies can be
+  retrieved (archived copies allowed). *Evidence: 33 apps, 61 flows (`data/real_flows/sample.csv`); 149 apps tried, 39 usable Wayback policies; `data/real_flows/README.md`.*
+- [x] **AC-08.2** Two members MUST label each flow independently (disclosure label and gap type).
+  Cohen's κ MUST be reported and disagreements adjudicated. *Evidence: `data/real_flows/labels_{naveen,anurag}.csv`; κ = 0.728 (52/61 agree); 9 disagreements settled with reasons in `disagreements.csv`; settled labels in `sample.csv`.*
+- [x] **AC-08.3** S1, S2, B1, B2 and the full system MUST run on the sample, and agreement with the
+  adjudicated labels MUST be reported. *Evidence: `results/runs/real_flows/` (S1, S2, B1, B2, `full_v2_rv`, `full_v2_finetuned_rv`; 0 failed calls); `scripts/score_real_flows.py` → `results/scores/real_flows.json` (label accuracy and macro-F1, clear flows flagged, κ with each labeller, app-level intervals); `tests/test_real_flow_score.py`.*
+- [x] **AC-08.4** 3–5 open-source apps with their own policy MUST be analysed:
   - a data-flow config written from the code;
   - the pipeline run unchanged;
   - every finding checked by hand and reported qualitatively.
+  *Evidence: Aarogya Setu, Wikipedia, DuckDuckGo (`data/case_study/apps.json`, flows cited to file:line); `scripts/build_case_study.py`; `kaggle/case_study/` (`full_v2_finetuned_rv` and B2, seeds 0–2) → `results/runs/case_study/`; hand check `data/case_study/findings.csv`.*
 - [ ] **AC-08.5** Failure state: if too few policies can be retrieved, the case study becomes the
-  real-data result, and the reason is documented.
+  real-data result, and the reason is documented. *Not triggered (39 usable policies, 33 apps sampled).*
 
 ### 6. Evidence & Validation
 - `data/real_flows/sample.csv` with both labels and κ.
