@@ -1,0 +1,187 @@
+{
+ "case_id": "com.mobincube.android.sc_3A7W1A",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "Location",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Personalize and improve you experience, and enable us to supply you with the type of contents and offers that best suit your interests.",
+   "rationale": "The policy mentions personalization and improving the user experience, which could include collecting location data, but does not explicitly state it.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence discusses personalizing and improving the user experience, which could imply collecting location data, but does not explicitly mention location data. The cited DPDP text pertains to the notice requirement and does not address the specific issue of undisclosed collection of locati"
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "Contact",
+   "gap_type": "purpose_mismatch",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)"
+   ],
+   "evidence": "Contact you in regards to our products or services and send you the best offers and promotions depending on your interests.",
+   "rationale": "The policy mentions contacting users but does not specify a particular purpose for using contact details.",
+   "reviewer": "purpose",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence mentions contacting users regarding products or services and sending offers, but does not specify a particular purpose for using contact details. The cited DPDP text pertains to consent requirements and does not address the specific issue of purpose mismatch for contact data."
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9387162567086125,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "clear",
+   "confidence": null
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9515946642273535,
+ "usage": {
+  "prompt": 2919,
+  "output": 415
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 40,
+  "untagged_paragraphs": 0,
+  "claims": 26,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "Location",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "Location is covered only by generic collection statements",
+    "paragraphs": [
+     12,
+     14,
+     15,
+     19,
+     24,
+     25,
+     9,
+     2
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "Contact",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "purpose_mismatch",
+    "reviewer": "purpose",
+    "suggested_level": "omission",
+    "reason": "Contact is collected for ['advertising', 'basic service/feature', 'marketing'], the app uses it for Unspecified",
+    "paragraphs": [
+     7,
+     18,
+     13,
+     27,
+     39,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Personalize and improve you experience, and enable us to supply you with the type of contents and offers that best suit your interests.",
+      "rationale": "The policy mentions personalization and improving the user experience, which could include collecting location data, but does not explicitly state it.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "",
+       "generic_quote": "Personalize and improve you experience, and enable us to supply you with the type of contents and offers that best suit your interests.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions personalization and improving the user experience, which could include collecting location data, but does not explicitly state it."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9387162567086125
+   },
+   {
+    "reviewer": "purpose",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)"
+      ],
+      "evidence": "Contact you in regards to our products or services and send you the best offers and promotions depending on your interests.",
+      "rationale": "The policy mentions contacting users but does not specify a particular purpose for using contact details.",
+      "raw": {
+       "candidate_id": "c2",
+       "data_type": "Contact",
+       "recipient": "first_party",
+       "purpose": "Unspecified",
+       "purpose_quote": "",
+       "unspecified_purpose_quote": "Contact you in regards to our products or services and send you the best offers and promotions depending on your interests.",
+       "only_unspecified_purposes": true,
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)"
+       ],
+       "rationale": "The policy mentions contacting users but does not specify a particular purpose for using contact details."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9644730717460945
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "salvaged",
+  "verifier_unchecked": 0,
+  "verifier_raw": "{\"checks\": [{\"finding_id\": 0, \"supported\": false, \"reason\": \"The policy evidence discusses personalizing and improving the user experience, which could imply collecting location data, but does not explicitly mention location data. The cited DPDP text pertains to the notice requirement and does not address the specific issue of undisclosed collection of location data.\"}]}\n\n{\"checks\": [{\"finding_id\": 1, \"supported\": false, \"reason\": \"The policy evidence mentions contacting users regarding products or services and sending offers, but does not specify a particular purpose for using contact details. The cited DPDP text pertains to consent requirements and does not address the specific issue of purpose mismatch for contact data.\"}]}",
+  "llm_calls": 3,
+  "seconds": 39.17
+ }
+}

@@ -1,0 +1,112 @@
+{
+ "case_id": "com.nekki.vector",
+ "system": "full_v2_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(2)",
+    "Sec. 6(5)",
+    "Rule 3"
+   ],
+   "evidence": "Besides, We engage offer-walls and mediators, including, but not limited to, Tapjoy, ironSource, Unity Ads, that may process Your personal data. We do not control the scope of the personal data they process. They process your personal data in accordance with their privacy policy.",
+   "rationale": "The policy does not explicitly state sharing with a specific SDK but mentions third parties and mediators that may process personal data.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9192482762532613,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9192482762532613,
+ "usage": {
+  "prompt": 1418,
+  "output": 179
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 133,
+  "untagged_paragraphs": 0,
+  "claims": 53,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "applovin",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with applovin is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     59,
+     106,
+     108,
+     118,
+     42,
+     41
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(2)",
+       "Sec. 6(5)",
+       "Rule 3"
+      ],
+      "evidence": "Besides, We engage offer-walls and mediators, including, but not limited to, Tapjoy, ironSource, Unity Ads, that may process Your personal data. We do not control the scope of the personal data they process. They process your personal data in accordance with their privacy policy.",
+      "rationale": "The policy does not explicitly state sharing with a specific SDK but mentions third parties and mediators that may process personal data.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We will only use the information we receive in accordance with this Privacy Policy.",
+       "generic_quote": "Besides, We engage offer-walls and mediators, including, but not limited to, Tapjoy, ironSource, Unity Ads, that may process Your personal data. We do not control the scope of the personal data they process. They process your personal data in accordance with their privacy policy.",
+       "sections": [
+        "Sec. 5(2)",
+        "Sec. 6(5)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state sharing with a specific SDK but mentions third parties and mediators that may process personal data."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9192482762532613
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 23.27
+ }
+}

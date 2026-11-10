@@ -1,0 +1,169 @@
+{
+ "case_id": "com.fingersoft.hillclimb",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions data exchange with other companies and organizations, but does not specify sharing with AppsFlyer or any other specific recipient.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f1",
+    "f2"
+   ],
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "omitted",
+   "confidence": 0.897880667451927,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9666659840128683,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9322733257323976,
+ "usage": {
+  "prompt": 2280,
+  "output": 349
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 183,
+  "untagged_paragraphs": 0,
+  "claims": 42,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "appsflyer",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with appsflyer is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     71,
+     72,
+     18,
+     25
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "unity_ads",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with unity_ads is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     71,
+     72,
+     18,
+     25
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions data exchange with other companies and organizations, but does not specify sharing with AppsFlyer or any other specific recipient.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "In order to combat fraud and illegal activity, we may exchange data with other companies and organizations and provide it to public authorities in response to lawful requests.",
+       "generic_quote": "Your IP address and mobile device identifiers (such as your device ID, advertising ID, MAC address and IMEI) and demographic data (such as to determine the coarse location of your IP address) may be collected and used for various purposes as described in the privacy policy.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions data exchange with other companies and organizations, but does not specify sharing with AppsFlyer or any other specific recipient."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.897880667451927
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may also disclose your data based on your consent, to comply with the law or to protect the rights, property or safety of us, our players or others.",
+      "rationale": "The policy mentions exchanging data with other companies and providing data to public authorities, but does not specify Unity Ads.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "In order to combat fraud and illegal activity, we may exchange data with other companies and organizations and provide it to public authorities in response to lawful requests.",
+       "generic_quote": "We may also disclose your data based on your consent, to comply with the law or to protect the rights, property or safety of us, our players or others.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions exchanging data with other companies and providing data to public authorities, but does not specify Unity Ads."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9666659840128683
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 44.94
+ }
+}

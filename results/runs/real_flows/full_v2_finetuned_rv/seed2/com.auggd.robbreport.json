@@ -1,0 +1,109 @@
+{
+ "case_id": "com.auggd.robbreport",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Additionally, we may engage a data provider who may collect web log data from you (including IP address and information about your browser or operating system), or place or recognize a unique cookie on your browser to enable you to receive customized ads or content from the web, mobile or other media channels. These cookies contain no personally identifiable information.",
+   "rationale": "The policy does not explicitly state that IP addresses are shared with Unity Ads, but it mentions engaging a data provider that may collect web log data, which includes IP addresses.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9625743800138167,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9625743800138167,
+ "usage": {
+  "prompt": 1646,
+  "output": 239
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 57,
+  "untagged_paragraphs": 0,
+  "claims": 42,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "unity_ads",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with unity_ads is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     26,
+     30,
+     33,
+     35,
+     37,
+     20
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Additionally, we may engage a data provider who may collect web log data from you (including IP address and information about your browser or operating system), or place or recognize a unique cookie on your browser to enable you to receive customized ads or content from the web, mobile or other media channels. These cookies contain no personally identifiable information.",
+      "rationale": "The policy does not explicitly state that IP addresses are shared with Unity Ads, but it mentions engaging a data provider that may collect web log data, which includes IP addresses.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "Additionally, we may engage a data provider who may collect web log data from you (including IP address and information about your browser or operating system), or place or recognize a unique cookie on your browser to enable you to receive customized ads or content from the web, mobile or other media channels. These cookies contain no personally identifiable information.",
+       "generic_quote": "Additionally, we may engage a data provider who may collect web log data from you (including IP address and information about your browser or operating system), or place or recognize a unique cookie on your browser to enable you to receive customized ads or content from the web, mobile or other media channels. These cookies contain no personally identifiable information.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy does not explicitly state that IP addresses are shared with Unity Ads, but it mentions engaging a data provider that may collect web log data, which includes IP addresses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9625743800138167
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 34.17
+ }
+}

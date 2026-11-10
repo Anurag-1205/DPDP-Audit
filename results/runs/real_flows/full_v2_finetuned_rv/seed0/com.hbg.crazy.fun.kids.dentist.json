@@ -1,0 +1,105 @@
+{
+ "case_id": "com.hbg.crazy.fun.kids.dentist",
+ "system": "full_v2_finetuned_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "This may include disclosures to organizations that provide us with professional advice, such as solicitors, accountants and business advisors. It may be necessary for the information to be disclosed to other organizations in the course of our provision of services, or for the conduct of our business. These other organizations may include other parties involved in the provision of services to you, our business partners involved in the software, applications and/or services we provide to you, and other organizations providing services to us, such as payment processors or hosting services.",
+   "rationale": "The policy explicitly states that personal data will not be sold, distributed, or leased to third parties, except under specific conditions. However, it also mentions that personal data may be disclosed to various organizations for services, which is a generic statement.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9341546728841991,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9341546728841991,
+ "usage": {
+  "prompt": 1423,
+  "output": 260
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 17,
+  "untagged_paragraphs": 0,
+  "claims": 9,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "unity_ads",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with unity_ads is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     16,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "This may include disclosures to organizations that provide us with professional advice, such as solicitors, accountants and business advisors. It may be necessary for the information to be disclosed to other organizations in the course of our provision of services, or for the conduct of our business. These other organizations may include other parties involved in the provision of services to you, our business partners involved in the software, applications and/or services we provide to you, and other organizations providing services to us, such as payment processors or hosting services.",
+      "rationale": "The policy explicitly states that personal data will not be sold, distributed, or leased to third parties, except under specific conditions. However, it also mentions that personal data may be disclosed to various organizations for services, which is a generic statement.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We will not sell, distribute or lease your personal information to third parties, except in delivery of this game, unless we have your permission or are required by law to do so.",
+       "generic_quote": "This may include disclosures to organizations that provide us with professional advice, such as solicitors, accountants and business advisors. It may be necessary for the information to be disclosed to other organizations in the course of our provision of services, or for the conduct of our business. These other organizations may include other parties involved in the provision of services to you, our business partners involved in the software, applications and/or services we provide to you, and other organizations providing services to us, such as payment processors or hosting services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that personal data will not be sold, distributed, or leased to third parties, except under specific conditions. However, it also mentions that personal data may be disclosed to various organizations for services, which is a generic statement."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9341546728841991
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 32.81
+ }
+}

@@ -1,0 +1,113 @@
+{
+ "case_id": "com.jb.lab.gokeyboard",
+ "system": "full_v2_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may share your information with certain third parties (including, without limitation, search engines, content providers, and advertising networks and platforms) that provide various services (such as advertising, marketing, analysis, content, and search) in connection with the Software and Services.",
+   "rationale": "The policy mentions generic sharing of information with third parties but does not specify sharing with AppsFlyer.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.97896613266238,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.97896613266238,
+ "usage": {
+  "prompt": 1716,
+  "output": 217
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 66,
+  "untagged_paragraphs": 0,
+  "claims": 73,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "appsflyer",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with appsflyer is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     34,
+     35,
+     36,
+     37,
+     7,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may share your information with certain third parties (including, without limitation, search engines, content providers, and advertising networks and platforms) that provide various services (such as advertising, marketing, analysis, content, and search) in connection with the Software and Services.",
+      "rationale": "The policy mentions generic sharing of information with third parties but does not specify sharing with AppsFlyer.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We take appropriate measures to ensure that no user can be individually identified from the disclosure of such information, and we require these third parties (i) to keep the data secured, (ii) not to use the data for any other purpose other than to provide us with Services, and (iii) to use the data solely in compliance with this Privacy Policy.",
+       "generic_quote": "We may share your information with certain third parties (including, without limitation, search engines, content providers, and advertising networks and platforms) that provide various services (such as advertising, marketing, analysis, content, and search) in connection with the Software and Services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions generic sharing of information with third parties but does not specify sharing with AppsFlyer."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.97896613266238
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 26.96
+ }
+}

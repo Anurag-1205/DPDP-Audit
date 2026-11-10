@@ -1,0 +1,237 @@
+{
+ "case_id": "com.ajnsnewmedia.kitchenstories",
+ "system": "full_v2_finetuned_rv",
+ "seed": 0,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_collection",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We only use your e-mail address, user name, and profile picture to set up a user account for you. In the settings of our applications you can delete your profile picture again which has been imported from Google. In addition to this, you can configure within your Google account settings, which data shall be transferred to us.",
+   "rationale": "The policy mentions that personal data is collected for specific purposes but does not explicitly state that an IP address and device IDs are collected.",
+   "reviewer": "notice",
+   "uncertain": true,
+   "supported": false,
+   "verifier_reason": "The policy evidence does not mention the collection of IP addresses and device IDs. Instead, it focuses on email addresses, user names, and profile pictures. Additionally, the cited DPDP text pertains to the notice requirement and does not address the collection of specific types of data."
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy explicitly states that Google Analytics uses the data for analysis purposes.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f2",
+    "f3"
+   ],
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9471047767628324,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.8978046613954583,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9377611115901864,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9275568499161592,
+ "usage": {
+  "prompt": 5797,
+  "output": 547
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 60,
+  "untagged_paragraphs": 0,
+  "claims": 53,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "first_party",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_collection",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "IP address and device IDs is covered only by generic collection statements",
+    "paragraphs": [
+     14,
+     19,
+     25,
+     26
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "amplitude",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with amplitude is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     19,
+     29,
+     25,
+     23
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "firebase_crashlytics",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with firebase_crashlytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     19,
+     29,
+     25,
+     26
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We only use your e-mail address, user name, and profile picture to set up a user account for you. In the settings of our applications you can delete your profile picture again which has been imported from Google. In addition to this, you can configure within your Google account settings, which data shall be transferred to us.",
+      "rationale": "The policy mentions that personal data is collected for specific purposes but does not explicitly state that an IP address and device IDs are collected.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "In the case of Google Sign-In, data could be transferred from our services to your Google profile as well. The transferred data are stored and processed by us for registration on our service. If you register using Google Sign-In, you agree to the transfer of the basic user data in your Google profile to us and, vice versa, the transfer of data for from us to Google.",
+       "generic_quote": "We only use your e-mail address, user name, and profile picture to set up a user account for you. In the settings of our applications you can delete your profile picture again which has been imported from Google. In addition to this, you can configure within your Google account settings, which data shall be transferred to us.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions that personal data is collected for specific purposes but does not explicitly state that an IP address and device IDs are collected."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9471047767628324
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy explicitly states that Google Analytics uses the data for analysis purposes.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "Google will use this information on our behalf to analyze your usage of our Website, and to create reports about usage patterns.",
+       "denial_quote": "",
+       "generic_quote": "",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy explicitly states that Google Analytics uses the data for analysis purposes."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.8978046613954583
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may pass on the pseudonymized usage data to third parties for statistical purposes.",
+      "rationale": "The policy mentions passing on pseudonymized data to third parties but does not specify the exact recipient.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "These third parties cannot attribute it to you.",
+       "denial_quote": "",
+       "generic_quote": "We may pass on the pseudonymized usage data to third parties for statistical purposes.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions passing on pseudonymized data to third parties but does not specify the exact recipient."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9377611115901864
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": "json",
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 4,
+  "seconds": 95.15
+ }
+}

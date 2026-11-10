@@ -1,0 +1,181 @@
+{
+ "case_id": "com.wanderful.findnsave",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "omission",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6",
+    "Rule 3"
+   ],
+   "evidence": "",
+   "rationale": "The policy mentions sharing information with third parties but does not specify IP addresses and device IDs being shared.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f2",
+    "f3"
+   ],
+   "evidence_removed": false
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "omitted",
+   "confidence": 0.9569980900965532,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "incorrect",
+   "confidence": 0.9627224122473247,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.959860251171939,
+ "usage": {
+  "prompt": 3214,
+  "output": 527
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 58,
+  "untagged_paragraphs": 0,
+  "claims": 42,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "branch",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with branch is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     24,
+     29,
+     31,
+     33,
+     35,
+     37,
+     21,
+     18
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "firebase_crashlytics",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with firebase_crashlytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     24,
+     29,
+     31,
+     33,
+     35,
+     37,
+     21,
+     18
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "omission",
+      "label": "omitted",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6",
+       "Rule 3"
+      ],
+      "evidence": "",
+      "rationale": "The policy mentions sharing information with third parties but does not specify IP addresses and device IDs being shared.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We may share information with third parties for industry analysis, demographic profiling and other similar purposes.",
+       "generic_quote": "We may engage third party service providers to work with us to administer and provide the Services. These third-party services providers have access to your PII only for the purpose of performing services on our behalf.\nWe will share your PII and information contained in your Account with third-party sites or platforms in accordance with the selections you make via the Services.\nWe may share information with third parties for industry analysis, demographic profiling and other similar purposes.\nIt is our policy to protect you from having your privacy violated through abuse of the legal systems, whether by individuals, entities or government, and to contest claims that we believe to be invalid under applicable law. However, it is also our policy to cooperate with government and law enforcement officials and private parties. Accordingly, we reserve the right to disclose any information about you to government or law enforcement officials or private parties as we, in our sole discretion, believe necessary: (i) to satisfy or comply with any applicable law, regulation or legal process or to respond to lawful requests, including subpoenas, warrants or court orders; (ii) to protect our property, rights and safety and the rights, property and safety of third parties or the public in general; and (iii) to prevent or stop activity we consider to be illegal or unethical.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing information with third parties but does not specify IP addresses and device IDs being shared."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9569980900965532
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We collect certain information that your mobile device sends when you use our Services, like a device identifier, user settings, and the operating system, as well as information about your use of our Services.",
+      "rationale": "The policy mentions collecting device identifiers but does not specify sharing them with third parties, especially Firebase Crashlytics.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We collect certain information that your mobile device sends when you use our Services, like a device identifier, user settings, and the operating system, as well as information about your use of our Services.",
+       "generic_quote": "We may share information with third parties for industry analysis, demographic profiling and other similar purposes.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting device identifiers but does not specify sharing them with third parties, especially Firebase Crashlytics."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9627224122473247
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 41.06
+ }
+}

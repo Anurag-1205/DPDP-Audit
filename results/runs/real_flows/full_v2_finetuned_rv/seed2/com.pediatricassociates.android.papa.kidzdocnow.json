@@ -1,0 +1,111 @@
+{
+ "case_id": "com.pediatricassociates.android.papa.kidzdocnow",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may share your information with third-party vendors and service-providers that help us with specialized services, including ... performance monitoring, hosting, and data processing. These third-party vendors and service providers may not use your information for purposes other than those related to the services they are providing to us.",
+   "rationale": "The policy mentions sharing with third-party vendors and service-providers, but does not specify Firebase Crashlytics or Google by name.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "vague",
+   "confidence": 0.9754115094365808,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9754115094365808,
+ "usage": {
+  "prompt": 1725,
+  "output": 215
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 61,
+  "untagged_paragraphs": 0,
+  "claims": 61,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "firebase_crashlytics",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with firebase_crashlytics is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     31,
+     32,
+     34,
+     35,
+     36,
+     48,
+     13,
+     6
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may share your information with third-party vendors and service-providers that help us with specialized services, including ... performance monitoring, hosting, and data processing. These third-party vendors and service providers may not use your information for purposes other than those related to the services they are providing to us.",
+      "rationale": "The policy mentions sharing with third-party vendors and service-providers, but does not specify Firebase Crashlytics or Google by name.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We may share your information with third-party vendors and service-providers that help us with specialized services, including ... performance monitoring, hosting, and data processing. These third-party vendors and service providers may not use your information for purposes other than those related to the services they are providing to us.",
+       "generic_quote": "We may share your information with third-party vendors and service-providers that help us with specialized services, including ... performance monitoring, hosting, and data processing. These third-party vendors and service providers may not use your information for purposes other than those related to the services they are providing to us.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with third-party vendors and service-providers, but does not specify Firebase Crashlytics or Google by name."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9754115094365808
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 23.43
+ }
+}

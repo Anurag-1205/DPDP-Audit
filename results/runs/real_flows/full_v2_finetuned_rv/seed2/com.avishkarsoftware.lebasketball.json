@@ -1,0 +1,192 @@
+{
+ "case_id": "com.avishkarsoftware.lebasketball",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "Location",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 5(2)",
+    "Rule 3"
+   ],
+   "evidence": "We may enhance this information or share it with third parties for the purposes mentioned above or any other purpose.",
+   "rationale": "The policy mentions sharing information with partners and third parties but does not specify sharing with Google AdMob.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  },
+  {
+   "candidate_id": "c2",
+   "flow_id": "f3",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Sec. 6(1)",
+    "Rule 3"
+   ],
+   "evidence": "We may enhance this information or share it with third parties for the purposes mentioned above or any other purpose.",
+   "rationale": "The policy mentions sharing information with partners and third parties but does not specify sharing with Meta Audience Network.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9542541748660628,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "vague",
+   "confidence": 0.9606989041906342,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9574765395283484,
+ "usage": {
+  "prompt": 3573,
+  "output": 290
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 65,
+  "untagged_paragraphs": 0,
+  "claims": 88,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "Location",
+    "recipient": "admob",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing Location with admob is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     37,
+     39,
+     49,
+     51,
+     18,
+     20
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "facebook_audience",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with facebook_audience is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     9,
+     37,
+     39,
+     49,
+     51,
+     18
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 5(2)",
+       "Rule 3"
+      ],
+      "evidence": "We may enhance this information or share it with third parties for the purposes mentioned above or any other purpose.",
+      "rationale": "The policy mentions sharing information with partners and third parties but does not specify sharing with Google AdMob.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We may enhance the information collected by using third party services. We may also share some information with partners and affiliates.",
+       "generic_quote": "We may enhance this information or share it with third parties for the purposes mentioned above or any other purpose.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 5(2)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing information with partners and third parties but does not specify sharing with Google AdMob."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9542541748660628
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Sec. 6(1)",
+       "Rule 3"
+      ],
+      "evidence": "We may enhance this information or share it with third parties for the purposes mentioned above or any other purpose.",
+      "rationale": "The policy mentions sharing information with partners and third parties but does not specify sharing with Meta Audience Network.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We may enhance the information collected by using third party services. We may also share some information with partners and affiliates.",
+       "generic_quote": "We may enhance this information or share it with third parties for the purposes mentioned above or any other purpose.",
+       "sections": [
+        "Sec. 5(1)",
+        "Sec. 6(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing information with partners and third parties but does not specify sharing with Meta Audience Network."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9606989041906342
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 2,
+  "seconds": 37.01
+ }
+}

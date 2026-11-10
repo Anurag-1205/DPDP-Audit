@@ -1,0 +1,235 @@
+{
+ "case_id": "com.medisafe.android.client",
+ "system": "full_v2_finetuned_rv",
+ "seed": 1,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f1",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "explicit",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "Technical information \u2013 we collect certain technical information that is automatically recorded when you use our Service, such as your IP address, device approximate location.",
+   "rationale": "The policy mentions collecting IP addresses but does not explicitly state sharing them with AppsFlyer. It does mention sharing personal information with third parties but does not specify AppsFlyer.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null,
+   "merged_flows": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "incorrect",
+   "confidence": 0.9488458815666727,
+   "source": "notice"
+  },
+  "f2": {
+   "label": "incorrect",
+   "confidence": 0.9377699824708654,
+   "source": "notice"
+  },
+  "f3": {
+   "label": "incorrect",
+   "confidence": 0.9835730398383389,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9567296346252924,
+ "usage": {
+  "prompt": 4876,
+  "output": 517
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 106,
+  "untagged_paragraphs": 0,
+  "claims": 107,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f1",
+    "data_type": "IP address and device IDs",
+    "recipient": "appsflyer",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with appsflyer is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     53,
+     54,
+     57,
+     58,
+     59,
+     62,
+     69,
+     25,
+     52
+    ]
+   },
+   {
+    "candidate_id": "c2",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "branch",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with branch is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     53,
+     54,
+     57,
+     58,
+     59,
+     62,
+     69,
+     25,
+     52
+    ]
+   },
+   {
+    "candidate_id": "c3",
+    "flow_id": "f3",
+    "data_type": "IP address and device IDs",
+    "recipient": "facebook_audience",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with facebook_audience is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     53,
+     54,
+     57,
+     58,
+     59,
+     62,
+     69,
+     25,
+     52
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Technical information \u2013 we collect certain technical information that is automatically recorded when you use our Service, such as your IP address, device approximate location.",
+      "rationale": "The policy mentions collecting IP addresses but does not explicitly state sharing them with AppsFlyer. It does mention sharing personal information with third parties but does not specify AppsFlyer.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We collect certain technical information that is automatically recorded when you use our Service, such as your IP address, device identifier.",
+       "generic_quote": "We may share your Personal Information with third parties, such as research institutes, healthcare systems and healthcare providers, that they may associate with other information that they have about you, for research purposes and for improvement of our services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting IP addresses but does not explicitly state sharing them with AppsFlyer. It does mention sharing personal information with third parties but does not specify AppsFlyer."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9488458815666727
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c2",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Technical information \u2013 we collect certain technical information that is automatically recorded when you use our Service, such as your IP address, device approximate location.",
+      "rationale": "The policy mentions collecting IP addresses but does not explicitly state sharing them with Branch (Branch Metrics, attribution). However, it does mention sharing personal information with third parties for research purposes, which includes IP addresses.",
+      "raw": {
+       "candidate_id": "c2",
+       "disclosing_quote": "",
+       "denial_quote": "We collect certain technical information that is automatically recorded when you use our Service, such as your IP address, device identifier.",
+       "generic_quote": "We may share your Personal Information with third parties, such as research institutes, healthcare systems and healthcare providers, that they may associate with other information that they have about you, for research purposes and for improvement of our services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting IP addresses but does not explicitly state sharing them with Branch (Branch Metrics, attribution). However, it does mention sharing personal information with third parties for research purposes, which includes IP addresses."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9377699824708654
+   },
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c3",
+      "is_gap": true,
+      "level": "explicit",
+      "label": "incorrect",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "Technical information \u2013 we collect certain technical information that is automatically recorded when you use our Service, such as your IP address, device approximate location.",
+      "rationale": "The policy mentions collecting IP addresses but does not explicitly state sharing them with Meta Audience Network.",
+      "raw": {
+       "candidate_id": "c3",
+       "disclosing_quote": "",
+       "denial_quote": "We collect certain technical information that is automatically recorded when you use our Service, such as your IP address, device identifier.",
+       "generic_quote": "We may share your Personal Information with third parties, such as research institutes, healthcare systems and healthcare providers, that they may associate with other information that they have about you, for research purposes and for improvement of our services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions collecting IP addresses but does not explicitly state sharing them with Meta Audience Network."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9835730398383389
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 3,
+  "seconds": 68.09
+ }
+}

@@ -1,0 +1,113 @@
+{
+ "case_id": "com.jb.lab.gokeyboard",
+ "system": "full_v2_finetuned_rv",
+ "seed": 2,
+ "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+ "tagger": "finetuned",
+ "findings": [
+  {
+   "candidate_id": "c1",
+   "flow_id": "f2",
+   "data_type": "IP address and device IDs",
+   "gap_type": "undisclosed_sharing",
+   "level": "vague",
+   "sections": [
+    "Sec. 5(1)",
+    "Rule 3"
+   ],
+   "evidence": "In the event the Company goes through a business transition such as a merger or acquisition by another company, consolidation, change of control, reorganization, or sale of all or a portion of its assets, your information will be among the assets transferred; We may share your information with certain third parties (including, without limitation, search engines, content providers, and advertising networks and platforms) that provide various services (such as advertising, marketing, analysis, content, and search) in connection with the Software and Services.",
+   "rationale": "The policy mentions sharing with third parties for analytics purposes, but does not specify sharing with AppsFlyer.",
+   "reviewer": "notice",
+   "uncertain": false,
+   "supported": null
+  }
+ ],
+ "flow_labels": {
+  "f1": {
+   "label": "clear",
+   "confidence": null
+  },
+  "f2": {
+   "label": "vague",
+   "confidence": 0.9742154626840096,
+   "source": "notice"
+  }
+ },
+ "dropped": [],
+ "token_prob": 0.9742154626840096,
+ "usage": {
+  "prompt": 1716,
+  "output": 389
+ },
+ "parse_error": null,
+ "trace": {
+  "paragraphs": 66,
+  "untagged_paragraphs": 0,
+  "claims": 73,
+  "candidates": [
+   {
+    "candidate_id": "c1",
+    "flow_id": "f2",
+    "data_type": "IP address and device IDs",
+    "recipient": "appsflyer",
+    "purpose": "Unspecified",
+    "retention": "Unspecified",
+    "gap_type": "undisclosed_sharing",
+    "reviewer": "notice",
+    "suggested_level": "vague",
+    "reason": "sharing IP address and device IDs with appsflyer is covered only by unnamed recipients, unspecified purposes or generic data",
+    "paragraphs": [
+     34,
+     35,
+     36,
+     37,
+     7,
+     9
+    ]
+   }
+  ],
+  "reviews": [
+   {
+    "reviewer": "notice",
+    "decisions": [
+     {
+      "candidate_id": "c1",
+      "is_gap": true,
+      "level": "vague",
+      "label": "vague",
+      "sections": [
+       "Sec. 5(1)",
+       "Rule 3"
+      ],
+      "evidence": "In the event the Company goes through a business transition such as a merger or acquisition by another company, consolidation, change of control, reorganization, or sale of all or a portion of its assets, your information will be among the assets transferred; We may share your information with certain third parties (including, without limitation, search engines, content providers, and advertising networks and platforms) that provide various services (such as advertising, marketing, analysis, content, and search) in connection with the Software and Services.",
+      "rationale": "The policy mentions sharing with third parties for analytics purposes, but does not specify sharing with AppsFlyer.",
+      "raw": {
+       "candidate_id": "c1",
+       "disclosing_quote": "",
+       "denial_quote": "We take appropriate measures to ensure that no user can be individually identified from the disclosure of such information, and we require these third parties (i) to keep the data secured, (ii) not to use the data for any other purpose other than to provide us with Services (for example, we use Google Analytics, in addition to our own analytics technology, and other third-party analytics packages to collect, monitor and analyze the information we collect in order to increase our functionality and user-friendliness, to better tailor the Services to our users' needs, and to understand and analyze how you are using our Services. We also share your information with Google as necessary to receive the Google Analytics service. For more information please see Google's privacy policy (http://www.google.com/policies/privacy/) addressing the information that is collected to provide the Google Analytics service and how Google uses such information); and (iii) to use the data solely in compliance with this Privacy Policy.",
+       "generic_quote": "In the event the Company goes through a business transition such as a merger or acquisition by another company, consolidation, change of control, reorganization, or sale of all or a portion of its assets, your information will be among the assets transferred; We may share your information with certain third parties (including, without limitation, search engines, content providers, and advertising networks and platforms) that provide various services (such as advertising, marketing, analysis, content, and search) in connection with the Software and Services.",
+       "sections": [
+        "Sec. 5(1)",
+        "Rule 3"
+       ],
+       "rationale": "The policy mentions sharing with third parties for analytics purposes, but does not specify sharing with AppsFlyer."
+      }
+     }
+    ],
+    "parse_error": null,
+    "llm_calls": 1,
+    "token_prob": 0.9742154626840096
+   }
+  ],
+  "tool_calls": [],
+  "tool_calls_valid": 0,
+  "undecided": [],
+  "unknown_decisions": [],
+  "verifier_error": null,
+  "verifier_parse": null,
+  "verifier_unchecked": 0,
+  "verifier_raw": null,
+  "llm_calls": 1,
+  "seconds": 42.99
+ }
+}
