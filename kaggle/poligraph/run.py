@@ -28,7 +28,7 @@ PG = f"{WORK}/PoliGraph"
 ENV = f"{WORK}/pgenv"
 PY = f"{ENV}/bin/python"
 OUT = f"{WORK}/poligraph"
-SPLIT = "s4"               # "main", "ladder", or "s4": statement extraction on the 35 held-out
+SPLIT = "real_flows"       # "main", "ladder", "real_flows", or "s4": statement extraction on the 35 held-out
                            # OPP-115 policies, built from their segments (WP-3.6, AC-05.6)
 EXPORT = f"{REPO}/data/benchmark/{SPLIT}/export/policheck"
 T_START = time.time()
@@ -107,8 +107,9 @@ def setup():
 
 
 def policy_key(case_id: str) -> str:
-    """Main cases of a policy share its text; every ladder rung has its own text."""
-    return case_id if SPLIT == "ladder" else case_id.split("_")[0]
+    """Main cases of a policy share its text; every ladder rung and real-flow app has its own text
+    (real-flow package names may contain "_")."""
+    return case_id if SPLIT in ("ladder", "real_flows") else case_id.split("_")[0]
 
 
 def policy_url(policy_id: str) -> str:

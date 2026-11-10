@@ -21,7 +21,7 @@ PC = f"{REPO}/data/external/PrivacyPolicyAnalysis"
 MAMBA = f"{WORK}/bin/micromamba"
 ENV = f"{WORK}/py27"
 NLP_MODEL_ID = "1yMB3TJt8oZX3-GHm9oB_eKU7oeJXfLbA"
-SPLIT = "s4"               # "main", "ladder", "sanity" (data/tools/policheck_sanity, AC-03.4) or "s4"
+SPLIT = "real_flows"       # "main", "ladder", "real_flows", "sanity" (data/tools/policheck_sanity, AC-03.4) or "s4"
 #   s4: PolicyLint statement extraction on the 1,140 held-out OPP-115 segments (WP-3.6, AC-05.6)
 STEP_LIMIT_S = 3600 if SPLIT == "sanity" else 3 * 3600   # main.sh as a whole
 T_START = time.time()
