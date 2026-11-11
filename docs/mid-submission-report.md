@@ -7,7 +7,7 @@
 - **Reproduce:** every number below is regenerated from the committed runs, without a GPU, by
   `bash scripts/score_all.sh` (about 2 minutes; it rewrites `results/scores/` and `results/confidence/`
   identically)
-  ([reproduction.md](reproduction.md)).
+  ([reproduction.md](../reproduction.md)).
 
 ## 1. Summary
 
@@ -339,7 +339,10 @@ independently. They agreed on 107 of 140 rungs (76%, Cohen's κ = 0.19). Most di
 the deleted rung (Naveen rejected 6, Anurag 24): the guide rejects a deleted rung when even a generic
 statement ("may be shared with third-party service providers") covers the flow, and Anurag applied
 this strictly. They then settled all 33 disagreements together, re-reading each policy and recording
-the deciding sentence (`data/benchmark/ladder/disagreements.csv`): 10 accepted, 23 rejected. A rung is
+the deciding sentence (`data/benchmark/ladder/disagreements.csv`): 10 accepted, 23 rejected. For the ladder and the
+spot-check, a first verdict for each disagreement was drafted with an LLM assistant (Claude) from the
+reading packs; both members reviewed every row against the policy, changed one and accepted the rest.
+The independent first passes, from which κ is computed, were done by hand. A rung is
 scored when both accept it: **110 of 140** (clear 34, explicit 30, vague 32, deleted 14); 13 ladders
 keep all four rungs. Before the settlement (only rungs both accepted independently, 100 of 140) the
 results were the same in direction; the one change is PoliCheck's explicit − vague difference

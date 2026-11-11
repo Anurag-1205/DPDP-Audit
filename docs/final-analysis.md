@@ -1,6 +1,6 @@
 # Final analysis: hypothesis verdicts, costs and failures (WP-5.1)
 
-- **Status:** draft (verdicts, cost table and error patterns done and checked against the score files; worked hard cases to be chosen)
+- **Status:** complete (11 Nov 2026); every number checked against `results/scores/` and the saved runs
 - **Owner:** Anurag Kaushal
 - **Specification:** SPEC-09, AC-09.6 (verdicts) and AC-09.7 (failure analysis and cost table)
 - **Sources:** [mid-submission-report.md](mid-submission-report.md) (§4–§6), [stage-4-report.md](stage-4-report.md)
@@ -94,10 +94,13 @@ mean over seeds. Two of the 61 real flows got three different labels on the thre
 counts them as the first label in the order clear, vague, omitted, incorrect.
 
 Reading the reviewer's own quote and rationale for the error cells (seed 0) gives five patterns:
-1. **The disclosing sentence never reaches the reviewer.** Of the 32 clear flows on main labelled
-   *vague*, in 19 none of the paragraphs the reviewer was shown names the data type, so it could
-   only quote a generic sentence. In the other 13 it was shown one and still chose a generic sentence.
-   (Keyword check on seed 0; a reading and retrieval error, the same one the oracle tagger, A5, removes.)
+1. **The disclosing sentence never reaches the reviewer.** The reviewer sees only the paragraphs the
+   finder passes it, and the sentence that discloses the flow is often not among them, so it quotes a
+   generic one. `1259_control f2` and `1028_control f2` (worked cases A and B) both miss a sentence
+   that names the data type outright. Of the 32 clear flows on main labelled *vague*, a strict word
+   check also finds 13 whose policy never names the data type at all: there *vague* is probably right
+   and the answer key wrong (one of them, `640_control f2`, is a confirmed key error from the
+   spot-check).
 2. **"Not mentioned" is read as "denied".** All 13 wrong *incorrect* labels on main (clear → incorrect
    11, vague → incorrect 2) quote a sentence with no negation at all, and the rationale says only that
    the policy "does not explicitly state" the flow. The 6 vague → incorrect real flows are the same:
@@ -112,9 +115,9 @@ Reading the reviewer's own quote and rationale for the error cells (seed 0) give
 4. **A sentence about another practice counts as cover.** Deleted rungs are read as *vague*
    (omitted → vague: 10 on the ladder, 4 on real flows) from a sentence about first-party logging,
    e.g. `L1468_r4` quotes *"The Company may also keep track of IP addresses"* for a flow to AdMob.
-5. **Rule decisions are trusted fully.** The three wrong rule-decided ladder flows, which rank as most
-   confident, are all from one ladder: `L82_r2`, `L82_r3` and `L82_r4` are labelled *clear* with no
-   quote. One ladder's rule error is therefore why R@95 is 1.0 on the ladder (H5).
+5. **A tagger error becomes a confident rule decision.** All three wrong rule-decided ladder flows,
+   which rank as most confident, are rungs of one ladder (`L82_r2`, `L82_r3`, `L82_r4`, worked case
+   E). One misread paragraph is therefore why R@95 is 1.0 on the ladder (H5).
 
 Some "errors" are answer-key errors. On `L1028_r4` (gold *omitted*) the system answers *incorrect*
 on seed 0, quoting *"These companies may use information (not including your name, address, email
@@ -122,17 +125,87 @@ address or telephone number)"*. That sentence was left in the base policy, so th
 the rung's key is not. Both checkers accepted this rung; the 10.3% key error found in the spot-check
 (mid-submission report §5) is the scale of this noise on main.
 
-## 4. Worked hard cases (to do)
+**Limits of the ground truth.** The answer keys are computed by rules from OPP-115 annotations, and
+the human checks measure their noise (10.3% of spot-checked flows; κ 0.19 on the ladder, 0.04 on the
+spot-check). Two departures from the project's "no LLM in ground truth" rule are recorded in the
+reports: the settled verdicts for the ladder and spot-check disagreements, and one of the two
+real-flow label sheets, were drafted with an LLM assistant and then reviewed by the members. The
+real-flow κ of 0.728 is therefore between one human labeller and one human-reviewed draft.
 
-Pick 5–6, one or two per pattern. For each: the flow, the policy sentence, what the system said,
-and why it is wrong. Candidates from `results/scores/errors.json`:
+## 4. Worked hard cases
 
-| Pattern | Candidates |
-|---|---|
-| 1. Sentence never reaches the reviewer | `1259_control f2` (clear → vague) or another of the 19 |
-| 2. "Not mentioned" read as "denied" | `1028_control f2` (clear → incorrect); `com.medisafe.android.client` f1 (real flow) |
-| 3. Denial found but not applied | `L1637_r2`, `L1028_r2`, `L1468_r2` (incorrect → vague); Aarogya Setu (case study) |
-| 4. Another practice counts as cover | `L1468_r4` (omitted → vague); `biz.app4mobile…` f1 (real flow) |
-| 5. Rule decision trusted | `L82_r2`–`L82_r4` (all labelled clear by a rule) |
-| Purpose and collection gaps | one control with a false purpose alarm, and one real purpose gap sent to review |
-| Answer-key noise | `L1028_r4` (system right, key wrong) |
+One case per pattern, plus one answer-key error. The quotes are verbatim from the policy and from the
+reviewer's saved reply on seed 0; the labels are the majority over the three seeds.
+
+**A. The disclosing sentence is not shown (`1259_control f2`, IP address and device IDs, collected
+by the app's company; gold *clear*, predicted *vague* on all three seeds).**
+- The policy says in P5: *"We collect IP addresses for site security and to help us understand how
+  people use our sites so that we can improve our sites and our users' respective experiences."*
+- The finder passed the reviewer P3, P8, P9, P17 and P39, not P5. The reviewer quoted *"The Motley
+  Fool collects information about our readers … We ask for your name, email address, and other
+  personal information"* and reasoned that this *"could include these data types"*.
+- Why it matters: the decision rule worked as designed on the evidence it got. The loss is in
+  retrieval, which is the error the oracle tagger (A5) removes (+0.11 F1).
+
+**B. "Not mentioned" read as "denied" (`1028_control f2`, IP address and device IDs, collected by the
+app's company; gold *clear*, predicted *incorrect* on all three seeds).**
+- The policy says in P12: *"This includes internet protocol (IP) addresses, browser type, internet
+  service provider (ISP) …"* (about its log files). P12 was not shown.
+- The reviewer quoted a sentence about contact details and unique identifiers *"such as, username
+  and password"*, reasoned that the policy *"does not explicitly state that the company collects IP
+  addresses"*, and still labelled the flow *incorrect*, a contradiction.
+- Why it matters: *incorrect* is the most serious label. All 13 wrong *incorrect* labels on main
+  quote no denial, so the system's contradictions cannot be trusted without the quote.
+
+**C. A denial found but not applied (`L1637_r2`, computer information shared with Google AdMob;
+gold *incorrect*, predicted *vague* on all three seeds).**
+- The rung inserts *"We do not share your device and browser information with third parties."* The
+  reviewer quoted exactly that sentence and reasoned that *"the policy explicitly states that device
+  and browser information is not shared with third parties"*.
+- It then answered *vague*. The label does not follow the reviewer's own evidence; a rule that checks
+  the quote for a negation would have caught it.
+
+**D. Another practice counts as cover (`L1468_r4`, IP address and device IDs shared with Google
+AdMob; gold *omitted*, predicted *vague* on two of three seeds).**
+- The base policy says nothing about sharing these identifiers. The reviewer quoted *"The Company may
+  also keep track of IP addresses used to access its Online Services for various reasons"*, which is
+  about the company's own logging, and reasoned that the policy *"does not explicitly state that the
+  IP address and device IDs are shared with Google AdMob, nor does it deny sharing them"*.
+- Why it matters: this is the deleted-rung over-reading of the ladder (deleted-rung accuracy 0.14).
+  R0, which has no LLM reviewer, reads 64% of deleted rungs correctly, so the error is added by the
+  review step.
+
+**E. A tagger error becomes a confident rule decision (`L82_r2` to `L82_r4`, location collected by the
+app's company; gold *incorrect*, *vague* and *omitted*, predicted *clear* on every seed).**
+- The QLoRA tagger reads P4 of the base policy, *"Log file information is automatically reported by
+  your browser … our servers automatically record certain information that your web browser sends"*,
+  as a collection of Location.
+- The finder therefore treats the flow as clearly disclosed and only raises a purpose question, so no
+  reviewer ever reads the rung's sentence, including the inserted denial *"We do not collect your
+  precise location."* on r2.
+- Why it matters: a rule decision has no token probability, so selective review treats it as certain
+  and reviews it last. These three flows alone make R@95 1.0 on the ladder.
+
+**F. The answer key is wrong, not the system (`L1028_r4`, contact details shared with Google AdMob;
+gold *omitted*).**
+- The script that built the base policy left in: *"These companies may use information (not
+  including your name, address, email address or telephone number) about your visits to this and
+  other Web sites in order to provide advertisements"*.
+- On seed 0 the system answered *incorrect* and quoted that sentence; seeds 1–2 answered *vague*.
+  The sentence contradicts the flow, so *incorrect* is right and the rung should not count.
+- Why it matters: both checkers accepted this rung. With the spot-check's 10.3% key error on
+  main, part of every system's measured error is answer-key noise.
+
+## 5. What this means for the final system
+
+- **Check the label against the quote.** A rule that requires a negation in the quote for *incorrect*
+  (case B) and returns *incorrect* when the quote is a denial (case C) addresses patterns 2 and 3
+  without a new model.
+- **Show the reviewer more of the policy.** Cases A and E are retrieval and reading errors; the
+  oracle tagger's +0.11 F1 is the size of this gap.
+- **Calibrate rule decisions.** Giving rule-decided flows their observed accuracy on the dev splits
+  as confidence would stop case E from breaking selective review.
+- **Collection and purpose need different evidence.** They account for 75 of 91 wrong findings, and
+  the verifier rightly holds most of them back.
+
+Any of these would be a new configuration, chosen on the dev splits only, as v2 was.
