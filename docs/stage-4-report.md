@@ -142,9 +142,11 @@ would have to be chosen on dev, not on the ladder.
 Details are in `data/real_flows/README.md`. Real traffic has no purpose or retention, so these flows
 test **collection and sharing disclosure only**.
 
-**Labels.** Two members (Naveen, Anurag) labelled every flow independently, without seeing any
-system output. They agreed on 52 of 61 flows, **Cohen's κ = 0.728**, and settled all 9
-disagreements together. The settled labels are 40 vague, 14 clear, 5 omitted and 2 incorrect.
+**Labels.** Two members (Naveen, Anurag) labelled every flow without seeing any system output or each
+other's sheet. Naveen labelled by hand; Anurag's sheet was drafted with an LLM assistant (Claude)
+from the reading packs, then reviewed flow by flow and kept by Anurag. So κ is between one human
+labeller and one human-reviewed draft, not two fully independent humans. They agreed on 52 of 61
+flows, **Cohen's κ = 0.728**, and settled all 9 disagreements together. The settled labels are 40 vague, 14 clear, 5 omitted and 2 incorrect.
 
 **Runs.** Every configuration ran as frozen on Kaggle, 0 failed calls:
 

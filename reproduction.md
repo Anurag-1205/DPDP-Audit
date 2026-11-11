@@ -1,7 +1,7 @@
 # Reproduction guide
 
 Every result in `results/` can be regenerated with the commands below. Steps that need no GPU run on a
-laptop; GPU steps run on Kaggle. Set up the environment first ([developer-guide.md](developer-guide.md)).
+laptop; GPU steps run on Kaggle. Set up the environment first ([developer-guide.md](docs/developer-guide.md)).
 
 ## 1. Inputs
 
@@ -93,21 +93,60 @@ python scripts/reverify.py --split main --systems full full_finetuned full_v2 fu
 python scripts/reverify.py --split main --systems A2 A3 A5 A2_v2 A3_v2 A5_v2 --seeds 0
 ```
 
-## 5. Scores
+## 5. Stage 4: real flows and the open-source case study
+
+These inputs are committed, so the scores in §6 need none of the steps below. They are listed to
+rebuild the data or re-run a system.
+
+**Real-flow sample** (SPEC-08, AC-08.1; [stage-4-plan.md](docs/stage-4-plan.md) §2–3):
+
+```bash
+git clone --depth 1 https://github.com/benandow/PrivacyPolicyAnalysis.git data/external/PrivacyPolicyAnalysis
+python scripts/sample_real_flows.py --n 30 --max-tried 150   # Wayback copies of 2019 policies (rate-limited)
+python scripts/build_real_flows.py                           # data/real_flows/sample.csv + data/benchmark/real_flows/cases/
+```
+
+`scripts/kaggle_push_job.sh real_flows` runs the sampler on Kaggle instead, from another IP address.
+
+**Two-person labels** (AC-08.2; [real-flow-labelling.md](docs/real-flow-labelling.md)):
+
+```bash
+python scripts/real_flow_labels.py pack                       # reading packs in outputs/review/
+python scripts/real_flow_labels.py copies <name>              # one private sheet per labeller
+python scripts/real_flow_labels.py merge naveen anurag        # agreement and Cohen's kappa
+python scripts/real_flow_labels.py disagreements naveen anurag
+python scripts/real_flow_labels.py settle && python scripts/real_flow_labels.py keys   # answer keys
+```
+
+**Runs** (AC-08.3, AC-08.4), all as frozen:
+
+```bash
+scripts/kaggle_push_job.sh policheck poligraph   # S1, S2 on the real flows
+scripts/kaggle_push_job.sh pipeline              # B1, B2, full_v2_rv on the real flows (JOBS in run.py)
+scripts/kaggle_push_job.sh real_flows_finetuned  # full_v2_finetuned_rv with the 29 Oct QLoRA adapter
+python scripts/build_case_study.py               # data/case_study/ -> data/benchmark/case_study/cases/
+scripts/kaggle_push_job.sh case_study            # full_v2_finetuned_rv and B2, seeds 0-2
+```
+
+Each job's output unpacks onto the repository root (see the header of `scripts/kaggle_push_job.sh`).
+The case study has no answer keys: every finding is checked by hand in `data/case_study/findings.csv`.
+
+## 6. Scores
 
 ```bash
 bash scripts/score_all.sh     # every file in results/scores/, from the committed runs; no GPU, ~2 min
 ```
 
 The script lists the exact commands: `score_runs.py` on main (27 systems, 59 paired comparisons) and on
-`dev` / `dev2`, `score_dev_pooled.py` (the v2 choice, [pipeline.md](pipeline.md#v2)), `score_ladder.py`
+`dev` / `dev2`, `score_dev_pooled.py` (the v2 choice, [pipeline.md](docs/pipeline.md#v2)), `score_ladder.py`
 (accepted rungs only), `score_ablations.py` (v2 ablations per seed), `eval_tagger.py --s4` (taggers and S4;
-needs the OPP-115 download), `spot_check.py score` and `export_confidence.py` (per-flow confidence).
+needs the OPP-115 download), `spot_check.py score`, `export_confidence.py` (per-flow confidence), the real flows (`convert_tool_runs.py --split real_flows`, `score_real_flows.py`), `selective_accuracy.py` (SPEC-07) and the failure analysis (`cost_table.py`, `error_tally.py`).
 `python scripts/interval_tables.py` prints the report's interval tables (Appendix A). Run
-on a fresh clone it rewrites `results/scores/` byte for byte (checked 29 Oct), so `git status` stays
-clean. Bootstrap intervals use 1,000 re-samples with seed 0.
+on a fresh clone it rewrites `results/scores/` byte for byte (checked 29 Oct and again on 11 Nov),
+so `git status` stays clean; only the two PNG figures in `results/figures/` may differ in pixels
+with another matplotlib version. Bootstrap intervals use 1,000 re-samples with seed 0.
 
-## 6. Tests
+## 7. Tests
 
 ```bash
 pytest -q

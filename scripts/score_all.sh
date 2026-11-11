@@ -58,3 +58,7 @@ $PY scripts/convert_tool_runs.py --split real_flows --tools S1 S2
 $PY scripts/score_real_flows.py
 # open-source case study (AC-08.4): cases from data/case_study/ (no keys; findings checked by hand)
 $PY scripts/build_case_study.py
+
+# failure analysis and cost per case (WP-5.1, AC-09.7)
+$PY scripts/cost_table.py --split main
+$PY scripts/error_tally.py

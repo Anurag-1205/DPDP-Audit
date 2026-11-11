@@ -131,6 +131,6 @@ of Rule 3, and we score the tools both ways.
 | Understand case generation and answer keys | [benchmark.md](benchmark.md) |
 | Understand our pipeline | [pipeline.md](pipeline.md) |
 | Set up your laptop and work on the code | [developer-guide.md](developer-guide.md) |
-| Re-run everything | [reproduction.md](reproduction.md) |
+| Re-run everything | [reproduction.md](../reproduction.md) |
 | See current results | [stage-1-report.md](stage-1-report.md) |
 | See the schedule and who does what | [plan.md](../plan.md) |
