@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Version** | 2.0 (2026-10-25) |
+| **Version** | 2.9 (2026-11-11) |
 | **Status** | Stage 2 complete (ladder check and spot-check done by two members and settled together, 28 Oct) · see [mid-submission report](docs/mid-submission-report.md) |
 | **Key dates** | Mid-submission **Fri 30 Oct 2026** · final submission **Sun 15 Nov 2026** |
 | **Team** | Anurag Kaushal (M1) · Ishaan Giri (M2) · Naveen Mishra (M3) · Nikhil Patidar (M4) |
@@ -131,7 +131,7 @@ Red bars are on the critical path (§6).
 | WP-4.3 | Real-flow runs: S1, S2, B1, B2, full | Ishaan | Naveen | 9–10 Nov | WP-4.2 | Real-flow results | SPEC-08 |
 | WP-4.4 | Open-source case study (3–5 repositories) | Naveen | — | 7–10 Nov | WP-3.2 | Hand-checked findings | SPEC-08 |
 | **Stage 5 · analysis and final** | | | | **11–15 Nov** | | | |
-| WP-5.1 | Failure analysis, hypothesis verdicts H1–H6, falsifiable claim | Nikhil | All | 11–12 Nov | MS-4 | Analysis section | SPEC-09 |
+| WP-5.1 | Failure analysis, hypothesis verdicts H1–H6, falsifiable claim | Anurag | All | 11–12 Nov | MS-4 | Analysis section | SPEC-09 |
 | WP-5.2 | Final report and slides | Anurag | All | 12–14 Nov | WP-5.1 | Report, slides | SPEC-09 |
 | WP-5.3 | Fresh-clone reproduction check and release | Ishaan | — | 14 Nov | WP-5.2 | Checklist passed, tagged release | SPEC-09 |
 
@@ -240,6 +240,7 @@ R = responsible (does the work) · A = accountable (owns the outcome) · C = con
 | Selective accuracy (SPEC-07) | I | I | C | **A/R** |
 | Real flows and case study (SPEC-08) | **A/R** (real flows) | R (labels, tool runs) | R (case study) | I |
 | Scoring and statistics (SPEC-09) | C | I | C | **A/R** |
+| Failure analysis and hypothesis verdicts (WP-5.1) | **A/R** | C | C | C |
 | Reports, mid and final submission (SPEC-09) | **A/R** | R | R | R |
 
 ## 10. Compute and resources
@@ -307,6 +308,7 @@ L = likelihood, I = impact (H/M/L).
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-10-23 | Five-week stage plan derived from the proposal |
+| 2.9 | 2026-11-11 | WP-5.1 (failure analysis, hypothesis verdicts, cost table) moved from Nikhil to Anurag |
 | 2.8 | 2026-11-10 | Stage 4 complete (MS-4): selective accuracy, H5 partly supported (R@95 0.21 vs 1.0 for B2 on main; 1.0 on the ladder from three confident rule errors); real flows, 33 apps and 61 flows, labeller κ 0.728; on these the headline flags 14% of clear flows against 100% for every tool and baseline, with label accuracy 0.705; case study (Aarogya Setu, Wikipedia, DuckDuckGo), 7 of 13 flows correct. Report `docs/stage-4-report.md` |
 | 2.7 | 2026-10-30 | Baselines from the pipeline's parts: R0 rules only (F1 0.524, false alarms 0.91), B5 one call evidence first (F1 0.557, 3 seeds; v2 ahead by +0.13–0.16 on every seed), self-consistency B1/B2/B4 (B4 +0.058). Report §4.3 |
 | 2.6 | 2026-10-29 | Stage 3 complete: S4 scored (WP-3.6; tuple F1 PolicyLint 0.106, PoliGraph 0.234, QLoRA 0.479); v2 ablations on 3 seeds and A2/A3 on the ladder (WP-3.3); 95% intervals for every system (WP-3.8). Without DPDP retrieval v2 is as good or better on every seed |

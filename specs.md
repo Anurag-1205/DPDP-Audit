@@ -632,7 +632,7 @@ flowchart LR
 
 | | |
 |---|---|
-| **Owner** | Anurag Kaushal (reports); Nikhil Patidar (statistics) |
+| **Owner** | Anurag Kaushal (reports; failure analysis and hypothesis verdicts, WP-5.1); Nikhil Patidar (statistics) |
 | **Status** | In progress (scorer and Stage 1 report done) |
 | **Milestone** | MS-2 (30 Oct), MS-3, MS-5 (15 Nov) |
 | **Depends on** | all specifications |
